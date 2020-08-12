@@ -1,0 +1,101 @@
+<!DOCTYPE HTML>
+<div>
+<script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</div>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>MATH1120 Sage Playground</title>
+    <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
+    <script>
+    // Make the div with id 'mycell' a Sage cell
+    sagecell.makeSagecell({inputLocation:  '#mycell',
+                           template:       sagecell.templates.minimal,
+                           evalButtonText: 'Activate'});
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+                           evalButtonText: 'Evaluate'});
+    </script>
+  </head>
+  <body>
+
+
+  <h1>Sage Playground for MATH1120</h1>
+
+  SageMath is a powerful open source mathematics package used by actual researchers.<br>
+
+  You can download SageMath <a href="https://www.sagemath.org/">here</a>.<br>
+
+  You can also just run Sage commands online, on this page or on the
+  <a href="https://sagecell.sagemath.org/">Sage Cell Server</a>.<br>
+
+  Sage <a href="https://doc.sagemath.org/html/en/tutorial/index.html">Tutorials</a> and documentation are
+  <a href="https://doc.sagemath.org/">here</a>.<br>
+
+<!--
+  <h2>Factorial</h2>
+  Click the &ldquo;Activate&rdquo; button below to calculate factorials.
+
+<div id="mycell"><script type="text/x-sage">
+@interact
+def _(a=(1, 10)):
+    print(factorial(a))
+ </script>
+</div>
+-->
+
+<h2>Calculus III : Functions of Several Variables</h2>
+
+
+<b>3D plots of functions we saw in class:</b><br><br>
+
+\(f(x,y)=xy\):<br>
+<div class="compute"><script type="text/x-sage">
+x,y=var('x','y')
+f=x*y
+Mx=1
+My=1
+plot3d(f,(x,-Mx,Mx),(y,-My,My))
+</script></div>
+
+<br>
+The sombrero:
+\(f(x,y)=1-\sqrt{x^2+y^2}e^{-(x^2+y^2)}\):<br>
+<div class="compute"><script type="text/x-sage">
+x,y=var('x','y')
+f=1-sqrt(x^2+y^2)*exp(-x^2-y^2)
+Mx=1
+My=1
+plot3d(f,(x,-Mx,Mx),(y,-My,My))
+</script></div>
+
+<br>
+Now we plot both the 3D graph and a contour plot:<br>
+\( f(x,y)=\sin(y)e^{x/5}\)<br>
+<div class="compute"><script type="text/x-sage">
+x,y=var('x','y')
+f=sin(y)*exp(x/5)
+Mx=10
+My=10
+show(plot3d(f,(x,-Mx,Mx),(y,-My,My)),plot_points=500,adaptive=true)
+show(contour_plot(f,(x,-Mx,Mx),(y,-My,My),colorbar=True,labels=True,contours=30,plot_points=500))
+</script></div>
+
+<h2>Your own computations</h2>
+Type your own Sage computation below and click &ldquo;Evaluate&rdquo;.
+    <div class="compute"><script type="text/x-sage">plot(sin(x), (x, 0, 2*pi))</script></div>
+    <div class="compute"><script type="text/x-sage">
+@interact
+def f(n=(0,10)):
+    print(2^n)
+</script></div>
+<br><br>
+Is \(e^{\pi\sqrt{163}} \) an integer??<br><br>
+<div class="compute"><script type="text/x-sage">
+a=N(exp(pi*sqrt(163)),digits=30)
+print(a.str(no_sci=2)[:30])
+</script></div>
+  </body>
+</html>
