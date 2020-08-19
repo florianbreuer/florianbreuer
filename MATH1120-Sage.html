@@ -83,6 +83,45 @@ show(plot3d(f,(x,-Mx,Mx),(y,-My,My)),plot_points=500,adaptive=true)
 show(contour_plot(f,(x,-Mx,Mx),(y,-My,My),colorbar=True,labels=True,contours=30,plot_points=500))
 </script></div>
 
+<h2>Calculus V : Tangent Planes</h2>
+
+Play with linear approximations<br>
+<div class="compute"><script type="text/x-sage">
+x,y=var('x','y')
+
+#f = 5-(x^2+y^2)/2
+f = x*y
+
+Mx=3
+My=3
+fx=diff(f,x)
+fy=diff(f,y)
+show('f(x,y)='+latex(f(x=x,y=y)))
+show(r'f_x=\frac{\partial f}{\partial x} = '+latex(fx))
+show(r'f_y=\frac{\partial f}{\partial y} = '+latex(fy))
+
+@interact
+def _(x0=slider(-Mx,Mx,step_size=0.1),y0=slider(-My,My,step_size=0.1),auto_update=False):
+    L = f(x=x0,y=y0)+fx(x=x0,y=y0)*(x-x0)+fy(x=x0,y=y0)*(y-y0)
+    show('(x_0,y_0)='+latex((x0,y0)))
+    show('(f_x('+latex(x0)+'),f_y('+latex(y0)+'))='+latex((fx(x=x0,y=y0),fy(x=x0,y=y0))))
+    show('L(x,y)='+latex(L(x=x,y=y)))
+    show(plot3d(f,(x,-Mx,Mx),(y,-My,My),color='blue')+plot3d(L,(x,-Mx,Mx),(y,-My,My),color='red'))
+</script></div>
+
+
+<br>
+Tangent plane to the implicitly defined surface in class:<br>
+The tangent plane to \( z-yz^3=x+2\) at the point \(x_0,y_0,z_0)=(2,0,3)\): <br>
+<div class="compute"><script type="text/x-sage">
+x,y,z=var('x','y','z')
+implicit_plot3d(z-y*z^3==x+2,(x,-4,4),(y,-4,4),(z,-4,4),color='blue')+\
+implicit_plot3d(z==x+27*y+2,(x,-4,4),(y,-4,4),(z,-4,4),color='red')
+</script></div>
+
+
+
+
 <h2>Your own computations</h2>
 Type your own Sage computation below and click &ldquo;Evaluate&rdquo;.
     <div class="compute"><script type="text/x-sage">plot(sin(x), (x, 0, 2*pi))</script></div>
