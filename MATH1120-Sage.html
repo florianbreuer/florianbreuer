@@ -119,6 +119,24 @@ implicit_plot3d(z-y*z^3==x+2,(x,-4,4),(y,-4,4),(z,-4,4),color='blue')+\
 implicit_plot3d(z==x+27*y+2,(x,-4,4),(y,-4,4),(z,-4,4),color='red')
 </script></div>
 
+<h2>Calculus VI : Directional derivative and gradient vectors</h2>
+
+Here we plot the function
+\[ f(x,y) = xy+y^2-x^3, \]
+its level curves and the gradient vectors \(\nabla f\) (in red):<br><br>
+
+<div class="compute"><script type="text/x-sage">
+x,y=var('x','y')
+M=1
+f=x*y+y^2-x^3
+#f=x*y
+show('f(x,y)='+latex(f))
+show(contour_plot(f,(x,-M,M),(y,-M,M),contours=30,fill=false)+\
+     plot_vector_field(f.gradient(),(x,-M,M),(y,-M,M),color='red'))
+show(plot3d(f,(x,-M,M),(y,-M,M)))
+</script></div>
+(You can uncomment the line <tt>f=x*y</tt> to plot \( f(x,y) = xy \),
+or replace it with any function of your choice.)
 
 
 
