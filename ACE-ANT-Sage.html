@@ -149,11 +149,13 @@ F.<a> = NumberField(x^2+163)
 F.class_number()
 </script></div>
 
+<br><br>
+Are there other examples?
 <div class="compute"><script type="text/x-sage">
 for d in srange(1,200):
     if is_squarefree(d):
         F.<a> = NumberField(x^2+d)
-        h=F.class_number()      
+        h=F.class_number()
         if h == 1:
             print("h(-%d) = %d"%(d,h))
             a=N(exp(pi*sqrt(d)),digits=35)
