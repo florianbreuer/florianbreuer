@@ -1,0 +1,155 @@
+<!DOCTYPE HTML>
+<div>
+<script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</div>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>ACE-ANT Sage Playground</title>
+    <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
+    <script>
+    // Make the div with id 'mycell' a Sage cell
+    sagecell.makeSagecell({inputLocation:  '#mycell',
+                           template:       sagecell.templates.minimal,
+                           evalButtonText: 'Activate'});
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+                           linked: 'true',
+                           evalButtonText: 'Run'});
+    </script>
+  </head>
+  <body>
+
+
+  <h1>Sage Playground for ACE Algebraic Number Theory</h1>
+
+  SageMath is a powerful open source mathematics package used by actual researchers.<br>
+
+  You can download SageMath <a href="https://www.sagemath.org/">here</a>.<br>
+
+  You can also just run Sage commands online, on this page or on the
+  <a href="https://sagecell.sagemath.org/">Sage Cell Server</a>.<br>
+
+  Sage <a href="https://doc.sagemath.org/html/en/tutorial/index.html">Tutorials</a> and documentation are
+  <a href="https://doc.sagemath.org/">here</a>.<br>
+
+
+
+<h2>Number fields</h2>
+
+You'll need to run each of the following Sage cells in sequence,
+since each cell depends on objects created in previous cells.<br><br>
+
+Create a number field, in this case \(K = \mathbb{Q}(\sqrt{-17})\):<br>
+<div class="compute"><script type="text/x-sage">
+Zx.<x>=PolynomialRing(ZZ)
+f = x^2+17
+K.<a>=NumberField(f)
+K
+</script></div>
+
+
+<br>
+Here <tt>a</tt> is \( \sqrt{-17}: \)
+<div class="compute"><script type="text/x-sage">
+a^2
+</script></div>
+
+<br>
+We can define the ring of integers (which Sage calls a maximal order):
+<div class="compute"><script type="text/x-sage">
+R=K.ring_of_integers()
+R
+</script></div>
+
+<br>
+Here is an integral basis:
+<div class="compute"><script type="text/x-sage">
+R.basis()
+</script></div>
+
+<br>
+Let's compute the class group:
+<div class="compute"><script type="text/x-sage">
+G=K.class_group()
+G
+</script></div>
+
+<br>Now, let <tt>g</tt> be a generator of this group
+(in the code, I define <tt>g</tt> to be the first item in a list of generators):
+<div class="compute"><script type="text/x-sage">
+g=G.gens()[0]
+g
+</script></div>
+
+<div class="compute"><script type="text/x-sage">
+g.order()
+</script></div>
+
+<br>
+Just to be sure, let's compute powers of <tt>g</tt> in <tt>G</tt>:
+<div class="compute"><script type="text/x-sage">
+for i in range(5):
+    print("g^"+str(i)+" = "+str(g^i))
+</script></div>
+
+<br>
+Now let's investigate how primes factorise in \(K\).
+First, we show how the defining polynomial \( f(x) = x^{17}+17 \) factorises
+modulo \( p \) for small primes \( p \). <br>
+
+While we're at it, we let Sage typeset the results in LaTeX, which looks prettier:
+<div class="compute"><script type="text/x-sage">
+for p in primes(20):
+    show(latex(f)+r"\equiv "+latex(f.change_ring(GF(p)).factor())+r"\bmod "+latex(p))
+</script></div>
+
+<br>
+Next, compare the results with the factorisation of the ideals \(p\mathcal{O}_K\):
+<div class="compute"><script type="text/x-sage">
+for p in primes(20):
+    P=K.ideal(p)
+    show(latex(p)+r"\mathcal{O}_K="+latex(P.factor()))
+</script></div>
+
+<br><br>
+For some more Sage fun, let's compute the class numbers of the first few
+imaginary quadratic fields \(\mathbb{Q}(\sqrt{-d})\), for \(d\) squarefree:
+<div class="compute"><script type="text/x-sage">
+for d in srange(1,100):
+    if is_squarefree(d):
+        F.<a> = NumberField(x^2+d)
+        print("h(-%d) = %d"%(d,F.class_number()))
+</script></div>
+
+
+
+
+<h2>Your own computations</h2>
+Type your own Sage computation below and click &ldquo;Evaluate&rdquo;.
+    <div class="compute"><script type="text/x-sage">plot(sin(x), (x, 0, 2*pi))</script></div>
+    <div class="compute"><script type="text/x-sage">
+@interact
+def f(n=(0,10)):
+    print(2^n)
+</script></div>
+<br><br>
+Is \(e^{\pi\sqrt{163}} \) an integer??<br><br>
+<div class="compute"><script type="text/x-sage">
+a=N(exp(pi*sqrt(163)),digits=30)
+print(a.str(no_sci=2)[:30])
+</script></div>
+
+<br>
+...almost! The reason boils down to
+<div class="compute"><script type="text/x-sage">
+F.<a> = NumberField(x^2+163)
+F.class_number()
+</script></div>
+
+
+
+  </body>
+</html>
