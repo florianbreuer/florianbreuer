@@ -137,6 +137,73 @@ show(plot3d(f,(x,-M,M),(y,-M,M)))
 </script></div>
 (You can uncomment the line <tt>f=x*y</tt> to plot \( f(x,y) = xy \),
 or replace it with any function of your choice.)
+<br><br>
+
+For functions of three variables, the gradient vector is perpendicular to <thead>
+  level surfaces of the function. We can use this to obtain an equation for
+the tangent plane of a surface. <br><br>
+
+For example, we compute the tangent plane
+to the surface \( xy+yz^2+xz^3 = 54 \) at the point \( (2,0,3) \). <br>
+This surface is a level surface of the function
+\( f(x,y,z) = xy+yz^2+xz^3 \).
+The gradient vector is then a normal vector for the surface, and we have a point
+on the surface, and this lets us determine an equation for the
+tangent surface:
+\[
+L : f_x(2,0,3)(x-2) + f_y(2,0,3)(y-0) + f_z(2,0,3)(z-3) = 0.
+\]
+
+
+<div class="compute"><script type="text/x-sage">
+x,y,z = var('x','y','z')
+
+f=x*y+y*z^2+x*z^3
+(x0,y0,z0) = (2,0,3)
+
+M=5
+fx=diff(f,x)
+fy=diff(f,y)
+fz=diff(f,z)
+
+L = fx(x=x0,y=y0,z=z0)*(x-x0)+fy(x=x0,y=y0,z=z0)*(y-y0)+fz(x=x0,y=y0,z=z0)*(z-z0)
+
+show("f(x,y,z)="+latex(f))
+show(r"\nabla f(x,y,z) = "+latex(f.gradient()))
+show(r"(x_0,y_0,z_0) = "+latex((x0,y0,z0)))
+show(r"\text{Tangent plane: }"+latex(L)+" = 0")
+
+show(
+    implicit_plot3d(f==f(x=x0,y=y0,z=z0),(x,-M,M),(y,-M,M),(z,-M,M),plot_points=100)+\
+    implicit_plot3d(L==0,(x,-M,M),(y,-M,M),(z,-M,M),plot_points=100,color='red')+\
+    sphere((x0,y0,z0),0.1,color='black')
+)
+</script></div>
+
+
+<h2>Calculus VII: Global Minima and Maxima</h2>
+
+Th critical points of the function \( f(x,y) = 2x^3+(x+1)y^2+5x^2 \):
+<div class="compute"><script type="text/x-sage">
+x,y = var('x','y')
+f=2*x^3+(x+1)*y^2+5*x^2
+show("f(x,y) = "+latex(f))
+show(
+    plot3d(f,(x,-2,1),(y,-3,3),plot_points=100,aspect_ratio=[1,1,0.2])+\
+    sphere((0,0,f(x=0,y=0)),0.1,color='red')+\
+    sphere((-5/3,0,f(x=-5/3,y=0)),0.1,color='red')+\
+    sphere((-1,2,f(x=-1,y=2)),0.1,color='red')+\
+    sphere((-1,-2,f(x=-1,y=-2)),0.1,color='red')
+)
+show(
+    contour_plot(f,(x,-2,1),(y,-3,3),plot_points=100,contours=40,fill=false)+\
+    circle((0,0),0.01,color='red')+\
+    circle((-5/3,0),0.01,color='red')+\
+    circle((-1,2),0.01,color='red')+\
+    circle((-1,-2),0.01,color='red')
+)
+</script></div>
+
 
 
 
