@@ -204,8 +204,50 @@ show(
 )
 </script></div>
 
+<br><br>
+Global maximum and minimum of \( f(x,y) = 2x^2+x+y^2-2 \) on the disc
+\( D = \{ (x,y)\in\mathbb{R}^2 \;|\; x^2+y^2 \leq 4 \} \):
+<div class="compute"><script type="text/x-sage">
+r,t=var('r t')
+parametric_plot3d((r*cos(t),r*sin(t),2*(r*cos(t))^2+r*cos(t)+(r*sin(t))^2-2),(t,0,2*pi),(r,0,2),
+opacity=0.9,aspect_ratio=[1,1,0.3])+sphere((-1/4,0,-17/8),0.1,color='red')+sphere((2,0,8),0.1,color='red')
+</script></div>
 
 
+<h2>Calculus VIII: Chain Rules</h2>
+
+The magic formula for implicit differentiation:
+If \( f(x,y) = c \) defines \( y(x) \) implicitly as a function of \(x\), then
+\[
+\frac{dy}{dx} = -\frac{f_x}{f_y}.
+\]
+<div class="compute"><script type="text/x-sage">
+x,y = var('x y')
+M = 5
+
+f = x*cos(y)+y*cos(x)-x
+
+fx = diff(f,x)
+fy = diff(f,y)
+
+show(r"\frac{dy}{dy} = "+latex(-fx/fy))
+
+@interact
+def _(c=slider(-5,5,step_size=0.1,default=0),
+    auto_update=true,
+    slopes = true,
+    gradient = false,
+    show3d = false):
+    show(r"f(x,y) = "+latex(f)+r" = "+latex(c))
+    P = implicit_plot(f==c,(x,-M,M),(y,-M,M))
+    if slopes:
+        P=P+plot_slope_field(-fx/fy,(x,-M,M),(y,-M,M),plot_points=30,color='gray')
+    if gradient:
+        P=P+plot_vector_field(f.gradient(),(x,-M,M),(y,-M,M),plot_points=30,color='red')
+    show(P)
+    if show3d:
+        show(plot3d(f,(x,-M,M),(y,-M,M),aspect_ratio=[1,1,0.5])+plot3d(c,(x,-M,M),(y,-M,M),opacity=0.5,color='pink'))
+</script></div>
 
 <h2>Your own computations</h2>
 Type your own Sage computation below and click &ldquo;Evaluate&rdquo;.
