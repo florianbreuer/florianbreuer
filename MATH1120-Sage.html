@@ -205,6 +205,24 @@ show(
 </script></div>
 
 <br><br>
+Another example:
+The critical points of the function \( f(x,y) = 3x-x^3-2y^2+y^4 \):
+<div class="compute"><script type="text/x-sage">
+x,y=var('x y')
+f=3*x-x^3-2*y^2+y^4
+crits = [(1,0),(1,1),(1,-1),(-1,0),(-1,1),(-1,-1)]
+M=2
+show(
+    plot3d(f,(x,-M,M),(y,-M,M),plot_points=100,aspect_ratio=[1,1,0.3],opacity=0.9)+\
+    sum(sphere((P[0],P[1],f(x=P[0],y=P[1])),0.1,color='red') for P in crits)
+)
+show(
+    contour_plot(f,(x,-M,M),(y,-M,M),plot_points=500,contours=40,fill=false)+\
+    sum([circle(P,0.02,color='red') for P in crits])
+)
+</script></div>
+
+<br><br>
 Global maximum and minimum of \( f(x,y) = 2x^2+x+y^2-2 \) on the disc
 \( D = \{ (x,y)\in\mathbb{R}^2 \;|\; x^2+y^2 \leq 4 \} \):
 <div class="compute"><script type="text/x-sage">
@@ -248,6 +266,67 @@ def _(c=slider(-5,5,step_size=0.1,default=0),
     if show3d:
         show(plot3d(f,(x,-M,M),(y,-M,M),aspect_ratio=[1,1,0.5])+plot3d(c,(x,-M,M),(y,-M,M),opacity=0.5,color='pink'))
 </script></div>
+
+<h2>Differential Equations I: Direction Fields and Euler's Method</h2>
+
+Plot the firection field of \(\frac{dy}{dx} = f(x,y)\), as well as a particular solution:
+<div class="compute"><script type="text/x-sage">
+x,y = var('x,y')
+from sage.ext.fast_eval import fast_float
+@interact
+def _(f=input_box(default=x-y),
+      xrange=range_slider(-10,10,default=(-2,2)),
+      yrange=range_slider(-10,10,default=(-2,2)),
+      start_x=input_box(default=-2), start_y=input_box(default=0.5),
+      #start_y = slider(-2,2,default=0,step_size=0.1),
+      step_size=slider(0.01,0.2,step_size=0.01), steps=(600,(0, 1400)), auto_update=false ):
+    (xmin,xmax)=xrange
+    (ymin,ymax)=yrange
+    ff = fast_float(f, 'x', 'y')
+    steps = int(steps)
+
+    points = [ (start_x, start_y) ]
+    for i in range(steps):
+        xx, yy = points[-1]
+        try:
+            points.append( (xx + step_size , yy + step_size * ff(xx,yy)) )
+        except (ValueError, ArithmeticError, TypeError):
+            break
+
+    starting_point = point(points[0], pointsize=50)
+    solution = line(points)
+    slope_field = plot_slope_field(f,(x,xmin,xmax), (y,ymin,ymax) )
+
+    result = slope_field + starting_point + solution
+
+    pretty_print(html(r"$ \displaystyle\frac{dy}{dt} = %s$" %latex(f)))
+    result.show(xmin=xmin,xmax=xmax,ymin=ymin,ymax=ymax)
+</script></div>
+
+
+<br><br>
+Euler's Method:
+<div class="compute"><script type="text/x-sage">
+x,y=var('x y')
+from sage.ext.fast_eval import fast_float
+
+@interact
+def _(f = input_box(x*(1-y),label='f'),
+      h = input_box(0.1),
+      x0 = input_box(0),
+      y0 = input_box(0.5),
+      zoom=slider(1,10,default=3,step_size=1),
+      table=true):
+    ff = fast_float(f, 'x', 'y')
+    pts = eulers_method(ff,x0,y0,h,zoom,algorithm="none")
+    if table:
+        eulers_method(ff,x0,y0,h,zoom,algorithm="table")
+    P1 = list_plot(pts)
+    P2 = line(pts)
+    S = plot_slope_field(f,(x,-zoom,zoom),(y,-zoom,zoom))
+    (P1+P2+S).show()
+</script></div>
+
 
 <h2>Your own computations</h2>
 Type your own Sage computation below and click &ldquo;Evaluate&rdquo;.
