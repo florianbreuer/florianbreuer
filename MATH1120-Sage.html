@@ -327,6 +327,140 @@ def _(f = input_box(x*(1-y),label='f'),
     (P1+P2+S).show()
 </script></div>
 
+<h1>Differential Equations II: Separable DEs</h1>
+
+Direction field and solutions for<br>
+\[ \frac{dy}{dx} = -4xy^2: \]
+<div class="compute"><script type="text/x-sage">
+x,y = var('x y')
+M=4
+VF = plot_slope_field(-4*x*y^2,(x,-M,M),(y,-M,M),aspect_ratio=1)
+
+@interact
+def _(c = slider(-5,5,default=0,step_size=0.1), auto_update=false):
+    show(r'y(x) = '+latex(1/(2*x^2+c)))
+    show(VF+plot(1/(2*x^2+c),(x,-M,M),ymin=-M,ymax=M))
+</script></div>
+<br><br>
+
+Direction field and solutions for<br>
+\[ (4y - \cos(y))*\frac{dy}{dx} - 3t^2 = 0: \]
+<div class="compute"><script type="text/x-sage">
+x,y = var('x y')
+M=4
+VF = plot_slope_field(3*x^2/(4*y-cos(y)),(x,-M,M),(y,-M,M),aspect_ratio=1)
+
+@interact
+def _(c = slider(-5,5,default=0,step_size=0.1), auto_update=false):
+    show(r'2y^2-\sin(y)=x^3 + '+latex(c))
+    show(VF+implicit_plot(2*y^2-sin(y)==x^3+c,(x,-M,M),(y,-M,M)))
+</script></div>
+<br><br>
+
+Direction field and solutions for<br>
+\[ \frac{dy}{dx} =y(1-y): \]
+<div class="compute"><script type="text/x-sage">
+x,y = var('x y')
+M=4
+VF = plot_slope_field(y*(1-y),(x,-M,M),(y,-M,M),aspect_ratio=1)
+
+@interact
+def _(A = slider(-10,10,default=0,step_size=0.1), auto_update=false):
+    show(r'y(x) = '+latex(A*exp(x)/(1+A*exp(x))))
+    show(VF+plot(A*exp(x)/(1+A*exp(x)),(x,-M,M),ymin=-M,ymax=M))
+</script></div>
+<br><br>
+
+Something extra (not for exam purposes):
+<h3> The SIR model of epidemics </h3>
+
+We model the spread of a disease by dividing the population into three groups:
+<li>S : those <it>Susceptible<it> to the disease, can get sick</li>
+<li>I : those <it>Infected<it> with the disease, can spread the disease</li>
+<li>R : those <it>Recovered<it> from the disease, are immune.</li>
+<br>
+I'll use the normalisation: \(S + I + R = 1\), i.e. these represent proportions of the population, rather
+than absolute numbers of people.<br><br>
+
+The assumptions are:
+<li> The rate at which people get sick is proportional to the number of infected people times the number of susceptible people.
+  This gives a term \(\beta I\cdot S = \beta I\cdot(1-I-R) \)</li>
+<li> The rate at which people recover from the disease is propotional to the number of infected people.
+  This gives a term \(\gamma I\).</li>
+<li>Nobody dies, so \(S+I+R\) stays 1.</li>
+<br><br>
+This leads to the two differential Equations
+\[
+\frac{dI}{dt} = \beta I(1-I-R) - \gamma I
+\]
+\[
+\frac{dR}{dt} = \gamma I
+\]
+(If people lose immunity over time, then we get an additional term \(-\delta R\) in the second DE.)<br><br>
+
+We can solve these two linked DEs numerically using Euler's method:<br>
+Choose a stepsize \(h\), start with initial values \(R_0, I_0\), then iterate:
+\[
+R_{n+1} = R_n + h\cdot \frac{dR}{dt}(R_n,I_n)
+\]
+\[
+I_{n+1} = I_n + h\cdot \frac{dI}{dt}(R_n,I_n)
+\]
+This is essentially simulating the course of the epidemic in time steps of size \(h\).<br><br>
+
+One can also compute the base reproductive number \(\mathcal{R}_0\) (not to be confused with \(R(0)\) ),
+which estimates how many people one infected individual would infect in a completely susceptible population.
+It's given by \( \mathcal{R}_0 = \beta/\gamma \). <br><br>
+For comparison: Flu has \( \mathcal{R}_0 \approx 1.5 \), SARS-CoV-19 has \( \mathcal{R}_0 \approx 2.5-3.5\),
+and Measles has \( \mathcal{R}_0 \approx 12-18. \) That's why Measles vaccinations are so important!
+
+<br><br>
+
+Below, I also plot a "herd immunity threshold". For me, that's the value of \(S\) at which \(\frac{dI}{dt}=0\),
+i.e. \( S = \gamma/\beta \). When this many people are susceptible, then the rate of new infections stops increasing.
+If \(1 - \gamma/\beta\) of the people are immune, this means that the disease won't start a new epidemic.
+One can achieve herd immunity by vaccinating (\(1-\gamma/\beta\) ) of the population.
+
+
+<div class="compute"><script type="text/x-sage">
+# SIR model
+x,y,z = var('x y z')
+
+show(r'\frac{dI}{dt} = \beta I\cdot S - \gamma I, \quad S + I + R = 1'+latex(''))
+show(r'\frac{dR}{dt} = \gamma I - \delta R'+latex(''))
+
+@interact
+def _(beta = slider(0,1,default=0.15,step_size=0.01,label=r'\( \beta \)'),
+     gamma = slider(0,1,default=0.05, step_size=0.01,label=r'\( \gamma \)'),
+      delta = slider(0,1,default=0.0, step_size=0.01,label=r'\(\delta \)'),
+     I_0 = input_box(0.05,label=r'\( \mathrm{Infected}_0 \)'),
+     R_0 = input_box(0,label=r'\( \mathrm{Recovered}_0 \)'),
+     h = input_box(1,label='step size'),
+     steps = input_box(200),
+     auto_update=false):
+    show(r'\mathcal{R}_0 = '+latex(beta/gamma))
+    VF = plot_vector_field((gamma*y-delta*x, beta*y*(1-x-y)-gamma*y), (x,0,1), (y,0,1),
+                           color='black',aspect_ratio=1,axes_labels=['Recovered','Infected'])
+    SL = streamline_plot((gamma*y-delta*x, beta*y*(1-x-y)-gamma*y), (x,0,1), (y,0,1),
+                           color='lightgray')
+    pts = [(R_0,I_0)]   # start at (R0,I0)
+    R, I = R_0, I_0
+    for i in range(steps):
+        R = R + h*gamma*I - h*delta*R
+        I = I + h*beta*I*(1-I-R) - h*gamma*I
+        pts.append((R,I))
+    L = line(pts,color='red', axes=false)
+    H = plot(1-x-gamma/beta, (x,0,1), ymin=0, color='blue', linestyle='--', axes=false)
+    show(SL+VF+H+L,axes=false)
+    S_plot = list_plot([(i*h,1-p[0]-p[1]) for i,p in enumerate(pts)], plotjoined=True,
+                       color='blue', legend_label = 'Susceptible')
+    R_plot = list_plot([(i*h,p[0]) for i,p in enumerate(pts)], plotjoined=True,
+                       color='green', legend_label = 'Recovered')
+    I_plot = list_plot([(i*h,p[1]) for i,p in enumerate(pts)], plotjoined=True,
+                       color='red', legend_label = 'Infected', axes_labels=['Time','Population'])
+    H_plot = plot(gamma/beta, (x,0,steps*h), color='blue', linestyle='--', legend_label = 'Herd immunity threshold')
+    show(S_plot+I_plot+R_plot+H_plot,ymax=1)
+</script></div>
 
 <h2>Your own computations</h2>
 Type your own Sage computation below and click &ldquo;Evaluate&rdquo;.
