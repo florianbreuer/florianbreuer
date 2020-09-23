@@ -462,6 +462,70 @@ def _(beta = slider(0,1,default=0.15,step_size=0.01,label=r'\( \beta \)'),
     show(S_plot+I_plot+R_plot+H_plot,ymax=1)
 </script></div>
 
+<h1>Differential Equations VI: Applications</h1>
+
+The second-order linear homogeneous differential equation
+\[
+\frac{d^2x}{dt^2} + \frac{D}{m}\frac{dx}{dt} + \frac{k}{m}x = 0
+\]
+has <em>damping parameter</em>
+\[
+\delta = \frac{p}{q} = \frac{D}{2m} / \sqrt{\frac{k}{m}} = \frac{D}{2\sqrt{km}}.
+\]
+The system is <em>under-damped</em> if the characteristic equation has complex roots (so \(\delta < 1 \)),
+it is <em>over-damped</em> if the characteristic equation has two distinct real roots (so \(\delta > 1 \)),
+and it is <em>critically damped</em> if the characteristic equation has a repeated real root (so \(\delta = 1\)).
+<br><br>
+
+<div class="compute"><script type="text/x-sage">
+A = 1   # parameters in general solution
+B = 0
+m = 0.5   # mass 0.5kg
+k = 0.5   # spring constant
+
+t = var('t')
+
+@interact
+def _(D = slider(0,4,default=1,step_size=0.2), auto_update=false):
+    p = D/(2*m)
+    q = sqrt(k/m)
+    d = p/q           # damping parameter
+    w = abs(sqrt(q^2-p^2)) # frequency
+    if d > 1:   # over-damped
+        print("Over-damped: delta = ", d)
+        y = A*exp((-p + w)*t) + B*exp((-p - w)*t)
+    elif d == 1: # critcally damped
+        print("Critically damped: delta = 1")
+        y = (A+B*t)*exp(-p*t)
+    else: # under-damped
+        print("Under-damped: delta = ", d)
+        y = exp(-p*t)*(A*cos(w*t) + B*sin(w*t))
+    show(plot(y,(t,0,4*pi),aspect_ratio=6))
+</script></div>
+
+<br><br>
+The amplitude of the long-term oscillation of a system with an applied force of the form
+\( F_e = a\cos(\alpha t) \)
+is proportional to
+\[
+M = \frac{1}{\sqrt{4p^2\alpha^2 + (\alpha^2-q^2)^2}}
+\]
+We plot this against the applied frequency \(\alpha\) for \(q=1\) and
+various values of \(p\):
+
+
+
+<div class="compute"><script type="text/x-sage">
+q = 1
+a = var('a')
+plist = [0.1, 0.2, 0.5, 1, 2]
+legends = ['p = '+str(p)[0:3] for p in plist]
+
+plot([1/sqrt(4*p^2*a^2+(a^2-q^2)^2) for p in plist], (a, 0, 3),
+     legend_label = legends, axes_labels = ['applied frequency', 'response'])
+</script></div>
+
+
 <h2>Your own computations</h2>
 Type your own Sage computation below and click &ldquo;Evaluate&rdquo;.
     <div class="compute"><script type="text/x-sage">plot(sin(x), (x, 0, 2*pi))</script></div>
