@@ -525,6 +525,62 @@ plot([1/sqrt(4*p^2*a^2+(a^2-q^2)^2) for p in plist], (a, 0, 3),
      legend_label = legends, axes_labels = ['applied frequency', 'response'])
 </script></div>
 
+<br><br>
+Now we can play with a damped oscillator with applied external force:<br>
+(Note: Below, what I call \(x_c(t\)) is actually the solution to the IVP
+with the right hand side set = 0, and \(x_p(t) = x(t) - x_c(t)\) is not
+the same as the particular solution we guessed in class.)
+
+<div class="compute"><script type="text/x-sage">
+t = var('t')
+x = function('x')(t)
+alpha = var('alpha')
+
+show(r'\frac{d^2x}{dt^2} + \frac{D}{m}\frac{dx}{dt} + \frac{k}{m}x = a\cos(w t)'+latex(''))
+
+@interact
+def _(D = ('damping D = ', slider(0, 5, default=1, step_size=0.1)),
+      m = ('mass m = ', slider(0.1, 5, default=1, step_size=0.1)),
+      k = ('spring k = ', slider(0.1, 5, default=1, step_size=0.1)),
+      a = ('a = ', slider(0, 5, default=1, step_size=0.1)),
+      w = ('w = ', slider(0, 5, default=1, step_size=0.1)),
+      x0 = ('initial x(0) = ', slider(-5, 5, default=0, step_size=0.1)),
+      xx0 = ("initial x'(0) = ", slider(-5, 5, default=0, step_size=0.1)),
+      tmax = ('t_max ', slider(1, 100, default=20, step_size=1)),
+      plotforce = ('show F_e(t)', true),
+      plotxc = ('show x_c(t)', false),
+      plotxp = ('show x_p(t)', false),
+      plotfr = ('frequency response', true)
+     ):
+    sol = desolve(diff(x,t,2)+(D/m)*diff(x,t)+(k/m)*x == a*cos(w*t), x, ics=[0,x0,xx0])
+    solc = desolve(diff(x,t,2)+(D/m)*diff(x,t)+(k/m)*x == 0, x, ics=[0,x0,xx0])
+    solp = sol - solc
+    p = D/(2*m)
+    q = sqrt(k/m)
+    d = p/q
+    print('damping parameter d = ', d)
+    show('x(t) = '+latex(sol))
+    L = [sol]
+    legend = ['x(t)']
+    if plotforce:
+        L.append(a*cos(w*t))
+        legend.append('F_e(t)')
+    if plotxc:
+        L.append(solc)
+        legend.append('x_c(t)')
+        show('x_c(t) = '+latex(solc))
+    if plotxp:
+        L.append(solp)
+        legend.append('x_p(t)')
+        show('x_p(t) = '+latex(solp))
+    show(plot(L, 0, tmax, axes_labels = ['t','x'], legend_label = legend))
+    frcurve = plot(1/sqrt(4*p^2*alpha^2+(alpha^2-q^2)^2), (alpha, 0, 5*w),
+         axes_labels = ['applied frequency w', 'response'])
+    if plotfr:
+        show(frcurve+line([(w,0),(w,frcurve.get_minmax_data()['ymax'])], color='red'),
+             legend_label = ['amplitude', 'w = '+str(w)[0:3]])
+</script></div>
+
 
 <h2>Your own computations</h2>
 Type your own Sage computation below and click &ldquo;Evaluate&rdquo;.
