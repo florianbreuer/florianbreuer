@@ -581,11 +581,320 @@ def _(D = ('damping D = ', slider(0, 5, default=1, step_size=0.1)),
              legend_label = ['amplitude', 'w = '+str(w)[0:3]])
 </script></div>
 
+<h1>Linear Algebra I</h1>
+
+Solving equations via row reductions (Gauss-Jordan elimination):
+<div class="compute"><script type="text/x-sage">
+# Based on code by Pablo Angulo
+
+# Coefficients are introduced as a matrix in a single text box,
+# and independent terms as a vector in a separate text box. The number of equations and unknowns are arbitrary
+
+from sage.misc.html import HtmlFragment
+
+def SLE_as_latex(A, b, variables):
+    nvars = A.ncols()
+    pretty_print(HtmlFragment(
+    r'$$\left\{\begin{array}{%s}'%('r'*(nvars+1))+
+    r'\\'.join('%s \\; =&%s'%(
+        (' & '.join((r'%s%s\cdot %s'%('+' if c>0 else '',c,v) if c else '') for c,v in zip(row, variables))
+        if not row.is_zero() else '&'*(nvars-1)+'0',y)
+               ) for row,y in zip(A,b))+
+    r'\end{array}\right.$$'))
+
+def extended_matrix_as_latex(M):
+    A = M[:,:-1]
+    b = M.column(-1)
+    nvars = A.ncols()
+    pretty_print(HtmlFragment(
+    r'$$\left(\begin{array}{%s}'%('r'*nvars+ '|r')+
+    r'\\'.join('%s&%s'%(
+        ' & '.join('%s'%c for c in row)
+        ,y) for row,y in zip(A,b))+
+    r'\end{array}\right)$$'))
+
+@interact
+def SEL(A_text='[(0,0,-1,2),(-1,0,2,4), (0,0,1,-2)]',
+        b_text='[2,1,-2]',
+        auto_update=False
+    ):
+    A = matrix(QQ,eval(A_text))
+    b = vector(eval(b_text))
+    M = A.augment(b)
+    neqs = len(b)
+    nvars = A.ncols()
+    var_names = ', '.join('x_%d'%j for j in [1..nvars])
+    variables = var(var_names)
+    pretty_print('Variables: %s'% var_names)
+#    pretty_print(HtmlFragment('Variables: $'+',\\;'.join([latex(v) for v in variables])+'$'))
+#     for row,y in zip(A,b):
+#         pretty_print(latex(sum(c*v for c,v in zip(row, variables))==y))
+
+    pretty_print( HtmlFragment("Equations:"))
+    SLE_as_latex(A, b, variables)
+    pretty_print(HtmlFragment( 'We construct the augmented matrix:'))
+    extended_matrix_as_latex(M)
+
+    pivot = {}
+    ibound_variables = []
+    for m,row in enumerate(A):
+        for k in range(m,nvars):
+            lista = [(abs(M[j,k]),j) for j in range(m,neqs)]
+            maxi, c = max(lista)
+            if maxi > 0:
+                ibound_variables.append(k)
+                if M[m,k]==0:
+                    M[c,:],M[m,:]=M[m,:],M[c,:]
+                    pretty_print( HtmlFragment('We permute rows %d and %d:'%(m+1,c+1)))
+                    extended_matrix_as_latex(M)
+                pivot[m] = k
+                break
+
+        a=M[m,k]
+        for n in range(m+1,neqs):
+            if M[n,k]!=0:
+                pretty_print( HtmlFragment("We add %s times row %d to row %d:"%(-M[n,k]/a, m+1, n+1)))
+                M=M.with_added_multiple_of_row(n,m,-M[n,k]/a)
+                extended_matrix_as_latex(M)
+
+    for m,row in enumerate(M):
+        k = 0
+        while k < nvars-1 and row[k]==0:
+            k = k+1
+        if row[k]!=0 and row[k]!=0:
+            pretty_print( HtmlFragment("We multiply row %d by %s:"%(m+1, 1/row[k])))
+            M[m,:] = M[m,:]/row[k]
+            extended_matrix_as_latex(M)
+            for l in range(m):
+                if M[l,k] != 0:
+                    pretty_print( HtmlFragment("We add %s times row %d to row %d:"%(-M[l,k], m+1, l+1)))
+                    M = M.with_added_multiple_of_row(l, m, -M[l,k])
+                    extended_matrix_as_latex(M)
+
+    pretty_print( HtmlFragment("Now our matrix is in reduced row-echelon form and our systems of equations is"))
+    A = M[:,:-1]
+    b = M.column(-1)
+    SLE_as_latex(A, b, variables)
+    SEL_type = 'compatible'
+    null_rows = None
+    for k,(row,y) in enumerate(zip(A,b)):
+        if row.is_zero():
+            if y==0 and null_rows is None:
+                null_rows = k
+                break
+            elif y!=0:
+                SEL_type = 'incompatible'
+    if SEL_type == 'incompatible':
+        pretty_print( HtmlFragment('The system has no solutions.'))
+        return
+    if null_rows:
+        pretty_print(HtmlFragment('We remove trivial 0=0 equations:'))
+        A = A[:null_rows,:]
+        b = b[:null_rows]
+        SLE_as_latex(A, b, variables)
+
+    ifree_variables = [k for k in range(nvars) if k not in ibound_variables]
+    bound_variables = [variables[k] for k in ibound_variables]
+    free_variables = [variables[k] for k in ifree_variables]
+    par_names = ', '.join('t_%d'%j for j in [1..len(free_variables)])
+    if len(free_variables) > 0:
+        if len(free_variables) > 1:
+            params = list(var(par_names))
+        else:
+            params = [var('t_1')]
+    if len(free_variables) > 0:
+        pretty_print( 'Free variables: %s = %s'%(free_variables, params))
+    pretty_print('Bound variables: %s'% bound_variables)
+
+    reduced_eqs = [
+        sum(c*v for c,v in zip(row, variables))==y
+        for row,y in zip(A,b)
+    ]
+    xvector = vector(variables)
+    if len(bound_variables)==1:
+        soldict = solve(reduced_eqs, bound_variables[0], solution_dict=True)[0]
+    else:
+        soldict = solve(reduced_eqs, bound_variables, solution_dict=True)[0]
+#     pretty_print( HtmlFragment('Solution in parametric form:'))
+    parametric_sol = matrix(
+        xvector.apply_map(lambda s:s.subs(soldict))
+    ).transpose()
+#     show(parametric_sol)
+    pretty_print( 'Solution:')
+#     pretty_print( HtmlFragment(
+#         r'$$ %s + \left\langle %s\right\rangle$$'%(
+#             latex(parametric_sol.subs(dict(zip(free_variables, [0]*len(free_variables))))),
+#             ','.join(latex(
+#             parametric_sol.apply_map(lambda s:s.diff(v))
+#         ) for v in free_variables) if free_variables else latex(matrix([0]*nvars).transpose()))
+#     ))
+    if len(free_variables)>0:
+        pretty_print( HtmlFragment(
+            r'$$%s = %s + %s, \quad %s$$'%(
+                latex(matrix(variables).transpose()),
+                latex(parametric_sol.subs(dict(zip(free_variables, [0]*len(free_variables))))),
+                '+'.join(latex(
+                parametric_sol.apply_map(lambda s:s.diff(v))
+            )+latex(params[j]) for j,v in enumerate(free_variables)),
+            ',\\;'.join(latex(p) for p in params)+r'\in\mathbb{R}')
+        ))
+    else:
+        pretty_print( HtmlFragment(
+            r'$$%s = %s$$'%(
+                latex(matrix(variables).transpose()),
+                latex(parametric_sol.subs(dict(zip(free_variables, [0]*len(free_variables))))))
+        ))
+#     pretty_print( HtmlFragment('Dimension is %d'%len(free_variables)))
+</script></div>
+
+<h1>Linear Algebra III</h1>
+
+<br><br>
+Linear transformation in 2 dimensions:
+<div class="compute"><script type="text/x-sage">
+L=[(1,1),(1,0),(0,0),(0,1),(1,1),(0.5,1.5),(0,1),(0,1.4),(0.25,1.4),(0.25,1.25)]
+example = [[1,0],[0,1]]
+
+@interact
+def _(A=input_grid(2,2, default = example,
+                   label='A=', to_value=matrix),
+      auto_update=false):
+    print('det(A) = ',det(A))
+    LA = list(map(lambda v: vector(A*matrix(2,1,list(v))), L))
+    show(line(L, color='blue'), aspect_ratio=1, frame=true, title='Input')
+    show(line(LA, color='red'), aspect_ratio=1, frame=true, title='Output')
+    show(line(L, color='blue')+line(LA, color='red'),
+        aspect_ratio=1, frame=true, title='Both')
+</script></div>
+
+<br><br>
+As above, but with a rotation matrix
+\[
+A = \left( \begin{array}{ll} \cos\theta & -\sin\theta \\ \sin\theta & \cos\theta
+\end{array}\right)
+\]
+<div class="compute"><script type="text/x-sage">
+L=[(1,1),(1,0),(0,0),(0,1),(1,1),(0.5,1.5),(0,1),(0,1.4),(0.25,1.4),(0.25,1.25)]
+example = [[1,0],[0,1]]
+
+@interact
+def _(theta=slider(-3.14,3.14,step_size=0.01,default=pi/3),
+      auto_update=false):
+    A = matrix(2,2,[cos(theta), -sin(theta), sin(theta), cos(theta)])
+    show('A = '+latex(A))
+    print('det(A) = ',det(A))
+    LA = list(map(lambda v: vector(A*matrix(2,1,list(v))), L))
+    show(line(L, color='blue'), aspect_ratio=1, frame=true, title='Input')
+    show(line(LA, color='red'), aspect_ratio=1, frame=true, title='Output')
+    show(line(L, color='blue')+line(LA, color='red'),
+        aspect_ratio=1, frame=true, title='Both')
+</script></div>
+
+<br><br>
+Linear transformation in 3 dimensions. Here we plot the effect of
+a linear transformation on three unit vectors and the parallelepiped spanned by them.
+<div class="compute"><script type="text/x-sage">
+example = [[1,0,0],[0,1,0],[0,0,1]]
+L = [(0,0,1),(0,1,0),(1,0,0)]
+P = polytopes.parallelotope(L)
+p1 = P.plot(opacity=0.5, color='blue')+\
+arrow((0,0,0),L[0], color='blue')+\
+arrow((0,0,0),L[1], color='blue')+\
+arrow((0,0,0),L[2], color='blue')
+
+
+@interact
+def _(A=input_grid(3,3, default = example,
+                   label='A='),
+      auto_update=false):
+    A = matrix(QQ,3,3,A)
+    print('det(A) = ',det(A))
+    LA = list(map(lambda v: vector(A*matrix(3,1,list(v))), L))
+    PA = polytopes.parallelotope(LA)
+    p2 = PA.plot(opacity=0.5, color='red')+\
+    arrow((0,0,0),LA[0], color='red')+\
+    arrow((0,0,0),LA[1], color='red')+\
+    arrow((0,0,0),LA[2], color='red')
+    print('Input:')
+    show(p1, aspect_ratio=1)
+    print('Output:')
+    show(p2, aspect_ratio=1)
+    print('Both:')
+    show(p1+p2, aspect_ratio=1)
+
+</script></div>
+
+<h1>Linear Algebra IV</h1>
+
+<br><br>
+Inverting a matrix using row reduction:
+<div class="compute"><script type="text/x-sage">
+# Code by Hristo Inouzhe
+
+#Choose the size D of the square matrix:
+D = 3
+
+example = [[1 if k==j else 0 for k in range(D)] for j in range(D)]
+example[0][-1] = 2
+example[-1][0] = 3
+
+@interact
+def _(M=input_grid(D,D, default = example,
+                   label='Matrix to invert', to_value=matrix),
+      tt = text_control('Enter the bits of precision used'
+                        ' (only if you entered floating point numbers)'),
+      precision = slider(5,100,5,20),
+      auto_update=False):
+    if det(M)==0:
+        pretty_print('Failure: Matrix is not invertible')
+        return
+    if M.base_ring() == RR:
+        M = M.apply_map(RealField(precision))
+    N=M
+    M=M.augment(identity_matrix(D))
+    pretty_print('We construct the augmented matrix')
+    show(M)
+    for m in range(0,D-1):
+        if M[m,m] == 0:
+            lista = [(abs(M[j,m]),j) for j in range(m+1,D)]
+            maxi, c = max(lista)
+            M[c,:],M[m,:]=M[m,:],M[c,:]
+            pretty_print('We permute rows %d and %d'%(m+1,c+1))
+            show(M)
+        for n in range(m+1,D):
+            a=M[m,m]
+            if M[n,m]!=0:
+                pretty_print("We add %s times row %d to row %d"%(-M[n,m]/a, m+1, n+1))
+                M=M.with_added_multiple_of_row(n,m,-M[n,m]/a)
+                show(M)
+    for m in range(D-1,-1,-1):
+        for n in range(m-1,-1,-1):
+            a=M[m,m]
+            if M[n,m]!=0:
+                pretty_print("We add %s times row %d to the row %d"%(-M[n,m]/a, m+1, n+1))
+                M=M.with_added_multiple_of_row(n,m,-M[n,m]/a)
+                show(M)
+    for m in range(0,D):
+        if M[m,m]!=1:
+            pretty_print('We divide row %d by %s'%(m+1,M[m,m]))
+            M = M.with_row_set_to_multiple_of_row(m,m,1/M[m,m])
+            show(M)
+    M=M.submatrix(0,D,D)
+    pretty_print('We keep the right submatrix, which contains the inverse')
+    show('M^{-1} = '+latex(M))
+#     html('$$M^{-1}=%s$$'%latex(M))
+    pretty_print('We check it actually is the inverse')
+    show('M^{-1}\\cdot M = '+latex(M)+'\\cdot'+latex(N)+' = '+latex(M*N))
+#     show('M^{-1}*M=%s*%s=%s'%(latex(M),latex(N),latex(M*N)))
+</script></div>
 
 <h2>Your own computations</h2>
 Type your own Sage computation below and click &ldquo;Evaluate&rdquo;.
-    <div class="compute"><script type="text/x-sage">plot(sin(x), (x, 0, 2*pi))</script></div>
-    <div class="compute"><script type="text/x-sage">
+<div class="compute"><script type="text/x-sage">
+plot(sin(x), (x, 0, 2*pi))
+
+</script></div>
+<div class="compute"><script type="text/x-sage">
 @interact
 def f(n=(0,10)):
     print(2^n)
