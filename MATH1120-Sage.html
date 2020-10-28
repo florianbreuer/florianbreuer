@@ -581,7 +581,7 @@ def _(D = ('damping D = ', slider(0, 5, default=1, step_size=0.1)),
              legend_label = ['amplitude', 'w = '+str(w)[0:3]])
 </script></div>
 
-<h1>Linear Algebra I</h1>
+<h1>Linear Algebra I: Systems of Linear Equations</h1>
 
 Solving equations via row reductions (Gauss-Jordan elimination):
 <div class="compute"><script type="text/x-sage">
@@ -747,7 +747,7 @@ def SEL(A_text='[(0,0,-1,2),(-1,0,2,4), (0,0,1,-2)]',
 #     pretty_print( HtmlFragment('Dimension is %d'%len(free_variables)))
 </script></div>
 
-<h1>Linear Algebra III</h1>
+<h1>Linear Algebra III: Matrices and Linear Transformations</h1>
 
 <br><br>
 Linear transformation in 2 dimensions:
@@ -824,13 +824,44 @@ def _(A=input_grid(3,3, default = example,
 
 </script></div>
 
-<h1>Linear Algebra IV</h1>
+<h1>Linear Algebra IV: Square matrices</h1>
 
 <br><br>
 Inverting a matrix using row reduction:<br><br>
 <i>Sorry, this code has been disabled for the duration of the week 11 workshop!</i>
 <div class="compute"><script type="text/x-sage">
 
+</script></div>
+
+<h1>Linear Algebra V: Eigenvectors and Eigenvalues</h1>
+
+For a square matrix \(A\), we say that \({\bf v}\) is an <i>eigevector</i>
+of \(A\) with <i>eigenvalue</i> \(\lambda\), if
+$$ A{\bf v} = \lambda{\bf v}$$.
+<br><br>
+
+In this example, the blue vector is a unit vector with angle \(\theta\), i.e.
+\({\bf v} = (\cos(\theta), \sin(\theta))^T\), and the red vector is \(A{\bf v}\).
+When they're parallel, you've found an eigenvector.
+<div class="compute"><script type="text/x-sage">
+example = [[1,2],[4,3]]
+
+@interact
+def _(A=input_grid(2,2, default = example,
+                   label='A=', to_value=matrix),
+      theta = slider(-3.15, 3.15, step_size=0.01, default=0),
+      zoom = slider(1,20, step_size=1, default=5),
+      auto_update=true):
+
+    print('Eigenvectors: ', [v for (l, v, n) in A.eigenvectors_right()])
+    print('Eigenvalues: ', [l for (l, v, n) in A.eigenvectors_right()])
+    v = matrix(2,1,[cos(theta), sin(theta)])
+    Av = A*v
+    show(
+        arrow((0,0), vector(v), color='blue')+\
+        arrow((0,0), vector(Av), color='red'),
+        aspect_ratio=1, frame=true, xmin=-zoom, xmax=zoom, ymin=-zoom, ymax=zoom
+    )
 </script></div>
 
 <h2>Your own computations</h2>
