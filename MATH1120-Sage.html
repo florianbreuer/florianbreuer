@@ -864,6 +864,91 @@ def _(A=input_grid(2,2, default = example,
     )
 </script></div>
 
+<h1>Linear Algebra VI: Applications of Eigenvalues and Eigenvectors</h1>
+
+For a square matrix \(A\), let \(P\) be the matrix whose columns are the
+eigenvectors of \(A\), and \(D\) the diagonal matrix whose diagonal entries
+are the corresponding eigenvalues of \(A\), then we have
+$$
+A = PDP^{-1}.
+$$
+This can be useful for computing powers of \(A\), because
+$$
+A^n = PD^nP^{-1}
+$$
+and powers of a diagnoal matrix (such as \(D\)) are easy to compute.
+We demonstrate this with the Fibonacci matrix:
+
+<div class="compute"><script type="text/x-sage">
+K.<a>=QuadraticField(5)
+# We'll do our calculations in K so that Sagemath works with sqrt(5) exactly rather
+# than approximating it with digits...
+A = matrix(K,2,2,[0,1,1,1])
+pretty_print('The Fibonacci matrix: ')
+pretty_print('A = '+latex(A))
+[(l1,[v1],n1),(l2,[v2],n2)] = A.eigenvectors_right(extend=false)
+v1 = matrix(2,1,v1)  # turn v1 and v2 into 2x1 matrices
+v2 = matrix(2,1,v2)
+(D, P) = A.eigenmatrix_right()
+pretty_print("Its eigenvalues are:")
+pretty_print(r'\lambda_1 = '+latex(l1)+r',\qquad \lambda_2 = '+latex(l2))
+pretty_print('With corresponding eigenvectors:')
+pretty_print(r'{\bf v}_1 = '+latex(v1)+r',\qquad {\bf v}_2 = '+latex(v2))
+pretty_print('We should have ',r'\; A = PDP^{-1}\;'+latex(''),'with')
+pretty_print('P = '+latex(P)+r',\qquad D = '+latex(D))
+pretty_print("Let's check it:")
+pretty_print(r'PDP^{-1}\; =\; '+latex(P)+r'\cdot'+latex(D)+r'\cdot'+\
+             latex(P.inverse())+r'\; = \;'+latex(P*D*P.inverse())+r'\; = \; A.')
+pretty_print('Now powers of A are easy to compute:',r'\; A^n = PD^nP^{-1}'+latex(''))
+
+@interact
+def _(n = slider(0, 200, step_size=1, default=0)):
+    pretty_print('A^{'+str(n)+'} = PD^{'+str(n)+'}P^{-1} = '+latex(P*D^n*P.inverse()))
+    print()
+
+</script></div>
+
+<br><br>
+
+Now Binet's Formula for the nth Fibonacci number is easily deduced by extracting
+the top-right entry of \(A^n = PD^nP^{-1}\):
+
+<div class="compute"><script type="text/x-sage">
+pretty_print("Binet's Formula:  ", r'\;F_n = \frac{\phi^n - \bar{\phi}^n}{\sqrt{5}}'+latex(''))
+phi = (1+sqrt(5))/2
+phibar = (1-sqrt(5))/2
+pretty_print(r'\phi \; = \;'+latex(phi)+r', \qquad \bar{\phi} \; = \;'+latex(phibar))
+@interact
+def _(n = slider(0, 200, step_size=1, default=0)):
+    Fn = (phi^n-phibar^n)/sqrt(5)
+    pretty_print('F_{'+str(n)+r'} = \;'+latex(round(Fn)))   # we use round(Fn) to force Sage to simplify it
+</script></div>
+
+<br><br>
+You can play similar games with your own favourite matrix.
+The following code is written specifically for 2x2 matrices, but in principle
+this can be done with nxn matrices - so long as the matrix P of eigenvectors
+is nxn and invertible (which is not always the case).
+
+<div class="compute"><script type="text/x-sage">
+example = [[0,1],[1,1]]
+@interact
+def _(A=input_grid(2,2, default = example,
+                   label='A =', to_value=matrix),
+      n = slider(0, 200, step_size=1, default=0),
+      auto_update=true):
+    d = A.characteristic_polynomial().discriminant()
+    if not is_square(d):
+        K.<a> = QuadraticField(d.squarefree_part())
+        A = matrix(K,2,2,A)
+    (D, P) = A.eigenmatrix_right()
+    pretty_print('We have', r'\; A = PDP^{-1}\;'+latex(''),'where')
+    pretty_print(r'A \; = \; '+latex(A)+r', \qquad P \; = \;'+latex(P)+r',\qquad D \; = \;'+latex(D))
+    pretty_print(r'A^{'+str(n)+r'} \;=\; PD^{'+str(n)+r'}P^{-1} \;=\; '+\
+                 latex(P)+latex(D^n)+latex(P.inverse())+r'\; = \;'+latex(P*D^n*P.inverse()))
+
+</script></div>
+
 <h2>Your own computations</h2>
 Type your own Sage computation below and click &ldquo;Evaluate&rdquo;.
 <div class="compute"><script type="text/x-sage">
