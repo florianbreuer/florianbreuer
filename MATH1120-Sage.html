@@ -828,9 +828,64 @@ def _(A=input_grid(3,3, default = example,
 
 <br><br>
 Inverting a matrix using row reduction:<br><br>
-<i>Sorry, this code has been disabled for the duration of the week 11 workshop!</i>
 <div class="compute"><script type="text/x-sage">
+# Code by Hristo Inouzhe
 
+#Choose the size D of the square matrix:
+D = 3
+
+example = [[1 if k==j else 0 for k in range(D)] for j in range(D)]
+example[0][-1] = 2
+example[-1][0] = 3
+
+@interact
+def _(M=input_grid(D,D, default = example,
+                   label='Matrix to invert', to_value=matrix),
+      tt = text_control('Enter the bits of precision used'
+                        ' (only if you entered floating point numbers)'),
+      precision = slider(5,100,5,20),
+      auto_update=False):
+    if det(M)==0:
+        pretty_print('Failure: Matrix is not invertible')
+        return
+    if M.base_ring() == RR:
+        M = M.apply_map(RealField(precision))
+    N=M
+    M=M.augment(identity_matrix(D))
+    pretty_print('We construct the augmented matrix')
+    show(M)
+    for m in range(0,D-1):
+        if M[m,m] == 0:
+            lista = [(abs(M[j,m]),j) for j in range(m+1,D)]
+            maxi, c = max(lista)
+            M[c,:],M[m,:]=M[m,:],M[c,:]
+            pretty_print('We permute rows %d and %d'%(m+1,c+1))
+            show(M)
+        for n in range(m+1,D):
+            a=M[m,m]
+            if M[n,m]!=0:
+                pretty_print("We add %s times row %d to row %d"%(-M[n,m]/a, m+1, n+1))
+                M=M.with_added_multiple_of_row(n,m,-M[n,m]/a)
+                show(M)
+    for m in range(D-1,-1,-1):
+        for n in range(m-1,-1,-1):
+            a=M[m,m]
+            if M[n,m]!=0:
+                pretty_print("We add %s times row %d to the row %d"%(-M[n,m]/a, m+1, n+1))
+                M=M.with_added_multiple_of_row(n,m,-M[n,m]/a)
+                show(M)
+    for m in range(0,D):
+        if M[m,m]!=1:
+            pretty_print('We divide row %d by %s'%(m+1,M[m,m]))
+            M = M.with_row_set_to_multiple_of_row(m,m,1/M[m,m])
+            show(M)
+    M=M.submatrix(0,D,D)
+    pretty_print('We keep the right submatrix, which contains the inverse')
+    show('M^{-1} = '+latex(M))
+#     html('$$M^{-1}=%s$$'%latex(M))
+    pretty_print('We check it actually is the inverse')
+    show('M^{-1}\\cdot M = '+latex(M)+'\\cdot'+latex(N)+' = '+latex(M*N))
+#     show('M^{-1}*M=%s*%s=%s'%(latex(M),latex(N),latex(M*N)))
 </script></div>
 
 <h1>Linear Algebra V: Eigenvectors and Eigenvalues</h1>
@@ -928,7 +983,7 @@ def _(n = slider(0, 200, step_size=1, default=0)):
 You can play similar games with your own favourite matrix.
 The following code is written specifically for 2x2 matrices, but in principle
 this can be done with nxn matrices - so long as the matrix P of eigenvectors
-is nxn and invertible (which is not always the case).
+is nxn and invertible (which is not always the case!).
 
 <div class="compute"><script type="text/x-sage">
 example = [[0,1],[1,1]]
