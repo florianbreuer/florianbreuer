@@ -46,6 +46,25 @@ def _(a=(1, 10)):
 </div>
 -->
 
+<h2>Calculus I : Maclaurin series</h2>
+Plot terms of the Maclaurin series for \(\sin(x)\):
+<div class="compute"><script type="text/x-sage">
+x   = var('x')
+x0  = 0
+f   = sin(x)
+p   = plot(f, -1, 2*pi, thickness=2)
+dot = point((x0, f(x=x0)), pointsize=80, rgbcolor=(1, 0, 0))
+
+@interact
+def _(order=slider([1 .. 12])):
+  ft = f.taylor(x, x0, order)
+  pt = plot(ft, -1, 2*pi, color='green', thickness=2)
+  pretty_print(html(r'$f(x)\;=\;%s$' % latex(f)))
+  pretty_print(html(r'$T_{%s}f(x)\;=\;%s+\mathcal{O}(x^{%s})$' % (order, latex(ft), order+1)))
+  show(dot + p + pt, ymin=-1, ymax=1)
+</script></div>
+<br>
+
 <h2>Calculus III : Functions of Several Variables</h2>
 
 
