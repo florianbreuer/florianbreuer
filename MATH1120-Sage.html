@@ -24,7 +24,13 @@
 
   <h1>Sage Playground for MATH1120 - 2021</h1>
 
-  SageMath is a powerful open source mathematics package used by actual researchers.<br>
+  SageMath is a powerful open source mathematics package used by actual researchers.<br><br>
+
+  <b>
+  Note: You don't need to know anything about Sage to play with the examples on this page:
+  just click "evaluate" underneath a cell and see what happens. Enjoy!
+  </b>
+  <br><br>
 
   You can download SageMath <a href="https://www.sagemath.org/">here</a>.<br>
 
@@ -77,13 +83,68 @@ dot = point((x0, f(x=x0)), pointsize=80, rgbcolor=(1, 0, 0))
 
 @interact
 def _(order=slider([1 .. 12])):
-  ft = f.taylor(x, x0, order)
-  pt = plot(ft, -2*pi, 2*pi, color='green', thickness=2)
-  pretty_print(html(r'$f(x)\;=\;%s$' % latex(f)))
-  pretty_print(html(r'$T_{%s}f(x)\;=\;%s+\mathcal{O}(x^{%s})$' % (order, latex(ft), order+1)))
-  show(dot + p + pt, ymin=-1, ymax=1)
+    ft = f.taylor(x, x0, order)
+    pt = plot(ft, -2*pi, 2*pi, color='green', thickness=2)
+    pretty_print(html(r'$f(x)\;=\;%s$' % latex(f)))
+    pretty_print(html(r'$T_{%s}f(x)\;=\;%s+\mathcal{O}(x^{%s})$' % (order, latex(ft), order+1)))
+    show(dot + p + pt, ymin=-1, ymax=1)
 </script></div>
 <br>
+
+<h2>Calculus II: Taylor series</h2>
+
+Plot Taylor polynomials for various functions:
+
+<div class="compute"><script type="text/x-sage">
+x   = var('x')
+
+@interact
+def _(f = input_box(default='sin(x)', label='f(x)='),
+      x0=input_box(default=pi/4, label='centre'),
+      order=slider([1 .. 12])):
+    p   = plot(f, -2*pi, 2*pi, thickness=2, legend_label='f(x)')
+    dot = point((x0, f(x=x0)), pointsize=80, rgbcolor=(1, 0, 0))
+    ft = f.taylor(x, x0, order)
+    pt = plot(ft, -2*pi, 2*pi, color='green', thickness=2, legend_label=r'T_'+str(order)+'f(x)')
+    pretty_print(html(r'$f(x)\;=\;%s$' % latex(f)))
+    pretty_print(html(r'$T_{%s}f(x)\;=\;%s+\mathcal{O}(x^{%s})$' % (order, latex(ft), order+1)))
+    show(dot + p + pt, ymin=-1, ymax=1)
+</script></div>
+<br>
+
+Some examples I showed in class:
+<br><br>
+\[
+f(x) = \frac{1}{1-x} = 1 + x + x^2 + x^3 + \cdots
+\]
+This Maclaurin series converges for \( |x|< 1 \).
+Even though the function makes sense for other values of \(x\neq 1\),
+the series doesn't converge there.
+
+<div class="compute"><script type="text/x-sage">
+N = 5
+ft = sum(x^k for k in range(N+1))
+show('Blue: y = '+latex(ft))
+show(r'Green: y = \frac{1}{1-x}'+latex(''))
+plot([ft, 1/(1-x)], (x,-3,3), ymax=5, ymin=-5, thickness=2)
+</script></div>
+<br>
+
+The Taylor series for \(f(x)=\ln(x)\) centered at \(x=e\):
+\[
+\ln(x) = 1 + \sum_{k=1}^\infty (-1)^{k-1}\frac{1}{k}e^k (x-e)^k, \quad |x-e|< e.
+\]
+Note that the series only converges for \( x\in (0,2e) \).
+
+<div class="compute"><script type="text/x-sage">
+N = 5
+ft = 1+sum(1/k*exp(-k)*(x-exp(1))^k*(-1)^(k-1) for k in range(1,N+1) )
+show('T_{'+str(N)+'}f(x) = '+latex(ft))
+show(plot([log(x), ft], (x,0,10), ymax=10, ymin=-5, legend_label = ['ln(x)','T_'+str(N)+' ln(x)'], thickness=2)+
+     plot(line([(2*exp(1),-5),(2*exp(1),10)],color='gray'))+
+     text('x=2e',(2*exp(1)+0.5,-3), color='gray'))
+</script></div>
+
 
 <h2>Calculus III : Functions of Several Variables</h2>
 
