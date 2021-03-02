@@ -182,6 +182,26 @@ My=10
 show(plot3d(f,(x,-Mx,Mx),(y,-My,My)),plot_points=500,adaptive=true)
 show(contour_plot(f,(x,-Mx,Mx),(y,-My,My),colorbar=True,labels=True,contours=30,plot_points=500))
 </script></div>
+<br>
+
+Now for a surface of revolution. If you rotate the graph of \(z=f(x), \; x\geq 0,\) about the
+\(z\)-axis, you get a surface with equation
+\[
+z = f\left(\sqrt{x^2+y^2}\right).
+\]
+For example:
+<div class="compute"><script type="text/x-sage">
+x,y = var('x y')
+f = sin(x)
+M=4
+
+F = f(sqrt(x^2+y^2))
+show(plot(f,(x,0,M),title='z='+str(f)))
+show('z='+latex(F))
+show(plot3d(F,(x,-M,M),(y,-M,M)))
+</script></div>
+
+
 
 <h2>Calculus V : Tangent Planes</h2>
 
