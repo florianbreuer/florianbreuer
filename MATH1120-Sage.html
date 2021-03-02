@@ -212,8 +212,8 @@ x,y=var('x','y')
 #f = 5-(x^2+y^2)/2
 f = x*y
 
-Mx=3
-My=3
+Mx=2
+My=2
 fx=diff(f,x)
 fy=diff(f,y)
 show('f(x,y)='+latex(f(x=x,y=y)))
@@ -221,7 +221,7 @@ show(r'f_x=\frac{\partial f}{\partial x} = '+latex(fx))
 show(r'f_y=\frac{\partial f}{\partial y} = '+latex(fy))
 
 @interact
-def _(x0=slider(-Mx,Mx,step_size=0.1),y0=slider(-My,My,step_size=0.1),auto_update=False):
+def _(x0=slider(-Mx,Mx,step_size=0.1,default=0),y0=slider(-My,My,step_size=0.1,default=0),auto_update=False):
     L = f(x=x0,y=y0)+fx(x=x0,y=y0)*(x-x0)+fy(x=x0,y=y0)*(y-y0)
     show('(x_0,y_0)='+latex((x0,y0)))
     show('(f_x('+latex(x0)+'),f_y('+latex(y0)+'))='+latex((fx(x=x0,y=y0),fy(x=x0,y=y0))))
