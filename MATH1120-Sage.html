@@ -201,11 +201,60 @@ show('z='+latex(F))
 show(plot3d(F,(x,-M,M),(y,-M,M)))
 </script></div>
 
+<h2>Calculus IV : Partial Derivatives</h2>
+
+Consider the a function of two variables, for example
+\[
+f(x,y) = x^2\sin(x+5y).
+\]
+The following plots the graph of \(z=f(x,y)\), together with the vertical planes
+defined by \(y=y_0\) (in orange) and \(x=x_0\) (in red), and arrows representing
+the slope of the surface inside these planes. These slopes are given by the
+partial derivatives \(f_x(x,y)\) (where \(y=y_0\) is kept constant, in the orange plane)
+and  \(f_y(x,y)\) (where \(x=x_0\) is kept constant, in the red plane).<br>
+<div class="compute"><script type="text/x-sage">
+x,y,z = var('x y z')
+f = x^2*sin(x+5*y)
+# f = 1-x^2 - y^2
+M = 1
+h = 0.5
+
+fx = diff(f,x)
+fy = diff(f,y)
+
+@interact
+def _(
+    x0 = slider(-M, M, default=0, step_size=0.05),
+    y0 = slider(-M, M, default=0, step_size=0.05),
+        show_x = true,
+        show_y = true,
+        show_tangent_plane = false,
+    auto_update=False
+    ):
+    z0 = f(x=x0,y=y0)
+    show('f(x,y) = '+latex(f))
+    p = plot3d(f,(x,-M,M),(y,-M,M))+sphere((x0,y0,z0),0.05,color='black')
+    if show_x:
+        p = p+implicit_plot3d(y==y0, (x,-M,M), (y,-M,M), (z,-M,M), color='orange', opacity=0.9)+\
+        arrow3d((x0,y0,z0),(x0+h,y0,z0+fx(x=x0,y=y0)*h),color='black')
+        show(r'f_x(x,y) = '+latex(fx)+r';\qquad f_x('+str(n(x0,3))+','+str(n(y0,3))+') = '+latex(n(fx(x=x0,y=y0))) )
+    if show_y:
+        p = p+implicit_plot3d(x==x0, (x,-M,M), (y,-M,M), (z,-M,M), color='red', opacity=0.9)+\
+        arrow3d((x0,y0,z0),(x0,y0+h,z0+fy(x=x0,y=y0)*h),color='gray')
+        show(r'f_y(x,y) = '+latex(fy)+r';\qquad f_y('+str(n(x0,3))+','+str(n(y0,3))+') = '+latex(n(fy(x=x0,y=y0))) )
+    if show_tangent_plane:
+        p = p+plot3d(z0+fx(x=x0,y=y0)*(x-x0)+fy(x=x0,y=y0)*(y-y0), (x,x0-h,x0+h), (y,y0-h,y0+h), color='green', opacity=0.5)
+    show(p)
+</script></div>
+<br>
 
 
 <h2>Calculus V : Tangent Planes</h2>
 
-Play with linear approximations<br>
+You may have noticed that the 3d plot above has an option for showing the tangent plane...<br><br>
+
+Here are some more examples.<br>
+
 <div class="compute"><script type="text/x-sage">
 x,y=var('x','y')
 
