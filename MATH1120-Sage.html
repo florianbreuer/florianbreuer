@@ -226,22 +226,26 @@ fy = diff(f,y)
 def _(
     x0 = slider(-M, M, default=0, step_size=0.05),
     y0 = slider(-M, M, default=0, step_size=0.05),
-        show_x = true,
-        show_y = true,
+        show_x_arrow = true,
+        show_y_arrow = true,
+        show_x_plane = true,
+        show_y_plane = true,
         show_tangent_plane = false,
     auto_update=False
     ):
     z0 = f(x=x0,y=y0)
     show('f(x,y) = '+latex(f))
     p = plot3d(f,(x,-M,M),(y,-M,M))+sphere((x0,y0,z0),0.05,color='black')
-    if show_x:
-        p = p+implicit_plot3d(y==y0, (x,-M,M), (y,-M,M), (z,-M,M), color='orange', opacity=0.9)+\
-        arrow3d((x0,y0,z0),(x0+h,y0,z0+fx(x=x0,y=y0)*h),color='black')
+    if show_x_arrow:
+        p = p+arrow3d((x0,y0,z0),(x0+h,y0,z0+fx(x=x0,y=y0)*h),color='black')
         show(r'f_x(x,y) = '+latex(fx)+r';\qquad f_x('+str(n(x0,3))+','+str(n(y0,3))+') = '+latex(n(fx(x=x0,y=y0))) )
-    if show_y:
-        p = p+implicit_plot3d(x==x0, (x,-M,M), (y,-M,M), (z,-M,M), color='red', opacity=0.9)+\
-        arrow3d((x0,y0,z0),(x0,y0+h,z0+fy(x=x0,y=y0)*h),color='gray')
+    if show_x_plane:
+        p = p+implicit_plot3d(y==y0, (x,-M,M), (y,-M,M), (z,-M,M), color='orange', opacity=0.9)
+    if show_y_arrow:
+        p = p+arrow3d((x0,y0,z0),(x0,y0+h,z0+fy(x=x0,y=y0)*h),color='gray')
         show(r'f_y(x,y) = '+latex(fy)+r';\qquad f_y('+str(n(x0,3))+','+str(n(y0,3))+') = '+latex(n(fy(x=x0,y=y0))) )
+    if show_y_plane:
+        p = p+implicit_plot3d(x==x0, (x,-M,M), (y,-M,M), (z,-M,M), color='red', opacity=0.9)
     if show_tangent_plane:
         p = p+plot3d(z0+fx(x=x0,y=y0)*(x-x0)+fy(x=x0,y=y0)*(y-y0), (x,x0-h,x0+h), (y,y0-h,y0+h), color='green', opacity=0.5)
     show(p)
