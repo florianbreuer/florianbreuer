@@ -284,7 +284,7 @@ def _(x0=slider(-Mx,Mx,step_size=0.1,default=0),y0=slider(-My,My,step_size=0.1,d
 
 
 <br>
-Tangent plane to the implicitly defined surface in class:<br>
+Tangent plane to an implicitly defined surface:<br>
 The tangent plane to \( z-yz^3=x+2\) at the point \((x_0,y_0,z_0)=(2,0,3)\): <br>
 <div class="compute"><script type="text/x-sage">
 x,y,z=var('x','y','z')
@@ -293,6 +293,76 @@ implicit_plot3d(z==x+27*y+2,(x,-4,4),(y,-4,4),(z,-4,4),color='red')
 </script></div>
 
 <h2>Calculus VI : Directional derivative and gradient vectors</h2>
+
+In the following plot, we have the function
+\[
+f(x,y) = \cos(x)\sin(y),
+\]
+and we pick a location \((x,y)\) and a unit vector \(\hat{u}\) (red arrow) in the direction
+given by some angle. <br>
+The gradient vector \(\nabla f(x,y)\) at that location is the orange arrow,
+which points in the direction of steepest ascent on the surface \(z=f(x,y)\), and the
+tangent line to the surface \(z=f(x,y)\) is plotted in green. The gradient of that tangent
+line is the directional derivative.<br><br>
+
+<div class="compute"><script type="text/x-sage">
+var('x,y,t,z')
+f(x,y)=sin(x)*cos(y)
+
+pif = float(pi)
+
+line_thickness=3
+surface_color='blue'
+plane_color='purple'
+line_color='red'
+tangent_color='green'
+gradient_color='orange'
+
+@interact
+def myfun(location=input_grid(1, 2, default=[0,0], label = "Location (x,y)", width=2),
+          angle=slider(0, 2*pif, label = "Angle", step_size=0.01),
+          auto_update=false,
+          show_surface=("Show surface", True),
+          show_plane=("Show plane", True)):
+
+    location3d = vector(location[0]+[f(x=location[0][0],y=location[0][1])])
+    location = location3d[0:2]
+    direction3d = vector(RDF, [cos(angle), sin(angle), 0])
+    direction=direction3d[0:2]
+    cos_angle = math.cos(angle)
+    sin_angle = math.sin(angle)
+    df = f.gradient()
+    direction_vector=line3d([location3d, location3d+direction3d], arrow_head=True, rgbcolor=line_color, thickness=line_thickness)
+    curve_point = (location+t*direction).list()
+    curve = parametric_plot(curve_point+[f(*curve_point)], (t,-3,3),color=line_color,thickness=line_thickness)
+    plane = parametric_plot((cos_angle*x+location[0],sin_angle*x+location[1],t), (x, -3,3), (t,-3,3),opacity=0.8, color=plane_color)
+    pt = point3d(location3d.list(),color='green', size=10)
+
+    tangent_line = parametric_plot((location[0]+t*cos_angle, location[1]+t*sin_angle, f(*location)+t*df(*location)*(direction)), (t, -3,3), thickness=20, color=tangent_color)
+    picture3d = direction_vector+curve+pt+tangent_line
+    if show_plane:
+        picture3d += plane
+
+    picture2d = contour_plot(f(x,y), (x,-3,3),(y,-3,3), plot_points=100)
+    picture2d += arrow(location.list(), (location+direction).list(), color='red')
+    picture2d += point(location.list(),color='black',pointsize=40)
+    if show_surface:
+        picture3d += plot3d(f, (x,-3,3),(y,-3,3),opacity=0.7)
+
+    dff = df(location[0], location[1])
+    dff3d = vector(RDF,dff.list()+[0])
+    picture3d += line3d([location3d, location3d+dff3d], arrow_head=True, rgbcolor=gradient_color, thickness=line_thickness)
+    picture2d += arrow(location.list(), (location+dff).list(), rgbcolor=gradient_color, width=line_thickness)
+
+    show('f(x,y) = '+latex(f(x,y)))
+    show(r'\nabla f(x,y) = \langle'+latex(df(x,y)[0])+','+latex(df(x,y)[1])+r'\rangle')
+    show(r'\nabla f'+latex(vector(location))+r' = \langle'+latex(n(dff[0]))+','+latex(n(dff[1]))+r'\rangle')
+    show(r'\hat{u} = \langle'+latex(n(direction[0]))+','+latex(n(direction[1]))+r'\rangle')
+    show(r'D_{\hat{u}}\,f'+latex(vector(location))+' = '+latex(n(dff[0]*direction[0]+dff[1]*direction[1])))
+
+    show(picture3d,aspect=[1,1,1], axes=True)
+    show(picture2d, aspect_ratio=1)
+</script></div>
 
 Here we plot the function
 \[ f(x,y) = xy+y^2-x^3, \]
@@ -304,6 +374,7 @@ M=1
 f=x*y+y^2-x^3
 #f=x*y
 show('f(x,y)='+latex(f))
+show(r'\nabla f(x,y) = '+latex(f.gradient()))
 show(contour_plot(f,(x,-M,M),(y,-M,M),contours=30,fill=false)+\
      plot_vector_field(f.gradient(),(x,-M,M),(y,-M,M),color='red'))
 show(plot3d(f,(x,-M,M),(y,-M,M)))
@@ -316,7 +387,28 @@ For functions of three variables, the gradient vector is perpendicular to <thead
   level surfaces of the function. We can use this to obtain an equation for
 the tangent plane of a surface. <br><br>
 
-For example, we compute the tangent plane
+For example, the "rugby ball" we did in class:
+
+<div class="compute"><script type="text/x-sage">
+x,y,z = var('x y z')
+f = x^2 + 2*y^2 + 3*z^2
+(x0,y0,z0) = (1,1,-1)
+M = 2.5
+
+df = f.gradient()
+dff = df(x=x0,y=y0,z=z0)
+du = dff.normalized()
+
+surface = implicit_plot3d(f == f(x=x0,y=y0,z=z0), (x,-M,M), (y,-M,M), (z,-M,M), color='blue', opacity=0.9, aspectario=1)
+Point = sphere((x0,y0,z0), 0.1, color='black')
+normal_vector = arrow((x0,y0,z0),(x0+du[0],y0+du[1],z0+du[2]), color='red')
+tangent_plane = implicit_plot3d(du[0]*(x-x0)+du[1]*(y-y0)+du[2]*(z-z0), (x,-M,M), (y,-M,M), (z,-M,M), color='green',
+                                opacity=0.5)
+show(latex(f==f(x=x0,y=y0,z=z0)))
+show(surface+Point+normal_vector+tangent_plane)
+</script></div>
+
+Another example: we compute the tangent plane
 to the surface \( xy+yz^2+xz^3 = 54 \) at the point \( (2,0,3) \). <br>
 This surface is a level surface of the function
 \( f(x,y,z) = xy+yz^2+xz^3 \).
