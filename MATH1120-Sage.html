@@ -504,6 +504,22 @@ If \( f(x,y) = c \) defines \( y(x) \) implicitly as a function of \(x\), then
 \[
 \frac{dy}{dx} = -\frac{f_x}{f_y}.
 \]
+In the following plot, we have
+\[
+f(x,y) = x\cos y + y\cos x - x.
+\]
+You can choose the value of the constant \( c\) with the slider, and the plot shows
+the curve \( f(x,y) = c \) in blue, and the slopes given by
+\[
+\frac{dy}{dx} = -\frac{y\sin x - \cos y + 1}{x\sin y - \cos x}
+\]
+as little grey line segments. The slope of each segment is given by evaluating
+\(\frac{dy}{dx}\) at its \( (x,y)\)-position. Note that these slopes are tangential
+to the curve, as they must be.<br><br>
+You can also see the 3d plot of \( z = f(x,y) \) and a "water level" of \(z=c\), then
+the shoreline represents the curve \( f(x,y) = c \). Finally, you can show the
+gradient vectors \(\nabla f(x,y)\) (red arrows), which are of course perpendicular to
+the level curves (and thus the grey slopes).<br>
 <div class="compute"><script type="text/x-sage">
 x,y = var('x y')
 M = 5
@@ -513,7 +529,7 @@ f = x*cos(y)+y*cos(x)-x
 fx = diff(f,x)
 fy = diff(f,y)
 
-show(r"\frac{dy}{dy} = "+latex(-fx/fy))
+show(r"\frac{dy}{dx} = "+latex(-fx/fy))
 
 @interact
 def _(c=slider(-5,5,step_size=0.1,default=0),
@@ -529,7 +545,7 @@ def _(c=slider(-5,5,step_size=0.1,default=0),
         P=P+plot_vector_field(f.gradient(),(x,-M,M),(y,-M,M),plot_points=30,color='red')
     show(P)
     if show3d:
-        show(plot3d(f,(x,-M,M),(y,-M,M),aspect_ratio=[1,1,0.5])+plot3d(c,(x,-M,M),(y,-M,M),opacity=0.5,color='pink'))
+        show(plot3d(f,(x,-M,M),(y,-M,M),aspect_ratio=[1,1,0.5], color='green')+plot3d(c,(x,-M,M),(y,-M,M),opacity=0.5,color='blue'))
 </script></div>
 
 <h2>Differential Equations I: Direction Fields and Euler's Method</h2>
