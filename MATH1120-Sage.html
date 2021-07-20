@@ -63,7 +63,7 @@ Compute partial sums for the infinite series
 s = 1
 for i in range(1,20):
     s = s+2^(-i)
-    t=latex('1 + ')+'+'.join([r'\frac{1}{2^{'+str(j)+r'}}' for j in range(1,i+1)])+'= '+latex(s)+' = '+latex(n(s))
+    t='$1 + '+'+'.join([r'\frac{1}{2^{'+str(j)+r'}}' for j in range(1,i+1)])+'= '+latex(s)+' = '+latex(n(s))+'$'
     show(t)
 </script></div>
 
@@ -124,8 +124,8 @@ the series doesn't converge there.
 <div class="compute"><script type="text/x-sage">
 N = 5
 ft = sum(x^k for k in range(N+1))
-show('Blue: y = '+latex(ft))
-show(r'Green: y = \frac{1}{1-x}'+latex(''))
+show('Blue: $y = '+latex(ft)+'$')
+show(r'Green: $y = \frac{1}{1-x}'+latex('')+'$')
 plot([ft, 1/(1-x)], (x,-3,3), ymax=5, ymin=-5, thickness=2)
 </script></div>
 <br>
@@ -139,7 +139,7 @@ Note that the series only converges for \( x\in (0,2e) \).
 <div class="compute"><script type="text/x-sage">
 N = 5
 ft = 1+sum(1/k*exp(-k)*(x-exp(1))^k*(-1)^(k-1) for k in range(1,N+1) )
-show('T_{'+str(N)+'}f(x) = '+latex(ft))
+show('$T_{'+str(N)+'}f(x) = '+latex(ft)+'$')
 show(plot([log(x), ft], (x,0,10), ymax=10, ymin=-5, legend_label = ['ln(x)','T_'+str(N)+' ln(x)'], thickness=2)+
      plot(line([(2*exp(1),-5),(2*exp(1),10)],color='gray'))+
      text('x=2e',(2*exp(1)+0.5,-3), color='gray'))
@@ -197,7 +197,7 @@ M=4
 
 F = f(sqrt(x^2+y^2))
 show(plot(f,(x,0,M),title='z='+str(f)))
-show('z='+latex(F))
+show('$z='+latex(F)+'$')
 show(plot3d(F,(x,-M,M),(y,-M,M)))
 </script></div>
 
@@ -234,16 +234,16 @@ def _(
     auto_update=False
     ):
     z0 = f(x=x0,y=y0)
-    show('f(x,y) = '+latex(f))
+    show('$f(x,y) = '+latex(f)+'$')
     p = plot3d(f,(x,-M,M),(y,-M,M))+sphere((x0,y0,z0),0.05,color='black')
     if show_x_arrow:
         p = p+arrow3d((x0,y0,z0),(x0+h,y0,z0+fx(x=x0,y=y0)*h),color='black')
-        show(r'f_x(x,y) = '+latex(fx)+r';\qquad f_x('+str(n(x0,3))+','+str(n(y0,3))+') = '+latex(n(fx(x=x0,y=y0))) )
+        show(r'$f_x(x,y) = '+latex(fx)+r';\qquad f_x('+str(n(x0,3))+','+str(n(y0,3))+') = '+latex(n(fx(x=x0,y=y0)))+'$' )
     if show_x_plane:
         p = p+implicit_plot3d(y==y0, (x,-M,M), (y,-M,M), (z,-M,M), color='orange', opacity=0.9)
     if show_y_arrow:
         p = p+arrow3d((x0,y0,z0),(x0,y0+h,z0+fy(x=x0,y=y0)*h),color='gray')
-        show(r'f_y(x,y) = '+latex(fy)+r';\qquad f_y('+str(n(x0,3))+','+str(n(y0,3))+') = '+latex(n(fy(x=x0,y=y0))) )
+        show(r'$f_y(x,y) = '+latex(fy)+r';\qquad f_y('+str(n(x0,3))+','+str(n(y0,3))+') = '+latex(n(fy(x=x0,y=y0)))+'$' )
     if show_y_plane:
         p = p+implicit_plot3d(x==x0, (x,-M,M), (y,-M,M), (z,-M,M), color='red', opacity=0.9)
     if show_tangent_plane:
@@ -269,16 +269,16 @@ Mx=2
 My=2
 fx=diff(f,x)
 fy=diff(f,y)
-show('f(x,y)='+latex(f(x=x,y=y)))
-show(r'f_x=\frac{\partial f}{\partial x} = '+latex(fx))
-show(r'f_y=\frac{\partial f}{\partial y} = '+latex(fy))
+show('$f(x,y)='+latex(f(x=x,y=y))+'$')
+show(r'$f_x=\frac{\partial f}{\partial x} = '+latex(fx)+'$')
+show(r'$f_y=\frac{\partial f}{\partial y} = '+latex(fy)+'$')
 
 @interact
 def _(x0=slider(-Mx,Mx,step_size=0.1,default=0),y0=slider(-My,My,step_size=0.1,default=0),auto_update=False):
     L = f(x=x0,y=y0)+fx(x=x0,y=y0)*(x-x0)+fy(x=x0,y=y0)*(y-y0)
-    show('(x_0,y_0)='+latex((x0,y0)))
-    show('(f_x('+latex(x0)+'),f_y('+latex(y0)+'))='+latex((fx(x=x0,y=y0),fy(x=x0,y=y0))))
-    show('L(x,y)='+latex(L(x=x,y=y)))
+    show('$(x_0,y_0)='+latex((x0,y0))+'$')
+    show('$(f_x('+latex(x0)+'),f_y('+latex(y0)+'))='+latex((fx(x=x0,y=y0),fy(x=x0,y=y0)))+'$')
+    show('$L(x,y)='+latex(L(x=x,y=y))+'$')
     show(plot3d(f,(x,-Mx,Mx),(y,-My,My),color='blue')+plot3d(L,(x,-Mx,Mx),(y,-My,My),color='red'))
 </script></div>
 
@@ -338,7 +338,7 @@ def myfun(location=input_grid(1, 2, default=[0,0], label = "Location (x,y)", wid
     plane = parametric_plot((cos_angle*x+location[0],sin_angle*x+location[1],t), (x, -3,3), (t,-3,3),opacity=0.8, color=plane_color)
     pt = point3d(location3d.list(),color='green', size=10)
 
-    tangent_line = parametric_plot((location[0]+t*cos_angle, location[1]+t*sin_angle, f(*location)+t*df(*location)*(direction)), (t, -3,3), thickness=20, color=tangent_color)
+    tangent_line = parametric_plot((location[0]+t*cos_angle, location[1]+t*sin_angle, f(*location)+t*df(*location)*(direction)), (t, -3,3), thickness=5, color=tangent_color)
     picture3d = direction_vector+curve+pt+tangent_line
     if show_plane:
         picture3d += plane
@@ -354,11 +354,11 @@ def myfun(location=input_grid(1, 2, default=[0,0], label = "Location (x,y)", wid
     picture3d += line3d([location3d, location3d+dff3d], arrow_head=True, rgbcolor=gradient_color, thickness=line_thickness)
     picture2d += arrow(location.list(), (location+dff).list(), rgbcolor=gradient_color, width=line_thickness)
 
-    show('f(x,y) = '+latex(f(x,y)))
-    show(r'\nabla f(x,y) = \langle'+latex(df(x,y)[0])+','+latex(df(x,y)[1])+r'\rangle')
-    show(r'\nabla f'+latex(vector(location))+r' = \langle'+latex(n(dff[0]))+','+latex(n(dff[1]))+r'\rangle')
-    show(r'\hat{u} = \langle'+latex(n(direction[0]))+','+latex(n(direction[1]))+r'\rangle')
-    show(r'D_{\hat{u}}\,f'+latex(vector(location))+' = '+latex(n(dff[0]*direction[0]+dff[1]*direction[1])))
+    show('$f(x,y) = '+latex(f(x,y))+'$')
+    show(r'$\nabla f(x,y) = \langle'+latex(df(x,y)[0])+','+latex(df(x,y)[1])+r'\rangle$')
+    show(r'$\nabla f'+latex(vector(location))+r' = \langle'+latex(n(dff[0]))+','+latex(n(dff[1]))+r'\rangle$')
+    show(r'$\hat{u} = \langle'+latex(n(direction[0]))+','+latex(n(direction[1]))+r'\rangle$')
+    show(r'$D_{\hat{u}}\,f'+latex(vector(location))+' = '+latex(n(dff[0]*direction[0]+dff[1]*direction[1]))+'$')
 
     show(picture3d,aspect=[1,1,1], axes=True)
     show(picture2d, aspect_ratio=1)
@@ -373,8 +373,8 @@ x,y=var('x','y')
 M=1
 f=x*y+y^2-x^3
 #f=x*y
-show('f(x,y)='+latex(f))
-show(r'\nabla f(x,y) = '+latex(f.gradient()))
+show('$f(x,y)='+latex(f)+'$')
+show(r'$\nabla f(x,y) = '+latex(f.gradient())+'$')
 show(contour_plot(f,(x,-M,M),(y,-M,M),contours=30,fill=false)+\
      plot_vector_field(f.gradient(),(x,-M,M),(y,-M,M),color='red'))
 show(plot3d(f,(x,-M,M),(y,-M,M)))
@@ -404,7 +404,7 @@ Point = sphere((x0,y0,z0), 0.1, color='black')
 normal_vector = arrow((x0,y0,z0),(x0+du[0],y0+du[1],z0+du[2]), color='red')
 tangent_plane = implicit_plot3d(du[0]*(x-x0)+du[1]*(y-y0)+du[2]*(z-z0), (x,-M,M), (y,-M,M), (z,-M,M), color='green',
                                 opacity=0.5)
-show(latex(f==f(x=x0,y=y0,z=z0)))
+show('$'+latex(f==f(x=x0,y=y0,z=z0))+'$')
 show(surface+Point+normal_vector+tangent_plane)
 </script></div>
 
@@ -433,10 +433,10 @@ fz=diff(f,z)
 
 L = fx(x=x0,y=y0,z=z0)*(x-x0)+fy(x=x0,y=y0,z=z0)*(y-y0)+fz(x=x0,y=y0,z=z0)*(z-z0)
 
-show("f(x,y,z)="+latex(f))
-show(r"\nabla f(x,y,z) = "+latex(f.gradient()))
-show(r"(x_0,y_0,z_0) = "+latex((x0,y0,z0)))
-show(r"\text{Tangent plane: }"+latex(L)+" = 0")
+show("$f(x,y,z)="+latex(f)+'$')
+show(r"$\nabla f(x,y,z) = "+latex(f.gradient())+'$')
+show(r"$(x_0,y_0,z_0) = "+latex((x0,y0,z0))+'$')
+show(r"$\text{Tangent plane: }"+latex(L)+" = 0$")
 
 show(
     implicit_plot3d(f==f(x=x0,y=y0,z=z0),(x,-M,M),(y,-M,M),(z,-M,M),plot_points=100)+\
@@ -452,7 +452,7 @@ The critical points of the function \( f(x,y) = 2x^3+(x+1)y^2+5x^2 \):
 <div class="compute"><script type="text/x-sage">
 x,y = var('x','y')
 f=2*x^3+(x+1)*y^2+5*x^2
-show("f(x,y) = "+latex(f))
+show("$f(x,y) = "+latex(f)+'$')
 show(
     plot3d(f,(x,-2,1),(y,-3,3),plot_points=100,aspect_ratio=[1,1,0.2])+\
     sphere((0,0,f(x=0,y=0)),0.1,color='red')+\
@@ -529,7 +529,7 @@ f = x*cos(y)+y*cos(x)-x
 fx = diff(f,x)
 fy = diff(f,y)
 
-show(r"\frac{dy}{dx} = "+latex(-fx/fy))
+show(r"$$\frac{dy}{dx} = "+latex(-fx/fy)+'$$')
 
 @interact
 def _(c=slider(-5,5,step_size=0.1,default=0),
@@ -537,7 +537,7 @@ def _(c=slider(-5,5,step_size=0.1,default=0),
     slopes = true,
     gradient = false,
     show3d = false):
-    show(r"f(x,y) = "+latex(f)+r" = "+latex(c))
+    show(r"$f(x,y) = "+latex(f)+r" = "+latex(c)+'$')
     P = implicit_plot(f==c,(x,-M,M),(y,-M,M))
     if slopes:
         P=P+plot_slope_field(-fx/fy,(x,-M,M),(y,-M,M),plot_points=30,color='gray')
@@ -619,7 +619,7 @@ VF = plot_slope_field(-4*x*y^2,(x,-M,M),(y,-M,M),aspect_ratio=1)
 
 @interact
 def _(c = slider(-5,5,default=0,step_size=0.1), auto_update=false):
-    show(r'y(x) = '+latex(1/(2*x^2+c)))
+    show(r'$$y(x) = '+latex(1/(2*x^2+c))+'$$')
     show(VF+plot(1/(2*x^2+c),(x,-M,M),ymin=-M,ymax=M))
 </script></div>
 <br><br>
@@ -633,7 +633,7 @@ VF = plot_slope_field(3*x^2/(4*y-cos(y)),(x,-M,M),(y,-M,M),aspect_ratio=1)
 
 @interact
 def _(c = slider(-5,5,default=0,step_size=0.1), auto_update=false):
-    show(r'2y^2-\sin(y)=x^3 + '+latex(c))
+    show(r'$2y^2-\sin(y)=x^3 + '+latex(c)+'$')
     show(VF+implicit_plot(2*y^2-sin(y)==x^3+c,(x,-M,M),(y,-M,M)))
 </script></div>
 <br><br>
@@ -647,7 +647,7 @@ VF = plot_slope_field(y*(1-y),(x,-M,M),(y,-M,M),aspect_ratio=1)
 
 @interact
 def _(A = slider(-10,10,default=0,step_size=0.1), auto_update=false):
-    show(r'y(x) = '+latex(A*exp(x)/(1+A*exp(x))))
+    show(r'$$y(x) = '+latex(A*exp(x)/(1+A*exp(x)))+'$$')
     show(VF+plot(A*exp(x)/(1+A*exp(x)),(x,-M,M),ymin=-M,ymax=M))
 </script></div>
 <br><br>
@@ -707,8 +707,8 @@ One can achieve herd immunity by vaccinating (\(1-\gamma/\beta\) ) of the popula
 # SIR model
 x,y,z = var('x y z')
 
-show(r'\frac{dI}{dt} = \beta I\cdot S - \gamma I, \quad S + I + R = 1'+latex(''))
-show(r'\frac{dR}{dt} = \gamma I - \delta R'+latex(''))
+show(r'$\frac{dI}{dt} = \beta I\cdot S - \gamma I, \quad S + I + R = 1$'+latex(''))
+show(r'$\frac{dR}{dt} = \gamma I - \delta R$'+latex(''))
 
 @interact
 def _(beta = slider(0,1,default=0.15,step_size=0.01,label=r'\( \beta \)'),
@@ -719,7 +719,7 @@ def _(beta = slider(0,1,default=0.15,step_size=0.01,label=r'\( \beta \)'),
      h = input_box(1,label='step size'),
      steps = input_box(200),
      auto_update=false):
-    show(r'\mathcal{R}_0 = '+latex(beta/gamma))
+    show(r'$\mathcal{R}_0 = '+latex(beta/gamma)+'$')
     VF = plot_vector_field((gamma*y-delta*x, beta*y*(1-x-y)-gamma*y), (x,0,1), (y,0,1),
                            color='black',aspect_ratio=1,axes_labels=['Recovered','Infected'])
     SL = streamline_plot((gamma*y-delta*x, beta*y*(1-x-y)-gamma*y), (x,0,1), (y,0,1),
@@ -817,7 +817,7 @@ t = var('t')
 x = function('x')(t)
 alpha = var('alpha')
 
-show(r'\frac{d^2x}{dt^2} + \frac{D}{m}\frac{dx}{dt} + \frac{k}{m}x = a\cos(w t)'+latex(''))
+show(r"$$\frac{d^2 x}{dt^2} + \frac{D}{m}\frac{dx}{dt} + \frac{k}{m}x = a\cos(w t)$$")
 
 @interact
 def _(D = ('damping D = ', slider(0, 5, default=1, step_size=0.1)),
@@ -840,7 +840,7 @@ def _(D = ('damping D = ', slider(0, 5, default=1, step_size=0.1)),
     q = sqrt(k/m)
     d = p/q
     print('damping parameter d = ', d)
-    show('x(t) = '+latex(sol))
+    show('$x(t) = '+latex(sol)+'$')
     L = [sol]
     legend = ['x(t)']
     if plotforce:
@@ -849,11 +849,11 @@ def _(D = ('damping D = ', slider(0, 5, default=1, step_size=0.1)),
     if plotxc:
         L.append(solc)
         legend.append('x_c(t)')
-        show('x_c(t) = '+latex(solc))
+        show('$x_c(t) = '+latex(solc)+'$')
     if plotxp:
         L.append(solp)
         legend.append('x_p(t)')
-        show('x_p(t) = '+latex(solp))
+        show('$x_p(t) = '+latex(solp)+'$')
     show(plot(L, 0, tmax, axes_labels = ['t','x'], legend_label = legend))
     frcurve = plot(1/sqrt(4*p^2*alpha^2+(alpha^2-q^2)^2), (alpha, 0, 5*w),
          axes_labels = ['applied frequency w', 'response'])
