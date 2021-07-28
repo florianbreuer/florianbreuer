@@ -200,6 +200,19 @@ show(plot(f,(x,0,M),title='z='+str(f)))
 show('$z='+latex(F)+'$')
 show(plot3d(F,(x,-M,M),(y,-M,M)))
 </script></div>
+<br>
+
+Here we plot some level surfaces of a function of 3 variables:
+$$f(x,y,z) = x^2 + 3y^2 + 5z^3 = k$$
+for \(k=-5,0,5\):
+<div class="compute"><script type="text/x-sage">
+x,y,z = var('x y z')
+f = x^2 + 3*y^2 + 5*z^3
+M = 2
+Ks = [0, 5, -5]
+sum([implicit_plot3d(f == k, (x,-M,M), (y,-M,M), (z,-M,M), plot_points=100, opacity=0.6) for k in Ks])
+</script></div>
+<br>
 
 <h2>Calculus IV : Partial Derivatives</h2>
 
