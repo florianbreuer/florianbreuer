@@ -506,8 +506,9 @@ Global maximum and minimum of \( f(x,y) = 2x^2+x+y^2-2 \) on the disc
 <div class="compute"><script type="text/x-sage">
 r,t=var('r t')
 parametric_plot3d((r*cos(t),r*sin(t),2*(r*cos(t))^2+r*cos(t)+(r*sin(t))^2-2),(t,0,2*pi),(r,0,2),
-opacity=0.9,aspect_ratio=[1,1,0.3])+sphere((-1/4,0,-17/8),0.1,color='red')+sphere((2,0,8),0.1,color='red')
-</script></div>
+opacity=1,aspect_ratio=[1,1,0.3])+sphere((-1/4,0,-17/8),0.1,color='red')+sphere((2,0,8),0.1,color='red')+\
+parametric_plot3d((r*cos(t),r*sin(t),0),(t,0,2*pi),(r,0,2),
+opacity=0.6,color='green')</script></div>
 
 
 <h2>Calculus VIII: Chain Rules</h2>
