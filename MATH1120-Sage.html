@@ -74,7 +74,7 @@ Compute partial sums for the infinite series
 s = 1
 for i in range(1,20):
     s = s+2^(-i)
-    t='$1 + '+'+'.join([r'\frac{1}{2^{'+str(j)+r'}}' for j in range(1,i+1)])+'= '+latex(s)+' = '+latex(n(s))+'$'
+    t='1 + '+'+'.join([r'\frac{1}{2^{'+str(j)+r'}}' for j in range(1,i+1)])+'= '+latex(s)+' = '+latex(n(s))
     show(t)
 </script></div>
 
@@ -135,8 +135,8 @@ the series doesn't converge there.
 <div class="compute"><script type="text/x-sage">
 N = 5
 ft = sum(x^k for k in range(N+1))
-show('Blue: $y = '+latex(ft)+'$')
-show(r'Green: $y = \frac{1}{1-x}'+latex('')+'$')
+show('Blue: y = '+latex(ft))
+show(r'Green: y = \frac{1}{1-x}'+latex(''))
 plot([ft, 1/(1-x)], (x,-3,3), ymax=5, ymin=-5, thickness=2)
 </script></div>
 <br>
@@ -150,7 +150,7 @@ Note that the series only converges for \( x\in (0,2e) \).
 <div class="compute"><script type="text/x-sage">
 N = 5
 ft = 1+sum(1/k*exp(-k)*(x-exp(1))^k*(-1)^(k-1) for k in range(1,N+1) )
-show('$T_{'+str(N)+'}f(x) = '+latex(ft)+'$')
+show('T_{'+str(N)+'}f(x) = '+latex(ft))
 show(plot([log(x), ft], (x,0,10), ymax=10, ymin=-5, legend_label = ['ln(x)','T_'+str(N)+' ln(x)'], thickness=2)+
      plot(line([(2*exp(1),-5),(2*exp(1),10)],color='gray'))+
      text('x=2e',(2*exp(1)+0.5,-3), color='gray'))
@@ -206,9 +206,9 @@ x,y = var('x y')
 f = sin(x)
 M=4
 
-F = f(sqrt(x^2+y^2))
+F = f(x=sqrt(x^2+y^2))
 show(plot(f,(x,0,M),title='z='+str(f)))
-show('$z='+latex(F)+'$')
+show('z='+latex(F))
 show(plot3d(F,(x,-M,M),(y,-M,M)))
 </script></div>
 <br>
@@ -258,16 +258,16 @@ def _(
     auto_update=False
     ):
     z0 = f(x=x0,y=y0)
-    show('$f(x,y) = '+latex(f)+'$')
+    show('f(x,y) = '+latex(f))
     p = plot3d(f,(x,-M,M),(y,-M,M))+sphere((x0,y0,z0),0.05,color='black')
     if show_x_arrow:
         p = p+arrow3d((x0,y0,z0),(x0+h,y0,z0+fx(x=x0,y=y0)*h),color='black')
-        show(r'$f_x(x,y) = '+latex(fx)+r';\qquad f_x('+str(n(x0,3))+','+str(n(y0,3))+') = '+latex(n(fx(x=x0,y=y0)))+'$' )
+        show(r'f_x(x,y) = '+latex(fx)+r';\qquad f_x('+str(n(x0,3))+','+str(n(y0,3))+') = '+latex(n(fx(x=x0,y=y0))))
     if show_x_plane:
         p = p+implicit_plot3d(y==y0, (x,-M,M), (y,-M,M), (z,-M,M), color='orange', opacity=0.9)
     if show_y_arrow:
         p = p+arrow3d((x0,y0,z0),(x0,y0+h,z0+fy(x=x0,y=y0)*h),color='gray')
-        show(r'$f_y(x,y) = '+latex(fy)+r';\qquad f_y('+str(n(x0,3))+','+str(n(y0,3))+') = '+latex(n(fy(x=x0,y=y0)))+'$' )
+        show(r'f_y(x,y) = '+latex(fy)+r';\qquad f_y('+str(n(x0,3))+','+str(n(y0,3))+') = '+latex(n(fy(x=x0,y=y0))))
     if show_y_plane:
         p = p+implicit_plot3d(x==x0, (x,-M,M), (y,-M,M), (z,-M,M), color='red', opacity=0.9)
     if show_tangent_plane:
@@ -293,16 +293,16 @@ Mx=2
 My=2
 fx=diff(f,x)
 fy=diff(f,y)
-show('$f(x,y)='+latex(f(x=x,y=y))+'$')
-show(r'$f_x=\frac{\partial f}{\partial x} = '+latex(fx)+'$')
-show(r'$f_y=\frac{\partial f}{\partial y} = '+latex(fy)+'$')
+show('f(x,y)='+latex(f(x=x,y=y)))
+show(r'f_x=\frac{\partial f}{\partial x} = '+latex(fx))
+show(r'f_y=\frac{\partial f}{\partial y} = '+latex(fy))
 
 @interact
 def _(x0=slider(-Mx,Mx,step_size=0.1,default=0),y0=slider(-My,My,step_size=0.1,default=0),auto_update=False):
     L = f(x=x0,y=y0)+fx(x=x0,y=y0)*(x-x0)+fy(x=x0,y=y0)*(y-y0)
-    show('$(x_0,y_0)='+latex((x0,y0))+'$')
-    show('$(f_x('+latex(x0)+'),f_y('+latex(y0)+'))='+latex((fx(x=x0,y=y0),fy(x=x0,y=y0)))+'$')
-    show('$L(x,y)='+latex(L(x=x,y=y))+'$')
+    show('(x_0,y_0)='+latex((x0,y0)))
+    show('(f_x('+latex(x0)+'),f_y('+latex(y0)+'))='+latex((fx(x=x0,y=y0),fy(x=x0,y=y0))))
+    show('L(x,y)='+latex(L(x=x,y=y)))
     show(plot3d(f,(x,-Mx,Mx),(y,-My,My),color='blue')+plot3d(L,(x,-Mx,Mx),(y,-My,My),color='red'))
 </script></div>
 
@@ -378,11 +378,11 @@ def myfun(location=input_grid(1, 2, default=[0,0], label = "Location (x,y)", wid
     picture3d += line3d([location3d, location3d+dff3d], arrow_head=True, rgbcolor=gradient_color, thickness=line_thickness)
     picture2d += arrow(location.list(), (location+dff).list(), rgbcolor=gradient_color, width=line_thickness)
 
-    show('$f(x,y) = '+latex(f(x,y))+'$')
-    show(r'$\nabla f(x,y) = \langle'+latex(df(x,y)[0])+','+latex(df(x,y)[1])+r'\rangle$')
-    show(r'$\nabla f'+latex(vector(location))+r' = \langle'+latex(n(dff[0]))+','+latex(n(dff[1]))+r'\rangle$')
-    show(r'$\hat{u} = \langle'+latex(n(direction[0]))+','+latex(n(direction[1]))+r'\rangle$')
-    show(r'$D_{\hat{u}}\,f'+latex(vector(location))+' = '+latex(n(dff[0]*direction[0]+dff[1]*direction[1]))+'$')
+    show('f(x,y) = '+latex(f(x,y)))
+    show(r'\nabla f(x,y) = \langle'+latex(df(x,y)[0])+','+latex(df(x,y)[1])+r'\rangle')
+    show(r'\nabla f'+latex(vector(location))+r' = \langle'+latex(n(dff[0]))+','+latex(n(dff[1]))+r'\rangle')
+    show(r'\hat{u} = \langle'+latex(n(direction[0]))+','+latex(n(direction[1]))+r'\rangle')
+    show(r'D_{\hat{u}}\,f'+latex(vector(location))+' = '+latex(n(dff[0]*direction[0]+dff[1]*direction[1])))
 
     show(picture3d,aspect=[1,1,1], axes=True)
     show(picture2d, aspect_ratio=1)
@@ -397,8 +397,8 @@ x,y=var('x','y')
 M=1
 f=x*y+y^2-x^3
 #f=x*y
-show('$f(x,y)='+latex(f)+'$')
-show(r'$\nabla f(x,y) = '+latex(f.gradient())+'$')
+show('f(x,y)='+latex(f))
+show(r'\nabla f(x,y) = '+latex(f.gradient()))
 show(contour_plot(f,(x,-M,M),(y,-M,M),contours=30,fill=false)+\
      plot_vector_field(f.gradient(),(x,-M,M),(y,-M,M),color='red'))
 show(plot3d(f,(x,-M,M),(y,-M,M)))
@@ -428,7 +428,7 @@ Point = sphere((x0,y0,z0), 0.1, color='black')
 normal_vector = arrow((x0,y0,z0),(x0+du[0],y0+du[1],z0+du[2]), color='red')
 tangent_plane = implicit_plot3d(du[0]*(x-x0)+du[1]*(y-y0)+du[2]*(z-z0), (x,-M,M), (y,-M,M), (z,-M,M), color='green',
                                 opacity=0.5)
-show('$'+latex(f==f(x=x0,y=y0,z=z0))+'$')
+show(latex(f==f(x=x0,y=y0,z=z0)))
 show(surface+Point+normal_vector+tangent_plane)
 </script></div>
 
@@ -457,10 +457,10 @@ fz=diff(f,z)
 
 L = fx(x=x0,y=y0,z=z0)*(x-x0)+fy(x=x0,y=y0,z=z0)*(y-y0)+fz(x=x0,y=y0,z=z0)*(z-z0)
 
-show("$f(x,y,z)="+latex(f)+'$')
-show(r"$\nabla f(x,y,z) = "+latex(f.gradient())+'$')
-show(r"$(x_0,y_0,z_0) = "+latex((x0,y0,z0))+'$')
-show(r"$\text{Tangent plane: }"+latex(L)+" = 0$")
+show("f(x,y,z)="+latex(f))
+show(r"\nabla f(x,y,z) = "+latex(f.gradient()))
+show(r"(x_0,y_0,z_0) = "+latex((x0,y0,z0)))
+show(r"\text{Tangent plane: }"+latex(L)+" = 0")
 
 show(
     implicit_plot3d(f==f(x=x0,y=y0,z=z0),(x,-M,M),(y,-M,M),(z,-M,M),plot_points=100)+\
@@ -476,7 +476,7 @@ The critical points of the function \( f(x,y) = 2x^3+(x+1)y^2+5x^2 \):
 <div class="compute"><script type="text/x-sage">
 x,y = var('x','y')
 f=2*x^3+(x+1)*y^2+5*x^2
-show("$f(x,y) = "+latex(f)+'$')
+show("f(x,y) = "+latex(f))
 show(
     plot3d(f,(x,-2,1),(y,-3,3),plot_points=100,aspect_ratio=[1,1,0.2])+\
     sphere((0,0,f(x=0,y=0)),0.1,color='red')+\
@@ -554,7 +554,7 @@ f = x*cos(y)+y*cos(x)-x
 fx = diff(f,x)
 fy = diff(f,y)
 
-show(r"$$\frac{dy}{dx} = "+latex(-fx/fy)+'$$')
+show(r"\frac{dy}{dx} = "+latex(-fx/fy))
 
 @interact
 def _(c=slider(-5,5,step_size=0.1,default=0),
@@ -562,7 +562,7 @@ def _(c=slider(-5,5,step_size=0.1,default=0),
     slopes = true,
     gradient = false,
     show3d = false):
-    show(r"$f(x,y) = "+latex(f)+r" = "+latex(c)+'$')
+    show(r"f(x,y) = "+latex(f)+r" = "+latex(c))
     P = implicit_plot(f==c,(x,-M,M),(y,-M,M))
     if slopes:
         P=P+plot_slope_field(-fx/fy,(x,-M,M),(y,-M,M),plot_points=30,color='gray')
@@ -605,7 +605,7 @@ def _(f=input_box(default=x-y),
 
     result = slope_field + starting_point + solution
 
-    pretty_print(html(r"$ \displaystyle\frac{dy}{dt} = %s$" %latex(f)))
+    pretty_print(html(r"$\displaystyle\frac{dy}{dt} = %s$" %latex(f)))
     result.show(xmin=xmin,xmax=xmax,ymin=ymin,ymax=ymax)
 </script></div>
 
@@ -644,7 +644,7 @@ VF = plot_slope_field(-4*x*y^2,(x,-M,M),(y,-M,M),aspect_ratio=1)
 
 @interact
 def _(c = slider(-5,5,default=0,step_size=0.1), auto_update=false):
-    show(r'$$y(x) = '+latex(1/(2*x^2+c))+'$$')
+    show(r'y(x) = '+latex(1/(2*x^2+c)))
     show(VF+plot(1/(2*x^2+c),(x,-M,M),ymin=-M,ymax=M))
 </script></div>
 <br><br>
@@ -658,7 +658,7 @@ VF = plot_slope_field(3*x^2/(4*y-cos(y)),(x,-M,M),(y,-M,M),aspect_ratio=1)
 
 @interact
 def _(c = slider(-5,5,default=0,step_size=0.1), auto_update=false):
-    show(r'$2y^2-\sin(y)=x^3 + '+latex(c)+'$')
+    show(r'2y^2-\sin(y)=x^3 + '+latex(c))
     show(VF+implicit_plot(2*y^2-sin(y)==x^3+c,(x,-M,M),(y,-M,M)))
 </script></div>
 <br><br>
@@ -672,7 +672,7 @@ VF = plot_slope_field(y*(1-y),(x,-M,M),(y,-M,M),aspect_ratio=1)
 
 @interact
 def _(A = slider(-10,10,default=0,step_size=0.1), auto_update=false):
-    show(r'$$y(x) = '+latex(A*exp(x)/(1+A*exp(x)))+'$$')
+    show(r'y(x) = '+latex(A*exp(x)/(1+A*exp(x))))
     show(VF+plot(A*exp(x)/(1+A*exp(x)),(x,-M,M),ymin=-M,ymax=M))
 </script></div>
 <br><br>
@@ -743,8 +743,8 @@ These are proportions, so 0.01 means 1% of the population.
 # SIR model
 x,y,z = var('x y z')
 
-show(r'$\frac{dI}{dt} = \beta I\cdot S - \gamma I, \quad S + I + R = 1$'+latex(''))
-show(r'$\frac{dR}{dt} = \gamma I - \delta R$'+latex(''))
+show(r'\frac{dI}{dt} = \beta I\cdot S - \gamma I, \quad S + I + R = 1'+latex(''))
+show(r'\frac{dR}{dt} = \gamma I - \delta R'+latex(''))
 
 @interact
 def _(Rnought = slider(0,20,default=2.5,step_size=0.01,label=r'\( \mathcal{R}_0 \)'),
@@ -756,7 +756,7 @@ def _(Rnought = slider(0,20,default=2.5,step_size=0.01,label=r'\( \mathcal{R}_0 
      steps = input_box(200),
      auto_update=false):
     beta = Rnought*gamma
-#     show(r'$\mathcal{R}_0 = '+latex(beta/gamma)+'$')
+#     show(r'\mathcal{R}_0 = '+latex(beta/gamma))
     VF = plot_vector_field((gamma*y-delta*x, beta*y*(1-x-y)-gamma*y), (x,0,1), (y,0,1),
                            color='black',aspect_ratio=1,axes_labels=['Recovered','Infected'])
     SL = streamline_plot((gamma*y-delta*x, beta*y*(1-x-y)-gamma*y), (x,0,1), (y,0,1),
@@ -877,7 +877,7 @@ def _(D = ('damping D = ', slider(0, 5, default=1, step_size=0.1)),
     q = sqrt(k/m)
     d = p/q
     print('damping parameter d = ', d)
-    show('$x(t) = '+latex(sol)+'$')
+    show('x(t) = '+latex(sol))
     L = [sol]
     legend = ['x(t)']
     if plotforce:
@@ -886,11 +886,11 @@ def _(D = ('damping D = ', slider(0, 5, default=1, step_size=0.1)),
     if plotxc:
         L.append(solc)
         legend.append('x_c(t)')
-        show('$x_c(t) = '+latex(solc)+'$')
+        show('x_c(t) = '+latex(solc))
     if plotxp:
         L.append(solp)
         legend.append('x_p(t)')
-        show('$x_p(t) = '+latex(solp)+'$')
+        show('x_p(t) = '+latex(solp))
     show(plot(L, 0, tmax, axes_labels = ['t','x'], legend_label = legend))
     frcurve = plot(1/sqrt(4*p^2*alpha^2+(alpha^2-q^2)^2), (alpha, 0, 5*w),
          axes_labels = ['applied frequency w', 'response'])
@@ -944,7 +944,7 @@ def SEL(A_text='[(0,0,-1,2),(-1,0,2,4), (0,0,1,-2)]',
     var_names = ', '.join('x_%d'%j for j in [1..nvars])
     variables = var(var_names)
     pretty_print('Variables: %s'% var_names)
-#    pretty_print(HtmlFragment('Variables: $'+',\\;'.join([latex(v) for v in variables])+'$'))
+#    pretty_print(HtmlFragment('Variables: '+',\\;'.join([latex(v) for v in variables])))
 #     for row,y in zip(A,b):
 #         pretty_print(latex(sum(c*v for c,v in zip(row, variables))==y))
 
@@ -1096,10 +1096,10 @@ L=[(1,1),(1,0),(0,0),(0,1),(1,1),(0.5,1.5),(0,1),(0,1.4),(0.25,1.4),(0.25,1.25)]
 example = [[1,0],[0,1]]
 
 @interact
-def _(theta=slider(-3.14,3.14,step_size=0.01,default=pi/3),
+def _(theta=slider(-3.14,3.14,step_size=0.01,default=pi/3,label=r'\(\theta =\)'),
       auto_update=false):
     A = matrix(2,2,[cos(theta), -sin(theta), sin(theta), cos(theta)])
-    show('$A = '+latex(A)+'$')
+    show('A = '+latex(A))
     print('det(A) = ',det(A))
     LA = list(map(lambda v: vector(A*matrix(2,1,list(v))), L))
     show(line(L, color='blue'), aspect_ratio=1, frame=true, title='Input')
@@ -1199,9 +1199,9 @@ def _(M=input_grid(D,D, default = example,
             show(M)
     M=M.submatrix(0,D,D)
     pretty_print('We keep the right submatrix, which contains the inverse')
-    show('\\[M^{-1} = '+latex(M)+'\\]')
+    show('M^{-1} = '+latex(M))
     pretty_print('We check it actually is the inverse')
-    show('\\[M^{-1}\\cdot M = '+latex(M)+'\\cdot'+latex(N)+' = '+latex(M*N)+'\\]')
+    show('M^{-1}\\cdot M = '+latex(M)+'\\cdot'+latex(N)+' = '+latex(M*N))
 </script></div>
 
 <h1 ID="LA5">Linear Algebra V: Eigenvectors and Eigenvalues</h1>
@@ -1256,26 +1256,26 @@ K.<a>=QuadraticField(5)
 # than approximating it with digits...
 A = matrix(K,2,2,[0,1,1,1])
 pretty_print('The Fibonacci matrix: ')
-pretty_print('\\[A = '+latex(A)+'\\]')
+pretty_print('A = '+latex(A))
 [(l1,[v1],n1),(l2,[v2],n2)] = A.eigenvectors_right(extend=false)
 v1 = matrix(2,1,v1)  # turn v1 and v2 into 2x1 matrices
 v2 = matrix(2,1,v2)
 (D, P) = A.eigenmatrix_right()
 pretty_print("Its eigenvalues are:")
-pretty_print(r'$\lambda_1 = '+latex(l1)+r',\qquad \lambda_2 = '+latex(l2)+'$')
+pretty_print(r'\lambda_1 = '+latex(l1)+r',\qquad \lambda_2 = '+latex(l2))
 pretty_print('With corresponding eigenvectors:')
-pretty_print(r'${\bf v}_1 = '+latex(v1)+r',\qquad {\bf v}_2 = '+latex(v2)+'$')
-pretty_print('We should have $A = PDP^{-1}$ with')
-# pretty_print(r'$$ A = PDP^{-1}\;$$'+latex(''),'with')
-pretty_print('$$P = '+latex(P)+r',\qquad D = '+latex(D)+'$$')
+pretty_print(r'{\bf v}_1 = '+latex(v1)+r',\qquad {\bf v}_2 = '+latex(v2))
+pretty_print('We should have A = PDP^{-1} with')
+# pretty_print(r'A = PDP^{-1}\;'+latex(''),'with')
+pretty_print('P = '+latex(P)+r',\qquad D = '+latex(D))
 pretty_print("Let's check it:")
-pretty_print(r'$$PDP^{-1}\; =\; '+latex(P)+r'\cdot'+latex(D)+r'\cdot'+\
-             latex(P.inverse())+r'\; = \;'+latex(P*D*P.inverse())+r'\; = \; A.$$')
-pretty_print('Now powers of A are easy to compute: $A^n = PD^nP^{-1}$.')
+pretty_print(r'PDP^{-1}\; =\; '+latex(P)+r'\cdot'+latex(D)+r'\cdot'+\
+             latex(P.inverse())+r'\; = \;'+latex(P*D*P.inverse())+r'\; = \; A.')
+pretty_print('Now powers of A are easy to compute: A^n = PD^nP^{-1}.')
 
 @interact
 def _(n = slider(0, 200, step_size=1, default=0)):
-    pretty_print('$$A^{'+str(n)+'} = PD^{'+str(n)+'}P^{-1} = '+latex(P*D^n*P.inverse())+'$$')
+    pretty_print('A^{'+str(n)+'} = PD^{'+str(n)+'}P^{-1} = '+latex(P*D^n*P.inverse()))
     print()
 
 </script></div>
@@ -1289,11 +1289,11 @@ the top-right entry of \(A^n = PD^nP^{-1}\):
 pretty_print("Binet's Formula:  ", r'\;F_n = \frac{\phi^n - \bar{\phi}^n}{\sqrt{5}}'+latex(''))
 phi = (1+sqrt(5))/2
 phibar = (1-sqrt(5))/2
-pretty_print(r'$$\phi \; = \;'+latex(phi)+r', \qquad \bar{\phi} \; = \;'+latex(phibar)+'$$')
+pretty_print(r'\phi \; = \;'+latex(phi)+r', \qquad \bar{\phi} \; = \;'+latex(phibar))
 @interact
 def _(n = slider(0, 200, step_size=1, default=0)):
     Fn = (phi^n-phibar^n)/sqrt(5)
-    pretty_print('$F_{'+str(n)+r'} = \;'+latex(round(Fn))+'$')   # we use round(Fn) to force Sage to simplify it
+    pretty_print('F_{'+str(n)+r'} = \;'+latex(round(Fn)))   # we use round(Fn) to force Sage to simplify it
 </script></div>
 
 <br><br>
@@ -1315,9 +1315,9 @@ def _(A=input_grid(2,2, default = example,
         A = matrix(K,2,2,A)
     (D, P) = A.eigenmatrix_right()
     pretty_print('We have', r'\; A = PDP^{-1}\;'+latex(''),'where')
-    pretty_print(r'$$A \; = \; '+latex(A)+r', \qquad P \; = \;'+latex(P)+r',\qquad D \; = \;'+latex(D)+'$$')
-    pretty_print(r'$$A^{'+str(n)+r'} \;=\; PD^{'+str(n)+r'}P^{-1} \;=\; '+\
-                 latex(P)+latex(D^n)+latex(P.inverse())+r'\; = \;'+latex(P*D^n*P.inverse())+'$$')
+    pretty_print(r'A \; = \; '+latex(A)+r', \qquad P \; = \;'+latex(P)+r',\qquad D \; = \;'+latex(D))
+    pretty_print(r'A^{'+str(n)+r'} \;=\; PD^{'+str(n)+r'}P^{-1} \;=\; '+\
+                 latex(P)+latex(D^n)+latex(P.inverse())+r'\; = \;'+latex(P*D^n*P.inverse()))
 
 </script></div>
 
