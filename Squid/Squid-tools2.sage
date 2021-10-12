@@ -1,10 +1,3 @@
-# print("The following html code turns on MathJax:")
-# print()
-# print()
-# print(r"""
-# <script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-# </div>
-# """
 print("Squid Tools v2, 11 October 2021")
 print("By Florian Breuer, florian.breuer@newcastle.edu.au")
 print()
