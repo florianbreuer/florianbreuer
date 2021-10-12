@@ -4994,7 +4994,7 @@ form{
   .bp3-running-text table th, table.bp3-html-table th{
     color:#182026;
     font-weight:600; }
-
+  
   .bp3-running-text table td,
   table.bp3-html-table td{
     color:#182026; }
@@ -14615,12 +14615,12 @@ div.jp-OutputPrompt {
                 },
                 displayAlign: 'center',
                 CommonHTML: {
-                    linebreaks: {
-                    automatic: true
+                    linebreaks: { 
+                    automatic: true 
                     }
                 }
             });
-
+        
             MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
         }
     }
@@ -14682,7 +14682,7 @@ Can't see the whole page? Reduce the magnification in your browser with "<tt>ctr
 
 <div class="jp-OutputArea-child">
 
-
+    
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
@@ -14721,7 +14721,7 @@ Imported the following classes:
 </div></div></section></section><section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Squid currently only supports two question types: Multiple-choice and Written-answer.
+<p>Squid currently only supports two question types: Multiple-choice and Written-answer. 
 Squid defines two classes, <tt>Question_MCQ</tt> and <tt>Question_written</tt>.</p>
 <p>to create a new multiple-choice question, we create a subclass of <tt>Question_MCQ</tt> which is initialised by various parameters that can vary from one question variant to another:</p>
 
@@ -14735,13 +14735,13 @@ Squid defines two classes, <tt>Question_MCQ</tt> and <tt>Question_written</tt>.<
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">MyMCQ</span><span class="p">(</span><span class="n">Question_MCQ</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
         <span class="n">Question_MCQ</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>  <span class="c1"># this loads some useful methods from Question_MCQ</span>
-
+        
         <span class="bp">self</span><span class="o">.</span><span class="n">question_text</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;Compute $</span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s1"> + </span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s1">$:&#39;</span>
-
+        
         <span class="bp">self</span><span class="o">.</span><span class="n">answer</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span>
-
+        
         <span class="bp">self</span><span class="o">.</span><span class="n">wrong_answers</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="o">+</span><span class="mi">2</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="o">-</span><span class="mi">1</span><span class="p">)]</span>
-
+        
 <span class="n">Q</span> <span class="o">=</span> <span class="n">MyMCQ</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
 <span class="n">display</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span>
 </pre></div>
@@ -14758,7 +14758,7 @@ Squid defines two classes, <tt>Question_MCQ</tt> and <tt>Question_written</tt>.<
 
 <div class="jp-OutputArea-child">
 
-
+    
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
@@ -14809,7 +14809,7 @@ Compute $3 + 5$:<br><ol><li>8</li>
 
 <div class="jp-OutputArea-child">
 
-
+    
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
@@ -14826,7 +14826,7 @@ Compute $3 + 4$:<br><ol><li>7</li>
 
 <div class="jp-OutputArea-child">
 
-
+    
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
@@ -14843,7 +14843,7 @@ Compute $3 + 5$:<br><ol><li>8</li>
 
 <div class="jp-OutputArea-child">
 
-
+    
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
@@ -14860,7 +14860,7 @@ Compute $3 + 6$:<br><ol><li>9</li>
 
 <div class="jp-OutputArea-child">
 
-
+    
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
@@ -14877,7 +14877,7 @@ Compute $3 + 7$:<br><ol><li>10</li>
 
 <div class="jp-OutputArea-child">
 
-
+    
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
@@ -14894,7 +14894,7 @@ Compute $3 + 8$:<br><ol><li>11</li>
 
 <div class="jp-OutputArea-child">
 
-
+    
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
@@ -14911,7 +14911,7 @@ Compute $4 + 5$:<br><ol><li>9</li>
 
 <div class="jp-OutputArea-child">
 
-
+    
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
@@ -14928,7 +14928,7 @@ Compute $4 + 6$:<br><ol><li>10</li>
 
 <div class="jp-OutputArea-child">
 
-
+    
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
@@ -14945,7 +14945,7 @@ Compute $4 + 7$:<br><ol><li>11</li>
 
 <div class="jp-OutputArea-child">
 
-
+    
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
@@ -14962,7 +14962,7 @@ Compute $4 + 8$:<br><ol><li>12</li>
 
 <div class="jp-OutputArea-child">
 
-
+    
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
@@ -14979,7 +14979,7 @@ Compute $5 + 6$:<br><ol><li>11</li>
 
 <div class="jp-OutputArea-child">
 
-
+    
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
@@ -14996,7 +14996,7 @@ Compute $5 + 7$:<br><ol><li>12</li>
 
 <div class="jp-OutputArea-child">
 
-
+    
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
@@ -15013,7 +15013,7 @@ Compute $5 + 8$:<br><ol><li>13</li>
 
 <div class="jp-OutputArea-child">
 
-
+    
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
@@ -15030,7 +15030,7 @@ Compute $6 + 7$:<br><ol><li>13</li>
 
 <div class="jp-OutputArea-child">
 
-
+    
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
@@ -15047,7 +15047,7 @@ Compute $6 + 8$:<br><ol><li>14</li>
 
 <div class="jp-OutputArea-child">
 
-
+    
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
@@ -15093,7 +15093,7 @@ Compute $7 + 8$:<br><ol><li>15</li>
 
 <div class="jp-OutputArea-child">
 
-
+    
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
@@ -15129,12 +15129,12 @@ Created UploadMeToCanvas.zip - You can upload this file to Canvas.
         <span class="sd">&#39;&#39;&#39;Compute the directional derivative of f(x,y) at the point P in the direction v.&#39;&#39;&#39;</span>
         <span class="n">Question_MCQ</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">variant_number</span> <span class="o">=</span> <span class="n">variant_number</span>
-
+        
         <span class="n">fx</span> <span class="o">=</span> <span class="n">diff</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
         <span class="n">fy</span> <span class="o">=</span> <span class="n">diff</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
-
+        
         <span class="n">u</span> <span class="o">=</span> <span class="p">(</span><span class="n">V</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="n">sqrt</span><span class="p">(</span><span class="n">V</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">^</span><span class="mi">2</span><span class="o">+</span><span class="n">V</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">^</span><span class="mi">2</span><span class="p">),</span><span class="n">V</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="n">sqrt</span><span class="p">(</span><span class="n">V</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">^</span><span class="mi">2</span><span class="o">+</span><span class="n">V</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">^</span><span class="mi">2</span><span class="p">))</span>
-
+        
         <span class="bp">self</span><span class="o">.</span><span class="n">question_text</span> <span class="o">=</span> <span class="sa">r</span><span class="s2">&quot;&quot;&quot;Compute the directional derivative of \(f(x) = &quot;&quot;&quot;</span>\
         <span class="o">+</span><span class="n">latex</span><span class="p">(</span><span class="n">f</span><span class="p">)</span><span class="o">+</span>\
         <span class="sa">r</span><span class="sd">&quot;&quot;&quot;\) at the point \(P = &quot;&quot;&quot;</span>\
@@ -15142,9 +15142,9 @@ Created UploadMeToCanvas.zip - You can upload this file to Canvas.
         <span class="sa">r</span><span class="sd">&quot;&quot;&quot;\) in the direction \(\langle&quot;&quot;&quot;</span>\
         <span class="o">+</span><span class="n">latex</span><span class="p">(</span><span class="n">V</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">+</span><span class="s1">&#39;,&#39;</span><span class="o">+</span><span class="n">latex</span><span class="p">(</span><span class="n">V</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">+</span>\
         <span class="sa">r</span><span class="sd">&quot;&quot;&quot;\rangle\).&quot;&quot;&quot;</span>
-
+        
         <span class="bp">self</span><span class="o">.</span><span class="n">answer</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;\(&#39;</span><span class="o">+</span><span class="n">latex</span><span class="p">(</span><span class="n">u</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">fx</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">P</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">y</span><span class="o">=</span><span class="n">P</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">fy</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">P</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">y</span><span class="o">=</span><span class="n">P</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span><span class="o">+</span><span class="sa">r</span><span class="s1">&#39;\)&#39;</span>
-
+        
         <span class="bp">self</span><span class="o">.</span><span class="n">wrong_answers</span> <span class="o">=</span> <span class="p">[</span><span class="sa">r</span><span class="s1">&#39;\(&#39;</span><span class="o">+</span><span class="n">latex</span><span class="p">(</span><span class="n">V</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">fx</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">P</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">y</span><span class="o">=</span><span class="n">P</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="n">V</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">fy</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">P</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">y</span><span class="o">=</span><span class="n">P</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span><span class="o">+</span><span class="sa">r</span><span class="s1">&#39;\)&#39;</span><span class="p">,</span>
                               <span class="sa">r</span><span class="s1">&#39;\(&#39;</span><span class="o">+</span><span class="n">latex</span><span class="p">(</span><span class="n">V</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">fx</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">P</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">y</span><span class="o">=</span><span class="n">P</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">-</span> <span class="n">V</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">fy</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">P</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">y</span><span class="o">=</span><span class="n">P</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span><span class="o">+</span><span class="sa">r</span><span class="s1">&#39;\)&#39;</span><span class="p">,</span>
                               <span class="sa">r</span><span class="s1">&#39;\(&#39;</span><span class="o">+</span><span class="n">latex</span><span class="p">(</span><span class="n">u</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">fy</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">P</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">y</span><span class="o">=</span><span class="n">P</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">+</span> <span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">fx</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">P</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">y</span><span class="o">=</span><span class="n">P</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span><span class="o">+</span><span class="sa">r</span><span class="s1">&#39;\)&#39;</span><span class="p">,</span>
@@ -15175,7 +15175,7 @@ Created UploadMeToCanvas.zip - You can upload this file to Canvas.
 
 <div class="jp-OutputArea-child">
 
-
+    
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
@@ -15224,7 +15224,7 @@ run an interactive tool that lets us select the variants we want and export them
 
 <div class="jp-OutputArea-child">
 
-
+    
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
@@ -15233,9 +15233,9 @@ run an interactive tool that lets us select the variants we want and export them
 
 
 
-<div id="774007f9-f6bf-46d1-b884-7bb8d7c71364" class="jupyter-widgets jp-OutputArea-output ">
+<div id="447cedd7-c407-4f20-ab97-16f86e781ee6" class="jupyter-widgets jp-OutputArea-output ">
 <script type="text/javascript">
-var element = document.getElementById('774007f9-f6bf-46d1-b884-7bb8d7c71364');
+var element = document.getElementById('447cedd7-c407-4f20-ab97-16f86e781ee6');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "3e04ae7f39574341a4e56f12b6501cc3", "version_major": 2, "version_minor": 0}
@@ -15246,7 +15246,7 @@ var element = document.getElementById('774007f9-f6bf-46d1-b884-7bb8d7c71364');
 
 <div class="jp-OutputArea-child">
 
-
+    
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
@@ -15255,9 +15255,9 @@ var element = document.getElementById('774007f9-f6bf-46d1-b884-7bb8d7c71364');
 
 
 
-<div id="8ce8809a-9ba8-4ef6-9186-7ef676289c88" class="jupyter-widgets jp-OutputArea-output ">
+<div id="a28627d3-059b-4b7b-9a35-670b2e4cc059" class="jupyter-widgets jp-OutputArea-output ">
 <script type="text/javascript">
-var element = document.getElementById('8ce8809a-9ba8-4ef6-9186-7ef676289c88');
+var element = document.getElementById('a28627d3-059b-4b7b-9a35-670b2e4cc059');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "558d2582f1374b5a8e1b39451870481b", "version_major": 2, "version_minor": 0}
@@ -15268,7 +15268,7 @@ var element = document.getElementById('8ce8809a-9ba8-4ef6-9186-7ef676289c88');
 
 <div class="jp-OutputArea-child">
 
-
+    
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
@@ -15277,9 +15277,9 @@ var element = document.getElementById('8ce8809a-9ba8-4ef6-9186-7ef676289c88');
 
 
 
-<div id="949f5b93-84c4-4811-a493-6a917a9beca1" class="jupyter-widgets jp-OutputArea-output ">
+<div id="094f2aa6-62be-4e18-a1b3-51fdc1b4b7c9" class="jupyter-widgets jp-OutputArea-output ">
 <script type="text/javascript">
-var element = document.getElementById('949f5b93-84c4-4811-a493-6a917a9beca1');
+var element = document.getElementById('094f2aa6-62be-4e18-a1b3-51fdc1b4b7c9');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "46642f6413d543d29b5948f598d40d5b", "version_major": 2, "version_minor": 0}
@@ -15290,7 +15290,7 @@ var element = document.getElementById('949f5b93-84c4-4811-a493-6a917a9beca1');
 
 <div class="jp-OutputArea-child">
 
-
+    
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
@@ -15299,9 +15299,9 @@ var element = document.getElementById('949f5b93-84c4-4811-a493-6a917a9beca1');
 
 
 
-<div id="59a849c6-2ae6-40a8-9d29-dc40078f84eb" class="jupyter-widgets jp-OutputArea-output ">
+<div id="ed547d01-cce7-4b04-b5a0-6dbc821b4252" class="jupyter-widgets jp-OutputArea-output ">
 <script type="text/javascript">
-var element = document.getElementById('59a849c6-2ae6-40a8-9d29-dc40078f84eb');
+var element = document.getElementById('ed547d01-cce7-4b04-b5a0-6dbc821b4252');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "0842c8c1a22d4070bc3a57f3728438ad", "version_major": 2, "version_minor": 0}
@@ -15312,7 +15312,7 @@ var element = document.getElementById('59a849c6-2ae6-40a8-9d29-dc40078f84eb');
 
 <div class="jp-OutputArea-child">
 
-
+    
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
@@ -15321,9 +15321,9 @@ var element = document.getElementById('59a849c6-2ae6-40a8-9d29-dc40078f84eb');
 
 
 
-<div id="9a1e3325-3d40-4058-ad6b-24f301d2c6ac" class="jupyter-widgets jp-OutputArea-output ">
+<div id="7fd3acba-3322-4075-9a18-b24a81f38397" class="jupyter-widgets jp-OutputArea-output ">
 <script type="text/javascript">
-var element = document.getElementById('9a1e3325-3d40-4058-ad6b-24f301d2c6ac');
+var element = document.getElementById('7fd3acba-3322-4075-9a18-b24a81f38397');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "120a3e248b2648ee92d034883ba90256", "version_major": 2, "version_minor": 0}
@@ -15343,7 +15343,7 @@ var element = document.getElementById('9a1e3325-3d40-4058-ad6b-24f301d2c6ac');
 <p>The marking scheme is created with</p>
 <p><tt>SaveMarkingScheme(L, filename)</tt>,</p>
 <p>or you just click the button in the wizard.</p>
-<p>For example, the marking scheme for the first 10 variants of the following question (from MATH1120) is:
+<p>For example, the marking scheme for the first 10 variants of the following question (from MATH1120) is: 
 <a href="https://florianbreuer.github.io/florianbreuer/MATH1120-S2-2021-Week-8-MarkingScheme.pdf" target="_blank">MATH1120-S2-2021-Week-8-MarkingScheme.pdf</a>.</p>
 
 </div>
@@ -15354,7 +15354,7 @@ var element = document.getElementById('9a1e3325-3d40-4058-ad6b-24f301d2c6ac');
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">LA6_DEsystem_written</span><span class="p">(</span><span class="n">Question_Written</span><span class="p">):</span>
-
+    
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">,</span> <span class="n">l1</span><span class="p">,</span> <span class="n">l2</span><span class="p">,</span> <span class="n">variant_number</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
         <span class="sd">&#39;&#39;&#39;2x2 system of coupled DEs, with eigenvectors v1, v2 and eigenvalues l1, l2.&#39;&#39;&#39;</span>
         <span class="n">Question_Written</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
@@ -15370,16 +15370,16 @@ var element = document.getElementById('9a1e3325-3d40-4058-ad6b-24f301d2c6ac');
             <span class="o">+</span><span class="sa">r</span><span class="s1">&#39;\frac</span><span class="si">{dx_1}{dt}</span><span class="s1"> &amp; = &#39;</span><span class="o">+</span><span class="n">suppress1</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span><span class="o">+</span><span class="s1">&#39;x_1&#39;</span><span class="o">+</span><span class="n">plus</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span><span class="o">+</span><span class="sa">r</span><span class="s1">&#39;x_2</span><span class="se">\\</span><span class="s1">&#39;</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>\
             <span class="o">+</span><span class="sa">r</span><span class="s1">&#39;\frac</span><span class="si">{dx_2}{dt}</span><span class="s1"> &amp; = &#39;</span><span class="o">+</span><span class="n">suppress1</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span><span class="o">+</span><span class="s1">&#39;x_1&#39;</span><span class="o">+</span><span class="n">plus</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span><span class="o">+</span><span class="sa">r</span><span class="s1">&#39;x_2&#39;</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span>\
             <span class="o">+</span><span class="sa">r</span><span class="s1">&#39;\end{align*}&#39;</span>
-
+        
         <span class="n">la</span> <span class="o">=</span> <span class="n">var</span><span class="p">(</span><span class="s1">&#39;lambda_&#39;</span><span class="p">)</span>
         <span class="n">M1</span> <span class="o">=</span> <span class="n">A</span> <span class="o">-</span> <span class="n">l1</span><span class="o">*</span><span class="n">identity_matrix</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
         <span class="n">M2</span> <span class="o">=</span> <span class="n">A</span> <span class="o">-</span> <span class="n">l2</span><span class="o">*</span><span class="n">identity_matrix</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
         <span class="n">I1</span> <span class="o">=</span> <span class="n">matrix</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
         <span class="n">v1</span> <span class="o">=</span> <span class="n">matrix</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">v1</span><span class="p">)</span>
         <span class="n">v2</span> <span class="o">=</span> <span class="n">matrix</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">v2</span><span class="p">)</span>
-
+        
         <span class="n">sol</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;C_1e^{&#39;</span><span class="o">+</span><span class="n">suppress1</span><span class="p">(</span><span class="n">l1</span><span class="p">)</span><span class="o">+</span><span class="sa">r</span><span class="s1">&#39;t}&#39;</span><span class="o">+</span><span class="n">latex</span><span class="p">(</span><span class="n">v1</span><span class="p">)</span><span class="o">+</span><span class="sa">r</span><span class="s1">&#39; + C_2e^{&#39;</span><span class="o">+</span><span class="n">suppress1</span><span class="p">(</span><span class="n">l2</span><span class="p">)</span><span class="o">+</span><span class="sa">r</span><span class="s1">&#39;t}&#39;</span><span class="o">+</span><span class="n">latex</span><span class="p">(</span><span class="n">v2</span><span class="p">)</span>
-
+        
         <span class="bp">self</span><span class="o">.</span><span class="n">question_text_basic</span> <span class="o">=</span> <span class="s1">&#39;Solve the following system of coupled linear &#39;</span><span class="o">+</span>\
         <span class="s1">&#39;differential equations, showing all your work:</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">+</span><span class="n">sys</span>
 
@@ -15413,17 +15413,17 @@ var element = document.getElementById('9a1e3325-3d40-4058-ad6b-24f301d2c6ac');
         <span class="sa">r</span><span class="s1">&#39;\[&#39;</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">+</span>\
         <span class="sa">r</span><span class="s1">&#39;\left(\begin</span><span class="si">{array}{l}</span><span class="s1"> x_1(t) </span><span class="se">\\</span><span class="s1"> x_2(t)\end</span><span class="si">{array}</span><span class="s1">\right) = &#39;</span><span class="o">+</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">+</span><span class="n">sol</span><span class="o">+</span><span class="s1">&#39;.</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">+</span>\
         <span class="sa">r</span><span class="s1">&#39;\]&#39;</span>
-
+        
         <span class="bp">self</span><span class="o">.</span><span class="n">table_header</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;Solution&#39;</span><span class="p">]</span>
-
+        
         <span class="bp">self</span><span class="o">.</span><span class="n">table_row</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;$&#39;</span><span class="o">+</span><span class="n">latex</span><span class="p">(</span><span class="n">A</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;$&#39;</span><span class="p">,</span> <span class="s1">&#39;$&#39;</span><span class="o">+</span><span class="n">sol</span><span class="o">+</span><span class="s1">&#39;$&#39;</span><span class="p">]</span>
-
+        
 <span class="k">def</span> <span class="nf">is_int_matrix</span><span class="p">(</span><span class="n">A</span><span class="p">):</span>
     <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">A</span><span class="o">.</span><span class="n">list</span><span class="p">():</span>
         <span class="k">if</span> <span class="n">frac</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">!=</span><span class="mi">0</span><span class="p">:</span>
             <span class="k">return</span><span class="p">(</span><span class="n">false</span><span class="p">)</span>
     <span class="k">return</span><span class="p">(</span><span class="n">true</span><span class="p">)</span>
-
+        
 <span class="n">Q</span> <span class="o">=</span> <span class="n">LA6_DEsystem_written</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span>
 <span class="n">Q</span><span class="o">.</span><span class="n">update_variant_number</span><span class="p">(</span><span class="mi">23</span><span class="p">)</span>
 <span class="n">display</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span>
@@ -15443,10 +15443,10 @@ var element = document.getElementById('9a1e3325-3d40-4058-ad6b-24f301d2c6ac');
                         <span class="k">if</span> <span class="n">is_int_matrix</span><span class="p">(</span><span class="n">Q</span><span class="o">.</span><span class="n">A</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">Q</span><span class="o">.</span><span class="n">A</span><span class="o">.</span><span class="n">list</span><span class="p">())</span> <span class="o">&lt;</span> <span class="mi">6</span>\
                         <span class="ow">and</span> <span class="nb">min</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">Q</span><span class="o">.</span><span class="n">A</span><span class="o">.</span><span class="n">list</span><span class="p">())</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
                             <span class="n">L</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span>
-
+                            
 
 <span class="n">pool</span> <span class="o">=</span> <span class="n">QuestionPool</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">quiz_name</span> <span class="o">=</span> <span class="s1">&#39;Week-8&#39;</span><span class="p">,</span> <span class="n">question_name</span><span class="o">=</span><span class="s1">&#39;DEsystem_written18-test&#39;</span><span class="p">)</span>
-<span class="n">pool</span><span class="o">.</span><span class="n">selection_wizard</span><span class="p">()</span>
+<span class="n">pool</span><span class="o">.</span><span class="n">selection_wizard</span><span class="p">()</span>   
 </pre></div>
 
      </div>
@@ -15461,7 +15461,7 @@ var element = document.getElementById('9a1e3325-3d40-4058-ad6b-24f301d2c6ac');
 
 <div class="jp-OutputArea-child">
 
-
+    
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
@@ -15469,8 +15469,8 @@ var element = document.getElementById('9a1e3325-3d40-4058-ad6b-24f301d2c6ac');
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output " data-mime-type="text/html">
 Solve the following system of coupled linear differential equations, showing all your work:
  \begin{align*}
-\frac{dx_1}{dt} & = 5 x_1 - 4 x_2\\
- \frac{dx_2}{dt} & = 8 x_1 - 7 x_2
+\frac{dx_1}{dt} & = 5 x_1 - 4 x_2\\ 
+ \frac{dx_2}{dt} & = 8 x_1 - 7 x_2 
  \end{align*} <br>[For office use only: V 23 ]
 </div>
 
@@ -15478,7 +15478,7 @@ Solve the following system of coupled linear differential equations, showing all
 
 <div class="jp-OutputArea-child">
 
-
+    
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
@@ -15487,9 +15487,9 @@ Solve the following system of coupled linear differential equations, showing all
 
 
 
-<div id="6b231a38-2a14-46bc-a279-66ba7418ef3e" class="jupyter-widgets jp-OutputArea-output ">
+<div id="2fe46a2a-e3ff-471c-a283-2524c16bc757" class="jupyter-widgets jp-OutputArea-output ">
 <script type="text/javascript">
-var element = document.getElementById('6b231a38-2a14-46bc-a279-66ba7418ef3e');
+var element = document.getElementById('2fe46a2a-e3ff-471c-a283-2524c16bc757');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "eb34fa4666c1470ca32edc79faaad978", "version_major": 2, "version_minor": 0}
@@ -15500,7 +15500,7 @@ var element = document.getElementById('6b231a38-2a14-46bc-a279-66ba7418ef3e');
 
 <div class="jp-OutputArea-child">
 
-
+    
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
@@ -15509,9 +15509,9 @@ var element = document.getElementById('6b231a38-2a14-46bc-a279-66ba7418ef3e');
 
 
 
-<div id="cd1d5de7-0493-4cf3-a48d-ecdff6a2a2f6" class="jupyter-widgets jp-OutputArea-output ">
+<div id="bc0a89ae-81f3-4882-9c8b-78ca3af1ccd8" class="jupyter-widgets jp-OutputArea-output ">
 <script type="text/javascript">
-var element = document.getElementById('cd1d5de7-0493-4cf3-a48d-ecdff6a2a2f6');
+var element = document.getElementById('bc0a89ae-81f3-4882-9c8b-78ca3af1ccd8');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "efa200331d134c238e72f455ea79b31e", "version_major": 2, "version_minor": 0}
@@ -15522,7 +15522,7 @@ var element = document.getElementById('cd1d5de7-0493-4cf3-a48d-ecdff6a2a2f6');
 
 <div class="jp-OutputArea-child">
 
-
+    
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
@@ -15531,9 +15531,9 @@ var element = document.getElementById('cd1d5de7-0493-4cf3-a48d-ecdff6a2a2f6');
 
 
 
-<div id="e3090de1-987d-42bc-b8d3-f1b7aadfeac2" class="jupyter-widgets jp-OutputArea-output ">
+<div id="0a56d523-ec80-4ec8-93ab-80ac6eed1361" class="jupyter-widgets jp-OutputArea-output ">
 <script type="text/javascript">
-var element = document.getElementById('e3090de1-987d-42bc-b8d3-f1b7aadfeac2');
+var element = document.getElementById('0a56d523-ec80-4ec8-93ab-80ac6eed1361');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "8cc8bf8a740b46468373339b00477c11", "version_major": 2, "version_minor": 0}
@@ -15544,7 +15544,7 @@ var element = document.getElementById('e3090de1-987d-42bc-b8d3-f1b7aadfeac2');
 
 <div class="jp-OutputArea-child">
 
-
+    
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
@@ -15553,9 +15553,9 @@ var element = document.getElementById('e3090de1-987d-42bc-b8d3-f1b7aadfeac2');
 
 
 
-<div id="20152da8-c3f8-4e55-89b0-34642595ec8b" class="jupyter-widgets jp-OutputArea-output ">
+<div id="6b771805-7d26-4a24-9d0a-3913294f72ce" class="jupyter-widgets jp-OutputArea-output ">
 <script type="text/javascript">
-var element = document.getElementById('20152da8-c3f8-4e55-89b0-34642595ec8b');
+var element = document.getElementById('6b771805-7d26-4a24-9d0a-3913294f72ce');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "25e0b6099af140a8bcf8e150eba9ccc9", "version_major": 2, "version_minor": 0}
@@ -15566,7 +15566,7 @@ var element = document.getElementById('20152da8-c3f8-4e55-89b0-34642595ec8b');
 
 <div class="jp-OutputArea-child">
 
-
+    
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
@@ -15575,9 +15575,9 @@ var element = document.getElementById('20152da8-c3f8-4e55-89b0-34642595ec8b');
 
 
 
-<div id="9432de60-bd1e-40b7-93af-72bcdc2a1c0b" class="jupyter-widgets jp-OutputArea-output ">
+<div id="468b9767-9529-46a9-a0e4-1d0394404399" class="jupyter-widgets jp-OutputArea-output ">
 <script type="text/javascript">
-var element = document.getElementById('9432de60-bd1e-40b7-93af-72bcdc2a1c0b');
+var element = document.getElementById('468b9767-9529-46a9-a0e4-1d0394404399');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
 {"model_id": "2cd2c36ce6bd4048842432d4b14ec298", "version_major": 2, "version_minor": 0}
