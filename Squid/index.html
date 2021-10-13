@@ -1,26 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="apple-mobile-web-app-capable" content="yes" />
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<title>Squid</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
 
-<title>Squid slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
-<!-- General and theme style sheets -->
-<link rel="stylesheet" href="https://unpkg.com/reveal.js@4.0.2/dist/reveal.css">
-
-<!-- If the query includes 'print-pdf', include the PDF print sheet -->
-<script>
-if( window.location.search.match( /print-pdf/gi ) ) {
-        var link = document.createElement( 'link' );
-        link.rel = 'stylesheet';
-        link.type = 'text/css';
-        document.getElementsByTagName( 'head' )[0].appendChild( link );
-}
-</script>
 
 <style type="text/css">
     pre { line-height: 125%; }
@@ -14474,122 +14460,20 @@ a.anchor-link {
 .highlight  {
     margin: 0.4em;
 }
-.jp-Notebook {
-    padding: 0;
+
+/* Input area styling */
+.jp-InputArea {
+    overflow: hidden;
 }
-:root {
-    --jp-ui-font-size1: 20px;       /* instead of 14px */
-    --jp-content-font-size1: 20px;  /* instead of 14px */
-    --jp-code-font-size: 19px;      /* instead of 13px */
-    --jp-cell-prompt-width: 110px;  /* instead of 64px */
+
+.jp-InputArea-editor {
+    overflow: hidden;
 }
+
 @media print {
   body {
     margin: 0;
   }
-}
-</style>
-
-<style type="text/css">
-/* Overrides of notebook CSS for static HTML export */
-.reveal {
-  font-size: 160%;
-}
-.reveal pre {
-  width: inherit;
-  padding: 0.4em;
-  margin: 0px;
-  font-family: monospace, sans-serif;
-  font-size: 80%;
-  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
-}
-.reveal pre code {
-  padding: 0px;
-}
-.reveal section img {
-  border: 0px solid black;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0);
-}
-.reveal .slides {
-  text-align: left;
-}
-.reveal.fade {
-  opacity: 1;
-}
-.reveal .progress {
-  position: static;
-}
-
-div.jp-InputArea-editor {
-  padding: 0.06em;
-}
-
-div.code_cell {
-  background-color: transparent;
-}
-
-div.output_area pre {
-  font-family: monospace, sans-serif;
-  font-size: 80%;
-}
-
-div.jp-OutputPrompt {
-  /* 5px right shift to account for margin in parent container */
-  margin: 5px 5px 0 0;
-}
-
-/* Reveal navigation controls */
-
-.reveal .controls .navigate-left,
-.reveal .controls .navigate-left.enabled {
-  border-right-color: #727272;
-}
-.reveal .controls .navigate-left.enabled:hover,
-.reveal .controls .navigate-left.enabled.enabled:hover {
-  border-right-color: #dfdfdf;
-}
-.reveal .controls .navigate-right,
-.reveal .controls .navigate-right.enabled {
-  border-left-color: #727272;
-}
-.reveal .controls .navigate-right.enabled:hover,
-.reveal .controls .navigate-right.enabled.enabled:hover {
-  border-left-color: #dfdfdf;
-}
-.reveal .controls .navigate-up,
-.reveal .controls .navigate-up.enabled {
-  border-bottom-color: #727272;
-}
-.reveal .controls .navigate-up.enabled:hover,
-.reveal .controls .navigate-up.enabled.enabled:hover {
-  border-bottom-color: #dfdfdf;
-}
-.reveal .controls .navigate-down,
-.reveal .controls .navigate-down.enabled {
-  border-top-color: #727272;
-}
-.reveal .controls .navigate-down.enabled:hover,
-.reveal .controls .navigate-down.enabled.enabled:hover {
-  border-top-color: #dfdfdf;
-}
-.reveal .progress span {
-  background: #727272;
-}
-
-/* Scrollbars */
-
-::-webkit-scrollbar
-{
-  width: 6px;
-  height: 6px;
-}
-::-webkit-scrollbar *
-{
-  background:transparent;
-}
-::-webkit-scrollbar-thumb
-{
-  background: #727272 !important;
 }
 </style>
 
@@ -14626,15 +14510,9 @@ div.jp-OutputPrompt {
     }
     init_mathjax();
     </script>
-    <!-- End of mathjax configuration --><!-- Reveal Theme -->
-<link rel="stylesheet" href="https://unpkg.com/reveal.js@4.0.2/dist/theme/simple.css" id="theme">
-
-</head>
-
+    <!-- End of mathjax configuration --></head>
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
 
-<div class="reveal">
-<div class="slides"><section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p><img src="Squid2.jpg" width="200"></p>
@@ -14645,7 +14523,8 @@ div.jp-OutputPrompt {
 <hr>
 
 <p>You are looking at a quick and dirty presentation of the main Squid features. A more comprehensive tutorial will come later.
-Can't see the whole page? Reduce the magnification in your browser with "<tt>ctrl -</tt>". Press <tt>space</tt> to move to the next slide and <tt>shift+space</tt> to move to the previous slide.</p>
+<!--
+Can't see the whole page? Reduce the magnification in your browser with "<tt>ctrl -</tt>". Press <tt>space</tt> to move to the next slide and <tt>shift+space</tt> to move to the previous slide. --></p>
 <p>Squid runs in the Sagemath Jupyter notebook. To use it, install Sage (for free!) from <a href="https://www.sagemath.org/">https://www.sagemath.org/</a></p>
 <p>Make sure you have the following files in one directory:</p>
 <ul>
@@ -14655,16 +14534,16 @@ Can't see the whole page? Reduce the magnification in your browser with "<tt>ctr
 </ul><p>Then run the notebook server and open Squid.ipynb</p>
 
 </div>
-</div></section></section><section><section>
+</div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>First, we load the basic classes and tools:</p>
 
 </div>
-</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[70]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;Squid-tools2.sage&quot;</span><span class="p">)</span>
@@ -14718,23 +14597,182 @@ Imported the following classes:
 
 </div>
 
-</div></div></section></section><section><section>
+</div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Squid currently only supports two question types: Multiple-choice and Written-answer. 
 Squid defines two classes, <tt>Question_MCQ</tt> and <tt>Question_written</tt>.</p>
-<p>to create a new multiple-choice question, we create a subclass of <tt>Question_MCQ</tt> which is initialised by various parameters that can vary from one question variant to another:</p>
+<p>To create a new multiple-choice question, we create an instance of <tt>Question_MCQ</tt>:</p>
 
 </div>
-</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[15]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[71]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="n">Q</span> <span class="o">=</span> <span class="n">Question_MCQ</span><span class="p">()</span>
+<span class="n">Q</span><span class="o">.</span><span class="n">question_text</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;Compute $</span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s1"> + </span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s1">$:&#39;</span>
+<span class="n">Q</span><span class="o">.</span><span class="n">answer</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span>
+<span class="n">Q</span><span class="o">.</span><span class="n">wrong_answers</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="o">+</span><span class="mi">2</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="o">-</span><span class="mi">1</span><span class="p">)]</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output " data-mime-type="text/html">
+Compute $3 + 5$:<br><ol><li>8</li>
+<li>9</li>
+<li>10</li>
+<li>7</li>
+<li>None of these</li></ol>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>To create a bunch of question variants, we can either create a function which returns a question for each set of parameter values:</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[72]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">MyQuestion</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
+    <span class="n">Q</span> <span class="o">=</span> <span class="n">Question_MCQ</span><span class="p">()</span>
+    <span class="n">Q</span><span class="o">.</span><span class="n">question_text</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;Compute $</span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s1"> + </span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s1">$:&#39;</span>
+    <span class="n">Q</span><span class="o">.</span><span class="n">answer</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span>
+    <span class="n">Q</span><span class="o">.</span><span class="n">wrong_answers</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="o">+</span><span class="mi">2</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="o">-</span><span class="mi">1</span><span class="p">)]</span>
+    <span class="k">return</span> <span class="n">Q</span>
+
+<span class="n">L</span> <span class="o">=</span> <span class="p">[</span><span class="n">MyQuestion</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">]]</span>
+<span class="k">for</span> <span class="n">Q</span> <span class="ow">in</span> <span class="n">L</span><span class="p">:</span>
+    <span class="n">display</span><span class="p">(</span><span class="n">Q</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output " data-mime-type="text/html">
+Compute $2 + 5$:<br><ol><li>7</li>
+<li>8</li>
+<li>9</li>
+<li>6</li>
+<li>None of these</li></ol>
+</div>
+
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output " data-mime-type="text/html">
+Compute $2 + 6$:<br><ol><li>8</li>
+<li>9</li>
+<li>10</li>
+<li>7</li>
+<li>None of these</li></ol>
+</div>
+
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output " data-mime-type="text/html">
+Compute $3 + 5$:<br><ol><li>8</li>
+<li>9</li>
+<li>10</li>
+<li>7</li>
+<li>None of these</li></ol>
+</div>
+
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output " data-mime-type="text/html">
+Compute $3 + 6$:<br><ol><li>9</li>
+<li>10</li>
+<li>11</li>
+<li>8</li>
+<li>None of these</li></ol>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>...or we create a subclass of <tt>Question_MCQ</tt> which is initialised by various parameters that can vary from one question variant to another:</p>
+
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[73]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">MyMCQ</span><span class="p">(</span><span class="n">Question_MCQ</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
-        <span class="n">Question_MCQ</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>  <span class="c1"># this loads some useful methods from Question_MCQ</span>
         
         <span class="bp">self</span><span class="o">.</span><span class="n">question_text</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;Compute $</span><span class="si">{</span><span class="n">a</span><span class="si">}</span><span class="s1"> + </span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s1">$:&#39;</span>
         
@@ -14777,16 +14815,16 @@ Compute $3 + 5$:<br><ol><li>8</li>
 
 </div>
 
-</div></div></section></section><section><section>
+</div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Now we have a working question prototype, let's make a list of variants:</p>
 
 </div>
-</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[17]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[74]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ablist</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">]</span>  <span class="c1"># parameter values</span>
@@ -15066,19 +15104,19 @@ Compute $7 + 8$:<br><ol><li>15</li>
 
 </div>
 
-</div></div></section></section><section><section>
+</div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>If we're happy with this, we can export this list of variants into QTI format for Canvas. The result will be a .zip file which can be imported to Canvas (under "settings"). Canvas will turn it into an assessment (which you can delete) and a question pool, which is what we wanted.</p>
 
 </div>
-</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[18]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[75]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">SaveToQtiFile</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="s1">&#39;UploadMeToCanvas&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">SaveToQtiFile</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="s1">&#39;UploadMeToCanvas&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Squid-made question pool&#39;</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15110,16 +15148,48 @@ Created UploadMeToCanvas.zip - You can upload this file to Canvas.
 
 </div>
 
-</div></div></section></section><section><section>
+</div>
+<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Here is how to upload this file to Canvas. In your Canvas course, on the bottom left, click "Settings", then at the top right, click 
+"Import Course Content".</p>
+<table><tr><td>
+    <img src="Canvas1.png" alt="Settings" width="100%"></td><td>
+    <img src="Canvas2.png" alt="Import Course Content" width="100%"></td></tr></table><p>Next, choose Content type "QTI .zip file", choose the .zip file as Source and - <strong>the most important part</strong> - select "Create new question bank" under Default question bank. Creating this new question bank is the whole point of this exercise.</p>
+<p>Finally, leave the two options checkboxes unchecked.
+<img src="Canvas3a.png" alt="import content" width="50%"></p>
+<p>After that, Canvas will go to work importing this. After a minute or so, you'll find a new quiz (in this case called "Squid-made question pool") amongst the Canvas quizzes. This quiz contains the 15 question we just made:
+<img src="Canvas4.png" alt="our new quiz" width="50%">
+Delete this quiz, we don't need it. We do need the question bank that came with it.</p>
+<p>For example, you create a new quiz in Canvas by clicking the "+ Quiz" button at the top-right of your quizzes screen.
+Then select "Classic Quizzes" (the "New Quizzes" engine doesn't see our question banks) and start creating your quiz.</p>
+<table><tr><td>
+    <img src="Canvas5.png" alt="Settings" width="80%"></td><td>
+    <img src="Canvas6.png" alt="Import Course Content" width="100%"></td>
+    </tr>
+</table>
+To include a randomly-chosen questions from our new question bank, go to the "Questions" tab, click on "+ New question group"
+<img src="Canvas8.png" alt="New question group" width="50%">
+then "link to question bank" and select your newly-created question bank. Finally click "Create group"
+<table><tr><td>
+    <img src="Canvas9.png" alt="Link to question bank" width="80%"></td><td>
+    <img src="Canvas10.png" alt="Choose our new question pool" width="100%"></td><td>
+    <img src="Canvas11.png" alt="Create group" width="100%"></td>
+    </tr>
+</table><p>Finally, <strong>Do no forget to save your quiz</strong> before previewing it, or your hard work will be lost! Good luck!
+<img src="Canvas12.png" alt="Remember to save!" width="50%"></p>
+
+</div>
+</div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Of course, our simple addition question is far too trivial. Here's an example of a more complicated question, from MATH1120.</p>
 
 </div>
-</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[21]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[65]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="n">var</span><span class="p">(</span><span class="s1">&#39;x y&#39;</span><span class="p">)</span>
@@ -15127,7 +15197,6 @@ Created UploadMeToCanvas.zip - You can upload this file to Canvas.
 <span class="k">class</span> <span class="nc">DirectionalDerivative</span><span class="p">(</span><span class="n">Question_MCQ</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">f</span><span class="p">,</span><span class="n">V</span><span class="p">,</span><span class="n">P</span><span class="p">,</span><span class="n">variant_number</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
         <span class="sd">&#39;&#39;&#39;Compute the directional derivative of f(x,y) at the point P in the direction v.&#39;&#39;&#39;</span>
-        <span class="n">Question_MCQ</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">variant_number</span> <span class="o">=</span> <span class="n">variant_number</span>
         
         <span class="n">fx</span> <span class="o">=</span> <span class="n">diff</span><span class="p">(</span><span class="n">f</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
@@ -15194,18 +15263,18 @@ Compute the directional derivative of \(f(x) = x^{2} + y \) at the point \(P = \
 
 </div>
 
-</div></section></section><section><section>
+</div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>This creates 74 variants. Some may me more challenging than others, so we really want to look at the variants, select a subset of them to use and upload only those.</p>
 <p>For this we create a question pool as an instance of the <tt>QuestionPool</tt> class and use its <tt>selection_wizard</tt> to
-run an interactive tool that lets us select the variants we want and export them.</p>
+run an interactive tool that lets us select the variants we want and export them.  (You won't see the wizard in a static version of this page...)</p>
 
 </div>
-</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[20]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[66]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">MCQpool</span> <span class="o">=</span> <span class="n">QuestionPool</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">quiz_name</span> <span class="o">=</span> <span class="s1">&#39;Week6&#39;</span><span class="p">,</span> <span class="n">question_name</span><span class="o">=</span><span class="s1">&#39;CA6_DirectionalDerivative&#39;</span><span class="p">)</span>
@@ -15233,12 +15302,12 @@ run an interactive tool that lets us select the variants we want and export them
 
 
 
-<div id="f53d0b99-dc88-402d-9851-f84a957f4af7" class="jupyter-widgets jp-OutputArea-output ">
+<div id="7eed87c5-1785-43e9-867e-4fe79c2c3c6c" class="jupyter-widgets jp-OutputArea-output ">
 <script type="text/javascript">
-var element = document.getElementById('f53d0b99-dc88-402d-9851-f84a957f4af7');
+var element = document.getElementById('7eed87c5-1785-43e9-867e-4fe79c2c3c6c');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "3e04ae7f39574341a4e56f12b6501cc3", "version_major": 2, "version_minor": 0}
+{"model_id": "86a52d8dfa7c4179ba38eee9bf08732f", "version_major": 2, "version_minor": 0}
 </script>
 </div>
 
@@ -15255,12 +15324,12 @@ var element = document.getElementById('f53d0b99-dc88-402d-9851-f84a957f4af7');
 
 
 
-<div id="dfd16391-067b-4245-abea-926787f5d446" class="jupyter-widgets jp-OutputArea-output ">
+<div id="b33a3859-f888-43a5-8f56-4bbb59718c98" class="jupyter-widgets jp-OutputArea-output ">
 <script type="text/javascript">
-var element = document.getElementById('dfd16391-067b-4245-abea-926787f5d446');
+var element = document.getElementById('b33a3859-f888-43a5-8f56-4bbb59718c98');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "558d2582f1374b5a8e1b39451870481b", "version_major": 2, "version_minor": 0}
+{"model_id": "71b317a139b546c89b1b344bf38e936f", "version_major": 2, "version_minor": 0}
 </script>
 </div>
 
@@ -15277,12 +15346,12 @@ var element = document.getElementById('dfd16391-067b-4245-abea-926787f5d446');
 
 
 
-<div id="e8fea7ad-d4f3-4deb-b38b-bbcde2dd78b0" class="jupyter-widgets jp-OutputArea-output ">
+<div id="70ed4f76-3df1-420a-9a5f-9f991cb4c13f" class="jupyter-widgets jp-OutputArea-output ">
 <script type="text/javascript">
-var element = document.getElementById('e8fea7ad-d4f3-4deb-b38b-bbcde2dd78b0');
+var element = document.getElementById('70ed4f76-3df1-420a-9a5f-9f991cb4c13f');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "46642f6413d543d29b5948f598d40d5b", "version_major": 2, "version_minor": 0}
+{"model_id": "c5ede9b2dd524bd3858041fc9b94736c", "version_major": 2, "version_minor": 0}
 </script>
 </div>
 
@@ -15299,12 +15368,12 @@ var element = document.getElementById('e8fea7ad-d4f3-4deb-b38b-bbcde2dd78b0');
 
 
 
-<div id="32652a9d-f92d-45fd-9307-a3011d2f288c" class="jupyter-widgets jp-OutputArea-output ">
+<div id="904af23c-04ef-4410-8539-9ec6a6df52c8" class="jupyter-widgets jp-OutputArea-output ">
 <script type="text/javascript">
-var element = document.getElementById('32652a9d-f92d-45fd-9307-a3011d2f288c');
+var element = document.getElementById('904af23c-04ef-4410-8539-9ec6a6df52c8');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "0842c8c1a22d4070bc3a57f3728438ad", "version_major": 2, "version_minor": 0}
+{"model_id": "60f908cc1f214e3bab8a16eaa78e08d6", "version_major": 2, "version_minor": 0}
 </script>
 </div>
 
@@ -15321,12 +15390,12 @@ var element = document.getElementById('32652a9d-f92d-45fd-9307-a3011d2f288c');
 
 
 
-<div id="7afc178d-066f-48cf-9997-6a348913e10b" class="jupyter-widgets jp-OutputArea-output ">
+<div id="7aa7eb9a-a472-45f6-b420-bbb54126e876" class="jupyter-widgets jp-OutputArea-output ">
 <script type="text/javascript">
-var element = document.getElementById('7afc178d-066f-48cf-9997-6a348913e10b');
+var element = document.getElementById('7aa7eb9a-a472-45f6-b420-bbb54126e876');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "120a3e248b2648ee92d034883ba90256", "version_major": 2, "version_minor": 0}
+{"model_id": "f4a69880160d4554aa1f3e306d13a2a5", "version_major": 2, "version_minor": 0}
 </script>
 </div>
 
@@ -15336,7 +15405,7 @@ var element = document.getElementById('7afc178d-066f-48cf-9997-6a348913e10b');
 
 </div>
 
-</div></section></section><section><section>
+</div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>We can also make written-answer questions. Now there's more work to do, since the model solution must also be coded. The final output will be a LaTeX file containing the model solutions to each variant. This can then be compiled to PDF.</p>
@@ -15347,17 +15416,17 @@ var element = document.getElementById('7afc178d-066f-48cf-9997-6a348913e10b');
 <a href="https://florianbreuer.github.io/florianbreuer/Squid/MATH1120-S2-2021-Week-8-MarkingScheme.pdf" target="_blank">MATH1120-S2-2021-Week-8-MarkingScheme.pdf</a>.</p>
 
 </div>
-</div></section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[24]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[68]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">LA6_DEsystem_written</span><span class="p">(</span><span class="n">Question_Written</span><span class="p">):</span>
     
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">,</span> <span class="n">l1</span><span class="p">,</span> <span class="n">l2</span><span class="p">,</span> <span class="n">variant_number</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
         <span class="sd">&#39;&#39;&#39;2x2 system of coupled DEs, with eigenvectors v1, v2 and eigenvalues l1, l2.&#39;&#39;&#39;</span>
-        <span class="n">Question_Written</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+<span class="c1">#         Question_Written.__init__(self)</span>
         <span class="k">if</span> <span class="n">l1</span><span class="o">==</span><span class="n">l2</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Eigenvalues must be distinct&#39;</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">v1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">v2</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">==</span><span class="n">v1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">v2</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
@@ -15487,12 +15556,12 @@ Solve the following system of coupled linear differential equations, showing all
 
 
 
-<div id="76800150-b202-44e8-a960-1fe6e7e39726" class="jupyter-widgets jp-OutputArea-output ">
+<div id="0fa682d2-e0ea-48ae-befe-38fb6d62ce68" class="jupyter-widgets jp-OutputArea-output ">
 <script type="text/javascript">
-var element = document.getElementById('76800150-b202-44e8-a960-1fe6e7e39726');
+var element = document.getElementById('0fa682d2-e0ea-48ae-befe-38fb6d62ce68');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "eb34fa4666c1470ca32edc79faaad978", "version_major": 2, "version_minor": 0}
+{"model_id": "6329bea65511474d9ea184def4fd7452", "version_major": 2, "version_minor": 0}
 </script>
 </div>
 
@@ -15509,12 +15578,12 @@ var element = document.getElementById('76800150-b202-44e8-a960-1fe6e7e39726');
 
 
 
-<div id="52d91851-d049-484a-872a-f1a7f763ae1f" class="jupyter-widgets jp-OutputArea-output ">
+<div id="4996d6fd-54af-4d40-8b97-483ab4d0dd7a" class="jupyter-widgets jp-OutputArea-output ">
 <script type="text/javascript">
-var element = document.getElementById('52d91851-d049-484a-872a-f1a7f763ae1f');
+var element = document.getElementById('4996d6fd-54af-4d40-8b97-483ab4d0dd7a');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "efa200331d134c238e72f455ea79b31e", "version_major": 2, "version_minor": 0}
+{"model_id": "9bd7e5a8a472416c9b684335c4343cc0", "version_major": 2, "version_minor": 0}
 </script>
 </div>
 
@@ -15531,12 +15600,12 @@ var element = document.getElementById('52d91851-d049-484a-872a-f1a7f763ae1f');
 
 
 
-<div id="862195d2-e3fd-4798-942d-a588352f4f4b" class="jupyter-widgets jp-OutputArea-output ">
+<div id="373a82e3-c6e6-459f-9ef1-73550f31833e" class="jupyter-widgets jp-OutputArea-output ">
 <script type="text/javascript">
-var element = document.getElementById('862195d2-e3fd-4798-942d-a588352f4f4b');
+var element = document.getElementById('373a82e3-c6e6-459f-9ef1-73550f31833e');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "8cc8bf8a740b46468373339b00477c11", "version_major": 2, "version_minor": 0}
+{"model_id": "7db1869ae48f445fb07101536a5841c1", "version_major": 2, "version_minor": 0}
 </script>
 </div>
 
@@ -15553,12 +15622,12 @@ var element = document.getElementById('862195d2-e3fd-4798-942d-a588352f4f4b');
 
 
 
-<div id="b461e737-c713-4ce7-ade4-8883151f5333" class="jupyter-widgets jp-OutputArea-output ">
+<div id="bb551fe7-e973-4914-89da-88c7a13c6b19" class="jupyter-widgets jp-OutputArea-output ">
 <script type="text/javascript">
-var element = document.getElementById('b461e737-c713-4ce7-ade4-8883151f5333');
+var element = document.getElementById('bb551fe7-e973-4914-89da-88c7a13c6b19');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "25e0b6099af140a8bcf8e150eba9ccc9", "version_major": 2, "version_minor": 0}
+{"model_id": "e16d00036529462ab69ae53bda9f4087", "version_major": 2, "version_minor": 0}
 </script>
 </div>
 
@@ -15575,12 +15644,12 @@ var element = document.getElementById('b461e737-c713-4ce7-ade4-8883151f5333');
 
 
 
-<div id="c4a1e170-97f9-452f-ba8c-b1b3d84ffc47" class="jupyter-widgets jp-OutputArea-output ">
+<div id="95e8207f-ec88-4360-a3e4-9cae64bb5db9" class="jupyter-widgets jp-OutputArea-output ">
 <script type="text/javascript">
-var element = document.getElementById('c4a1e170-97f9-452f-ba8c-b1b3d84ffc47');
+var element = document.getElementById('95e8207f-ec88-4360-a3e4-9cae64bb5db9');
 </script>
 <script type="application/vnd.jupyter.widget-view+json">
-{"model_id": "2cd2c36ce6bd4048842432d4b14ec298", "version_major": 2, "version_minor": 0}
+{"model_id": "e4837fe494674dac961ce03199372c69", "version_major": 2, "version_minor": 0}
 </script>
 </div>
 
@@ -15590,14 +15659,12 @@ var element = document.getElementById('c4a1e170-97f9-452f-ba8c-b1b3d84ffc47');
 
 </div>
 
-</div></section></section><section><section>
+</div>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>That's the end of our quick tour. If you want to know more, contact me at florian.breuer@newcastle.edu.au.</p>
 <p>In the future, I hope to add more question types as well as functionality to create random variants of paper quizzes for when we go back to invigilated in-person tests. Watch this space!</p>
 
-</div>
-</div></section></section>
 </div>
 </div>
 </body>
@@ -15607,55 +15674,5 @@ var element = document.getElementById('c4a1e170-97f9-452f-ba8c-b1b3d84ffc47');
 
 
 
-
-<script>
-require(
-    {
-      // it makes sense to wait a little bit when you are loading
-      // reveal from a cdn in a slow connection environment
-      waitSeconds: 15
-    },
-    [
-      "https://unpkg.com/reveal.js@4.0.2/dist/reveal.js",
-      "https://unpkg.com/reveal.js@4.0.2/plugin/notes/notes.js"
-    ],
-
-    function(Reveal, RevealNotes){
-        // Full list of configuration options available here: https://github.com/hakimel/reveal.js#configuration
-        Reveal.initialize({
-            controls: true,
-            progress: true,
-            history: true,
-            transition: "slide",
-            plugins: [RevealNotes]
-        });
-
-        var update = function(event){
-          if(MathJax.Hub.getAllJax(Reveal.getCurrentSlide())){
-            MathJax.Hub.Rerender(Reveal.getCurrentSlide());
-          }
-        };
-
-        Reveal.addEventListener('slidechanged', update);
-
-        function setScrollingSlide() {
-            var scroll = false
-            if (scroll === true) {
-              var h = $('.reveal').height() * 0.95;
-              $('section.present').find('section')
-                .filter(function() {
-                  return $(this).height() > h;
-                })
-                .css('height', 'calc(95vh)')
-                .css('overflow-y', 'scroll')
-                .css('margin-top', '20px');
-            }
-        }
-
-        // check and set the scrolling slide every time the slide change
-        Reveal.addEventListener('slidechanged', setScrollingSlide);
-    }
-);
-</script>
 
 </html>
