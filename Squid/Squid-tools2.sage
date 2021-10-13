@@ -1,3 +1,10 @@
+# print("The following html code turns on MathJax:")
+# print()
+# print()
+# print(r"""
+# <script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+# </div>
+# """
 print("Squid Tools v2, 11 October 2021")
 print("By Florian Breuer, florian.breuer@newcastle.edu.au")
 print()
@@ -529,27 +536,43 @@ class Question_Written(object):
     Various methods display this data, save the marking scheme to a .tex file, etc.
 
     To do:
-      Produce QTI output for uploading to Canvas.
       Add images to the questions.
     '''
-
-    def __init__(self):
-        self.points = 0
-        self.variant_number = 0
-        self.question_text = "there is no question text yet"
-        self.question_text_basic = "there is no question text yet"   # this can be question text without variant number
-        self.solution_text = "no solution to no question"
-        self.rubric = r"""
+    question_type = 'WAQ'
+    points = 0
+    variant_number = 0
+    question_text = "there is no question text yet"
+    question_text_basic = "there is no question text yet"
+    solution_text = "no solution to no question"
+    rubric = r"""
 \noindent{\bf Marking Scheme:}
 \begin{small}
 \begin{itemize}
-  \item 1 mark: The student demonstrates a partial understanding of how to do the problem.
-  \item 2 marks: The student demonstrates a good understanding of how to do the problem \\ (some minor errors permitted).
-  \item 3 marks: The student demonstrates a good understanding and obtains the correct answer.
+\item 1 mark: The student demonstrates a partial understanding of how to do the problem.
+\item 2 marks: The student demonstrates a good understanding of how to do the problem \\ (some minor errors permitted).
+\item 3 marks: The student demonstrates a good understanding and obtains the correct answer.
 \end{itemize}
 \end{small}"""
-        self.table_row = []
-        self.table_header = []
+    table_row = []
+    table_header = []
+
+#     def __init__(self):
+#         self.points = 0
+#         self.variant_number = 0
+#         self.question_text = "there is no question text yet"
+#         self.question_text_basic = "there is no question text yet"   # this can be question text without variant number
+#         self.solution_text = "no solution to no question"
+#         self.rubric = r"""
+# \noindent{\bf Marking Scheme:}
+# \begin{small}
+# \begin{itemize}
+#   \item 1 mark: The student demonstrates a partial understanding of how to do the problem.
+#   \item 2 marks: The student demonstrates a good understanding of how to do the problem \\ (some minor errors permitted).
+#   \item 3 marks: The student demonstrates a good understanding and obtains the correct answer.
+# \end{itemize}
+# \end{small}"""
+#         self.table_row = []
+#         self.table_header = []
 
     def q_text(self): # these can be rewritten when defining new questions
         self.update_variant_number()
@@ -632,16 +655,28 @@ class Question_MCQ(object):
         answer_index : the index of the correct answer in the shuffled list - it's the index of 0 in answer_shuffle
         shuffle_seed : the random seed used for shuffling; intialised as randint(1,10000), optionally set in method shuffle()
 
+        To do: improve shuffling, so it can take any number of wrong answers.
+
 
     """
-    def __init__(self):
-        self.points = 0
-        self.answer = ""
-        self.wrong_answers = []
-        self.question_text = "An empty question"
-        self.answer_shuffle = [0,1,2,3]
-        self.answer_index = 0
-        self.shuffle_seed = randint(1,10000)
+    question_type = 'MCQ'
+    points = 0
+    answer = ""
+    wrong_answers = []
+    question_text = "An empty question"
+    answer_shuffle = [0,1,2,3]
+    answer_index = 0
+    shuffle_seed = 0
+    table_row = []   # won't use this, but the selection_wizard wants to see it
+    table_header = [] # ditto
+    # def __init__(self):
+    #     self.points = 0
+    #     self.answer = ""
+    #     self.wrong_answers = []
+    #     self.question_text = "An empty question"
+    #     self.answer_shuffle = [0,1,2,3]
+    #     self.answer_index = 0
+    #     self.shuffle_seed = randint(1,10000)
 
 
     def __repr__(self):
@@ -662,7 +697,7 @@ class Question_MCQ(object):
             self.variant_number = variant_number
         if title is None:
             title = f'Question {self.variant_number}'
-        return ET_MCQ(text=self.question_text, points=points, title=title, answer=self.answer, wrong_answers=self.wrong_answers)
+        return ET_MCQ(text=re.sub(r'\$(.*?)\$',r'\\(\1\\)',self.question_text), points=points, title=title, answer=self.answer, wrong_answers=self.wrong_answers)
 
 
     def make_BB_row(self):
@@ -700,6 +735,8 @@ class Question_MCQ(object):
         '''Shuffles the four answers, using the random seed self.shuffle_seed, which can be set by the optional parameter s.'''
         if s!=0:
             self.shuffle_seed = s
+        else:
+            self.shuffle_seed = randint(1,10000)
         self.answer_shuffle = [0,1,2,3]
         with seed(self.shuffle_seed):
             shuffle(self.answer_shuffle)
@@ -1161,7 +1198,8 @@ class QuestionPool(object):
         display(out)
         display(Button_ClearOutput)
 
-        if L[0].__class__.__bases__[0] is Question_MCQ:       # use Question Preview mode for MCQs
+        if L[0].question_type == 'MCQ': # use Question Preview mode for MCQs
+        # if L[0].__class__.__bases__[0] is Question_MCQ:       # use Question Preview mode for MCQs
             Selector_MasterMode.value='Question Preview'
             Selector_MasterMode.options=['Question Preview', 'Question & Answers']
             Button_SaveMarkingScheme.disabled=True
