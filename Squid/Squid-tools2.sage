@@ -1027,7 +1027,8 @@ class QuestionPool(object):
                     print('No variants selected!')
                 return
             if Path.value != "":
-                fn=Path.value+"\\"+MarkingSchemeFilename.value
+                fn = MarkingSchemeFilename.value
+                # fn=Path.value+"\\"+MarkingSchemeFilename.value
             else:
                 fn = MarkingSchemeFilename.value
             SaveMarkingScheme(self.selected, filename=fn, course=CourseName.value, title=QuizTitle.value,
@@ -1060,7 +1061,8 @@ class QuestionPool(object):
                     print('No variants selected!')
                 return
             if Path!="":
-                fn=Path.value+"\\"+BBFilename.value
+                fn = BBFilename.value
+                # fn=Path.value+"\\"+BBFilename.value    # This doesn't work for some reason
             else:
                 fn = BBFilename.value
             SaveToBBfile(self.selected, fn)
@@ -1076,7 +1078,8 @@ class QuestionPool(object):
                     print('No variants selected!')
                 return
             if Path!="":
-                fn=Path.value+"\\"+QTIFilename.value
+                # fn=Path.value+"\\"+QTIFilename.value
+                fn = QTIFilename.value
             else:
                 fn = QTIFilename.value
             SaveToQtiFile(self.selected, fn, title=QTITitle.value, verbose=False)
