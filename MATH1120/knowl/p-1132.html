@@ -1,0 +1,47 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-12-08T21:44:46+11:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h4 class="heading"><span class="type">Paragraph</span></h4>
+<p>An eigenvector, <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\mathbf{x}\text{,}\)</span> associated with the eigenvalue <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\lambda=5\)</span> will satisfy the system of linear equations <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(A\mathbf{x}=5\mathbf{x}\)</span> which can be rewritten as</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{align*}
+\begin{pmatrix} 1 \amp 2 \\ 4 \amp 3 \end{pmatrix} \begin{pmatrix} x_1 \\ x_2 \end{pmatrix} -5\begin{pmatrix} x_1 \\ x_2 \end{pmatrix} \amp =\begin{pmatrix} 0 \\ 0 \end{pmatrix}\\
+\begin{pmatrix} x_1+2x_2-5x_1 \\ 4x_1+3x_2-5x_2 \end{pmatrix} \amp =\begin{pmatrix} 0 \\ 0 \end{pmatrix}\\
+\begin{pmatrix} -4 \amp 2 \\ 4 \amp -2 \end{pmatrix} \begin{pmatrix} x_1 \\ x_2 \end{pmatrix} \amp =\begin{pmatrix} 0 \\ 0 \end{pmatrix}
+\end{align*}
+</div>
+<p class="continuation">Now, using Gauss Jordon elimination to solve this homogeneous system</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\begin{pmatrix} -4 \amp 2 \amp 0 \\ 4 \amp -2 \amp 0 \end{pmatrix} \sim \begin{pmatrix} 2 \amp -1 \amp 0 \\ 0 \amp 0 \amp 0 \end{pmatrix}  \begin{matrix} \hspace{5mm} R_1'=R_1/(-2) \\ \hspace{5mm} R_2'=R_2+R_1 \end{matrix}
+\end{equation*}
+</div>
+<p class="continuation">we see that this system has an infinite number of solutions which take the form</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\mathbf{x}=\begin{pmatrix} x_1 \\ x_2 \end{pmatrix} \textrm{ where } 2x_1-x_2=0
+\end{equation*}
+</div>
+<p class="continuation">or equivalently</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\mathbf{x}=\begin{pmatrix} t \\ 2t \end{pmatrix}=t\begin{pmatrix} 1 \\ 2 \end{pmatrix}
+\end{equation*}
+</div>
+<p class="continuation">Thus the eigenvectors associated with the eigenvalue <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\lambda=5\)</span> are all scalar multiples of the vector <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\begin{pmatrix} 1 \amp 2 \end{pmatrix}^T\text{.}\)</span></p>
+<span class="incontext"><a href="Sec-LA_5_Introduction.html#p-1132">in-context</a></span>
+</body>
+</html>

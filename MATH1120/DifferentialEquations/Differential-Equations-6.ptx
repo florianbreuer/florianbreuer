@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- =================================================================================================== -->
+<!-- To process this file with xsltproc do                                                        -->
+<!--                                                                                              -->
+<!-- (1) LaTeX/PDF:                                                                               -->
+<!--     xsltproc -o minimal.tex PATH_TO/mathbook/xsl/pretext-latex.xsl source/main.ptx           -->
+<!--     pdflatex minimal.tex                                                                     -->
+<!--     xelatex minimal.tex                                                                      -->
+<!--                                                                                              -->
+<!-- (2) HTML:                                                                                    -->
+<!--     xsltproc PATH_TO/mathbook/xsl/pretext-html.xsl source/main.ptx                           -->
+<!--     <browser>  minimal.html                                                                  -->
+<!--        ~/xsltproc/xsltproc.exe ~/mathbook/xsl/mathbook-html.xsl test.xml                     -->
+<!--                                                                                              -->
+<!-- (3) CoCalc worksheet (parameter causes a single file for output)                             -->
+<!--     REMOVE the "X" in the double dash (which is not legal in an XML comment)                 -->
+<!--     xsltproc -X-stringparam chunk.level 0 PATH_TO/mathbook/xsl/pretext-smc.xsl source/main.ptx   -->
+<!--     <CoCalc> minimal.sagews                                                                  -->
+<!--                                                                                              -->
+<!-- (4) Sage doctesting                                                                          -->
+<!--     REMOVE the "X" in the double dash (which is not legal in an XML comment)                 -->
+<!--     xsltproc -X-stringparam chunk.level 0 PATH_TO/mathbook/xsl/pretext-sage-doctest.xsl source/main.ptx  -->
+<!--     <read further instructions in> minimal.py                                                -->
+<!-- =================================================================================================== -->
+
+<chapter xml:id="Differential_Equations_6">
+
+
+
+<!-- =================================================================================================== -->
+<!-- Title and Other Preliminaries -->
+<!-- =================================================================================================== -->
+        <title>An Application of Second Order Linear DEs with Constant Coefficients</title>
+
+        <!-- <frontmatter> -->
+
+<!--             <titlepage>
+                <author>
+                    <institution>University of Newcastle</institution>
+                </author>
+                <date><today /></date>
+            </titlepage> -->
+
+            <!-- <abstract>
+                <p>This is a very short article, but it still exercises some advanced features of MathBook XML.</p>
+            </abstract> -->
+
+        <!-- </frontmatter> -->
+
+        <introduction>
+            <p>
+                Recall that for a function <m>y=y(x)</m> a 2nd order linear DE with constant coefficients is a DE of the form
+                <me>ay''+by'+cy=f(x)</me>
+                In previous lectures (i.e. DEs (IV) and DEs (V)) we discussed how to find solutions to DEs of this form (for various possibilities of <m>f(x)</m> at least). In this lecture we are going to discuss an application of this type of DE to modelling the vibrations of springs.
+            </p>
+        </introduction>
+
+<!-- =================================================================================================== -->
+
+
+<!-- =================================================================================================== -->
+<!-- Section 1: A Simple Model -->
+<!-- =================================================================================================== -->
+        <section xml:id="A_Simple_Model">
+            <title>A Simple Model</title>
+
+            <p>
+                In this section we are going to model the motion of an object attached to the free end of a spring which has its other end fixed as shown in Figure 14.1.1. To construct this model set up an axis with its origin at the centre of the object when the object-spring system is in equilibrium and with the positive direction going upward. With respect to this axis assume that without the object attached the end of the spring is at <m>y=N</m>. Now, imagine that the object is pulled down <m>L</m> units (with respect to the axis) and then let go.
+                <figure>
+                    <image source="./DifferentialEquations/Images/6/figure_1.png" width="75%"/>
+                </figure>
+                Our models for the motion of the object will be based Hooke’s Law and Newton’s second law of motion.
+            </p>
+
+            <definition>
+                <title>Hooke's Law</title>
+                <p>
+                    If a spring is stretched (compressed) <m>U</m> units beyond its natural position then it pulls (pushes) with a force, <term><m>F_r</m></term>, of magnitude
+                    <term><me>\vert F_r\vert =kU, \hspace{5mm} k>0</me></term>
+                    where the value of <m>k</m> depends on the properties of the spring itself.
+                </p>
+            </definition>
+
+            <p>
+                Common terminology is to call the force <term><m>F_r</m></term> the <term>restoring force</term> and the constant <m>k</m> the <term>spring constant</term>.
+            </p>
+
+            <definition>
+                <title>Newton's Second Law of Motion</title>
+                
+                <p>
+                    The acceleration, <term><m>a</m></term>, of an object as produced by a net force, <term><m>F</m></term>,  is directly proportional to the magnitude of the net force, in the same direction as the net force, and inversely proportional to the mass, <m>m</m>, of the object, i.e. <term><m>F=ma</m></term>.
+                </p>
+            </definition>
+
+            <p>
+                So, now consider the forces acting on the object at any time <m>t</m> after the object has been pulled down and released. In our initial model we will assume that there are just two forces acting on the object as shown in Figure 14.1.4.: firstly the force due to gravity, <term><m>F_g</m></term>, and secondly the restoring force, <term><m>F_r</m></term>, due to the spring. 
+                <figure>
+                    <image source="./DifferentialEquations/Images/6/figure_2.png" width="60%"/>
+                </figure>
+                With the axis as set up in Figure 14.1.4. (or Figure 14.1.1.), <term><m>F_g</m></term> will always act in the negative direction. However, <term><m>F_r</m></term> will be positive when the displacement of the object is less than <m>N</m> and negative when the displacement of the object is greater than <m>N</m> (i.e. the restoring force always acts in the direction of the natural position of the spring). Notice that since the motion of the object is one dimensional we can represent the relevant vector quantities by real numbers. The sign of the number will give us the direction of the vector.
+            </p>
+            <p> 
+                Thus, the force due to gravity is constant and is given by
+                <me>F_g=-mg</me>
+                where <m>m</m> is the mass of the object and <m>g</m> is the acceleration due to gravity. (This follows from Newton’s Universal Law of Gravitation and Newton’s second law of motion.). If <m>y</m> represents the displacement of (the centre of) the object then from Hooke's Law
+                <me>F_r=-k(y-N)</me>
+                where <m>k\gt 0</m> is the spring constant. Notice that the negative sign is needed in this relationship to make the restoring force act in the correct direction. Thus the net force acting on the object is
+                <me>F=F_g+F_r=-mg-ky+kN</me>
+                Now if we let <m>a</m> be the acceleration of the object, then from Newton’s second law of motion
+            </p>
+            <p><md>
+                <mrow>ma \amp=F</mrow>
+                <mrow>m\frac{d^2y}{dt^2} \amp=-mg-ky+kN</mrow>
+            </md></p>
+            <p>
+                Thus we are able to model the displacement of the object via a 2nd order linear DE with constant coefficients, along with the initial conditions
+                <me>y(0)=-L,\hspace{5mm} y'(0)=0</me>
+                We can further simplify the DE by noting that when the object-spring system is in equilibrium the net force is zero and hence
+                <me>-mg+kN=0</me>
+                Using this, the model simplifies to
+                <men>\frac{d^2y}{dt^2}+\left(\frac{k}{m}\right)y=0, \hspace{5mm}y(0)=-L, \hspace{5mm}y'(0)=0,\hspace{5mm} k>0,\hspace{5mm} m>0</men>
+                which is an initial-value problem involving a homogeneous 2nd order linear DE with constant coefficients.
+            </p>
+            <p>
+                Using the methods outlined in DEs (IV) we find that the general solution to Equation (14.1.1) is
+                <me>y(t)=C_1\cos(qt)+C_2\sin(qt)</me>
+                where <m>q=\sqrt{\frac{k}{m}}</m> is called the <term>natural frequency</term> of the system. (Note that <m>q</m> should probably be called the "natural angular frequency" since the frequency of <m>y</m> is <m>\frac{q}{2\pi}</m>.) The derivative of <m>y</m> is
+                <me>y'(t)=-C_1\sin(qt)+C_2\cos(qt)</me>
+                and hence from the initial conditions we find that <m>C_1=-L</m> and <m>C_2=0</m>. Thus the solution to the initial-value problem is
+                <me>y(t)=-L\cos(qt)</me>
+                As shown in Figure 14.1.5., this solution is telling us that (under the assumptions of the model) the motion of the object will be periodic about the equilibrium position i.e. will be simple harmonic motion.
+                <figure>
+                    <image source="./DifferentialEquations/Images/6/figure_3.png" width="60%"/>
+                </figure>
+                Of course real springs do not oscillate forever and so we conclude that our model must have ignored some important details (e.g. air resistance, frictional forces etc.) Despite this obvious shortcoming we will use this simple model as the basis for looking at more complicated contexts.
+            </p>
+            
+        </section>
+
+<!-- =================================================================================================== -->
+
+
+<!-- =================================================================================================== -->
+<!-- Section 2: Adding Damping -->
+<!-- =================================================================================================== -->
+        <section xml:id="Adding_Damping">
+            <title>Adding Damping</title>
+
+            <p>
+                Imagine now that some sort of damping mechanism is added to the object-spring system as shown in Figure 14.2.1. (Such a system might be used as a simple model of a car shock absorber for example.)
+                <figure>
+                    <image source="./DifferentialEquations/Images/6/figure_4.png" width="60%"/>
+                </figure>
+                So long as the speed of the object is not too fast then a reasonable assumption is that the damping force acting on the object, <term><m>F_d</m></term>,  is proportional to the speed and acts in the direction opposing  the motion of the object. Thus
+                <me>F_d=-D\frac{dy}{dt}</me>
+                where <m>D\gt 0</m>. Thus the motion of the object can be modelled by the DE
+                <me>m\frac{d^2y}{dt^2}=-ky-D\frac{dy}{dt}</me>
+                which can be rearranged as
+                <me>y''+\left(\frac{D}{m}\right)y'+\left(\frac{k}{m}\right)y=0</me>
+                i.e. a homogeneous 2nd order linear DE with constant coefficients. It is convenient in the subsequent algebra to let
+                <me>\frac{D}{m}=2p \textrm{ and } \frac{k}{m}=q^2</me>
+                and so the model becomes
+                <men>y''+2py'+q^2y=0,\hspace{5mm} y(0)=-L,\hspace{5mm} y'(0)=0, \hspace{5mm}p\gt 0,\hspace{5mm} q\gt 0</men>
+                The characteristic equation for Equation (14.2.1) is
+                <me>r^2+2pr+q^2=0</me>
+                which gives
+                <me>r=\frac{-2p\pm \sqrt{4p^2-4q^2}}{2}=-p\pm \sqrt{p^2-q^2}</me>
+                Thus the nature of the general solution to Equation (14.2.1) depends upon the sign of <m>p^2-q^2</m>, or equivalently, on the magnitude of the parameter <m>\delta=\frac{p}{q}</m>. <m>\delta</m> is called the <term>damping parameter</term> of the system.
+            </p>
+            <p>
+                If <m>p^2-q^2\gt 0</m> (or equivalently <m>\delta=\frac{p}{q}\lt 1</m>) then the general solution is
+                <me>y(t)=e^{-pt}(C_1\cos(\omega t)+C_2\sin(\omega t))</me>
+                where <m>\omega=\sqrt{q^2-p^2}</m> and hence the function will be like that shown in Figure 14.2.2. In this case the system is called <term>under-damped</term>.
+                <figure>
+                    <image source="./DifferentialEquations/Images/6/figure_5.png" width="60%"/>
+                </figure>
+            </p>
+            <p>
+                If <m>p^2-q^2\gt 0</m> (or equivalently <m>\delta=\frac{p}{q}\gt 1</m>) then the general solution is
+                <me>y(t)=C_1e^{p_1t}+C_2e^{p_2t}</me>
+                where both <m>r_1</m> and <m>r_2</m> are negative and hence the function will be like that shown in Figure 14.2.3. In this case the system is called <term>over-damped</term>.
+                <figure>
+                    <image source="./DifferentialEquations/Images/6/figure_6.png" width="60%"/>
+                </figure>
+                Finally if <m>p^2-q^2=0</m> (or equivalently <m>\delta=\frac{p}{q}=1</m>) then the general solution is
+                <me>y(t)=(C_1+C_2t)e^{-pt}</me>
+                and hence the function will be like that shown in Figure 14.2.4. In this case the system is called <term>critically-damped</term>.
+                <figure>
+                    <image source="./DifferentialEquations/Images/6/figure_7.png" width="60%"/>
+                </figure>
+                The critically-damped case is of practical interest. Often we want to add damping to a system so that it returns close to its equilibrium position "as quickly as possible", (for example in the shock absorber of a car). It turns out that this is achieved by critical damping.
+            </p>
+
+        </section>
+
+<!-- =================================================================================================== -->
+
+
+<!-- =================================================================================================== -->
+<!-- Section 3: Adding an External Force -->
+<!-- =================================================================================================== -->
+        <section xml:id="Adding_an_External_Force">
+            <title>Adding an External Force</title>
+
+            <p>
+                In our final model we will look at the situation where some other external force, <term><m>F_e</m></term>, is also acting on the object along the <m>y</m>-axis, as shown in Figure 14.3.1. This context has many applications, especially in engineering, although in most applications the context doesn’t actually look like the diagram shown in Figure 14.3.1. For example if the top of a power pole is pulled to one side and let go it will behave like an object-spring system with damping. Now when a wind blows past the pole it is possible that aerodynamic effects can result in an oscillating side force acting on the pole. 
+                <figure>
+                    <image source="./DifferentialEquations/Images/6/figure_8.png" width="60%"/>
+                </figure>
+                Assume that the external force is oscillatory and hence can be represented by
+                <me>F_e(t)=A\cos(\alpha t)</me>
+                Then the net force acting on the object will be
+                <me>F=F_g+F_r+F_d+F_e</me>
+                and hence the motion of the object can be modelled by the DE
+                <me>m\frac{d^2y}{dt^2}=-ky-D\frac{dy}{dt}+A\cos(\alpha t)</me>
+                Following the same steps as in the previous section we can, therefore, write our model as
+                <men>y''+2py'+q^2y=A\cos(\alpha t),\hspace{5mm} y(0)=-L,\hspace{5mm} y'(0)=0,\hspace{5mm} p\gt 0,\hspace{5mm} q\gt 0</men>
+                So now the DE is a non-homogeneous 2nd order linear DE with constant coefficients. The general solution is constructed from the complementary solution and a particular solution. We know the complementary solution from our previous model. From that model we know that the complementary solution always tends to <m>0</m> as <m>t\rightarrow\infty</m>. Thus the long term behaviour of this system is determined by the particular solution to Equation (14.3.1). From DEs (V) we know that a particular solution will be of the form
+                <me>y_p(t)=a\cos(\alpha t)+b\sin(\alpha t)</me>
+                Substituting into Equation (14.3.1) and equating coefficients gives
+                <me>a=\left(\frac{2p\alpha}{4p^2\alpha^2+(\alpha^2-q^2)^2}\right)A, \hspace{5mm} b=\left(\frac{\alpha^2-q^2}{4p^2\alpha^2+(\alpha^2-q^2)^2}\right)A</me>
+                Since it is easier to interpret we will write <m>y_p(t)</m> as a single trigonometric function. Thus let
+                <me>y_p(t)=C\cos(\alpha t-\beta)</me>
+                Using some standard trigonometric identities it can be shown that
+                <me>C=\sqrt{a^2+b^2} \textrm{ and } \beta=\tan^{-1}\left(\frac{b}{a}\right)</me>
+                Thus
+                <me>C=\frac{A}{\sqrt{4p^2\alpha^2+(\alpha^2-q^2)^2}} \textrm{ and } \beta=\tan^{-1}\left(\frac{2p\alpha}{\alpha^2-q^2}\right)</me>
+                From this we can conclude that the long term response of our damped object-spring system to forcing by an external force <m>F_e(t)=A\cos(\alpha t)</m> is to oscillate at the forcing angular frequency, <m>\alpha</m>, and with an amplitude
+                <me>C=\frac{A}{\sqrt{4p^2\alpha^2+(\alpha^2-q^2)^2}}</me>
+                that is the amplitude of the external force multiplied by the factor
+                <me>M=\frac{1}{\sqrt{4p^2\alpha^2+(\alpha^2-q^2)^2}}</me>
+                Notice that, since for a given object-spring system <m>p</m> and <m>q</m> are fixed values, this factor <m>M</m> is a function of the forcing angular frequency <m>\alpha</m>. Figure 14.3.2. shows graphs of <m>M(\alpha)</m> for various values of <m>p</m> (which relates to the damping coefficient) when <m>q</m> (which relates to the stiffness coefficient) is held constant at <m>q=1</m>. In fact, it can be shown that if the damping parameter <m>\delta</m> (<m>=\frac{p}{q}</m>) is small then <m>M</m> has a maximum when the forcing frequency is near the natural frequency of the system and further that this maximum tends to infinity as <m>\delta\rightarrow 0</m>.
+                <figure>
+                    <image source="./DifferentialEquations/Images/6/figure_9.png" width="60%"/>
+                </figure>
+            </p>
+            <p>
+                The significance of this analysis is the insight that if our damped object-spring system is subjected to an external oscillatory force near the natural frequency of the system it will respond with large amplitude motion unless the system is sufficiently damped. This phenomenon is known as <term>resonance</term>.
+            </p>
+
+            <exercises>
+                <title>Example Tasks</title>
+
+                <exercise>
+                    <statement>
+                        <p>
+                            Determine the values of <m>a</m> and <m>b</m> in the DE <m>\frac{d^2x}{dt^2}+2a\frac{dx}{dt}+bx=0</m> that give the damped object-spring system a damping parameter of <m>0.5</m> and a natural frequency of <m>2</m>.
+                        </p>
+                    </statement>
+                </exercise> 
+                <exercise>
+                    <statement>
+                        <p>
+                            A beam that is fixed rigidly at one end and designed to support a load at the other end is called a <term>cantilever</term>. If the cantilever is designed only to deflect a "small" amount under its load then it is reasonable to assume that the size of the deflection of the tip of the cantilever is proportional to the load applied. When such a cantilever is deflected beyond (or less than) its equilibrium position the cantilever exerts a restoring force toward the equilibrium position. So long as the deflection is reasonably small and the mass of the object is large compared to the mass of the cantilever this restoring force is proportional to the deflection. Show that the resulting motion of the tip of the cantilever can be modelled under these assumptions via a homogeneous 2nd order linear DE.
+                            <figure>
+                                <image source="./DifferentialEquations/Images/6/figure_cantilever.png" width="40%"/>
+                            </figure>
+                        </p>
+                    </statement>
+                </exercise> 
+                <exercise>
+                    <statement>
+                        <p>
+                            Show that if <m>a\cos(\alpha t)+b\sin(\alpha t)=C\cos(\alpha t-\beta)</m> then
+                            <me>C=\sqrt{a^2+b^2} \textrm{ and } \beta=\tan^{-1}\left(\frac{b}{a}\right)</me>
+                        </p>
+                    </statement>
+                </exercise> 
+            </exercises>
+
+        </section>
+
+<!-- =================================================================================================== -->
+
+</chapter>

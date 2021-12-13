@@ -1,0 +1,88 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-12-08T21:44:21+11:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<div class="solution solution-like">
+<h3 class="heading">
+<span class="type">Solution</span><span xmlns:svg="http://www.w3.org/2000/svg" class="space"> </span><span class="codenumber">11.3.2.1</span><span xmlns:svg="http://www.w3.org/2000/svg" class="period">.</span>
+</h3>
+<p>Let <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(C(t)\)</span> be the concentration (in g/L) of the salt in the water in the tank at time <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(t\)</span> minutes after the mixing began and let <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(A(t)\)</span> be the amount (in grams) of salt in the tank at time <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(t\text{.}\)</span> Then <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(C(0) = 0\)</span> and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(A(0) = 0\text{.}\)</span></p>
+<p>Now, salt is coming into the tank at the rate</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+3 \times 25 = 75 \: \text{g/min}\text{,}
+\end{equation*}
+</div>
+<p class="continuation">and it is leaving the tank at the rate</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+3 \times C(t) \: \text{g/min}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Thus <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(A(t)\)</span> will satisfy the DE</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\dfrac{dA}{dt} = 75 - 3C\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Using <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(A(t) = 200 C(t)\)</span> this becomes</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+200 \dfrac{dC}{dt} = 75 - 3C
+\end{equation*}
+</div>
+<p class="continuation">which can be written as</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\dfrac{dC}{dt} + \dfrac{3}{200}C = \dfrac{75}{200}\text{.}
+\end{equation*}
+</div>
+<p>This is a first order linear DE and hence can be solved by multiplying the equation by the integrating factor</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+I(t) = \exp \left( \displaystyle \int \frac{3}{200} dt \right) = \exp \left( \dfrac{3}{200}t \right)\text{.}
+\end{equation*}
+</div>
+<p class="continuation">In doing this we obtain</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\dfrac{d}{dt} \left[ \exp \left(\dfrac{3}{200} t \right) C \right] = \frac{75}{200} \exp \left( \dfrac{3}{200} t \right)
+\end{equation*}
+</div>
+<p class="continuation">and hence</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\exp \left(\dfrac{3}{200}t \right) C = 25 \exp \left(\dfrac{3}{200}t \right) + K.
+\end{equation*}
+</div>
+<p class="continuation">Thus the general solution is</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+C(t) = 25 + K \exp\left( - \dfrac{3}{200} t \right)\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Using <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(C(0) = 0\)</span> gives <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(K = -25\)</span> and so the required concentration function is</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+C(t) = 25 - 25 \exp \left(- \dfrac{3}{200}t \right)\text{.}
+\end{equation*}
+</div>
+<p class="continuation"><a href="" class="xref" data-knowl="./knowl/Fig-Mixing_Tank_Example.html" title="Figure 11.3.3">Figure 11.3.3</a> shows a graph of this function. It can be seen that as <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(t \to \infty\text{,}\)</span> <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(C \to 25\text{.}\)</span> Thus as time goes by the concentration of salt in the tank water approaches the concentration of the salt in the brackish water coming into the tank.</p>
+<figure class="figure figure-like"><div xmlns:svg="http://www.w3.org/2000/svg" class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="./DifferentialEquations/Images/3/Fig1_Mixing_Tank.png" class="contained"></div>
+<figcaption xmlns:svg="http://www.w3.org/2000/svg"><span class="type">Figure</span><span class="space"> </span><span class="codenumber">11.3.3<span class="period">.</span></span><span class="space"> </span></figcaption></figure>
+</div>
+<span class="incontext"><a href="Simple_Applications_of_First_Order_Linear_DEs.html#solution-101">in-context</a></span>
+</body>
+</html>

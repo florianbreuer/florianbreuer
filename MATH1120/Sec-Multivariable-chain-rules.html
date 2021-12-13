@@ -1,0 +1,545 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-12-08T21:40:45+11:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Multivariable Chain Rules</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    useLabelIds: true,
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext.js"></script><script xmlns:svg="http://www.w3.org/2000/svg">miniversion=0.6</script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script xmlns:svg="http://www.w3.org/2000/svg">sagecellEvalName='Evaluate (Sage)';
+</script><link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/colors_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link xmlns:svg="http://www.w3.org/2000/svg" href="developer.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div xmlns:svg="http://www.w3.org/2000/svg" id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\bm}[1]{\boldsymbol{#1}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="MATH1120-Course-Notes.html"><span class="title">MATH1120:</span> <span class="subtitle">Mathematics for Engineering, Science and Technology 2</span></a></h1>
+<p class="byline"></p>
+</div>
+</div></div>
+<nav xmlns:svg="http://www.w3.org/2000/svg" id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="Sec-The_single_variable_chain_rule.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="Chap-Calculus_8.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="section-22.html" title="Next">Next</a></span></div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="Sec-The_single_variable_chain_rule.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="Chap-Calculus_8.html" title="Up">Up</a><a class="next-button button toolbar-item" href="section-22.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div xmlns:svg="http://www.w3.org/2000/svg" id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link part"><a href="Part-Calculus.html" data-scroll="Part-Calculus"><span class="codenumber">I</span> <span class="title">Calculus</span></a></li>
+<li class="link">
+<a href="Chap-Calculus_1.html" data-scroll="Chap-Calculus_1"><span class="codenumber">1</span> <span class="title">Maclaurin Series</span></a><ul>
+<li><a href="Sec-Introduction.html" data-scroll="Sec-Introduction">Introduction</a></li>
+<li><a href="Sec-Infinite_Series.html" data-scroll="Sec-Infinite_Series">Infinite Series</a></li>
+<li><a href="Sec-Maclaurin_Series.html" data-scroll="Sec-Maclaurin_Series">Maclaurin Series</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Calculus_2.html" data-scroll="Calculus_2"><span class="codenumber">2</span> <span class="title">Taylor Series</span></a><ul>
+<li><a href="Generating-New-Series-from-Known-Series.html" data-scroll="Generating-New-Series-from-Known-Series">Generating New Series from Known Series</a></li>
+<li><a href="Taylor_Series.html" data-scroll="Taylor_Series">Taylor Series</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Calculus_3.html" data-scroll="Calculus_3"><span class="codenumber">3</span> <span class="title">Functions of Several Variables</span></a><ul>
+<li><a href="functions-of-two-variables.html" data-scroll="functions-of-two-variables">Functions of Two Variables</a></li>
+<li><a href="level-curves.html" data-scroll="level-curves">Level Curves</a></li>
+<li><a href="surfaces-of-revolution.html" data-scroll="surfaces-of-revolution">Surfaces of Revolution</a></li>
+<li><a href="functions-of-3-or-more-variables.html" data-scroll="functions-of-3-or-more-variables">Functions of 3 (or more) Variables</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Chap-Calculus_4.html" data-scroll="Chap-Calculus_4"><span class="codenumber">4</span> <span class="title">Partial Differentiation</span></a><ul>
+<li><a href="Sec-Partial_Differentiation.html" data-scroll="Sec-Partial_Differentiation">Partial Differentiation</a></li>
+<li><a href="Sec-Higher_Partial_Derivatives.html" data-scroll="Sec-Higher_Partial_Derivatives">Higher Partial Derivatives</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Chap-Calculus_5.html" data-scroll="Chap-Calculus_5"><span class="codenumber">5</span> <span class="title">Linear Approximations</span></a><ul>
+<li><a href="Sec-Tangent_Planes.html" data-scroll="Sec-Tangent_Planes">Tangent Planes</a></li>
+<li><a href="Sec-Linear_Approximations.html" data-scroll="Sec-Linear_Approximations">Linear Approximations</a></li>
+<li><a href="Quadratic-Approximations.html" data-scroll="Quadratic-Approximations">Quadratic Approximations</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Calculus_6.html" data-scroll="Calculus_6"><span class="codenumber">6</span> <span class="title">The Directional Derivative</span></a><ul>
+<li><a href="Directional-Derivatives.html" data-scroll="Directional-Derivatives">Directional Derivatives</a></li>
+<li><a href="In_Three_Variables.html" data-scroll="In_Three_Variables">In Three Variables</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Calculus_7.html" data-scroll="Calculus_7"><span class="codenumber">7</span> <span class="title">Local and Global Extrema</span></a><ul>
+<li><a href="Critical-Points.html" data-scroll="Critical-Points">Critical Points</a></li>
+<li><a href="Second-Derivative-Test.html" data-scroll="Second-Derivative-Test">Second Derivative Test</a></li>
+<li><a href="Global-Extrema.html" data-scroll="Global-Extrema">Global Extrema</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Chap-Calculus_8.html" data-scroll="Chap-Calculus_8"><span class="codenumber">8</span> <span class="title">Chain Rules</span></a><ul>
+<li><a href="Sec-The_single_variable_chain_rule.html" data-scroll="Sec-The_single_variable_chain_rule">The Single Variable Chain Rule</a></li>
+<li><a href="Sec-Multivariable-chain-rules.html" data-scroll="Sec-Multivariable-chain-rules" class="active">Multivariable Chain Rules</a></li>
+<li><a href="section-22.html" data-scroll="section-22">Implicit Differentiation</a></li>
+</ul>
+</li>
+<li class="link part"><a href="Part-Differenial_Equations.html" data-scroll="Part-Differenial_Equations"><span class="codenumber">II</span> <span class="title">Differential Equations</span></a></li>
+<li class="link">
+<a href="Differential_Equations_1.html" data-scroll="Differential_Equations_1"><span class="codenumber">9</span> <span class="title">Introduction</span></a><ul>
+<li><a href="introduction.html" data-scroll="introduction">Introduction</a></li>
+<li><a href="direction-fields-and-eulers-method.html" data-scroll="direction-fields-and-eulers-method">Direction Fields and Euler's Method</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Differential_Equations_2.html" data-scroll="Differential_Equations_2"><span class="codenumber">10</span> <span class="title">First Order Separable DEs</span></a><ul>
+<li><a href="Sec-First_Order_Separable_DEs.html" data-scroll="Sec-First_Order_Separable_DEs">First Order Separable DEs</a></li>
+<li><a href="Sec-Some-Simple-Applications-of-First-Order-Separable-DEs.html" data-scroll="Sec-Some-Simple-Applications-of-First-Order-Separable-DEs">Some Simple Applications of First Order Separable DEs</a></li>
+<li><a href="appendix-1.html" data-scroll="appendix-1">Partial Fraction Decomposition</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Differential_Equations_3.html" data-scroll="Differential_Equations_3"><span class="codenumber">11</span> <span class="title">First Order Linear DEs</span></a><ul>
+<li><a href="Exact_First_Order_DEs.html" data-scroll="Exact_First_Order_DEs">Exact First Order DEs</a></li>
+<li><a href="First_Order_Linear_DEs.html" data-scroll="First_Order_Linear_DEs">First Order Linear DEs</a></li>
+<li><a href="Simple_Applications_of_First_Order_Linear_DEs.html" data-scroll="Simple_Applications_of_First_Order_Linear_DEs">Some Simple Applications of First Order Linear DEs</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Differential_Equations_4.html" data-scroll="Differential_Equations_4"><span class="codenumber">12</span> <span class="title">Homogeneous Second Order Linear DEs</span></a><ul><li><a href="Homogeneous_Second_Order_Linear_DEs_With_Constant_Coefficients.html" data-scroll="Homogeneous_Second_Order_Linear_DEs_With_Constant_Coefficients">Homogeneous Second Order Linear DEs With Constant Coefficients</a></li></ul>
+</li>
+<li class="link">
+<a href="Differential_Equations_5.html" data-scroll="Differential_Equations_5"><span class="codenumber">13</span> <span class="title">Non-Homogeneous Second Order Linear DEs</span></a><ul>
+<li><a href="Non-Homogeneous_First_Order_Linear_DEs.html" data-scroll="Non-Homogeneous_First_Order_Linear_DEs">Non-Homogeneous First Order Linear DEs</a></li>
+<li><a href="The_Method_of_Undetermined_Coefficients.html" data-scroll="The_Method_of_Undetermined_Coefficients">The Method of Undetermined Coefficients</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Differential_Equations_6.html" data-scroll="Differential_Equations_6"><span class="codenumber">14</span> <span class="title">An Application of Second Order Linear DEs with Constant Coefficients</span></a><ul>
+<li><a href="A_Simple_Model.html" data-scroll="A_Simple_Model">A Simple Model</a></li>
+<li><a href="Adding_Damping.html" data-scroll="Adding_Damping">Adding Damping</a></li>
+<li><a href="Adding_an_External_Force.html" data-scroll="Adding_an_External_Force">Adding an External Force</a></li>
+</ul>
+</li>
+<li class="link part"><a href="Part-Linear_Algebra.html" data-scroll="Part-Linear_Algebra"><span class="codenumber">III</span> <span class="title">Linear Algebra</span></a></li>
+<li class="link">
+<a href="Linear_Algebra_1.html" data-scroll="Linear_Algebra_1"><span class="codenumber">15</span> <span class="title">Systems of Linear Equations</span></a><ul>
+<li><a href="Sec-LA_Introduction.html" data-scroll="Sec-LA_Introduction">Introduction</a></li>
+<li><a href="Sec-LA_Matrices_and_Systems_of_Linear_Equations.html" data-scroll="Sec-LA_Matrices_and_Systems_of_Linear_Equations">Matrices and Systems of Linear Equations</a></li>
+<li><a href="Sec-LA_Solving_Systems_of_Linear_Equations.html" data-scroll="Sec-LA_Solving_Systems_of_Linear_Equations">Solving Systems of Linear Equations</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Linear_Algebra__2.html" data-scroll="Linear_Algebra__2"><span class="codenumber">16</span> <span class="title">Geometric Interpretations of Linear Equations</span></a><ul>
+<li><a href="Interpretation_Via_Rows.html" data-scroll="Interpretation_Via_Rows">Interpretation Via Rows</a></li>
+<li><a href="Interpretation_Via_Columns.html" data-scroll="Interpretation_Via_Columns">Interpretation Via Columns</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Chap-Linear_Algebra_3.html" data-scroll="Chap-Linear_Algebra_3"><span class="codenumber">17</span> <span class="title">Matrix Algebra</span></a><ul>
+<li><a href="Sec-Linear_Algebra_Intro.html" data-scroll="Sec-Linear_Algebra_Intro">Introduction</a></li>
+<li><a href="Sec-Addition_and_Scalar_Multiplication.html" data-scroll="Sec-Addition_and_Scalar_Multiplication">Addition and Scalar Multiplication</a></li>
+<li><a href="Sec-Matrix_multiplication.html" data-scroll="Sec-Matrix_multiplication">Matrix Multiplication</a></li>
+<li><a href="Sec-Matrices_and_Systems_of_Linear_Equations.html" data-scroll="Sec-Matrices_and_Systems_of_Linear_Equations">Matrices and Systems of Linear Equations</a></li>
+<li><a href="Sec-Linear_transformations.html" data-scroll="Sec-Linear_transformations">Linear Transformations</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Linear_Algebra_4.html" data-scroll="Linear_Algebra_4"><span class="codenumber">18</span> <span class="title">Square Matrices</span></a><ul>
+<li><a href="Inverse_Matrices.html" data-scroll="Inverse_Matrices">Inverse Matrices</a></li>
+<li><a href="Determinants.html" data-scroll="Determinants">Determinants</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Linear_Algebra_5.html" data-scroll="Linear_Algebra_5"><span class="codenumber">19</span> <span class="title">Eigenvalues and Eigenvectors</span></a><ul>
+<li><a href="Sec-LA_5_Introduction.html" data-scroll="Sec-LA_5_Introduction">Introduction</a></li>
+<li><a href="Sec-LA_5_Finding_Eigenvalues_and_Eigenvectors.html" data-scroll="Sec-LA_5_Finding_Eigenvalues_and_Eigenvectors">Finding Eigenvalues and Eigenvectors</a></li>
+<li><a href="Sec-LA_5_A_Simple_Application.html" data-scroll="Sec-LA_5_A_Simple_Application">A Simple Application</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Linear_Algebra_6.html" data-scroll="Linear_Algebra_6"><span class="codenumber">20</span> <span class="title">Some Applications of Eigenvalues and Eigenvectors</span></a><ul>
+<li><a href="Powers_of_Matrices.html" data-scroll="Powers_of_Matrices">Powers of Matrices</a></li>
+<li><a href="Coupled_Linear_Differential_Equations.html" data-scroll="Coupled_Linear_Differential_Equations">Coupled Linear Differential Equations</a></li>
+</ul>
+</li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="Sec-Multivariable-chain-rules"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">8.2</span> <span class="title">Multivariable Chain Rules</span>
+</h2>
+<p id="p-485">Begin by considering the case where <span class="process-math">\(z=z(x,y)\)</span> and <span class="process-math">\(x=x(t)\text{,}\)</span> <span class="process-math">\(y=y(t)\text{.}\)</span> In this case we can think of <span class="process-math">\(z\)</span> as defining a real valued function <span class="process-math">\(z=z(t)\text{.}\)</span></p>
+<article class="example example-like" id="Ex-Multivariate_chain_rule_substitution"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-Ex-Multivariate_chain_rule_substitution"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">8.2.1</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Ex-Multivariate_chain_rule_substitution"><article class="example example-like"><p id="p-486">If <span class="process-math">\(z=x^2+2xy+3y^2\)</span> and <span class="process-math">\(x=t+1\text{,}\)</span> <span class="process-math">\(y=t-1\)</span> then find <span class="process-math">\(z'(t)\)</span> by substituting the expressions for <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> into <span class="process-math">\(z\)</span> and then differentiating.</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-18" id="answer-18"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-18"><div class="answer solution-like"><p id="p-487"><span class="process-math">\(\dfrac{dz}{dt} = 12t-4\)</span></p></div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-58" id="solution-58"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-58"><div class="solution solution-like">
+<p id="p-488">On substituting <span class="process-math">\(x\)</span> and <span class="process-math">\(x\)</span> into <span class="process-math">\(z\)</span></p>
+<div class="displaymath process-math">
+\begin{alignat*}{1}
+z(t) \amp = (t+1)^2 + 2(t+1)(t-1)+3(t-1)^2\\
+\quad \amp = 6t^2-4t+2
+\end{alignat*}
+</div>
+<p class="continuation">Thus</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\dfrac{dz}{dt} = 12-4.
+\end{equation*}
+</div>
+</div></div>
+</div></article></div>
+<p id="p-489">Now for a function <span class="process-math">\(f\)</span> of two variables the linear approximation (or ''small change'') formula says:</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\Delta f \approx \dfrac{\partial f}{\partial x}\Delta x + \dfrac{\partial f}{\partial y}\Delta y.
+\end{equation*}
+</div>
+<p class="continuation">Thus</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\dfrac{\Delta f}{\Delta t} \approx \dfrac{\partial f}{\partial x}\frac{\Delta x}{\Delta t} + \dfrac{\partial f}{\partial y}\frac{\Delta y}{\Delta t}.
+\end{equation*}
+</div>
+<p id="p-490">This formula becomes more accurate as <span class="process-math">\(\Delta t \to 0\)</span> and from the limit we obtain the following chain rule.</p>
+<article class="theorem theorem-like" id="theorem-10"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">8.2.2</span><span class="period">.</span><span class="space"> </span><span class="title">Chain Rule 1.</span>
+</h3>
+<p id="p-491">If <span class="process-math">\(z=z(x,y)\)</span> and <span class="process-math">\(x=x(t)\text{,}\)</span> <span class="process-math">\(y=y(t)\)</span> are differentiable functions then</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\dfrac{dz}{dt} = \dfrac{\partial z}{\partial x}\cdot \dfrac{dx}{dt} + \dfrac{\partial z}{\partial y}\cdot \dfrac{dy}{dt}.
+\end{equation*}
+</div></article><article class="example example-like" id="Ex-Chain_rule_1_sample_1"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-Ex-Chain_rule_1_sample_1"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">8.2.3</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Ex-Chain_rule_1_sample_1"><article class="example example-like"><p id="p-492">If <span class="process-math">\(z=x^2+2xy+3y^2\)</span> and <span class="process-math">\(x=t+1\text{,}\)</span> <span class="process-math">\(y=t-1\)</span> then find <span class="process-math">\(z'(t)\)</span> by using the chain rule.</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-19" id="answer-19"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-19"><div class="answer solution-like"><p id="p-493"><span class="process-math">\(\dfrac{dz}{dt} = 12t-4\)</span></p></div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-59" id="solution-59"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-59"><div class="solution solution-like">
+<p id="p-494">Here</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\dfrac{\partial z}{\partial x} = 2x + 2y, \ \dfrac{\partial z}{\partial y} = 2x + 6y, \ \dfrac{dx}{dt} = 1 = \dfrac{dy}{dt}.
+\end{equation*}
+</div>
+<p class="continuation">So, via the chain rule</p>
+<div class="displaymath process-math">
+\begin{alignat*}{1}
+\dfrac{dz}{dt} \amp = (2x+2y)\times 1 + (2x+6y)\times 1\\
+\quad \amp = 4x+8y\\
+\quad \amp = 4(t+1)+8(t-1)\\
+\quad \amp = 12t-4.
+\end{alignat*}
+</div>
+</div></div>
+</div></article></div>
+<article class="example example-like" id="Ex-Chain_rule_1_sample_2"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-Ex-Chain_rule_1_sample_2"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">8.2.4</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Ex-Chain_rule_1_sample_2"><article class="example example-like"><p id="p-495">Use the chain rule to find <span class="process-math">\(z'(t)\)</span> when <span class="process-math">\(z(x,y) = \sqrt{x^2+y^2}\)</span> and <span class="process-math">\(x(t) = e^{2t}, \ y(t)=e^{-2t}\text{.}\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-20" id="answer-20"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-20"><div class="answer solution-like"><p id="p-496"><span class="process-math">\(\dfrac{dz}{dt} = \dfrac{2(e^{6t} - e^{-2t})}{\sqrt{e^{8t}+1}}\)</span></p></div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-60" id="solution-60"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-60"><div class="solution solution-like">
+<p id="p-497">Here</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\dfrac{\partial z}{\partial x} = \dfrac{x}{\sqrt{x^2+y^2}}, \ \dfrac{\partial z}{\partial y} = \dfrac{y}{\sqrt{x^2+y^2}}, \ \dfrac{dx}{dt} = 2e^{2t}, \ \dfrac{dy}{dt} = -2e^{-2t}.
+\end{equation*}
+</div>
+<p class="continuation">So, via the chain rule</p>
+<div class="displaymath process-math">
+\begin{alignat*}{1}
+\dfrac{dz}{dt} \amp = \dfrac{x}{\sqrt{x^2+y^2}}\times 2e^{2t} + \dfrac{y}{\sqrt{x^2+y^2}}\times (-2e^{-2t})\\
+\quad \amp = \dfrac{e^{2t}2e^{2t}}{\sqrt{e^{4t} + e^{-4t}}} -\dfrac{e^{-2t}2e^{-2t}}{\sqrt{e^{4t} + e^{-4t}}}\\
+\quad \amp = \dfrac{2(e^{6t} - e^{-2t})}{\sqrt{e^{8t}+1}}.
+\end{alignat*}
+</div>
+</div></div>
+</div></article></div>
+<article class="example example-like" id="Ex-Related_rate_chain_rule_1"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-Ex-Related_rate_chain_rule_1"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">8.2.5</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Ex-Related_rate_chain_rule_1"><article class="example example-like"><p id="p-498">The radius of a right circular cone is increasing at a rate of <span class="process-math">\(1.8\)</span> cm/s while its height is decreasing at a rate of <span class="process-math">\(2.5\)</span> cm/s. At what rate is the volume of the cone changing when the radius is <span class="process-math">\(120\)</span> cm and the height is <span class="process-math">\(140\)</span> cm?</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-21" id="answer-21"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-21"><div class="answer solution-like"><p id="p-499"><span class="process-math">\(\dfrac{dV}{dt} = 8160\pi \  (\text{cm}^3\text{/s})\)</span></p></div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-61" id="solution-61"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-61"><div class="solution solution-like">
+<p id="p-500">The volume <span class="process-math">\(V\)</span> of right circular cone of radius <span class="process-math">\(r\)</span> and height <span class="process-math">\(h\)</span> is</p>
+<div class="displaymath process-math">
+\begin{equation*}
+V(r,h) = \dfrac{1}{3}\pi r^2h.
+\end{equation*}
+</div>
+<p id="p-501">Since both radius and the height are functions of time <span class="process-math">\(t\text{,}\)</span> i.e. <span class="process-math">\(r=r(t)\)</span> and <span class="process-math">\(h=h(t)\text{,}\)</span> we can think of the volume as a function of time as well, i.e. <span class="process-math">\(V=V(t)\text{,}\)</span> and the problem is asking us to find <span class="process-math">\(\dfrac{dV}{dt}\)</span> when <span class="process-math">\(r=120\)</span> and <span class="process-math">\(h=140\text{.}\)</span> Now, by the chain rule:</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\dfrac{dV}{dt} = \dfrac{\partial V}{\partial r}\cdot \dfrac{dr}{dt} + \dfrac{\partial V}{\partial h}\cdot \dfrac{dh}{dt}.
+\end{equation*}
+</div>
+<p id="p-502">Here</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\dfrac{\partial V}{\partial r}  = \dfrac{2}{3}\pi rh \text{ and } \dfrac{\partial V}{\partial h} =\dfrac{1}{3}\pi r^2
+\end{equation*}
+</div>
+<p class="continuation">and we are given that <span class="process-math">\(\dfrac{dr}{dt} = 1.8\)</span> and <span class="process-math">\(\dfrac{dh}{dt} = -2.5\text{.}\)</span> (Note that <span class="process-math">\(\dfrac{dh}{dt}\)</span> is negative because the height is decreasing.) Thus, at <span class="process-math">\(r=120\)</span> and <span class="process-math">\(h=140\)</span></p>
+<div class="displaymath process-math">
+\begin{alignat*}{1}
+\dfrac{dV}{dt} \amp = \dfrac{2\pi}{3} \times 120 \times 140 \times 1.8  - \dfrac{\pi}{3}\times 120^2 \times 2.5\\
+\amp =  8160\pi \  (\text{cm}^3\text{/s})
+\end{alignat*}
+</div>
+</div></div>
+</div></article></div>
+<p id="p-503">Consider the case now where <span class="process-math">\(z=z(u)\)</span> and <span class="process-math">\(u=u(x,y)\text{.}\)</span> In this case we can think of <span class="process-math">\(z\)</span> as defining a function of two variables <span class="process-math">\(z=z(x,y)\)</span> and hence has partial derivatives with respect to these variables. The relevant chain rules for this case are:</p>
+<article class="theorem theorem-like" id="theorem-11"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">8.2.6</span><span class="period">.</span><span class="space"> </span><span class="title">Chain Rule 2.</span>
+</h3>
+<p id="p-504">If <span class="process-math">\(z=z(u)\)</span> and <span class="process-math">\(u=u(x,y)\)</span> are differentiable functions then</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\dfrac{\partial z}{\partial x} =  \dfrac{dz}{du}\cdot\dfrac{\partial u}{\partial x} \quad \text{and} \quad  \dfrac{\partial z}{\partial y} = \dfrac{dz}{du}\cdot\dfrac{\partial u}{\partial y}.
+\end{equation*}
+</div></article><article class="example example-like" id="Ex-Related_rate_chain_rule_2"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-Ex-Related_rate_chain_rule_2"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">8.2.7</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Ex-Related_rate_chain_rule_2"><article class="example example-like"><p id="p-505">A spherical balloon holds a fixed amount of gas but its volume is dependent on the pressure <span class="process-math">\(P\)</span> and temperature <span class="process-math">\(T\)</span> of the gas according to</p>
+<div class="displaymath process-math">
+\begin{equation*}
+V=k\dfrac{T}{P}, \quad k \ \text{ a constant}.
+\end{equation*}
+</div>
+<p class="continuation">Determine expressions for the rate of change of the radius <span class="process-math">\(r\)</span> of the balloon with respect to the pressure and temperature of the gas.</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-22" id="answer-22"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-22"><div class="answer solution-like">
+<p id="p-506"><span class="process-math">\(\dfrac{\partial r}{\partial P} = -\dfrac{1}{3}Ck^{\frac{1}{3}}T^{\frac{1}{3}}P^{-\frac{4}{3}}\)</span></p>
+<p id="p-507"><span class="process-math">\(\dfrac{\partial r}{\partial T} =  \dfrac{1}{3}Ck^{\frac{1}{3}}T^{-\frac{2}{3}}P^{-\frac{1}{3}}\)</span></p>
+</div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-62" id="solution-62"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-62"><div class="solution solution-like">
+<p id="p-508">The volume <span class="process-math">\(V\)</span> of a sphere of radius <span class="process-math">\(r\)</span> is</p>
+<div class="displaymath process-math">
+\begin{equation*}
+V = \dfrac{4}{3}\pi r^3.
+\end{equation*}
+</div>
+<p id="p-509">Thus we can think of the radius of the balloon as a function of its volume, i.e.</p>
+<div class="displaymath process-math">
+\begin{equation*}
+r(V) = CV^{\frac{1}{3}} \text{ where } C=\left(\dfrac{3}{4\pi}\right)^{\frac{1}{3}}
+\end{equation*}
+</div>
+<p class="continuation">where the volume is, in turn, a function of the pressure and temperature of the gas, i.e.</p>
+<div class="displaymath process-math">
+\begin{equation*}
+V(P,T) = kP^{-1}T.
+\end{equation*}
+</div>
+<p id="p-510">Using Chain Rule 2:</p>
+<div class="displaymath process-math">
+\begin{alignat*}{1}
+\dfrac{\partial r}{\partial P} \amp = \dfrac{dr}{dV}\dfrac{\partial V}{\partial P}\\
+\amp =  \left(\dfrac{1}{3}CV^{-\frac{2}{3}}\right)(-kTP^{-2})\\
+\amp = -\dfrac{1}{3}Ck^{\frac{1}{3}}T^{\frac{1}{3}}P^{-\frac{4}{3}}.
+\end{alignat*}
+</div>
+<p id="p-511">Similarly</p>
+<div class="displaymath process-math">
+\begin{alignat*}{1}
+\dfrac{\partial r}{\partial T} \amp = \dfrac{dr}{dV}\dfrac{\partial V}{\partial T}\\
+\amp =  \left(\dfrac{1}{3}CV^{-\frac{2}{3}}\right)(kP^{-1})\\
+\amp =  \dfrac{1}{3}Ck^{\frac{1}{3}}T^{-\frac{2}{3}}P^{-\frac{1}{3}}.
+\end{alignat*}
+</div>
+</div></div>
+</div></article></div>
+<article class="example example-like" id="Ex-Chain_rule_2_sample"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-Ex-Chain_rule_2_sample"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">8.2.8</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Ex-Chain_rule_2_sample"><article class="example example-like"><p id="p-512">Use the appropriate chain rules to calculate <span class="process-math">\(\dfrac{\partial z}{\partial x}\)</span> and <span class="process-math">\(\dfrac{\partial z}{\partial y}\)</span> when</p>
+<div class="displaymath process-math">
+\begin{equation*}
+z = \dfrac{u}{u+1} \text{ and } u = 3x^5-5xy^2.
+\end{equation*}
+</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-23" id="answer-23"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-23"><div class="answer solution-like">
+<p id="p-513"><span class="process-math">\(\dfrac{\partial z}{\partial x} = \dfrac{15x^4-5y^2}{(3x^5-5xy^2+1)^2}\)</span></p>
+<p id="p-514"><span class="process-math">\(\dfrac{\partial z}{\partial y} = \dfrac{-10xy}{(3x^5-5xy^2+1)^2}\)</span></p>
+</div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-63" id="solution-63"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-63"><div class="solution solution-like">
+<p id="p-515">Using Chain Rule 2:</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\dfrac{\partial z}{\partial x} =  \dfrac{dz}{du}\dfrac{\partial u}{\partial x} \text{ and } \dfrac{\partial z}{\partial y} = \dfrac{dz}{du}\dfrac{\partial u}{\partial y}.
+\end{equation*}
+</div>
+<p id="p-516">Now, (via the quotient rule)</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\dfrac{dz}{du} = \dfrac{(u+1)(1) - u(1)}{(u+1)^2} = \dfrac{1}{(u+1)^2}
+\end{equation*}
+</div>
+<p class="continuation">and</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\dfrac{\partial u}{\partial x} = 15x^4-5y^2 \text{ and } \dfrac{\partial u}{\partial y} = -10xy.
+\end{equation*}
+</div>
+<p id="p-517">Thus</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\dfrac{\partial z}{\partial x} = \dfrac{15x^4-5y^2}{(3x^5-5xy^2+1)^2} \text{ and } \dfrac{\partial z}{\partial y} = \dfrac{-10xy}{(3x^5-5xy^2+1)^2}.
+\end{equation*}
+</div>
+</div></div>
+</div></article></div>
+<p id="p-518">Next consider the case where <span class="process-math">\(z=z(x,y)\)</span> and <span class="process-math">\(x=x(s,t)\text{,}\)</span> <span class="process-math">\(y=y(s,t)\text{.}\)</span> In this case we can think of <span class="process-math">\(z\)</span> as defining a function of two variables <span class="process-math">\(z=z(s,t)\text{.}\)</span> The relevant chain rules for this case are:</p>
+<article class="theorem theorem-like" id="theorem-12"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">8.2.9</span><span class="period">.</span><span class="space"> </span><span class="title">Chain Rule 3.</span>
+</h3>
+<p id="p-519">If <span class="process-math">\(z=z(x,y)\)</span> and <span class="process-math">\(x=x(s,t)\text{,}\)</span> <span class="process-math">\(y=y(s,t)\)</span> are differentiable functions then</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\dfrac{\partial z}{\partial s} = \dfrac{\partial z}{\partial x} \cdot \dfrac{\partial x}{\partial s} + \dfrac{\partial z}{\partial y} \cdot \dfrac{\partial y}{\partial s}
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\dfrac{\partial z}{\partial t} = \dfrac{\partial z}{\partial x} \cdot \dfrac{\partial x}{\partial t} + \dfrac{\partial z}{\partial y} \cdot \dfrac{\partial y}{\partial t}
+\end{equation*}
+</div></article><article class="example example-like" id="Ex-Chain_rule_3_sample"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-Ex-Chain_rule_3_sample"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">8.2.10</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Ex-Chain_rule_3_sample"><article class="example example-like"><p id="p-520">Use the appropriate chain rules to find <span class="process-math">\(\dfrac{\partial z}{\partial s}\)</span> and <span class="process-math">\(\dfrac{\partial z}{\partial t}\)</span> when</p>
+<div class="displaymath process-math">
+\begin{equation*}
+z = \dfrac{x}{y} \text{ and } x = se^t, \quad y = 1+se^{-t}.
+\end{equation*}
+</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-24" id="answer-24"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-24"><div class="answer solution-like">
+<p id="p-521"><span class="process-math">\(\dfrac{\partial z}{\partial s} = \dfrac{e^t}{(1+se^{-t})^2}\)</span></p>
+<p id="p-522"><span class="process-math">\(\dfrac{\partial z}{\partial y} = \dfrac{se^t+2s^2}{(1+se^{-t})^2}\)</span></p>
+</div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-64" id="solution-64"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-64"><div class="solution solution-like">
+<p id="p-523">Here</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\dfrac{\partial z}{\partial x} = \dfrac{1}{y}, \quad \dfrac{\partial z}{\partial y} = -\dfrac{x}{y^2}
+\end{equation*}
+</div>
+<p class="continuation">and</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\dfrac{\partial x}{\partial s} = e^t, \quad \dfrac{\partial x}{\partial t} = se^t, \quad \dfrac{\partial y}{\partial s}=e^{-t}, \quad \dfrac{\partial y}{\partial t}=-se^{-t}.
+\end{equation*}
+</div>
+<p id="p-524">Thus, by Chain Rule 3</p>
+<div class="displaymath process-math">
+\begin{alignat*}{1}
+\dfrac{\partial z}{\partial s} \amp = \dfrac{\partial z}{\partial x} \cdot \dfrac{\partial x}{\partial s} + \dfrac{\partial z}{\partial y} \cdot \dfrac{\partial y}{\partial s}\\
+\amp =  \left(\dfrac{1}{1+se^{-t}}\right)(e^t) + \left(\dfrac{-se^t}{(1+se^{-t})^2}\right)(e^{-t})\\
+\amp =  \dfrac{e^t}{(1+se^{-t})^2}
+\end{alignat*}
+</div>
+<p class="continuation">and</p>
+<div class="displaymath process-math">
+\begin{alignat*}{1}
+\dfrac{\partial z}{\partial t} \amp = \dfrac{\partial z}{\partial x} \cdot \dfrac{\partial x}{\partial t} + \dfrac{\partial z}{\partial y} \cdot \dfrac{\partial y}{\partial t}\\
+\amp =  \left(\dfrac{1}{1+se^{-t}}\right)(se^t) + \left(\dfrac{-se^t}{(1+se^{-t})^2}\right)(-se^{-t})\\
+\amp =  \dfrac{se^t + 2s^2}{(1+se^{-t})^2}
+\end{alignat*}
+</div>
+</div></div>
+</div></article></div>
+<p id="p-525">The chain rules given above are just special cases of the general chain rule.</p>
+<article class="theorem theorem-like" id="theorem-13"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">8.2.11</span><span class="period">.</span><span class="space"> </span><span class="title">The General Chain Rule.</span>
+</h3>
+<p id="p-526">If <span class="process-math">\(z=z(x_1,x_2,\ldots,x_n)\)</span> is a differentiable function of <span class="process-math">\(n\)</span> variables <span class="process-math">\(x_1,x_2,\ldots,x_n\)</span> and each <span class="process-math">\(x_i = x_i(t_1,t_2,\ldots,t_m)\)</span> is a differentiable function of the <span class="process-math">\(m\)</span> variables <span class="process-math">\(t_1,t_2,\ldots,t_m\)</span> then</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\dfrac{\partial z}{\partial t_i} = \dfrac{\partial z}{\partial x_1} \cdot \dfrac{\partial x_1}{\partial t_i} + \dfrac{\partial z}{\partial x_2} \cdot \dfrac{\partial x_2}{\partial t_i} + \cdots + \dfrac{\partial z}{\partial x_n} \cdot \dfrac{\partial x_n}{\partial t_i}
+\end{equation*}
+</div>
+<p class="continuation">for each <span class="process-math">\(i = 1,2,\ldots, m.\)</span></p></article><article class="example example-like" id="Ex-General_chain_rule_sample"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-Ex-General_chain_rule_sample"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">8.2.12</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Ex-General_chain_rule_sample"><article class="example example-like"><p id="p-527">Find <span class="process-math">\(\dfrac{\partial w}{\partial u}\)</span> if <span class="process-math">\(w(x,y,z) = 2x^2+5y^2+z^3\)</span> and</p>
+<div class="displaymath process-math">
+\begin{equation*}
+x(r,s,t,u) = r+s+t+u, \quad y(r,s,t,u)=r^2,\quad z(r,s,t,u) = \sqrt{r-s+t-u}
+\end{equation*}
+</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-25" id="answer-25"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-25"><div class="answer solution-like"><p id="p-528"><span class="process-math">\(\dfrac{\partial w}{\partial u} = 4(r+s+t+u) - \dfrac{3\sqrt{r-s+t-u}}{2}\)</span></p></div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-65" id="solution-65"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-65"><div class="solution solution-like">
+<p id="p-529">By the general Chain Rule</p>
+<div class="displaymath process-math">
+\begin{alignat*}{1}
+\dfrac{\partial w}{\partial u} \amp = \dfrac{\partial w}{\partial x}\dfrac{\partial x}{\partial u} + \dfrac{\partial w}{\partial y}\dfrac{\partial y}{\partial u} + \dfrac{\partial w}{\partial z}\dfrac{\partial z}{\partial u}\\
+\amp =  (4x)(1) + (10y)(0) + (3z^2)\left(\dfrac{1}{2}(r-s+t-u)^{-\frac{1}{2}}(-1)\right)\\
+\amp =  4(r+s+t+u) - \dfrac{3\sqrt{r-s+t-u}}{2}
+\end{alignat*}
+</div>
+</div></div>
+</div></article></div>
+<section class="exercises" id="exercises-18"><h3 class="heading hide-type">
+<span class="type">Exercises</span> <span class="codenumber"></span> <span class="title">Example Tasks</span>
+</h3>
+<article class="exercise exercise-like" id="exercise-51"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>Use the appropriate chain rules to find <span class="process-math">\(\dfrac{\partial z}{\partial x}\)</span> and <span class="process-math">\(\dfrac{\partial z}{\partial y}\)</span> when<div class="displaymath process-math">
+\begin{equation*}
+z(u,v)=u^2v+e^v  \quad \text{and} \quad u(x,y) = \ln(y-x), \quad v(x,y) = x+xy.
+\end{equation*}
+</div></article><article class="exercise exercise-like" id="exercise-52"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>Two straight roads intersect at right angles. Car A is moving on one road approaches the intersection at <span class="process-math">\(25\)</span> km/h while Car B moving on the other road approaches the intersection at <span class="process-math">\(30\)</span> km/h. At what rate is the distance between the cars changing when A is <span class="process-math">\(0.3\)</span> km from the intersection and B is <span class="process-math">\(0.4\)</span> km from the intersection?</article><article class="exercise exercise-like" id="exercise-53"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>Show that any function of the form<div class="displaymath process-math">
+\begin{equation*}
+z = f(x+at) + g(x-at)
+\end{equation*}
+</div>is a solution of the wave equation<div class="displaymath process-math">
+\begin{equation*}
+\dfrac{\partial^2 z}{\partial t^2} = a^2\dfrac{\partial^2 z}{\partial x^2}.
+\end{equation*}
+</div></article><article class="exercise exercise-like" id="exercise-54"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
+<ol class="lower-alpha">
+<li id="li-109"><p id="p-derived-li-109">If <span class="process-math">\(z=z(x,y)\)</span> and <span class="process-math">\(x=x(\theta)\)</span> and <span class="process-math">\(y=y(\theta)\)</span> find an appropriate chain rule for <span class="process-math">\(\dfrac{d^2z}{d\theta^2}\text{.}\)</span></p></li>
+<li id="li-110"><p id="p-derived-li-110">Using the result of part (a) find <span class="process-math">\(\dfrac{d^2z}{d\theta^2}\)</span> when <span class="process-math">\(z(x,y)=x^2+2y\)</span> and <span class="process-math">\(x(\theta) = 5\cos(\theta)\)</span> and <span class="process-math">\(y(\theta) = 5\sin(\theta)\text{.}\)</span></p></li>
+</ol></article></section></section></div></main>
+</div>
+</body>
+</html>

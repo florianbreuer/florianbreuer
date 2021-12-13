@@ -1,0 +1,110 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-12-08T21:44:27+11:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<div class="solution solution-like">
+<h3 class="heading">
+<span class="type">Solution</span><span xmlns:svg="http://www.w3.org/2000/svg" class="space"> </span><span class="codenumber">13.2.5.1</span><span xmlns:svg="http://www.w3.org/2000/svg" class="period">.</span>
+</h3>
+<p>To solve the initial-value problem we have to begin by finding the general solution to the DE. Since this DE is a non-homogeneous second order DE with constant coefficients we have to first find the general solution to the associated homogeneous DE</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+y''+3y'=0
+\end{equation*}
+</div>
+<p class="continuation">The characteristic equation for this DE is</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+r^2+3r=0
+\end{equation*}
+</div>
+<p class="continuation">which has solutions</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+r=0, -3
+\end{equation*}
+</div>
+<p class="continuation">Thus the complementary solution is</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+y_c(x)=A+Be^{-3x}
+\end{equation*}
+</div>
+<p class="continuation">For the particular solution try a function of the form</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+y_p(x)=Ce^{2x}
+\end{equation*}
+</div>
+<p class="continuation">Then</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{align*}
+y_p'(x) \amp =2Ce^{2x}\\
+y_p''(x) \amp=4Ce^{2x}
+\end{align*}
+</div>
+<p>For this to be a solution</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+y_p''+3y_p'=5e^{2x}
+\end{equation*}
+</div>
+<p class="continuation">and so</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{align*}
+4Ce^{2x}+3(2Ce^{2x}) \amp =5e^{2x}\\
+10Ce^{2x} \amp=5e^{2x}
+\end{align*}
+</div>
+<p>On equating coefficients on both sides of this equation</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+10C=5\Rightarrow C=\frac{1}{2}
+\end{equation*}
+</div>
+<p class="continuation">Combining the complementary solution and this particular solution gives the general solution as</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+y(x)=A+Be^{-3x}+\frac{1}{2}e^{2x}
+\end{equation*}
+</div>
+<p class="continuation">On using the initial condition <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(y(0)=1\)</span> we find</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+A+B=\frac{1}{2}
+\end{equation*}
+</div>
+<p class="continuation">Since</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+y'(x)=-3Be^{-3x}+e^{2x}
+\end{equation*}
+</div>
+<p class="continuation">on using the initial condition <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(y'(0)=2\)</span> we find</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+B=1
+\end{equation*}
+</div>
+<p class="continuation">Thus <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(A=-\frac{1}{2}, B=1\)</span> and the solution to the initial-value problem is</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+y(x)=e^{-3x}+\frac{1}{2}e^{2x}-\frac{1}{2}
+\end{equation*}
+</div>
+</div>
+<span class="incontext"><a href="The_Method_of_Undetermined_Coefficients.html#solution-108">in-context</a></span>
+</body>
+</html>

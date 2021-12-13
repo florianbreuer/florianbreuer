@@ -1,0 +1,524 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-12-08T21:42:25+11:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Interpretation Via Columns</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    useLabelIds: true,
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext.js"></script><script xmlns:svg="http://www.w3.org/2000/svg">miniversion=0.6</script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script xmlns:svg="http://www.w3.org/2000/svg">sagecellEvalName='Evaluate (Sage)';
+</script><link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/colors_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link xmlns:svg="http://www.w3.org/2000/svg" href="developer.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div xmlns:svg="http://www.w3.org/2000/svg" id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\bm}[1]{\boldsymbol{#1}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="MATH1120-Course-Notes.html"><span class="title">MATH1120:</span> <span class="subtitle">Mathematics for Engineering, Science and Technology 2</span></a></h1>
+<p class="byline"></p>
+</div>
+</div></div>
+<nav xmlns:svg="http://www.w3.org/2000/svg" id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="Interpretation_Via_Rows.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="Linear_Algebra__2.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="Chap-Linear_Algebra_3.html" title="Next">Next</a></span></div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="Interpretation_Via_Rows.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="Linear_Algebra__2.html" title="Up">Up</a><a class="next-button button toolbar-item" href="Chap-Linear_Algebra_3.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div xmlns:svg="http://www.w3.org/2000/svg" id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link part"><a href="Part-Calculus.html" data-scroll="Part-Calculus"><span class="codenumber">I</span> <span class="title">Calculus</span></a></li>
+<li class="link">
+<a href="Chap-Calculus_1.html" data-scroll="Chap-Calculus_1"><span class="codenumber">1</span> <span class="title">Maclaurin Series</span></a><ul>
+<li><a href="Sec-Introduction.html" data-scroll="Sec-Introduction">Introduction</a></li>
+<li><a href="Sec-Infinite_Series.html" data-scroll="Sec-Infinite_Series">Infinite Series</a></li>
+<li><a href="Sec-Maclaurin_Series.html" data-scroll="Sec-Maclaurin_Series">Maclaurin Series</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Calculus_2.html" data-scroll="Calculus_2"><span class="codenumber">2</span> <span class="title">Taylor Series</span></a><ul>
+<li><a href="Generating-New-Series-from-Known-Series.html" data-scroll="Generating-New-Series-from-Known-Series">Generating New Series from Known Series</a></li>
+<li><a href="Taylor_Series.html" data-scroll="Taylor_Series">Taylor Series</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Calculus_3.html" data-scroll="Calculus_3"><span class="codenumber">3</span> <span class="title">Functions of Several Variables</span></a><ul>
+<li><a href="functions-of-two-variables.html" data-scroll="functions-of-two-variables">Functions of Two Variables</a></li>
+<li><a href="level-curves.html" data-scroll="level-curves">Level Curves</a></li>
+<li><a href="surfaces-of-revolution.html" data-scroll="surfaces-of-revolution">Surfaces of Revolution</a></li>
+<li><a href="functions-of-3-or-more-variables.html" data-scroll="functions-of-3-or-more-variables">Functions of 3 (or more) Variables</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Chap-Calculus_4.html" data-scroll="Chap-Calculus_4"><span class="codenumber">4</span> <span class="title">Partial Differentiation</span></a><ul>
+<li><a href="Sec-Partial_Differentiation.html" data-scroll="Sec-Partial_Differentiation">Partial Differentiation</a></li>
+<li><a href="Sec-Higher_Partial_Derivatives.html" data-scroll="Sec-Higher_Partial_Derivatives">Higher Partial Derivatives</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Chap-Calculus_5.html" data-scroll="Chap-Calculus_5"><span class="codenumber">5</span> <span class="title">Linear Approximations</span></a><ul>
+<li><a href="Sec-Tangent_Planes.html" data-scroll="Sec-Tangent_Planes">Tangent Planes</a></li>
+<li><a href="Sec-Linear_Approximations.html" data-scroll="Sec-Linear_Approximations">Linear Approximations</a></li>
+<li><a href="Quadratic-Approximations.html" data-scroll="Quadratic-Approximations">Quadratic Approximations</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Calculus_6.html" data-scroll="Calculus_6"><span class="codenumber">6</span> <span class="title">The Directional Derivative</span></a><ul>
+<li><a href="Directional-Derivatives.html" data-scroll="Directional-Derivatives">Directional Derivatives</a></li>
+<li><a href="In_Three_Variables.html" data-scroll="In_Three_Variables">In Three Variables</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Calculus_7.html" data-scroll="Calculus_7"><span class="codenumber">7</span> <span class="title">Local and Global Extrema</span></a><ul>
+<li><a href="Critical-Points.html" data-scroll="Critical-Points">Critical Points</a></li>
+<li><a href="Second-Derivative-Test.html" data-scroll="Second-Derivative-Test">Second Derivative Test</a></li>
+<li><a href="Global-Extrema.html" data-scroll="Global-Extrema">Global Extrema</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Chap-Calculus_8.html" data-scroll="Chap-Calculus_8"><span class="codenumber">8</span> <span class="title">Chain Rules</span></a><ul>
+<li><a href="Sec-The_single_variable_chain_rule.html" data-scroll="Sec-The_single_variable_chain_rule">The Single Variable Chain Rule</a></li>
+<li><a href="Sec-Multivariable-chain-rules.html" data-scroll="Sec-Multivariable-chain-rules">Multivariable Chain Rules</a></li>
+<li><a href="section-22.html" data-scroll="section-22">Implicit Differentiation</a></li>
+</ul>
+</li>
+<li class="link part"><a href="Part-Differenial_Equations.html" data-scroll="Part-Differenial_Equations"><span class="codenumber">II</span> <span class="title">Differential Equations</span></a></li>
+<li class="link">
+<a href="Differential_Equations_1.html" data-scroll="Differential_Equations_1"><span class="codenumber">9</span> <span class="title">Introduction</span></a><ul>
+<li><a href="introduction.html" data-scroll="introduction">Introduction</a></li>
+<li><a href="direction-fields-and-eulers-method.html" data-scroll="direction-fields-and-eulers-method">Direction Fields and Euler's Method</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Differential_Equations_2.html" data-scroll="Differential_Equations_2"><span class="codenumber">10</span> <span class="title">First Order Separable DEs</span></a><ul>
+<li><a href="Sec-First_Order_Separable_DEs.html" data-scroll="Sec-First_Order_Separable_DEs">First Order Separable DEs</a></li>
+<li><a href="Sec-Some-Simple-Applications-of-First-Order-Separable-DEs.html" data-scroll="Sec-Some-Simple-Applications-of-First-Order-Separable-DEs">Some Simple Applications of First Order Separable DEs</a></li>
+<li><a href="appendix-1.html" data-scroll="appendix-1">Partial Fraction Decomposition</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Differential_Equations_3.html" data-scroll="Differential_Equations_3"><span class="codenumber">11</span> <span class="title">First Order Linear DEs</span></a><ul>
+<li><a href="Exact_First_Order_DEs.html" data-scroll="Exact_First_Order_DEs">Exact First Order DEs</a></li>
+<li><a href="First_Order_Linear_DEs.html" data-scroll="First_Order_Linear_DEs">First Order Linear DEs</a></li>
+<li><a href="Simple_Applications_of_First_Order_Linear_DEs.html" data-scroll="Simple_Applications_of_First_Order_Linear_DEs">Some Simple Applications of First Order Linear DEs</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Differential_Equations_4.html" data-scroll="Differential_Equations_4"><span class="codenumber">12</span> <span class="title">Homogeneous Second Order Linear DEs</span></a><ul><li><a href="Homogeneous_Second_Order_Linear_DEs_With_Constant_Coefficients.html" data-scroll="Homogeneous_Second_Order_Linear_DEs_With_Constant_Coefficients">Homogeneous Second Order Linear DEs With Constant Coefficients</a></li></ul>
+</li>
+<li class="link">
+<a href="Differential_Equations_5.html" data-scroll="Differential_Equations_5"><span class="codenumber">13</span> <span class="title">Non-Homogeneous Second Order Linear DEs</span></a><ul>
+<li><a href="Non-Homogeneous_First_Order_Linear_DEs.html" data-scroll="Non-Homogeneous_First_Order_Linear_DEs">Non-Homogeneous First Order Linear DEs</a></li>
+<li><a href="The_Method_of_Undetermined_Coefficients.html" data-scroll="The_Method_of_Undetermined_Coefficients">The Method of Undetermined Coefficients</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Differential_Equations_6.html" data-scroll="Differential_Equations_6"><span class="codenumber">14</span> <span class="title">An Application of Second Order Linear DEs with Constant Coefficients</span></a><ul>
+<li><a href="A_Simple_Model.html" data-scroll="A_Simple_Model">A Simple Model</a></li>
+<li><a href="Adding_Damping.html" data-scroll="Adding_Damping">Adding Damping</a></li>
+<li><a href="Adding_an_External_Force.html" data-scroll="Adding_an_External_Force">Adding an External Force</a></li>
+</ul>
+</li>
+<li class="link part"><a href="Part-Linear_Algebra.html" data-scroll="Part-Linear_Algebra"><span class="codenumber">III</span> <span class="title">Linear Algebra</span></a></li>
+<li class="link">
+<a href="Linear_Algebra_1.html" data-scroll="Linear_Algebra_1"><span class="codenumber">15</span> <span class="title">Systems of Linear Equations</span></a><ul>
+<li><a href="Sec-LA_Introduction.html" data-scroll="Sec-LA_Introduction">Introduction</a></li>
+<li><a href="Sec-LA_Matrices_and_Systems_of_Linear_Equations.html" data-scroll="Sec-LA_Matrices_and_Systems_of_Linear_Equations">Matrices and Systems of Linear Equations</a></li>
+<li><a href="Sec-LA_Solving_Systems_of_Linear_Equations.html" data-scroll="Sec-LA_Solving_Systems_of_Linear_Equations">Solving Systems of Linear Equations</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Linear_Algebra__2.html" data-scroll="Linear_Algebra__2"><span class="codenumber">16</span> <span class="title">Geometric Interpretations of Linear Equations</span></a><ul>
+<li><a href="Interpretation_Via_Rows.html" data-scroll="Interpretation_Via_Rows">Interpretation Via Rows</a></li>
+<li><a href="Interpretation_Via_Columns.html" data-scroll="Interpretation_Via_Columns" class="active">Interpretation Via Columns</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Chap-Linear_Algebra_3.html" data-scroll="Chap-Linear_Algebra_3"><span class="codenumber">17</span> <span class="title">Matrix Algebra</span></a><ul>
+<li><a href="Sec-Linear_Algebra_Intro.html" data-scroll="Sec-Linear_Algebra_Intro">Introduction</a></li>
+<li><a href="Sec-Addition_and_Scalar_Multiplication.html" data-scroll="Sec-Addition_and_Scalar_Multiplication">Addition and Scalar Multiplication</a></li>
+<li><a href="Sec-Matrix_multiplication.html" data-scroll="Sec-Matrix_multiplication">Matrix Multiplication</a></li>
+<li><a href="Sec-Matrices_and_Systems_of_Linear_Equations.html" data-scroll="Sec-Matrices_and_Systems_of_Linear_Equations">Matrices and Systems of Linear Equations</a></li>
+<li><a href="Sec-Linear_transformations.html" data-scroll="Sec-Linear_transformations">Linear Transformations</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Linear_Algebra_4.html" data-scroll="Linear_Algebra_4"><span class="codenumber">18</span> <span class="title">Square Matrices</span></a><ul>
+<li><a href="Inverse_Matrices.html" data-scroll="Inverse_Matrices">Inverse Matrices</a></li>
+<li><a href="Determinants.html" data-scroll="Determinants">Determinants</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Linear_Algebra_5.html" data-scroll="Linear_Algebra_5"><span class="codenumber">19</span> <span class="title">Eigenvalues and Eigenvectors</span></a><ul>
+<li><a href="Sec-LA_5_Introduction.html" data-scroll="Sec-LA_5_Introduction">Introduction</a></li>
+<li><a href="Sec-LA_5_Finding_Eigenvalues_and_Eigenvectors.html" data-scroll="Sec-LA_5_Finding_Eigenvalues_and_Eigenvectors">Finding Eigenvalues and Eigenvectors</a></li>
+<li><a href="Sec-LA_5_A_Simple_Application.html" data-scroll="Sec-LA_5_A_Simple_Application">A Simple Application</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Linear_Algebra_6.html" data-scroll="Linear_Algebra_6"><span class="codenumber">20</span> <span class="title">Some Applications of Eigenvalues and Eigenvectors</span></a><ul>
+<li><a href="Powers_of_Matrices.html" data-scroll="Powers_of_Matrices">Powers of Matrices</a></li>
+<li><a href="Coupled_Linear_Differential_Equations.html" data-scroll="Coupled_Linear_Differential_Equations">Coupled Linear Differential Equations</a></li>
+</ul>
+</li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="Interpretation_Via_Columns"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">16.2</span> <span class="title">Interpretation Via Columns</span>
+</h2>
+<p id="p-975">Consider (initially at least) a system of two linear equations in two unknowns <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span></p>
+<div class="displaymath process-math">
+\begin{align*}
+a_{11}x+a_{12}y \amp =b_1 \\
+a_{21}x+a_{22}y \amp =b_2 
+\end{align*}
+</div>
+<p class="continuation">which can be represented by the augmented matrix</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{pmatrix} a_{11} \amp a_{12} \amp b_1 \\ a_{21} \amp a_{22} \amp b_2 \end{pmatrix}
+\end{equation*}
+</div>
+<p class="continuation">To give a geometric interpretation of this system of equations (in terms of the columns) we are going to think of the <span class="process-math">\(2\times 1\)</span> matrix</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{pmatrix} v_{1} \\ v_{2} \end{pmatrix}
+\end{equation*}
+</div>
+<p class="continuation">as representing the vector in <span class="process-math">\(\mathbb{R}^2\)</span> (i.e. in the plane) whose tail is at the origin and whose head is at the point <span class="process-math">\((v_1,v_2)\text{.}\)</span> Thus this matrix is sometimes called a <dfn class="terminology">column vector</dfn>.</p>
+<article class="example example-like" id="example-150"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-150"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">16.2.1</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-150"><article class="example example-like"><p id="p-976">The vector represented by <span class="process-math">\(\begin{pmatrix} 3 \\ 2 \end{pmatrix} \)</span> is sketched in Figure 16.2.2. <figure class="figure figure-like" id="figure-88"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="./LinearAlgebra/Images/2/figure3.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">16.2.2<span class="period">.</span></span><span class="space"> </span></figcaption></figure></p></article></div>
+<p id="p-977">Now, the system of linear equations given above can be written as</p>
+<div class="displaymath process-math">
+\begin{equation*}
+x \begin{pmatrix} a_{11} \\ a_{21} \end{pmatrix} +y \begin{pmatrix} a_{12} \\ a_{22} \end{pmatrix} = \begin{pmatrix} b_{1} \\ b_{2} \end{pmatrix} 
+\end{equation*}
+</div>
+<p class="continuation">or, if we let <span class="process-math">\(\mathbf{a_1} =\begin{pmatrix} a_{11} \\ a_{21} \end{pmatrix} \text{,}\)</span> <span class="process-math">\(\mathbf{a_2}= \begin{pmatrix} a_{12} \\ a_{22} \end{pmatrix} \)</span> and <span class="process-math">\(\mathbf{b} =\begin{pmatrix} b_{1} \\ b_{2} \end{pmatrix} \)</span> as</p>
+<div class="displaymath process-math">
+\begin{equation*}
+x\mathbf{a_1}+y\mathbf{a_2}=\mathbf{b}
+\end{equation*}
+</div>
+<p class="continuation">Remember that when written in this form, the <span class="process-math">\(+\)</span> sign means vector addition and <span class="process-math">\(x\mathbf{a_1}\text{,}\)</span> for example, means the scalar multiplication of the vector <span class="process-math">\(\mathbf{a_1}\)</span> by the scalar <span class="process-math">\(x\text{.}\)</span> So solving this system of linear equations can be interpreted as finding scalars <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> such that the vector <span class="process-math">\(\mathbf{b}\)</span> can be written in terms of the vectors <span class="process-math">\(\mathbf{a_1}\)</span> and <span class="process-math">\(\mathbf{a_2}\text{.}\)</span></p>
+<article class="example example-like" id="example-151"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-151"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">16.2.3</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-151"><article class="example example-like"><p id="p-978">Solve the following system of linear equations and interpret your answer geometrically in terms of the columns of the augmented matrix.</p>
+<div class="displaymath process-math">
+\begin{align*}
+2x-3y \amp =-3\\
+2x+2y \amp = 7
+\end{align*}
+</div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-121" id="solution-121"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-121"><div class="solution solution-like">
+<p id="p-979">The augmented matrix and its reduced row-echelon equivalent matrix are</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{pmatrix} 2 \amp -3 \amp -3 \\ 2 \amp 2 \amp 7 \end{pmatrix} \sim \begin{pmatrix} 1 \amp 0 \amp \frac{3}{2} \\ 0 \amp 1 \amp 2 \end{pmatrix}
+\end{equation*}
+</div>
+<p class="continuation">Thus the solution is <span class="process-math">\((x,y)=\left(\frac{3}{2},2 \right)\text{.}\)</span> Geometrically we can interpret this solution as saying the vector <span class="process-math">\(\begin{pmatrix} -3 \\ 7 \end{pmatrix}\)</span> can be written in terms of the vectors <span class="process-math">\(\begin{pmatrix} 2 \\ 2 \end{pmatrix}\)</span> and <span class="process-math">\(\begin{pmatrix} -3 \\ 2 \end{pmatrix}\)</span> via the expression</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{3}{2} \begin{pmatrix} 2 \\ 2 \end{pmatrix} +2 \begin{pmatrix} -3 \\ 2 \end{pmatrix} 
+\end{equation*}
+</div>
+<p class="continuation">See Figure 16.2.4. Note that the solution is also saying that there is only one way in which <span class="process-math">\(\begin{pmatrix} -3 \\ 7 \end{pmatrix}\)</span> can be written in terms of <span class="process-math">\(\begin{pmatrix} 2 \\ 2 \end{pmatrix}\)</span> and <span class="process-math">\(\begin{pmatrix} -3 \\ 2 \end{pmatrix}\text{.}\)</span> <figure class="figure figure-like" id="figure-89"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="./LinearAlgebra/Images/2/figure4.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">16.2.4<span class="period">.</span></span><span class="space"> </span></figcaption></figure></p>
+</div></div></article></div>
+<p id="p-980">Before going on to consider systems of linear equations involving <span class="process-math">\(3\)</span> (or more) variables it is convenient to introduce some new terminology.</p>
+<article class="definition definition-like" id="definition-35"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">16.2.5</span><span class="period">.</span>
+</h3>
+<p id="p-981">The vector <span class="process-math">\(a_1\mathbf{v_1}+a_2\mathbf{v_2}+\dots a_n\mathbf{v_n}\text{,}\)</span> where <span class="process-math">\(a_i\in \mathbb{R}\text{,}\)</span> is said to be a <dfn class="terminology">linear combination</dfn> of the vectors <span class="process-math">\(\mathbf{v_1}, \mathbf{v_2}, \dots, \mathbf{v_n}\text{.}\)</span></p>
+<p id="p-982">The set of all linear combinations of the set of vectors <span class="process-math">\(\{\mathbf{v_1}, \mathbf{v_2}, \dots, \mathbf{v_n}\}\)</span>  is said to be the <dfn class="terminology">span</dfn> of that set of vectors.</p></article><article class="example example-like" id="example-152"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-152"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">16.2.6</span><span class="period">.</span><span class="space"> </span><span class="title">(cont.).</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-152"><article class="example example-like"><p id="p-983">The geometric interpretation (in terms of the columns) of the system of linear equations</p>
+<div class="displaymath process-math">
+\begin{align*}
+2x-3y \amp =-3\\
+2x+2y \amp = 7
+\end{align*}
+</div>
+<p class="continuation">can be now be phrased as:</p>
+<ul class="disc">
+<li id="li-203"><p id="p-derived-li-203">The vector <span class="process-math">\(\begin{pmatrix} -3 \\ 7 \end{pmatrix}\)</span> can be written as a linear combination of the vectors <span class="process-math">\(\begin{pmatrix} 2 \\ 2 \end{pmatrix}\)</span> and <span class="process-math">\(\begin{pmatrix} -3 \\ 2 \end{pmatrix}\text{,}\)</span> and in only one way, or</p></li>
+<li id="li-204"><p id="p-derived-li-204">The vector <span class="process-math">\(\begin{pmatrix} -3 \\ 7 \end{pmatrix}\)</span> is in the span of the vectors <span class="process-math">\(\begin{pmatrix} 2 \\ 2 \end{pmatrix}\)</span> and <span class="process-math">\(\begin{pmatrix} -3 \\ 2 \end{pmatrix}\text{.}\)</span></p></li>
+</ul></article></div>
+<article class="example example-like" id="example-153"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-153"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">16.2.7</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-153"><article class="example example-like"><p id="p-984">Describe the span of the set of vectors <span class="process-math">\(\{\mathbf{v_1, v_2}\}=\Big\{\begin{pmatrix} 2 \\ 2 \end{pmatrix}, \begin{pmatrix} -3 \\ 2 \end{pmatrix} \Big\}\text{.}\)</span></p>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-122" id="solution-122"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-122"><div class="solution solution-like">
+<p id="p-985">The span of the set <span class="process-math">\(\{\mathbf{v_1, v_2}\}\)</span> is the set of vectors <span class="process-math">\(\mathbf{u}\)</span> of the form</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\mathbf{u}=x \begin{pmatrix} 2 \\ 2 \end{pmatrix}+y \begin{pmatrix} -3 \\ 2 \end{pmatrix}
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> are scalars. From what we learnt about vectors in Math1110 we know that any vector in the plane will be able to be written as linear combination of these two vectors and hence the span of <span class="process-math">\(\{\mathbf{v_1, v_2}\}\)</span> will be all vectors in <span class="process-math">\(\mathbb{R}^2\text{.}\)</span> Alternatively, we could approach this problem algebraically. Let <span class="process-math">\(\mathbf{u}=\begin{pmatrix} a \\ b \end{pmatrix}\)</span> be a vector in the span of <span class="process-math">\(\{\mathbf{v_1, v_2}\}\text{.}\)</span> Then</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{pmatrix} a \\ b \end{pmatrix}=x \begin{pmatrix} 2 \\ 2 \end{pmatrix}+y \begin{pmatrix} -3 \\ 2 \end{pmatrix}
+\end{equation*}
+</div>
+<p class="continuation">Using Gauss Jordon elimination gives</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{pmatrix} 2 \amp -3 \amp a \\ 2 \amp 2 \amp b \end{pmatrix} \sim \begin{pmatrix} 1 \amp 0 \amp \frac{a}{5}+\frac{3b}{10} \\ 0 \amp 1 \amp \frac{b}{5}-\frac{a}{5} \end{pmatrix} 
+\end{equation*}
+</div>
+<p class="continuation">and so the solution is <span class="process-math">\((x,y)=\left(\frac{a}{5}+\frac{3b}{10},\frac{b}{5}-\frac{a}{5}\right)\text{.}\)</span> Thus, no matter which vector, <span class="process-math">\(\mathbf{u}\text{,}\)</span> in <span class="process-math">\(\mathbb{R}^2\)</span> we choose we can find the scalars so that <span class="process-math">\(\mathbf{u}\)</span> is a linear combination of <span class="process-math">\(\mathbf{v_1}\)</span> and <span class="process-math">\(\mathbf{v_2}\)</span> and hence in the span of <span class="process-math">\(\{\mathbf{v_1, v_2}\}\text{.}\)</span></p>
+</div></div></article></div>
+<article class="example example-like" id="example-154"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-154"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">16.2.8</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-154"><article class="example example-like"><p id="p-986">Describe the span of the set of vectors <span class="process-math">\(\{\mathbf{v_1, v_2}\}=\Bigg\{\begin{pmatrix} 2 \\ 2 \\ 1 \end{pmatrix}, \begin{pmatrix} -3 \\ 2 \\ -1 \end{pmatrix} \Bigg\}\text{.}\)</span></p>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-123" id="solution-123"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-123"><div class="solution solution-like">
+<p id="p-987">Firstly note that the vectors in this set are <span class="process-math">\(3\)</span>-dimensional vectors and hence the vectors in the span will also be <span class="process-math">\(3\)</span>-dimensional. Now, the span of the set <span class="process-math">\(\{\mathbf{v_1, v_2}\}\)</span> is the set of vectors <span class="process-math">\(\mathbf{u}\)</span> of the form</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\mathbf{u}=x \begin{pmatrix} 2 \\ 2 \\ 1 \end{pmatrix} +y \begin{pmatrix} -3 \\ 2 \\ -1 \end{pmatrix}
+\end{equation*}
+</div>
+<p class="continuation">We recognise this as the vector equation of the plane through the origin and with direction vectors <span class="process-math">\(\mathbf{v_1}\)</span> and <span class="process-math">\(\mathbf{v_2}\text{,}\)</span> as shown in Figure 16.2.9. <figure class="figure figure-like" id="figure-90"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="./LinearAlgebra/Images/2/figure5.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">16.2.9<span class="period">.</span></span><span class="space"> </span></figcaption></figure> Recall that the normal to this plane (shown in blue in Figure 16.2.9.) is given by <span class="process-math">\(\mathbf{n=v_1\times v_2}\)</span> and so here (using the column vector notation) is</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\mathbf{n}=\begin{pmatrix} -4 \\ -1 \\ 10 \end{pmatrix}
+\end{equation*}
+</div>
+<p class="continuation">Thus the Cartesian equation of this plane is</p>
+<div class="displaymath process-math">
+\begin{equation*}
+-4x-y+10z=0
+\end{equation*}
+</div>
+</div></div></article></div>
+<article class="definition definition-like" id="definition-36"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">16.2.10</span><span class="period">.</span>
+</h3>
+<p id="p-988">The set of vectors <span class="process-math">\(\mathbf{\{v_1, v_2, \dots, v_n\}}\)</span> is called <dfn class="terminology">linearly independent</dfn> if no vector in the set can be written as a linear combination of the other vectors in the set, or equivalently if the only solution to homogeneous system of linear equations</p>
+<div class="displaymath process-math">
+\begin{equation*}
+a_1\mathbf{v_1}+a_2\mathbf{v_2}+\dots +a_n\mathbf{v_n}=\mathbf{0}
+\end{equation*}
+</div>
+<p class="continuation">is <span class="process-math">\(a_1=a_2=\dots=a_n=0\text{.}\)</span> A set of vectors that is not linearly independent is called <dfn class="terminology">linearly dependent</dfn>.</p></article><article class="example example-like" id="example-155"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-155"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">16.2.11</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-155"><article class="example example-like"><p id="p-989">Decide if the following sets of vectors are linearly independent or not.</p>
+<ol class="lower-alpha">
+<li id="li-205"><p id="p-derived-li-205"><span class="process-math">\(\displaystyle \{\mathbf{v_1, v_2, v_3}\}=\Big\{\begin{pmatrix} 2 \\ 2 \end{pmatrix}, \begin{pmatrix} -3 \\ 2 \end{pmatrix}, \begin{pmatrix} -3 \\ 7 \end{pmatrix} \Big\}\)</span></p></li>
+<li id="li-206"><p id="p-derived-li-206"><span class="process-math">\(\displaystyle \{\mathbf{v_1, v_2}\}=\Big\{\begin{pmatrix} 2 \\ 2 \end{pmatrix}, \begin{pmatrix} -3 \\ 2 \end{pmatrix} \Big\}\)</span></p></li>
+</ol>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-124" id="solution-124"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-124"><div class="solution solution-like"><ol id="p-990" class="lower-alpha">
+<li id="li-207"><p id="p-derived-li-207">This set of vectors is linearly dependent since (from our previous examples) we know that<div class="displaymath process-math">
+\begin{equation*}
+\begin{pmatrix} -3 \\ 7 \end{pmatrix}=\frac{3}{2} \begin{pmatrix} 2 \\ 2 \end{pmatrix}+2\begin{pmatrix} -3 \\ 2 \end{pmatrix}
+\end{equation*}
+</div>i.e. <span class="process-math">\(\mathbf{v_3}\)</span> can be written as a linear combination of <span class="process-math">\(\mathbf{v_1}\)</span> and <span class="process-math">\(\mathbf{v_2}\text{.}\)</span></p></li>
+<li id="li-208"><p id="p-derived-li-208">This set of vectors is linearly independent since the only solution to<div class="displaymath process-math">
+\begin{equation*}
+x_1\mathbf{v_1}+x_2\mathbf{v_2}=\mathbf{0}
+\end{equation*}
+</div>is <span class="process-math">\(x_1=x_2=0\text{.}\)</span> Note that in this case this is telling us that <span class="process-math">\(\mathbf{v_2}\)</span> is not a scalar multiple of <span class="process-math">\(\mathbf{v_1}\text{,}\)</span> i.e. <span class="process-math">\(\mathbf{v_2}\)</span> is not parallel to <span class="process-math">\(\mathbf{v_1}\text{.}\)</span></p></li>
+</ol></div></div></article></div>
+<p id="p-991">We are now ready to discuss the geometric interpretation, in terms of the columns, of a system of three linear equations in three unknowns <span class="process-math">\(x\text{,}\)</span> <span class="process-math">\(y\)</span> and <span class="process-math">\(z\text{,}\)</span> i.e. of</p>
+<div class="displaymath process-math">
+\begin{gather*}
+a_{11}x+a_{12}y+a_{13}z=b_1\\
+a_{21}x+a_{22}y+a_{23}z=b_2\\
+a_{31}x+a_{32}y+a_{33}z=b_3
+\end{gather*}
+</div>
+<p class="continuation">This system of three linear equations can be written as</p>
+<div class="displaymath process-math">
+\begin{equation*}
+x \begin{pmatrix} a_{11} \\ a_{21} \\ a_{31} \end{pmatrix} +y\begin{pmatrix} a_{12} \\ a_{22} \\ a_{32} \end{pmatrix} +z\begin{pmatrix} a_{13} \\ a_{23} \\ a_{33} \end{pmatrix} =\begin{pmatrix} b_{1} \\ b_{2} \\ b_{3} \end{pmatrix}
+\end{equation*}
+</div>
+<p class="continuation">or, if we let <span class="process-math">\(\mathbf{a_1}= \begin{pmatrix} a_{11} \\ a_{21} \\ a_{31} \end{pmatrix}\text{,}\)</span> <span class="process-math">\(\mathbf{a_2}= \begin{pmatrix} a_{12} \\ a_{22} \\ a_{32} \end{pmatrix}\text{,}\)</span> <span class="process-math">\(\mathbf{a_3}= \begin{pmatrix} a_{13} \\ a_{23} \\ a_{33} \end{pmatrix}\)</span> and <span class="process-math">\(\mathbf{b}= \begin{pmatrix} b_{1} \\ b_{2} \\ b_{3} \end{pmatrix}\)</span> as</p>
+<div class="displaymath process-math">
+\begin{equation*}
+x\mathbf{a_1}+y\mathbf{a_2}+z\mathbf{a_3}=\mathbf{b}
+\end{equation*}
+</div>
+<p class="continuation">Thus, solving this system of linear equations can be interpreted as finding scalars <span class="process-math">\(x\text{,}\)</span> <span class="process-math">\(y\)</span> and <span class="process-math">\(z\)</span> such that the vector <span class="process-math">\(\mathbf{b}\)</span> can be written as a linear combination of the vectors <span class="process-math">\(\{\mathbf{a_1, a_2, a_3}\}\text{,}\)</span> (or equivalently, that <span class="process-math">\(\mathbf{b}\)</span> is in the span of  <span class="process-math">\(\{\mathbf{a_1, a_2, a_3}\}\)</span>).</p>
+<article class="example example-like" id="example-156"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-156"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">16.2.12</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-156"><article class="example example-like"><p id="p-992">Solve the following system of linear equations and interpret your answer geometrically in terms of the columns of the augmented matrix.</p>
+<div class="displaymath process-math">
+\begin{align*}
+2x+4y+2z \amp=3\\
+2x+3y+3z \amp=6\\
+4x+y-z \amp=3
+\end{align*}
+</div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-125" id="solution-125"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-125"><div class="solution solution-like">
+<p id="p-993">The augmented matrix and its reduced row-echelon equivalent matrix are</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{pmatrix} 2 \amp 4 \amp 2 \amp 3 \\ 2 \amp 3 \amp 3 \amp 6 \\4 \amp 1 \amp -1 \amp 3 \end{pmatrix} \sim \begin{pmatrix} 1 \amp 0 \amp 0 \amp \frac{3}{2} \\ 0 \amp 1 \amp 0 \amp -1 \\ 0 \amp 0 \amp 1 \amp 2 \end{pmatrix}
+\end{equation*}
+</div>
+<p class="continuation">Thus the solution is <span class="process-math">\((x,y,z)=\left(\frac{3}{2},-1,2 \right)\text{.}\)</span> The geometric interpretation of this solution is that the vector <span class="process-math">\(\begin{pmatrix} 3 \\ 6 \\ 3 \end{pmatrix}\)</span> (shown in blue in Figure 16.2.13.) can be written as a linear combination of the vectors <span class="process-math">\(\Bigg\{\begin{pmatrix} 2 \\ 2 \\ 4 \end{pmatrix}, \begin{pmatrix} 4 \\ 3 \\ 1 \end{pmatrix}, \begin{pmatrix} 2 \\ 3 \\ -1 \end{pmatrix} \Bigg\}\)</span> (shown in red in Figure 16.2.3.) and in only one way, (shown in green in Figure 16.2.13.). <figure class="figure figure-like" id="figure-91"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="./LinearAlgebra/Images/2/figure6.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">16.2.13<span class="period">.</span></span><span class="space"> </span></figcaption></figure> Note that if the system of linear equations is homogeneous (i.e. <span class="process-math">\(\mathbf{b=0}\)</span>) then the solution of the system tells us if the set of vectors <span class="process-math">\(\{\mathbf{a_1, a_2, a_3}\}\)</span>  is linearly independent or not.</p>
+</div></div></article></div>
+<article class="example example-like" id="example-157"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-157"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">16.2.14</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-157"><article class="example example-like"><p id="p-994">Solve the following system of linear equations and interpret your answer geometrically in terms of the columns of the augmented matrix.</p>
+<div class="displaymath process-math">
+\begin{gather*}
+2x+4y+2z=0\\
+2x+3y+3z=0\\
+4x+y-z=0
+\end{gather*}
+</div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-126" id="solution-126"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-126"><div class="solution solution-like">
+<p id="p-995">The augmented matrix and its reduced row-echelon equivalent matrix are</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{pmatrix} 2 \amp 4 \amp 2 \amp 0 \\ 2 \amp 3 \amp 3 \amp 0 \\ 4 \amp 1 \amp -1 \amp 0 \end{pmatrix} \sim \begin{pmatrix} 1 \amp 0 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \amp 0 \\ 0 \amp 0 \amp 1 \amp 0 \end{pmatrix} 
+\end{equation*}
+</div>
+<p class="continuation">Thus the solution is <span class="process-math">\((x,y,z)=(0,0,0)\text{.}\)</span> The geometric interpretatifon of this solution is that the column vectors of the coefficient matrix are linearly independent, i.e. that no one of those vectors can be written in terms of the other two. If the column vectors had turned out to be linearly dependent then we could have written, for example,</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\mathbf{a_3}=k_1\mathbf{a_1}+k_2\mathbf{a_2}
+\end{equation*}
+</div>
+<p class="continuation">This would imply that <span class="process-math">\(\mathbf{a_3}\)</span> lies in the plane defined by the vectors <span class="process-math">\(\mathbf{a_1}\)</span> and <span class="process-math">\(\mathbf{a_2}\text{,}\)</span> or to say the same thing, that  <span class="process-math">\(\mathbf{a_1}\text{,}\)</span> <span class="process-math">\(\mathbf{a_2}\)</span> and <span class="process-math">\(\mathbf{a_3}\)</span> are coplanar. Since the vectors are linearly independent we can say these vectors are not coplanar. See Figure 16.2.15. <figure class="figure figure-like" id="figure-92"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="./LinearAlgebra/Images/2/figure7.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">16.2.15<span class="period">.</span></span><span class="space"> </span></figcaption></figure></p>
+</div></div></article></div>
+<article class="example example-like" id="example-158"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-158"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">16.2.16</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-158"><article class="example example-like"><p id="p-996">Solve the following system of linear equations and interpret your answer geometrically in terms of the columns of the augmented matrix.</p>
+<div class="displaymath process-math">
+\begin{align*}
+x+2y+3z \amp=-3\\
+4x+3y+2z \amp=8\\
+2x+3y+4z \amp=-2
+\end{align*}
+</div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-127" id="solution-127"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-127"><div class="solution solution-like">
+<p id="p-997">The augmented matrix and its reduced row-echelon equivalent matrix are</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{pmatrix} 1 \amp 2 \amp 3 \amp -3 \\ 4 \amp 3 \amp 2 \amp 8 \\ 2 \amp 3 \amp 4 \amp -2 \end{pmatrix} \sim \begin{pmatrix} 1 \amp 0 \amp -1 \amp 5 \\ 0 \amp 1 \amp 2 \amp -4 \\ 0 \amp 0 \amp 0 \amp 0 \end{pmatrix} 
+\end{equation*}
+</div>
+<p class="continuation">Thus this system has an infinite number of solutions given by</p>
+<div class="displaymath process-math">
+\begin{equation*}
+(x,y,z)=(5+t,-4-2t,t), \hspace{5mm} t\in\mathbb{R}
+\end{equation*}
+</div>
+<p class="continuation">To discuss the geometric interpretation of this solution let</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\mathbf{a_1}=\begin{pmatrix} 1 \\ 4 \\ 2 \end{pmatrix}, \mathbf{a_2}=\begin{pmatrix} 2 \\ 3 \\ 3 \end{pmatrix}, \mathbf{a_3}=\begin{pmatrix} 3 \\ 2 \\ 4 \end{pmatrix} \textrm{ and } \mathbf{b}=\begin{pmatrix} -3 \\ 8 \\ -2 \end{pmatrix}
+\end{equation*}
+</div>
+<p class="continuation">Then we can say that <span class="process-math">\(\mathbf{b}\)</span> can be written as a linear combination of the vectors <span class="process-math">\(\{\mathbf{a_1, a_2, a_3}\}\)</span>  in an infinite number of ways. Notice that with <span class="process-math">\(t=0\)</span> we have</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\mathbf{b}=5\mathbf{a_1}-4\mathbf{a_2}
+\end{equation*}
+</div>
+<p class="continuation">Since <span class="process-math">\(\mathbf{b}\)</span> can written as a linear combination of <span class="process-math">\(\{\mathbf{a_1, a_2}\}\text{,}\)</span> the vectors <span class="process-math">\(\mathbf{b}\text{,}\)</span> <span class="process-math">\(\mathbf{a_1}\)</span> and <span class="process-math">\(\mathbf{a_2}\)</span> are coplanar. Similarly (with <span class="process-math">\(t=-2\)</span>) we can see that <span class="process-math">\(\mathbf{b}\text{,}\)</span> <span class="process-math">\(\mathbf{a_1}\)</span> and <span class="process-math">\(\mathbf{a_3}\)</span> are coplanar. So, in fact, <span class="process-math">\(\mathbf{b}\text{,}\)</span> <span class="process-math">\(\mathbf{a_1}\text{,}\)</span> <span class="process-math">\(\mathbf{a_2}\)</span> and <span class="process-math">\(\mathbf{a_3}\)</span> are all coplanar.</p>
+<p id="p-998">Finally we can see from the above working that the vectors <span class="process-math">\(\{\mathbf{a_1, a_2, a_3}\}\)</span> are linearly dependent since if <span class="process-math">\(\mathbf{b=0}\)</span> then the reduced row-echelon form would be</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{pmatrix} 1 \amp 0 \amp -1 \amp 0 \\ 0 \amp 1 \amp 2 \amp 0 \\ 0 \amp 0 \amp 0 \amp 0 \end{pmatrix}
+\end{equation*}
+</div>
+</div></div></article></div>
+<p id="p-999">To summarise what we have we have covered:</p>
+<article class="definition definition-like" id="definition-37"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">16.2.17</span><span class="period">.</span>
+</h3>
+<p id="p-1000">Consider the system of linear equations whose augmented matrix is</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{pmatrix} a_{11} \amp a_{12} \amp a_{13} \amp b_1 \\ a_{21} \amp a_{22} \amp a_{23} \amp b_2 \\ a_{31} \amp a_{32} \amp a_{33} \amp b_3 \end{pmatrix}
+\end{equation*}
+</div>
+<p class="continuation">The following statements are equivalent:</p>
+<ol class="decimal">
+<li id="li-209"><p id="p-derived-li-209">The system has a unique solution</p></li>
+<li id="li-210"><p id="p-derived-li-210">The planes represented by the rows intersect in a point</p></li>
+<li id="li-211"><p id="p-derived-li-211">The column vectors of the coefficient matrix are linearly independent</p></li>
+</ol></article><section class="exercises" id="exercises-33"><h3 class="heading hide-type">
+<span class="type">Exercises</span> <span class="codenumber"></span> <span class="title">Example Tasks</span>
+</h3>
+<article class="exercise exercise-like" id="exercise-89"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<p id="p-1001">Decide if the following sets of vectors are linearly independent or not</p>
+<ol class="lower-alpha">
+<li id="li-212"><p id="p-derived-li-212"><span class="process-math">\(\displaystyle \{\mathbf{v_1, v_2}\}=\Big\{(1,1), (1,-1)\Big\}\)</span></p></li>
+<li id="li-213"><p id="p-derived-li-213"><span class="process-math">\(\displaystyle \{\mathbf{v_1, v_2, v_3}\}=\Big\{(1,1, 2), (1,-1,0), (3,2,1)\Big\}\)</span></p></li>
+</ol></article><article class="exercise exercise-like" id="exercise-90"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<p id="p-1002">Solve the following system of linear equations and interpret your answer geometrically in terms of the columns of the augmented matrix.</p>
+<div class="displaymath process-math">
+\begin{gather*}
+x_1+2x_2+3x_3=4\\
+4x_1+3x_2+2x_3=1\\
+2x_1+3x_2+4x_3=1
+\end{gather*}
+</div></article><article class="exercise exercise-like" id="exercise-91"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
+<ol id="p-1003" class="lower-alpha">
+<li id="li-214"><p id="p-derived-li-214">Show that the set of vectors <span class="process-math">\(\Big\{(2,3, 7), (3,4, 5), (2,1,-15) \Big\}\)</span> are linearly dependent.</p></li>
+<li id="li-215"><p id="p-derived-li-215">Find values of <span class="process-math">\(a\text{,}\)</span> <span class="process-math">\(b\)</span> and <span class="process-math">\(c\)</span> such that the following system of linear equations has infinitely many solutions<div class="displaymath process-math">
+\begin{align*}
+2x_1+3x_2+2x_3 \amp =a\\
+3x_1+4x_2+x_3 \amp =b\\
+7x_1+5x_2-15x_3 \amp =c
+\end{align*}
+</div></p></li>
+</ol></article></section></section></div></main>
+</div>
+</body>
+</html>

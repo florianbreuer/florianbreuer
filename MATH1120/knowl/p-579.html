@@ -1,0 +1,104 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-12-08T21:44:13+11:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h4 class="heading"><span class="type">Paragraph</span></h4>
+<ol class="lower-alpha">
+<li>
+<p>Because this equation only involves the first derivative of the function it is a first order differential equation. Next, since the differential equation is of the form</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\frac{dy}{dx}=f(x) 
+\end{equation*}
+</div>
+<p class="continuation">we can solve it by simple anti-differentiation. Thus</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+y(x)=\int x \hspace{2mm} dx =\frac{1}{2}x^2+C 
+\end{equation*}
+</div>
+<p class="continuation">Note that this solution is the general solution to the DE, it is a description of all possible solutions to the equation. As shown in Figure 9.1.11., when we graph all of the functions in this general solution they fill the entire plane but there are no points of intersection. <figure class="figure figure-like"><div xmlns:svg="http://www.w3.org/2000/svg" class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="./DifferentialEquations/Images/1/1_example6.png" class="contained"></div>
+<figcaption xmlns:svg="http://www.w3.org/2000/svg"><span class="type">Figure</span><span class="space"> </span><span class="codenumber">9.1.11<span class="period">.</span></span><span class="space"> </span></figcaption></figure> A solution with a given value of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(C\)</span> would be a particular solution of the DE, for example</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+y(x)=\frac{1}{2}x^2+1 
+\end{equation*}
+</div>
+<p class="continuation">This particular solution is highlighted in Figure 9.1.11.</p>
+</li>
+<li>
+<p>Again this is a first order DE since the highest derivative in the equation is a first derivative. In this case we can’t solve the equation via anti-differentiation. However, given that the equation says that the function must be such that its derivative must be equal to the negative of itself it would be reasonable to guess that the function must be an exponential function. For <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(y(x)=e^x\)</span> we can see that</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+y'=e^x=y
+\end{equation*}
+</div>
+<p class="continuation">and so try instead <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(y(x)=e^{-x}\text{.}\)</span> Then</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+y'=-e^{-x}=-y
+\end{equation*}
+</div>
+<p class="continuation">and so we have found a (particular) solution.</p>
+</li>
+<li>
+<p>This DE contains a second derivative and hence is of order 2. Again we can find a solution by simple anti-differentiation. Since</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\frac{d^2y}{dx^2}=-x
+\end{equation*}
+</div>
+<p class="continuation">by anti-differentiating we obtain</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\frac{dy}{dx}=\int -x \hspace{2mm} dx=-\frac{1}{2}x^2+A
+\end{equation*}
+</div>
+<p class="continuation">and on anti-differentiating again</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+y(x)=\int -\frac{1}{2}x^2+A \hspace{2mm} dx=-\frac{1}{6}x^3+Ax+B
+\end{equation*}
+</div>
+<p class="continuation">This is the general solution to the DE. Notice that this 2nd order DE has two arbitrary constants in its general solution.</p>
+</li>
+<li>
+<p>This DE is also a 2nd order DE but we can’t get the solution by anti-differentiation. Thus (at this stage) we have to try to guess. What function is the negative of its second derivative? We could try an exponential function (as we did in part b), i.e.</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+y(x)=e^{-x}
+\end{equation*}
+</div>
+<p class="continuation">Then <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(y''=e^{-x}=y\)</span> which isn’t quite what we wanted. Another possible candidate would be the sine or cosine function. So let us now try</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+y(x)=\sin(x)
+\end{equation*}
+</div>
+<p class="continuation">Then <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(y''=-\sin(x)=-y\)</span> which is what we wanted and so we have found a solution.</p>
+</li>
+<li>
+<p>This DE contains both the first and second derivative. However since the highest derivative is the second derivative this equation is a 2nd order DE. The most obvious candidate for a solution to this DE would be an exponential function so let’s try</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+y(x)=e^{2x}
+\end{equation*}
+</div>
+<p class="continuation">In this case <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(y'=2e^{2x}\)</span> and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(y''=4e^{2x}\)</span> and hence <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(y''-2y'=0\text{.}\)</span> Thus we have found one solution to the DE.</p>
+</li>
+</ol>
+<span class="incontext"><a href="introduction.html#p-579">in-context</a></span>
+</body>
+</html>

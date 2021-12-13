@@ -1,0 +1,508 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- =================================================================================================== -->
+<!-- To process this file with xsltproc do                                                        -->
+<!--                                                                                              -->
+<!-- (1) LaTeX/PDF:                                                                               -->
+<!--     xsltproc -o minimal.tex PATH_TO/mathbook/xsl/pretext-latex.xsl source/main.ptx           -->
+<!--     pdflatex minimal.tex                                                                     -->
+<!--     xelatex minimal.tex                                                                      -->
+<!--                                                                                              -->
+<!-- (2) HTML:                                                                                    -->
+<!--     xsltproc PATH_TO/mathbook/xsl/pretext-html.xsl source/main.ptx                           -->
+<!--     <browser>  minimal.html                                                                  -->
+<!--        ~/xsltproc/xsltproc.exe ~/mathbook/xsl/mathbook-html.xsl test.xml                     -->
+<!--                                                                                              -->
+<!-- (3) CoCalc worksheet (parameter causes a single file for output)                             -->
+<!--     REMOVE the "X" in the double dash (which is not legal in an XML comment)                 -->
+<!--     xsltproc -X-stringparam chunk.level 0 PATH_TO/mathbook/xsl/pretext-smc.xsl source/main.ptx   -->
+<!--     <CoCalc> minimal.sagews                                                                  -->
+<!--                                                                                              -->
+<!-- (4) Sage doctesting                                                                          -->
+<!--     REMOVE the "X" in the double dash (which is not legal in an XML comment)                 -->
+<!--     xsltproc -X-stringparam chunk.level 0 PATH_TO/mathbook/xsl/pretext-sage-doctest.xsl source/main.ptx  -->
+<!--     <read further instructions in> minimal.py                                                -->
+<!-- =================================================================================================== -->
+
+<chapter xml:id="Chap-Calculus_5">
+
+
+
+<!-- =================================================================================================== -->
+<!-- Title and Other Preliminaries -->
+<!-- =================================================================================================== -->
+    <title>Linear Approximations</title>
+
+    <!-- <frontmatter> -->
+
+<!--             <titlepage>
+            <author>
+                <institution>University of Newcastle</institution>
+            </author>
+            <date><today /></date>
+        </titlepage> -->
+
+        <!-- <abstract>
+            <p>This is a very short article, but it still exercises some advanced features of MathBook XML.</p>
+        </abstract> -->
+
+    <!-- </frontmatter> -->
+
+    <introduction>
+        <p>In Math1110 we looked at the idea of <q>the linearization of a function of one variable</q>. The idea was that near the point <m>x=x_0</m> we could approximate the function <m>f(x)</m> using the line tangent to the function at <m>x=x_0</m>. We called this tangent the linearization of the function at <m>x=x_0</m> and used it to derive the <q>linear approximation formula</q>, <me>\Delta y \simeq f'(x_0) \Delta x</me>. These ideas can also be applied to functions of two variables.</p>
+    </introduction>
+<!-- =================================================================================================== -->
+
+
+
+
+<!-- =================================================================================================== -->
+<!-- Section 1: Tangent Planes -->
+<!-- =================================================================================================== -->
+    <section xml:id="Sec-Tangent_Planes">
+        <title>Tangent Planes</title>
+
+
+        <p>Recall  that  the  graph  associated  with  the  function <m>z=f(x,y)</m> is  a  surface  in <m>\mathbb{R}^3</m> (that passes the vertical line test). Wherever this surface does not have any discontinuities or cusp-like points it will have a tangent plane. Like the tangent line to the graph of a function of one variable,  the  tangent  plane  to  the  function <m>z=f(x,y)</m> at  the  point <m>(x_0,y_0)</m> is  the  plane  that <q>just touches</q> the surface at the point <m>(x_0,y_0,z_0)</m>.</p>
+
+
+        <example xml:id="Ex-Tangent_Plane">
+            <p>For  the  function <m>f(x,y) = 5-\dfrac{x^2+y^2}{2}</m> the  graph  below  shows  the  graph of the function and it’s tangent plane at the point <m>(x,y) = (2,1)</m>. </p>
+
+            <figure xml:id="Fig-Example_1_Tangent_Plane">
+                <caption></caption>
+                <image source="./Calculus/Images/5/Ex1_Tangent_Plane.png" width="70%"/>
+            </figure>
+        </example>
+
+
+        <p>To find the equation of the plane tangent to the function <m>z=f(x,y)</m> at the point <m>(x_0,y_0,z_0)</m>, firstly recall that the equation of a plane in Cartesian form is given by <me>ax+by+cz = k, \quad a,b,c,k \in \mathbb{R},</me> or in normal form, as illustrated in <xref ref="Fig-Tangent_Plane_Vector_Form_Figure"/>, by <men xml:id="Eqn-Tangent_Plane_Vector_Form">\bm{n} \cdot (\bm{r}-\bm{r}_0) = 0</men> where <m>\bm{n} = \langle a,b,c \rangle</m> is a normal vector to the plane, <m>\bm{r}_0</m> is the position vector of a point on the plane and <m>\bm{r} = \langle x,y,z \rangle</m>. </p>
+
+
+        <figure xml:id="Fig-Tangent_Plane_Vector_Form_Figure">
+                <caption></caption>
+                <image source="./Calculus/Images/5/Tangent_Plane_Vector_Form.png" width="70%"/>
+        </figure>
+
+
+        <example xml:id="Ex-Equation_of_Tangent_Plane">
+            <statement>
+                <p>Find the equation of the tangent plane to the function <m>f(x,y) = 5-\dfrac{x^2+y^2}{2}</m> at <m>(x,y) = (2,1)</m>.</p>
+            </statement>
+
+            <answer>
+                <p><m>2x+y+z=\dfrac{15}{2}</m></p>
+            </answer>
+
+            <solution>
+                <p>Now, we know that the partial derivative <m>f_x(2,1)</m> gives the slope of the tangent at <m>x=2</m>, to the curve of intersection of the surface associated with <m>f</m> and the plane <m>y=1</m>.</p>
+
+                <figure xml:id="Fig-Example_2_Tangent_Planes">
+                    <caption></caption>
+                    <image source="./Calculus/Images/5/Ex2_Tangent_Planes.png" width="70%"/>
+                </figure>
+
+                <p>Since this tangent line lies in the plane tangent to <m>f</m> at <m>(x,y) = (2,1)</m> the vector <me>\langle 1,0,f_x(2,1) \rangle</me> will be a vector that is parallel to the tangent plane, (or lies in the tangent plane if we place it’s tail at the point <m>(2,1,\frac{5}{2})</m>). Similarly, the vector <me>\langle 0,1,f_y(2,1) \rangle</me> will be another vector parallel to the tangent plane. Since these two non-parallel vectors are parallel to the tangent plane, their vector product will give a vector normal to the tangent plane, i.e.
+                <md>
+                    <mrow>\bm{n} \amp = \langle 1,0,f_x(2,1) \rangle \times \langle 0,1,f_y(2,1) \rangle</mrow>
+                    <mrow>\amp = \langle -f_x(2,1), -f_y(2,1), 1 \rangle</mrow>
+                    <mrow>\amp = \langle 2,1,1 \rangle</mrow>
+                </md>
+                Thus, using equation <xref ref="Eqn-Tangent_Plane_Vector_Form"/>, the equation of the plane tangent to <m>f(x,y) = 5 - \dfrac{x^2+y^2}{2}</m> at <m>(x,y) = (2,1)</m> is <me>\langle 2,1,1 \rangle \cdot \left( \langle x,y,z \rangle - \langle 2,1,\frac{5}{2} \rangle \right) = 0</me> which simplifies to <me>2x+y+z=\frac{15}{2}</me>.
+            </p>
+            </solution>
+        </example>
+
+
+        <p>In general, to find the equation of the plane tangent to the function <m>f(x,y)</m> at the point <m>(x_0,y_0)</m>, note that the vectors <me>\langle 1, 0, f_x(x_0,y_0) \rangle \: \text{and} \: \langle 0,1,f_y(x_0,y_0) \rangle</me> lie in the tangent plane and hence a normal to the plane is 
+            <md>
+                <mrow>\bm{n} \amp = \langle 1, 0 f_x(x_0,y_0) \rangle \times \langle0,1,f_y(x_0,y_0) \rangle</mrow>
+                <mrow>\amp = \langle -f_x(x_0,y_0), -f_y(x_0,y_0),1 \rangle</mrow>
+            </md>.
+        Since the point <m>(x_0,y_0,z_0)</m> lies on the plane, using equation <xref ref="Eqn-Tangent_Plane_Vector_Form"/>, the equation of the tangent plane is <me> \langle  -f_x(x_0,y_0), -f_y(x_0,y_0),1 \rangle \cdot \bigg( \langle x,y,z \rangle - \langle x_0, y_0, z_0 \rangle \bigg) = 0.</me> On expanding and rearranging this we get the following result.
+        </p>
+
+
+        <theorem xml:id="Thm-Equation-of-tangent-plane">
+            <statement>
+                <p>The equation of the plane tangent to the function <m>f(x,y)</m> at the point <m>(x_0,y_0,z_0)</m> is 
+                <me>
+                    z = z_0 + f_x(x_0,y_0) (x-x_0) + f_y(x_0,y_0) (y-y_0)
+                </me>,
+                where <m>z_0 = f(x_0,y_0)</m>.
+            </p>
+            </statement>
+        </theorem>
+
+
+        <example xml:id="Ex-Equation_of_Tangent_Plane_2">
+            <statement>
+                <p>Find the equation of the plane tangent to <m>z = x^2+2y^2</m> at the point <m>(x,y)=(1,2)</m>.</p>
+                <figure xml:id="Fig-Example_3_Tangent_Plane">
+                    <caption></caption>
+                    <image source="./Calculus/Images/5/Ex3_Tangent_Plane.png" width="70%"/>
+                </figure>
+            </statement>
+
+            <answer>
+                <p><m>2x+8y-z-9=0</m></p>
+            </answer>
+
+            <solution>
+                <p>Firstly, note that when <m>(x,y)=(1,2)</m>, <m>z=9</m>. Now <me>z_x = 2x \: \text{ and so } \: z_x(1,2) = 2</me> and <me>z_y = 4y \: \text{ and so } \: z_y(1,2) = 8</me>. Thus the equation of the tangent plane is <me>z = 9+2(x-1)+8(y-2)</me> which simplifies to <me>2x+8y-z-9=0</me>.</p>
+            </solution>
+        </example>
+
+
+        <example xml:id="Ex-Equation_of_Normal_Line">
+            <statement>
+                <p>Find the equation of the line normal to the graph of the function <m>z=x^2+2y^2</m> at the point <m>(x,y) = (1,2)</m>.</p>
+            </statement>
+
+            <answer>
+                <p><m>\bm{r} = \langle 1, 2, 9 \rangle + t \langle -2, -8, 1 \rangle</m></p>
+            </answer>
+
+            <solution>
+                <p>Recall that the vector equation of a line in <m>\mathbb{R}^3</m> is <me>\bm{r} = \bm{r}_0 + t \bm{d}, \: t \in \mathbb{R}</me> where <m>\bm{r} = \langle x, y, z \rangle</m> is the position vector of a general point, <m>\bm{r}_0</m> is the position vector of a point that lies on the line and <m>d</m> is a direction vector for the line (i.e. a vector that is parallel to the line).</p>
+
+                <p>We know that a vector normal to the surface <m>z=f(x,y)</m> at the point <m>(x_0,y_0,z_0)</m> is given by <me>\bm{n} = \langle -f_x(x_0,y_0), -f_y(x_0,y_0),1 \rangle</me>.</p>
+
+                <p>For the function <m>z=x^2+2y^2</m>, <m>z_x=2x</m> and <m>z_y=4y</m>. Thus a direction vector for the line normal to <m>z=x^2+2y^2</m> at the point <m>(x,y)=(1,2)</m> will be <me>\bm{d} = \langle -2, -8, 1 \rangle</me>. Since the normal line passes through the point <m>(1,2,9)</m> its equation is <me>\bm{r} = \langle 1, 2, 9 \rangle + t \langle -2, -8, 1 \rangle</me>.</p>
+            </solution>
+        </example>
+
+
+        <exercises>
+            <title>Example Tasks</title>
+
+            <exercise> 
+                <statement>
+                    <p>Find the equation of the tangent plane to <m>z=x^2-5xy+2y^2</m> at the point <m>(x,y)=(1,2)</m>.</p>
+                </statement>
+            </exercise>
+
+            <exercise>
+                <statement>
+                    <p>Find the equation of the tangent plane and normal line to <m>z = \sqrt{x+y} \sin (xy)</m> at the point <m>(x,y)=(0,1)</m>.</p>
+                </statement>
+            </exercise>
+
+            <exercise>
+                <statement>
+                    <p>Show that every line that is normal to the sphere <m>x^2+y^2+z^2 = 1</m> passes through the origin.</p>
+                </statement>
+            </exercise>
+
+        </exercises>
+
+
+    </section>
+<!-- =================================================================================================== -->
+
+
+
+
+<!-- =================================================================================================== -->
+<!-- Section 2: Linear Approximations -->
+<!-- =================================================================================================== -->
+    <section xml:id="Sec-Linear_Approximations">
+        <title>Linear Approximations</title>
+
+
+        <p>In Section <xref ref="Sec-Tangent_Planes"/> we found that the equation of the tangent plane to the function <m>f(x,y)</m> at the point <m>(x_0,y_0,f(x_0,y_0))</m>, which is a linear equation.</p>
+
+        <definition>
+            <!-- <title>Linearisation</title> -->
+            <statement>
+                <p>We call the function <me>L(x,y) = f(x_0,y_0) + f_x(x_0,y_0)(x-x_0) + f_y(x_0,y_0)(y-y_0)</me> the linearisation of <m>f</m> at the point <m>(x_0,y_0)</m>.</p>
+            </statement>
+        </definition>
+
+
+        <example xml:id="Ex-Linearisation">
+            <statement>
+                <p>Find the linearisation of <m>z=\sin(x)\cos(y)</m> at the point <m>(x,y) = \left(\dfrac{\pi}{4},\dfrac{\pi}{4} \right)</m>.</p>
+            </statement>
+
+            <answer>
+                <p><m>L(x,y) = \dfrac{1}{2} + \dfrac{1}{2} \left( x - \dfrac{\pi}{4} \right) - \dfrac{1}{2} \left(y - \dfrac{\pi}{4} \right)</m></p>
+            </answer>
+
+            <solution>
+                <p>Begin by calculating the partial derivatives of <m>z</m>, <me>z_x = \cos(x)\cos(y) \: \text{ and } \: z_y = -\sin(x)\sin(y)</me>. Thus 
+                <md alignment="alignat">
+                    <mrow>z \left(\dfrac{\pi}{4},\dfrac{\pi}{4} \right) \amp = \, \, \, \, \sin \left(\dfrac{\pi}{4} \right) \cos \left(\dfrac{\pi}{4} \right) \amp = \dfrac{1}{2}</mrow>
+                    <mrow>z_x \left(\dfrac{\pi}{4},\dfrac{\pi}{4} \right) \amp = \, \, \, \, \cos \left(\dfrac{\pi}{4} \right) \cos \left(\dfrac{\pi}{4} \right) \amp = \dfrac{1}{2}</mrow>
+                    <mrow>z_y \left(\dfrac{\pi}{4},\dfrac{\pi}{4} \right) \amp = -\sin \left(\dfrac{\pi}{4} \right) \sin \left(\dfrac{\pi}{4} \right) \amp = \dfrac{1}{2}</mrow>
+                </md>.
+                and so the linearisation is <me>L(x,y) = \dfrac{1}{2} + \dfrac{1}{2} \left( x - \dfrac{\pi}{4} \right) - \dfrac{1}{2} \left(y - \dfrac{\pi}{4} \right)</me>.
+            </p>
+            </solution>
+        </example>
+
+
+        <p>When we use the linearisation of <m>f</m> at the point <m>(x_0,y_0)</m> to approximate the function near the point <m>(x_0,y_0)</m> we call this the <em>linear (or tangent plane) approximation</em> of <m>f</m> at the point <m>(x_0,y_0)</m>. Notice that if we let the independent variables change by the amounts <m>\Delta x</m> and <m>\Delta y</m> then the linearisation will change from <m>L(x_0,y_0)</m> to <m>L(x_0+\Delta x, y_0 + \Delta y)</m>. Thus we can approximate the change in the function value <m>z=f(x,y)</m> by <me>\Delta z \simeq L(x_0 + \Delta x, y_0 + \Delta y) - L(x_0,y_0).</me> On using the linearisation formula given above, we end up with the following result.
+        </p>
+
+
+        <definition>
+            <title>The Linear Approximation Formula</title>
+            <statement>
+                <p>The  linear  approximation  to  the  change, <m>\Delta z</m>,  in  the  function <m>z = f(x,y)</m> when  the independent variables change from <m>(x_0,y_0)</m> to <m>(x_0+\Delta x, y_0 + \Delta y)</m> is <me>\Delta z \simeq f_x (x_0, y_0) \Delta x + f_y (x_0, y_0) \Delta y</me>.</p>
+            </statement>
+        </definition>
+
+
+        <p>This result is sometimes called the <q>small change</q> formula for functions of two variables.</p>
+
+
+        <example xml:id="Ex-Linear-Estimation">
+            <statement>
+                <p>For the function <m>f(x,y) = 3x^4+2y^4</m>, <m>f(1,2) = 35</m>. Use a linear approximation to estimate <m>f(1.01,2.03)</m>.</p>
+            </statement>
+
+            <answer>
+                <p><m>f(1.01,2.03) \simeq 37.04</m></p>
+            </answer>
+
+            <solution>
+                <p>Via a linear approximation <me>f(1.01,2.03) \simeq f(1,2) + \Delta f</me>. Here <me>f_x = 12x^3 \: \text{ and } \: f_y = 8y^3</me> and so <me>f_x(1,2) = 12 \: \text{ and } \: f_y(1,2) = 64</me>.</p>
+                <p>Thus, with <m>\Delta x = 0.01</m> and <m>\Delta y = 0.03</m>, via the linear approximation formula <me>\Delta f = 12 \times 0.01 + 64 \times 0.03 = 2.04</me> and hence <me>f(1.01,2.03) \simeq 35 + 2.04 = 37.04</me></p>
+            </solution>
+        </example>
+
+
+        <example xml:id="Ex-Find_Density_of_Steel_Ball">
+            <statement>
+                <p>A steel ball has a mass, <m>m</m>, of 6300 <m>\pm</m> 
+                    <quantity>
+                        <mag>50</mag>
+                        <unit base="gram" />
+                    </quantity>
+                and has volume, <m>V</m>, 800 <m>\pm</m> 
+                    <quantity>
+                        <mag>10</mag>
+                        <unit prefix="centi" base="meter" exp="3"/>
+                    </quantity>.
+                Find the density of the ball, including an estimate of the error.</p>
+            </statement>
+
+            <answer>
+                <p><m>\rho = </m> 7.875 <m>\pm </m>
+                    <quantity>
+                        <mag><m>0.1609375</m></mag>
+                        <unit base="gram" />
+                        <per  prefix="centi" base="meter" exp="3" />
+                    </quantity>
+                </p>
+            </answer>
+
+            <solution>
+                <p>The density, <m>\rho</m>, is given by <me>\rho = \dfrac{m}{V}</me>. Thus <me>\rho = \dfrac{6300}{800} = 7.875 \: g/cm^3.</me>
+                </p>
+
+                <p>Using a linear approximation to estimate the error <me>\Delta \rho \simeq \dfrac{\partial \rho}{\partial m} \Delta m + \dfrac{\partial \rho}{\partial V} \Delta V</me>. Now <me>\dfrac{\partial \rho}{\partial m} = \dfrac{1}{V} \: \text{ and } \: \dfrac{\partial \rho}{\partial V} = -\dfrac{m}{V^2}</me> and so at <m>m=6300</m>, <m>V=800</m> and with <m>\Delta m = 50</m> and <m>\Delta V = -10</m> (to get the maximum value of <m>\Delta \rho</m>) <me>\Delta \rho \simeq \frac{1}{800} \times 50 + \frac{6300}{800^2} \times 10 = 0.1609375</me>. Thus <me>\rho = 7.875 \pm 0.1609375 \: g/cm^3</me>.
+                </p>
+            </solution>
+        </example>
+
+
+        <example xml:id="Ex-Linear-Estimation_Implicit">
+            <statement>
+                <p>Use a linear approximation to estimate the value of <m>z</m> at <m>(x,y) = (1.1,-0.02)</m> for surface <m>z = f(x,y)</m> defined implicitly by <m>z-yz^3 = x+2</m>.</p>
+            </statement>
+
+            <answer>
+                <p><m>z(1.1,-0.02) \simeq 2.56</m></p>
+            </answer>
+
+            <solution>
+                <p>Firstly  notice  that  when <m>x=1</m> and <m>y=0</m>, <m>z=3</m>. Thus <m>z(1,0)=3</m>. Now, via a linear approximation <me> z(1.1,-0.02) \simeq z(1,0) + \Delta z</me> where <me>\Delta z \simeq z_x(1,0) \Delta x + z_y(1,0) \Delta y</me>, and <m>\Delta x = 0.1</m>, <m>\Delta y = -0.02</m>. To find the partial derivatives we need to use implicit differentiation. Differentiating with respect to <m>x</m>:
+                    <md>
+                        <mrow>\dfrac{\partial}{\partial x} (z - yz^3) \amp = \dfrac{\partial}{\partial x} (x+2)</mrow>
+                        <mrow>z_x - 3y z^2 z_x \amp = 1</mrow>
+                        <mrow>z_x \amp = \dfrac{1}{1-3yz^2}</mrow>
+                    </md>.
+                </p>
+
+            <p>Thus <me>z_x(1,0) = \dfrac{1}{1-3 \times 0 \times 3^2} = 1</me>.</p>
+
+            <p>Differentiating with respect to y:
+                <md>
+                    <mrow>\dfrac{\partial}{\partial y} (z - yz^3) \amp = \dfrac{\partial}{\partial y} (x+2)</mrow>
+                    <mrow>z_y - (3y z^2 z_y + z^3) \amp = 0</mrow>
+                    <mrow>z_y \amp = \dfrac{z^3}{1-3yz^2}</mrow>
+                </md>.
+            </p>
+
+            <p>Thus <me>z_y(1,0) = \dfrac{3^3}{1-3 \times 0 \times 3^2} = 27</me>. Putting this together gives <me>\Delta z \simeq 1 \times 0.1 + 27 \times (-0.02) = -0.44</me> and hence <me>z(1.1,-0.02) \simeq 3-0.44 = 2.56.</me>
+            </p>
+            </solution>
+        </example>
+
+
+
+        <exercises>
+            <title>Example Tasks</title>
+
+            <exercise> 
+                <statement>
+                    <p>Use a linear approximation to find the value of <m>z(2.96,-0.95)</m> when <me>z=x^2-xy+3y^2</me>.</p>
+                </statement>
+            </exercise>
+
+            <exercise>
+                <statement>
+                    <p>Use a linear approximation to estimate the value of <m>\sqrt{(2.01)^2-0.98}</m>.</p>
+                </statement>
+            </exercise>
+
+            <exercise>
+                <statement>
+                    <p>A right angled triangle <m>ABC</m> with right angle at <m>B</m> is measured with <m>AB = </m> 10 <m>\pm</m> 
+                    <quantity>
+                        <mag>0.02</mag>
+                        <unit prefix="centi" base="meter"/>
+                    </quantity>
+                    and <m> BC = </m> 3.4 <m>\pm</m> 
+                    <quantity>
+                        <mag>0.02</mag>
+                        <unit prefix="centi" base="meter"/>
+                    </quantity>.
+                    What is the angle at <m>A</m>, including the error?</p>
+                </statement>
+            </exercise>
+
+            <exercise>
+                <statement>
+                    <p>In the figure below a rectangle initially with sides <m>x</m> and <m>y</m> has been made larger so that the sides are now <m>x + \Delta x</m> and <m> y + \Delta y</m>.
+                    <figure xml:id="Fig-Task_4_Figure">
+                        <caption></caption>
+                        <image source="./Calculus/Images/5/Task_4_Figure.png" width="60%"/>
+                    </figure>
+                    Shade on the diagram the regions that represent:
+                    <ol label="a">
+                        <li><p>The increase in area.</p></li>
+                        <li><p>The linear approximation to the increase in area. Explain your answer.</p></li>
+                    </ol></p>
+                </statement>
+            </exercise>
+
+        </exercises>
+
+    </section>
+<!-- =================================================================================================== -->
+
+
+
+
+<!-- =================================================================================================== -->
+<!-- Section 2: Quadratic Approximations -->
+<!-- =================================================================================================== -->
+    <section xml:id="Quadratic-Approximations">
+        <title>Quadratic Approximations</title>
+
+        <p>We have seen previously that for functions of one variable the idea of the linearisation of the function could be extended by considering the Taylor polynomial for the function.</p>
+
+
+        <example xml:id="Ex-Exp_Function_Maclaurin_polynomial_of_degree_2">
+            <statement>
+                <p>For the function <m>f(x) = e^x</m> the Maclaurin polynomial of degree <m>n</m> is <me> \sum_{k=0}^{n} \dfrac{x^k}{k!} = 1+x+\dfrac{x^2}{2!}+\ldots+\dfrac{x^n}{n!}</me>.</p>
+
+                <p>We saw that the linearisation of <m>e^x</m> at <m>x=0</m> was the Maclaurin polynomial of degree 1, i.e. <me>T_1 (x) = 1+x</me>.</p>
+
+                <p>The Maclaurin polynomial of degree 2, i.e. <me> T_2 (x) = 1 + x + \dfrac{x^2}{2}</me> gives a quadratic approximation to <m>e^x</m> about <m>x=0</m> and so on.</p>
+            </statement>
+        </example>
+
+
+        <p>For functions of one variable we derived the Taylor series by trying to find a power series in <m>(x-a)</m> that matched the function and all its derivatives at <m>x=a</m>. For functions of two variables we can use a similar idea to derive the Taylor series about the point <m>(x,y)=(a,b)</m>. This series will be a power series in <m>(x-a)</m> and <m>(y-b)</m> that matches the function and its partial derivatives at the point <m>(x,y)=(a,b)</m>. The formula for the Taylor series of two variables is quite lengthy to write and so we will not reproduce it here. However, as with functions of one variable truncations of this series are called Taylor polynomials and the Taylor polynomial of degree 1 is the linearisation of the function. Similarly, the Taylor polynomial of degree 2 will give us a quadratic approximation to the function.</p>
+
+
+        <definition>
+            <title>Taylor Polynomial of Degree 2</title>
+            <statement>The Taylor Polynomial of degree 2 for the function of two variables <m>f(x,y)</m> about the point <m>(x,y) = (a,b)</m> is 
+            <md>
+                <mrow>T_2(x,y) = \amp f(a,b) + f_x(a,b)(x-a) + f_y(a,b)(y-b)</mrow>
+                <mrow> \amp + \dfrac{f_{xx}(a,b)}{2!} (x-a)^2 + f_{xy}(a,b)(x-a)(y-b) + \dfrac{f_{yy}(a,b)}{2!}(y-b)^2</mrow>
+            </md>
+            </statement>
+        </definition>
+
+
+        <p>The question of how good an approximation this polynomial is goes beyond what we will cover in this course but if <m>f(x,y)</m> has continuous partial derivatives and if <m>(x,y)</m> is <q>sufficiently close to</q> <m>(a,b)</m> then the approximation should be useful.</p>
+
+
+        <example xml:id="Ex-Find_quadratic_approx">
+            <statement>
+                <p>Find the quadratic approximation to the function <m>f(x,y) = x^2y</m> about the point <m>(x,y) = (1,2)</m>.</p>
+            </statement>
+
+            <solution>
+                <p>First calculate the partial derivatives:
+                    <me>
+                        f_x = 2xy, \: \: f_y = x^2, \: \: f_{xx} = 2y, \: \: f_{xy} = 2x, \: \: f_{yy} = 0.
+                    </me>
+                </p>
+                <p>Now evaluate these at <m>(x,y) = (1,2)</m>
+                    <me>
+                        f_x(1,2) = 4, \: \: f_y(1,2) = 1, \: \: f_{xx}(1,2) = 4, \: \: f_{xy}(1,2) = 2, \: \: f_{yy}(1,2) = 0.
+                    </me>
+                </p>
+                <p>Thus, using <m>f(1,2) = 2</m>, we have
+                    <me>
+                        T_2(x,y) = 2+4(x-1)+(y-2)+2(x-1)^2+2(x-1)(y-2)
+                    </me>.
+                </p>
+            </solution>
+        </example>
+
+
+        <example xml:id="Ex-Linear_and_quad_approx">
+            <statement>
+                <p>Using both a linear and a quadratic approximation, estimate the difference in the volume between a box with a square base of side length <quantity><mag>1</mag><unit base="meter"/></quantity> and height <quantity><mag>2</mag><unit base="meter"/></quantity> and a box with square base of side length <quantity><mag>1.1</mag><unit base="meter"/></quantity> and height <quantity><mag>2.05</mag><unit base="meter"/></quantity>.</p>
+            </statement>
+
+            <solution>
+                <p>If we let the side length of the base of a box be <m>x</m> and the height be <m>y</m> then volume <m>V</m> of the box is given by the formula <me>V(x,y) = x^2y</me>.</p>
+
+                <p>Thus the difference in the volume between the boxes will be the change in <m>V</m> when <m>x</m> changes by 0.1 and <m>y</m> changes by 0.05. Using the results obtained in the example above, via a linear approximation <me>\Delta V = 4 \Delta x + \Delta y = 4 \times 0.1 + 0.05 = 0.45</me>.</p>
+
+                <p>Via a quadratic approximation 
+                    <md>
+                        <mrow>\Delta V \amp = 4 \Delta x + \Delta y + 2 \Delta x^2 + 2\Delta x \Delta y </mrow>
+                        <mrow>\amp = 4 \times 0.1 + 0.05 +2 \times 0.1^2 + 2 \times 0.1 \times 0.05 </mrow>
+                        <mrow>\amp = 0.48</mrow>
+                    </md>.
+                </p>
+            </solution>
+        </example>
+
+
+
+        <exercises>
+            <title>Example Tasks</title>
+
+            <exercise> 
+                <statement>
+                    <p>Find the Taylor polynomial of degree 2 for <m>f(x,y) = e^{x+y^2}</m> about <m>(x,y) = (0,0)</m>.</p>
+                </statement>
+            </exercise>
+
+            <exercise>
+                <statement>
+                    <p>Find the Taylor polynomial of degree 2 for <m>f(x,y)=xy</m> about <m>(x,y)=(2,3)</m>.</p>
+                </statement>
+            </exercise>
+
+            <exercise>
+                <statement>
+                    <p>If <m>x=10 \pm 0.5</m>,  <m>y=15 \pm 0.05</m> use a linear approximation and a quadratic approximation to find the value of the dependent variable z and an associated error bound when <me> z = y\ln(x)</me>.</p>
+                </statement>
+            </exercise>
+
+        </exercises>
+
+    </section>
+<!-- =================================================================================================== -->
+</chapter>

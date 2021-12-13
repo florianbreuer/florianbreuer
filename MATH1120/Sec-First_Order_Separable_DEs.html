@@ -1,0 +1,579 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-12-08T21:40:49+11:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>First Order Separable DEs</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    useLabelIds: true,
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext.js"></script><script xmlns:svg="http://www.w3.org/2000/svg">miniversion=0.6</script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script xmlns:svg="http://www.w3.org/2000/svg">sagecellEvalName='Evaluate (Sage)';
+</script><link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/colors_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link xmlns:svg="http://www.w3.org/2000/svg" href="developer.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div xmlns:svg="http://www.w3.org/2000/svg" id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\bm}[1]{\boldsymbol{#1}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="MATH1120-Course-Notes.html"><span class="title">MATH1120:</span> <span class="subtitle">Mathematics for Engineering, Science and Technology 2</span></a></h1>
+<p class="byline"></p>
+</div>
+</div></div>
+<nav xmlns:svg="http://www.w3.org/2000/svg" id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="Differential_Equations_2.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="Differential_Equations_2.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="Sec-Some-Simple-Applications-of-First-Order-Separable-DEs.html" title="Next">Next</a></span></div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="Differential_Equations_2.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="Differential_Equations_2.html" title="Up">Up</a><a class="next-button button toolbar-item" href="Sec-Some-Simple-Applications-of-First-Order-Separable-DEs.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div xmlns:svg="http://www.w3.org/2000/svg" id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link part"><a href="Part-Calculus.html" data-scroll="Part-Calculus"><span class="codenumber">I</span> <span class="title">Calculus</span></a></li>
+<li class="link">
+<a href="Chap-Calculus_1.html" data-scroll="Chap-Calculus_1"><span class="codenumber">1</span> <span class="title">Maclaurin Series</span></a><ul>
+<li><a href="Sec-Introduction.html" data-scroll="Sec-Introduction">Introduction</a></li>
+<li><a href="Sec-Infinite_Series.html" data-scroll="Sec-Infinite_Series">Infinite Series</a></li>
+<li><a href="Sec-Maclaurin_Series.html" data-scroll="Sec-Maclaurin_Series">Maclaurin Series</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Calculus_2.html" data-scroll="Calculus_2"><span class="codenumber">2</span> <span class="title">Taylor Series</span></a><ul>
+<li><a href="Generating-New-Series-from-Known-Series.html" data-scroll="Generating-New-Series-from-Known-Series">Generating New Series from Known Series</a></li>
+<li><a href="Taylor_Series.html" data-scroll="Taylor_Series">Taylor Series</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Calculus_3.html" data-scroll="Calculus_3"><span class="codenumber">3</span> <span class="title">Functions of Several Variables</span></a><ul>
+<li><a href="functions-of-two-variables.html" data-scroll="functions-of-two-variables">Functions of Two Variables</a></li>
+<li><a href="level-curves.html" data-scroll="level-curves">Level Curves</a></li>
+<li><a href="surfaces-of-revolution.html" data-scroll="surfaces-of-revolution">Surfaces of Revolution</a></li>
+<li><a href="functions-of-3-or-more-variables.html" data-scroll="functions-of-3-or-more-variables">Functions of 3 (or more) Variables</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Chap-Calculus_4.html" data-scroll="Chap-Calculus_4"><span class="codenumber">4</span> <span class="title">Partial Differentiation</span></a><ul>
+<li><a href="Sec-Partial_Differentiation.html" data-scroll="Sec-Partial_Differentiation">Partial Differentiation</a></li>
+<li><a href="Sec-Higher_Partial_Derivatives.html" data-scroll="Sec-Higher_Partial_Derivatives">Higher Partial Derivatives</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Chap-Calculus_5.html" data-scroll="Chap-Calculus_5"><span class="codenumber">5</span> <span class="title">Linear Approximations</span></a><ul>
+<li><a href="Sec-Tangent_Planes.html" data-scroll="Sec-Tangent_Planes">Tangent Planes</a></li>
+<li><a href="Sec-Linear_Approximations.html" data-scroll="Sec-Linear_Approximations">Linear Approximations</a></li>
+<li><a href="Quadratic-Approximations.html" data-scroll="Quadratic-Approximations">Quadratic Approximations</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Calculus_6.html" data-scroll="Calculus_6"><span class="codenumber">6</span> <span class="title">The Directional Derivative</span></a><ul>
+<li><a href="Directional-Derivatives.html" data-scroll="Directional-Derivatives">Directional Derivatives</a></li>
+<li><a href="In_Three_Variables.html" data-scroll="In_Three_Variables">In Three Variables</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Calculus_7.html" data-scroll="Calculus_7"><span class="codenumber">7</span> <span class="title">Local and Global Extrema</span></a><ul>
+<li><a href="Critical-Points.html" data-scroll="Critical-Points">Critical Points</a></li>
+<li><a href="Second-Derivative-Test.html" data-scroll="Second-Derivative-Test">Second Derivative Test</a></li>
+<li><a href="Global-Extrema.html" data-scroll="Global-Extrema">Global Extrema</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Chap-Calculus_8.html" data-scroll="Chap-Calculus_8"><span class="codenumber">8</span> <span class="title">Chain Rules</span></a><ul>
+<li><a href="Sec-The_single_variable_chain_rule.html" data-scroll="Sec-The_single_variable_chain_rule">The Single Variable Chain Rule</a></li>
+<li><a href="Sec-Multivariable-chain-rules.html" data-scroll="Sec-Multivariable-chain-rules">Multivariable Chain Rules</a></li>
+<li><a href="section-22.html" data-scroll="section-22">Implicit Differentiation</a></li>
+</ul>
+</li>
+<li class="link part"><a href="Part-Differenial_Equations.html" data-scroll="Part-Differenial_Equations"><span class="codenumber">II</span> <span class="title">Differential Equations</span></a></li>
+<li class="link">
+<a href="Differential_Equations_1.html" data-scroll="Differential_Equations_1"><span class="codenumber">9</span> <span class="title">Introduction</span></a><ul>
+<li><a href="introduction.html" data-scroll="introduction">Introduction</a></li>
+<li><a href="direction-fields-and-eulers-method.html" data-scroll="direction-fields-and-eulers-method">Direction Fields and Euler's Method</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Differential_Equations_2.html" data-scroll="Differential_Equations_2"><span class="codenumber">10</span> <span class="title">First Order Separable DEs</span></a><ul>
+<li><a href="Sec-First_Order_Separable_DEs.html" data-scroll="Sec-First_Order_Separable_DEs" class="active">First Order Separable DEs</a></li>
+<li><a href="Sec-Some-Simple-Applications-of-First-Order-Separable-DEs.html" data-scroll="Sec-Some-Simple-Applications-of-First-Order-Separable-DEs">Some Simple Applications of First Order Separable DEs</a></li>
+<li><a href="appendix-1.html" data-scroll="appendix-1">Partial Fraction Decomposition</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Differential_Equations_3.html" data-scroll="Differential_Equations_3"><span class="codenumber">11</span> <span class="title">First Order Linear DEs</span></a><ul>
+<li><a href="Exact_First_Order_DEs.html" data-scroll="Exact_First_Order_DEs">Exact First Order DEs</a></li>
+<li><a href="First_Order_Linear_DEs.html" data-scroll="First_Order_Linear_DEs">First Order Linear DEs</a></li>
+<li><a href="Simple_Applications_of_First_Order_Linear_DEs.html" data-scroll="Simple_Applications_of_First_Order_Linear_DEs">Some Simple Applications of First Order Linear DEs</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Differential_Equations_4.html" data-scroll="Differential_Equations_4"><span class="codenumber">12</span> <span class="title">Homogeneous Second Order Linear DEs</span></a><ul><li><a href="Homogeneous_Second_Order_Linear_DEs_With_Constant_Coefficients.html" data-scroll="Homogeneous_Second_Order_Linear_DEs_With_Constant_Coefficients">Homogeneous Second Order Linear DEs With Constant Coefficients</a></li></ul>
+</li>
+<li class="link">
+<a href="Differential_Equations_5.html" data-scroll="Differential_Equations_5"><span class="codenumber">13</span> <span class="title">Non-Homogeneous Second Order Linear DEs</span></a><ul>
+<li><a href="Non-Homogeneous_First_Order_Linear_DEs.html" data-scroll="Non-Homogeneous_First_Order_Linear_DEs">Non-Homogeneous First Order Linear DEs</a></li>
+<li><a href="The_Method_of_Undetermined_Coefficients.html" data-scroll="The_Method_of_Undetermined_Coefficients">The Method of Undetermined Coefficients</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Differential_Equations_6.html" data-scroll="Differential_Equations_6"><span class="codenumber">14</span> <span class="title">An Application of Second Order Linear DEs with Constant Coefficients</span></a><ul>
+<li><a href="A_Simple_Model.html" data-scroll="A_Simple_Model">A Simple Model</a></li>
+<li><a href="Adding_Damping.html" data-scroll="Adding_Damping">Adding Damping</a></li>
+<li><a href="Adding_an_External_Force.html" data-scroll="Adding_an_External_Force">Adding an External Force</a></li>
+</ul>
+</li>
+<li class="link part"><a href="Part-Linear_Algebra.html" data-scroll="Part-Linear_Algebra"><span class="codenumber">III</span> <span class="title">Linear Algebra</span></a></li>
+<li class="link">
+<a href="Linear_Algebra_1.html" data-scroll="Linear_Algebra_1"><span class="codenumber">15</span> <span class="title">Systems of Linear Equations</span></a><ul>
+<li><a href="Sec-LA_Introduction.html" data-scroll="Sec-LA_Introduction">Introduction</a></li>
+<li><a href="Sec-LA_Matrices_and_Systems_of_Linear_Equations.html" data-scroll="Sec-LA_Matrices_and_Systems_of_Linear_Equations">Matrices and Systems of Linear Equations</a></li>
+<li><a href="Sec-LA_Solving_Systems_of_Linear_Equations.html" data-scroll="Sec-LA_Solving_Systems_of_Linear_Equations">Solving Systems of Linear Equations</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Linear_Algebra__2.html" data-scroll="Linear_Algebra__2"><span class="codenumber">16</span> <span class="title">Geometric Interpretations of Linear Equations</span></a><ul>
+<li><a href="Interpretation_Via_Rows.html" data-scroll="Interpretation_Via_Rows">Interpretation Via Rows</a></li>
+<li><a href="Interpretation_Via_Columns.html" data-scroll="Interpretation_Via_Columns">Interpretation Via Columns</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Chap-Linear_Algebra_3.html" data-scroll="Chap-Linear_Algebra_3"><span class="codenumber">17</span> <span class="title">Matrix Algebra</span></a><ul>
+<li><a href="Sec-Linear_Algebra_Intro.html" data-scroll="Sec-Linear_Algebra_Intro">Introduction</a></li>
+<li><a href="Sec-Addition_and_Scalar_Multiplication.html" data-scroll="Sec-Addition_and_Scalar_Multiplication">Addition and Scalar Multiplication</a></li>
+<li><a href="Sec-Matrix_multiplication.html" data-scroll="Sec-Matrix_multiplication">Matrix Multiplication</a></li>
+<li><a href="Sec-Matrices_and_Systems_of_Linear_Equations.html" data-scroll="Sec-Matrices_and_Systems_of_Linear_Equations">Matrices and Systems of Linear Equations</a></li>
+<li><a href="Sec-Linear_transformations.html" data-scroll="Sec-Linear_transformations">Linear Transformations</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Linear_Algebra_4.html" data-scroll="Linear_Algebra_4"><span class="codenumber">18</span> <span class="title">Square Matrices</span></a><ul>
+<li><a href="Inverse_Matrices.html" data-scroll="Inverse_Matrices">Inverse Matrices</a></li>
+<li><a href="Determinants.html" data-scroll="Determinants">Determinants</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Linear_Algebra_5.html" data-scroll="Linear_Algebra_5"><span class="codenumber">19</span> <span class="title">Eigenvalues and Eigenvectors</span></a><ul>
+<li><a href="Sec-LA_5_Introduction.html" data-scroll="Sec-LA_5_Introduction">Introduction</a></li>
+<li><a href="Sec-LA_5_Finding_Eigenvalues_and_Eigenvectors.html" data-scroll="Sec-LA_5_Finding_Eigenvalues_and_Eigenvectors">Finding Eigenvalues and Eigenvectors</a></li>
+<li><a href="Sec-LA_5_A_Simple_Application.html" data-scroll="Sec-LA_5_A_Simple_Application">A Simple Application</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Linear_Algebra_6.html" data-scroll="Linear_Algebra_6"><span class="codenumber">20</span> <span class="title">Some Applications of Eigenvalues and Eigenvectors</span></a><ul>
+<li><a href="Powers_of_Matrices.html" data-scroll="Powers_of_Matrices">Powers of Matrices</a></li>
+<li><a href="Coupled_Linear_Differential_Equations.html" data-scroll="Coupled_Linear_Differential_Equations">Coupled Linear Differential Equations</a></li>
+</ul>
+</li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="Sec-First_Order_Separable_DEs"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">10.1</span> <span class="title">First Order Separable DEs</span>
+</h2>
+<article class="definition definition-like" id="definition-19"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">10.1.1</span><span class="period">.</span>
+</h3>
+<p id="p-633">A differential equation of the form</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{dy}{dx}=f(x)g(y)
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(g(y)\neq 0\)</span> is called a <dfn class="terminology">first order separable DE</dfn>.</p></article><article class="example example-like" id="example-97"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-97"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">10.1.2</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-97"><article class="example example-like"><p id="p-634">Which of the following DEs are first order separable DEs?</p>
+<ol id="p-635" class="lower-alpha">
+<li id="li-134"><div class="displaymath process-math" id="p-636">
+\begin{equation*}
+y^2y'=x 
+\end{equation*}
+</div></li>
+<li id="li-135"><div class="displaymath process-math" id="p-637">
+\begin{equation*}
+y''+2y=0 
+\end{equation*}
+</div></li>
+<li id="li-136"><div class="displaymath process-math" id="p-638">
+\begin{equation*}
+\frac{dy}{dt}+3e^t=ye^t 
+\end{equation*}
+</div></li>
+<li id="li-137"><div class="displaymath process-math" id="p-639">
+\begin{equation*}
+\frac{dy}{dt}+ty=2 
+\end{equation*}
+</div></li>
+<li id="li-138"><div class="displaymath process-math" id="p-640">
+\begin{equation*}
+y'=y(1-y) 
+\end{equation*}
+</div></li>
+<li id="li-139"><div class="displaymath process-math" id="p-641">
+\begin{equation*}
+y'=y(x-y) 
+\end{equation*}
+</div></li>
+</ol>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-81" id="solution-81"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-81"><div class="solution solution-like"><ol id="p-642" class="lower-alpha">
+<li id="li-140">
+<p id="p-643">This DE can be written as</p>
+<div class="displaymath process-math">
+\begin{equation*}
+y'=\frac{x}{y^2} 
+\end{equation*}
+</div>
+<p class="continuation">Thus it is a first order separable DE with <span class="process-math">\(f(x)=x\)</span> and <span class="process-math">\(g(y)=\frac{1}{y^2}\text{.}\)</span></p>
+</li>
+<li id="li-141"><p id="p-644">This DE is a second order DE (due to the <span class="process-math">\(y''\)</span> term) and hence cannot be a first order separable DE.</p></li>
+<li id="li-142">
+<p id="p-645">This DE can be rearranged as</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{dy}{dt}=e^t(y-3)
+\end{equation*}
+</div>
+<p class="continuation">and hence is a first order separable DE with <span class="process-math">\(f(t)=e^t\)</span> and <span class="process-math">\(g(y)=y-3\text{.}\)</span></p>
+</li>
+<li id="li-143">
+<p id="p-646">When we try to rearrange this DE in the same manner as we did in part (c) we obtain</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{dy}{dt}=2-ty
+\end{equation*}
+</div>
+<p class="continuation">This is not of the form <span class="process-math">\(y'=f(t)g(y)\)</span> and hence this first order DE is not separable.</p>
+</li>
+<li id="li-144"><p id="p-647">This DE is already in the form of a first order separable DE with <span class="process-math">\(f(x)=1\)</span> and <span class="process-math">\(g(y)=y(1-y)\text{.}\)</span></p></li>
+<li id="li-145"><p id="p-648">The right hand side of this DE can’t be rearranged into the form <span class="process-math">\(y'=f(x)g(y)\)</span> and so this DE is not a first order separable DE.</p></li>
+</ol></div></div></article></div>
+<p id="p-649">The method for solving first order separable DEs is based on integration by substitution. This integration technique was covered in Math1110 but the following example is given as a reminder.</p>
+<article class="example example-like" id="example-98"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-98"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">10.1.3</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-98"><article class="example example-like"><p id="p-650">Evaluate the integral <span class="process-math">\(\int 2x\sin(x^2) \hspace{2mm} dx\text{.}\)</span></p>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-82" id="solution-82"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-82"><div class="solution solution-like">
+<p id="p-651">Since the integrand is of the form <span class="process-math">\(g'(x)\sin(g(x))\)</span> (or, in Leibniz notation <span class="process-math">\(\sin(g(x))\frac{dg}{dx}\)</span>) make the substitution</p>
+<div class="displaymath process-math">
+\begin{equation*}
+u=g(x)=x^2
+\end{equation*}
+</div>
+<p class="continuation">Then <div class="displaymath process-math" id="p-652">
+\begin{align*}
+\int 2x\sin(x^2)\hspace{2mm} dx \amp =\int \sin(u)\hspace{2mm} du\\
+\amp =-\cos(u)+C
+\end{align*}
+</div> Using <span class="process-math">\(u=x^2\)</span> gives</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\int 2x\sin(x^2)\hspace{2mm} dx=-\cos(x^2)+C
+\end{equation*}
+</div>
+</div></div></article></div>
+<p id="p-653">In general, the integration by substitution method says that for an integral of the form</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\int f(g(x))\frac{dg}{dx}\hspace{2mm} dx
+\end{equation*}
+</div>
+<p class="continuation">the substitution</p>
+<div class="displaymath process-math">
+\begin{equation*}
+u=g(x)
+\end{equation*}
+</div>
+<p class="continuation">transforms the integral to</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\int f(u)\hspace{2mm} du
+\end{equation*}
+</div>
+<p class="continuation">More succinctly, we can write this as </p>
+<div class="displaymath process-math">
+\begin{equation*}
+\int f(u)\frac{du}{dx}\hspace{2mm} dx=\int f(u)\hspace{2mm} du
+\end{equation*}
+</div>
+<p class="continuation">(As an aside, we saw in Math1110 that this formula follows directly from the chain rule of differentiation.)</p>
+<p id="p-654">Returning now to the problem of solving first order separable DEs, i.e. to solving DEs of the form</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{dy}{dx}=f(x)g(y)
+\end{equation*}
+</div>
+<p class="continuation">Assuming that <span class="process-math">\(g(y)\neq 0\text{,}\)</span> rearrange the DE as</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{1}{g(y)}\frac{dy}{dx}=f(x)
+\end{equation*}
+</div>
+<p class="continuation">Note that in this step we are "separating the variables". Now integrate both sides with respect to <span class="process-math">\(x\)</span> to obtain</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\int \frac{1}{g(y)}\frac{dy}{dx}\hspace{2mm} dx=\int f(x) \hspace{2mm} dx
+\end{equation*}
+</div>
+<p class="continuation">Using the integration by substitution formula on the left hand side gives</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\int \frac{1}{g(y)}\hspace{2mm} dy=\int f(x) \hspace{2mm} dx
+\end{equation*}
+</div>
+<p class="continuation">So long as we can actually perform the integrals on both sides of this equation we will have an equation which will implicitly define <span class="process-math">\(y\)</span> (the unknown function) in terms of <span class="process-math">\(x\)</span> (the independent variable). If we can further make <span class="process-math">\(y\)</span> the subject of this equation then we will have found an explicit formula for the solution to the separable DE.</p>
+<article class="example example-like" id="example-99"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-99"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">10.1.4</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-99"><article class="example example-like"><p id="p-655">Find the general solution to the DE</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{dy}{dx}=-4xy^2
+\end{equation*}
+</div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-83" id="solution-83"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-83"><div class="solution solution-like">
+<p id="p-656">This is a first order separable DE so begin by separating the variables, i.e.</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{1}{y^2}\frac{dy}{dx}=-4x
+\end{equation*}
+</div>
+<p class="continuation">Now integrate both sides with respect to <span class="process-math">\(x\text{,}\)</span></p>
+<div class="displaymath process-math">
+\begin{equation*}
+\int \frac{1}{y^2}\frac{dy}{dx}\hspace{2mm} dx=\int -4x\hspace{2mm} dx
+\end{equation*}
+</div>
+<p class="continuation">Using the integration by substitution formula this becomes</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\int \frac{1}{y^2}\hspace{2mm} dy=\int -4x\hspace{2mm} dx
+\end{equation*}
+</div>
+<p class="continuation">Evaluating the integrals on both sides (and combining the two constants of integration) gives</p>
+<div class="displaymath process-math">
+\begin{equation*}
+-\frac{1}{y}=-2x^2+C
+\end{equation*}
+</div>
+<p class="continuation">Here we can make <span class="process-math">\(y\)</span> the subject of the resulting equation and hence</p>
+<div class="displaymath process-math">
+\begin{equation*}
+y(x)=\frac{1}{2x^2+C}
+\end{equation*}
+</div>
+<p class="continuation">Note that we can check whether this function is a solution to the DE by substituting back into the original DE. On the left hand side, using the chain rule to differentiate <span class="process-math">\(y\)</span> we obtain</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{dy}{dx}=-\frac{1}{(2x^2+C)^2}\times (4x)=\frac{-4x}{(2x^2+C)^2}
+\end{equation*}
+</div>
+<p class="continuation">On the right hand side</p>
+<div class="displaymath process-math">
+\begin{equation*}
+-4xy^2=(-4x)\left(\frac{1}{2x^2+C}\right)^2=\frac{-4x}{(2x^2+C)^2}
+\end{equation*}
+</div>
+<p class="continuation">and so <span class="process-math">\(y\)</span> does indeed satisfy the DE.</p>
+<p id="p-657">The working so far has assumed that <span class="process-math">\(y^2\neq 0\)</span> and hence that <span class="process-math">\(y\neq 0\text{.}\)</span> Thus to check that we have found all of the solutions to the DE we must check whether the function <span class="process-math">\(y(x)=0\)</span> is also a solution. Clearly it is. Thus the set of all solutions to the DE is</p>
+<div class="displaymath process-math">
+\begin{equation*}
+y(x)=\frac{1}{2x^2+C}, \hspace{5mm} y(x)=0 \hspace{5mm} \textrm{ for } C\in\mathbb{R}
+\end{equation*}
+</div>
+<p class="continuation">See Figure 10.1.5. for a sketch of these solutions for various values of <span class="process-math">\(C\text{.}\)</span> <figure class="figure figure-like" id="figure-63"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="./DifferentialEquations/Images/2/1_example3.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">10.1.5<span class="period">.</span></span><span class="space"> </span></figcaption></figure></p>
+</div></div></article></div>
+<article class="example example-like" id="example-100"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-100"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">10.1.6</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-100"><article class="example example-like"><p id="p-658">Find the solution to the initial-value problem</p>
+<div class="displaymath process-math">
+\begin{equation*}
+(4y-\cos(y))\frac{dy}{dt}-3t^2=0, \hspace{5mm} y(0)=0
+\end{equation*}
+</div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-84" id="solution-84"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-84"><div class="solution solution-like">
+<p id="p-659">This is a first order separable DE so begin by separating the variables, i.e.</p>
+<div class="displaymath process-math">
+\begin{equation*}
+(4y-\cos(y))\frac{dy}{dt}=3t^2
+\end{equation*}
+</div>
+<p class="continuation">Integrating both sides with respect to <span class="process-math">\(t\)</span> and applying the integration by substitution formula to the left hand side gives</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\int 4y-\cos(y)\hspace{2mm} dy=\int 3t^2\hspace{2mm} dt
+\end{equation*}
+</div>
+<p class="continuation">Evaluating the integrals on both sides (and combining the two constants of integration) gives</p>
+<div class="displaymath process-math">
+\begin{equation*}
+2y^2-\sin(y)=t^3+C
+\end{equation*}
+</div>
+<p class="continuation">We can’t make <span class="process-math">\(y\)</span> the subject of this equation and so in this case we can’t find an explicit formula for the general solution to the DE. Substituting the initial condition into the implicit equation gives</p>
+<div class="displaymath process-math">
+\begin{equation*}
+2\times 0^2-\sin(0)=0^3+C
+\end{equation*}
+</div>
+<p class="continuation">i.e.</p>
+<div class="displaymath process-math">
+\begin{equation*}
+C=0
+\end{equation*}
+</div>
+<p class="continuation">Thus the solution to the initial-value problem is the relevant function <span class="process-math">\(y(t)\)</span> defined implicitly by</p>
+<div class="displaymath process-math">
+\begin{equation*}
+2y^2-\sin(y)=t^3
+\end{equation*}
+</div>
+<p class="continuation">The curve defined implicitly by this equation is shown in Figure 10.1.7. and from this we can see that the "bottom" part of the curve will be the function that is the solution to the initial-value problem. <figure class="figure figure-like" id="figure-64"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="./DifferentialEquations/Images/2/1_example4.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">10.1.7<span class="period">.</span></span><span class="space"> </span></figcaption></figure></p>
+</div></div></article></div>
+<article class="example example-like" id="example-101"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-101"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">10.1.8</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-101"><article class="example example-like"><p id="p-660">Find the general solution to the DE</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{dy}{dx}=y(1-y)
+\end{equation*}
+</div>
+<p class="continuation"><dfn class="terminology">Note</dfn>: We looked at this example in section <dfn class="terminology">9 Introduction</dfn>. There we sketched a direction field for the DE.</p>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-85" id="solution-85"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-85"><div class="solution solution-like">
+<p id="p-661">This is a first order separable DE with <span class="process-math">\(f(x)=1\)</span> (i.e. it is autonomous) and <span class="process-math">\(g(y)=y(1-y)\text{.}\)</span> On separating the variables and integrating both sides with respect to <span class="process-math">\(x\)</span> we obtain</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\int \frac{1}{y(1-y)}\hspace{2mm}dy=\int 1\hspace{2mm}dx
+\end{equation*}
+</div>
+<p class="continuation">To evaluate the integral on the left hand side we have to use partial fraction decomposition, by which we can determine that</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{1}{y(1-y)}=\frac{1}{y}+\frac{1}{1-y}
+\end{equation*}
+</div>
+<p class="continuation">Thus <div class="displaymath process-math" id="p-662">
+\begin{align*}
+\int \frac{1}{y(1-y)}\hspace{2mm}dy \amp=\int \frac{1}{y}\hspace{2mm}dy +\int \frac{1}{1-y}\hspace{2mm}dy\\
+\amp =\ln(\vert y\vert)-\ln(\vert 1-y\vert)+C
+\end{align*}
+</div> (Some more detail on partial fraction decomposition can be found in an appendix to this lecture.) So, on evaluating the integral on the right hand side and combining the two constants of integration we obtain</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\ln(\vert y\vert)-\ln(\vert 1-y\vert)=x+K
+\end{equation*}
+</div>
+<p class="continuation">This can be rearranged as</p>
+<div class="displaymath process-math">
+\begin{equation*}
+y(x)=\frac{Ae^x}{1+Ae^x}
+\end{equation*}
+</div>
+<p class="continuation">Figure 10.1.9. shows this curve when <span class="process-math">\(A=1\)</span> superimposed on top of the direction field for the DE. Also shown in the figure are the solutions <span class="process-math">\(y(x)=0\)</span> and <span class="process-math">\(y(x)=1\)</span> which come from checking separately the cases where <span class="process-math">\(g(y)=0\text{.}\)</span> <figure class="figure figure-like" id="figure-65"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="./DifferentialEquations/Images/2/1_example5.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">10.1.9<span class="period">.</span></span><span class="space"> </span></figcaption></figure></p>
+</div></div></article></div>
+<article class="example example-like" id="example-102"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-102"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">10.1.10</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-102"><article class="example example-like"><p id="p-663">Find the solution to the initial-value problem</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{dy}{dx}=xy+x, \hspace{5mm} y(0)=1
+\end{equation*}
+</div>
+<p class="continuation"><dfn class="terminology">Note</dfn>: We looked at this example in section <dfn class="terminology">9 Introduction</dfn> where we used Euler’s method with <span class="process-math">\(\Delta x=0.1\)</span> to approximate the value of the solution at <span class="process-math">\(x=0.3\text{.}\)</span></p>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-86" id="solution-86"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-86"><div class="solution solution-like">
+<p id="p-664">This is a first order separable DE with <span class="process-math">\(f(x)=x\)</span> and <span class="process-math">\(g(y)=y+1\text{.}\)</span> On separating the variables and integrating both sides with respect to <span class="process-math">\(x\)</span> we obtain</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\int \frac{1}{y+1}\hspace{2mm}dy=\int x\hspace{2mm}dx
+\end{equation*}
+</div>
+<p class="continuation">Evaluating the integrals and rearranging gives</p>
+<div class="displaymath process-math">
+\begin{equation*}
+y(x)=Ce^{x^2/2}-1
+\end{equation*}
+</div>
+<p class="continuation">To satisfy the initial condition <div class="displaymath process-math" id="p-665">
+\begin{align*}
+1 \amp=Ce^0-1\\
+C \amp =2
+\end{align*}
+</div> Thus the solution to the initial-value problem is</p>
+<div class="displaymath process-math">
+\begin{equation*}
+y(x)=2e^{x^2/2}-1
+\end{equation*}
+</div>
+<p class="continuation"><dfn class="terminology">Note</dfn>: From this solution</p>
+<div class="displaymath process-math">
+\begin{equation*}
+y(0.3)=2e^{(0.3)^2/2}-1=1.0921 \textrm{ to 4.d.p.}
+\end{equation*}
+</div>
+<p class="continuation">The Euler method approximation was</p>
+<div class="displaymath process-math">
+\begin{equation*}
+y(0.3)=1.0604 \textrm{ to 4.d.p.}
+\end{equation*}
+</div>
+<p class="continuation">Figure 10.1.11. shows both the analytic solution and the Euler approximation over the domain <span class="process-math">\(0\leq x\leq 0.3\text{.}\)</span> <figure class="figure figure-like" id="figure-66"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="./DifferentialEquations/Images/2/1_example6.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">10.1.11<span class="period">.</span></span><span class="space"> </span></figcaption></figure></p>
+</div></div></article></div>
+<section class="exercises" id="exercises-22"><h3 class="heading hide-type">
+<span class="type">Exercises</span> <span class="codenumber"></span> <span class="title">Example Tasks</span>
+</h3>
+<article class="exercise exercise-like" id="exercise-61"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<p id="p-666">Find the general solution to the DE</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{\sqrt{1+x^2}}{y+1}\frac{dy}{dx}=-x
+\end{equation*}
+</div></article><article class="exercise exercise-like" id="exercise-62"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<p id="p-667">Solve the initial-value problem</p>
+<div class="displaymath process-math">
+\begin{equation*}
+y'=-\frac{x}{y+1}, \hspace{5mm} y(0)=2
+\end{equation*}
+</div></article></section></section></div></main>
+</div>
+</body>
+</html>

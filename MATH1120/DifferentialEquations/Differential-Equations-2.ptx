@@ -1,0 +1,520 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- =================================================================================================== -->
+<!-- To process this file with xsltproc do                                                        -->
+<!--                                                                                              -->
+<!-- (1) LaTeX/PDF:                                                                               -->
+<!--     xsltproc -o minimal.tex PATH_TO/mathbook/xsl/pretext-latex.xsl source/main.ptx           -->
+<!--     pdflatex minimal.tex                                                                     -->
+<!--     xelatex minimal.tex                                                                      -->
+<!--                                                                                              -->
+<!-- (2) HTML:                                                                                    -->
+<!--     xsltproc PATH_TO/mathbook/xsl/pretext-html.xsl source/main.ptx                           -->
+<!--     <browser>  minimal.html                                                                  -->
+<!--        ~/xsltproc/xsltproc.exe ~/mathbook/xsl/mathbook-html.xsl test.xml                     -->
+<!--                                                                                              -->
+<!-- (3) CoCalc worksheet (parameter causes a single file for output)                             -->
+<!--     REMOVE the "X" in the double dash (which is not legal in an XML comment)                 -->
+<!--     xsltproc -X-stringparam chunk.level 0 PATH_TO/mathbook/xsl/pretext-smc.xsl source/main.ptx   -->
+<!--     <CoCalc> minimal.sagews                                                                  -->
+<!--                                                                                              -->
+<!-- (4) Sage doctesting                                                                          -->
+<!--     REMOVE the "X" in the double dash (which is not legal in an XML comment)                 -->
+<!--     xsltproc -X-stringparam chunk.level 0 PATH_TO/mathbook/xsl/pretext-sage-doctest.xsl source/main.ptx  -->
+<!--     <read further instructions in> minimal.py                                                -->
+<!-- =================================================================================================== -->
+
+<chapter xml:id="Differential_Equations_2">
+
+
+
+<!-- =================================================================================================== -->
+<!-- Title and Other Preliminaries -->
+<!-- =================================================================================================== -->
+        <title>First Order Separable DEs</title>  
+
+        <!-- <frontmatter> -->
+
+<!--             <titlepage>
+                <author>
+                    <institution>University of Newcastle</institution>
+                </author>
+                <date><today /></date>
+            </titlepage> -->
+
+            <!-- <abstract>
+                <p>This is a very short article, but it still exercises some advanced features of MathBook XML.</p>
+            </abstract> -->
+
+        <!-- </frontmatter> -->
+
+        <introduction>
+            <p>
+                In section <term> 9 Introduction</term> we discussed the concept of a differential equation and saw how to check if a function is a solution of a given DE. However, except for the case where the DE is of the form
+                <me>y^{(n)}(x)=f(x)</me>
+                (where we can find the solutions just by integration) we have not yet seen any algebraic methods for finding the solutions to a DE. (We did see that for first order DEs we can obtain a graphical representation of the solutions via a direction field and a numerical approximation to a particular solution via Euler’s method.)
+            </p>
+            <p>
+                As mentioned in section <term> 9 Introduction</term> there is no one general method that will solve all possible DEs. However, for various classes of DEs methods have been found that will find their solution. In this lecture we are going to look at an algebraic method for finding the solutions to the class of DEs called first order separable DEs.
+            </p>
+        </introduction>  
+
+<!-- =================================================================================================== -->
+
+
+<!-- =================================================================================================== -->
+<!-- Section 1: First Order Separable DEs -->
+<!-- =================================================================================================== -->
+        <section xml:id="Sec-First_Order_Separable_DEs">
+            <title>First Order Separable DEs </title>
+
+            <definition>
+                <p>
+                    A differential equation of the form
+                    <me>\frac{dy}{dx}=f(x)g(y)</me>
+                    where <m>g(y)\neq 0</m> is called a <term>first order separable DE</term>.
+                </p>
+            </definition>
+
+            <example>
+                <p>
+                    Which of the following DEs are first order separable DEs?
+                </p>
+                <p><ol label="a.">
+                    <li><p> <me> y^2y'=x </me></p></li>
+                    <li><p> <me> y''+2y=0 </me></p></li>
+                    <li><p> <me> \frac{dy}{dt}+3e^t=ye^t </me></p></li>
+                    <li><p> <me> \frac{dy}{dt}+ty=2 </me></p></li>
+                    <li><p> <me> y'=y(1-y) </me></p></li>
+                    <li><p> <me> y'=y(x-y) </me></p></li>
+                </ol></p>
+                <solution>
+                    <p><ol label="a.">
+                        <li><p> 
+                            This DE can be written as
+                            <me> y'=\frac{x}{y^2} </me>
+                            Thus it is a first order separable DE with <m>f(x)=x</m> and <m>g(y)=\frac{1}{y^2}</m>.
+                        </p></li>
+                        <li><p> 
+                            This DE is a second order DE (due to the <m>y''</m> term) and hence cannot be a first order separable DE.
+                        </p></li>
+                        <li><p> 
+                            This DE can be rearranged as
+                            <me>\frac{dy}{dt}=e^t(y-3)</me>
+                            and hence is a first order separable DE with <m>f(t)=e^t</m> and <m>g(y)=y-3</m>.
+                        </p></li>
+                        <li><p> 
+                            When we try to rearrange this DE in the same manner as we did in part (c) we obtain
+                            <me> \frac{dy}{dt}=2-ty</me>
+                            This is not of the form <m>y'=f(t)g(y)</m> and hence this first order DE is not separable.
+                        </p></li>
+                        <li><p> 
+                            This DE is already in the form of a first order separable DE with <m>f(x)=1</m> and <m>g(y)=y(1-y)</m>.
+                        </p></li>
+                        <li><p> 
+                            The right hand side of this DE can’t be rearranged into the form <m>y'=f(x)g(y)</m> and so this DE is not a first order separable DE.
+                        </p></li>
+                    </ol></p>
+                </solution>
+            </example>
+
+            <p>
+                The method for solving first order separable DEs is based on integration by substitution. This integration technique was covered in Math1110 but the following example is given as a reminder.
+            </p>
+
+            <example>
+                <p>
+                    Evaluate the integral <m>\int 2x\sin(x^2) \hspace{2mm} dx</m>. 
+                </p>
+                <solution>
+                    <p>
+                        Since the integrand is of the form <m>g'(x)\sin(g(x))</m> (or, in Leibniz notation <m>\sin(g(x))\frac{dg}{dx}</m>) make the substitution
+                        <me>u=g(x)=x^2</me>
+                        Then
+                        <p><md>
+                            <mrow>\int 2x\sin(x^2)\hspace{2mm} dx \amp =\int \sin(u)\hspace{2mm} du</mrow>
+                            <mrow>\amp =-\cos(u)+C</mrow>
+                        </md></p>
+                        Using <m>u=x^2</m> gives
+                        <me>\int 2x\sin(x^2)\hspace{2mm} dx=-\cos(x^2)+C</me>
+                    </p>
+                </solution>
+            </example>
+
+            <p>
+                In general, the integration by substitution method says that for an integral of the form
+                <me>\int f(g(x))\frac{dg}{dx}\hspace{2mm} dx</me>
+                the substitution
+                <me>u=g(x)</me>
+                transforms the integral to
+                <me>\int f(u)\hspace{2mm} du</me>
+                More succinctly, we can write this as
+                <!-- highlight equation in box -->
+                <me>\int f(u)\frac{du}{dx}\hspace{2mm} dx=\int f(u)\hspace{2mm} du</me>
+                (As an aside, we saw in Math1110 that this formula follows directly from the chain rule of differentiation.)
+            </p>
+            <p>
+	            Returning now to the problem of solving first order separable DEs, i.e. to solving DEs of the form
+                <me>\frac{dy}{dx}=f(x)g(y)</me>
+                Assuming that <m>g(y)\neq 0</m>, rearrange the DE as
+                <me>\frac{1}{g(y)}\frac{dy}{dx}=f(x)</me>
+                Note that in this step we are "separating the variables". Now integrate both sides with respect to <m>x</m> to obtain
+                <me>\int \frac{1}{g(y)}\frac{dy}{dx}\hspace{2mm} dx=\int f(x) \hspace{2mm} dx</me>
+                Using the integration by substitution formula on the left hand side gives
+                <me>\int \frac{1}{g(y)}\hspace{2mm} dy=\int f(x) \hspace{2mm} dx</me>
+                So long as we can actually perform the integrals on both sides of this equation we will have an equation which will implicitly define <m>y</m> (the unknown function) in terms of <m>x</m> (the independent variable). If we can further make <m>y</m> the subject of this equation then we will have found an explicit formula for the solution to the separable DE.
+            </p>
+
+            <example>
+                <p>
+                    Find the general solution to the DE
+                    <me>\frac{dy}{dx}=-4xy^2</me>
+                </p>
+                <solution>
+                    <p>
+                        This is a first order separable DE so begin by separating the variables, i.e.
+                        <me>\frac{1}{y^2}\frac{dy}{dx}=-4x</me>
+                        Now integrate both sides with respect to <m>x</m>,
+                        <me>\int \frac{1}{y^2}\frac{dy}{dx}\hspace{2mm} dx=\int -4x\hspace{2mm} dx</me>
+                        Using the integration by substitution formula this becomes
+                        <me>\int \frac{1}{y^2}\hspace{2mm} dy=\int -4x\hspace{2mm} dx</me>
+                        Evaluating the integrals on both sides (and combining the two constants of integration) gives
+                        <me>-\frac{1}{y}=-2x^2+C</me>
+                        Here we can make <m>y</m> the subject of the resulting equation and hence 
+                        <me>y(x)=\frac{1}{2x^2+C}</me>
+                        Note that we can check whether this function is a solution to the DE by substituting back into the original DE. On the left hand side, using the chain rule to differentiate <m>y</m> we obtain
+                        <me>\frac{dy}{dx}=-\frac{1}{(2x^2+C)^2}\times (4x)=\frac{-4x}{(2x^2+C)^2}</me>
+                        On the right hand side
+                        <me>-4xy^2=(-4x)\left(\frac{1}{2x^2+C}\right)^2=\frac{-4x}{(2x^2+C)^2}</me>
+                        and so <m>y</m> does indeed satisfy the DE.
+                    </p>
+                    <p>
+                        The working so far has assumed that <m>y^2\neq 0</m> and hence that <m>y\neq 0</m>. Thus to check that we have found all of the solutions to the DE we must check whether the function <m>y(x)=0</m> is also a solution. Clearly it is. Thus the set of all solutions to the DE is
+                        <me>y(x)=\frac{1}{2x^2+C}, \hspace{5mm} y(x)=0 \hspace{5mm} \textrm{ for } C\in\mathbb{R}</me>
+                        See Figure 10.1.5. for a sketch of these solutions for various values of <m>C</m>.
+                        <figure>
+                            <image source="./DifferentialEquations/Images/2/1_example3.png" width="75%"/>
+                        </figure>
+                    </p>
+                </solution>
+            </example>
+
+            <example>
+                <p>
+                    Find the solution to the initial-value problem
+                    <me>(4y-\cos(y))\frac{dy}{dt}-3t^2=0, \hspace{5mm} y(0)=0</me>
+                </p>
+                <solution>
+                    <p>
+                        This is a first order separable DE so begin by separating the variables, i.e.
+                        <me>(4y-\cos(y))\frac{dy}{dt}=3t^2</me>
+                        Integrating both sides with respect to <m>t</m> and applying the integration by substitution formula to the left hand side gives
+                        <me>\int 4y-\cos(y)\hspace{2mm} dy=\int 3t^2\hspace{2mm} dt</me>
+                        Evaluating the integrals on both sides (and combining the two constants of integration) gives
+                        <me>2y^2-\sin(y)=t^3+C</me>
+                        We can’t make <m>y</m> the subject of this equation and so in this case we can’t find an explicit formula for the general solution to the DE. Substituting the initial condition into the implicit equation gives
+                        <me>2\times 0^2-\sin(0)=0^3+C</me>
+                        i.e.
+                        <me>C=0</me>
+                        Thus the solution to the initial-value problem is the relevant function <m>y(t)</m> defined implicitly by
+                        <me>2y^2-\sin(y)=t^3</me>
+                        The curve defined implicitly by this equation is shown in Figure 10.1.7. and from this we can see that the "bottom" part of the curve will be the function that is the solution to the initial-value problem.
+                        <figure>
+                            <image source="./DifferentialEquations/Images/2/1_example4.png" width="75%"/>
+                        </figure>
+                    </p>
+                </solution>
+            </example>
+
+            <example>
+                <p>
+                    Find the general solution to the DE 
+                    <me>\frac{dy}{dx}=y(1-y)</me>
+                    <term>Note</term>: We looked at this example in section <term> 9 Introduction</term>. There we sketched a direction field for the DE.
+                </p>
+                <solution>
+                    <p>
+                        This is a first order separable DE with <m>f(x)=1</m> (i.e. it is autonomous) and <m>g(y)=y(1-y)</m>. On separating the variables and integrating both sides with respect to <m>x</m> we obtain 
+                        <me>\int \frac{1}{y(1-y)}\hspace{2mm}dy=\int 1\hspace{2mm}dx</me>
+                        To evaluate the integral on the left hand side we have to use partial fraction decomposition, by which we can determine that 
+                        <me>\frac{1}{y(1-y)}=\frac{1}{y}+\frac{1}{1-y}</me>
+                        Thus
+                        <p><md>
+                            <mrow>\int \frac{1}{y(1-y)}\hspace{2mm}dy \amp=\int \frac{1}{y}\hspace{2mm}dy +\int \frac{1}{1-y}\hspace{2mm}dy</mrow>
+                            <mrow>\amp =\ln(\vert y\vert)-\ln(\vert 1-y\vert)+C</mrow>
+                        </md></p>
+                        (Some more detail on partial fraction decomposition can be found in an appendix to this lecture.) So, on evaluating the integral on the right hand side and combining the two constants of integration we obtain
+                        <me>\ln(\vert y\vert)-\ln(\vert 1-y\vert)=x+K</me>
+                        This can be rearranged as
+                        <me>y(x)=\frac{Ae^x}{1+Ae^x}</me>
+                        Figure 10.1.9. shows this curve when <m>A=1</m> superimposed on top of the direction field for the DE. Also shown in the figure are the solutions <m>y(x)=0</m> and <m>y(x)=1</m> which come from checking separately the cases where <m>g(y)=0</m>.
+                        <figure>
+                            <image source="./DifferentialEquations/Images/2/1_example5.png" width="75%"/>
+                        </figure>
+                    </p>
+                </solution>
+            </example>
+
+            <example>
+                <p>
+                    Find the solution to the initial-value problem
+                    <me>\frac{dy}{dx}=xy+x, \hspace{5mm} y(0)=1</me>
+                    <term>Note</term>: We looked at this example in section <term> 9 Introduction </term> where we used Euler’s method with <m>\Delta x=0.1</m> to approximate the value of the solution at <m>x=0.3</m>.
+                </p>
+                <solution>
+                    <p>
+                        This is a first order separable DE with <m>f(x)=x</m> and <m>g(y)=y+1</m>. On separating the variables and integrating both sides with respect to <m>x</m> we obtain 
+                        <me>\int \frac{1}{y+1}\hspace{2mm}dy=\int x\hspace{2mm}dx</me>
+                        Evaluating the integrals and rearranging gives
+                        <me>y(x)=Ce^{x^2/2}-1</me>
+                        To satisfy the initial condition
+                        <p><md>
+                            <mrow>1 \amp=Ce^0-1</mrow>
+                            <mrow>C \amp =2</mrow>
+                        </md></p>
+                        Thus the solution to the initial-value problem is
+                        <me>y(x)=2e^{x^2/2}-1</me>
+                        <term>Note</term>: From this solution
+                        <me>y(0.3)=2e^{(0.3)^2/2}-1=1.0921 \textrm{ to 4.d.p.}</me>
+                        The Euler method approximation was
+                        <me>y(0.3)=1.0604 \textrm{ to 4.d.p.}</me>
+                        Figure 10.1.11. shows both the analytic solution and the Euler approximation over the domain <m>0\leq x\leq 0.3</m>.
+                        <figure>
+                            <image source="./DifferentialEquations/Images/2/1_example6.png" width="75%"/>
+                        </figure>
+                    </p>
+                </solution>
+            </example>
+
+            <exercises>
+                <title>Example Tasks</title>
+
+                <exercise>
+                    <statement>
+                        <p>
+                            Find the general solution to the DE
+                            <me>\frac{\sqrt{1+x^2}}{y+1}\frac{dy}{dx}=-x</me>
+                        </p>
+                    </statement>
+                </exercise>
+                <exercise>
+                    <statement>
+                        <p>
+                            Solve the initial-value problem
+                            <me>y'=-\frac{x}{y+1}, \hspace{5mm} y(0)=2</me>
+                        </p>
+                    </statement>
+                </exercise>
+            </exercises>
+
+        </section>
+
+<!-- =================================================================================================== -->
+
+
+<!-- =================================================================================================== -->
+<!-- Section 2: Some Simple Applications of First Order Separable DEs -->
+<!-- =================================================================================================== -->
+        <section xml:id="Sec-Some-Simple-Applications-of-First-Order-Separable-DEs">
+            <title>Some Simple Applications of First Order Separable DEs </title>
+
+            <example>
+                <p>
+                    Find a curve in the <m>xy</m>-plane that passes through the point <m>(0,3)</m> and whose tangent line at any point <m>(x,y)</m> has its slope given by <m>\frac{2x}{y^2}</m>.
+                </p>
+                <solution>
+                    <p>
+                        Let the curve be <m>y(x)</m>. Then we know
+                        <me>y'=\frac{2x}{y^2}, \hspace{5mm} y(0)=3</me>
+                        i.e. <m>y</m> is the solution to an initial-value problem involving a first order separable DE. From the DE, we obtain
+                        <me>\int y^2 \hspace{2mm}dy=\int 2x\hspace{2mm}dx</me>
+                        and hence
+                        <me>\frac{1}{3}y^3=x^2+C</me>
+                        Using the initial condition gives <m>C=9</m> and hence the required curve is
+                        <me>y(x)=(3x^2+27)^{1/3}</me>
+                    </p>
+                </solution>
+            </example>
+
+            <example>
+                <p>
+                    Suppose that the temperature a cup of coffee when it is poured is <m>95^oC</m>. The cup is left to stand in a room where the temperature is <m>20^oC</m>. If the temperature of the coffee is <m>90^oC</m> after <m>2</m> min, how long will it take for the temperature of the coffee in the cup to reach <m>25^oC</m> according to Newton’s law of cooling?
+                </p>
+                <solution>
+                    <p>
+                        Let <m>T(t)</m> be the temperature of the cup of coffee at time <m>t</m> min after it was poured and let <m>T_a</m> be the room (ambient) temperature. Now, Newton’s law of cooling says that the rate at which the temperature of an object falls is proportional to the difference in the temperature of the object and the temperature of its surroundings. Thus
+                        <me>\frac{dT}{dt}=-k(T-T_a), \hspace{5mm} T(0)=95, \hspace{5mm} T(2)=90</me>
+                        where <m>k\gt 0</m> is the constant of proportionality. This is a first order separable DE and on separating the variables and integrating both sides with respect to <m>t</m> we get
+                        <me>\int \frac{1}{T-T_a}\hspace{2mm}dT=\int -k\hspace{2mm}dt</me>
+                        Evaluating the integrals gives
+                        <p><md>
+                            <mrow>\ln(\vert T-T_a\vert) \amp=-kt+C</mrow>
+                            <mrow>T(t) \amp =Ae^{-kt}+T_a</mrow>
+                        </md></p>
+                        Since <m>T_a=20</m>, using <m>T(0)=95</m> gives <m>A=75</m>. Using <m>T(2)=90</m> gives
+                        <me>90=75e^{-2k}+20</me>
+                        and hence
+                        <me>k=-\frac{\ln(\frac{14}{15})}{2}\approx 0.034</me>
+                        Thus, according to Newton’s law of cooling the coffee will have cooled to <m>25^oC</m> at the value of <m>t</m> satisfying
+                        <me>25=75e^{-kt}+20</me>
+                        from which we find
+                        <me>t=-\frac{\ln(\frac{1}{15})}{k}\approx 78.5 \textrm{ min}</me>
+                    </p>
+                </solution>
+            </example>
+
+            <example>
+                <p>
+                   Consider a <m>100</m>L tank which contains pure water. At time <m>t=0</m> salt water begins to flow into the tank at a rate of <m>2</m>L/min and the mixed water flows out of the tank at the same rate. If the concentration of the salt in the inflowing water is <m>35</m>g/L determine the concentration, <m>C(t)</m>, of the salt in the tank as a function of time.
+                   <figure>
+                        <image source="./DifferentialEquations/Images/2/1_example9.png" width="60%"/>
+                    </figure>
+                </p>
+                <solution>
+                    <p>
+                        Let <m>A(t)</m> be the amount of salt in the tank (in grams) at time <m>t</m>. Then, since there is <m>100</m>L of water in the tank
+                        <men>A(t)=100\times C(t)</men>
+                        Now, since the water in the tank is initially pure, we have the initial condition <m>A(0)=0</m> or equivalently <m>C(0)=0</m>. Finally, the rate at which the amount of salt in the tank is changing is given by the difference of the rate at which the amount of salt is increasing (due to the salt water entering the tank) and the rate at which the amount is decreasing (due to the mixed water flowing out). Since salt water is entering the tank at a rate of <m>2</m>L/min and each litre contains <m>35</m>g of salt, the rate at which the amount of salt is increasing is <m>70</m>g/min. Since the mixed water is flowing out of the tank at the rate of <m>2</m>L/min and each litre contains <m>C(t)</m>g the rate at which the amount of salt is decreasing is <m>2C</m>g/min. Thus
+                        <men>\frac{dA}{dt}=70-2C</men>
+                        From (10.2.1.)
+                        <men>\frac{dA}{dt}=100\frac{dC}{dt}</men>
+                        Putting (10.2.3.) into (10.2.2.)
+                        <me>100\frac{dC}{dt}=70-2C</me>
+                        which is a first order separable DE. Separating the variables and integrating both sides with respect <m>t</m> gives
+                        <me>\int \frac{1}{70-2C}\hspace{2mm} dC=\int \frac{1}{100}\hspace{2mm}dt</me>
+                        Evaluating the integrals gives
+                        <me>-\frac{1}{2}\ln(70-2C)=\frac{1}{100}t+K</me>
+                        and hence
+                        <me>C(t)=35-ke^{-t/50}</me>
+                        Using the initial condition <m>C(0)=0</m> gives <m>k=35</m> and hence
+                        <me>C(t)=35-35e^{-t/50}</me>
+                    </p>
+                </solution>
+            </example>
+
+            <exercises>
+                <title>Example Tasks</title>
+
+                <exercise>
+                    <statement>
+                        <p>
+                            An ingot of gold is placed into a furnace which has a temperature of <m>1200^oC</m>.  After <m>3</m> min the temperature of the ingot has risen from <m>40^oC</m> to <m>610^oC</m>. Assuming Newton’s Law of Cooling how long before the ingot reaches the melting temperature of <m>1064^oC</m>?
+                        </p>
+                    </statement>
+                </exercise>
+                <exercise>
+                    <statement>
+                        <p>
+                            Consider a <m>50</m>L tank which contains salt water with concentration of <m>20</m>g/L. At time <m>t=0</m> more salt water begins to flow into the tank at the rate of <m>3</m>L/min and the mixed water flows out of the tank at the same rate. Assuming that the concentration of salt in the inflowing water is <m>30</m>g/L how long will it take for the concentration of the water in the tank to reach <m>25</m>g/L?
+                        </p>
+                    </statement>
+                </exercise>
+            </exercises>
+
+        </section>
+
+<!-- =================================================================================================== -->
+
+
+<!-- =================================================================================================== -->
+<!-- Appendix: Partial Fraction Decomposition -->
+<!-- =================================================================================================== -->
+
+        <appendix>
+            <title>Partial Fraction Decomposition</title>
+
+            <p>
+                <term>Partial fraction decomposition</term> is, essentially, the inverse operation of combining fractions by putting them over a common denominator. More formally, partial fraction decomposition expresses a proper rational function (i.e. a function that is the ratio of two polynomials where the degree of the polynomial in the denominator is greater that the degree of the polynomial in the numerator) as the sum of proper rational functions of lesser degree.
+            </p>
+
+            <example>
+                <p>
+                   Write <m>\frac{2}{x+2}-\frac{3}{2x-1}</m> as a single fraction.
+                </p>
+                <solution>
+                    <p>
+                        Using <m>(x+2)(2x+1)</m> as the common denominator we get
+                        <p><md>
+                            <mrow>\frac{2}{x+2}-\frac{3}{2x-1} \amp=\frac{2(2x-1)}{(x+2)(2x-1)}-\frac{3(x+2)}{(x+2)(2x-1)}</mrow>
+                            <mrow>\amp =\frac{4x-2-3x-6}{(x+2)(2x-1)}</mrow>
+                            <mrow>\amp =\frac{x-8}{(x+2)(2x-1)}</mrow>
+                        </md></p>
+                    </p>
+                </solution>
+            </example>
+
+            <p>
+                In partial fraction decomposition, for each distinct linear factor <m>(ax+b)</m> in the denominator include a term <m>\frac{A}{ax+b}</m> in the decomposition, where <m>A</m> is a value we have to determine.
+            </p>
+
+            <example>
+                <p>
+                    Find the partial fraction decomposition of <m>\frac{x-8}{(x+2)(2x-1)}</m>.
+                </p>
+                <solution>
+                    <p>
+                        Because the denominator of this rational function contains two linear polynomial terms the partial fraction decomposition takes the form
+                        <men>\frac{x-8}{(x+2)(2x-1)}=\frac{A}{x+2}+\frac{B}{2x-1}</men>
+                        To determine the values for <m>A</m> and <m>B</m> multiply both sides of (10.A.4) by <m>(x+2)(2x-1)</m>. This gives
+                        <p><md>
+                            <mrow>x-8 \amp=A(2x-1)+B(x+2)</mrow>
+                            <mrow>\amp =(2A+B)x+(2B-A)</mrow>
+                        </md></p>
+                        For the polynomials on both sides of the equation to be equal they must have the same coefficients and so 
+                        <p><md>
+                            <mrow>2A+B \amp=1</mrow>
+                            <mrow>-A+2B \amp=-8</mrow>
+                        </md></p>
+                        Solving these simultaneous equations gives <m>A=2,\hspace{2mm} B=-3</m> and hence 
+                        <me>\frac{x-8}{(x+2)(2x-1)}=\frac{2}{x+2}-\frac{3}{2x-1}</me>
+                    </p>
+                </solution>
+            </example>
+
+            <p>
+                If the denominator of the rational function contains a linear factor to some power, i.e. <m>(ax+b)^n</m>, then the partial fraction decomposition should contain the terms
+                <me>\frac{A_1}{ax+b}+\frac{A_2}{(ax+b)^2}+L+\frac{A_n}{(ax+b)^n}</me>
+                If the denominator of the rational function contains a quadratic factor, i.e. <m>(ax^2+bx+c)</m>, then the partial fraction decomposition should contain the term
+                <me>\frac{Ax+B}{ax^2+bx+c}</me>
+            </p>
+
+            <example>
+                <p>
+                    Find the partial fraction decomposition of <m>\frac{2x^3-5x^2+2x-2}{(x^2+2)(x-1)^2}</m>.
+                </p>
+                <solution>
+                    <p>
+                        Because the denominator contains a quadratic term a repeated linear term the partial fraction decomposition takes the form
+                        <men>\frac{2x^3-5x^2+2x-2}{(x^2+2)(x-1)^2}=\frac{Ax+B}{x^2+2}+\frac{C}{x-1}+\frac{D}{(x-1)^2}</men>
+                        Multiply both sides of (10.A.5.) by <m>(x^2+2)(x-1)^2</m> and collect like terms. This gives
+                        <me>2x^3-5x^2+2x-2=(A+C)x^3+(-2A+B-C+D)x^2+(A-2B+2C)x+(B-2C+2D)</me>
+                        Equating the coefficients of the polynomials on each side gives
+                        <p><md>
+                            <mrow>A+C \amp =2</mrow>
+                            <mrow>-2A+B-C+D \amp=-5</mrow>
+                            <mrow>A-2B+2C \amp =2</mrow>
+                            <mrow>B-2C+2D \amp=-2</mrow>
+                        </md></p>
+                        Solving these simultaneous equations gives <m>A=2</m>, <m>B=0</m>, <m>C=0</m>, <m>D=-1</m> and hence 
+                        <me>\frac{2x^3-5x^2+2x-2}{(x^2+2)(x-1)^2}=\frac{2x}{x^2+2}-\frac{1}{(x-1)^2}</me>
+                    </p>
+                </solution>
+            </example>
+
+            <exercises>
+                <title>Example Tasks</title>
+
+                <exercise>
+                    <statement>
+                        <p>
+                            Evaluate the integral
+                            <me>\int \frac{x^2-2x+3}{(x^2+1)(x-1)}\hspace{2mm} dx</me>
+                        </p>
+                    </statement>
+                </exercise>
+            </exercises>
+
+        </appendix>
+
+<!-- =================================================================================================== -->
+
+</chapter>

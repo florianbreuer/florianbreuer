@@ -1,0 +1,472 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-12-08T21:41:31+11:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Some Simple Applications of First Order Linear DEs</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    useLabelIds: true,
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext.js"></script><script xmlns:svg="http://www.w3.org/2000/svg">miniversion=0.6</script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script xmlns:svg="http://www.w3.org/2000/svg">sagecellEvalName='Evaluate (Sage)';
+</script><link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/colors_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link xmlns:svg="http://www.w3.org/2000/svg" href="developer.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div xmlns:svg="http://www.w3.org/2000/svg" id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\bm}[1]{\boldsymbol{#1}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="MATH1120-Course-Notes.html"><span class="title">MATH1120:</span> <span class="subtitle">Mathematics for Engineering, Science and Technology 2</span></a></h1>
+<p class="byline"></p>
+</div>
+</div></div>
+<nav xmlns:svg="http://www.w3.org/2000/svg" id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="First_Order_Linear_DEs.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="Differential_Equations_3.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="Differential_Equations_4.html" title="Next">Next</a></span></div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="First_Order_Linear_DEs.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="Differential_Equations_3.html" title="Up">Up</a><a class="next-button button toolbar-item" href="Differential_Equations_4.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div xmlns:svg="http://www.w3.org/2000/svg" id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link part"><a href="Part-Calculus.html" data-scroll="Part-Calculus"><span class="codenumber">I</span> <span class="title">Calculus</span></a></li>
+<li class="link">
+<a href="Chap-Calculus_1.html" data-scroll="Chap-Calculus_1"><span class="codenumber">1</span> <span class="title">Maclaurin Series</span></a><ul>
+<li><a href="Sec-Introduction.html" data-scroll="Sec-Introduction">Introduction</a></li>
+<li><a href="Sec-Infinite_Series.html" data-scroll="Sec-Infinite_Series">Infinite Series</a></li>
+<li><a href="Sec-Maclaurin_Series.html" data-scroll="Sec-Maclaurin_Series">Maclaurin Series</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Calculus_2.html" data-scroll="Calculus_2"><span class="codenumber">2</span> <span class="title">Taylor Series</span></a><ul>
+<li><a href="Generating-New-Series-from-Known-Series.html" data-scroll="Generating-New-Series-from-Known-Series">Generating New Series from Known Series</a></li>
+<li><a href="Taylor_Series.html" data-scroll="Taylor_Series">Taylor Series</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Calculus_3.html" data-scroll="Calculus_3"><span class="codenumber">3</span> <span class="title">Functions of Several Variables</span></a><ul>
+<li><a href="functions-of-two-variables.html" data-scroll="functions-of-two-variables">Functions of Two Variables</a></li>
+<li><a href="level-curves.html" data-scroll="level-curves">Level Curves</a></li>
+<li><a href="surfaces-of-revolution.html" data-scroll="surfaces-of-revolution">Surfaces of Revolution</a></li>
+<li><a href="functions-of-3-or-more-variables.html" data-scroll="functions-of-3-or-more-variables">Functions of 3 (or more) Variables</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Chap-Calculus_4.html" data-scroll="Chap-Calculus_4"><span class="codenumber">4</span> <span class="title">Partial Differentiation</span></a><ul>
+<li><a href="Sec-Partial_Differentiation.html" data-scroll="Sec-Partial_Differentiation">Partial Differentiation</a></li>
+<li><a href="Sec-Higher_Partial_Derivatives.html" data-scroll="Sec-Higher_Partial_Derivatives">Higher Partial Derivatives</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Chap-Calculus_5.html" data-scroll="Chap-Calculus_5"><span class="codenumber">5</span> <span class="title">Linear Approximations</span></a><ul>
+<li><a href="Sec-Tangent_Planes.html" data-scroll="Sec-Tangent_Planes">Tangent Planes</a></li>
+<li><a href="Sec-Linear_Approximations.html" data-scroll="Sec-Linear_Approximations">Linear Approximations</a></li>
+<li><a href="Quadratic-Approximations.html" data-scroll="Quadratic-Approximations">Quadratic Approximations</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Calculus_6.html" data-scroll="Calculus_6"><span class="codenumber">6</span> <span class="title">The Directional Derivative</span></a><ul>
+<li><a href="Directional-Derivatives.html" data-scroll="Directional-Derivatives">Directional Derivatives</a></li>
+<li><a href="In_Three_Variables.html" data-scroll="In_Three_Variables">In Three Variables</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Calculus_7.html" data-scroll="Calculus_7"><span class="codenumber">7</span> <span class="title">Local and Global Extrema</span></a><ul>
+<li><a href="Critical-Points.html" data-scroll="Critical-Points">Critical Points</a></li>
+<li><a href="Second-Derivative-Test.html" data-scroll="Second-Derivative-Test">Second Derivative Test</a></li>
+<li><a href="Global-Extrema.html" data-scroll="Global-Extrema">Global Extrema</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Chap-Calculus_8.html" data-scroll="Chap-Calculus_8"><span class="codenumber">8</span> <span class="title">Chain Rules</span></a><ul>
+<li><a href="Sec-The_single_variable_chain_rule.html" data-scroll="Sec-The_single_variable_chain_rule">The Single Variable Chain Rule</a></li>
+<li><a href="Sec-Multivariable-chain-rules.html" data-scroll="Sec-Multivariable-chain-rules">Multivariable Chain Rules</a></li>
+<li><a href="section-22.html" data-scroll="section-22">Implicit Differentiation</a></li>
+</ul>
+</li>
+<li class="link part"><a href="Part-Differenial_Equations.html" data-scroll="Part-Differenial_Equations"><span class="codenumber">II</span> <span class="title">Differential Equations</span></a></li>
+<li class="link">
+<a href="Differential_Equations_1.html" data-scroll="Differential_Equations_1"><span class="codenumber">9</span> <span class="title">Introduction</span></a><ul>
+<li><a href="introduction.html" data-scroll="introduction">Introduction</a></li>
+<li><a href="direction-fields-and-eulers-method.html" data-scroll="direction-fields-and-eulers-method">Direction Fields and Euler's Method</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Differential_Equations_2.html" data-scroll="Differential_Equations_2"><span class="codenumber">10</span> <span class="title">First Order Separable DEs</span></a><ul>
+<li><a href="Sec-First_Order_Separable_DEs.html" data-scroll="Sec-First_Order_Separable_DEs">First Order Separable DEs</a></li>
+<li><a href="Sec-Some-Simple-Applications-of-First-Order-Separable-DEs.html" data-scroll="Sec-Some-Simple-Applications-of-First-Order-Separable-DEs">Some Simple Applications of First Order Separable DEs</a></li>
+<li><a href="appendix-1.html" data-scroll="appendix-1">Partial Fraction Decomposition</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Differential_Equations_3.html" data-scroll="Differential_Equations_3"><span class="codenumber">11</span> <span class="title">First Order Linear DEs</span></a><ul>
+<li><a href="Exact_First_Order_DEs.html" data-scroll="Exact_First_Order_DEs">Exact First Order DEs</a></li>
+<li><a href="First_Order_Linear_DEs.html" data-scroll="First_Order_Linear_DEs">First Order Linear DEs</a></li>
+<li><a href="Simple_Applications_of_First_Order_Linear_DEs.html" data-scroll="Simple_Applications_of_First_Order_Linear_DEs" class="active">Some Simple Applications of First Order Linear DEs</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Differential_Equations_4.html" data-scroll="Differential_Equations_4"><span class="codenumber">12</span> <span class="title">Homogeneous Second Order Linear DEs</span></a><ul><li><a href="Homogeneous_Second_Order_Linear_DEs_With_Constant_Coefficients.html" data-scroll="Homogeneous_Second_Order_Linear_DEs_With_Constant_Coefficients">Homogeneous Second Order Linear DEs With Constant Coefficients</a></li></ul>
+</li>
+<li class="link">
+<a href="Differential_Equations_5.html" data-scroll="Differential_Equations_5"><span class="codenumber">13</span> <span class="title">Non-Homogeneous Second Order Linear DEs</span></a><ul>
+<li><a href="Non-Homogeneous_First_Order_Linear_DEs.html" data-scroll="Non-Homogeneous_First_Order_Linear_DEs">Non-Homogeneous First Order Linear DEs</a></li>
+<li><a href="The_Method_of_Undetermined_Coefficients.html" data-scroll="The_Method_of_Undetermined_Coefficients">The Method of Undetermined Coefficients</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Differential_Equations_6.html" data-scroll="Differential_Equations_6"><span class="codenumber">14</span> <span class="title">An Application of Second Order Linear DEs with Constant Coefficients</span></a><ul>
+<li><a href="A_Simple_Model.html" data-scroll="A_Simple_Model">A Simple Model</a></li>
+<li><a href="Adding_Damping.html" data-scroll="Adding_Damping">Adding Damping</a></li>
+<li><a href="Adding_an_External_Force.html" data-scroll="Adding_an_External_Force">Adding an External Force</a></li>
+</ul>
+</li>
+<li class="link part"><a href="Part-Linear_Algebra.html" data-scroll="Part-Linear_Algebra"><span class="codenumber">III</span> <span class="title">Linear Algebra</span></a></li>
+<li class="link">
+<a href="Linear_Algebra_1.html" data-scroll="Linear_Algebra_1"><span class="codenumber">15</span> <span class="title">Systems of Linear Equations</span></a><ul>
+<li><a href="Sec-LA_Introduction.html" data-scroll="Sec-LA_Introduction">Introduction</a></li>
+<li><a href="Sec-LA_Matrices_and_Systems_of_Linear_Equations.html" data-scroll="Sec-LA_Matrices_and_Systems_of_Linear_Equations">Matrices and Systems of Linear Equations</a></li>
+<li><a href="Sec-LA_Solving_Systems_of_Linear_Equations.html" data-scroll="Sec-LA_Solving_Systems_of_Linear_Equations">Solving Systems of Linear Equations</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Linear_Algebra__2.html" data-scroll="Linear_Algebra__2"><span class="codenumber">16</span> <span class="title">Geometric Interpretations of Linear Equations</span></a><ul>
+<li><a href="Interpretation_Via_Rows.html" data-scroll="Interpretation_Via_Rows">Interpretation Via Rows</a></li>
+<li><a href="Interpretation_Via_Columns.html" data-scroll="Interpretation_Via_Columns">Interpretation Via Columns</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Chap-Linear_Algebra_3.html" data-scroll="Chap-Linear_Algebra_3"><span class="codenumber">17</span> <span class="title">Matrix Algebra</span></a><ul>
+<li><a href="Sec-Linear_Algebra_Intro.html" data-scroll="Sec-Linear_Algebra_Intro">Introduction</a></li>
+<li><a href="Sec-Addition_and_Scalar_Multiplication.html" data-scroll="Sec-Addition_and_Scalar_Multiplication">Addition and Scalar Multiplication</a></li>
+<li><a href="Sec-Matrix_multiplication.html" data-scroll="Sec-Matrix_multiplication">Matrix Multiplication</a></li>
+<li><a href="Sec-Matrices_and_Systems_of_Linear_Equations.html" data-scroll="Sec-Matrices_and_Systems_of_Linear_Equations">Matrices and Systems of Linear Equations</a></li>
+<li><a href="Sec-Linear_transformations.html" data-scroll="Sec-Linear_transformations">Linear Transformations</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Linear_Algebra_4.html" data-scroll="Linear_Algebra_4"><span class="codenumber">18</span> <span class="title">Square Matrices</span></a><ul>
+<li><a href="Inverse_Matrices.html" data-scroll="Inverse_Matrices">Inverse Matrices</a></li>
+<li><a href="Determinants.html" data-scroll="Determinants">Determinants</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Linear_Algebra_5.html" data-scroll="Linear_Algebra_5"><span class="codenumber">19</span> <span class="title">Eigenvalues and Eigenvectors</span></a><ul>
+<li><a href="Sec-LA_5_Introduction.html" data-scroll="Sec-LA_5_Introduction">Introduction</a></li>
+<li><a href="Sec-LA_5_Finding_Eigenvalues_and_Eigenvectors.html" data-scroll="Sec-LA_5_Finding_Eigenvalues_and_Eigenvectors">Finding Eigenvalues and Eigenvectors</a></li>
+<li><a href="Sec-LA_5_A_Simple_Application.html" data-scroll="Sec-LA_5_A_Simple_Application">A Simple Application</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Linear_Algebra_6.html" data-scroll="Linear_Algebra_6"><span class="codenumber">20</span> <span class="title">Some Applications of Eigenvalues and Eigenvectors</span></a><ul>
+<li><a href="Powers_of_Matrices.html" data-scroll="Powers_of_Matrices">Powers of Matrices</a></li>
+<li><a href="Coupled_Linear_Differential_Equations.html" data-scroll="Coupled_Linear_Differential_Equations">Coupled Linear Differential Equations</a></li>
+</ul>
+</li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="Simple_Applications_of_First_Order_Linear_DEs"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">11.3</span> <span class="title">Some Simple Applications of First Order Linear DEs</span>
+</h2>
+<article class="example example-like" id="example-116"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-116"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">11.3.1</span><span class="period">.</span><span class="space"> </span><span class="title">Radioactive Decay.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-116"><article class="example example-like"><p id="p-723">The radioactive isotope thorium 234 disintegrates at a rate proportional to the amount present. If 100 milligrams of this isotope is reduced to 82.04 milligrams in one week, find: <ol id="p-724" class="lower-alpha">
+<li id="li-157"><p id="p-derived-li-157">An expression for the amount present at any time.</p></li>
+<li id="li-158"><p id="p-derived-li-158">The time taken for the amount of isotope to decay to one half of its original value.</p></li>
+</ol></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-100" id="solution-100"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-100"><div class="solution solution-like"><ol id="p-725" class="lower-alpha">
+<li id="li-159"><p id="p-derived-li-159">Let <span class="process-math">\(Q(t)\)</span> be the amount (in milligrams) of thorium 234 present at time t (in days). Then<div class="displaymath process-math">
+\begin{equation*}
+\dfrac{dQ}{dt} = -kQ\text{,}
+\end{equation*}
+</div>where <span class="process-math">\(k\)</span> is a positive constant and<div class="displaymath process-math">
+\begin{equation*}
+Q(0) = 100, Q(7) = 82.04\text{.}
+\end{equation*}
+</div>The DE is separable but if we write it as<div class="displaymath process-math">
+\begin{equation*}
+\dfrac{dQ}{dt} + kQ = 0\text{,}
+\end{equation*}
+</div>then we see that it is also linear. The integrating factor is<div class="displaymath process-math">
+\begin{equation*}
+I(t) = e^{\int k \, dt} = e^{kt}\text{.}
+\end{equation*}
+</div>Multiplying both sides by this integrating factor gives<div class="displaymath process-math">
+\begin{equation*}
+\dfrac{d}{dt} \left( e^{kt} Q \right) = 0\text{,}
+\end{equation*}
+</div>and hence the general solution is<div class="displaymath process-math">
+\begin{equation*}
+Q(t) = Ae^{-kt}\text{.}
+\end{equation*}
+</div>Using <span class="process-math">\(Q(0) = 100\)</span> gives <span class="process-math">\(A = 100\)</span> and from <span class="process-math">\(Q(7) = 82.04\)</span> we obtain<div class="displaymath process-math">
+\begin{equation*}
+82.04 = 100 e^{7k}
+\end{equation*}
+</div>from which<div class="displaymath process-math">
+\begin{equation*}
+k = \dfrac{\ln (0.8204)}{7} = 0.0283 \: (\text{ to 4 dp})\text{.}
+\end{equation*}
+</div>Thus<div class="displaymath process-math">
+\begin{equation*}
+Q(t) = 100 e^{-0.0283t}\text{.}
+\end{equation*}
+</div></p></li>
+<li id="li-160"><p id="p-derived-li-160">The time when the amount of isotope has decayed to 50 milligrams is the value of <span class="process-math">\(t\)</span> that satifies<div class="displaymath process-math">
+\begin{equation*}
+50 = 100 e^{-kt}\text{,}
+\end{equation*}
+</div>which is<div class="displaymath process-math">
+\begin{equation*}
+t = \dfrac{\ln(0.5)}{-k} = \dfrac{\ln(2)}{k} \approx 24.5 \, \text{ days}\text{.}
+\end{equation*}
+</div></p></li>
+</ol></div></div>
+</div></article></div>
+<article class="example example-like" id="example-117"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-117"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">11.3.2</span><span class="period">.</span><span class="space"> </span><span class="title">Mixing Tank.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-117"><article class="example example-like"><p id="p-726">A 200 L tank contains pure water. At time <span class="process-math">\(t=0\)</span> brackish water (i.e. water containing salt) begins to flow into the tank at a rate of 3 L/min and mixed water flows out at the same rate. Assuming that the concentration of salt in the inflowing water is 25 g/L determine the concentration of salt in the water in the tank as a function of time.</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-101" id="solution-101"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-101"><div class="solution solution-like">
+<p id="p-727">Let <span class="process-math">\(C(t)\)</span> be the concentration (in g/L) of the salt in the water in the tank at time <span class="process-math">\(t\)</span> minutes after the mixing began and let <span class="process-math">\(A(t)\)</span> be the amount (in grams) of salt in the tank at time <span class="process-math">\(t\text{.}\)</span> Then <span class="process-math">\(C(0) = 0\)</span> and <span class="process-math">\(A(0) = 0\text{.}\)</span></p>
+<p id="p-728">Now, salt is coming into the tank at the rate</p>
+<div class="displaymath process-math">
+\begin{equation*}
+3 \times 25 = 75 \: \text{g/min}\text{,}
+\end{equation*}
+</div>
+<p class="continuation">and it is leaving the tank at the rate</p>
+<div class="displaymath process-math">
+\begin{equation*}
+3 \times C(t) \: \text{g/min}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Thus <span class="process-math">\(A(t)\)</span> will satisfy the DE</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\dfrac{dA}{dt} = 75 - 3C\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Using <span class="process-math">\(A(t) = 200 C(t)\)</span> this becomes</p>
+<div class="displaymath process-math">
+\begin{equation*}
+200 \dfrac{dC}{dt} = 75 - 3C
+\end{equation*}
+</div>
+<p class="continuation">which can be written as</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\dfrac{dC}{dt} + \dfrac{3}{200}C = \dfrac{75}{200}\text{.}
+\end{equation*}
+</div>
+<p id="p-729">This is a first order linear DE and hence can be solved by multiplying the equation by the integrating factor</p>
+<div class="displaymath process-math">
+\begin{equation*}
+I(t) = \exp \left( \displaystyle \int \frac{3}{200} dt \right) = \exp \left( \dfrac{3}{200}t \right)\text{.}
+\end{equation*}
+</div>
+<p class="continuation">In doing this we obtain</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\dfrac{d}{dt} \left[ \exp \left(\dfrac{3}{200} t \right) C \right] = \frac{75}{200} \exp \left( \dfrac{3}{200} t \right)
+\end{equation*}
+</div>
+<p class="continuation">and hence</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\exp \left(\dfrac{3}{200}t \right) C = 25 \exp \left(\dfrac{3}{200}t \right) + K.
+\end{equation*}
+</div>
+<p class="continuation">Thus the general solution is</p>
+<div class="displaymath process-math">
+\begin{equation*}
+C(t) = 25 + K \exp\left( - \dfrac{3}{200} t \right)\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Using <span class="process-math">\(C(0) = 0\)</span> gives <span class="process-math">\(K = -25\)</span> and so the required concentration function is</p>
+<div class="displaymath process-math">
+\begin{equation*}
+C(t) = 25 - 25 \exp \left(- \dfrac{3}{200}t \right)\text{.}
+\end{equation*}
+</div>
+<p class="continuation"><a href="" class="xref" data-knowl="./knowl/Fig-Mixing_Tank_Example.html" title="Figure 11.3.3">Figure 11.3.3</a> shows a graph of this function. It can be seen that as <span class="process-math">\(t \to \infty\text{,}\)</span> <span class="process-math">\(C \to 25\text{.}\)</span> Thus as time goes by the concentration of salt in the tank water approaches the concentration of the salt in the brackish water coming into the tank.</p>
+<figure class="figure figure-like" id="Fig-Mixing_Tank_Example"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="./DifferentialEquations/Images/3/Fig1_Mixing_Tank.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">11.3.3<span class="period">.</span></span><span class="space"> </span></figcaption></figure>
+</div></div>
+</div></article></div>
+<article class="example example-like" id="example-118"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-118"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">11.3.4</span><span class="period">.</span><span class="space"> </span><span class="title">Motion in One Dimension.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-118"><article class="example example-like"><p id="p-730">A ball of mass 50 kg is shot from a cannon 100 meters above the ground straight up with an initial velocity of 10 m/s. Assuming that the air resistance is given by <span class="process-math">\(5v\text{,}\)</span> where <span class="process-math">\(v\)</span> is the velocity, determine the velocity of the ball when it hits the ground.</p>
+<p id="p-731"><em class="emphasis">Note:</em> This is a very simple model for the air resistance chosen mostly to simplify the resultant equations</p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-102" id="solution-102"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-102"><div class="solution solution-like">
+<p id="p-732">Let <span class="process-math">\(v(t)\)</span> be the velocity of the ball at time <span class="process-math">\(t\)</span> seconds after it was fired from the cannon and let the downward direction be the positive direction as shown in <a href="" class="xref" data-knowl="./knowl/Fig-Ball_of_Mass_Example.html" title="Figure 11.3.5">Figure 11.3.5</a>.</p>
+<figure class="figure figure-like" id="Fig-Ball_of_Mass_Example"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="./DifferentialEquations/Images/3/Fig2_ball_of_mass.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">11.3.5<span class="period">.</span></span><span class="space"> </span></figcaption></figure><p id="p-733">The motion of the ball will be governed by Newton’s second law of motion which says</p>
+<div class="displaymath process-math">
+\begin{equation*}
+F = ma\text{,}
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(F\)</span> is the net force acting on the ball, <span class="process-math">\(m\)</span> is its mass and <span class="process-math">\(a\)</span> is its acceleration. Once the ball leaves the cannon the forces acting on the ball are gravity, which we will denote by <span class="process-math">\(F_G\)</span> and air resistance, denoted by <span class="process-math">\(F_R\text{.}\)</span> Now with the positive direction as shown in <a href="" class="xref" data-knowl="./knowl/Fig-Ball_of_Mass_Example.html" title="Figure 11.3.5">Figure 11.3.5</a>,</p>
+<div class="displaymath process-math">
+\begin{equation*}
+F_G = mg
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(g\)</span> is the acceleration due to gravity. In the initial phase where the ball is going up the air resistance will be acting against the motion, (i.e. in the positive direction). Thus, since the velocity <span class="process-math">\(v\)</span> is negative</p>
+<div class="displaymath process-math">
+\begin{equation*}
+F_R = -5v\text{.}
+\end{equation*}
+</div>
+<p class="continuation">In the second phase where the ball is falling the air resistance will again be acting against the motion (i.e. in the negative direction). In this phase the velocity is positive and so once again</p>
+<div class="displaymath process-math">
+\begin{equation*}
+F_R = -5v\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Thus the net force acting on the ball is</p>
+<div class="displaymath process-math">
+\begin{equation*}
+F = F_G + F_R = mg-5v\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Since</p>
+<div class="displaymath process-math">
+\begin{equation*}
+a = \dfrac{dv}{dt}
+\end{equation*}
+</div>
+<p class="continuation">Newton's second law gives</p>
+<div class="displaymath process-math">
+\begin{equation*}
+m \dfrac{dv}{dt} = mg - 5v
+\end{equation*}
+</div>
+<p class="continuation">or</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\dfrac{dv}{dt} + \dfrac{5}{m} v = g
+\end{equation*}
+</div>
+<p class="continuation">with</p>
+<div class="displaymath process-math">
+\begin{equation*}
+v(0) = -10\text{.}
+\end{equation*}
+</div>
+<p class="continuation">This is a first order linear DE in <span class="process-math">\(v(t)\text{.}\)</span> To solve, multiply both sides of the DE by the integrating factor</p>
+<div class="displaymath process-math">
+\begin{equation*}
+I(t) = \exp \left( \displaystyle \int \frac{5}{m} dt \right) = \exp \left( \frac{5t}{m} \right)
+\end{equation*}
+</div>
+<p class="continuation">to get</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\dfrac{d}{dt} \left[ \exp \left( \frac{5t}{m} v \right) \right] = g \exp \left( \frac{5t}{m} \right)\text{.}
+\end{equation*}
+</div>
+<p id="p-734">Integrating both sides gives</p>
+<div class="displaymath process-math">
+\begin{equation*}
+v(t) = \frac{mg}{5} + C \exp \left(-\frac{5t}{m} \right)
+\end{equation*}
+</div>
+<p class="continuation">and hence, using <span class="process-math">\(m=50\text{,}\)</span> <span class="process-math">\(g=9.8\)</span> and <span class="process-math">\(v(0) = -10\text{,}\)</span></p>
+<div class="displaymath process-math">
+\begin{equation*}
+v(t) = 98 - 108 e^{-t/10}\text{.}
+\end{equation*}
+</div>
+<p id="p-735">Thus we have determined the velocity function for the ball. To use this to determine the speed of the ball when it hits the ground we must first determine the time at which the ball hits the ground. To do this we will need the displacement function which we can obtain by integrating the velocity function. So, letting <span class="process-math">\(s(t)\)</span> be the displacement of the ball at time <span class="process-math">\(t\text{,}\)</span> we have</p>
+<div class="displaymath process-math">
+\begin{equation*}
+s(t) = \int v(t) \, dt = 98t + 1080e^{-t/10} + K
+\end{equation*}
+</div>
+<p class="continuation">Using <span class="process-math">\(s(0)=0\)</span> gives <span class="process-math">\(K=-108\)</span> and so the displacement function is</p>
+<div class="displaymath process-math">
+\begin{equation*}
+s(t) = 98t + 1080e^{-t/10} - 1080\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Now <span class="process-math">\(s(t) = 100\)</span> when</p>
+<div class="displaymath process-math">
+\begin{equation*}
+98t + 1080e^{-t/10} - 1080 = 100\text{.}
+\end{equation*}
+</div>
+<p class="continuation"><a href="" class="xref" data-knowl="./knowl/Fig-Motion_in_one_dim.html" title="Figure 11.3.6">Figure 11.3.6</a> shows a plot of the function</p>
+<div class="displaymath process-math">
+\begin{equation*}
+f(t) = 98t + 1080e^{-t/10} - 1180
+\end{equation*}
+</div>
+<p class="continuation">and as can be seen there is only one positive solution. Solving this equation numerically (using Newton’s method for example), shows this solution to be</p>
+<div class="displaymath process-math">
+\begin{equation*}
+t = 5.98147\text{.}
+\end{equation*}
+</div>
+<figure class="figure figure-like" id="Fig-Motion_in_one_dim"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="./DifferentialEquations/Images/3/Fig3_motion_in_one_dim.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">11.3.6<span class="period">.</span></span><span class="space"> </span></figcaption></figure><p id="p-736">Thus the velocity of the ball when it hits the ground will be</p>
+<div class="displaymath process-math">
+\begin{equation*}
+v(5.98147) = 38.6 \, \text{m/s} \: (\text{to 1dp})\text{.}
+\end{equation*}
+</div>
+</div></div>
+</div></article></div>
+<section class="exercises" id="exercises-26"><h3 class="heading hide-type">
+<span class="type">Exercises</span> <span class="codenumber"></span> <span class="title">Example Tasks</span>
+</h3>
+<article class="exercise exercise-like" id="exercise-70"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<p id="p-737">A population of insects in a region will grow at a rate that is proportional to their current population.  In the absence of any outside factors the population will triple in two weeks time.  On any given day there is a net migration into the area of 15 insects and 16 are eaten by the local bird population and 7 die of natural causes.  If there are initially 100 insects in the area will the population survive?  If not, when do they die out?</p></article></section></section></div></main>
+</div>
+</body>
+</html>

@@ -1,0 +1,1056 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+ 
+
+<chapter xml:id="Linear_Algebra_4">
+<title> Square Matrices </title>
+<introduction>
+
+<p>
+Recall that a square matrix is a matrix with the same number of rows as columns. We call an <m> n\times n </m>  matrix a square matrix of order <m> n </m>. When we add or multiply two square matrices of order <m> n </m> we always obtain a square matrix of order <m> n </m>. The zero matrix, <m> 0 </m>, of order <m> n </m> is the  matrix with all entries <m> 0 </m>, i.e.
+<me>
+0 = 
+\begin{pmatrix}
+0 \amp 0 \amp \cdots \amp 0 \\
+0 \amp 0 \amp \cdots \amp 0 \\
+\vdots  \amp \vdots  \amp \ddots \amp \vdots  \\
+0 \amp 0 \amp \cdots \amp 0 
+\end{pmatrix}
+</me>
+</p>
+
+<p>
+and has the properties
+<ol label="1">
+<li> <m> 0A=A0=0 </m> </li>
+<li> <m> A+0=A </m> </li>
+<li> <m> A-A=0 </m> </li>
+</ol>
+</p>
+
+<p>
+where <m> A </m> is any square matrix of order <m> n </m>. The identity matrix, <m> I, </m> of order <m> n </m>  is the <m> n\times n </m> matrix with <m> 1\text{'s} </m> on the main diagonal and all other entries <m> 0 </m>., i.e. 
+<me>
+I = 
+\begin{pmatrix}
+1 \amp 0 \amp \cdots \amp 0 \\
+0 \amp 1 \amp \cdots \amp 0 \\
+\vdots  \amp \vdots  \amp \ddots \amp \vdots  \\
+0 \amp 0 \amp \cdots \amp 1 
+\end{pmatrix}
+</me>
+The identity matrix has the property that for any square matrix of order <m> n, </m> <m> A, </m>
+<ol label="1">
+<li> <m> IA=AI=A </m> </li>
+</ol>
+<m> I </m> is the only matrix that satisfies this property.
+</p>     
+</introduction>
+
+<section xml:id="Inverse_Matrices">
+<title> Inverse Matrices </title>
+<definition>
+<title>Inverse Matrix</title>
+<statement>
+Given the square matrix <m> A </m>, if there exists a square matrix <m> B </m> such that 
+<me> 
+AB=BA=I
+</me>
+then we call the matrix <m> B </m> the <term> inverse </term> of <m> A </m> and write <m> B=A^{-1} </m>.
+</statement>
+</definition>
+
+<p>
+Note:
+<ol label="i">
+<li> If matrix <m> B </m> is the inverse of matrix <m> A </m> then matrix <m> A </m> is the inverse of matrix <m> B, </m>, i.e. 
+<me>
+(A^{-1})^{-1}=A.
+</me>
+</li>
+
+<li> 
+If matrix <m> A </m> has an inverse then we say that <m> A </m> is <term> invertible </term> or <term> non-singular </term>. 
+</li>
+
+<li> 
+The inverse of a matrix (if it exists) is unique. 
+</li>
+
+<li>
+For matrix <m> A </m>, if there exists a matrix <m> B </m> such that <m> AB=I </m> then it follows that <m> BA=I </m> as well.
+</li>
+
+</ol>
+</p>
+
+<example xml:id="Ex-Matrix_multiplication_inverse">
+<p>Let <m>A=\begin{pmatrix} 1 \amp 1 \\ 1 \amp 2 \end{pmatrix} \quad \mbox{and} \quad B=\begin{pmatrix} 2 \amp -1 \\ -1 \amp 1 \end{pmatrix}.</m> Calculate  <m>AB\; \text{and}\; BA. </m>
+</p>
+<answer>
+<m> AB=BA=I. </m>
+</answer>
+<solution>
+<ol label="a">
+<li>
+<m> AB=\begin{pmatrix} 1 \amp 1 \\ 1 \amp 2 \end{pmatrix} \begin{pmatrix} 2 \amp -1 \\ -1 \amp 1 \end{pmatrix} =\begin{pmatrix} 1 \amp 0 \\ 0 \amp 1 \end{pmatrix}=I  </m>
+</li>
+
+<li>
+<m>BA=\begin{pmatrix} 2 \amp -1 \\ -1 \amp 1 \end{pmatrix} \begin{pmatrix} 1 \amp 1 \\ 1 \amp 2 \end{pmatrix} = \begin{pmatrix} 1 \amp 0 \\ 0 \amp 1 \end{pmatrix}=I </m> 
+</li>
+</ol>
+Thus <m> A^{-1}=B\; \text{and}\; B^{-1}=A. </m>
+</solution>
+</example>
+
+<example xml:id="Ex-Matrix_not_invertible">
+<p>Let 
+<m>A=\begin{pmatrix} 1 \amp -1 \\ 1 \amp -1 \end{pmatrix}  </m> 
+is not invertible.
+</p>
+
+<solution>
+Assume that 
+<m> A^{-1} </m>
+exists. Then, since 
+<m> A^{2}=0, </m> 
+we have that
+<me> A=IA=(A^{-1}A)A=A^{-1}A^{2}=A^{-1}0=0, </me> 
+which is a contradiction. Thus we conclude that <m> A^{-1} </m> does not exist.
+</solution>
+
+</example>
+
+<p>
+Given a square matrix <m> A </m> to find its inverse we need to find a matrix <m> A^{-1} </m> such that <m> AA^{-1}=I </m>.  Let’s begin by considering the <m> 2\times 2 </m> case. Let
+<me> 
+A=\begin{pmatrix} 1 \amp -1 \\ 1 \amp -1 \end{pmatrix},
+</me> 
+where <m> a, \; b,\; c,\; \text{and}, \; d </m> are given. We want to find the entries in
+<me> 
+A^{-1}=\begin{pmatrix} x_{1} \amp y_{1} \\ x_{2} \amp y_{2} \end{pmatrix}.
+</me> 
+Since 
+ <m> AA^{-1}=I </m>
+ we have that 
+ <me> 
+\begin{pmatrix} a \amp b \\ c \amp d \end{pmatrix} \begin{pmatrix} x_{1} \amp y_{1} \\ x_{2} \amp y_{2} \end{pmatrix}=\begin{pmatrix} 1 \amp 0 \\ 0 \amp 1 \end{pmatrix},
+</me>
+or equivalently, 
+<me>
+ \begin{cases}
+ax_{1} + bx_{2} = 1\\
+cx_{1} + dx_{2} = 0
+\end{cases}
+\;\;\; and \;\;\; 
+ \begin{cases}
+ay_{1} + by_{2} = 0\\
+cy_{1} + dy_{2} = 1
+\end{cases}
+</me>
+Both systems of equations have the same coefficient matrix, i.e.
+<me>
+\begin{pmatrix} a \amp b \\ c \amp d \end{pmatrix}.
+</me>
+The augmented matrices for these systems are
+<me>
+\begin{pmatrix} a \amp b \amp 1 \\ c \amp d \amp 0 \end{pmatrix}
+\;\;\; and \;\;\; 
+\begin{pmatrix} a \amp b \amp 0 \\ c \amp d \amp 1 \end{pmatrix}
+</me>
+and since these have the same coefficient matrix we can combine the augmented matrices to get
+<me>
+\begin{pmatrix}
+  a \amp b \amp \bigm |  \amp  1 \amp 0 \\
+  c \amp d \amp \bigm | \amp 0 \amp 1
+\end{pmatrix}
+</me>
+By reducing this matrix to reduced row echelon form we can solve both sets of equations at the same time. If <m> A </m> has an inverse then the reduced row-echelon form will be
+<me>
+\begin{pmatrix}
+1 \amp 0 \amp \bigm |  \amp  \alpha \amp \beta \\
+0 \amp 1 \amp \bigm | \amp \chi \amp \delta
+\end{pmatrix}
+</me>
+and hence <m> x_{1}=\alpha,\; x_{2}=\chi,\; y_{2}=\beta, </m> and, <m> \; y_{2}=\delta  </m>. Thus, the augmented section of this matrix will contain  <m> A^{-1} </m>. 
+</p>
+
+<example xml:id="Ex-Inverse_Matrix_1_1_1_2">
+<p> Find the inverse of matrix
+<m>A=\begin{pmatrix} 1 \amp 1 \\ 1 \amp 2 \end{pmatrix}.  </m> 
+</p>
+<answer>
+<m>A^{-1}=\begin{pmatrix} 2 \amp -1 \\ -1 \amp 1 \end{pmatrix}.  </m> 
+</answer>
+
+<solution>
+Begin by augmenting matrix  <m> A </m> with the identity matrix  <m> I, </m>
+<me>
+\begin{pmatrix}
+1 \amp 1 \amp \bigm |  \amp  1 \amp 0 \\
+1 \amp 2 \amp \bigm | \amp 0 \amp 1
+\end{pmatrix}
+</me>
+Now use the elementary row operations to reduce this to reduced row echelon form
+<md>
+<mrow>  \begin{pmatrix}
+1 \amp 1 \amp \bigm |  \amp  1 \amp 0 \\
+1 \amp 2 \amp \bigm | \amp 0 \amp 1
+\end{pmatrix} \amp \sim   \begin{pmatrix}
+1 \amp 1 \amp \bigm |  \amp  1 \amp 0 \\
+0 \amp 1 \amp \bigm | \amp -1 \amp 1
+\end{pmatrix} \;\; R'_{2}= R_{2}-R_{1} </mrow>           
+<mrow>  \amp \sim  \begin{pmatrix}
+1 \amp 0 \amp \bigm |  \amp 2 \amp -1 \\
+0 \amp 1 \amp \bigm | \amp -1 \amp 1
+\end{pmatrix} \;\; R'_{1}= R_{1}-R_{2}.  </mrow>  
+</md>
+We can read off the inverse as
+<me>A^{-1}=\begin{pmatrix} 2 \amp -1 \\ -1 \amp 1 \end{pmatrix}.  </me> 
+</solution>
+
+</example>
+
+<example xml:id="Ex-Inverse_Matrix_1_minus1_1_minus1">
+<p> Find the inverse of matrix
+<m>A=\begin{pmatrix} 1 \amp -1 \\ 1 \amp -1 \end{pmatrix}.  </m> 
+</p>
+<answer>
+<m> A </m> has no inverse.
+</answer>
+
+<solution>
+Using the same procedure as in <xref ref="Ex-Inverse_Matrix_1_minus1_1_minus1"/> begin by augmenting matrix <m> A </m> with the identity matrix <m> I </m>,
+<me>
+\begin{pmatrix}
+  1 \amp -1 \amp \bigm |  \amp  1 \amp 0 \\
+  1 \amp -1 \amp \bigm | \amp 0 \amp 1
+\end{pmatrix}
+</me>
+Now use the elementary row operations to reduce this to reduced row echelon form.
+<me>
+\begin{pmatrix}
+  1 \amp -1 \amp \bigm |  \amp  1 \amp 0 \\
+  1 \amp -1 \amp \bigm | \amp 0 \amp 1
+\end{pmatrix}
+\sim 
+\begin{pmatrix}
+  1 \amp -1 \amp \bigm |  \amp  1 \amp 0 \\
+  0 \amp 0 \amp \bigm | \amp -1 \amp 1
+\end{pmatrix}\;\; R'_{2}= R_{2}-R_{1}.
+</me>
+Since there is a row of <m> 0 </m>'s in the coefficient part of the reduced row echelon form while the remainder of the row is non-zero, we can see that there is no solution to the equations for finding the entries in the inverse matrix for <m> A </m>. Thus, we conclude that matrix <m> A </m> is not invertible, i.e. has no inverse. 
+</solution>
+
+</example>
+
+<p>
+The reasoning applied above to find a procedure for finding the inverse of a <m> 2\times 2 </m> matrix applies equally well to any sized square matrix. Thus we have a general procedure for finding the inverse of a square matrix.
+</p>
+
+<theorem>
+<statement>
+Given the square matrix <m> A </m>, to find its inverse <m> A^{-1} </m>:
+<p><ol label="i">
+<li><p> 
+Form the matrix    
+<m> \begin{pmatrix}
+  A \bigm |  I \\
+\end{pmatrix} </m>
+by augmenting <m> A </m> with the identity matrix <m> I, </m>
+</p></li>
+
+<li><p> 
+Row reduce
+<m> \begin{pmatrix}
+  A \bigm |  I \\
+\end{pmatrix} </m>
+to reduced row echelon form, 
+</p></li>
+
+<li><p> 
+If the reduced row echelon matrix is of the form
+<m> \begin{pmatrix}
+  I \bigm |  A^{-1} \\
+\end{pmatrix} </m>
+read off <m> A^{-1} </m>.  
+
+Otherwise the inverse does not exist. 
+</p></li>
+</ol></p>
+</statement>
+</theorem> 
+
+<example xml:id="Ex-Inverse_Matrix_2_1_6_minus4_5_minus3_2_minus1_3">
+<p> Find the inverse, if it exists, of 
+<m>A=\begin{pmatrix} 2 \amp 1 \amp 6 \\ -4 \amp 5 \amp -3 \\ 2 \amp -1 \amp  3 \end{pmatrix}.  </m> 
+</p>
+
+<answer>
+<m>A^{-1}=\begin{pmatrix} -2 \amp \frac{3}{2} \amp \frac{11}{2} \\ -1 \amp 1 \amp 3 \\ 1 \amp -\frac{2}{3} \amp  -\frac{7}{3} \end{pmatrix}.  </m> 
+</answer>
+
+<solution>
+Form the augmented matrix and row reduce to reduced row echelon form:
+<md>
+<mrow>  
+\begin{pmatrix}
+2 \amp -1 \amp 6 \amp \bigm |  \amp  1 \amp 0 \amp 0 \\
+-4 \amp 5 \amp -3 \amp \bigm |  \amp  0 \amp 1 \amp 0 \\
+2 \amp -1 \amp  3 \amp \bigm |  \amp  0 \amp 0 \amp 1
+\end{pmatrix} \amp \sim   
+ \begin{pmatrix}
+1 \amp \frac{1}{2} \amp 3 \amp \bigm |  \amp  \frac{1}{2} \amp 0 \amp 0 \\
+0 \amp 7 \amp 9 \amp \bigm |  \amp  2 \amp 1 \amp 0 \\
+0 \amp -2 \amp  -3 \amp \bigm |  \amp  -1 \amp 0 \amp 1
+\end{pmatrix}   \;\;\; 
+\begin{matrix}
+R'_{1}  = \amp \dfrac{R_{1}}{2}\;\;\;\qquad\\
+R'_{2}  = \amp R_{2}+4R'_{1}\\
+R'_{3}  = \amp R_{3}-R_{1}
+\end{matrix}  </mrow>           
+<mrow>  
+\amp \sim   
+  \begin{pmatrix}
+1 \amp 0 \amp \frac{33}{14} \amp \bigm |  \amp  \frac{5}{14} \amp  -\frac{1}{14} \amp 0 \\
+0 \amp 1 \amp \frac{9}{7} \amp \bigm |  \amp   \frac{2}{7} \amp  \frac{1}{7} \amp 0 \\
+0 \amp 0 \amp  -\frac{3}{7} \amp \bigm |  \amp   -\frac{3}{7} \amp 0 \amp 1
+\end{pmatrix} \;\;\;
+\begin{matrix}
+R'_{1}  = \amp R_{1}-\dfrac{R'_{2}}{2} \\
+R'_{2}  = \amp \dfrac{R_{2}}{7}\;\;\;\qquad\\
+R'_{3}  = \amp R_{3}+2R'_{2}
+\end{matrix}  </mrow> 
+<mrow>  
+\amp \sim   
+\begin{pmatrix}
+1 \amp 0 \amp 0 \amp \bigm |  \amp  -2  \amp  \frac{3}{2} \amp \frac{11}{2} \\
+0 \amp 1 \amp 0 \amp \bigm |  \amp   -1 \amp  1 \amp 3 \\
+0 \amp 0 \amp  1 \amp \bigm |  \amp   1 \amp -\frac{2}{3} \amp -\frac{7}{3}
+\end{pmatrix} \;\;\;
+\begin{matrix}
+R'_{1}  = \amp R_{1}-\dfrac{33R'_{3}}{14} \\
+R'_{2}  = \amp R_{2}-\dfrac{9R'_{3}}{7} \\
+R'_{3}  = \amp -\dfrac{7R'_{3}}{3} \;\;\; \qquad
+\end{matrix}  </mrow> 
+</md>
+Thus 
+<me>A^{-1}=\begin{pmatrix} -2 \amp \frac{3}{2} \amp \frac{11}{2} \\ -1 \amp 1 \amp 3 \\ 1 \amp -\frac{2}{3} \amp  -\frac{7}{3} \end{pmatrix}.  </me> 
+Of course we can always check our answer by confirming that  <m> AA^{-1}=I </m>.
+</solution>
+
+</example>
+
+<example xml:id="Ex-Inverse_Matrix_2_1_6_minus4_5_minus3_2_8_15">
+<p> Find the inverse, if it exists, of 
+<m>A=\begin{pmatrix} 2 \amp 1 \amp 6 \\ -4 \amp 5 \amp -3 \\ 2 \amp 8 \amp  15 \end{pmatrix}.  </m> 
+</p>
+
+<answer>
+<m> A </m> has no inverse.
+</answer>
+
+<solution>
+Form the augmented matrix and row reduce to reduced row echelon form:
+<md>
+<mrow>  
+\begin{pmatrix}
+2 \amp 1 \amp 6 \amp \bigm |  \amp  1 \amp 0 \amp 0 \\
+-4 \amp 5 \amp -3 \amp \bigm |  \amp  0 \amp 1 \amp 0 \\
+2 \amp 8 \amp  15 \amp \bigm |  \amp  0 \amp 0 \amp 1
+\end{pmatrix} \amp \sim   
+ \begin{pmatrix}
+1 \amp \frac{1}{2} \amp 3 \amp \bigm |  \amp  \frac{1}{2} \amp 0 \amp 0 \\
+0 \amp 7 \amp 9 \amp \bigm |  \amp  2 \amp 1 \amp 0 \\
+0 \amp 7 \amp 9 \amp \bigm |  \amp  -1 \amp 0 \amp 1
+\end{pmatrix}   \;\;\; 
+\begin{matrix}
+R'_{1}  = \amp \dfrac{R_{1}}{2}\;\;\;\qquad\\
+R'_{2}  = \amp R_{2}+4R'_{1}\\
+R'_{3}  = \amp R_{3}-R_{1}
+\end{matrix}  </mrow>           
+<mrow>  
+\amp \sim   
+  \begin{pmatrix}
+1 \amp 0 \amp \frac{33}{14} \amp \bigm |  \amp  \frac{5}{14} \amp  -\frac{1}{14} \amp 0 \\
+0 \amp 1 \amp \frac{9}{7} \amp \bigm |  \amp   \frac{2}{7} \amp  \frac{1}{7} \amp 0 \\
+0 \amp 0 \amp  0 \amp \bigm |  \amp   -3 \amp -1 \amp 1
+\end{pmatrix} \;\;\;
+\begin{matrix}
+R'_{1}  = \amp R_{1}-\dfrac{R'_{2}}{2} \\
+R'_{2}  = \amp \dfrac{R_{2}}{7}\;\;\;\qquad\\
+R'_{3}  = \amp R_{3}-R'_{2}
+\end{matrix}  </mrow> 
+</md>
+Since the coefficient part of the reduced row echelon matrix is not the identity matrix <m> A </m> does not have an inverse.
+</solution>
+
+</example>
+
+<p> For later reference, some properties of the inverse of a matrix are listed below. </p>
+
+<theorem>
+<title> Properties of the Matrix Invers </title>
+<statement>
+Let <m> A </m> and <m> B </m> be square invertible matrices of order <m> n </m> and let <m> k </m> be a real number. Then
+
+<p><ol>
+<li><p> 
+<m>  (A^{-1})^{-1}=A </m>
+</p></li>
+
+<li><p> 
+<m> (A^{T})^{-1}=(A^{-1})^{T} </m>
+</p></li>
+
+<li><p> 
+<m> (kA)^{-1}=\frac{1}{k}A^{-1} </m>
+</p></li>
+
+<li><p> 
+<m> (AB)^{-1}=B^{-1}A^{-1} </m>
+</p></li>
+
+<li><p> 
+<m> (A^{r})^{-1}=(A^{-1})^{r}\;\;\;\; \text{where}\;\; r\in \mathbb{R} </m>
+</p></li>
+
+</ol></p>
+</statement>
+</theorem>
+
+<example xml:id="Ex-Confirm_ABinverse_equal_B_inverse_A_inverse">
+<p> 
+Confirm that <m> (AB)^{-1}=B^{-1}A^{-1} </m> holds for the matrices.
+<me>   A=\begin{pmatrix} 3 \amp 1 \\ -1 \amp 2 \end{pmatrix} \;\;\; \text{and}\;\;\; B=\begin{pmatrix} 1 \amp 5 \\ 0 \amp -2 \end{pmatrix}         </me>
+</p>
+
+<solution>
+Firstly,
+<me>
+AB=\begin{pmatrix} 3 \amp 1 \\ -1 \amp 2 \end{pmatrix} \begin{pmatrix} 1 \amp 5 \\ 0 \amp -2 \end{pmatrix} = \begin{pmatrix} 3 \amp 13 \\ -1 \amp -9 \end{pmatrix},
+</me>
+and so
+<me> (AB)^{-1}=\begin{pmatrix} 3 \amp 13 \\ -1 \amp 9 \end{pmatrix}^{-1} = \frac{1}{14}\begin{pmatrix} -9 \amp -13 \\ 1 \amp 3 \end{pmatrix}. </me>
+Next
+<me> A^{-1}=\begin{pmatrix} 3 \amp 1 \\ -1 \amp -9 \end{pmatrix}^{-1} = \frac{1}{7}\begin{pmatrix} 2 \amp -1 \\ 1 \amp 3 \end{pmatrix}, </me>
+<me> B^{-1}=\begin{pmatrix} 1 \amp 5 \\ 0 \amp -2 \end{pmatrix}^{-1} = -\frac{1}{2}\begin{pmatrix} -2 \amp -5 \\ 0 \amp 1 \end{pmatrix}, </me>
+and so
+<me> B^{-1}A^{-1}= -\frac{1}{2}\begin{pmatrix} -2 \amp -5 \\ 0 \amp 1 \end{pmatrix} \frac{1}{7}\begin{pmatrix} 2 \amp -1 \\ 1 \amp 3 \end{pmatrix} = \frac{1}{14}\begin{pmatrix} -9 \amp -13 \\ 1 \amp 3 \end{pmatrix}. </me>
+</solution>
+
+</example>
+
+<p>
+The idea of a matrix inverse can be related to the problem of solving systems of linear equations in the case where the number of equations in the system is the same as the number of variables.  As we have seen previously, we can write the system of <m> n </m> linear equations in <m> n </m> unknowns
+</p>
+
+<md>
+<mrow>  
+a_{11} x_{1}+a_{12}x_{2} + \dots +a_{1n} x_{n}= \amp b_{1}
+</mrow>  
+<mrow>  
+a_{21} x_{1}+a_{22}x_{2} + \dots +a_{2n} x_{n}= \amp b_{2}
+</mrow> 
+<mrow>   
+\vdots \amp 
+</mrow>  
+<mrow>  
+a_{n1} x_{1}+a_{n2}x_{2} + \dots +a_{nn} x_{n}= \amp b_{n}
+</mrow>  
+</md>
+using matrix notation as
+<men xml:id="Ax_equal_b">
+Ax=b
+</men>
+where <m> A </m> is the <m> n\times n </m> coefficient matrix, <m> x </m> is the <m> n\times 1 </m>  column vector of variables and <m> b </m> is the column vector of the constants. If the coefficient matrix <m> A </m> has an inverse, then from  <xref ref="Ax_equal_b"/>
+<md>
+<mrow>  
+A^{-1}(Ax)= \amp A^{-1}b,
+</mrow>  
+<mrow>  
+(A^{-1}A)x= \amp A^{-1}b,
+</mrow> 
+<mrow>   
+x= \amp A^{-1}b.
+</mrow>  
+</md>
+
+
+<example xml:id="Ex-Solve_sys_equation_by_inverse_matrix">
+<p> 
+Solve the system of equations
+<md>
+<mrow>  
+2x + y + 6z = \amp 9,
+</mrow>  
+<mrow>  
+-4x + 5y - 3z = \amp -7,
+</mrow> 
+<mrow>   
+2x - y + 3z = \amp 5.
+</mrow>  
+</md>
+</p> 
+<answer>
+<p> <m> x=-1, \; y=-1,\; \text{and}, \; z=2. </m> </p>
+</answer>
+
+<solution>
+In matrix notation this system can be written as
+<me>
+\begin{pmatrix}
+2 \amp 1 \amp 6  \\
+-4 \amp 5 \amp -3 \\
+2 \amp -1 \amp  3 
+\end{pmatrix}
+\begin{pmatrix}
+x \\
+y \\
+z
+\end{pmatrix}=
+\begin{pmatrix}
+9 \\
+-7 \\
+5
+\end{pmatrix}
+</me>
+We found the inverse of the coefficient matrix in <xref ref="Ex-Inverse_Matrix_2_1_6_minus4_5_minus3_2_minus1_3"/> and, using that result, we have
+<me>
+\begin{pmatrix}
+x \\
+y \\
+z
+\end{pmatrix}=
+\begin{pmatrix}
+-2 \amp \frac{3}{2} \amp \frac{11}{2}  \\
+-1 \amp 1 \amp 3 \\
+1 \amp -\frac{2}{3} \amp  -\frac{7}{3} 
+\end{pmatrix}
+\begin{pmatrix}
+9 \\
+-7 \\
+5
+\end{pmatrix}=
+\begin{pmatrix}
+-1 \\
+-1 \\
+2
+\end{pmatrix}
+</me>
+Thus the solution is  <m> x=-1, \; y=-1,\; \text{and}, \; z=2. </m>
+</solution>
+</example>
+
+Of course, the work involved finding the inverse of a matrix is (basically) the same as that of solving a system of linear equations via Gauss Jordan elimination since in both cases we have to row reduce the coefficient matrix to reduced row echelon form. Thus there is no real benefit to solving a system of <m> n </m> equations in <m> n </m> variables using a matrix inverse. However the idea does highlight the following connections.
+
+
+<theorem xml:id="Th-non_homogeneous_system">
+<statement>
+Consider the non-homogenous system of <m> n </m> linear equations in <m> n </m> variables
+<me>
+Ax=b,\; n\neq 0.
+</me>
+The following statements are equivalent:
+<p><ol>
+<li><p> 
+The system has a unique solution,
+</p></li>
+
+<li><p> 
+<m> Ax=0 </m>  has only the trivial solution  <m> x=0, </m>
+</p></li>
+
+<li><p> 
+The columns of <m> A </m>  are linearly independent,
+</p></li>
+
+<li><p> 
+<m> A </m> is invertible.
+</p></li>
+
+</ol></p>
+</statement>
+
+</theorem>
+
+<exercises>
+<title>Example Tasks</title>
+
+<exercise> 
+<statement>
+Find the inverse, if it exists, of 
+<md>
+<mrow>  
+A = \amp \begin{pmatrix}
+2 \amp 1 \amp 3  \\
+-1 \amp 2 \amp 4 \\
+8 \amp -1 \amp  1 
+\end{pmatrix}
+</mrow>  
+<mrow>  
+B = \amp \begin{pmatrix}
+1 \amp 1 \amp 2  \\
+-1 \amp 2 \amp -1 \\
+1 \amp -1 \amp 1 
+\end{pmatrix}
+</mrow>  
+</md>
+</statement>
+</exercise>
+        
+<exercise> 
+<statement>
+Find the matrix for a rotation in the plane about the origin through <m> (\frac{\pi}{4})^{c} </m>  . Find the inverse of this matrix and interpret it geometrically. </statement>
+</exercise>  
+        
+</exercises>      
+</section>
+
+<section xml:id="Determinants">
+<title> Determinants </title>
+If we attempted to find the inverse of the general <m> n\times n </m> matrix
+<me> A= \begin{pmatrix}
+a \amp b  \\
+c \amp d
+\end{pmatrix} </me>
+we would find that, if <m> ad-bc\neq 0 </m> the inverse is
+<me> A^{-1}=\frac{1}{ad-bc} \begin{pmatrix}
+d \amp -b  \\
+-c \amp a
+\end{pmatrix}, </me>
+and if <m> ad-bc\neq 0 </m>  then <m> A </m> does not have an inverse. Thus for a  <m> 2\times 2</m> matrix, <m> A </m>, calculating the quantity <m> ad-bc </m>  can act as a test for the invertibility of <m> A </m>. This quantity is called the <term> determinant </term> of <m> A </m> and is denoted by
+<me>
+\det(A) \;\text{or}\; \vert A\vert.
+</me>
+
+<example xml:id="Ex-determinant_2_by_2_matrix">
+<p> Find the determinant of 
+<me>A=\begin{pmatrix} 2 \amp -1 \\ 3 \amp 1 \end{pmatrix}.  </me> 
+</p>
+
+<solution>
+<me>
+\begin{vmatrix}
+2 \amp -1 \\ 
+3 \amp 1
+\end{vmatrix}=2\times 1 -(3\times (-1))=5.
+</me>
+Note that since the determinant is not zero this matrix is invertible.
+</solution>
+</example>
+
+We can also think about the determinant of a <m> 2\times 2</m>  matrix geometrically. We know (see <xref ref="Th-non_homogeneous_system"/>) that a matrix has an inverse when its column vectors are linearly independent. Thus, the <m> 2\times 2</m>  matrix
+<me> A= \begin{pmatrix}
+a \amp b  \\
+c \amp d
+\end{pmatrix} </me>
+will have an inverse when the vectors <m> (a,c)^{T} </m> and <m> (b,d)^{T} </m>  are linearly independent. Now we also know (from <xref ref="Linear_Algebra__2"/>) that two vectors in the plane are linearly independent if they define a parallelogram with non-zero area. Finally, from Math1110, we know that the area of the parallelogram defined by the vectors  <m> u=(u_{1},u_{2})^{T} </m> and <m> v=(v_{1},v_{2})^{T} </m>   is 
+<me> Area=\vert u_{1}v_{2} - u_{2}v_{1}\vert. </me>
+Thus matrix <m> A </m> will have an inverse when <m> ad-bc\neq 0 </m> , i.e.  <m> \det(A)\neq 0. </m>
+
+<p>
+Let’s now apply the same geometric argument to the general <m> 3 \times 3</m> matrix
+<me>
+A=\begin{pmatrix}
+u_{1} \amp v_{1} \amp w_{1}  \\
+u_{2} \amp v_{2} \amp w_{2} \\
+u_{3} \amp v_{3} \amp w_{3} 
+\end{pmatrix}=(u,v,w).
+</me>
+</p>
+<p>
+Three vectors in space are linearly independent if they define a parallelepiped with non-zero volume. Now, the volume of the parallelepiped formed by the vectors <me> u=(u_{1},u_{2},u_{3})^{T} ,\;  v=(v_{1},v_{2},v_{3})^{T}, \; \text{and}, \; w=(w_{1},w_{2},w_{3})^{T} </me> is
+<me> Volume=\vert u.v\times w \vert, </me>
+i.e. the absolute values of the scalar triple product of the vectors, (again see Math1110). Thus the matrix <m> A </m> will have an inverse when <m> u.v\times w\neq 0. </m> Hence for a <m> 3\times 3 </m> matrix its determinant is defined as
+<men xml:id="Eq-det_with_three_vectors">
+ \det(A)=\vert  u.v\times w \vert
+</men>
+</p>
+
+<example xml:id="Ex-determinant_3_by_3_matrix_by_volume">
+<p> Find the determinant of 
+<me>
+A=\begin{pmatrix}
+2 \amp 4 \amp 6  \\
+3 \amp 2 \amp 1 \\
+1 \amp 1 \amp 2 
+\end{pmatrix}. 
+</me> 
+</p>
+
+<solution>
+Let <m> u=(2,3,1)^{T},\;  u=(4,2,1)^{T},\; w=(6,1,2)^{T}. </m> Then
+<me> 
+v\times w=(4,3,1) ^{T} \times (6,1,2)^{T}=(3,-2,-8)^{T}
+</me>
+and hence
+<me> 
+\det(A) = (2,3,1) ^{T} \dot (3,-2,-8)^{T}=(3,-2,-8)^{T}=-8.
+</me>
+</solution>
+</example>
+
+While we can calculate the determinant of a <m> 3\times 3</m> matrix using formula <xref ref="Eq-det_with_three_vectors"/> other algorithms have been derived and have the advantage that they easily generalise to matrices of orders higher than <m> 3 </m>. 
+
+<theorem>
+<statement>
+<p><ol>
+<li><p> 
+For the <m> 2\times 2</m> matrix \begin{pmatrix}
+a \amp b \\ 
+c \amp d
+\end{pmatrix}=ad-bc. 
+</p></li>
+
+<li><p> 
+For the <m> n\times n</m> matrix 
+<m> A=\begin{pmatrix}
+a_{ij}
+\end{pmatrix}
+</m>
+we define the <term> minor, </term> <m> M_{ij} </m> as the determinant of the <m> (n-1)\times (n-1) </m> matrix obtained by deleting the <m> i</m>th row and the <m> j</m>th column of <m> A </m>. Then
+<me>
+\det(A)=\sum_{j=1}^{n}(-1)^{i+j}a_{ij}M_{ij}\qquad \text{for}\qquad i=1,2,3,
+</me>
+or
+<me>
+\det(A)=\sum_{i=1}^{n}(-1)^{i+j}a_{ij}M_{ij}\qquad \text{for}\qquad i=1,2,3.
+</me>
+</p></li>
+
+</ol></p>
+</statement>
+</theorem>
+
+<example xml:id="Ex-determinant_3_by_3_matrix_by_minor">
+<p> Find the determinant of 
+<me>
+A=\begin{pmatrix}
+2 \amp 4 \amp 6  \\
+3 \amp 2 \amp 1 \\
+1 \amp 1 \amp 2 
+\end{pmatrix}. 
+</me> 
+</p>
+<answer>
+The determinant of <m> A </m> is <m> -8. </m> 
+</answer>
+
+<solution>
+Using the first of the formulas given above with <m> i=1: </m>
+<md>
+<mrow> \det(A) = \amp (-1)^{1+1} 2 \begin{vmatrix}
+2 \amp 1 \\
+1 \amp 2 
+\end{vmatrix} + (-1)^{1+2} 4 \begin{vmatrix}
+3 \amp 1 \\
+1 \amp 2 
+\end{vmatrix}+ (-1)^{1+3} 6 \begin{vmatrix}
+3 \amp 2 \\
+1 \amp 1 
+\end{vmatrix}\\
+</mrow>           
+<mrow>  =\amp 2(4-1)-4(6-1)+6(3-2)\\  </mrow>  
+<mrow>  =\amp -8. </mrow>  
+</md>
+</solution>
+</example>
+
+<example xml:id="Ex-determinant_3_by_3_matrix_by_minor_upper_triangle_case">
+<p> Find the determinant of 
+<me>
+A=\begin{pmatrix}
+2 \amp 4 \amp 6  \\
+0 \amp 2 \amp 1 \\
+0 \amp 0 \amp -4 
+\end{pmatrix}. 
+</me> 
+</p>
+<answer>
+The determinant of <m> A </m> is <m> -8. </m> 
+</answer>
+
+<solution>
+Using the first of the formulas given above with <m> i=1: </m>
+<md>
+<mrow> \det(A) = \amp (-1)^{1+1} 2 \begin{vmatrix}
+3 \amp 1 \\
+0 \amp -4 
+\end{vmatrix} + (-1)^{1+2} 0 \begin{vmatrix}
+2 \amp 6 \\
+0 \amp -4 
+\end{vmatrix}+ (-1)^{1+3} 0 \begin{vmatrix}
+4 \amp 6 \\
+3 \amp 1 
+\end{vmatrix}\\
+</mrow>           
+<mrow>  =\amp 2(-12-0)-0\\  </mrow>  
+<mrow>  =\amp -24. </mrow>  
+</md>
+</solution>
+Notice that for a matrix that is upper triangular the determinant is just the product of the entries on the main diagonal.
+</example>
+
+Calculating the determinant of a <m> 3 \times 3 </m> matrix via minors is relatively easy. However for matrices of higher orders the calculation can become very tedious. For example, to calculate the determinant of a <m> 4\times 4 </m> matrix potentially involves calculating the determinants of four <m> 3\times 3</m> matrices. Thus for large matrices the preferred strategy for calculating its determinant is based on the observation that for an upper triangular matrix the determinant is just the product of the entries on the main diagonal.
+
+<theorem>
+<statement>
+To calculate the determinant of the <m> n \times n </m> matrix <m> A </m>:
+
+<p><ol>
+<li><p> 
+Row reduce <m> A </m> to an equivalent upper triangular matrix, <m> B </m>, noting that;
+
+<p><ol>
+<li><p> 
+If matrix <m> B </m> is obtained from matrix <m> A </m> by interchanging <m> 2 </m> rows then
+<me>
+\det(B)=-\det(A).
+</me>
+</p></li>
+
+<li><p> 
+If matrix <m> B </m> is obtained from matrix <m> A </m> by multiplying a row of <m> A </m> by a scalar <m> k </m> then
+<me>
+\det(B)=k\det(A).
+</me>
+</p></li>
+
+<li><p> 
+If matrix <m> B </m> is obtained from matrix <m> A </m> by adding a multiple of one row of <m> A </m> to another then
+<me>
+\det(B)=\det(A).
+</me>
+</p></li>
+
+</ol></p>
+
+</p></li>
+
+<li><p>  
+Find the determinant of <m> B </m> by finding the product of the entries on the main diagonal of <m> B </m>.
+</p></li>
+</ol></p>
+
+</statement>
+</theorem>
+
+<example xml:id="Ex-determinant_3_by_3_matrix_by_Echelonizing">
+<p> Find the determinant of 
+<me>
+A=\begin{pmatrix}
+2 \amp 4 \amp 6  \\
+3 \amp 2 \amp 1 \\
+1 \amp 1 \amp 2 
+\end{pmatrix}. 
+</me> 
+</p>
+<answer>
+The determinant of <m> A </m> is <m> -8. </m> 
+</answer>
+
+<solution>
+Using the row reduction method, first reduce <m> A </m> to an equivalent upper triangular matrix.
+<md>
+<mrow> 
+=\begin{pmatrix}
+2 \amp 4 \amp 6  \\
+3 \amp 2 \amp 1 \\
+1 \amp 1 \amp 2 
+\end{pmatrix}
+\amp \sim   
+\begin{pmatrix}
+2 \amp 4 \amp 6  \\
+0 \amp -4 \amp -8 \\
+0 \amp -1 \amp  -1
+\end{pmatrix} \;\;\;
+\begin{matrix}
+\amp  \\
+R'_{2}  = \amp R_{2}-3\dfrac{R_{2}}{2}\;\;\;\qquad\\
+R'_{3}  = \amp R_{3}-\dfrac{R_{1}}{2}
+\end{matrix}
+</mrow>           
+<mrow> 
+\amp \sim   
+\begin{pmatrix}
+2 \amp 4 \amp 6  \\
+0 \amp -4 \amp -8 \\
+0 \amp 0 \amp  1
+\end{pmatrix} \;\;\;
+\begin{matrix}
+\amp  \\
+\amp  \\
+R'_{3} = \amp R_{3}-\dfrac{R_{2}}{4}
+\end{matrix} 
+</mrow>  
+</md>
+Since the only elementary row operation used here was that of adding a multiple of one row to another the determinant of the reduced matrix will be the same as the determinant of <m> A </m>. Thus
+<me>
+\det(A)=2\times (-4)\times 1 = -8.
+</me>
+</solution>
+</example>
+
+For later reference, some properties of the determinant of a matrix are listed below.
+
+<theorem xml:id="Th-Determinant_Property">
+<title> Properties of the Determinant </title>
+<statement>
+Let <m> A </m> and <m> B </m> be square invertible matrices of order <m> n </m> and let <m> k </m> be a real number. Then
+
+<p><ol>
+<li><p> 
+<m>
+\det(A^{-1})=\frac{1}{\det(A)}
+</m>
+</p></li>
+
+<li><p> 
+<m>
+\det(A^{T})=\det(T)
+</m>
+</p></li>
+
+<li><p> 
+<m>
+\det(AB)=\det(A) \det(B)
+</m>
+</p></li>
+
+<li><p> 
+<m>
+\det(kA)=k^{n} \det(A)
+</m>
+</p></li>
+
+</ol></p>
+
+</statement>
+</theorem>
+
+<example xml:id="Ex-determinant_2_by_2_matrix_Property">
+<p> Calculate the determinant of the following matrices. Which property of determinants does this illustrate?</p>
+<me>
+A=\begin{vmatrix}
+-1 \amp 2 \\
+3 \amp -4 
+\end{vmatrix},\; 
+B=\begin{vmatrix}
+2 \amp 4 \\
+6 \amp -8 
+\end{vmatrix}
+</me>
+<answer>
+This example illustrates the fourth property of <xref ref="Th-Determinant_Property"/> 
+</answer>
+
+<solution>
+Firstly,
+<me>
+\det(A)=(-1)\times (-4)-3\times 2=4-6=-2.
+</me>
+Next
+<me>
+\det(B)=(-2)\times (-8)-4\times 6=16-24=-8.
+</me>
+Since <m> A </m> and <m> A </m> are square matrices of order <m> 2 </m> and <m> B=2A </m> the fact that <m> \det(A)=4\det(B) </m> illustrates Property of <xref ref="Th-Determinant_Property"/>.
+</solution>
+</example>
+
+To close this section, note that we can now add one more statement to our theorem connecting the ideas that we have studied so far.
+
+<theorem xml:id="Th-non_homogeneous_system_Update">
+<statement>
+Consider the non-homogenous system of <m> n </m> linear equations in <m> n </m> variables
+<me>
+Ax=b,\; n\neq 0.
+</me>
+The following statements are equivalent:
+<p><ol>
+<li><p> 
+The system has a unique solution,
+</p></li>
+
+<li><p> 
+<m> Ax=0 </m>  has only the trivial solution  <m> x=0, </m>
+</p></li>
+
+<li><p> 
+The columns of <m> A </m>  are linearly independent,
+</p></li>
+
+<li><p> 
+<m> A </m> is invertible.
+</p></li>
+
+<li><p> 
+<m> \det(A)\neq 0 </m>.
+</p></li>
+
+</ol></p>
+</statement>
+</theorem>
+
+<exercises>
+<title>Example Tasks</title>
+
+<exercise> 
+<statement>
+Find the determinant of 
+<me>
+A=\begin{pmatrix}
+1 \amp 1 \amp 2  \\
+1 \amp -1 \amp 1 \\
+0 \amp 2 \amp 4 
+\end{pmatrix}
+</me>
+
+<p><ol label="a">
+<li><p> 
+Using the minor formula.
+</p></li>
+
+<li><p> 
+Using row reduction to an upper triangular matrix.Using row reduction to an upper triangular matrix.
+</p></li>
+
+</ol></p>
+
+</statement>
+</exercise> 
+</exercises>
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</chapter>

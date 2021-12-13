@@ -1,0 +1,561 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- =================================================================================================== -->
+<!-- To process this file with xsltproc do                                                        -->
+<!--                                                                                              -->
+<!-- (1) LaTeX/PDF:                                                                               -->
+<!--     xsltproc -o minimal.tex PATH_TO/mathbook/xsl/pretext-latex.xsl source/main.ptx           -->
+<!--     pdflatex minimal.tex                                                                     -->
+<!--     xelatex minimal.tex                                                                      -->
+<!--                                                                                              -->
+<!-- (2) HTML:                                                                                    -->
+<!--     xsltproc PATH_TO/mathbook/xsl/pretext-html.xsl source/main.ptx                           -->
+<!--     <browser>  minimal.html                                                                  -->
+<!--        ~/xsltproc/xsltproc.exe ~/mathbook/xsl/mathbook-html.xsl test.xml                     -->
+<!--                                                                                              -->
+<!-- (3) CoCalc worksheet (parameter causes a single file for output)                             -->
+<!--     REMOVE the "X" in the double dash (which is not legal in an XML comment)                 -->
+<!--     xsltproc -X-stringparam chunk.level 0 PATH_TO/mathbook/xsl/pretext-smc.xsl source/main.ptx   -->
+<!--     <CoCalc> minimal.sagews                                                                  -->
+<!--                                                                                              -->
+<!-- (4) Sage doctesting                                                                          -->
+<!--     REMOVE the "X" in the double dash (which is not legal in an XML comment)                 -->
+<!--     xsltproc -X-stringparam chunk.level 0 PATH_TO/mathbook/xsl/pretext-sage-doctest.xsl source/main.ptx  -->
+<!--     <read further instructions in> minimal.py                                                -->
+<!-- =================================================================================================== -->
+
+<chapter xml:id="Linear_Algebra_6">
+
+
+
+<!-- =================================================================================================== -->
+<!-- Title and Other Preliminaries -->
+<!-- =================================================================================================== -->
+        <title>Some Applications of Eigenvalues and Eigenvectors</title>
+
+        <!-- <frontmatter> -->
+
+<!--             <titlepage>
+                <author>
+                    <institution>University of Newcastle</institution>
+                </author>
+                <date><today /></date>
+            </titlepage> -->
+
+            <!-- <abstract>
+                <p>This is a very short article, but it still exercises some advanced features of MathBook XML.</p>
+            </abstract> -->
+
+        <!-- </frontmatter> -->
+
+        <introduction>
+            <p>We concluded the previous lecture in this series by outlining a practical problem (ranking pages from a web search) whose solution involved finding eigenvalues and eigenvectors of a matrix. In this lecture we are going to look at two mathematical problems where eigenvalues and eigenvectors are useful. (These problems can also be applied to practical situations but we won’t look at any such applications in any detail.)</p>
+        </introduction>
+<!-- =================================================================================================== -->
+
+
+
+
+<!-- =================================================================================================== -->
+<!-- Section 1: Powers of Matrices -->
+<!-- =================================================================================================== -->
+        <section xml:id="Powers_of_Matrices">
+            <title>Powers of Matrices</title>
+
+
+            <p>Given the square matrix <m>A</m> of order <m>k</m> the problem is to calculate the matrix <m>A^n</m> where <m>n \in \mathbb{N}</m>. For small values of <m>n</m> the calculation can be done by brute force but for large values of <m>n</m> this becomes intractable. A solution to this problem if the matrix <m>A</m> has <m>k</m> distinct eigenvalues is as follows.</p>
+
+            <p>Let the <m>k</m> distinct eigenvalues of matrix <m>A</m> be <m>\lambda_1, \lambda_2, \ldots, \lambda_k</m> and let the associated eigenvectors be <m>\bm{v}_1, \bm{v}_2, \ldots, \bm{v}_k</m>. Now let <m>P</m> be the matrix whose columns are these eigenvectors, i.e. 
+                <me>P = \begin{pmatrix} 
+                            \bm{v}_1 \amp \bm{v}_2 \amp \cdots \amp \bm{v}_k
+                        \end{pmatrix}
+                </me>
+            </p>
+
+            <p>Then
+                    <me>A = PDP^{-1} \quad \text{ (or equivalently } P^{-1}AP = D)</me>
+                where
+                    <me>D = \begin{pmatrix}
+                            \lambda_1 \amp 0 \amp \cdots \amp 0 \\
+                            0 \amp \lambda_2 \amp \cdots \amp 0 \\
+                            \vdots \amp \vdots \amp \ddots \amp \vdots \\
+                            0 \amp 0 \amp \cdots \amp \lambda_k
+                            \end{pmatrix}
+                    </me>.
+                Thus
+                    <md>
+                        <mrow>A^n \amp = \left( PDP^{-1} \right) \left( PDP^{-1} \right) \ldots \left( PDP^{-1} \right)</mrow>
+                        <mrow>\amp = PD \left( P^{-1} P \right)D \left( P^{-1} P \right) \ldots DP^{-1}</mrow>
+                        <mrow>\amp = PD^n P^{-1}</mrow>
+                    </md>.
+                Since
+                    <me>D^n = \begin{pmatrix}
+                            \lambda_1^n \amp 0 \amp \cdots \amp 0 \\
+                            0 \amp \lambda_2^n \amp \cdots \amp 0 \\
+                            \vdots \amp \vdots \amp \ddots \amp \vdots \\
+                            0 \amp 0 \amp \cdots \amp \lambda_k^n
+                            \end{pmatrix}
+                    </me>.
+                this provides a relatively easy way to calculate <m>A^n</m> for large values of <m>n</m>. 
+            </p>
+
+
+            <example>
+                <statement>
+                    <p>
+                        Calculate <m>A^3</m> for <me>A = \begin{pmatrix} 3 \amp 1 \\ 1 \amp 3 \end{pmatrix}</me>.
+                    </p>
+                </statement>
+
+                <solution>
+                    <p>
+                        Since <m>n</m> is small here it is easiest just to do the matrix multiplications to obtain 
+                            <me>
+                                A^3 = \begin{pmatrix} 3 \amp 1 \\ 1 \amp 3 \end{pmatrix} \begin{pmatrix} 3 \amp 1 \\ 1 \amp 3 \end{pmatrix} \begin{pmatrix} 3 \amp 1 \\ 1 \amp 3 \end{pmatrix} = \begin{pmatrix} 3 \amp 1 \\ 1 \amp 3 \end{pmatrix} \begin{pmatrix} 10 \amp 6 \\ 6 \amp 10 \end{pmatrix} = \begin{pmatrix} 36 \amp 28 \\ 28 \amp 36 \end{pmatrix}
+                            </me>
+                        However,  let’s  illustrate  the  above  method  (admittedly  leaving  out  the  working  of finding  eigenvalues,  eigenvectors  and  matrix  inverse).  <m>A</m>  has  two  distinct  eigenvalues <m>\lambda_1 = 2</m> and <m>\lambda_2 = 4</m> with corresponding eigenvectors <m>\bm{v}_1 = \begin{pmatrix} 1 \\ -1 \end{pmatrix}</m> and <m>\bm{v}_2 = \begin{pmatrix} 1 \\ 1 \end{pmatrix}</m>, so let
+                            <me>
+                                P = \begin{pmatrix} 1 \amp 1 \\ -1 \amp 1 \end{pmatrix}
+                            </me>.
+                        Thus
+                            <me>
+                                P^{-1} = \dfrac{1}{2} \begin{pmatrix} 1 \amp -1 \\ 1 \amp 1 \end{pmatrix}
+                            </me>
+                        and therefore
+                            <md>
+                                <mrow>A^3 \amp = PD^3 P^{-1}</mrow>
+                                <mrow>\amp = \begin{pmatrix} 1 \amp 1 \\ -1 \amp 1 \end{pmatrix} \begin{pmatrix} 2^3 \amp 0 \\ 0 \amp 4^3 \end{pmatrix} \begin{pmatrix} 1/2 \amp -1/2 \\ 1/2 \amp 1/2 \end{pmatrix}</mrow>
+                                <mrow>\amp = \begin{pmatrix} 1 \amp 1 \\ -1 \amp 1 \end{pmatrix} \begin{pmatrix} 4 \amp -4 \\ 32 \amp 32 \end{pmatrix}</mrow>
+                                <mrow>\amp = \begin{pmatrix} 36 \amp 28 \\ 28 \amp 36 \end{pmatrix}</mrow>
+                            </md>
+                        As an aside, note that
+                            <md>
+                                <mrow>P^{-1} AP \amp = \dfrac{1}{2} \begin{pmatrix} 1 \amp -1 \\ 1 \amp 1 \end{pmatrix} \begin{pmatrix} 3 \amp 1 \\ 1 \amp 3 \end{pmatrix} \begin{pmatrix} 1 \amp 1 \\ -1 \amp 1 \end{pmatrix}</mrow>
+                                <mrow>\amp = \dfrac{1}{2} \begin{pmatrix} 1 \amp -1 \\ 1 \amp 1 \end{pmatrix} \begin{pmatrix} 2 \amp 4 \\ -2 \amp 4 \end{pmatrix}</mrow>
+                                <mrow>\amp = \begin{pmatrix} 2 \amp 0 \\ 0 \amp 4 \end{pmatrix}</mrow>
+                            </md>
+                    </p>
+                </solution>
+            </example>
+
+
+            <p>
+                To see why <m>A = PDP^{-1}</m>, note that since <m>\bm{v}_i</m> are eigenvectors of <m>A</m>
+                    <md>
+                        <mrow>AP \amp = A \begin{pmatrix} \bm{v}_1 \amp \bm{v}_2 \amp \cdots \amp \bm{v}_k \end{pmatrix}</mrow>
+                        <mrow>\amp = \begin{pmatrix} A\bm{v}_1 \amp A\bm{v}_2 \amp \cdots \amp A\bm{v}_k \end{pmatrix}</mrow>
+                        <mrow>\amp = \begin{pmatrix} \lambda_1 \bm{v}_1 \amp \lambda_2 \bm{v}_2 \amp \cdots \amp \lambda_k \bm{v}_k \end{pmatrix}</mrow>
+                    </md>
+                and by matrix multiplication
+                    <md>
+                        <mrow>PD \amp = \begin{pmatrix} \bm{v}_1 \amp \bm{v}_2 \amp \cdots \amp \bm{v}_k \end{pmatrix} \begin{pmatrix}
+                            \lambda_1 \amp 0 \amp \cdots \amp 0 \\
+                            0 \amp \lambda_2 \amp \cdots \amp 0 \\
+                            \vdots \amp \vdots \amp \ddots \amp \vdots \\
+                            0 \amp 0 \amp \cdots \amp \lambda_k
+                            \end{pmatrix}</mrow>
+                        <mrow>\amp = \begin{pmatrix} \lambda_1 \bm{v}_1 \amp \lambda_2 \bm{v}_2 \amp \cdots \amp \lambda_k \bm{v}_k \end{pmatrix}</mrow>
+                    </md>
+                Since <m>AP = PD</m> then <m>A = PDP^{-1}</m>.
+            </p>
+
+            <p>To summarise the above (and introduce some associated terminology): </p>
+
+            <definition>
+                <title>Diagonal Matrices</title>
+
+                <statement>
+                    <p><ul>
+                        <li>
+                            A  square  matrix  <m>D</m>  of  order  <m>k</m>  is  called  <em>diagonal</em> if  all  of  its  off-diagonal  entries are 0, i.e. it is of the form
+                                <me>
+                                    D = \begin{pmatrix} 
+                                        d_1 \amp 0 \amp \cdots \amp 0 \\
+                                        0 \amp d_2 \amp \cdots \amp 0 \\
+                                        \vdots \amp \vdots \amp \ddots \amp \vdots \\
+                                        0 \amp 0 \amp \cdots \amp d_k
+                                    \end{pmatrix}
+                                </me>.
+                        </li>
+                        <li>A  square  matrix  <m>A</m>  of  order  <m>k</m>  is  called  <em>diagonalisable</em>  if  there  exists  a  matrix  <m>P</m> such that <m>D = P^{-1} AP</m> is a diagonal matrix.</li>
+                        <li>A square matrix <m>A</m> of order <m>k</m> is diagonalisable if it has <m>k</m> distinct eigenvalues.</li>
+                        <li>If a square matrix <m>A</m> of order <m>k</m> is diagonalisable then <me>A^n = PD^n P^{-1} \: \text{for } n \in \mathbb{N}</me>.</li>
+                    </ul></p>
+                </statement>
+            </definition>
+
+
+
+            <example>
+                <statement>
+                    <p>
+                        A town contains <m>51000</m> inhabitants. Initially <m>2000</m> of these are sick. Each month there is a change in the population: of those who are well <m>\frac{3}{4}</m> remain well and <m>\frac{1}{4}</m> become sick, of those who are sick <m>\frac{1}{2}</m> recover but <m>\frac{1}{2}</m> remain unwell. What is the long term prognosis for this town? 
+                    </p>
+                </statement>
+
+                <solution>
+                    <p>
+                        Let <m>w_n</m> denote the number of people in the town who are well after <m>n</m> months and let <m>s_n</m> denote the number of people in the town who are sick after <m>n</m> months. Then
+                            <md>
+                                <mrow>w_0 \amp = 49000, \, \, s_0 = 2000 \, \text{ and}</mrow>
+                                <mrow>w_n \amp = \frac{3}{4}w_{n-1} + \frac{1}{2} s_{n-1}, \, \, s_n = \frac{1}{4} w_{n-1} + \frac{1}{2} s_{n-1}</mrow>
+                            </md>,
+                        or in matrix notation
+                            <me>
+                                \bm{w}_n = A \bm{w}_{n-1}, \, \, \bm{w}_0 = \begin{pmatrix} 49000 \\ 2000 \end{pmatrix}
+                            </me>
+                        where
+                            <me>
+                                \bm{w}_n = \begin{pmatrix} w_n \\ s_n \end{pmatrix}, \, \, A = \begin{pmatrix} 3/4 \amp 1/2 \\ 1/4 \amp 1/2 \end{pmatrix}
+                            </me>.
+                        Now 
+                            <me>
+                                \bm{w}_n = A \bm{w}_{n-1} = A \left( A \bm{w}_{n-2} \right) = A \left( A \left( A \bm{w}_{n-3} \right) \right) = \ldots = A^n \bm{w}_0
+                            </me>.
+                        Thus we need to calculate powers of <m>A</m>. The eigenvalues of <m>A</m> are <m>1</m> and <m>1/4</m> with corresponding eigenvectors <m>\begin{pmatrix} 2 \\ 1 \end{pmatrix}</m> and <m>\begin{pmatrix} -1 \\ 1 \end{pmatrix}</m>, and so
+                            <md>
+                                <mrow>A^n \amp = P D^n P^{-1}</mrow>
+                                <mrow>\amp = \begin{pmatrix} 2 \amp -1 \\ 1 \amp 1 \end{pmatrix} \begin{pmatrix} 1^n \amp 0 \\ 0 \amp (1/4)^n \end{pmatrix} \dfrac{1}{3} \begin{pmatrix} 1 \amp 1 \\ -1 \amp 2 \end{pmatrix}</mrow>
+                                <mrow>\amp = \dfrac{1}{3} \begin{pmatrix} 2+(1/4)^n \amp 2-2(1/4)^n \\ 1-(1/4)^n \amp 1+2(1/4)^n \end{pmatrix}</mrow>
+                            </md>.
+                        Notice that 
+                            <md>
+                                <mrow>\lim_{n \to \infty} A^n \amp = \lim_{n \to \infty} \dfrac{1}{3} \begin{pmatrix} 2+(1/4)^n \amp 2-2(1/4)^n \\ 1-(1/4)^n \amp 1+2(1/4)^n \end{pmatrix}</mrow>
+                                <mrow>\amp = \dfrac{1}{3} \begin{pmatrix} 2 \amp 2 \\ 1 \amp 1 \end{pmatrix}</mrow>
+                            </md>
+                        so that as <m>n \to \infty</m>
+                            <me>
+                                w_n \to \dfrac{1}{3} \begin{pmatrix} 2 \amp 1 \\ 1 \amp 1 \end{pmatrix} \begin{pmatrix} 49000 \\ 2000 \end{pmatrix} = \begin{pmatrix} 34000 \\ 17000 \end{pmatrix}
+                            </me>.
+                        We conclude that the long term prognosis for the town is that there will be twice as many well people as sick people.
+                    </p>
+                </solution>
+            </example>
+
+
+
+            <exercises>
+            <title>Example Tasks</title>
+
+                <exercise>
+                    <statement>
+                        <p>Calculate <m>A^{100}</m> if <me>A = \begin{pmatrix} 1 \amp 2 \\ 2 \amp 4 \end{pmatrix}</me>.</p>
+                    </statement>
+                </exercise>
+
+                <exercise> 
+                    <statement>
+                        <p>Find a matrix <m>P</m> such that <m>P^{-1} AP</m> is diagonal if <me>A = \begin{pmatrix} 0 \amp 3 \amp 0 \\ 1 \amp 0 \amp -1 \\ 0 \amp 2 \amp 0 \end{pmatrix}</me>.</p>
+                    </statement>
+                </exercise>
+
+            </exercises>
+
+
+
+        </section>
+<!-- =================================================================================================== -->
+
+
+
+
+<!-- =================================================================================================== -->
+<!-- Section 2: Coupled Linear Differential Equations -->
+<!-- =================================================================================================== -->
+        <section xml:id="Coupled_Linear_Differential_Equations">
+            <title>Coupled Linear Differential Equations</title>
+
+
+            <p>
+                Recall that the linear differential equation
+                    <me>\dfrac{dx}{dt} = ax, \, \, a \in \mathbb{R}</me>,
+                has the solution (via separation of variables) 
+                    <me>x(t) = C e^{at}</me>,
+                where <m>C</m> is an arbitrary constant. Consider now the system of two linear differential equations
+                    <md>
+                        <mrow>\dot{x}_1 \amp = \dfrac{dx_1}{dt} = ax_1 + bx_2</mrow>
+                        <mrow>\dot{x}_2 \amp = \dfrac{dx_2}{dt} = cx_1 + dx_2</mrow>
+                    </md>
+                where <m>a, \, b, \, c, \, d \in \mathbb{R}</m>, which can be written in matrix notation as
+                    <men xml:id="Eq-matrix_form_coupled_linear_DEs">
+                        \dot{\bm{x}} = A \bm{x}
+                    </men>
+                where <m>\bm{x} = \begin{pmatrix} x_1 \\ x_2 \end{pmatrix}</m>, <m>\dot{\bm{x}} = \begin{pmatrix} \dot{x}_1 \\ \dot{x}_2 \end{pmatrix}</m> and <m>A = \begin{pmatrix} a \amp b \\ c \amp d \end{pmatrix}</m>. These equations are <q>coupled</q>, i.e. the derivative of <m>x_1(t)</m> depends on both <m>x_1(t)</m> and <m>x_2(t)</m> and likewise for the derivative of <m>x_2(t)</m>. Thus we can’t solve the first equation unless we can solve the second and vice versa. Note that if <m>A</m> is diagonal then the equations become uncoupled and we could solve each separately.
+            </p>
+
+            <p>
+                If the matrix <m>A</m> has 2 distinct eigenvalues, <m>\lambda_1</m> and <m>\lambda_2</m>, by making the change of variable <m>\bm{y} = P^{-1} \bm{x}</m>, where <m>P</m> is the matrix whose columns are the eigenvectors <m>\bm{v}_1</m> and <m>\bm{v}_2</m> of <m>A</m>, we can transform Equation <xref ref="Eq-matrix_form_coupled_linear_DEs"/> into a system where the matrix is diagonal. By solving that system and converting back to our original variables we find that the general solution to Equation <xref ref="Eq-matrix_form_coupled_linear_DEs"/> is
+                    <men xml:id="Eq-general_solution_coupled_linear_DEs">
+                        \bm{x} = C_1 e^{\lambda_1 t} \bm{v}_1 + C_2 e^{\lambda_2 t} \bm{v}_2
+                    </men>
+                where <m>C_1</m> and <m>C_2</m> are arbitrary constants. We can check that <xref ref="Eq-general_solution_coupled_linear_DEs"/> is indeed a solution to <xref ref="Eq-matrix_form_coupled_linear_DEs"/>. From <xref ref="Eq-general_solution_coupled_linear_DEs"/>
+                    <me>\bm{x} = C_1 \lambda_1 e^{\lambda_1 t} \bm{v}_1 + C_2 \lambda_2 e^{\lambda_2 t} \bm{v}_2</me>
+                and
+                    <md>
+                        <mrow>A \bm{x} \amp = A \left( C_1 e^{\lambda_1 t} \bm{v}_1 + C_2 e^{\lambda_2 t} \bm{v}_2 \right)</mrow>
+                        <mrow>\amp = C_1 e^{\lambda_1 t} A \bm{v}_1 + C_2 e^{\lambda_2 t} A \bm{v}_2</mrow>
+                        <mrow>\amp = C_1 e^{\lambda_1 t} \lambda_1 \bm{v}_1 + C_2 e^{\lambda_2 t} \lambda_2 \bm{v}_2</mrow>
+                    </md>.
+            </p>
+
+
+
+            <example>
+                <statement>
+                    <p>
+                        Find the solution to the initial value problem
+                        <md>
+                            <mrow>\dfrac{dx_1}{dt} \amp = x_1 + 2x_2</mrow>
+                            <mrow>\dfrac{dx_2}{dt} \amp = 2x_1 + x_2</mrow>
+                        </md>,
+                        where <m>x_1(0) = 2</m> and <m>x_2(0) = 3</m>. 
+                    </p>
+                </statement>
+
+                <solution>
+                    <p>
+                        In matrix notation this system is
+                            <me>
+                                \dot{\bm{x}} = \begin{pmatrix} 1 \amp 2 \\ 2 \amp 1 \end{pmatrix} \bm{x}, \quad \bm{x}(0) = \begin{pmatrix} 2 \\ 3 \end{pmatrix}
+                            </me>.
+                        The eigenvalues of <m>\begin{pmatrix} 1 \amp 2 \\ 2 \amp 1 \end{pmatrix}</m> turn out to be <m>\lambda_1 = -1</m> and <m>\lambda_2 = 3</m> with associated eigenvectors <m>\bm{v}_1 = \begin{pmatrix} 1 \\ -1 \end{pmatrix}</m> and <m>\bm{v}_2 = \begin{pmatrix} 1 \\ 1 \end{pmatrix}</m>. Thus, from <xref ref="Eq-general_solution_coupled_linear_DEs"/> the general solution is 
+                            <me>
+                                \bm{x} = C_1 e^{-t} \begin{pmatrix} 1 \\ -1 \end{pmatrix} + C_2 e^{3t} \begin{pmatrix} 1 \\ 1 \end{pmatrix}
+                            </me>.
+                        From the initial conditions we have
+                            <me>
+                                \begin{pmatrix} 2 \\ 3 \end{pmatrix} = C_1 \begin{pmatrix} 1 \\ -1 \end{pmatrix} + C_2 \begin{pmatrix} 1 \\ 1 \end{pmatrix}
+                            </me>.
+                        Solving this system of linear equations (by Gauss-Jordan elimination say) gives
+                            <me>
+                                C_1 = -\dfrac{1}{2} \, \text{ and } \, C_2 = \dfrac{5}{2}
+                            </me>.
+                        Thus, the solution to the initial value problem is
+                            <me>
+                                \bm{x} = \dfrac{5}{2} e^{3t} \begin{pmatrix} 1 \\ 1 \end{pmatrix} - \dfrac{1}{2} e^{-t} \begin{pmatrix} 1 \\ -1 \end{pmatrix}
+                            </me>
+                        or equivalently
+                            <md>
+                                <mrow>x_1(t) \amp = \dfrac{5}{2} e^{3t} - \dfrac{1}{2} e^{-t}</mrow>
+                                <mrow>x_2(t) \amp = \dfrac{5}{2} e^{3t} + \dfrac{1}{2} e^{-t}</mrow>
+                            </md>
+                    </p>
+
+                    <p>
+                        Note that you can always check your answer by checking that the functions do indeed satisfy the original equations. 
+                    </p>
+
+                    <p>
+                        <xref ref="Fig-Coupled_DEs_Solutions_Plotted"/> shows the graph of these solutions. Notice that as <m>t</m> gets larger because of the <m>e^{-t}</m> term in each solution the functions get closer together and because of the <m>e^{3t}</m> term both solutions grow (exponentially). Thus the eigenvalues of the matrix <m>A</m> will give us some idea of the qualitative nature of the solutions.
+                    </p>
+
+                    <figure xml:id="Fig-Coupled_DEs_Solutions_Plotted">
+                        <caption></caption>
+                        <image source="./LinearAlgebra/Images/6/Fig1-solution_curves_plotted.png" width="70%"/>
+                    </figure>
+                </solution>
+            </example>
+
+
+            <example>
+                <statement>
+                    <p>
+                        Solve the initial value problem
+                            <me>
+                                \dot{\bm{x}} = A \bm{x}, \: A = 
+                                \begin{pmatrix} 0 \amp 1 \\ -1 \amp 0 \end{pmatrix}, \: \bm{x}(0) = 
+                                \begin{pmatrix} -4 \\ 8 \end{pmatrix}
+                            </me>.
+                    </p>
+                </statement>
+
+                <solution>
+                    <p>
+                        The eigenvalues of <m>A</m> turn out to be purely complex with <m>\lambda_1 = i</m> and <m>\lambda_2 = -i</m>. The associated eigenvectors are <m>\bm{v}_1 = \begin{pmatrix} -i \\ 1 \end{pmatrix}</m> and <m>\bm{v}_2 = \begin{pmatrix} i \\ 1 \end{pmatrix}</m>. Thus, from <xref ref="Eq-general_solution_coupled_linear_DEs"/> the general solution is
+                            <me>
+                                \bm{x} = C_1 e^{it} \begin{pmatrix} -i \\ 1 \end{pmatrix} + C_2 e^{-it} \begin{pmatrix} i \\ 1 \end{pmatrix}
+                            </me>.
+                        From the initial conditions we have
+                            <me>
+                                \begin{pmatrix} -4 \\ 8 \end{pmatrix} = C_1 \begin{pmatrix} -i \\ 1 \end{pmatrix} + C_2 \begin{pmatrix} i \\ 1 \end{pmatrix}
+                            </me>,
+                        which upon solving gives
+                            <me>
+                                C_1 = 4-2i \, \text{ and } \, C_2 = 4+2i
+                            </me>.
+                        Thus, the solution to the initial value problem is 
+                            <me>
+                                \bm{x} = (4-2i) e^{it} \begin{pmatrix} -i \\ 1 \end{pmatrix} + (4-2i) e^{-it} \begin{pmatrix} i \\ 1 \end{pmatrix}
+                            </me>.
+                        We can simplify this solution by using Euler's equation
+                            <me>
+                                e^{i \theta} = \cos( \theta ) + i \sin( \theta )
+                            </me>.
+                        Thus 
+                            <me>
+                                \bm{x} = (4-2i) \left( \cos(t) + i\sin(t) \right) \begin{pmatrix} -i \\ 1 \end{pmatrix} + (4+2i) \left( \cos(t) - i \sin(t) \right) \begin{pmatrix} i \\ 1 \end{pmatrix}
+                            </me>,
+                        which simplifies to 
+                            <me>
+                                \bm{x} = \begin{pmatrix} 8 \sin(t) - 4 \cos(t) \\ 8 \cos(t) + 4 \sin(t) \end{pmatrix}
+                            </me>.
+                        This is a real solution! As explained below, because all of the entries in <m>A</m> are real and the initial conditions are real the solution will also be real.
+                    </p>
+
+                    <p>
+                        As shown in <xref ref="Fig-Coupled_DEs_Solutions_Plotted_2"/> where these solutions are graphed, purely complex eigenvalues are associated with periodic solutions. The period of these solutions is <m>\dfrac{2 \pi}{| \operatorname{Im}(\lambda) |}</m>.
+                    </p>
+
+                    <figure xml:id="Fig-Coupled_DEs_Solutions_Plotted_2">
+                        <caption></caption>
+                        <image source="./LinearAlgebra/Images/6/Fig2-solution_curves_plotted_2.png" width="70%"/>
+                    </figure>
+                </solution>
+            </example>
+
+
+
+            <p>
+                Consider the system of coupled linear differential equations
+                    <men xml:id="Eq3-matri_form_for_system_linear_DEs">
+                        \dot{\bm{x}} = A \bm{x}
+                    </men>
+                where the entries in <m>A</m> are all real. Now imagine that this system has a complex solution given by
+                    <men xml:id="Eq4-complex_solution">
+                        \bm{x}(t) = \bm{x}_1(t) + i \bm{x}_2(t)
+                    </men>.
+                Taking the complex conjugates of both sides of <xref ref="Eq3-matri_form_for_system_linear_DEs"/>
+                    <me>
+                        \bar{\dot{\bm{x}}} = \overline{A \bm{x}} = \bar{A} \bar{\bm{x}}
+                    </me>.
+                Since <m>\bar{\dot{\bm{x}}} = \dot{\bar{\bm{x}}}</m> and <m>\bar{A} = A</m> (as the entries in <m>A</m> are all real),
+                    <me>
+                        \dot{\bar{\bm{x}}} = A \bar{\bm{x}}
+                    </me>
+                i.e.
+                    <men xml:id="Eq5-complex_conjugate_solution">   
+                        \bar{\bm{x}}(t) = \bm{x}_1(t) - i \bm{x}_2 (t)
+                    </men>
+                will also be a solution to <xref ref="Eq3-matri_form_for_system_linear_DEs"/>. Substituting <xref ref="Eq4-complex_solution"/> into <xref ref="Eq3-matri_form_for_system_linear_DEs"/> gives
+                    <men xml:id="Eq6-substituting_4_into_3">
+                        \dot{\bm{x}}_1 + i \dot{\bm{x}}_2 = A \bm{x}_1 + i A \bm{x}_2
+                    </men>
+                while substituting <xref ref="Eq5-complex_conjugate_solution"/> into <xref ref="Eq3-matri_form_for_system_linear_DEs"/> gives
+                    <men xml:id="Eq7-substituting_5_into_3">
+                        \dot{\bm{x}}_1 - i \dot{\bm{x}}_2 = A \bm{x}_1 - i A \bm{x}_2
+                    </men>.
+                Now, adding equations <xref ref="Eq6-substituting_4_into_3"/> and <xref ref="Eq7-substituting_5_into_3"/> gives
+                    <me>
+                        \dot{\bm{x}}_1 = A \bm{x}_1
+                    </me>,
+                while subtracting <xref ref="Eq7-substituting_5_into_3"/> from <xref ref="Eq6-substituting_4_into_3"/> gives
+                    <me>
+                        \dot{\bm{x}}_2 = A \bm{x}_2
+                    </me>
+                Thus if we have a complex solution to <xref ref="Eq3-matri_form_for_system_linear_DEs"/> then both the real and imaginary parts of this complex solution must separately be solutions and hence a general solution to <xref ref="Eq3-matri_form_for_system_linear_DEs"/> is
+                    <me>
+                        \bm{x}(t) = C_1 \bm{x}_1(t) + C_2 \bm{x}_2(t)
+                    </me>.
+                This gives us another way of proceeding when the eigenvalues of <m>A</m> are complex.
+            </p>
+
+
+            <example>
+                <statement>
+                    <p>
+                        Find the general solution to 
+                            <me>
+                                \dot{\bm{x}} = A \bm{x}, \: A = 
+                                \begin{pmatrix} 1 \amp -5 \\ 2 \amp 3 \end{pmatrix}
+                            </me>.
+                    </p>
+                </statement>
+
+                <solution>
+                    <p>
+                        Here the eigenvalues of <m>A</m> are complex with <m>\lambda_1 = 2+3i</m> and <m>\lambda_2 = 2-3i</m>. The eigenvector associated with <m>\lambda_1</m> is <m>\bm{v}_1 = \begin{pmatrix} -5 \\ 1+3i \end{pmatrix}</m>. Thus, one solution to the system is 
+                            <me>
+                                \bm{x} = e^{(2+3i)t} \begin{pmatrix} -5 \\ 1+3i \end{pmatrix}
+                            </me>.
+                        Simplifying this solution using Euler’s equation gives
+                            <me>
+                                \bm{x} = e^{2t} \left \{ \begin{pmatrix} -5\cos(3t) \\ \cos(3t) - 3 \sin(3t) \end{pmatrix} + i \begin{pmatrix} -5\sin(3t) \\ \sin(3t) + 3\cos(3t) \end{pmatrix} \right \}
+                            </me>.
+                        Since we know that both the real part and the imaginary part are solutions to the system we know that the general solution is
+                            <me>
+                                \bm{x} = C_1 e^{2t} \begin{pmatrix} -5\cos(3t) \\ \cos(3t) - 3 \sin(3t) \end{pmatrix} + C_2 e^{2t} \begin{pmatrix} -5\sin(3t) \\ \sin(3t) + 3\cos(3t) \end{pmatrix}
+                            </me>. 
+                        <xref ref="Fig-Coupled_DEs_Solutions_Plotted_3"/> shows a plot of this solution when <m>C_1 = C_2 = 1</m>.
+                    </p>
+
+                    <figure xml:id="Fig-Coupled_DEs_Solutions_Plotted_3">
+                        <caption></caption>
+                        <image source="./LinearAlgebra/Images/6/Fig3-solution_curves_plotted_3.png" width="70%"/>
+                    </figure>
+
+                    <p>
+                        Note the solutions to the system are periodic with the period determined from the imaginary part of the eigenvalue. However, since the real part of the eigenvalue is positive the amplitude of the solutions grows without bound.
+                    </p>
+                </solution>
+            </example>
+
+
+
+            <p>
+                The discussion so far has concentrated on systems of two coupled first-order linear differential equations. However the ideas carry over to systems with more equations. 
+            </p>
+
+            <theorem>
+                <title>General Solution to the System of <m>n</m> Coupled First-Order Linear Differential Equations</title>
+
+                <statement>
+                    Consider the system of n coupled first-order linear differential equations
+                        <me>
+                            \dot{\bm{x}} = A \bm{x}
+                        </me>
+                    where <m>A</m> is a real <m>n \times n</m> matrix with <m>n</m> distinct eigenvalues <m>\lambda_i</m>, <m>i = 1,2,\ldots,n</m>. Then the general solution to this system is 
+                        <me>
+                            \bm{x}(t) = \sum_{i=1}^{n} C_i e^{\lambda_i t} \bm{v}_i
+                        </me> 
+                    where <m>\bm{v}_i</m> is the eigenvector corresponding to eigenvalue <m>\lambda_i</m>. 
+                </statement>
+            </theorem>
+
+
+            <p>
+                A qualitative description of the solutions to the system can be determined from the eigenvalues of <m>A</m>.
+            </p>
+
+
+
+            <remark>
+                <title>Behaviour of Solutions</title>
+                <statement>
+                    <p><ul>
+                        <li>If <m>A</m> has a positive  real eigenvalue then the corresponding solution grows without bound.</li>
+                        <li>If <m>A</m> has a negative  real eigenvalue then the corresponding solution decays.</li>
+                        <li>If <m>A</m> has a zero eigenvalue then the corresponding solution is constant.</li>
+                        <li>If <m>A</m> has a pair of complex conjugate eigenvalues then the corresponding solution oscillates with period <m>2\pi / \operatorname{Im}(\lambda)</m> and with the amplitude either growing <m>(\operatorname{Re}(\lambda) > 0)</m>, decaying <m>(\operatorname{Re}(\lambda) &lt; 0 )</m> or staying the same <m>(\operatorname{Re}(\lambda) = 0)</m>.</li>
+                    </ul></p>
+                </statement>
+            </remark>
+
+
+            <exercises>
+            <title>Example Tasks</title>
+
+                <exercise>
+                    <statement>
+                        <p>
+                            Describe the long term behaviour of the solutions to the system <m>\dot{\bm{x}} = A \bm{x}</m>, where 
+                                <me>
+                                    A = \begin{pmatrix} -1 \amp 2 \amp 3 \\ 0 \amp -2 \amp 4 \\ 0 \amp 0 \amp 0 \end{pmatrix}
+                                </me>.
+                        </p>
+                    </statement>
+                </exercise>
+
+            </exercises>
+
+        </section>
+<!-- =================================================================================================== -->
+</chapter>

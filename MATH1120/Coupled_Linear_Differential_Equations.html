@@ -1,0 +1,501 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-12-08T21:43:50+11:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Coupled Linear Differential Equations</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    useLabelIds: true,
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext.js"></script><script xmlns:svg="http://www.w3.org/2000/svg">miniversion=0.6</script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script xmlns:svg="http://www.w3.org/2000/svg">sagecellEvalName='Evaluate (Sage)';
+</script><link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/colors_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link xmlns:svg="http://www.w3.org/2000/svg" href="developer.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div xmlns:svg="http://www.w3.org/2000/svg" id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\bm}[1]{\boldsymbol{#1}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="MATH1120-Course-Notes.html"><span class="title">MATH1120:</span> <span class="subtitle">Mathematics for Engineering, Science and Technology 2</span></a></h1>
+<p class="byline"></p>
+</div>
+</div></div>
+<nav xmlns:svg="http://www.w3.org/2000/svg" id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="Powers_of_Matrices.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="Linear_Algebra_6.html" title="Up">Up</a><span id="nextbutton" class="next-button button toolbar-item disabled">Next</span></span></div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="Powers_of_Matrices.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="Linear_Algebra_6.html" title="Up">Up</a><span class="next-button button toolbar-item disabled">Next</span>
+</div>
+</div></nav></header><div class="page">
+<div xmlns:svg="http://www.w3.org/2000/svg" id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link part"><a href="Part-Calculus.html" data-scroll="Part-Calculus"><span class="codenumber">I</span> <span class="title">Calculus</span></a></li>
+<li class="link">
+<a href="Chap-Calculus_1.html" data-scroll="Chap-Calculus_1"><span class="codenumber">1</span> <span class="title">Maclaurin Series</span></a><ul>
+<li><a href="Sec-Introduction.html" data-scroll="Sec-Introduction">Introduction</a></li>
+<li><a href="Sec-Infinite_Series.html" data-scroll="Sec-Infinite_Series">Infinite Series</a></li>
+<li><a href="Sec-Maclaurin_Series.html" data-scroll="Sec-Maclaurin_Series">Maclaurin Series</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Calculus_2.html" data-scroll="Calculus_2"><span class="codenumber">2</span> <span class="title">Taylor Series</span></a><ul>
+<li><a href="Generating-New-Series-from-Known-Series.html" data-scroll="Generating-New-Series-from-Known-Series">Generating New Series from Known Series</a></li>
+<li><a href="Taylor_Series.html" data-scroll="Taylor_Series">Taylor Series</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Calculus_3.html" data-scroll="Calculus_3"><span class="codenumber">3</span> <span class="title">Functions of Several Variables</span></a><ul>
+<li><a href="functions-of-two-variables.html" data-scroll="functions-of-two-variables">Functions of Two Variables</a></li>
+<li><a href="level-curves.html" data-scroll="level-curves">Level Curves</a></li>
+<li><a href="surfaces-of-revolution.html" data-scroll="surfaces-of-revolution">Surfaces of Revolution</a></li>
+<li><a href="functions-of-3-or-more-variables.html" data-scroll="functions-of-3-or-more-variables">Functions of 3 (or more) Variables</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Chap-Calculus_4.html" data-scroll="Chap-Calculus_4"><span class="codenumber">4</span> <span class="title">Partial Differentiation</span></a><ul>
+<li><a href="Sec-Partial_Differentiation.html" data-scroll="Sec-Partial_Differentiation">Partial Differentiation</a></li>
+<li><a href="Sec-Higher_Partial_Derivatives.html" data-scroll="Sec-Higher_Partial_Derivatives">Higher Partial Derivatives</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Chap-Calculus_5.html" data-scroll="Chap-Calculus_5"><span class="codenumber">5</span> <span class="title">Linear Approximations</span></a><ul>
+<li><a href="Sec-Tangent_Planes.html" data-scroll="Sec-Tangent_Planes">Tangent Planes</a></li>
+<li><a href="Sec-Linear_Approximations.html" data-scroll="Sec-Linear_Approximations">Linear Approximations</a></li>
+<li><a href="Quadratic-Approximations.html" data-scroll="Quadratic-Approximations">Quadratic Approximations</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Calculus_6.html" data-scroll="Calculus_6"><span class="codenumber">6</span> <span class="title">The Directional Derivative</span></a><ul>
+<li><a href="Directional-Derivatives.html" data-scroll="Directional-Derivatives">Directional Derivatives</a></li>
+<li><a href="In_Three_Variables.html" data-scroll="In_Three_Variables">In Three Variables</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Calculus_7.html" data-scroll="Calculus_7"><span class="codenumber">7</span> <span class="title">Local and Global Extrema</span></a><ul>
+<li><a href="Critical-Points.html" data-scroll="Critical-Points">Critical Points</a></li>
+<li><a href="Second-Derivative-Test.html" data-scroll="Second-Derivative-Test">Second Derivative Test</a></li>
+<li><a href="Global-Extrema.html" data-scroll="Global-Extrema">Global Extrema</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Chap-Calculus_8.html" data-scroll="Chap-Calculus_8"><span class="codenumber">8</span> <span class="title">Chain Rules</span></a><ul>
+<li><a href="Sec-The_single_variable_chain_rule.html" data-scroll="Sec-The_single_variable_chain_rule">The Single Variable Chain Rule</a></li>
+<li><a href="Sec-Multivariable-chain-rules.html" data-scroll="Sec-Multivariable-chain-rules">Multivariable Chain Rules</a></li>
+<li><a href="section-22.html" data-scroll="section-22">Implicit Differentiation</a></li>
+</ul>
+</li>
+<li class="link part"><a href="Part-Differenial_Equations.html" data-scroll="Part-Differenial_Equations"><span class="codenumber">II</span> <span class="title">Differential Equations</span></a></li>
+<li class="link">
+<a href="Differential_Equations_1.html" data-scroll="Differential_Equations_1"><span class="codenumber">9</span> <span class="title">Introduction</span></a><ul>
+<li><a href="introduction.html" data-scroll="introduction">Introduction</a></li>
+<li><a href="direction-fields-and-eulers-method.html" data-scroll="direction-fields-and-eulers-method">Direction Fields and Euler's Method</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Differential_Equations_2.html" data-scroll="Differential_Equations_2"><span class="codenumber">10</span> <span class="title">First Order Separable DEs</span></a><ul>
+<li><a href="Sec-First_Order_Separable_DEs.html" data-scroll="Sec-First_Order_Separable_DEs">First Order Separable DEs</a></li>
+<li><a href="Sec-Some-Simple-Applications-of-First-Order-Separable-DEs.html" data-scroll="Sec-Some-Simple-Applications-of-First-Order-Separable-DEs">Some Simple Applications of First Order Separable DEs</a></li>
+<li><a href="appendix-1.html" data-scroll="appendix-1">Partial Fraction Decomposition</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Differential_Equations_3.html" data-scroll="Differential_Equations_3"><span class="codenumber">11</span> <span class="title">First Order Linear DEs</span></a><ul>
+<li><a href="Exact_First_Order_DEs.html" data-scroll="Exact_First_Order_DEs">Exact First Order DEs</a></li>
+<li><a href="First_Order_Linear_DEs.html" data-scroll="First_Order_Linear_DEs">First Order Linear DEs</a></li>
+<li><a href="Simple_Applications_of_First_Order_Linear_DEs.html" data-scroll="Simple_Applications_of_First_Order_Linear_DEs">Some Simple Applications of First Order Linear DEs</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Differential_Equations_4.html" data-scroll="Differential_Equations_4"><span class="codenumber">12</span> <span class="title">Homogeneous Second Order Linear DEs</span></a><ul><li><a href="Homogeneous_Second_Order_Linear_DEs_With_Constant_Coefficients.html" data-scroll="Homogeneous_Second_Order_Linear_DEs_With_Constant_Coefficients">Homogeneous Second Order Linear DEs With Constant Coefficients</a></li></ul>
+</li>
+<li class="link">
+<a href="Differential_Equations_5.html" data-scroll="Differential_Equations_5"><span class="codenumber">13</span> <span class="title">Non-Homogeneous Second Order Linear DEs</span></a><ul>
+<li><a href="Non-Homogeneous_First_Order_Linear_DEs.html" data-scroll="Non-Homogeneous_First_Order_Linear_DEs">Non-Homogeneous First Order Linear DEs</a></li>
+<li><a href="The_Method_of_Undetermined_Coefficients.html" data-scroll="The_Method_of_Undetermined_Coefficients">The Method of Undetermined Coefficients</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Differential_Equations_6.html" data-scroll="Differential_Equations_6"><span class="codenumber">14</span> <span class="title">An Application of Second Order Linear DEs with Constant Coefficients</span></a><ul>
+<li><a href="A_Simple_Model.html" data-scroll="A_Simple_Model">A Simple Model</a></li>
+<li><a href="Adding_Damping.html" data-scroll="Adding_Damping">Adding Damping</a></li>
+<li><a href="Adding_an_External_Force.html" data-scroll="Adding_an_External_Force">Adding an External Force</a></li>
+</ul>
+</li>
+<li class="link part"><a href="Part-Linear_Algebra.html" data-scroll="Part-Linear_Algebra"><span class="codenumber">III</span> <span class="title">Linear Algebra</span></a></li>
+<li class="link">
+<a href="Linear_Algebra_1.html" data-scroll="Linear_Algebra_1"><span class="codenumber">15</span> <span class="title">Systems of Linear Equations</span></a><ul>
+<li><a href="Sec-LA_Introduction.html" data-scroll="Sec-LA_Introduction">Introduction</a></li>
+<li><a href="Sec-LA_Matrices_and_Systems_of_Linear_Equations.html" data-scroll="Sec-LA_Matrices_and_Systems_of_Linear_Equations">Matrices and Systems of Linear Equations</a></li>
+<li><a href="Sec-LA_Solving_Systems_of_Linear_Equations.html" data-scroll="Sec-LA_Solving_Systems_of_Linear_Equations">Solving Systems of Linear Equations</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Linear_Algebra__2.html" data-scroll="Linear_Algebra__2"><span class="codenumber">16</span> <span class="title">Geometric Interpretations of Linear Equations</span></a><ul>
+<li><a href="Interpretation_Via_Rows.html" data-scroll="Interpretation_Via_Rows">Interpretation Via Rows</a></li>
+<li><a href="Interpretation_Via_Columns.html" data-scroll="Interpretation_Via_Columns">Interpretation Via Columns</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Chap-Linear_Algebra_3.html" data-scroll="Chap-Linear_Algebra_3"><span class="codenumber">17</span> <span class="title">Matrix Algebra</span></a><ul>
+<li><a href="Sec-Linear_Algebra_Intro.html" data-scroll="Sec-Linear_Algebra_Intro">Introduction</a></li>
+<li><a href="Sec-Addition_and_Scalar_Multiplication.html" data-scroll="Sec-Addition_and_Scalar_Multiplication">Addition and Scalar Multiplication</a></li>
+<li><a href="Sec-Matrix_multiplication.html" data-scroll="Sec-Matrix_multiplication">Matrix Multiplication</a></li>
+<li><a href="Sec-Matrices_and_Systems_of_Linear_Equations.html" data-scroll="Sec-Matrices_and_Systems_of_Linear_Equations">Matrices and Systems of Linear Equations</a></li>
+<li><a href="Sec-Linear_transformations.html" data-scroll="Sec-Linear_transformations">Linear Transformations</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Linear_Algebra_4.html" data-scroll="Linear_Algebra_4"><span class="codenumber">18</span> <span class="title">Square Matrices</span></a><ul>
+<li><a href="Inverse_Matrices.html" data-scroll="Inverse_Matrices">Inverse Matrices</a></li>
+<li><a href="Determinants.html" data-scroll="Determinants">Determinants</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Linear_Algebra_5.html" data-scroll="Linear_Algebra_5"><span class="codenumber">19</span> <span class="title">Eigenvalues and Eigenvectors</span></a><ul>
+<li><a href="Sec-LA_5_Introduction.html" data-scroll="Sec-LA_5_Introduction">Introduction</a></li>
+<li><a href="Sec-LA_5_Finding_Eigenvalues_and_Eigenvectors.html" data-scroll="Sec-LA_5_Finding_Eigenvalues_and_Eigenvectors">Finding Eigenvalues and Eigenvectors</a></li>
+<li><a href="Sec-LA_5_A_Simple_Application.html" data-scroll="Sec-LA_5_A_Simple_Application">A Simple Application</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Linear_Algebra_6.html" data-scroll="Linear_Algebra_6"><span class="codenumber">20</span> <span class="title">Some Applications of Eigenvalues and Eigenvectors</span></a><ul>
+<li><a href="Powers_of_Matrices.html" data-scroll="Powers_of_Matrices">Powers of Matrices</a></li>
+<li><a href="Coupled_Linear_Differential_Equations.html" data-scroll="Coupled_Linear_Differential_Equations" class="active">Coupled Linear Differential Equations</a></li>
+</ul>
+</li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="Coupled_Linear_Differential_Equations"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">20.2</span> <span class="title">Coupled Linear Differential Equations</span>
+</h2>
+<p id="p-1177">Recall that the linear differential equation</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\dfrac{dx}{dt} = ax, \, \, a \in \mathbb{R}\text{,}
+\end{equation*}
+</div>
+<p class="continuation">has the solution (via separation of variables)</p>
+<div class="displaymath process-math">
+\begin{equation*}
+x(t) = C e^{at}\text{,}
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(C\)</span> is an arbitrary constant. Consider now the system of two linear differential equations</p>
+<div class="displaymath process-math">
+\begin{align*}
+\dot{x}_1 \amp = \dfrac{dx_1}{dt} = ax_1 + bx_2\\
+\dot{x}_2 \amp = \dfrac{dx_2}{dt} = cx_1 + dx_2
+\end{align*}
+</div>
+<p class="continuation">where <span class="process-math">\(a, \, b, \, c, \, d \in \mathbb{R}\text{,}\)</span> which can be written in matrix notation as</p>
+<div class="displaymath process-math">
+\begin{equation}
+\dot{\bm{x}} = A \bm{x}\label{Eq-matrix_form_coupled_linear_DEs}\tag{20.2.1}
+\end{equation}
+</div>
+<p class="continuation">where <span class="process-math">\(\bm{x} = \begin{pmatrix} x_1 \\ x_2 \end{pmatrix}\text{,}\)</span> <span class="process-math">\(\dot{\bm{x}} = \begin{pmatrix} \dot{x}_1 \\ \dot{x}_2 \end{pmatrix}\)</span> and <span class="process-math">\(A = \begin{pmatrix} a \amp b \\ c \amp d \end{pmatrix}\text{.}\)</span> These equations are “coupled”, i.e. the derivative of <span class="process-math">\(x_1(t)\)</span> depends on both <span class="process-math">\(x_1(t)\)</span> and <span class="process-math">\(x_2(t)\)</span> and likewise for the derivative of <span class="process-math">\(x_2(t)\text{.}\)</span> Thus we can’t solve the first equation unless we can solve the second and vice versa. Note that if <span class="process-math">\(A\)</span> is diagonal then the equations become uncoupled and we could solve each separately.</p>
+<p id="p-1178">If the matrix <span class="process-math">\(A\)</span> has 2 distinct eigenvalues, <span class="process-math">\(\lambda_1\)</span> and <span class="process-math">\(\lambda_2\text{,}\)</span> by making the change of variable <span class="process-math">\(\bm{y} = P^{-1} \bm{x}\text{,}\)</span> where <span class="process-math">\(P\)</span> is the matrix whose columns are the eigenvectors <span class="process-math">\(\bm{v}_1\)</span> and <span class="process-math">\(\bm{v}_2\)</span> of <span class="process-math">\(A\text{,}\)</span> we can transform Equation <a href="" class="xref" data-knowl="./knowl/Eq-matrix_form_coupled_linear_DEs.html" title="Equation 20.2.1">(20.2.1)</a> into a system where the matrix is diagonal. By solving that system and converting back to our original variables we find that the general solution to Equation <a href="" class="xref" data-knowl="./knowl/Eq-matrix_form_coupled_linear_DEs.html" title="Equation 20.2.1">(20.2.1)</a> is</p>
+<div class="displaymath process-math">
+\begin{equation}
+\bm{x} = C_1 e^{\lambda_1 t} \bm{v}_1 + C_2 e^{\lambda_2 t} \bm{v}_2\label{Eq-general_solution_coupled_linear_DEs}\tag{20.2.2}
+\end{equation}
+</div>
+<p class="continuation">where <span class="process-math">\(C_1\)</span> and <span class="process-math">\(C_2\)</span> are arbitrary constants. We can check that <a href="" class="xref" data-knowl="./knowl/Eq-general_solution_coupled_linear_DEs.html" title="Equation 20.2.2">(20.2.2)</a> is indeed a solution to <a href="" class="xref" data-knowl="./knowl/Eq-matrix_form_coupled_linear_DEs.html" title="Equation 20.2.1">(20.2.1)</a>. From <a href="" class="xref" data-knowl="./knowl/Eq-general_solution_coupled_linear_DEs.html" title="Equation 20.2.2">(20.2.2)</a></p>
+<div class="displaymath process-math">
+\begin{equation*}
+\bm{x} = C_1 \lambda_1 e^{\lambda_1 t} \bm{v}_1 + C_2 \lambda_2 e^{\lambda_2 t} \bm{v}_2
+\end{equation*}
+</div>
+<p class="continuation">and</p>
+<div class="displaymath process-math">
+\begin{align*}
+A \bm{x} \amp = A \left( C_1 e^{\lambda_1 t} \bm{v}_1 + C_2 e^{\lambda_2 t} \bm{v}_2 \right)\\
+\amp = C_1 e^{\lambda_1 t} A \bm{v}_1 + C_2 e^{\lambda_2 t} A \bm{v}_2\\
+\amp = C_1 e^{\lambda_1 t} \lambda_1 \bm{v}_1 + C_2 e^{\lambda_2 t} \lambda_2 \bm{v}_2\text{.}
+\end{align*}
+</div>
+<article class="example example-like" id="example-195"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-195"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">20.2.1</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-195"><article class="example example-like"><p id="p-1179">Find the solution to the initial value problem</p>
+<div class="displaymath process-math">
+\begin{align*}
+\dfrac{dx_1}{dt} \amp = x_1 + 2x_2\\
+\dfrac{dx_2}{dt} \amp = 2x_1 + x_2\text{,}
+\end{align*}
+</div>
+<p class="continuation">where <span class="process-math">\(x_1(0) = 2\)</span> and <span class="process-math">\(x_2(0) = 3\text{.}\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-160" id="solution-160"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-160"><div class="solution solution-like">
+<p id="p-1180">In matrix notation this system is</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\dot{\bm{x}} = \begin{pmatrix} 1 \amp 2 \\ 2 \amp 1 \end{pmatrix} \bm{x}, \quad \bm{x}(0) = \begin{pmatrix} 2 \\ 3 \end{pmatrix}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">The eigenvalues of <span class="process-math">\(\begin{pmatrix} 1 \amp 2 \\ 2 \amp 1 \end{pmatrix}\)</span> turn out to be <span class="process-math">\(\lambda_1 = -1\)</span> and <span class="process-math">\(\lambda_2 = 3\)</span> with associated eigenvectors <span class="process-math">\(\bm{v}_1 = \begin{pmatrix} 1 \\ -1 \end{pmatrix}\)</span> and <span class="process-math">\(\bm{v}_2 = \begin{pmatrix} 1 \\ 1 \end{pmatrix}\text{.}\)</span> Thus, from <a href="" class="xref" data-knowl="./knowl/Eq-general_solution_coupled_linear_DEs.html" title="Equation 20.2.2">(20.2.2)</a> the general solution is</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\bm{x} = C_1 e^{-t} \begin{pmatrix} 1 \\ -1 \end{pmatrix} + C_2 e^{3t} \begin{pmatrix} 1 \\ 1 \end{pmatrix}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">From the initial conditions we have</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{pmatrix} 2 \\ 3 \end{pmatrix} = C_1 \begin{pmatrix} 1 \\ -1 \end{pmatrix} + C_2 \begin{pmatrix} 1 \\ 1 \end{pmatrix}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Solving this system of linear equations (by Gauss-Jordan elimination say) gives</p>
+<div class="displaymath process-math">
+\begin{equation*}
+C_1 = -\dfrac{1}{2} \, \text{ and } \, C_2 = \dfrac{5}{2}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Thus, the solution to the initial value problem is</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\bm{x} = \dfrac{5}{2} e^{3t} \begin{pmatrix} 1 \\ 1 \end{pmatrix} - \dfrac{1}{2} e^{-t} \begin{pmatrix} 1 \\ -1 \end{pmatrix}
+\end{equation*}
+</div>
+<p class="continuation">or equivalently</p>
+<div class="displaymath process-math">
+\begin{align*}
+x_1(t) \amp = \dfrac{5}{2} e^{3t} - \dfrac{1}{2} e^{-t}\\
+x_2(t) \amp = \dfrac{5}{2} e^{3t} + \dfrac{1}{2} e^{-t}
+\end{align*}
+</div>
+<p id="p-1181">Note that you can always check your answer by checking that the functions do indeed satisfy the original equations.</p>
+<p id="p-1182"><a href="" class="xref" data-knowl="./knowl/Fig-Coupled_DEs_Solutions_Plotted.html" title="Figure 20.2.2">Figure 20.2.2</a> shows the graph of these solutions. Notice that as <span class="process-math">\(t\)</span> gets larger because of the <span class="process-math">\(e^{-t}\)</span> term in each solution the functions get closer together and because of the <span class="process-math">\(e^{3t}\)</span> term both solutions grow (exponentially). Thus the eigenvalues of the matrix <span class="process-math">\(A\)</span> will give us some idea of the qualitative nature of the solutions.</p>
+<figure class="figure figure-like" id="Fig-Coupled_DEs_Solutions_Plotted"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="./LinearAlgebra/Images/6/Fig1-solution_curves_plotted.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">20.2.2<span class="period">.</span></span><span class="space"> </span></figcaption></figure>
+</div></div>
+</div></article></div>
+<article class="example example-like" id="example-196"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-196"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">20.2.3</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-196"><article class="example example-like"><p id="p-1183">Solve the initial value problem</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\dot{\bm{x}} = A \bm{x}, \: A = 
+\begin{pmatrix} 0 \amp 1 \\ -1 \amp 0 \end{pmatrix}, \: \bm{x}(0) = 
+\begin{pmatrix} -4 \\ 8 \end{pmatrix}\text{.}
+\end{equation*}
+</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-161" id="solution-161"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-161"><div class="solution solution-like">
+<p id="p-1184">The eigenvalues of <span class="process-math">\(A\)</span> turn out to be purely complex with <span class="process-math">\(\lambda_1 = i\)</span> and <span class="process-math">\(\lambda_2 = -i\text{.}\)</span> The associated eigenvectors are <span class="process-math">\(\bm{v}_1 = \begin{pmatrix} -i \\ 1 \end{pmatrix}\)</span> and <span class="process-math">\(\bm{v}_2 = \begin{pmatrix} i \\ 1 \end{pmatrix}\text{.}\)</span> Thus, from <a href="" class="xref" data-knowl="./knowl/Eq-general_solution_coupled_linear_DEs.html" title="Equation 20.2.2">(20.2.2)</a> the general solution is</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\bm{x} = C_1 e^{it} \begin{pmatrix} -i \\ 1 \end{pmatrix} + C_2 e^{-it} \begin{pmatrix} i \\ 1 \end{pmatrix}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">From the initial conditions we have</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{pmatrix} -4 \\ 8 \end{pmatrix} = C_1 \begin{pmatrix} -i \\ 1 \end{pmatrix} + C_2 \begin{pmatrix} i \\ 1 \end{pmatrix}\text{,}
+\end{equation*}
+</div>
+<p class="continuation">which upon solving gives</p>
+<div class="displaymath process-math">
+\begin{equation*}
+C_1 = 4-2i \, \text{ and } \, C_2 = 4+2i\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Thus, the solution to the initial value problem is</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\bm{x} = (4-2i) e^{it} \begin{pmatrix} -i \\ 1 \end{pmatrix} + (4-2i) e^{-it} \begin{pmatrix} i \\ 1 \end{pmatrix}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">We can simplify this solution by using Euler's equation</p>
+<div class="displaymath process-math">
+\begin{equation*}
+e^{i \theta} = \cos( \theta ) + i \sin( \theta )\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Thus</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\bm{x} = (4-2i) \left( \cos(t) + i\sin(t) \right) \begin{pmatrix} -i \\ 1 \end{pmatrix} + (4+2i) \left( \cos(t) - i \sin(t) \right) \begin{pmatrix} i \\ 1 \end{pmatrix}\text{,}
+\end{equation*}
+</div>
+<p class="continuation">which simplifies to</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\bm{x} = \begin{pmatrix} 8 \sin(t) - 4 \cos(t) \\ 8 \cos(t) + 4 \sin(t) \end{pmatrix}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">This is a real solution! As explained below, because all of the entries in <span class="process-math">\(A\)</span> are real and the initial conditions are real the solution will also be real.</p>
+<p id="p-1185">As shown in <a href="" class="xref" data-knowl="./knowl/Fig-Coupled_DEs_Solutions_Plotted_2.html" title="Figure 20.2.4">Figure 20.2.4</a> where these solutions are graphed, purely complex eigenvalues are associated with periodic solutions. The period of these solutions is <span class="process-math">\(\dfrac{2 \pi}{| \operatorname{Im}(\lambda) |}\text{.}\)</span></p>
+<figure class="figure figure-like" id="Fig-Coupled_DEs_Solutions_Plotted_2"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="./LinearAlgebra/Images/6/Fig2-solution_curves_plotted_2.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">20.2.4<span class="period">.</span></span><span class="space"> </span></figcaption></figure>
+</div></div>
+</div></article></div>
+<p id="p-1186">Consider the system of coupled linear differential equations</p>
+<div class="displaymath process-math">
+\begin{equation}
+\dot{\bm{x}} = A \bm{x}\label{Eq3-matri_form_for_system_linear_DEs}\tag{20.2.3}
+\end{equation}
+</div>
+<p class="continuation">where the entries in <span class="process-math">\(A\)</span> are all real. Now imagine that this system has a complex solution given by</p>
+<div class="displaymath process-math">
+\begin{equation}
+\bm{x}(t) = \bm{x}_1(t) + i \bm{x}_2(t)\text{.}\label{Eq4-complex_solution}\tag{20.2.4}
+\end{equation}
+</div>
+<p class="continuation">Taking the complex conjugates of both sides of <a href="" class="xref" data-knowl="./knowl/Eq3-matri_form_for_system_linear_DEs.html" title="Equation 20.2.3">(20.2.3)</a></p>
+<div class="displaymath process-math">
+\begin{equation*}
+\bar{\dot{\bm{x}}} = \overline{A \bm{x}} = \bar{A} \bar{\bm{x}}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Since <span class="process-math">\(\bar{\dot{\bm{x}}} = \dot{\bar{\bm{x}}}\)</span> and <span class="process-math">\(\bar{A} = A\)</span> (as the entries in <span class="process-math">\(A\)</span> are all real),</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\dot{\bar{\bm{x}}} = A \bar{\bm{x}}
+\end{equation*}
+</div>
+<p class="continuation">i.e.</p>
+<div class="displaymath process-math">
+\begin{equation}
+\bar{\bm{x}}(t) = \bm{x}_1(t) - i \bm{x}_2 (t)\label{Eq5-complex_conjugate_solution}\tag{20.2.5}
+\end{equation}
+</div>
+<p class="continuation">will also be a solution to <a href="" class="xref" data-knowl="./knowl/Eq3-matri_form_for_system_linear_DEs.html" title="Equation 20.2.3">(20.2.3)</a>. Substituting <a href="" class="xref" data-knowl="./knowl/Eq4-complex_solution.html" title="Equation 20.2.4">(20.2.4)</a> into <a href="" class="xref" data-knowl="./knowl/Eq3-matri_form_for_system_linear_DEs.html" title="Equation 20.2.3">(20.2.3)</a> gives</p>
+<div class="displaymath process-math">
+\begin{equation}
+\dot{\bm{x}}_1 + i \dot{\bm{x}}_2 = A \bm{x}_1 + i A \bm{x}_2\label{Eq6-substituting_4_into_3}\tag{20.2.6}
+\end{equation}
+</div>
+<p class="continuation">while substituting <a href="" class="xref" data-knowl="./knowl/Eq5-complex_conjugate_solution.html" title="Equation 20.2.5">(20.2.5)</a> into <a href="" class="xref" data-knowl="./knowl/Eq3-matri_form_for_system_linear_DEs.html" title="Equation 20.2.3">(20.2.3)</a> gives</p>
+<div class="displaymath process-math">
+\begin{equation}
+\dot{\bm{x}}_1 - i \dot{\bm{x}}_2 = A \bm{x}_1 - i A \bm{x}_2\text{.}\label{Eq7-substituting_5_into_3}\tag{20.2.7}
+\end{equation}
+</div>
+<p class="continuation">Now, adding equations <a href="" class="xref" data-knowl="./knowl/Eq6-substituting_4_into_3.html" title="Equation 20.2.6">(20.2.6)</a> and <a href="" class="xref" data-knowl="./knowl/Eq7-substituting_5_into_3.html" title="Equation 20.2.7">(20.2.7)</a> gives</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\dot{\bm{x}}_1 = A \bm{x}_1\text{,}
+\end{equation*}
+</div>
+<p class="continuation">while subtracting <a href="" class="xref" data-knowl="./knowl/Eq7-substituting_5_into_3.html" title="Equation 20.2.7">(20.2.7)</a> from <a href="" class="xref" data-knowl="./knowl/Eq6-substituting_4_into_3.html" title="Equation 20.2.6">(20.2.6)</a> gives</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\dot{\bm{x}}_2 = A \bm{x}_2
+\end{equation*}
+</div>
+<p class="continuation">Thus if we have a complex solution to <a href="" class="xref" data-knowl="./knowl/Eq3-matri_form_for_system_linear_DEs.html" title="Equation 20.2.3">(20.2.3)</a> then both the real and imaginary parts of this complex solution must separately be solutions and hence a general solution to <a href="" class="xref" data-knowl="./knowl/Eq3-matri_form_for_system_linear_DEs.html" title="Equation 20.2.3">(20.2.3)</a> is</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\bm{x}(t) = C_1 \bm{x}_1(t) + C_2 \bm{x}_2(t)\text{.}
+\end{equation*}
+</div>
+<p class="continuation">This gives us another way of proceeding when the eigenvalues of <span class="process-math">\(A\)</span> are complex.</p>
+<article class="example example-like" id="example-197"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-197"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">20.2.5</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-197"><article class="example example-like"><p id="p-1187">Find the general solution to</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\dot{\bm{x}} = A \bm{x}, \: A = 
+\begin{pmatrix} 1 \amp -5 \\ 2 \amp 3 \end{pmatrix}\text{.}
+\end{equation*}
+</div>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-162" id="solution-162"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-162"><div class="solution solution-like">
+<p id="p-1188">Here the eigenvalues of <span class="process-math">\(A\)</span> are complex with <span class="process-math">\(\lambda_1 = 2+3i\)</span> and <span class="process-math">\(\lambda_2 = 2-3i\text{.}\)</span> The eigenvector associated with <span class="process-math">\(\lambda_1\)</span> is <span class="process-math">\(\bm{v}_1 = \begin{pmatrix} -5 \\ 1+3i \end{pmatrix}\text{.}\)</span> Thus, one solution to the system is</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\bm{x} = e^{(2+3i)t} \begin{pmatrix} -5 \\ 1+3i \end{pmatrix}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Simplifying this solution using Euler’s equation gives</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\bm{x} = e^{2t} \left \{ \begin{pmatrix} -5\cos(3t) \\ \cos(3t) - 3 \sin(3t) \end{pmatrix} + i \begin{pmatrix} -5\sin(3t) \\ \sin(3t) + 3\cos(3t) \end{pmatrix} \right \}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Since we know that both the real part and the imaginary part are solutions to the system we know that the general solution is</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\bm{x} = C_1 e^{2t} \begin{pmatrix} -5\cos(3t) \\ \cos(3t) - 3 \sin(3t) \end{pmatrix} + C_2 e^{2t} \begin{pmatrix} -5\sin(3t) \\ \sin(3t) + 3\cos(3t) \end{pmatrix}\text{.}
+\end{equation*}
+</div>
+<p class="continuation"><a href="" class="xref" data-knowl="./knowl/Fig-Coupled_DEs_Solutions_Plotted_3.html" title="Figure 20.2.6">Figure 20.2.6</a> shows a plot of this solution when <span class="process-math">\(C_1 = C_2 = 1\text{.}\)</span></p>
+<figure class="figure figure-like" id="Fig-Coupled_DEs_Solutions_Plotted_3"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="./LinearAlgebra/Images/6/Fig3-solution_curves_plotted_3.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">20.2.6<span class="period">.</span></span><span class="space"> </span></figcaption></figure><p id="p-1189">Note the solutions to the system are periodic with the period determined from the imaginary part of the eigenvalue. However, since the real part of the eigenvalue is positive the amplitude of the solutions grows without bound.</p>
+</div></div>
+</div></article></div>
+<p id="p-1190">The discussion so far has concentrated on systems of two coupled first-order linear differential equations. However the ideas carry over to systems with more equations.</p>
+<article class="theorem theorem-like" id="theorem-30"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">20.2.7</span><span class="period">.</span><span class="space"> </span><span class="title">General Solution to the System of <span class="process-math">\(n\)</span> Coupled First-Order Linear Differential Equations.</span>
+</h3>Consider the system of n coupled first-order linear differential equations<div class="displaymath process-math">
+\begin{equation*}
+\dot{\bm{x}} = A \bm{x}
+\end{equation*}
+</div>where <span class="process-math">\(A\)</span> is a real <span class="process-math">\(n \times n\)</span> matrix with <span class="process-math">\(n\)</span> distinct eigenvalues <span class="process-math">\(\lambda_i\text{,}\)</span> <span class="process-math">\(i = 1,2,\ldots,n\text{.}\)</span> Then the general solution to this system is<div class="displaymath process-math">
+\begin{equation*}
+\bm{x}(t) = \sum_{i=1}^{n} C_i e^{\lambda_i t} \bm{v}_i
+\end{equation*}
+</div>where <span class="process-math">\(\bm{v}_i\)</span> is the eigenvector corresponding to eigenvalue <span class="process-math">\(\lambda_i\text{.}\)</span></article><p id="p-1191">A qualitative description of the solutions to the system can be determined from the eigenvalues of <span class="process-math">\(A\text{.}\)</span></p>
+<article class="remark remark-like" id="remark-8"><h3 class="heading">
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">20.2.8</span><span class="period">.</span><span class="space"> </span><span class="title">Behaviour of Solutions.</span>
+</h3>
+<ul id="p-1192" class="disc">
+<li id="li-326"><p id="p-derived-li-326">If <span class="process-math">\(A\)</span> has a positive  real eigenvalue then the corresponding solution grows without bound.</p></li>
+<li id="li-327"><p id="p-derived-li-327">If <span class="process-math">\(A\)</span> has a negative  real eigenvalue then the corresponding solution decays.</p></li>
+<li id="li-328"><p id="p-derived-li-328">If <span class="process-math">\(A\)</span> has a zero eigenvalue then the corresponding solution is constant.</p></li>
+<li id="li-329"><p id="p-derived-li-329">If <span class="process-math">\(A\)</span> has a pair of complex conjugate eigenvalues then the corresponding solution oscillates with period <span class="process-math">\(2\pi / \operatorname{Im}(\lambda)\)</span> and with the amplitude either growing <span class="process-math">\((\operatorname{Re}(\lambda) &gt; 0)\text{,}\)</span> decaying <span class="process-math">\((\operatorname{Re}(\lambda) &lt; 0 )\)</span> or staying the same <span class="process-math">\((\operatorname{Re}(\lambda) = 0)\text{.}\)</span></p></li>
+</ul></article><section class="exercises" id="exercises-42"><h3 class="heading hide-type">
+<span class="type">Exercises</span> <span class="codenumber"></span> <span class="title">Example Tasks</span>
+</h3>
+<article class="exercise exercise-like" id="exercise-109"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<p id="p-1193">Describe the long term behaviour of the solutions to the system <span class="process-math">\(\dot{\bm{x}} = A \bm{x}\text{,}\)</span> where</p>
+<div class="displaymath process-math">
+\begin{equation*}
+A = \begin{pmatrix} -1 \amp 2 \amp 3 \\ 0 \amp -2 \amp 4 \\ 0 \amp 0 \amp 0 \end{pmatrix}\text{.}
+\end{equation*}
+</div></article></section></section></div></main>
+</div>
+</body>
+</html>

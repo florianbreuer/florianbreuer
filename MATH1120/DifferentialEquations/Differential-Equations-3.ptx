@@ -1,0 +1,493 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- =================================================================================================== -->
+<!-- To process this file with xsltproc do                                                        -->
+<!--                                                                                              -->
+<!-- (1) LaTeX/PDF:                                                                               -->
+<!--     xsltproc -o minimal.tex PATH_TO/mathbook/xsl/pretext-latex.xsl source/main.ptx           -->
+<!--     pdflatex minimal.tex                                                                     -->
+<!--     xelatex minimal.tex                                                                      -->
+<!--                                                                                              -->
+<!-- (2) HTML:                                                                                    -->
+<!--     xsltproc PATH_TO/mathbook/xsl/pretext-html.xsl source/main.ptx                           -->
+<!--     <browser>  minimal.html                                                                  -->
+<!--        ~/xsltproc/xsltproc.exe ~/mathbook/xsl/mathbook-html.xsl test.xml                     -->
+<!--                                                                                              -->
+<!-- (3) CoCalc worksheet (parameter causes a single file for output)                             -->
+<!--     REMOVE the "X" in the double dash (which is not legal in an XML comment)                 -->
+<!--     xsltproc -X-stringparam chunk.level 0 PATH_TO/mathbook/xsl/pretext-smc.xsl source/main.ptx   -->
+<!--     <CoCalc> minimal.sagews                                                                  -->
+<!--                                                                                              -->
+<!-- (4) Sage doctesting                                                                          -->
+<!--     REMOVE the "X" in the double dash (which is not legal in an XML comment)                 -->
+<!--     xsltproc -X-stringparam chunk.level 0 PATH_TO/mathbook/xsl/pretext-sage-doctest.xsl source/main.ptx  -->
+<!--     <read further instructions in> minimal.py                                                -->
+<!-- =================================================================================================== -->
+
+<chapter xml:id="Differential_Equations_3">
+
+
+
+<!-- =================================================================================================== -->
+<!-- Title and Other Preliminaries -->
+<!-- =================================================================================================== -->
+        <title>First Order Linear DEs </title>
+
+        <!-- <frontmatter> -->
+
+<!--             <titlepage>
+                <author>
+                    <institution>University of Newcastle</institution>
+                </author>
+                <date><today /></date>
+            </titlepage> -->
+
+            <!-- <abstract>
+                <p>This is a very short article, but it still exercises some advanced features of MathBook XML.</p>
+            </abstract> -->
+
+        <!-- </frontmatter> -->
+
+        <!-- <introduction>
+            <p>This is a short paragraph to introduce the article (but it is not the abstract).  It is optional, in case it would be preferable to have the first section be titled an <q>Introduction.</q></p>
+        </introduction> -->
+<!-- =================================================================================================== -->
+
+
+
+
+<!-- =================================================================================================== -->
+<!-- Section 1: Partial Differentiation -->
+<!-- =================================================================================================== -->
+        <section xml:id="Exact_First_Order_DEs">
+            <title>Exact First Order DEs</title>
+
+            <example xml:id="Ex_1_first_order_de_not_separable">
+                <statement>
+                    <p>Solve the differential equation <men xml:id="Eq1_example_1">x \dfrac{dy}{dx} + y = \sin(x)</men></p>
+                </statement>
+
+                <solution>
+                    <p>This <m>1^{\text{st}}</m> order differential equation is not separable, i.e. it cannot be put into the form <me>\dfrac{dy}{dx} = f(x)g(y)</me>. However it is easily solved once we observe that, for a function <m>y=y(x)</m> (and using the product rule) <me>\dfrac{d}{dx} (xy) = x \dfrac{dy}{dx} + y</me>. Using this observation, equation <xref ref="Eq1_example_1"/> becomes <me>\dfrac{d}{dx} (xy) = \sin(x)</me> and hence, on integrating both sides with respect to <m>x</m>, <me>xy = -\cos(x) + C</me>. Thus the general solution to <xref ref="Eq1_example_1"/> is <me>y(x) = -\dfrac{\cos(x)}{x} + \dfrac{C}{x}</me>.</p>
+                </solution>
+            </example>
+
+            <p>The DE in <xref ref="Ex_1_first_order_de_not_separable"/> is an example of another class of DEs for which we can find a general solution.</p>
+
+            <definition>
+                <title>Exact First Order DE</title>
+                <statement>
+                    <p>A <m>1^{\text{st}}</m> order differential equation of the form <me>\dfrac{d}{dx} \left( F(x,y) \right) = f(x)</me> is called an <em>exact</em> first order DE.</p>
+                </statement>
+            </definition>
+
+            <p>To solve an exact DE we just need to integrate both sides of the equation with respect to <m>x</m>. Sometimes a DE that is not exact can be rearranged so that it is exact.</p>
+
+
+            <example xml:id="Ex_2_exact_firstorderDE">
+                <statement>
+                    <p>Rearrange the following DE so that it is exact <men xml:id="Eq2_example_2">\dfrac{dy}{dx}+\dfrac{y}{x} = \dfrac{\sin(x)}{x}</men>.</p>
+                </statement>
+
+                <solution>
+                    <p>By comparing <xref ref="Eq2_example_2"/> with <xref ref="Eq1_example_1"/> we can see that <xref ref="Eq2_example_2"/> can be made exact by multiplying both sides by <m>x</m>.</p>
+                </solution>
+            </example>
+
+            <p>If a first order DE can be made exact by multiplying both sides by a function <m>f</m>, then <m>f</m> is called an <em>integrating factor</em> for the DE.</p>
+
+
+            <example xml:id="Ex_3_int_factor">
+                <statement>
+                    <p>Show that <m>f(x)=x^4</m> is an integrating factor for the DE <me>\dfrac{dy}{dx} + \dfrac{4}{x} y = x+1</me>.</p>
+                </statement>
+
+                <solution>
+                    <p>If <m>f(x) = x^4</m> is an integrating factor for the DE then multiplying both sides of the equation by <m>f</m> will produce an exact DE. Now
+                    <md>
+                        <mrow>x^4 \left( \dfrac{dy}{dx} + \dfrac{4}{x} y \right) \amp = x^4(x+1)</mrow>
+                        <mrow>x^4 \dfrac{dy}{dx} + 4x^3y \amp = x^5 + x^4</mrow>
+                        <mrow>\dfrac{d}{dx} \left(x^4 y \right) = x^5 + x^4</mrow>
+                    </md>
+                    which is exact.</p>
+
+                    <p>Note: To solve this DE all we have to do now is integrate both sides with respect to <m>x</m>. On doing this we obtain <me>y(x) = \frac{1}{6} x^2 + \frac{1}{5} x + \frac{C}{x^4}</me>.</p>
+                </solution>
+            </example>
+
+
+            <p>Unfortunately, not all first order DEs have an integrating factor. However for an important class of first order DEs, namely first order linear DEs, we can always find an integrating factor. We discuss this class of DEs in the next section.</p>
+
+        </section>
+<!-- =================================================================================================== -->
+
+
+
+
+<!-- =================================================================================================== -->
+<!-- Section 2: First Order Linear DEs -->
+<!-- =================================================================================================== -->
+        <section xml:id="First_Order_Linear_DEs">
+            <title>First Order Linear DEs</title>
+
+            <definition>
+                <title>Linear First Order DE</title>
+                <statement>
+                    <p>A first order DE that can be put into the form <me>y' + P(x) y = Q(x)</me> is called a <em>linear first order DE</em>.</p>
+                </statement>
+            </definition>
+
+
+            <example xml:id="Which_Are_First_Order_Linear_DEs">
+                <statement>
+                    <p>Which of the following DEs are linear?</p>
+                    <p><ol label="a">
+                        <li><m>y' = e^x y</m></li>
+                        <li><m>\dfrac{dy}{dx} = -\dfrac{x}{y+1}</m></li>
+                        <li><m>\sin(x) y' + \cos(x) y = \cos(x)</m></li>
+                        <li><m>y^2 y' + x^2 y =4</m></li>
+                    </ol></p>
+                </statement>
+
+                <solution>
+                    <p><ol label="a">
+                        <li>Since this DE can be rearranged as <me>y' - e^x y = 0</me> it is linear with <m>P(x) = -e^x</m> and <m>Q(x) = 0</m>. Notice that this DE is also separable since it is of the form <m>y' = f(x)g(y)</m>. Here <m>f(x) = e^x</m> and <m>g(y) = y</m>.</li>
+
+                        <li>We cannot rearrange this DE into the form <m>y' + P(x) y = Q(x)</m> and hence it is not linear. It is however separable.</li>
+
+                        <li>Dividing the equation by <m>\sin(x)</m> gives <me>y' + \cot(x) y = \cot(x)</me> and hence this DE is linear with <m>P(x) = \cot(x)</m> and <m>Q(x) = \cot(x)</m>. Notice that this DE is also exact since it can be written as <me>\dfrac{d}{dx} \left( \sin(x) y \right) = \cos(x)</me>. This observation leads to the solution of the DE very efficiently.</li>
+
+                        <li>This DE is not linear. It also isn’t separable nor exact.</li>
+                    </ol></p>
+                </solution>
+            </example>
+
+
+            <p>
+                As illustrated in <xref ref="Which_Are_First_Order_Linear_DEs"/>(c), we can solve a first order linear DE if it is of the form 
+                    <men xml:id = "Eqn-first_order_linear_form">f(x) y' + f'(x) y = g(x)</men>
+                since in this case the DE is already exact. If the DE is not of this form we proceed by looking for an integrating factor, <m>I(x)</m>, for the DE. Remember that multiplying both sides of the DE by an integrating factor makes the equation exact. So, consider the first order linear DE <me>y'+P(x)y = Q(x)</me>.
+            </p>
+
+            <p>
+                Multiplying both sides by the (as yet unknown) function <m>I(x)</m> gives <me>I(x)y' + I(x) P(x)y = I(x) Q(x)</me>. On comparing this to <xref ref="Eqn-first_order_linear_form"/> we can see that this will only be exact if
+                    <men xml:id = "Eqn-int_factor_equation">I'(x) = I(x)P(x)</men>,
+                <xref ref="Eqn-int_factor_equation"/> is itself a first order linear DE for the function <m>I(x)</m>. However it is also separable and so we can solve it via the separation of variables technique. This gives <me>I(x) = A e ^{\int P(x) dx}</me> where here <m>\int P(x) dx</m> refers to any one of the antiderivatives of <m>P(x)</m>. Thus, in theory at least, we can find an entire family of integrating factors for our original DE. It won’t matter which particular integrating factor we use so we usually just take the one with <m>A=1</m>. In summary:
+            </p>
+
+            <algorithm>
+                <title>Solving a First Order Linear DE</title>
+
+                <statement>
+                    <p>
+                        To solve the first order linear DE <me>y' + P(x) y = Q(x)</me>
+                        <ol label="1">
+                            <li>Calculate the integrating factor <me>I(x) = e^{\int P(x) dx}</me></li>
+                            <li>Multiply both sides of the DE by the integrating factor <m>I(x)</m></li>
+                            <li>Solve the resulting exact DE <m>\dfrac{d}{dx} \left(I(x) y \right) = I(x) Q(x)</m></li>
+                        </ol>
+                    </p>
+                </statement>
+            </algorithm>
+
+
+            <example>
+                <statement><p>Solve <m>y' = x+y</m></p></statement>
+
+                <solution>
+                    <p>This first order DE is not separable.  If we rearrange the equation as <me>y'-y = x</me> we can see that the equation is linear with <m>P(x) = -1</m> and <m>Q(x) = x</m>. Thus an integrating factor will be <me>I(x) = e^{\int -1 dx} = e^{-x}</me>.</p>
+
+                    <p>Multiplying both sides of the DE by <m>I(x)</m> gives <me>\dfrac{d}{dx} \left( e^{-x} y \right) = x e^{-x}</me> and hence <me>e^{-x} y = \int xe^{-x} dx</me>.</p>
+
+                    <p>Using integration by parts gives <me>e^{-x} y = -xe^{-x} - e^{-x} + C</me>, and so the general solution is <me>y(x) = Ce^x - x - 1</me>.</p>
+
+                    <p><em>Note:</em> As always we can check our answer by substituting back into the original DE.</p>
+                </solution>
+            </example>
+
+
+            <example>
+                <statement><p>Solve <m>y' + \sin(x)y = \sin(x)</m></p></statement>
+
+                <solution>
+                    <p>
+                        This equation is linear with <m>P(x) = \sin(x)</m> and <m>Q(x) = \sin(x)</m>. Thus an integrating factor will be 
+                            <me>I(x) = e^{\int \sin(x) dx} = e^{-\cos(x)}</me>.
+                        Multiplying both sides of the DE by the integrating factor gives 
+                            <me>\dfrac{d}{dx} \left( e^{-\cos(x)}y \right) = \sin(x) e^{-\cos(x)}</me>,
+                        and hence 
+                            <me>e^{-\cos(x)} y = \int \sin(x) e^{-\cos(x)} dx</me>.
+                        Using integration by substitution gives 
+                            <me>e^{-\cos(x)}y = e^{-\cos(x)} + C</me>.
+                        Thus the general solution is 
+                            <me>y(x) = 1+C e^{\cos(x)}</me>.
+                        Once again we should check that this is indeed a solution by substituting back into the original DE.
+                    </p>
+                </solution>
+            </example>
+
+
+            <example>
+                <statement><p>Solve the initial-value problem <me>xy' = y + 2x^3, \: \, y(1) = 2</me>.</p></statement>
+
+                <solution>
+                    <p>
+                        On rearranging the equation as 
+                            <me>y' - \frac{1}{x} y = 2x^2</me>.
+                        we see that this DE is linear with <m>P(x) = -\frac{1}{x}</m> and <m>Q(x) = 2x^2</m>. Thus an integrating factor will be 
+                            <me>I(x) = e^{\int -x^{-1} dx} = e^{\ln (x^{-1})} = \frac{1}{x}</me>.
+                        Multiplying both sides by <m>I(x)</m> gives 
+                            <me>\dfrac{d}{dx} \left( \dfrac{1}{x} y \right) = 2x</me>,
+                        and hence 
+                            <me>\dfrac{1}{x} y = x^2 + C</me>.
+                        Thus the general solution is 
+                            <me>y(x) = x^3 + Cx</me>.
+                        Using the initial condition <m>y(1) = 2</m> gives
+                            <me>2 = 1^3 +1 \cdot C</me>
+                        and so the solution to the initial-value problem is
+                            <me>y(x) = x^3 + x</me>.
+                    </p>
+                </solution>
+            </example>
+
+
+
+            <exercises>
+            <title>Example Tasks</title>
+
+                <exercise>
+                    <statement>
+                        <p>Solve <m>y' + y = 3</m>.</p>
+                    </statement>
+                </exercise>
+
+                <exercise> 
+                    <statement>
+                        <p>Solve the initial-value problem <me>y' = e^x + y, \: \, y(0) = 4</me>.</p>
+                    </statement>
+                </exercise>
+
+                <exercise>
+                    <statement>
+                        <p>Solve <m>x^2y' + y = 1</m>.</p>
+                    </statement>
+                </exercise>
+
+                <exercise> 
+                    <statement>
+                        <p>Solve the first order linear DE <m>\dfrac{dP}{dt} = t^2 - P</m>.</p>
+                    </statement>
+                </exercise>
+
+            </exercises>
+
+        </section>
+<!-- =================================================================================================== -->
+
+
+
+
+<!-- =================================================================================================== -->
+<!-- Section 2: Some Simple Applications of First Order Linear DEs -->
+<!-- =================================================================================================== -->
+        <section xml:id="Simple_Applications_of_First_Order_Linear_DEs">
+            <title>Some Simple Applications of First Order Linear DEs</title>
+
+
+            <example>
+                <title>Radioactive Decay</title>
+                <statement>
+                    <p>
+                        The radioactive isotope thorium 234 disintegrates at a rate proportional to the amount present. If 100 milligrams of this isotope is reduced to 82.04 milligrams in one week, find:
+                        <p><ol label="a">
+                            <li>An expression for the amount present at any time.</li>
+                            <li>The time taken for the amount of isotope to decay to one half of its original value.</li>
+                        </ol></p>
+                    </p>
+                </statement>
+
+                <solution>
+                    <p><ol label="a">
+                        <li>
+                            Let <m>Q(t)</m> be the amount (in milligrams) of thorium 234 present at time t (in days). Then
+                                <me>\dfrac{dQ}{dt} = -kQ</me>,
+                            where <m>k</m> is a positive constant and 
+                                <me>Q(0) = 100, Q(7) = 82.04</me>.
+
+                            The DE is separable but if we write it as
+                                <me>\dfrac{dQ}{dt} + kQ = 0</me>,
+                            then we see that it is also linear. The integrating factor is 
+                                <me>I(t) = e^{\int k \, dt} = e^{kt}</me>.
+                            Multiplying both sides by this integrating factor gives 
+                                <me>\dfrac{d}{dt} \left( e^{kt} Q \right) = 0</me>,
+                            and hence the general solution is 
+                                <me>Q(t) = Ae^{-kt}</me>.
+
+                            Using <m>Q(0) = 100</m> gives <m>A = 100</m> and from <m>Q(7) = 82.04</m> we obtain
+                                <me>82.04 = 100 e^{7k}</me>
+                            from which
+                                <me>k = \dfrac{\ln (0.8204)}{7} = 0.0283 \: (\text{ to 4 dp})</me>.
+                            Thus
+                                <me>Q(t) = 100 e^{-0.0283t}</me>.
+                        </li>
+
+                        <li>
+                            The time when the amount of isotope has decayed to 50 milligrams is the value of <m>t</m> that satifies
+                                <me>50 = 100 e^{-kt}</me>,
+                            which is
+                                <me>t = \dfrac{\ln(0.5)}{-k} = \dfrac{\ln(2)}{k} \approx 24.5 \, \text{ days}</me>.
+                        </li>
+                    </ol></p>
+                </solution>
+            </example>
+
+
+
+            <example>
+                <title>Mixing Tank</title>
+                <statement>
+                    <p>
+                        A 200 L tank contains pure water. At time <m>t=0</m> brackish water (i.e. water containing salt) begins to flow into the tank at a rate of 3 L/min and mixed water flows out at the same rate. Assuming that the concentration of salt in the inflowing water is 25 g/L determine the concentration of salt in the water in the tank as a function of time.
+                    </p>
+                </statement>
+
+                <solution>
+                    <p>
+                        Let <m>C(t)</m> be the concentration (in g/L) of the salt in the water in the tank at time <m>t</m> minutes after the mixing began and let <m>A(t)</m> be the amount (in grams) of salt in the tank at time <m>t</m>. Then <m>C(0) = 0</m> and <m>A(0) = 0</m>.
+                    </p>
+
+                    <p>
+                        Now, salt is coming into the tank at the rate
+                            <me>3 \times 25 = 75 \: \text{g/min}</me>,
+                        and it is leaving the tank at the rate
+                            <me>3 \times C(t) \: \text{g/min}</me>.
+                        Thus <m>A(t)</m> will satisfy the DE
+                            <me>\dfrac{dA}{dt} = 75 - 3C</me>.
+                        Using <m>A(t) = 200 C(t)</m> this becomes 
+                            <me>200 \dfrac{dC}{dt} = 75 - 3C</me>
+                        which can be written as 
+                            <me>\dfrac{dC}{dt} + \dfrac{3}{200}C = \dfrac{75}{200}</me>.
+                    </p>
+
+                    <p>
+                        This is a first order linear DE and hence can be solved by multiplying the equation by the integrating factor
+                            <me>I(t) = \exp \left( \displaystyle \int \frac{3}{200} dt \right) = \exp \left( \dfrac{3}{200}t \right)</me>.
+                        In doing this we obtain
+                            <me>\dfrac{d}{dt} \left[ \exp \left(\dfrac{3}{200} t \right) C \right] = \frac{75}{200} \exp \left( \dfrac{3}{200} t \right)</me>
+                        and hence
+                            <me>\exp \left(\dfrac{3}{200}t \right) C = 25 \exp \left(\dfrac{3}{200}t \right) + K.</me>
+                        Thus the general solution is
+                            <me>C(t) = 25 + K \exp\left( - \dfrac{3}{200} t \right)</me>.
+                        Using <m>C(0) = 0</m> gives <m>K = -25</m> and so the required concentration function is 
+                            <me>C(t) = 25 - 25 \exp \left(- \dfrac{3}{200}t \right)</me>.
+                        <xref ref="Fig-Mixing_Tank_Example"/> shows a graph of this function. It can be seen that as <m>t \to \infty</m>, <m>C \to 25</m>. Thus as time goes by the concentration of salt in the tank water approaches the concentration of the salt in the brackish water coming into the tank.
+                    </p>
+
+                    <figure xml:id="Fig-Mixing_Tank_Example">
+                        <caption></caption>
+                        <image source="./DifferentialEquations/Images/3/Fig1_Mixing_Tank.png" width="70%"/>
+                    </figure>
+
+                </solution>
+            </example>
+
+
+
+
+            <example>
+                <title>Motion in One Dimension</title>
+                <statement>
+                    <p>
+                        A ball of mass 50 kg is shot from a cannon 100 meters above the ground straight up with an initial velocity of 10 m/s. Assuming that the air resistance is given by <m>5v</m>, where <m>v</m> is the velocity, determine the velocity of the ball when it hits the ground.
+                    </p>
+                    <p>
+                        <em>Note:</em> This is a very simple model for the air resistance chosen mostly to simplify the resultant equations 
+                    </p>
+                </statement>
+
+                <solution>
+                    <p>
+                        Let <m>v(t)</m> be the velocity of the ball at time <m>t</m> seconds after it was fired from the cannon and let the downward direction be the positive direction as shown in <xref ref="Fig-Ball_of_Mass_Example"/>.
+                    </p>
+
+                    <figure xml:id="Fig-Ball_of_Mass_Example">
+                        <caption></caption>
+                        <image source="./DifferentialEquations/Images/3/Fig2_ball_of_mass.png" width="70%"/>
+                    </figure>
+
+                    <p>
+                        The motion of the ball will be governed by Newton’s second law of motion which says
+                            <me>F = ma</me>,
+                        where <m>F</m> is the net force acting on the ball, <m>m</m> is its mass and <m>a</m> is its acceleration. Once the ball leaves the cannon the forces acting on the ball are gravity, which we will denote by <m>F_G</m> and air resistance, denoted by <m>F_R</m>. Now with the positive direction as shown in <xref ref="Fig-Ball_of_Mass_Example"/>,
+                            <me>F_G = mg</me>
+                        where <m>g</m> is the acceleration due to gravity. In the initial phase where the ball is going up the air resistance will be acting against the motion, (i.e. in the positive direction). Thus, since the velocity <m>v</m> is negative 
+                            <me>F_R = -5v</me>.
+                        In the second phase where the ball is falling the air resistance will again be acting against the motion (i.e. in the negative direction). In this phase the velocity is positive and so once again
+                            <me>F_R = -5v</me>.
+                        Thus the net force acting on the ball is
+                            <me>F = F_G + F_R = mg-5v</me>.
+                        Since
+                            <me>a = \dfrac{dv}{dt}</me>
+                        Newton's second law gives 
+                            <me>m \dfrac{dv}{dt} = mg - 5v</me>
+                        or
+                            <me>\dfrac{dv}{dt} + \dfrac{5}{m} v = g</me>
+                        with 
+                            <me>v(0) = -10</me>.
+                        This is a first order linear DE in <m>v(t)</m>. To solve, multiply both sides of the DE by the integrating factor
+                            <me>I(t) = \exp \left( \displaystyle \int \frac{5}{m} dt \right) = \exp \left( \frac{5t}{m} \right)</me>
+                        to get
+                            <me>\dfrac{d}{dt} \left[ \exp \left( \frac{5t}{m} v \right) \right] = g \exp \left( \frac{5t}{m} \right)</me>.
+                    </p>
+
+                    <p>
+                        Integrating both sides gives
+                            <me>v(t) = \frac{mg}{5} + C \exp \left(-\frac{5t}{m} \right)</me>
+                        and hence, using <m>m=50</m>, <m>g=9.8</m> and <m>v(0) = -10</m>,
+                            <me>v(t) = 98 - 108 e^{-t/10}</me>.
+                    </p>
+
+                    <p>
+                        Thus we have determined the velocity function for the ball. To use this to determine the speed of the ball when it hits the ground we must first determine the time at which the ball hits the ground. To do this we will need the displacement function which we can obtain by integrating the velocity function. So, letting <m>s(t)</m> be the displacement of the ball at time <m>t</m>, we have
+                            <me>s(t) = \int v(t) \, dt = 98t + 1080e^{-t/10} + K</me>
+                        Using <m>s(0)=0</m> gives <m>K=-108</m> and so the displacement function is
+                            <me>s(t) = 98t + 1080e^{-t/10} - 1080</me>.
+                        Now <m>s(t) = 100</m> when
+                            <me>98t + 1080e^{-t/10} - 1080 = 100</me>.
+                        <xref ref="Fig-Motion_in_one_dim"/> shows a plot of the function
+                            <me>f(t) = 98t + 1080e^{-t/10} - 1180</me>
+                        and as can be seen there is only one positive solution. Solving this equation numerically (using Newton’s method for example), shows this solution to be
+                            <me>t = 5.98147</me>.
+                    </p>
+
+                    <figure xml:id="Fig-Motion_in_one_dim">
+                        <caption></caption>
+                        <image source="./DifferentialEquations/Images/3/Fig3_motion_in_one_dim.png" width="70%"/>
+                    </figure>
+
+                    <p>
+                        Thus the velocity of the ball when it hits the ground will be 
+                            <me>v(5.98147) = 38.6 \, \text{m/s} \: (\text{to 1dp})</me>.
+                    </p>
+
+                </solution>
+            </example>
+
+
+
+            <exercises>
+            <title>Example Tasks</title>
+
+                <exercise>
+                    <statement>
+                        <p>
+                            A population of insects in a region will grow at a rate that is proportional to their current population.  In the absence of any outside factors the population will triple in two weeks time.  On any given day there is a net migration into the area of 15 insects and 16 are eaten by the local bird population and 7 die of natural causes.  If there are initially 100 insects in the area will the population survive?  If not, when do they die out?
+                        </p>
+                    </statement>
+                </exercise>
+
+            </exercises>
+
+
+        </section>
+<!-- =================================================================================================== -->
+</chapter>

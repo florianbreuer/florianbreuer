@@ -1,0 +1,609 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-12-08T21:42:31+11:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Inverse Matrices</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    useLabelIds: true,
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext.js"></script><script xmlns:svg="http://www.w3.org/2000/svg">miniversion=0.6</script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script xmlns:svg="http://www.w3.org/2000/svg">sagecellEvalName='Evaluate (Sage)';
+</script><link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/colors_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link xmlns:svg="http://www.w3.org/2000/svg" href="developer.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div xmlns:svg="http://www.w3.org/2000/svg" id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\bm}[1]{\boldsymbol{#1}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="MATH1120-Course-Notes.html"><span class="title">MATH1120:</span> <span class="subtitle">Mathematics for Engineering, Science and Technology 2</span></a></h1>
+<p class="byline"></p>
+</div>
+</div></div>
+<nav xmlns:svg="http://www.w3.org/2000/svg" id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="Linear_Algebra_4.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="Linear_Algebra_4.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="Determinants.html" title="Next">Next</a></span></div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="Linear_Algebra_4.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="Linear_Algebra_4.html" title="Up">Up</a><a class="next-button button toolbar-item" href="Determinants.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div xmlns:svg="http://www.w3.org/2000/svg" id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link part"><a href="Part-Calculus.html" data-scroll="Part-Calculus"><span class="codenumber">I</span> <span class="title">Calculus</span></a></li>
+<li class="link">
+<a href="Chap-Calculus_1.html" data-scroll="Chap-Calculus_1"><span class="codenumber">1</span> <span class="title">Maclaurin Series</span></a><ul>
+<li><a href="Sec-Introduction.html" data-scroll="Sec-Introduction">Introduction</a></li>
+<li><a href="Sec-Infinite_Series.html" data-scroll="Sec-Infinite_Series">Infinite Series</a></li>
+<li><a href="Sec-Maclaurin_Series.html" data-scroll="Sec-Maclaurin_Series">Maclaurin Series</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Calculus_2.html" data-scroll="Calculus_2"><span class="codenumber">2</span> <span class="title">Taylor Series</span></a><ul>
+<li><a href="Generating-New-Series-from-Known-Series.html" data-scroll="Generating-New-Series-from-Known-Series">Generating New Series from Known Series</a></li>
+<li><a href="Taylor_Series.html" data-scroll="Taylor_Series">Taylor Series</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Calculus_3.html" data-scroll="Calculus_3"><span class="codenumber">3</span> <span class="title">Functions of Several Variables</span></a><ul>
+<li><a href="functions-of-two-variables.html" data-scroll="functions-of-two-variables">Functions of Two Variables</a></li>
+<li><a href="level-curves.html" data-scroll="level-curves">Level Curves</a></li>
+<li><a href="surfaces-of-revolution.html" data-scroll="surfaces-of-revolution">Surfaces of Revolution</a></li>
+<li><a href="functions-of-3-or-more-variables.html" data-scroll="functions-of-3-or-more-variables">Functions of 3 (or more) Variables</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Chap-Calculus_4.html" data-scroll="Chap-Calculus_4"><span class="codenumber">4</span> <span class="title">Partial Differentiation</span></a><ul>
+<li><a href="Sec-Partial_Differentiation.html" data-scroll="Sec-Partial_Differentiation">Partial Differentiation</a></li>
+<li><a href="Sec-Higher_Partial_Derivatives.html" data-scroll="Sec-Higher_Partial_Derivatives">Higher Partial Derivatives</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Chap-Calculus_5.html" data-scroll="Chap-Calculus_5"><span class="codenumber">5</span> <span class="title">Linear Approximations</span></a><ul>
+<li><a href="Sec-Tangent_Planes.html" data-scroll="Sec-Tangent_Planes">Tangent Planes</a></li>
+<li><a href="Sec-Linear_Approximations.html" data-scroll="Sec-Linear_Approximations">Linear Approximations</a></li>
+<li><a href="Quadratic-Approximations.html" data-scroll="Quadratic-Approximations">Quadratic Approximations</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Calculus_6.html" data-scroll="Calculus_6"><span class="codenumber">6</span> <span class="title">The Directional Derivative</span></a><ul>
+<li><a href="Directional-Derivatives.html" data-scroll="Directional-Derivatives">Directional Derivatives</a></li>
+<li><a href="In_Three_Variables.html" data-scroll="In_Three_Variables">In Three Variables</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Calculus_7.html" data-scroll="Calculus_7"><span class="codenumber">7</span> <span class="title">Local and Global Extrema</span></a><ul>
+<li><a href="Critical-Points.html" data-scroll="Critical-Points">Critical Points</a></li>
+<li><a href="Second-Derivative-Test.html" data-scroll="Second-Derivative-Test">Second Derivative Test</a></li>
+<li><a href="Global-Extrema.html" data-scroll="Global-Extrema">Global Extrema</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Chap-Calculus_8.html" data-scroll="Chap-Calculus_8"><span class="codenumber">8</span> <span class="title">Chain Rules</span></a><ul>
+<li><a href="Sec-The_single_variable_chain_rule.html" data-scroll="Sec-The_single_variable_chain_rule">The Single Variable Chain Rule</a></li>
+<li><a href="Sec-Multivariable-chain-rules.html" data-scroll="Sec-Multivariable-chain-rules">Multivariable Chain Rules</a></li>
+<li><a href="section-22.html" data-scroll="section-22">Implicit Differentiation</a></li>
+</ul>
+</li>
+<li class="link part"><a href="Part-Differenial_Equations.html" data-scroll="Part-Differenial_Equations"><span class="codenumber">II</span> <span class="title">Differential Equations</span></a></li>
+<li class="link">
+<a href="Differential_Equations_1.html" data-scroll="Differential_Equations_1"><span class="codenumber">9</span> <span class="title">Introduction</span></a><ul>
+<li><a href="introduction.html" data-scroll="introduction">Introduction</a></li>
+<li><a href="direction-fields-and-eulers-method.html" data-scroll="direction-fields-and-eulers-method">Direction Fields and Euler's Method</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Differential_Equations_2.html" data-scroll="Differential_Equations_2"><span class="codenumber">10</span> <span class="title">First Order Separable DEs</span></a><ul>
+<li><a href="Sec-First_Order_Separable_DEs.html" data-scroll="Sec-First_Order_Separable_DEs">First Order Separable DEs</a></li>
+<li><a href="Sec-Some-Simple-Applications-of-First-Order-Separable-DEs.html" data-scroll="Sec-Some-Simple-Applications-of-First-Order-Separable-DEs">Some Simple Applications of First Order Separable DEs</a></li>
+<li><a href="appendix-1.html" data-scroll="appendix-1">Partial Fraction Decomposition</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Differential_Equations_3.html" data-scroll="Differential_Equations_3"><span class="codenumber">11</span> <span class="title">First Order Linear DEs</span></a><ul>
+<li><a href="Exact_First_Order_DEs.html" data-scroll="Exact_First_Order_DEs">Exact First Order DEs</a></li>
+<li><a href="First_Order_Linear_DEs.html" data-scroll="First_Order_Linear_DEs">First Order Linear DEs</a></li>
+<li><a href="Simple_Applications_of_First_Order_Linear_DEs.html" data-scroll="Simple_Applications_of_First_Order_Linear_DEs">Some Simple Applications of First Order Linear DEs</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Differential_Equations_4.html" data-scroll="Differential_Equations_4"><span class="codenumber">12</span> <span class="title">Homogeneous Second Order Linear DEs</span></a><ul><li><a href="Homogeneous_Second_Order_Linear_DEs_With_Constant_Coefficients.html" data-scroll="Homogeneous_Second_Order_Linear_DEs_With_Constant_Coefficients">Homogeneous Second Order Linear DEs With Constant Coefficients</a></li></ul>
+</li>
+<li class="link">
+<a href="Differential_Equations_5.html" data-scroll="Differential_Equations_5"><span class="codenumber">13</span> <span class="title">Non-Homogeneous Second Order Linear DEs</span></a><ul>
+<li><a href="Non-Homogeneous_First_Order_Linear_DEs.html" data-scroll="Non-Homogeneous_First_Order_Linear_DEs">Non-Homogeneous First Order Linear DEs</a></li>
+<li><a href="The_Method_of_Undetermined_Coefficients.html" data-scroll="The_Method_of_Undetermined_Coefficients">The Method of Undetermined Coefficients</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Differential_Equations_6.html" data-scroll="Differential_Equations_6"><span class="codenumber">14</span> <span class="title">An Application of Second Order Linear DEs with Constant Coefficients</span></a><ul>
+<li><a href="A_Simple_Model.html" data-scroll="A_Simple_Model">A Simple Model</a></li>
+<li><a href="Adding_Damping.html" data-scroll="Adding_Damping">Adding Damping</a></li>
+<li><a href="Adding_an_External_Force.html" data-scroll="Adding_an_External_Force">Adding an External Force</a></li>
+</ul>
+</li>
+<li class="link part"><a href="Part-Linear_Algebra.html" data-scroll="Part-Linear_Algebra"><span class="codenumber">III</span> <span class="title">Linear Algebra</span></a></li>
+<li class="link">
+<a href="Linear_Algebra_1.html" data-scroll="Linear_Algebra_1"><span class="codenumber">15</span> <span class="title">Systems of Linear Equations</span></a><ul>
+<li><a href="Sec-LA_Introduction.html" data-scroll="Sec-LA_Introduction">Introduction</a></li>
+<li><a href="Sec-LA_Matrices_and_Systems_of_Linear_Equations.html" data-scroll="Sec-LA_Matrices_and_Systems_of_Linear_Equations">Matrices and Systems of Linear Equations</a></li>
+<li><a href="Sec-LA_Solving_Systems_of_Linear_Equations.html" data-scroll="Sec-LA_Solving_Systems_of_Linear_Equations">Solving Systems of Linear Equations</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Linear_Algebra__2.html" data-scroll="Linear_Algebra__2"><span class="codenumber">16</span> <span class="title">Geometric Interpretations of Linear Equations</span></a><ul>
+<li><a href="Interpretation_Via_Rows.html" data-scroll="Interpretation_Via_Rows">Interpretation Via Rows</a></li>
+<li><a href="Interpretation_Via_Columns.html" data-scroll="Interpretation_Via_Columns">Interpretation Via Columns</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Chap-Linear_Algebra_3.html" data-scroll="Chap-Linear_Algebra_3"><span class="codenumber">17</span> <span class="title">Matrix Algebra</span></a><ul>
+<li><a href="Sec-Linear_Algebra_Intro.html" data-scroll="Sec-Linear_Algebra_Intro">Introduction</a></li>
+<li><a href="Sec-Addition_and_Scalar_Multiplication.html" data-scroll="Sec-Addition_and_Scalar_Multiplication">Addition and Scalar Multiplication</a></li>
+<li><a href="Sec-Matrix_multiplication.html" data-scroll="Sec-Matrix_multiplication">Matrix Multiplication</a></li>
+<li><a href="Sec-Matrices_and_Systems_of_Linear_Equations.html" data-scroll="Sec-Matrices_and_Systems_of_Linear_Equations">Matrices and Systems of Linear Equations</a></li>
+<li><a href="Sec-Linear_transformations.html" data-scroll="Sec-Linear_transformations">Linear Transformations</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Linear_Algebra_4.html" data-scroll="Linear_Algebra_4"><span class="codenumber">18</span> <span class="title">Square Matrices</span></a><ul>
+<li><a href="Inverse_Matrices.html" data-scroll="Inverse_Matrices" class="active">Inverse Matrices</a></li>
+<li><a href="Determinants.html" data-scroll="Determinants">Determinants</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Linear_Algebra_5.html" data-scroll="Linear_Algebra_5"><span class="codenumber">19</span> <span class="title">Eigenvalues and Eigenvectors</span></a><ul>
+<li><a href="Sec-LA_5_Introduction.html" data-scroll="Sec-LA_5_Introduction">Introduction</a></li>
+<li><a href="Sec-LA_5_Finding_Eigenvalues_and_Eigenvectors.html" data-scroll="Sec-LA_5_Finding_Eigenvalues_and_Eigenvectors">Finding Eigenvalues and Eigenvectors</a></li>
+<li><a href="Sec-LA_5_A_Simple_Application.html" data-scroll="Sec-LA_5_A_Simple_Application">A Simple Application</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Linear_Algebra_6.html" data-scroll="Linear_Algebra_6"><span class="codenumber">20</span> <span class="title">Some Applications of Eigenvalues and Eigenvectors</span></a><ul>
+<li><a href="Powers_of_Matrices.html" data-scroll="Powers_of_Matrices">Powers of Matrices</a></li>
+<li><a href="Coupled_Linear_Differential_Equations.html" data-scroll="Coupled_Linear_Differential_Equations">Coupled Linear Differential Equations</a></li>
+</ul>
+</li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="Inverse_Matrices"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">18.1</span> <span class="title">Inverse Matrices</span>
+</h2>
+<article class="definition definition-like" id="definition-45"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">18.1.1</span><span class="period">.</span><span class="space"> </span><span class="title">Inverse Matrix.</span>
+</h3>Given the square matrix <span class="process-math">\(A \text{,}\)</span> if there exists a square matrix <span class="process-math">\(B \)</span> such that<div class="displaymath process-math">
+\begin{equation*}
+AB=BA=I
+\end{equation*}
+</div>then we call the matrix <span class="process-math">\(B \)</span> the <dfn class="terminology">inverse</dfn> of <span class="process-math">\(A \)</span> and write <span class="process-math">\(B=A^{-1} \text{.}\)</span></article><p id="p-1064">Note:</p>
+<ol class="lower-roman">
+<li id="li-280"><p id="p-derived-li-280">If matrix <span class="process-math">\(B \)</span> is the inverse of matrix <span class="process-math">\(A \)</span> then matrix <span class="process-math">\(A \)</span> is the inverse of matrix <span class="process-math">\(B, \text{,}\)</span> i.e.<div class="displaymath process-math">
+\begin{equation*}
+(A^{-1})^{-1}=A.
+\end{equation*}
+</div></p></li>
+<li id="li-281"><p id="p-derived-li-281">If matrix <span class="process-math">\(A \)</span> has an inverse then we say that <span class="process-math">\(A \)</span> is <dfn class="terminology">invertible</dfn> or <dfn class="terminology">non-singular</dfn>.</p></li>
+<li id="li-282"><p id="p-derived-li-282">The inverse of a matrix (if it exists) is unique.</p></li>
+<li id="li-283"><p id="p-derived-li-283">For matrix <span class="process-math">\(A \text{,}\)</span> if there exists a matrix <span class="process-math">\(B \)</span> such that <span class="process-math">\(AB=I \)</span> then it follows that <span class="process-math">\(BA=I \)</span> as well.</p></li>
+</ol>
+<article class="example example-like" id="Ex-Matrix_multiplication_inverse"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-Ex-Matrix_multiplication_inverse"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">18.1.2</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Ex-Matrix_multiplication_inverse"><article class="example example-like"><p id="p-1065">Let <span class="process-math">\(A=\begin{pmatrix} 1 \amp 1 \\ 1 \amp 2 \end{pmatrix} \quad \mbox{and} \quad B=\begin{pmatrix} 2 \amp -1 \\ -1 \amp 1 \end{pmatrix}.\)</span> Calculate  <span class="process-math">\(AB\; \text{and}\; BA. \)</span></p>
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-33" id="answer-33"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-33"><div class="answer solution-like"><span class="process-math">\(AB=BA=I. \)</span></div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-135" id="solution-135"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-135"><div class="solution solution-like">
+<ol class="lower-alpha">
+<li id="li-284"><p id="p-derived-li-284"><span class="process-math">\(\displaystyle AB=\begin{pmatrix} 1 \amp 1 \\ 1 \amp 2 \end{pmatrix} \begin{pmatrix} 2 \amp -1 \\ -1 \amp 1 \end{pmatrix} =\begin{pmatrix} 1 \amp 0 \\ 0 \amp 1 \end{pmatrix}=I  \)</span></p></li>
+<li id="li-285"><p id="p-derived-li-285"><span class="process-math">\(\displaystyle BA=\begin{pmatrix} 2 \amp -1 \\ -1 \amp 1 \end{pmatrix} \begin{pmatrix} 1 \amp 1 \\ 1 \amp 2 \end{pmatrix} = \begin{pmatrix} 1 \amp 0 \\ 0 \amp 1 \end{pmatrix}=I \)</span></p></li>
+</ol> Thus <span class="process-math">\(A^{-1}=B\; \text{and}\; B^{-1}=A. \)</span>
+</div></div></article></div>
+<article class="example example-like" id="Ex-Matrix_not_invertible"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-Ex-Matrix_not_invertible"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">18.1.3</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Ex-Matrix_not_invertible"><article class="example example-like"><p id="p-1066">Let <span class="process-math">\(A=\begin{pmatrix} 1 \amp -1 \\ 1 \amp -1 \end{pmatrix}  \)</span> is not invertible.</p>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-136" id="solution-136"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-136"><div class="solution solution-like">Assume that <span class="process-math">\(A^{-1} \)</span> exists. Then, since <span class="process-math">\(A^{2}=0, \)</span> we have that<div class="displaymath process-math">
+\begin{equation*}
+A=IA=(A^{-1}A)A=A^{-1}A^{2}=A^{-1}0=0, 
+\end{equation*}
+</div>which is a contradiction. Thus we conclude that <span class="process-math">\(A^{-1} \)</span> does not exist.</div></div></article></div>
+<p id="p-1067">Given a square matrix <span class="process-math">\(A \)</span> to find its inverse we need to find a matrix <span class="process-math">\(A^{-1} \)</span> such that <span class="process-math">\(AA^{-1}=I \text{.}\)</span>  Let’s begin by considering the <span class="process-math">\(2\times 2 \)</span> case. Let</p>
+<div class="displaymath process-math">
+\begin{equation*}
+A=\begin{pmatrix} 1 \amp -1 \\ 1 \amp -1 \end{pmatrix},
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(a, \; b,\; c,\; \text{and}, \; d \)</span> are given. We want to find the entries in</p>
+<div class="displaymath process-math">
+\begin{equation*}
+A^{-1}=\begin{pmatrix} x_{1} \amp y_{1} \\ x_{2} \amp y_{2} \end{pmatrix}.
+\end{equation*}
+</div>
+<p class="continuation">Since <span class="process-math">\(AA^{-1}=I \)</span> we have that</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{pmatrix} a \amp b \\ c \amp d \end{pmatrix} \begin{pmatrix} x_{1} \amp y_{1} \\ x_{2} \amp y_{2} \end{pmatrix}=\begin{pmatrix} 1 \amp 0 \\ 0 \amp 1 \end{pmatrix},
+\end{equation*}
+</div>
+<p class="continuation">or equivalently,</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{cases}
+ax_{1} + bx_{2} = 1\\
+cx_{1} + dx_{2} = 0
+\end{cases}
+\;\;\; and \;\;\; 
+\begin{cases}
+ay_{1} + by_{2} = 0\\
+cy_{1} + dy_{2} = 1
+\end{cases}
+\end{equation*}
+</div>
+<p class="continuation">Both systems of equations have the same coefficient matrix, i.e.</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{pmatrix} a \amp b \\ c \amp d \end{pmatrix}.
+\end{equation*}
+</div>
+<p class="continuation">The augmented matrices for these systems are</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{pmatrix} a \amp b \amp 1 \\ c \amp d \amp 0 \end{pmatrix}
+\;\;\; and \;\;\; 
+\begin{pmatrix} a \amp b \amp 0 \\ c \amp d \amp 1 \end{pmatrix}
+\end{equation*}
+</div>
+<p class="continuation">and since these have the same coefficient matrix we can combine the augmented matrices to get</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{pmatrix}
+a \amp b \amp \bigm |  \amp  1 \amp 0 \\
+c \amp d \amp \bigm | \amp 0 \amp 1
+\end{pmatrix}
+\end{equation*}
+</div>
+<p class="continuation">By reducing this matrix to reduced row echelon form we can solve both sets of equations at the same time. If <span class="process-math">\(A \)</span> has an inverse then the reduced row-echelon form will be</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{pmatrix}
+1 \amp 0 \amp \bigm |  \amp  \alpha \amp \beta \\
+0 \amp 1 \amp \bigm | \amp \chi \amp \delta
+\end{pmatrix}
+\end{equation*}
+</div>
+<p class="continuation">and hence <span class="process-math">\(x_{1}=\alpha,\; x_{2}=\chi,\; y_{2}=\beta, \)</span> and, <span class="process-math">\(\; y_{2}=\delta  \text{.}\)</span> Thus, the augmented section of this matrix will contain  <span class="process-math">\(A^{-1} \text{.}\)</span></p>
+<article class="example example-like" id="Ex-Inverse_Matrix_1_1_1_2"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-Ex-Inverse_Matrix_1_1_1_2"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">18.1.4</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Ex-Inverse_Matrix_1_1_1_2"><article class="example example-like"><p id="p-1068">Find the inverse of matrix <span class="process-math">\(A=\begin{pmatrix} 1 \amp 1 \\ 1 \amp 2 \end{pmatrix}.  \)</span></p>
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-34" id="answer-34"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-34"><div class="answer solution-like"><span class="process-math">\(A^{-1}=\begin{pmatrix} 2 \amp -1 \\ -1 \amp 1 \end{pmatrix}.  \)</span></div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-137" id="solution-137"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-137"><div class="solution solution-like">Begin by augmenting matrix  <span class="process-math">\(A \)</span> with the identity matrix  <span class="process-math">\(I, \)</span><div class="displaymath process-math">
+\begin{equation*}
+\begin{pmatrix}
+1 \amp 1 \amp \bigm |  \amp  1 \amp 0 \\
+1 \amp 2 \amp \bigm | \amp 0 \amp 1
+\end{pmatrix}
+\end{equation*}
+</div>Now use the elementary row operations to reduce this to reduced row echelon form<div class="displaymath process-math">
+\begin{align*}
+\begin{pmatrix}
+1 \amp 1 \amp \bigm |  \amp  1 \amp 0 \\
+1 \amp 2 \amp \bigm | \amp 0 \amp 1
+\end{pmatrix} \amp \sim   \begin{pmatrix}
+1 \amp 1 \amp \bigm |  \amp  1 \amp 0 \\
+0 \amp 1 \amp \bigm | \amp -1 \amp 1
+\end{pmatrix} \;\; R'_{2}= R_{2}-R_{1} \\
+\amp \sim  \begin{pmatrix}
+1 \amp 0 \amp \bigm |  \amp 2 \amp -1 \\
+0 \amp 1 \amp \bigm | \amp -1 \amp 1
+\end{pmatrix} \;\; R'_{1}= R_{1}-R_{2}.  
+\end{align*}
+</div>We can read off the inverse as<div class="displaymath process-math">
+\begin{equation*}
+A^{-1}=\begin{pmatrix} 2 \amp -1 \\ -1 \amp 1 \end{pmatrix}.  
+\end{equation*}
+</div>
+</div></div></article></div>
+<article class="example example-like" id="Ex-Inverse_Matrix_1_minus1_1_minus1"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-Ex-Inverse_Matrix_1_minus1_1_minus1"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">18.1.5</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Ex-Inverse_Matrix_1_minus1_1_minus1"><article class="example example-like"><p id="p-1069">Find the inverse of matrix <span class="process-math">\(A=\begin{pmatrix} 1 \amp -1 \\ 1 \amp -1 \end{pmatrix}.  \)</span></p>
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-35" id="answer-35"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-35"><div class="answer solution-like">
+<span class="process-math">\(A \)</span> has no inverse.</div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-138" id="solution-138"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-138"><div class="solution solution-like">Using the same procedure as in <a href="" class="xref" data-knowl="./knowl/Ex-Inverse_Matrix_1_minus1_1_minus1.html" title="Example 18.1.5">Example 18.1.5</a> begin by augmenting matrix <span class="process-math">\(A \)</span> with the identity matrix <span class="process-math">\(I \text{,}\)</span><div class="displaymath process-math">
+\begin{equation*}
+\begin{pmatrix}
+1 \amp -1 \amp \bigm |  \amp  1 \amp 0 \\
+1 \amp -1 \amp \bigm | \amp 0 \amp 1
+\end{pmatrix}
+\end{equation*}
+</div>Now use the elementary row operations to reduce this to reduced row echelon form.<div class="displaymath process-math">
+\begin{equation*}
+\begin{pmatrix}
+1 \amp -1 \amp \bigm |  \amp  1 \amp 0 \\
+1 \amp -1 \amp \bigm | \amp 0 \amp 1
+\end{pmatrix}
+\sim 
+\begin{pmatrix}
+1 \amp -1 \amp \bigm |  \amp  1 \amp 0 \\
+0 \amp 0 \amp \bigm | \amp -1 \amp 1
+\end{pmatrix}\;\; R'_{2}= R_{2}-R_{1}.
+\end{equation*}
+</div>Since there is a row of <span class="process-math">\(0 \)</span>'s in the coefficient part of the reduced row echelon form while the remainder of the row is non-zero, we can see that there is no solution to the equations for finding the entries in the inverse matrix for <span class="process-math">\(A \text{.}\)</span> Thus, we conclude that matrix <span class="process-math">\(A \)</span> is not invertible, i.e. has no inverse.</div></div></article></div>
+<p id="p-1070">The reasoning applied above to find a procedure for finding the inverse of a <span class="process-math">\(2\times 2 \)</span> matrix applies equally well to any sized square matrix. Thus we have a general procedure for finding the inverse of a square matrix.</p>
+<article class="theorem theorem-like" id="theorem-22"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">18.1.6</span><span class="period">.</span>
+</h3>Given the square matrix <span class="process-math">\(A \text{,}\)</span> to find its inverse <span class="process-math">\(A^{-1} \text{:}\)</span> <ol id="p-1071" class="lower-roman">
+<li id="li-286"><p id="p-1072">Form the matrix <span class="process-math">\(\begin{pmatrix}
+A \bigm |  I \\
+\end{pmatrix} \)</span> by augmenting <span class="process-math">\(A \)</span> with the identity matrix <span class="process-math">\(I, \)</span></p></li>
+<li id="li-287"><p id="p-1073">Row reduce <span class="process-math">\(\begin{pmatrix}
+A \bigm |  I \\
+\end{pmatrix} \)</span> to reduced row echelon form,</p></li>
+<li id="li-288"><p id="p-1074">If the reduced row echelon matrix is of the form <span class="process-math">\(\begin{pmatrix}
+I \bigm |  A^{-1} \\
+\end{pmatrix} \)</span> read off <span class="process-math">\(A^{-1} \text{.}\)</span> Otherwise the inverse does not exist.</p></li>
+</ol></article><article class="example example-like" id="Ex-Inverse_Matrix_2_1_6_minus4_5_minus3_2_minus1_3"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-Ex-Inverse_Matrix_2_1_6_minus4_5_minus3_2_minus1_3"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">18.1.7</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Ex-Inverse_Matrix_2_1_6_minus4_5_minus3_2_minus1_3"><article class="example example-like"><p id="p-1075">Find the inverse, if it exists, of <span class="process-math">\(A=\begin{pmatrix} 2 \amp 1 \amp 6 \\ -4 \amp 5 \amp -3 \\ 2 \amp -1 \amp  3 \end{pmatrix}.  \)</span></p>
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-36" id="answer-36"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-36"><div class="answer solution-like"><span class="process-math">\(A^{-1}=\begin{pmatrix} -2 \amp \frac{3}{2} \amp \frac{11}{2} \\ -1 \amp 1 \amp 3 \\ 1 \amp -\frac{2}{3} \amp  -\frac{7}{3} \end{pmatrix}.  \)</span></div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-139" id="solution-139"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-139"><div class="solution solution-like">Form the augmented matrix and row reduce to reduced row echelon form:<div class="displaymath process-math">
+\begin{align*}
+\begin{pmatrix}
+2 \amp -1 \amp 6 \amp \bigm |  \amp  1 \amp 0 \amp 0 \\
+-4 \amp 5 \amp -3 \amp \bigm |  \amp  0 \amp 1 \amp 0 \\
+2 \amp -1 \amp  3 \amp \bigm |  \amp  0 \amp 0 \amp 1
+\end{pmatrix} \amp \sim   
+\begin{pmatrix}
+1 \amp \frac{1}{2} \amp 3 \amp \bigm |  \amp  \frac{1}{2} \amp 0 \amp 0 \\
+0 \amp 7 \amp 9 \amp \bigm |  \amp  2 \amp 1 \amp 0 \\
+0 \amp -2 \amp  -3 \amp \bigm |  \amp  -1 \amp 0 \amp 1
+\end{pmatrix}   \;\;\; 
+\begin{matrix}
+R'_{1}  = \amp \dfrac{R_{1}}{2}\;\;\;\qquad\\
+R'_{2}  = \amp R_{2}+4R'_{1}\\
+R'_{3}  = \amp R_{3}-R_{1}
+\end{matrix}  \\
+\amp \sim   
+\begin{pmatrix}
+1 \amp 0 \amp \frac{33}{14} \amp \bigm |  \amp  \frac{5}{14} \amp  -\frac{1}{14} \amp 0 \\
+0 \amp 1 \amp \frac{9}{7} \amp \bigm |  \amp   \frac{2}{7} \amp  \frac{1}{7} \amp 0 \\
+0 \amp 0 \amp  -\frac{3}{7} \amp \bigm |  \amp   -\frac{3}{7} \amp 0 \amp 1
+\end{pmatrix} \;\;\;
+\begin{matrix}
+R'_{1}  = \amp R_{1}-\dfrac{R'_{2}}{2} \\
+R'_{2}  = \amp \dfrac{R_{2}}{7}\;\;\;\qquad\\
+R'_{3}  = \amp R_{3}+2R'_{2}
+\end{matrix}  \\
+\amp \sim   
+\begin{pmatrix}
+1 \amp 0 \amp 0 \amp \bigm |  \amp  -2  \amp  \frac{3}{2} \amp \frac{11}{2} \\
+0 \amp 1 \amp 0 \amp \bigm |  \amp   -1 \amp  1 \amp 3 \\
+0 \amp 0 \amp  1 \amp \bigm |  \amp   1 \amp -\frac{2}{3} \amp -\frac{7}{3}
+\end{pmatrix} \;\;\;
+\begin{matrix}
+R'_{1}  = \amp R_{1}-\dfrac{33R'_{3}}{14} \\
+R'_{2}  = \amp R_{2}-\dfrac{9R'_{3}}{7} \\
+R'_{3}  = \amp -\dfrac{7R'_{3}}{3} \;\;\; \qquad
+\end{matrix}  
+\end{align*}
+</div>Thus<div class="displaymath process-math">
+\begin{equation*}
+A^{-1}=\begin{pmatrix} -2 \amp \frac{3}{2} \amp \frac{11}{2} \\ -1 \amp 1 \amp 3 \\ 1 \amp -\frac{2}{3} \amp  -\frac{7}{3} \end{pmatrix}.  
+\end{equation*}
+</div>Of course we can always check our answer by confirming that  <span class="process-math">\(AA^{-1}=I \text{.}\)</span>
+</div></div></article></div>
+<article class="example example-like" id="Ex-Inverse_Matrix_2_1_6_minus4_5_minus3_2_8_15"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-Ex-Inverse_Matrix_2_1_6_minus4_5_minus3_2_8_15"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">18.1.8</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Ex-Inverse_Matrix_2_1_6_minus4_5_minus3_2_8_15"><article class="example example-like"><p id="p-1076">Find the inverse, if it exists, of <span class="process-math">\(A=\begin{pmatrix} 2 \amp 1 \amp 6 \\ -4 \amp 5 \amp -3 \\ 2 \amp 8 \amp  15 \end{pmatrix}.  \)</span></p>
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-37" id="answer-37"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-37"><div class="answer solution-like">
+<span class="process-math">\(A \)</span> has no inverse.</div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-140" id="solution-140"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-140"><div class="solution solution-like">Form the augmented matrix and row reduce to reduced row echelon form:<div class="displaymath process-math">
+\begin{align*}
+\begin{pmatrix}
+2 \amp 1 \amp 6 \amp \bigm |  \amp  1 \amp 0 \amp 0 \\
+-4 \amp 5 \amp -3 \amp \bigm |  \amp  0 \amp 1 \amp 0 \\
+2 \amp 8 \amp  15 \amp \bigm |  \amp  0 \amp 0 \amp 1
+\end{pmatrix} \amp \sim   
+\begin{pmatrix}
+1 \amp \frac{1}{2} \amp 3 \amp \bigm |  \amp  \frac{1}{2} \amp 0 \amp 0 \\
+0 \amp 7 \amp 9 \amp \bigm |  \amp  2 \amp 1 \amp 0 \\
+0 \amp 7 \amp 9 \amp \bigm |  \amp  -1 \amp 0 \amp 1
+\end{pmatrix}   \;\;\; 
+\begin{matrix}
+R'_{1}  = \amp \dfrac{R_{1}}{2}\;\;\;\qquad\\
+R'_{2}  = \amp R_{2}+4R'_{1}\\
+R'_{3}  = \amp R_{3}-R_{1}
+\end{matrix}  \\
+\amp \sim   
+\begin{pmatrix}
+1 \amp 0 \amp \frac{33}{14} \amp \bigm |  \amp  \frac{5}{14} \amp  -\frac{1}{14} \amp 0 \\
+0 \amp 1 \amp \frac{9}{7} \amp \bigm |  \amp   \frac{2}{7} \amp  \frac{1}{7} \amp 0 \\
+0 \amp 0 \amp  0 \amp \bigm |  \amp   -3 \amp -1 \amp 1
+\end{pmatrix} \;\;\;
+\begin{matrix}
+R'_{1}  = \amp R_{1}-\dfrac{R'_{2}}{2} \\
+R'_{2}  = \amp \dfrac{R_{2}}{7}\;\;\;\qquad\\
+R'_{3}  = \amp R_{3}-R'_{2}
+\end{matrix}  
+\end{align*}
+</div>Since the coefficient part of the reduced row echelon matrix is not the identity matrix <span class="process-math">\(A \)</span> does not have an inverse.</div></div></article></div>
+<p id="p-1077">For later reference, some properties of the inverse of a matrix are listed below.</p>
+<article class="theorem theorem-like" id="theorem-23"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">18.1.9</span><span class="period">.</span><span class="space"> </span><span class="title">Properties of the Matrix Invers.</span>
+</h3>Let <span class="process-math">\(A \)</span> and <span class="process-math">\(B \)</span> be square invertible matrices of order <span class="process-math">\(n \)</span> and let <span class="process-math">\(k \)</span> be a real number. Then <ol id="p-1078" class="decimal">
+<li id="li-289"><p id="p-1079"><span class="process-math">\(\displaystyle (A^{-1})^{-1}=A \)</span></p></li>
+<li id="li-290"><p id="p-1080"><span class="process-math">\(\displaystyle (A^{T})^{-1}=(A^{-1})^{T} \)</span></p></li>
+<li id="li-291"><p id="p-1081"><span class="process-math">\(\displaystyle (kA)^{-1}=\frac{1}{k}A^{-1} \)</span></p></li>
+<li id="li-292"><p id="p-1082"><span class="process-math">\(\displaystyle (AB)^{-1}=B^{-1}A^{-1} \)</span></p></li>
+<li id="li-293"><p id="p-1083"><span class="process-math">\(\displaystyle (A^{r})^{-1}=(A^{-1})^{r}\;\;\;\; \text{where}\;\; r\in \mathbb{R} \)</span></p></li>
+</ol></article><article class="example example-like" id="Ex-Confirm_ABinverse_equal_B_inverse_A_inverse"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-Ex-Confirm_ABinverse_equal_B_inverse_A_inverse"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">18.1.10</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Ex-Confirm_ABinverse_equal_B_inverse_A_inverse"><article class="example example-like"><p id="p-1084">Confirm that <span class="process-math">\((AB)^{-1}=B^{-1}A^{-1} \)</span> holds for the matrices.</p>
+<div class="displaymath process-math">
+\begin{equation*}
+A=\begin{pmatrix} 3 \amp 1 \\ -1 \amp 2 \end{pmatrix} \;\;\; \text{and}\;\;\; B=\begin{pmatrix} 1 \amp 5 \\ 0 \amp -2 \end{pmatrix}         
+\end{equation*}
+</div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-141" id="solution-141"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-141"><div class="solution solution-like">Firstly,<div class="displaymath process-math">
+\begin{equation*}
+AB=\begin{pmatrix} 3 \amp 1 \\ -1 \amp 2 \end{pmatrix} \begin{pmatrix} 1 \amp 5 \\ 0 \amp -2 \end{pmatrix} = \begin{pmatrix} 3 \amp 13 \\ -1 \amp -9 \end{pmatrix},
+\end{equation*}
+</div>and so<div class="displaymath process-math">
+\begin{equation*}
+(AB)^{-1}=\begin{pmatrix} 3 \amp 13 \\ -1 \amp 9 \end{pmatrix}^{-1} = \frac{1}{14}\begin{pmatrix} -9 \amp -13 \\ 1 \amp 3 \end{pmatrix}. 
+\end{equation*}
+</div>Next<div class="displaymath process-math">
+\begin{equation*}
+A^{-1}=\begin{pmatrix} 3 \amp 1 \\ -1 \amp -9 \end{pmatrix}^{-1} = \frac{1}{7}\begin{pmatrix} 2 \amp -1 \\ 1 \amp 3 \end{pmatrix}, 
+\end{equation*}
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+B^{-1}=\begin{pmatrix} 1 \amp 5 \\ 0 \amp -2 \end{pmatrix}^{-1} = -\frac{1}{2}\begin{pmatrix} -2 \amp -5 \\ 0 \amp 1 \end{pmatrix}, 
+\end{equation*}
+</div>and so<div class="displaymath process-math">
+\begin{equation*}
+B^{-1}A^{-1}= -\frac{1}{2}\begin{pmatrix} -2 \amp -5 \\ 0 \amp 1 \end{pmatrix} \frac{1}{7}\begin{pmatrix} 2 \amp -1 \\ 1 \amp 3 \end{pmatrix} = \frac{1}{14}\begin{pmatrix} -9 \amp -13 \\ 1 \amp 3 \end{pmatrix}. 
+\end{equation*}
+</div>
+</div></div></article></div>
+<p id="p-1085">The idea of a matrix inverse can be related to the problem of solving systems of linear equations in the case where the number of equations in the system is the same as the number of variables.  As we have seen previously, we can write the system of <span class="process-math">\(n \)</span> linear equations in <span class="process-math">\(n \)</span> unknowns</p>
+<div class="displaymath process-math">
+\begin{align*}
+a_{11} x_{1}+a_{12}x_{2} + \dots +a_{1n} x_{n}= \amp b_{1}\\
+a_{21} x_{1}+a_{22}x_{2} + \dots +a_{2n} x_{n}= \amp b_{2}\\
+\vdots \amp \\
+a_{n1} x_{1}+a_{n2}x_{2} + \dots +a_{nn} x_{n}= \amp b_{n}
+\end{align*}
+</div>using matrix notation as<div class="displaymath process-math">
+\begin{equation}
+Ax=b\label{Ax_equal_b}\tag{18.1.1}
+\end{equation}
+</div>where <span class="process-math">\(A \)</span> is the <span class="process-math">\(n\times n \)</span> coefficient matrix, <span class="process-math">\(x \)</span> is the <span class="process-math">\(n\times 1 \)</span>  column vector of variables and <span class="process-math">\(b \)</span> is the column vector of the constants. If the coefficient matrix <span class="process-math">\(A \)</span> has an inverse, then from  <a href="" class="xref" data-knowl="./knowl/Ax_equal_b.html" title="Equation 18.1.1">(18.1.1)</a><div class="displaymath process-math">
+\begin{align*}
+A^{-1}(Ax)= \amp A^{-1}b,\\
+(A^{-1}A)x= \amp A^{-1}b,\\
+x= \amp A^{-1}b.
+\end{align*}
+</div>
+<article class="example example-like" id="Ex-Solve_sys_equation_by_inverse_matrix"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-Ex-Solve_sys_equation_by_inverse_matrix"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">18.1.11</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Ex-Solve_sys_equation_by_inverse_matrix"><article class="example example-like"><p id="p-1086">Solve the system of equations</p>
+<div class="displaymath process-math">
+\begin{align*}
+2x + y + 6z = \amp 9,\\
+-4x + 5y - 3z = \amp -7,\\
+2x - y + 3z = \amp 5.
+\end{align*}
+</div>
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-38" id="answer-38"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-38"><div class="answer solution-like"><p id="p-1087"><span class="process-math">\(x=-1, \; y=-1,\; \text{and}, \; z=2. \)</span></p></div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-142" id="solution-142"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-142"><div class="solution solution-like">In matrix notation this system can be written as<div class="displaymath process-math">
+\begin{equation*}
+\begin{pmatrix}
+2 \amp 1 \amp 6  \\
+-4 \amp 5 \amp -3 \\
+2 \amp -1 \amp  3 
+\end{pmatrix}
+\begin{pmatrix}
+x \\
+y \\
+z
+\end{pmatrix}=
+\begin{pmatrix}
+9 \\
+-7 \\
+5
+\end{pmatrix}
+\end{equation*}
+</div>We found the inverse of the coefficient matrix in <a href="" class="xref" data-knowl="./knowl/Ex-Inverse_Matrix_2_1_6_minus4_5_minus3_2_minus1_3.html" title="Example 18.1.7">Example 18.1.7</a> and, using that result, we have<div class="displaymath process-math">
+\begin{equation*}
+\begin{pmatrix}
+x \\
+y \\
+z
+\end{pmatrix}=
+\begin{pmatrix}
+-2 \amp \frac{3}{2} \amp \frac{11}{2}  \\
+-1 \amp 1 \amp 3 \\
+1 \amp -\frac{2}{3} \amp  -\frac{7}{3} 
+\end{pmatrix}
+\begin{pmatrix}
+9 \\
+-7 \\
+5
+\end{pmatrix}=
+\begin{pmatrix}
+-1 \\
+-1 \\
+2
+\end{pmatrix}
+\end{equation*}
+</div>Thus the solution is  <span class="process-math">\(x=-1, \; y=-1,\; \text{and}, \; z=2. \)</span>
+</div></div></article></div> Of course, the work involved finding the inverse of a matrix is (basically) the same as that of solving a system of linear equations via Gauss Jordan elimination since in both cases we have to row reduce the coefficient matrix to reduced row echelon form. Thus there is no real benefit to solving a system of <span class="process-math">\(n \)</span> equations in <span class="process-math">\(n \)</span> variables using a matrix inverse. However the idea does highlight the following connections. <article class="theorem theorem-like" id="Th-non_homogeneous_system"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">18.1.12</span><span class="period">.</span>
+</h3>Consider the non-homogenous system of <span class="process-math">\(n \)</span> linear equations in <span class="process-math">\(n \)</span> variables<div class="displaymath process-math">
+\begin{equation*}
+Ax=b,\; n\neq 0.
+\end{equation*}
+</div>The following statements are equivalent: <ol id="p-1088" class="decimal">
+<li id="li-294"><p id="p-1089">The system has a unique solution,</p></li>
+<li id="li-295"><p id="p-1090"><span class="process-math">\(Ax=0 \)</span>  has only the trivial solution  <span class="process-math">\(x=0, \)</span></p></li>
+<li id="li-296"><p id="p-1091">The columns of <span class="process-math">\(A \)</span>  are linearly independent,</p></li>
+<li id="li-297"><p id="p-1092"><span class="process-math">\(A \)</span> is invertible.</p></li>
+</ol></article><section class="exercises" id="exercises-38"><h3 class="heading hide-type">
+<span class="type">Exercises</span> <span class="codenumber"></span> <span class="title">Example Tasks</span>
+</h3>
+<article class="exercise exercise-like" id="exercise-101"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>Find the inverse, if it exists, of<div class="displaymath process-math">
+\begin{align*}
+A = \amp \begin{pmatrix}
+2 \amp 1 \amp 3  \\
+-1 \amp 2 \amp 4 \\
+8 \amp -1 \amp  1 
+\end{pmatrix}\\
+B = \amp \begin{pmatrix}
+1 \amp 1 \amp 2  \\
+-1 \amp 2 \amp -1 \\
+1 \amp -1 \amp 1 
+\end{pmatrix}
+\end{align*}
+</div></article><article class="exercise exercise-like" id="exercise-102"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>Find the matrix for a rotation in the plane about the origin through <span class="process-math">\((\frac{\pi}{4})^{c} \)</span>  . Find the inverse of this matrix and interpret it geometrically.</article></section></section></div></main>
+</div>
+</body>
+</html>

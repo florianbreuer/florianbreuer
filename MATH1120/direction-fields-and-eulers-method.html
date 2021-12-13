@@ -1,0 +1,490 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-12-08T21:40:47+11:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Direction Fields and Euler's Method</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    useLabelIds: true,
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext.js"></script><script xmlns:svg="http://www.w3.org/2000/svg">miniversion=0.6</script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script xmlns:svg="http://www.w3.org/2000/svg">sagecellEvalName='Evaluate (Sage)';
+</script><link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/colors_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link xmlns:svg="http://www.w3.org/2000/svg" href="developer.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div xmlns:svg="http://www.w3.org/2000/svg" id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\bm}[1]{\boldsymbol{#1}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="MATH1120-Course-Notes.html"><span class="title">MATH1120:</span> <span class="subtitle">Mathematics for Engineering, Science and Technology 2</span></a></h1>
+<p class="byline"></p>
+</div>
+</div></div>
+<nav xmlns:svg="http://www.w3.org/2000/svg" id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="introduction.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="Differential_Equations_1.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="Differential_Equations_2.html" title="Next">Next</a></span></div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="introduction.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="Differential_Equations_1.html" title="Up">Up</a><a class="next-button button toolbar-item" href="Differential_Equations_2.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div xmlns:svg="http://www.w3.org/2000/svg" id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link part"><a href="Part-Calculus.html" data-scroll="Part-Calculus"><span class="codenumber">I</span> <span class="title">Calculus</span></a></li>
+<li class="link">
+<a href="Chap-Calculus_1.html" data-scroll="Chap-Calculus_1"><span class="codenumber">1</span> <span class="title">Maclaurin Series</span></a><ul>
+<li><a href="Sec-Introduction.html" data-scroll="Sec-Introduction">Introduction</a></li>
+<li><a href="Sec-Infinite_Series.html" data-scroll="Sec-Infinite_Series">Infinite Series</a></li>
+<li><a href="Sec-Maclaurin_Series.html" data-scroll="Sec-Maclaurin_Series">Maclaurin Series</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Calculus_2.html" data-scroll="Calculus_2"><span class="codenumber">2</span> <span class="title">Taylor Series</span></a><ul>
+<li><a href="Generating-New-Series-from-Known-Series.html" data-scroll="Generating-New-Series-from-Known-Series">Generating New Series from Known Series</a></li>
+<li><a href="Taylor_Series.html" data-scroll="Taylor_Series">Taylor Series</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Calculus_3.html" data-scroll="Calculus_3"><span class="codenumber">3</span> <span class="title">Functions of Several Variables</span></a><ul>
+<li><a href="functions-of-two-variables.html" data-scroll="functions-of-two-variables">Functions of Two Variables</a></li>
+<li><a href="level-curves.html" data-scroll="level-curves">Level Curves</a></li>
+<li><a href="surfaces-of-revolution.html" data-scroll="surfaces-of-revolution">Surfaces of Revolution</a></li>
+<li><a href="functions-of-3-or-more-variables.html" data-scroll="functions-of-3-or-more-variables">Functions of 3 (or more) Variables</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Chap-Calculus_4.html" data-scroll="Chap-Calculus_4"><span class="codenumber">4</span> <span class="title">Partial Differentiation</span></a><ul>
+<li><a href="Sec-Partial_Differentiation.html" data-scroll="Sec-Partial_Differentiation">Partial Differentiation</a></li>
+<li><a href="Sec-Higher_Partial_Derivatives.html" data-scroll="Sec-Higher_Partial_Derivatives">Higher Partial Derivatives</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Chap-Calculus_5.html" data-scroll="Chap-Calculus_5"><span class="codenumber">5</span> <span class="title">Linear Approximations</span></a><ul>
+<li><a href="Sec-Tangent_Planes.html" data-scroll="Sec-Tangent_Planes">Tangent Planes</a></li>
+<li><a href="Sec-Linear_Approximations.html" data-scroll="Sec-Linear_Approximations">Linear Approximations</a></li>
+<li><a href="Quadratic-Approximations.html" data-scroll="Quadratic-Approximations">Quadratic Approximations</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Calculus_6.html" data-scroll="Calculus_6"><span class="codenumber">6</span> <span class="title">The Directional Derivative</span></a><ul>
+<li><a href="Directional-Derivatives.html" data-scroll="Directional-Derivatives">Directional Derivatives</a></li>
+<li><a href="In_Three_Variables.html" data-scroll="In_Three_Variables">In Three Variables</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Calculus_7.html" data-scroll="Calculus_7"><span class="codenumber">7</span> <span class="title">Local and Global Extrema</span></a><ul>
+<li><a href="Critical-Points.html" data-scroll="Critical-Points">Critical Points</a></li>
+<li><a href="Second-Derivative-Test.html" data-scroll="Second-Derivative-Test">Second Derivative Test</a></li>
+<li><a href="Global-Extrema.html" data-scroll="Global-Extrema">Global Extrema</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Chap-Calculus_8.html" data-scroll="Chap-Calculus_8"><span class="codenumber">8</span> <span class="title">Chain Rules</span></a><ul>
+<li><a href="Sec-The_single_variable_chain_rule.html" data-scroll="Sec-The_single_variable_chain_rule">The Single Variable Chain Rule</a></li>
+<li><a href="Sec-Multivariable-chain-rules.html" data-scroll="Sec-Multivariable-chain-rules">Multivariable Chain Rules</a></li>
+<li><a href="section-22.html" data-scroll="section-22">Implicit Differentiation</a></li>
+</ul>
+</li>
+<li class="link part"><a href="Part-Differenial_Equations.html" data-scroll="Part-Differenial_Equations"><span class="codenumber">II</span> <span class="title">Differential Equations</span></a></li>
+<li class="link">
+<a href="Differential_Equations_1.html" data-scroll="Differential_Equations_1"><span class="codenumber">9</span> <span class="title">Introduction</span></a><ul>
+<li><a href="introduction.html" data-scroll="introduction">Introduction</a></li>
+<li><a href="direction-fields-and-eulers-method.html" data-scroll="direction-fields-and-eulers-method" class="active">Direction Fields and Euler's Method</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Differential_Equations_2.html" data-scroll="Differential_Equations_2"><span class="codenumber">10</span> <span class="title">First Order Separable DEs</span></a><ul>
+<li><a href="Sec-First_Order_Separable_DEs.html" data-scroll="Sec-First_Order_Separable_DEs">First Order Separable DEs</a></li>
+<li><a href="Sec-Some-Simple-Applications-of-First-Order-Separable-DEs.html" data-scroll="Sec-Some-Simple-Applications-of-First-Order-Separable-DEs">Some Simple Applications of First Order Separable DEs</a></li>
+<li><a href="appendix-1.html" data-scroll="appendix-1">Partial Fraction Decomposition</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Differential_Equations_3.html" data-scroll="Differential_Equations_3"><span class="codenumber">11</span> <span class="title">First Order Linear DEs</span></a><ul>
+<li><a href="Exact_First_Order_DEs.html" data-scroll="Exact_First_Order_DEs">Exact First Order DEs</a></li>
+<li><a href="First_Order_Linear_DEs.html" data-scroll="First_Order_Linear_DEs">First Order Linear DEs</a></li>
+<li><a href="Simple_Applications_of_First_Order_Linear_DEs.html" data-scroll="Simple_Applications_of_First_Order_Linear_DEs">Some Simple Applications of First Order Linear DEs</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Differential_Equations_4.html" data-scroll="Differential_Equations_4"><span class="codenumber">12</span> <span class="title">Homogeneous Second Order Linear DEs</span></a><ul><li><a href="Homogeneous_Second_Order_Linear_DEs_With_Constant_Coefficients.html" data-scroll="Homogeneous_Second_Order_Linear_DEs_With_Constant_Coefficients">Homogeneous Second Order Linear DEs With Constant Coefficients</a></li></ul>
+</li>
+<li class="link">
+<a href="Differential_Equations_5.html" data-scroll="Differential_Equations_5"><span class="codenumber">13</span> <span class="title">Non-Homogeneous Second Order Linear DEs</span></a><ul>
+<li><a href="Non-Homogeneous_First_Order_Linear_DEs.html" data-scroll="Non-Homogeneous_First_Order_Linear_DEs">Non-Homogeneous First Order Linear DEs</a></li>
+<li><a href="The_Method_of_Undetermined_Coefficients.html" data-scroll="The_Method_of_Undetermined_Coefficients">The Method of Undetermined Coefficients</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Differential_Equations_6.html" data-scroll="Differential_Equations_6"><span class="codenumber">14</span> <span class="title">An Application of Second Order Linear DEs with Constant Coefficients</span></a><ul>
+<li><a href="A_Simple_Model.html" data-scroll="A_Simple_Model">A Simple Model</a></li>
+<li><a href="Adding_Damping.html" data-scroll="Adding_Damping">Adding Damping</a></li>
+<li><a href="Adding_an_External_Force.html" data-scroll="Adding_an_External_Force">Adding an External Force</a></li>
+</ul>
+</li>
+<li class="link part"><a href="Part-Linear_Algebra.html" data-scroll="Part-Linear_Algebra"><span class="codenumber">III</span> <span class="title">Linear Algebra</span></a></li>
+<li class="link">
+<a href="Linear_Algebra_1.html" data-scroll="Linear_Algebra_1"><span class="codenumber">15</span> <span class="title">Systems of Linear Equations</span></a><ul>
+<li><a href="Sec-LA_Introduction.html" data-scroll="Sec-LA_Introduction">Introduction</a></li>
+<li><a href="Sec-LA_Matrices_and_Systems_of_Linear_Equations.html" data-scroll="Sec-LA_Matrices_and_Systems_of_Linear_Equations">Matrices and Systems of Linear Equations</a></li>
+<li><a href="Sec-LA_Solving_Systems_of_Linear_Equations.html" data-scroll="Sec-LA_Solving_Systems_of_Linear_Equations">Solving Systems of Linear Equations</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Linear_Algebra__2.html" data-scroll="Linear_Algebra__2"><span class="codenumber">16</span> <span class="title">Geometric Interpretations of Linear Equations</span></a><ul>
+<li><a href="Interpretation_Via_Rows.html" data-scroll="Interpretation_Via_Rows">Interpretation Via Rows</a></li>
+<li><a href="Interpretation_Via_Columns.html" data-scroll="Interpretation_Via_Columns">Interpretation Via Columns</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Chap-Linear_Algebra_3.html" data-scroll="Chap-Linear_Algebra_3"><span class="codenumber">17</span> <span class="title">Matrix Algebra</span></a><ul>
+<li><a href="Sec-Linear_Algebra_Intro.html" data-scroll="Sec-Linear_Algebra_Intro">Introduction</a></li>
+<li><a href="Sec-Addition_and_Scalar_Multiplication.html" data-scroll="Sec-Addition_and_Scalar_Multiplication">Addition and Scalar Multiplication</a></li>
+<li><a href="Sec-Matrix_multiplication.html" data-scroll="Sec-Matrix_multiplication">Matrix Multiplication</a></li>
+<li><a href="Sec-Matrices_and_Systems_of_Linear_Equations.html" data-scroll="Sec-Matrices_and_Systems_of_Linear_Equations">Matrices and Systems of Linear Equations</a></li>
+<li><a href="Sec-Linear_transformations.html" data-scroll="Sec-Linear_transformations">Linear Transformations</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Linear_Algebra_4.html" data-scroll="Linear_Algebra_4"><span class="codenumber">18</span> <span class="title">Square Matrices</span></a><ul>
+<li><a href="Inverse_Matrices.html" data-scroll="Inverse_Matrices">Inverse Matrices</a></li>
+<li><a href="Determinants.html" data-scroll="Determinants">Determinants</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Linear_Algebra_5.html" data-scroll="Linear_Algebra_5"><span class="codenumber">19</span> <span class="title">Eigenvalues and Eigenvectors</span></a><ul>
+<li><a href="Sec-LA_5_Introduction.html" data-scroll="Sec-LA_5_Introduction">Introduction</a></li>
+<li><a href="Sec-LA_5_Finding_Eigenvalues_and_Eigenvectors.html" data-scroll="Sec-LA_5_Finding_Eigenvalues_and_Eigenvectors">Finding Eigenvalues and Eigenvectors</a></li>
+<li><a href="Sec-LA_5_A_Simple_Application.html" data-scroll="Sec-LA_5_A_Simple_Application">A Simple Application</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Linear_Algebra_6.html" data-scroll="Linear_Algebra_6"><span class="codenumber">20</span> <span class="title">Some Applications of Eigenvalues and Eigenvectors</span></a><ul>
+<li><a href="Powers_of_Matrices.html" data-scroll="Powers_of_Matrices">Powers of Matrices</a></li>
+<li><a href="Coupled_Linear_Differential_Equations.html" data-scroll="Coupled_Linear_Differential_Equations">Coupled Linear Differential Equations</a></li>
+</ul>
+</li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="direction-fields-and-eulers-method"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">9.2</span> <span class="title">Direction Fields and Euler's Method</span>
+</h2>
+<p id="p-591">So far, the only methods that we have seen for actually solving a DE are anti-differentiation and guess and check. Clearly, these methods are very limited in their scope. Before looking at some methods for finding solutions to DEs in closed form, we will look at two methods by which we can approximate solutions to first order DEs, i.e. to DEs of the form</p>
+<div class="displaymath process-math">
+\begin{equation*}
+y'=f(x,y)
+\end{equation*}
+</div>
+<section class="section" id="direction-fields"><h3 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">9.2.1</span> <span class="title">Direction Fields</span>
+</h3>
+<p id="p-592">The first method that we will look at aims to "draw" the solutions to the DE. If <span class="process-math">\(y(x)\)</span> is the solution to the DE that passes through the point <span class="process-math">\((x_0,y_0)\)</span> then the slope of the tangent to <span class="process-math">\(y(x)\)</span> at <span class="process-math">\((x_0,y_0)\)</span> is <span class="process-math">\(f(x_0,y_0)\text{.}\)</span> So if we draw a small line segment passing through the point <span class="process-math">\((x_0,y_0)\)</span> with slope <span class="process-math">\(f(x_0,y_0)\)</span> (i.e. a small part of the tangent line) this will approximate the graph of the solution at this point. A plot showing these small line segments for many points is called a <dfn class="terminology">direction field</dfn> for the DE.</p>
+<article class="example example-like" id="example-93"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-93"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">9.2.1</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-93"><article class="example example-like"><p id="p-593">Sketch the direction field for the DE</p>
+<div class="displaymath process-math">
+\begin{equation*}
+3y'+y=x
+\end{equation*}
+</div>
+<p class="continuation">Use this direction field to sketch the graph of the solution to the DE satisfying the initial condition <span class="process-math">\(y(0)=2\text{.}\)</span></p>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-77" id="solution-77"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-77"><div class="solution solution-like">
+<p id="p-594">Rearranging this first order DE in the form <span class="process-math">\(y'=f(x,y)\)</span> gives</p>
+<div class="displaymath process-math">
+\begin{equation*}
+y'=\frac{x-y}{3}\text{,}
+\end{equation*}
+</div>
+<p class="continuation">i.e. <span class="process-math">\(f(x,y)=\frac{x-y}{3}\text{.}\)</span> Now, at the point <span class="process-math">\((0,2)\)</span> the slope of the tangent to <span class="process-math">\(y(x)\)</span> will be</p>
+<div class="displaymath process-math">
+\begin{equation*}
+f(0,2)=\frac{0-2}{3}=-\frac{2}{3}
+\end{equation*}
+</div>
+<p class="continuation">So draw a small segment of the line passing through the point <span class="process-math">\((0,2)\)</span> with slope <span class="process-math">\(-\frac{2}{3}\text{,}\)</span> as shown in Figure 9.2.2. <figure class="figure figure-like" id="figure-58"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="./DifferentialEquations/Images/1/2_example8.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">9.2.2<span class="period">.</span></span><span class="space"> </span></figcaption></figure> Repeating for many points <span class="process-math">\((x,y)\)</span> in the plane gives the direction field for the DE shown in Figure 9.2.3. <figure class="figure figure-like" id="figure-59"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="./DifferentialEquations/Images/1/2_example8_2.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">9.2.3<span class="period">.</span></span><span class="space"> </span></figcaption></figure> Notice that from this direction field we can see the general shape of the family of solutions to the DE. We can also sketch any particular solution that we want. The particular solution satisfying <span class="process-math">\(y(0)=2\)</span> has been constructed in Figure 9.2.3.</p>
+</div></div></article></div>
+<article class="example example-like" id="example-94"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-94"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">9.2.4</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-94"><article class="example example-like"><p id="p-595">Sketch the direction field for the DE</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{dy}{dt}=y(1-y)
+\end{equation*}
+</div>
+<p class="continuation">Describe the long term behaviour of the solutions to this DE.</p>
+<p id="p-596"><dfn class="terminology">Note</dfn>: A first order DE is called <dfn class="terminology">autonomous</dfn> if it is of the form</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{dy}{dt}=f(y)
+\end{equation*}
+</div>
+<p class="continuation">and so this is an example of a first order autonomous DE.</p>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-78" id="solution-78"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-78"><div class="solution solution-like">
+<p id="p-597">Notice that for this DE the functions</p>
+<div class="displaymath process-math">
+\begin{equation*}
+y(x)=0 \textrm{ and }  y(x)=1
+\end{equation*}
+</div>
+<p class="continuation">are solutions and that for these solutions <span class="process-math">\(y'=0\text{.}\)</span> (These solutions are called <dfn class="terminology">steady state solutions</dfn> since <span class="process-math">\(y\)</span> does not vary along these solutions). Notice also that at any point whose <span class="process-math">\(y\)</span> coordinate is greater than <span class="process-math">\(1\text{,}\)</span> <span class="process-math">\(y'\lt 0\text{.}\)</span> Similarly for those points with <span class="process-math">\(y\)</span> coordinate satisfying <span class="process-math">\(0\lt y\lt 1\text{,}\)</span> <span class="process-math">\(y'&gt;0\)</span> and for those points with <span class="process-math">\(y\)</span> coordinate satisfying <span class="process-math">\(y\lt 0\text{,}\)</span> <span class="process-math">\(y'\lt 0\text{.}\)</span> These observations allow us to very quickly make a sketch of the direction field. The direction field for this DE is shown in Figure 9.2.5.</p>
+<p id="p-598">From the direction field we can see that the behaviour of the solution for large values of <span class="process-math">\(x\)</span> depends on the initial condition that the solution satisfies. If <span class="process-math">\(y(0)\lt 0\)</span> then <span class="process-math">\(y\rightarrow -\infty\)</span> as <span class="process-math">\(x\rightarrow\infty\)</span> whereas if <span class="process-math">\(y(0)&gt;0\)</span> then <span class="process-math">\(y\rightarrow 1\)</span> as <span class="process-math">\(x\rightarrow\infty\text{.}\)</span></p>
+<figure class="figure figure-like" id="figure-60"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="./DifferentialEquations/Images/1/2_example9.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">9.2.5<span class="period">.</span></span><span class="space"> </span></figcaption></figure>
+</div></div></article></div></section><section class="section" id="eulers-method"><h3 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">9.2.2</span> <span class="title">Euler's Method</span>
+</h3>
+<p id="p-599">The second method that we will look at aims to approximate the solution to the initial-value problem</p>
+<div class="displaymath process-math">
+\begin{equation*}
+y'=f(x,y), \hspace{5mm} y(x_0)=y_0
+\end{equation*}
+</div>
+<p class="continuation">numerically (i.e to produce a table of values for the function). Given a point <span class="process-math">\((x_n,y_n)\)</span> on the graph of the solution <span class="process-math">\(y(x)\text{,}\)</span> Euler’s method approximates the next point <span class="process-math">\((x_{n+1},y_{n+1})\)</span> on the graph of <span class="process-math">\(y(x)\)</span> using the linear approximation</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\Delta y=f(x_n,y_n)\Delta x
+\end{equation*}
+</div>
+<p class="continuation">Thus if <span class="process-math">\(x_{n+1}=x_n+\Delta x\text{,}\)</span> where <span class="process-math">\(\Delta x\)</span> is small, then</p>
+<div class="displaymath process-math">
+\begin{equation*}
+y_{n+1}=y_n+f(x_n,y_n)\Delta x
+\end{equation*}
+</div>
+<article class="definition definition-like" id="definition-18"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">9.2.1</span><span class="period">.</span><span class="space"> </span><span class="title">Euler's Method (for solving the initial-value problem <span class="process-math">\(y'=f(x,y), \hspace{5mm} y(x_0)=y_0\)</span>).</span>
+</h4>
+<ul id="p-600" class="disc">
+<li id="li-121"><p id="p-601">Choose a step size <dfn class="terminology"><span class="process-math">\(\Delta x\)</span></dfn></p></li>
+<li id="li-122"><p id="p-602">Begin at the point <dfn class="terminology"><span class="process-math">\((x_0,y_0)\)</span></dfn></p></li>
+<li id="li-123"><p id="p-603">Move from one point <dfn class="terminology"><span class="process-math">\((x_0,y_0)\)</span></dfn> on the solution to the next point <dfn class="terminology"><span class="process-math">\((x_{n+1},y_{n+1})\)</span></dfn> on the solution by: <div class="displaymath process-math" id="p-604">
+\begin{align*}
+x_{n+1} \amp =x_n+\Delta x\\
+y_{n+1} \amp =y_n+f(x_n,y_n)\Delta x
+\end{align*}
+</div></p></li>
+</ul></article><p id="p-605">Note that the accuracy of Euler’s method will depend on both the step size used and the distance from the initial known point on the solution.</p>
+<article class="example example-like" id="example-95"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-95"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">9.2.2</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-95"><article class="example example-like"><p id="p-606">Consider the initial-value problem:</p>
+<div class="displaymath process-math">
+\begin{equation*}
+y'=y, \hspace{5mm} y(0)=1
+\end{equation*}
+</div>
+<p class="continuation">Estimate <span class="process-math">\(y(1)\)</span> using Euler’s method with step size</p>
+<ol id="p-607" class="lower-alpha">
+<li id="li-124"><p id="p-608"><span class="process-math">\(\displaystyle \Delta x=1\)</span></p></li>
+<li id="li-125"><p id="p-609"><span class="process-math">\(\displaystyle \Delta x=0.5\)</span></p></li>
+<li id="li-126"><p id="p-610"><span class="process-math">\(\displaystyle \Delta x=0.25\)</span></p></li>
+</ol>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-79" id="solution-79"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-79"><div class="solution solution-like">
+<p id="p-611">Here <span class="process-math">\(f(x,y)=y\text{.}\)</span></p>
+<ol id="p-612" class="lower-alpha">
+<li id="li-127"><p id="p-613">Let <span class="process-math">\((x_0,y_0)=(0,1)\text{.}\)</span> Then with <span class="process-math">\(\Delta x=1\)</span> we have <div class="displaymath process-math" id="p-614">
+\begin{align*}
+x_1 \amp =x_0+\Delta x=0+1=1\\
+y_1 \amp =y_0+f(x_0,y_0)\Delta x\\
+\amp = 1+f(0,1)\times 1\\
+\amp = 1+1\\
+\amp = 2
+\end{align*}
+</div> Thus the Euler estimate is <span class="process-math">\(y(1)=2\text{.}\)</span></p></li>
+<li id="li-128"><p id="p-615">Again, begin with <span class="process-math">\((x_0,y_0)=(0,1)\text{.}\)</span> Using <span class="process-math">\(\Delta x=0.5\)</span> we will need two iterations to reach <span class="process-math">\(x=1\text{.}\)</span> The first iteration gives <div class="displaymath process-math" id="p-616">
+\begin{align*}
+x_1 \amp =x_0+\Delta x=0+0.5=0.5\\
+y_1 \amp =y_0+f(x_0,y_0)\Delta x\\
+\amp = 1+f(0,1)\times 0.5\\
+\amp = 1.5
+\end{align*}
+</div> Now complete the second iteration <div class="displaymath process-math" id="p-617">
+\begin{align*}
+x_2 \amp =x_1+\Delta x=0.5+0.5=1\\
+y_2 \amp =y_1+f(x_1,y_1)\Delta x\\
+\amp = 1.5+f(0.5,1.5)\times 0.5\\
+\amp = 1.5+1.5\times 0.5\\
+\amp = 2.25
+\end{align*}
+</div> Thus the Euler estimate is <span class="process-math">\(y(1)=2.25\text{.}\)</span></p></li>
+<li id="li-129"><p id="p-618">With <span class="process-math">\(\Delta x=0.25\)</span> we will need 4 iterations to reach <span class="process-math">\(x=1\text{.}\)</span> We can conveniently summarise the calculations via a table <figure class="table table-like" id="table-1"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">9.2.3<span class="period">.</span></span><span class="space"> </span></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="c m b1 r0 l0 t0 lines"><span class="process-math">\(n\)</span></th>
+<th scope="col" class="c m b1 r0 l0 t0 lines"><span class="process-math">\(x_n\)</span></th>
+<th scope="col" class="c m b1 r0 l0 t0 lines"><span class="process-math">\(y_n\)</span></th>
+<th scope="col" class="c m b1 r0 l0 t0 lines"><span class="process-math">\(f(x_n,y_n)\)</span></th>
+<th scope="col" class="c m b1 r0 l0 t0 lines"><span class="process-math">\(f(x_n,y_n)\Delta x\)</span></th>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(0\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(0\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(1\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(1\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(0.25\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(1\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(0.25\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(1.25\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(1.25\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(0.3125\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(2\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(0.5\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(1.5625\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(1.5625\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(0.390625\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(3\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(0.75\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(1.953125\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(1.953125\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(0.48828125\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(4\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(1\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(2.44140625\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"></td>
+</tr>
+</table></div></figure> Thus the Euler estimate is <span class="process-math">\(y(1)=2.4414 \textrm{ (to 4 d.p.)}\)</span></p></li>
+</ol>
+<p id="p-619">Note that the exact solution to this initial-value problem is <span class="process-math">\(y=e^x\)</span> and hence <span class="process-math">\(y(1)=e=2.7183\)</span> (to 4 d.p.). Figure 9.2.4. shows how the Euler solution with <span class="process-math">\(\Delta x=0.5\)</span> compares with the exact solution. <figure class="figure figure-like" id="figure-61"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="./DifferentialEquations/Images/1/2_example11.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">9.2.4<span class="period">.</span></span><span class="space"> </span></figcaption></figure></p>
+</div></div></article></div>
+<article class="example example-like" id="example-96"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-96"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">9.2.5</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-96"><article class="example example-like"><p id="p-620">Consider the DE</p>
+<div class="displaymath process-math">
+\begin{equation*}
+y'=y+x^2, \hspace{5mm} y(1)=2
+\end{equation*}
+</div>
+<p class="continuation">Use Euler’s method with <span class="process-math">\(\Delta x=0.5\)</span> to estimate <span class="process-math">\(y(3)\text{.}\)</span></p>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-80" id="solution-80"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-80"><div class="solution solution-like"><p id="p-621">Using the table layout: <figure class="table table-like" id="table-2"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">9.2.6<span class="period">.</span></span><span class="space"> </span></figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr class="header-horizontal">
+<th scope="col" class="c m b1 r0 l0 t0 lines"><span class="process-math">\(n\)</span></th>
+<th scope="col" class="c m b1 r0 l0 t0 lines"><span class="process-math">\(x_n\)</span></th>
+<th scope="col" class="c m b1 r0 l0 t0 lines"><span class="process-math">\(y_n\)</span></th>
+<th scope="col" class="c m b1 r0 l0 t0 lines"><span class="process-math">\(f(x_n,y_n)\)</span></th>
+<th scope="col" class="c m b1 r0 l0 t0 lines"><span class="process-math">\(f(x_n,y_n)\Delta x\)</span></th>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(0\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(1\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(2\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(3\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(1.5\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(1\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(1.5\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(3.5\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(5.75\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(2.875\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(2\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(2\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(6.375\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(10.375\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(5.1875\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(3\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(2.5\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(11.5625\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(17.8125\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(8.9063\)</span></td>
+</tr>
+<tr>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(4\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(3\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"><span class="process-math">\(20.4688\)</span></td>
+<td class="c m b0 r0 l0 t0 lines"></td>
+<td class="c m b0 r0 l0 t0 lines"></td>
+</tr>
+</table></div></figure> Thus the Euler estimate is <span class="process-math">\(y(3)=20.4688 \textrm{ (to 4 d.p.)}\)</span></p></div></div></article></div>
+<section class="exercises" id="exercises-21"><h4 class="heading hide-type">
+<span class="type">Exercises</span> <span class="codenumber"></span> <span class="title">Example Tasks</span>
+</h4>
+<article class="exercise exercise-like" id="exercise-58"><h5 class="heading"><span class="codenumber">1<span class="period">.</span></span></h5>
+<p id="p-622">At time <span class="process-math">\(t\)</span> the population density of the Striped Dingbat is modelled by the function <span class="process-math">\(P(t)\text{.}\)</span> This function satisﬁes the DE</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{dP}{dt}=kP(C-P)
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(k\)</span> and <span class="process-math">\(C\)</span> are positive constants.</p>
+<ol id="p-623" class="lower-alpha">
+<li id="li-130"><p id="p-624">Find all steady-state solutions to this DE.</p></li>
+<li id="li-131"><p id="p-625">By considering the direction ﬁeld, explain how this model predicts the long-term Striped Dingbat population.</p></li>
+</ol></article><article class="exercise exercise-like" id="exercise-59"><h5 class="heading"><span class="codenumber">2<span class="period">.</span></span></h5>
+<p id="p-626">The direction field for the DE</p>
+<div class="displaymath process-math">
+\begin{equation*}
+y'=x\left(y+\frac{1}{2}\right)+y^2
+\end{equation*}
+</div>
+<p class="continuation">is shown below. Sketch the solution satisfying the initial condition</p>
+<ol id="p-627" class="lower-alpha">
+<li id="li-132"><p id="p-628"><span class="process-math">\(\displaystyle y(0)=0.5\)</span></p></li>
+<li id="li-133"><p id="p-629"><span class="process-math">\(\displaystyle y(0)=-0.5\)</span></p></li>
+</ol>
+<figure class="figure figure-like" id="figure-62"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="./DifferentialEquations/Images/1/2_ET2.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">9.2.7<span class="period">.</span></span><span class="space"> </span></figcaption></figure></article><article class="exercise exercise-like" id="exercise-60"><h5 class="heading"><span class="codenumber">3<span class="period">.</span></span></h5>
+<p id="p-630">Consider the initial-value problem</p>
+<div class="displaymath process-math">
+\begin{equation*}
+y'=xy+x, \hspace{5mm} y(0)=1
+\end{equation*}
+</div>
+<p class="continuation">Use Euler’s method with <span class="process-math">\(\Delta x=0.1\)</span> to estimate <span class="process-math">\(y(0.3)\text{.}\)</span></p></article></section></section></section></div></main>
+</div>
+</body>
+</html>

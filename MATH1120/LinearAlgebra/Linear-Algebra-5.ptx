@@ -1,0 +1,541 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- =================================================================================================== -->
+<!-- To process this file with xsltproc do                                                        -->
+<!--                                                                                              -->
+<!-- (1) LaTeX/PDF:                                                                               -->
+<!--     xsltproc -o minimal.tex PATH_TO/mathbook/xsl/pretext-latex.xsl source/main.ptx           -->
+<!--     pdflatex minimal.tex                                                                     -->
+<!--     xelatex minimal.tex                                                                      -->
+<!--                                                                                              -->
+<!-- (2) HTML:                                                                                    -->
+<!--     xsltproc PATH_TO/mathbook/xsl/pretext-html.xsl source/main.ptx                           -->
+<!--     <browser>  minimal.html                                                                  -->
+<!--        ~/xsltproc/xsltproc.exe ~/mathbook/xsl/mathbook-html.xsl test.xml                     -->
+<!--                                                                                              -->
+<!-- (3) CoCalc worksheet (parameter causes a single file for output)                             -->
+<!--     REMOVE the "X" in the double dash (which is not legal in an XML comment)                 -->
+<!--     xsltproc -X-stringparam chunk.level 0 PATH_TO/mathbook/xsl/pretext-smc.xsl source/main.ptx   -->
+<!--     <CoCalc> minimal.sagews                                                                  -->
+<!--                                                                                              -->
+<!-- (4) Sage doctesting                                                                          -->
+<!--     REMOVE the "X" in the double dash (which is not legal in an XML comment)                 -->
+<!--     xsltproc -X-stringparam chunk.level 0 PATH_TO/mathbook/xsl/pretext-sage-doctest.xsl source/main.ptx  -->
+<!--     <read further instructions in> minimal.py                                                -->
+<!-- =================================================================================================== -->
+
+<chapter xml:id="Linear_Algebra_5">
+
+
+
+<!-- =================================================================================================== -->
+<!-- Title and Other Preliminaries -->
+<!-- =================================================================================================== -->
+        <title>Eigenvalues and Eigenvectors</title>
+
+        <!-- <frontmatter> -->
+
+<!--             <titlepage>
+                <author>
+                    <institution>University of Newcastle</institution>
+                </author>
+                <date><today /></date>
+            </titlepage> -->
+
+            <!-- <abstract>
+                <p>This is a very short article, but it still exercises some advanced features of MathBook XML.</p>
+            </abstract> -->
+
+        <!-- </frontmatter> -->
+
+        <!-- <introduction>
+            <p>This is a short paragraph to introduce the article (but it is not the abstract).  It is optional, in case it would be preferable to have the first section be titled an <q>Introduction.</q></p>
+        </introduction> -->
+<!-- =================================================================================================== -->
+
+
+<!-- =================================================================================================== -->
+<!-- Section 1: Introduction -->
+<!-- =================================================================================================== -->
+        <section xml:id="Sec-LA_5_Introduction">
+            <title>Introduction</title>
+
+            <definition>
+                <p>
+                    Let A be a square matrix of order <m>n</m>. The scalar <m>\lambda</m> is called an <term>eigenvalue</term> of <m>A</m> if there is a non-zero vector <m>\mathbf{x}</m> for which
+                    <me> A\mathbf{x}=\lambda \mathbf{x}</me>
+                    <m>\mathbf{x}</m> is called an <term>eigenvector</term> of <m>A</m> associated with the eigenvalue <m>\lambda</m>.
+                </p>
+            </definition>
+
+            <example>
+                <p>
+                    For the matrix
+                    <me>A=\begin{pmatrix} 0 \amp 4 \amp 3 \\ \frac{1}{2} \amp 0 \amp 0 \\ 0 \amp \frac{1}{4} \amp 0 \end{pmatrix} </me>
+                    determine if any of <m>\mathbf{x}=\begin{pmatrix} 18 \amp 6 \amp 1 \end{pmatrix}^T </m>, <m>\mathbf{y}=\begin{pmatrix} -2 \amp 3 \amp 4 \end{pmatrix}^T </m> or <m>\mathbf{z}=\begin{pmatrix} 36 \amp 12 \amp 2 \end{pmatrix}^T </m> are eigenvectors of <m>A</m>.
+                </p>
+                <solution>
+                    <p>
+                        Since
+                        <me>A\mathbf{x}=\begin{pmatrix} 0 \amp 4 \amp 3 \\ \frac{1}{2} \amp 0 \amp 0 \\ 0 \amp \frac{1}{4} \amp 0 \end{pmatrix} \begin{pmatrix} 18 \\ 6 \\ 1 \end{pmatrix} = \begin{pmatrix} 27 \\ 9 \\ \frac{3}{2} \end{pmatrix} = \frac{3}{2}\begin{pmatrix} 18 \\ 6 \\ 1 \end{pmatrix} </me>
+                        <m>\mathbf{x}</m> is an eigenvector of <m>A</m> associated with the eigenvalue <m>\frac{3}{2}</m>. Since
+                        <me>A\mathbf{y}=\begin{pmatrix} 0 \amp 4 \amp 3 \\ \frac{1}{2} \amp 0 \amp 0 \\ 0 \amp \frac{1}{4} \amp 0 \end{pmatrix} \begin{pmatrix} -2 \\ 3 \\ 4 \end{pmatrix} = \begin{pmatrix} 24 \\ -1 \\ \frac{3}{4} \end{pmatrix} \neq \lambda\begin{pmatrix} -2 \\ 3 \\ 4 \end{pmatrix} </me>
+                        <m>\mathbf{y}</m> is not an eigenvector of <m>A</m>. Since 
+                        <me>A\mathbf{z}=\begin{pmatrix} 0 \amp 4 \amp 3 \\ \frac{1}{2} \amp 0 \amp 0 \\ 0 \amp \frac{1}{4} \amp 0 \end{pmatrix} \begin{pmatrix} 36 \\ 12 \\ 2 \end{pmatrix} = \begin{pmatrix} 54 \\ 18 \\ 3 \end{pmatrix} = \frac{3}{2}\begin{pmatrix} 36 \\ 12 \\ 2 \end{pmatrix} </me>
+                        <m>\mathbf{z}</m> is also an eigenvector of <m>A</m> associated with the eigenvalue <m>\frac{3}{2}</m>.
+                    </p>
+                </solution>
+            </example>
+
+            <example>
+                <p>
+                    The matrix
+                    <me>A=\begin{pmatrix} 0 \amp 1 \\ 1 \amp 0 \end{pmatrix}</me>
+                    is the matrix for the plane transformation of a reflection in the line <m>y=x</m>. Use this geometric interpretation of the matrix to determine the possible eigenvectors and eigenvalues of <m>A</m>.
+                </p>
+                <solution>
+                    <p>
+                        By definition eigenvectors satisfy the equation
+                        <me>A\mathbf{x}=\lambda\mathbf{x}</me>
+                        Thinking in terms of transformations this equation says that an eigenvector will be a vector that is mapped by the transformation to some scalar multiple of itself, (i.e. to a vector parallel to itself). As illustrated in Figure 19.1.4. any vector lying on the line <m>y=x</m> will be mapped to itself by a reflection in that line, i.e. for such vectors
+                        <me>A\mathbf{x}=\mathbf{x}</me>
+                        Thus vectors of the form
+                        <me>\mathbf{x}=\begin{pmatrix} t \\ t \end{pmatrix}=t\begin{pmatrix} 1 \\ 1 \end{pmatrix}, \textrm{ where } t\in \mathbb{R}</me>
+                        will be eigenvectors of <m>A</m> with an eigenvalue of <m>1</m>. (Note that we could check this algebraically if so desired.)
+                    </p>
+                    <p>
+                        As also illustrated in Figure 19.1.4., any vector perpendicular to the line <m>y=x</m> will be mapped by a reflection in that line to a vector of the same length but in the opposite direction, i.e. for such vectors
+                        <me>A\mathbf{x}=-\mathbf{x}</me>
+                        Thus vectors of the form
+                        <me>\mathbf{x}=\begin{pmatrix} t \\ -t \end{pmatrix}=t\begin{pmatrix} 1 \\ -1 \end{pmatrix}, \textrm{ where } t\in \mathbb{R}</me>
+                        will be eigenvectors of <m>A</m> with an eigenvalue of <m>-1</m>.
+                        <figure>
+                            <image source="./LinearAlgebra/Images/5/figure1.png" width="75%"/>
+                        </figure>
+                        Since no other vectors will be mapped by a reflection in the line <m>y=x</m> into scalar multiples of themselves, <m>A</m> will not have any more eigenvectors.
+                    </p>
+                </solution>
+            </example>
+
+            <example>
+                <p>
+                    Given that <m>\lambda=5</m> is an eigenvalue for the matrix
+                    <me> A=\begin{pmatrix} 1 \amp 2 \\ 4 \amp 3 \end{pmatrix}</me>
+                    find all eigenvectors associated with this eigenvalue.
+                </p>
+                <solution>
+                    <p>
+                        An eigenvector, <m>\mathbf{x}</m>, associated with the eigenvalue <m>\lambda=5</m> will satisfy the system of linear equations
+                        <m>A\mathbf{x}=5\mathbf{x}</m>
+                        which can be rewritten as
+                        <md>
+                            <mrow>\begin{pmatrix} 1 \amp 2 \\ 4 \amp 3 \end{pmatrix} \begin{pmatrix} x_1 \\ x_2 \end{pmatrix} -5\begin{pmatrix} x_1 \\ x_2 \end{pmatrix} \amp =\begin{pmatrix} 0 \\ 0 \end{pmatrix}</mrow>
+                            <mrow>\begin{pmatrix} x_1+2x_2-5x_1 \\ 4x_1+3x_2-5x_2 \end{pmatrix} \amp =\begin{pmatrix} 0 \\ 0 \end{pmatrix}</mrow>
+                            <mrow>\begin{pmatrix} -4 \amp 2 \\ 4 \amp -2 \end{pmatrix} \begin{pmatrix} x_1 \\ x_2 \end{pmatrix} \amp =\begin{pmatrix} 0 \\ 0 \end{pmatrix}</mrow>
+                        </md>
+                        Now, using Gauss Jordon elimination to solve this homogeneous system 
+                        <me> \begin{pmatrix} -4 \amp 2 \amp 0 \\ 4 \amp -2 \amp 0 \end{pmatrix} \sim \begin{pmatrix} 2 \amp -1 \amp 0 \\ 0 \amp 0 \amp 0 \end{pmatrix}  \begin{matrix} \hspace{5mm} R_1'=R_1/(-2) \\ \hspace{5mm} R_2'=R_2+R_1 \end{matrix}</me>
+                        we see that this system has an infinite number of solutions which take the form
+                        <me>\mathbf{x}=\begin{pmatrix} x_1 \\ x_2 \end{pmatrix} \textrm{ where } 2x_1-x_2=0</me>
+                        or equivalently
+                        <me>\mathbf{x}=\begin{pmatrix} t \\ 2t \end{pmatrix}=t\begin{pmatrix} 1 \\ 2 \end{pmatrix}</me>
+                        Thus the eigenvectors associated with the eigenvalue <m>\lambda=5</m> are all scalar multiples of the vector <m>\begin{pmatrix} 1 \amp 2 \end{pmatrix}^T</m>. 
+                    </p>
+                    <p>
+                        Of course, it is a good idea to check this result. Since
+                        <me>A\mathbf{x}=\begin{pmatrix} 1 \amp 2 \\ 4 \amp 3 \end{pmatrix} \begin{pmatrix} 1 \\ 2 \end{pmatrix}=\begin{pmatrix} 5 \\ 10 \end{pmatrix}=5\begin{pmatrix} 1 \\ 2 \end{pmatrix}=\lambda\mathbf{x}</me>
+                        it is correct.
+                    </p>
+                </solution>
+            </example>
+            
+        </section>
+
+<!-- =================================================================================================== -->
+
+
+<!-- =================================================================================================== -->
+<!-- Section 2: Finding Eigenvalues and Eigenvectors -->
+<!-- =================================================================================================== -->
+        <section xml:id="Sec-LA_5_Finding_Eigenvalues_and_Eigenvectors">
+            <title>Finding Eigenvalues and Eigenvectors</title>
+
+            <p>
+                For the square matrix <m>A</m>, the eigenvalues and associated eigenvectors are defined by the equation
+                <men>A\mathbf{x}=\lambda\mathbf{x}</men>
+                Thus, we want to find values of <m>\lambda</m>, and associated vectors <m>\mathbf{x}</m>, that satisfy this equation. To do this, rearrange Equation (19.2.1) to obtain
+                <me>A\mathbf{x}-\lambda\mathbf{x}=\mathbf{0}</me>
+                which can be written as
+                <me>A\mathbf{x}-\lambda I\mathbf{x}=\mathbf{0}</me>
+                or
+                <men>(A-\lambda I)\mathbf{x}=\mathbf{0}</men>
+                where <m>I</m> is the identity matrix of order <m>n</m>. Since Equation (19.2.2) is a homogeneous system of linear equations it will only have a non-zero solution when 
+                <men>det(A-\lambda I)=0</men>
+            </p>
+            <definition>
+                <p>
+                    The eigenvalues, <m>\lambda</m>, of the <m>n\times n</m> matrix <m>A</m> are found by solving the <term>characteristic equation</term>
+                    <me>det(A-\lambda I)=0</me>
+                    The eigenvectors of the matrix <m>A</m> are found by solving the homogeneous linear system of equations 
+                    <me>(A-\lambda I)\mathbf{x}=\mathbf{0}</me>
+                    for each eigenvalue <m>\lambda</m>.
+                </p>
+            </definition>
+
+            <example>
+                <p>
+                    Find all eigenvalues and associated eigenvectors for
+                    <me>A=\begin{pmatrix} 2 \amp 1 \\ 1 \amp 2 \end{pmatrix} </me>
+                </p>
+                <solution>
+                    <p>
+                        The eigenvalues, <m>\lambda</m>, of <m>A</m> satisfy the characteristic equation
+                        <me>det(A-\lambda I)=0</me>
+                        Since
+                        <me> A-\lambda I=\begin{pmatrix} 2\amp 1 \\ 1\amp 2 \end{pmatrix}-\lambda \begin{pmatrix} 1\amp 0 \\ 0\amp 1 \end{pmatrix}=\begin{pmatrix} 2-\lambda \amp 1 \\ 1\amp 2-\lambda \end{pmatrix}</me>
+                        the characteristic equation is
+                        <md> 
+                            <mrow>det\begin{pmatrix} 2-\lambda \amp 1 \\ 1\amp 2-\lambda \end{pmatrix} \amp =0</mrow>
+                            <mrow>(2-\lambda)^2-1 \amp =0</mrow>
+                            <mrow>\lambda^2-4\lambda+3 \amp =0</mrow>
+                        </md>
+                        Thus the eigenvalues for <m>A</m> are 
+                        <me>\lambda=1 \textrm{ and } \lambda=3</me>
+                    </p>
+                    <p>
+                        To find the eigenvectors associated with each of these eigenvalues we follow the procedure illustrated in Example 19.1.5., i.e. solve the homogeneous system of linear equations
+                        <me>(A-\lambda I)\mathbf{x}=\mathbf{0}</me>
+                        for each eigenvalue.
+                    </p>
+                    <p>
+                        When <m>\lambda=1</m> the augmented matrix and its reduced row echelon form are
+                        <me> \begin{pmatrix} 1 \amp 1 \amp 0 \\ 1 \amp 1 \amp 0 \end{pmatrix} \sim \begin{pmatrix} 1 \amp 1 \amp 0 \\ 0 \amp 0 \amp 0 \end{pmatrix}  \begin{matrix} \\ \hspace{5mm} R_2'=R_2-R_1 \end{matrix}</me>
+                        Thus, the eigenvectors take the form
+                        <md>
+                            <mrow>\mathbf{x} \amp =\begin{pmatrix}x_1 \\ x_2\end{pmatrix} \textrm{ where } x_1+x_2=0</mrow>
+                            <mrow>\Rightarrow \mathbf{x} \amp =\begin{pmatrix} -t \\ t \end{pmatrix}=t\begin{pmatrix} -1 \\ 1 \end{pmatrix} </mrow>
+                        </md>
+                        When <m>\lambda=3</m> the augmented matrix and its reduced row echelon form are
+                        <me> \begin{pmatrix} -1 \amp 1 \amp 0 \\ 1 \amp -1 \amp 0 \end{pmatrix} \sim \begin{pmatrix} -1 \amp 1 \amp 0 \\ 0 \amp 0 \amp 0 \end{pmatrix}  \begin{matrix} \\ \hspace{5mm} R_2'=R_2+R_1 \end{matrix}</me>
+                        Thus, the eigenvectors take the form
+                        <md>
+                            <mrow>\mathbf{x} \amp =\begin{pmatrix}x_1 \\ x_2\end{pmatrix} \textrm{ where } -x_1+x_2=0</mrow>
+                            <mrow>\Rightarrow \mathbf{x} \amp =\begin{pmatrix} t \\ t \end{pmatrix}=t\begin{pmatrix} 1 \\ 1 \end{pmatrix} </mrow>
+                        </md>
+                        As always, you can very easily check that these vectors are indeed eigenvectors by performing the matrix multiplication <m>A\mathbf{x}</m>.
+                    </p>
+                    <p>
+                        As an aside, we can get some geometric insight if we consider <m>A</m> as the matrix of a plane transformation, (even though <m>A</m> isn’t the matrix for any well known transformation). Figure 19.2.3. shows the result of applying <m>A</m> to a square centred on the origin.
+                        <figure>
+                            <image source="./LinearAlgebra/Images/5/figure2.png" width="75%"/>
+                        </figure>
+                        Informally, the effect of <m>A</m> is to pull the square out along the diagonal joining vertices <m>B</m> and <m>D</m>. Thus vectors along this diagonal will be mapped to scalar multiples of themselves while vectors along the diagonal joining vertices <m>A</m> and <m>C</m> will be left unchanged. 
+                    </p>
+                </solution>
+            </example>
+
+            <example>
+                <p>
+                    Find all eigenvalues and associated eigenvectors for
+                    <me>A=\begin{pmatrix} 1 \amp 2 \\ 3 \amp 4 \end{pmatrix} </me>
+                </p>
+                <solution>
+                    <p>
+                        The characteristic equation for <m>A</m> is
+                        <md> 
+                            <mrow>det\begin{pmatrix} 1-\lambda \amp 2 \\ 3\amp 4-\lambda \end{pmatrix} \amp =0</mrow>
+                            <mrow>(1-\lambda)(4-\lambda)-6 \amp =0</mrow>
+                            <mrow>\lambda^2-5\lambda-2 \amp =0</mrow>
+                        </md>
+                        Thus the eigenvalues for <m>A</m> are
+                        <me>\lambda=\frac{5\pm\sqrt{33}}{2}\approx 5.37, -0.37</me>
+                        Clearly the eigenvalues don’t always turn out to be nice numbers, even when the matrix is quite simple. The eigenvectors will also turn out to be rather complicated.
+                    </p>
+                    <p>
+                        When <m>\lambda=\frac{5+\sqrt{33}}{2}</m> the augmented matrix and its reduced row echelon form are
+                        <me>\begin{pmatrix} 1-\left(\frac{5+\sqrt{33}}{2} \right) \amp 2 \amp 0 \\ 3 \amp 4-\left(\frac{5+\sqrt{33}}{2} \right) \amp 0 \end{pmatrix} \sim \begin{pmatrix} \frac{-3-\sqrt{33}}{2} \amp 2 \amp 0 \\ 0 \amp 0 \amp 0 \end{pmatrix} </me>
+                        Thus, the eigenvectors take the form
+                        <md>
+                            <mrow>\mathbf{x} \amp =\begin{pmatrix} x_1 \\ x_2 \end{pmatrix} \textrm{ where } \left(\frac{-3-\sqrt{33}}{2}\right)x_1+2x_2=0 </mrow>
+                            <mrow>\Rightarrow \mathbf{x} \amp =\begin{pmatrix} 4t \\ t(3+\sqrt{33}) \end{pmatrix} = t\begin{pmatrix} 4 \\ 3+\sqrt{33} \end{pmatrix}</mrow>
+                        </md>
+                        When <m>\lambda=\frac{5-\sqrt{33}}{2}</m> the augmented matrix and its reduced row echelon form are
+                        <me>\begin{pmatrix} 1-\left(\frac{5-\sqrt{33}}{2} \right) \amp 2 \amp 0 \\ 3 \amp 4-\left(\frac{5-\sqrt{33}}{2} \right) \amp 0 \end{pmatrix} \sim \begin{pmatrix} \frac{-3+\sqrt{33}}{2} \amp 2 \amp 0 \\ 0 \amp 0 \amp 0 \end{pmatrix} </me>
+                        Thus, the eigenvectors take the form
+                        <md>
+                            <mrow>\mathbf{x} \amp =\begin{pmatrix} x_1 \\ x_2 \end{pmatrix} \textrm{ where } \left(\frac{-3+\sqrt{33}}{2}\right)x_1+2x_2=0 </mrow>
+                            <mrow>\Rightarrow \mathbf{x} \amp =\begin{pmatrix} 4t \\ t(3-\sqrt{33}) \end{pmatrix} = t\begin{pmatrix} 4 \\ 3-\sqrt{33} \end{pmatrix}</mrow>
+                        </md>
+                    </p>
+                </solution>
+            </example>
+
+            <example>
+                <p>
+                    Find all eigenvalues and associated eigenvectors for
+                    <me>A=\begin{pmatrix} 1 \amp 2 \\ 2 \amp 4 \end{pmatrix} </me>
+                </p>
+                <solution>
+                    <p>
+                        The characteristic equation for <m>A</m> is
+                        <md> 
+                            <mrow>det\begin{pmatrix} 1-\lambda \amp 2 \\ 2\amp 4-\lambda \end{pmatrix} \amp =0</mrow>
+                            <mrow>(1-\lambda)(4-\lambda)-4 \amp =0</mrow>
+                            <mrow>\lambda^2-5\lambda \amp =0</mrow>
+                        </md>
+                        Thus the eigenvalues for <m>A</m> are
+                        <me>\lambda=0, 5</me>
+                        When <m>\lambda=0</m> the augmented matrix and its reduced row echelon form are
+                        <me>\begin{pmatrix} 1 \amp 2 \amp 0 \\ 2 \amp 4 \amp 0 \end{pmatrix} \sim \begin{pmatrix} 1 \amp 2 \amp 0 \\ 0 \amp 0 \amp 0 \end{pmatrix} </me>
+                        Thus, the eigenvectors take the form
+                        <md>
+                            <mrow>\mathbf{x} \amp =\begin{pmatrix} x_1 \\ x_2 \end{pmatrix} \textrm{ where } x_1+2x_2=0 </mrow>
+                            <mrow>\Rightarrow \mathbf{x} \amp =\begin{pmatrix} -2t \\ t \end{pmatrix} = t\begin{pmatrix} -2 \\ 1 \end{pmatrix}</mrow>
+                        </md>
+                        When <m>\lambda=5</m> the augmented matrix and its reduced row echelon form are
+                        <me>\begin{pmatrix} -4 \amp 2 \amp 0 \\ 2 \amp -1 \amp 0 \end{pmatrix} \sim \begin{pmatrix} 2 \amp -1 \amp 0 \\ 0 \amp 0 \amp 0 \end{pmatrix} </me>
+                        Thus, the eigenvectors take the form
+                        <md>
+                            <mrow>\mathbf{x} \amp =\begin{pmatrix} x_1 \\ x_2 \end{pmatrix} \textrm{ where } 2x_1-x_2=0 </mrow>
+                            <mrow>\Rightarrow \mathbf{x} \amp =\begin{pmatrix} t \\ 2t \end{pmatrix} = t\begin{pmatrix} 1 \\ 2 \end{pmatrix}</mrow>
+                        </md>
+                    </p>
+                </solution>
+            </example>
+
+            <p>
+                Notice that when <m>0</m> is an eigenvalue of <m>A</m> the system of equations that are solved to find the associated eigenvectors, i.e.
+                <me>(A-\lambda I)\mathbf{x}=\mathbf{0}</me>
+                reduces to 
+                <me>A\mathbf{x}=\mathbf{0}</me>
+                Since <m>0</m> is an eigenvalue of <m>A</m> we know that this system must have non-zero solutions which in turn tells us that <m>A</m> is not invertible. Thus, if <m>A</m> has <m>0</m> as an eigenvalue it will not be invertible and vice versa.
+            </p>
+
+            <example>
+                <p>
+                    Find all eigenvalues and associated eigenvectors for
+                    <me>A=\begin{pmatrix} 0 \amp 1 \\ -1 \amp 0 \end{pmatrix}</me>
+                </p>
+                <solution>
+                    <p>
+                        The characteristic equation for <m>A</m> is
+                        <md>
+                            <mrow>det\begin{pmatrix} 0-\lambda \amp 1 \\ -1 \amp 0-\lambda \end{pmatrix} \amp =0 </mrow>
+                            <mrow>\lambda^2+1 \amp =0 </mrow>
+                        </md>
+                        This equation has no real solutions and so <m>A</m> does not have any real eigenvalues. (Notice that <m>A</m> is the matrix for a rotation in the plane about the origin and through <m>-\frac{\pi}{2}^C</m>.) However there are applications where it is advantageous to allow the eigenvalues and eigenvectors to be complex. So, proceeding as before, the eigenvalues for <m>A</m> are
+                        <me>\lambda=\pm i</me>
+                        When <m>\lambda=i</m> the augmented matrix and its reduced row echelon form are
+                        <me>\begin{pmatrix} -i \amp 1 \amp 0 \\ -1 \amp -i \amp 0 \end{pmatrix} \sim \begin{pmatrix} 1 \amp i \amp 0 \\ 0 \amp 0 \amp 0 \end{pmatrix} </me>
+                        Thus, the eigenvectors take the form
+                        <md>
+                            <mrow>\mathbf{x} \amp =\begin{pmatrix} x_1 \\ x_2 \end{pmatrix} \textrm{ where } x_1+ix_2=0 </mrow>
+                            <mrow>\Rightarrow \mathbf{x} \amp =\begin{pmatrix} t \\ ti \end{pmatrix} = t\begin{pmatrix} 1 \\ i \end{pmatrix}</mrow>
+                        </md>
+                        When <m>\lambda=-i</m> the augmented matrix and its reduced row echelon form are
+                        <me>\begin{pmatrix} i \amp 1 \amp 0 \\ -1 \amp i \amp 0 \end{pmatrix} \sim \begin{pmatrix} 1 \amp -i \amp 0 \\ 0 \amp 0 \amp 0 \end{pmatrix} </me>
+                        Thus, the eigenvectors take the form
+                        <md>
+                            <mrow>\mathbf{x} \amp =\begin{pmatrix} x_1 \\ x_2 \end{pmatrix} \textrm{ where } x_1-ix_2=0 </mrow>
+                            <mrow>\Rightarrow \mathbf{x} \amp =\begin{pmatrix} -t \\ ti \end{pmatrix} = t\begin{pmatrix} -1 \\ i \end{pmatrix}</mrow>
+                        </md>
+                    </p>
+                </solution>
+            </example>
+
+            <p>
+                As we have seen the characteristic equation for a <m>2\times 2</m> matrix is always a polynomial of degree <m>2</m>. Once we allow complex solutions we can that every <m>2\times 2</m> matrix will have exactly <m>2</m> eigenvalues (so long as we count repeated roots). In fact, it can be shown that this result holds more generally. Every square matrix of order <m>n</m> has <m>n</m> eigenvalues (counting repeated roots).
+            </p>
+
+            <example>
+                <p>
+                    Find all eigenvalues and associated eigenvectors for
+                    <me>A=\begin{pmatrix} 7 \amp 1 \amp -2 \\ -3 \amp 3 \amp 6 \\ 2 \amp 2\amp 2 \end{pmatrix}</me>
+                </p>
+                <solution>
+                    <p>
+                        The characteristic equation for <m>A</m> is
+                        <me>det\begin{pmatrix} 7-\lambda \amp 1 \amp -2 \\ -3 \amp 3-\lambda \amp 6 \\ 2 \amp 2\amp 2-\lambda \end{pmatrix}=0</me>
+                        Now, using the minors method and expanding along row 1,
+                        <md>
+                            <mrow>det\begin{pmatrix} 7-\lambda \amp 1 \amp -2 \\ -3 \amp 3-\lambda \amp 6 \\ 2 \amp 2\amp 2-\lambda \end{pmatrix} \amp =(7-\lambda)\begin{vmatrix} 3-\lambda \amp 6 \\ 2 \amp 2-\lambda \end{vmatrix}-1\begin{vmatrix} -3 \amp 6 \\ 2 \amp 2-\lambda \end{vmatrix}+(-2)\begin{vmatrix} -3 \amp 3-\lambda \\ 2 \amp 2 \end{vmatrix} </mrow>
+                            <mrow>\amp = (7-\lambda)\{(3-\lambda)(2-\lambda)-12\}-\{(-3)(2-\lambda)-12\}-2\{-6-2(3-\lambda)\}</mrow>
+                            <mrow>\amp = -\lambda^3+12\lambda^2-36\lambda</mrow>
+                        </md>
+                        Thus the eigenvalues for <m>A</m> satisfy
+                        <md>
+                            <mrow>\lambda^3-12\lambda^2+36\lambda \amp =0</mrow>
+                            <mrow>\lambda(\lambda-6)^2 \amp =0</mrow>
+                            <mrow>\lambda \amp = 0, 6</mrow>
+                        </md>
+                        Since <m>\lambda=6</m> is a repeated root of the characteristic equation we say that this is an eigenvalue of <term>multiplicity</term> <m>2</m>. Also, since <m>\lambda=0</m> is an eigenvalue of <m>A</m> we know that <m>A</m> is not invertible.
+                    </p>
+                    <p>
+                        When <m>\lambda=0</m> the augmented matrix and its reduced row echelon form are
+                        <me>\begin{pmatrix} 7 \amp 1 \amp -2 \amp 0 \\ -3 \amp 3 \amp 6 \amp 0 \\ 2 \amp 2 \amp 2 \amp 0 \end{pmatrix} \sim \begin{pmatrix} 1 \amp 0 \amp -\frac{1}{2} \amp 0 \\ 0 \amp 1 \amp \frac{3}{2} \amp 0 \\ 0 \amp 0 \amp 0 \amp 0 \end{pmatrix} </me>
+                        Thus, the eigenvectors take the form
+                        <md>
+                            <mrow>\mathbf{x} \amp =\begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix} \textrm{ where } \begin{matrix} \hspace{3.5mm} x_1-x_3/2=0 \\ \hspace{2mm} x_2+3x_3/2=0 \end{matrix} </mrow>
+                            <mrow>\Rightarrow \mathbf{x} \amp =\begin{pmatrix} t \\ -3t \\ 2t \end{pmatrix} = t\begin{pmatrix} 1 \\ -3 \\ 2 \end{pmatrix}</mrow>
+                        </md>
+                        When <m>\lambda=6</m> the augmented matrix and its reduced row echelon form are
+                        <me>\begin{pmatrix} 1 \amp 1 \amp -2 \amp 0 \\ -3 \amp -3 \amp 6 \amp 0 \\ 2 \amp 2 \amp -4 \amp 0 \end{pmatrix} \sim \begin{pmatrix} 1 \amp 1 \amp -2 \amp 0 \\ 0 \amp 0 \amp 0 \amp 0 \\ 0 \amp 0 \amp 0 \amp 0 \end{pmatrix} </me>
+                        Thus, the eigenvectors take the form
+                        <md>
+                            <mrow>\mathbf{x} \amp =\begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix} \textrm{ where } x_1+x_2-2x_3=0 </mrow>
+                            <mrow>\Rightarrow \mathbf{x} \amp =\begin{pmatrix} -s+2t \\ s \\ t \end{pmatrix} = s\begin{pmatrix} -1 \\ 1 \\ 0 \end{pmatrix}+t\begin{pmatrix} 2 \\ 0 \\ 1 \end{pmatrix}</mrow>
+                        </md>
+                    </p>
+                </solution>
+            </example>
+
+            <example>
+                <p>
+                    Find all eigenvalues and associated eigenvectors for
+                    <me>A=\begin{pmatrix} 7 \amp 1 \amp -2 \\ 0 \amp 3 \amp 6 \\ 0 \amp 0 \amp 2 \end{pmatrix}</me>
+                </p>
+                <solution>
+                    <p>
+                        The characteristic equation for <m>A</m> is
+                        <me>det\begin{pmatrix} 7-\lambda \amp 1 \amp -2 \\ 0 \amp 3-\lambda \amp 6 \\ 0 \amp 0 \amp 2-\lambda \end{pmatrix}=0</me>
+                        Now, using the minors method and expanding down column 1,
+                        <md>
+                            <mrow>det\begin{pmatrix} 7-\lambda \amp 1 \amp -2 \\ 0 \amp 3-\lambda \amp 6 \\ 0 \amp 0\amp 2-\lambda \end{pmatrix} \amp =(7-\lambda)\begin{vmatrix} 3-\lambda \amp 6 \\ 0 \amp 2-\lambda \end{vmatrix}-0\begin{vmatrix} 1 \amp -2 \\ 0 \amp 2-\lambda \end{vmatrix}+0\begin{vmatrix} 1 \amp -2 \\ 3-\lambda \amp 6 \end{vmatrix} </mrow>
+                            <mrow>\amp = (7-\lambda)\{(3-\lambda)(2-\lambda)-0\}-0+0</mrow>
+                            <mrow>\amp = (7-\lambda)(3-\lambda)(2-\lambda)</mrow>
+                        </md>
+                        Thus the eigenvalues for <m>A</m> satisfy
+                        <me>\lambda=2,3,7</me>
+                        When <m>\lambda=2</m> the augmented matrix and its reduced row echelon form are
+                        <me>\begin{pmatrix} 5 \amp 1 \amp -2 \amp 0 \\ 0 \amp 1 \amp 6 \amp 0 \\ 0 \amp 0 \amp 0 \amp 0 \end{pmatrix} \sim \begin{pmatrix} 5 \amp 0 \amp -8 \amp 0 \\ 0 \amp 1 \amp 6 \amp 0 \\ 0 \amp 0 \amp 0 \amp 0 \end{pmatrix} </me>
+                        Thus, the eigenvectors take the form
+                        <md>
+                            <mrow>\mathbf{x} \amp =\begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix} \textrm{ where } \begin{matrix}  \hspace{2mm} 5x_1-8x_3=0 \\ \hspace{4mm} x_2+6x_3=0 \end{matrix} </mrow>
+                            <mrow>\Rightarrow \mathbf{x} \amp =\begin{pmatrix} 8t \\ -30t \\ 5t \end{pmatrix} = t\begin{pmatrix} 8 \\ -30 \\ 5 \end{pmatrix}</mrow>
+                        </md>
+                        When <m>\lambda=3</m> the augmented matrix and its reduced row echelon form are
+                        <me>\begin{pmatrix} 4 \amp 1 \amp -2 \amp 0 \\ 0 \amp 0 \amp 6 \amp 0 \\ 0 \amp 0 \amp -1 \amp 0 \end{pmatrix} \sim \begin{pmatrix} 4 \amp 1 \amp 0 \amp 0 \\ 0 \amp 0 \amp 1 \amp 0 \\ 0 \amp 0 \amp 0 \amp 0 \end{pmatrix} </me>
+                        Thus, the eigenvectors take the form
+                        <md>
+                            <mrow>\mathbf{x} \amp =\begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix} \textrm{ where } \begin{matrix} \hspace{2mm} 4x_1+x_2=0 \\ \hspace{14.5mm} x_3=0 \end{matrix} </mrow>
+                            <mrow>\Rightarrow \mathbf{x} \amp =\begin{pmatrix} -t \\ 4t \\ 0 \end{pmatrix} = t\begin{pmatrix} -1 \\ 4 \\ 0 \end{pmatrix}</mrow>
+                        </md>
+                        When <m>\lambda=7</m> the augmented matrix and its reduced row echelon form are
+                        <me>\begin{pmatrix} 0 \amp 1 \amp -2 \amp 0 \\ 0 \amp -4 \amp 6 \amp 0 \\ 0 \amp 0 \amp -5 \amp 0 \end{pmatrix} \sim \begin{pmatrix} 0 \amp 1 \amp 0 \amp 0 \\ 0 \amp 0 \amp 1 \amp 0 \\ 0 \amp 0 \amp 0 \amp 0 \end{pmatrix} </me>
+                        Thus, the eigenvectors take the form
+                        <md>
+                            <mrow>\mathbf{x} \amp =\begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix} \textrm{ where } \begin{matrix} \hspace{2mm} x_2=0 \\ \hspace{2mm} x_3=0 \end{matrix} </mrow>
+                            <mrow>\Rightarrow \mathbf{x} \amp =\begin{pmatrix} t \\ 0 \\ 0 \end{pmatrix} = t\begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}</mrow>
+                        </md>
+                    </p>
+                </solution>
+            </example>
+
+            <p>
+                As illustrated in Example 19.2.8., for an upper triangular matrix the eigenvalues are the entries on the main diagonal. Unfortunately, we cannot use row reduction to find eigenvalues because equivalent matrices do not necessarily have the same eigenvalues. Interestingly though, it can be shown that sum of the eigenvalues of any square matrix is equal to the sum of the entries on the main diagonal (i.e. to the <term>trace</term> of the matrix).
+            </p>
+            <p>
+                To close this section, we can once again add one more statement to our theorem connecting the ideas that we have studied so far.
+            </p>
+            <theorem>
+                <p>
+                    Consider the non-homogenous system of <m>n</m> linear equations in <m>n</m> variables
+                    <me>A\mathbf{x}=\mathbf{b}, \hspace{5mm} \mathbf{b\neq 0}</me>
+                    The following statements are equivalent:
+                    <ol label="1.">
+                        <li>The system has a unique solution. </li>
+                        <li><m>A\mathbf{x}=\mathbf{0}</m> has only the trivial solution <m>\mathbf{x}=\mathbf{0}</m></li>
+                        <li>The columns of <m>A</m> are linearly independent</li>
+                        <li><m>A</m> is invertible</li>
+                        <li><m>det(A)\neq 0</m></li>
+                        <li><m>0</m> is not an eigenvalue of <m>A</m></li>
+                    </ol>
+                </p>
+            </theorem>
+
+            <exercises>
+                <title>Example Tasks</title>
+
+                <exercise>
+                    <statement>
+                        <p>
+                            Find all eigenvalues and associated eigenvectors for
+                            <me>A=\begin{pmatrix} -2 \amp -3 \\ 3 \amp 4 \end{pmatrix}</me>
+                        </p>
+                    </statement>
+                </exercise>
+
+                <exercise>
+                    <statement>
+                        <p>
+                            Find all eigenvalues and associated eigenvectors for
+                            <me>A=\begin{pmatrix} 4 \amp 0 \amp 1 \\ 2 \amp 3 \amp 2 \\ -1 \amp 0 \amp 2 \end{pmatrix}</me>
+                        </p>
+                    </statement>
+                </exercise>
+
+                <exercise>
+                    <statement>
+                        <p>
+                            Show that if <m>\lambda</m> is an eigenvalue of the matrix <m>A</m> then <m>\lambda^2</m> is an eigenvalue of the matrix <m>A^2</m>.
+                        </p>
+                    </statement>
+                </exercise>
+            </exercises>
+
+        </section>
+
+<!-- =================================================================================================== -->
+
+
+<!-- =================================================================================================== -->
+<!-- Section 3: A Simple Application -->
+<!-- =================================================================================================== -->
+        <section xml:id="Sec-LA_5_A_Simple_Application">
+            <title>A Simple Application</title>
+
+            <p>
+                Imagine that a query into an internet search engine finds <m>5</m> websites. The engine wants to report these sites to the user in some sort of order relating to how useful each site might be, i.e. the engine wants to work out a ranking for each site. 
+            </p>
+            <p>
+                One approach to this problem is to look at the links between the sites. For the sake of discussion, let the links between the sites be as shown in Figure 19.3.1.
+                <figure>
+                    <image source="./LinearAlgebra/Images/5/figure3.png" width="60%"/>
+                </figure>
+                We can represent the information in this diagram via a matrix <m>A</m> where the entries <m>a_{ij}</m> satisfy
+                <me> 
+                    a_{ij}=\begin{cases} 1 \amp \textrm{ if website } i \textrm{ has a link to  it from website } j \\ 0 \amp \textrm{ otherwise } \end{cases}
+                </me>
+                Thus
+                <me>A=\begin{pmatrix} 0 \amp 0 \amp 1 \amp 0 \amp 0 \\ 1 \amp 0 \amp 0 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \amp 0 \amp 1 \\ 1 \amp 1 \amp 1 \amp 0 \amp 0 \\ 1 \amp 1 \amp 0 \amp 1 \amp 0 \end{pmatrix}</me>
+                Now let <m>r_i</m> be the ranking of website <m>i</m>. Then we require 
+                <me>0\leq r_i\leq 1</me>
+                <me>\sum_{i=1}^{5} r_i =1</me> 
+                and
+                <me> r_i \propto \textrm{ sum of the rankings of the sites which have links to it}</me>
+                The idea here is that if a site has links to it from an important site (i.e. one with a high ranking) then that is better than having a link to it from an obscure site (i.e. one with a low ranking). So, letting the constant of proportionality be <m>k</m>, for the websites linked according to Figure 19.3.1. we have
+                <md>
+                    <mrow>r_1 \amp =kr_3</mrow>
+                    <mrow>r_2 \amp =kr_1</mrow>
+                    <mrow>r_3 \amp =k(r_2+r_5)</mrow>
+                    <mrow>r_4 \amp =k(r_1+r_2+r_3)</mrow>
+                    <mrow>r_5 \amp =k(r_1+r_2+r_4)</mrow>
+                </md>
+                or, in matrix form
+                <me>\begin{pmatrix} r_1 \\ r_2 \\ r_3 \\ r_4 \\ r_5 \end{pmatrix} =k\begin{pmatrix} 0 \amp 0 \amp 1 \amp 0 \amp 0 \\ 1 \amp 0 \amp 0 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \amp 0 \amp 1 \\ 1 \amp 1 \amp 1 \amp 0 \amp 0 \\ 1 \amp 1 \amp 0 \amp 1 \amp 0 \end{pmatrix}\begin{pmatrix} r_1 \\ r_2 \\ r_3 \\ r_4 \\ r_5 \end{pmatrix}</me>
+                Thus the rankings satisfy the equation
+                <me>\mathbf{r}=kA\mathbf{r}</me>
+                or
+                <me>A\mathbf{r}=\frac{1}{k}\mathbf{r}=\lambda\mathbf{r}</me>
+                i.e. an eigenvalue problem. For the matrix <m>A</m> as given above it turns out that the ranking vector is
+                <me>\mathbf{r}=\begin{pmatrix} 0.14 \amp 0.08 \amp 0.22 \amp 0.27 \amp 0.29\end{pmatrix}^T</me>
+                and so the sites would be listed in the order <m>5, 4, 3, 1, 2</m>. 
+            </p>
+            <p>
+                Of course Google’s page ranking system is much more sophisticated than that described above but the idea is essentially the same. Also, there is much more advanced mathematics needed behind the scenes than indicated above. For example how do we know which eigenvalue and associated eigenvector to take? What happens if all of the eigenvalues are complex? And so on.
+            </p>
+        
+        </section>
+
+
+<!-- =================================================================================================== -->
+</chapter>

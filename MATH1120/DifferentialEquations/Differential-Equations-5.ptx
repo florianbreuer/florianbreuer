@@ -1,0 +1,518 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- =================================================================================================== -->
+<!-- To process this file with xsltproc do                                                        -->
+<!--                                                                                              -->
+<!-- (1) LaTeX/PDF:                                                                               -->
+<!--     xsltproc -o minimal.tex PATH_TO/mathbook/xsl/pretext-latex.xsl source/main.ptx           -->
+<!--     pdflatex minimal.tex                                                                     -->
+<!--     xelatex minimal.tex                                                                      -->
+<!--                                                                                              -->
+<!-- (2) HTML:                                                                                    -->
+<!--     xsltproc PATH_TO/mathbook/xsl/pretext-html.xsl source/main.ptx                           -->
+<!--     <browser>  minimal.html                                                                  -->
+<!--        ~/xsltproc/xsltproc.exe ~/mathbook/xsl/mathbook-html.xsl test.xml                     -->
+<!--                                                                                              -->
+<!-- (3) CoCalc worksheet (parameter causes a single file for output)                             -->
+<!--     REMOVE the "X" in the double dash (which is not legal in an XML comment)                 -->
+<!--     xsltproc -X-stringparam chunk.level 0 PATH_TO/mathbook/xsl/pretext-smc.xsl source/main.ptx   -->
+<!--     <CoCalc> minimal.sagews                                                                  -->
+<!--                                                                                              -->
+<!-- (4) Sage doctesting                                                                          -->
+<!--     REMOVE the "X" in the double dash (which is not legal in an XML comment)                 -->
+<!--     xsltproc -X-stringparam chunk.level 0 PATH_TO/mathbook/xsl/pretext-sage-doctest.xsl source/main.ptx  -->
+<!--     <read further instructions in> minimal.py                                                -->
+<!-- =================================================================================================== -->
+
+<chapter xml:id="Differential_Equations_5">
+
+
+
+<!-- =================================================================================================== -->
+<!-- Title and Other Preliminaries -->
+<!-- =================================================================================================== -->
+        <title>Non-Homogeneous Second Order Linear DEs</title>
+
+        <!-- <frontmatter> -->
+
+<!--             <titlepage>
+                <author>
+                    <institution>University of Newcastle</institution>
+                </author>
+                <date><today /></date>
+            </titlepage> -->
+
+            <!-- <abstract>
+                <p>This is a very short article, but it still exercises some advanced features of MathBook XML.</p>
+            </abstract> -->
+
+        <!-- </frontmatter> -->
+
+        <introduction>
+            <p>
+                Recall that a 2nd order linear DE is a differential equation of the form 
+                <me>P(x)y''+Q(x)y'+R(x)y=f(x)</me>
+                
+                If the functions <m>P</m>, <m>Q</m> and <m>R</m> are all constant functions then the DE is said to have constant coefficients. If <m>f(x)=0</m> then the DE is said to be homogeneous. In the previous lecture (i.e. <term>12 Homogenous Second Order Linear DEs</term>) we discussed how to find solutions to a second order linear homogeneous DE with constant coefficients, i.e. to a DE of the form
+                <me>ay''+by'+c=0</me>
+                In this lecture we are going to look at solving some non-homogeneous second order linear DEs with constant coefficients, i.e. DEs of the form
+                <me>ay''+by'+c=f(x)</me>
+                Some insight into how we might solve such DEs can be gained by revisiting some relevant first order examples.
+            </p>
+        </introduction>
+<!-- =================================================================================================== -->
+
+
+<!-- =================================================================================================== -->
+<!-- Section 1: Non-Homogeneous First Order Linear DEs -->
+<!-- =================================================================================================== -->
+        <section xml:id="Non-Homogeneous_First_Order_Linear_DEs">
+            <title>Non-Homogeneous First Order Linear DEs</title>
+
+            <p>
+                Non-homogeneous first order linear DEs with constant coefficients take the form
+                <me>ay'+by=f(x)</me>
+                We know that we can solve these DEs via an integrating factor, (see section <term>11 First Order Linear DEs</term>).
+            </p>
+
+            <example>
+                <p>
+                    Find the general solution to the DE
+                    <me>y'-y=x</me>
+                </p>
+                <solution>
+                    <p>
+                        Multiplying both sides of this DE via the integrating factor <m>I(x)=e^{\int -1\hspace{2mm}dx}=e^{-x}</m> gives
+                        <me>\frac{d}{dx}(e^{-x}y)=xe^{-x}</me>
+                        Using integration by parts gives the general solution as
+                        <me>y(x)=Ae^x-x-1</me>
+                        There are two interesting facts about this general solution. To discuss these facts write the solution as
+                        <me>y(x)=y_c(x)+y_p(x)</me>
+                        where
+                        <me>y_c(x)=Ae^x \textrm{ and } y_p(x)=-x-1</me>
+                        The first fact to note is that <m>y_c(x)</m> is the general solution to the homogeneous equation
+                        <me>y'-y=0</me>
+                        and <m>y_p(x)</m> is one particular solution to the original non-homogeneous DE. The second fact to note is that the form of the particular solution <m>y_p(x)=-x-1</m> is the same as that of the non-homogeneous term <m>f(x)=x</m>, that is they are both polynomials of degree <m>1</m>.
+                    </p>
+                </solution>
+            </example>
+
+            <example>
+                <p>
+                    Find the general solution to the DE
+                    <me>y'-y=\cos(x)</me>
+                </p>
+                <solution>
+                    <p>
+                        Solving via an integrating factor gives the general solution as
+                        <me>y(x)=Ae^x+\frac{1}{2}\sin(x)-\frac{1}{2}\cos(x)</me>
+                        Once again writing this as 
+                        <me>y(x)=y_c(x)+y_p(x)</me>
+                        where 
+                        <me>y_c(x)=Ae^x \textrm{ and } y_p(x)=\frac{1}{2}\sin(x)-\frac{1}{2}\cos(x)</me>
+                        we see that <m>y_c(x)</m> is the general solution to the associated homogeneous DE and that <m>y_p(x)</m> and <m>f(x)</m> are both trigonometric functions. In this case it seems reasonable that <m>y_c(x)</m> contains both a <m>\cos(x)</m> term and a <m>\sin(x)</m> since to satisfy the DE we would expect the particular solution to contain terms like <m>f(x)=\cos(x)</m> and its derivative <m>f'(x)=-\sin(x)</m>.
+                    </p>
+                </solution>
+            </example>
+
+            <example>
+                <p>
+                    Find the general solution to the DE
+                    <me>y'-y=e^x</me>
+                </p>
+                <solution>
+                    <p>
+                        The general solution to this DE, found via an integrating factor, is
+                        <me>y(x)=Ae^x+xe^x</me>
+                        Letting
+                        <me>y_c(x)=Ae^x \textrm{ and } y_p(x)=xe^x</me>
+                        we see that, once again, <m>y_c(x)</m> is the general solution to the associated homogeneous DE but this time <m>y_p(x)</m> is not quite the same form as <m>f(x)</m>. The difference in this case from the previous two examples is that here <m>f(x)</m> is the same form as <m>y_c(x)</m>, the solution to the homogeneous DE and hence <m>y_p(x)</m> can’t also be of this form.
+                    </p>
+                </solution>
+            </example>
+
+            <p>
+                The above examples all illustrate the following more general result.
+            </p>
+
+            <definition>
+                <p>
+                    The general solution to the non-homogeneous first order linear DE with constant coefficients
+                    <me>ay'+by=f(x)</me>
+                    is
+                    <me>y(x)=y_c(x)+y_p(x)</me>
+                    where <m>y_c(x)</m> is the general solution to the associated homogeneous DE
+                    <me>ay'+by=0</me>
+                    and <m>y_p(x)</m> is any particular solution to non-homogeneous DE. 
+                </p>
+            </definition>
+
+            <exercises>
+                <title>Example Tasks</title>
+
+                <exercise>
+                    <statement>
+                        <p>
+                            If <m>y_c(x)</m> is the general solution to 
+                            <me>ay'+by=0</me>
+                            and <m>y_p(x)</m> is any particular solution to 
+                            <me>ay'+by=f(x)</me>
+                            show that 
+                            <me>y(x)=y_c(x)+y_p(x)</me>
+                            is also a solution to
+                            <me>ay'+by=f(x)</me>
+                        </p>
+                    </statement>
+                </exercise>
+            </exercises>
+
+        </section>
+
+<!-- =================================================================================================== -->
+
+
+<!-- =================================================================================================== -->
+<!-- Section 2: The Method of Undetermined Coefficients -->
+<!-- =================================================================================================== -->
+        <section xml:id="The_Method_of_Undetermined_Coefficients">
+            <title>The Method of Undetermined Coefficients</title>
+
+            <p>
+                We return now to the problem of finding solutions to non-homogeneous second order linear DEs with constant coefficients, i.e. to DEs of the form 
+                <me>ay''+by'+cy=f(x)</me>
+                Since we don’t have any alternative method (such as using an integrating factor) for finding a solution to this class of DE we are forced to use the method suggested by the previous section.
+            </p>
+
+            <definition>
+                <p>
+                    The <term>general solution</term> to the non-homogeneous second order linear DE with constant coefficients
+                    <me>ay''+by'+cy=f(x)</me>
+                    is
+                    <me>y(x)=y_c(x)+y_p(x)</me>
+                    where <m>y_c(x)</m>, the <term>complementary solution</term>, is the general solution to the associated homogeneous DE
+                    <me>ay''+by'+cy=0</me>
+                    and <m>y_p(x)</m> is any <term>particular solution</term> to non-homogeneous DE.
+                </p>
+            </definition>
+
+            <p>
+                It is easy to show that <m>y(x)=y_c(x)+y_p(x)</m> is a solution to the non-homogeneous DE but how do we know that we have found all such solutions, i.e. that we have found the general solution? (After all, <m>y_p(x)</m> is just one particular solution.) Let <m>\phi(x)</m> be any solution to the DE
+                <me>ay''+by'+cy=f(x)</me>
+                Then the function <m>g(x)=\phi(x)-y_p(x)</m> is a solution to the homogeneous DE
+                <me>ay''+by'+cy=0</me>
+                since
+            </p>
+            <p><md>
+                <mrow>ag''+bg'+cg \amp = a(\phi''-y_p'')+b(\phi'-y_p')+c(\phi-y_p)</mrow>
+                <mrow>\amp = (a\phi''+b\phi'+c\phi)-(ay_p''+by_p'+cy_p)</mrow>
+                <mrow>\amp = f(x)-f(x)</mrow>
+                <mrow>\amp =0</mrow>
+            </md></p>
+            <p>
+                Now since <m>y_c(x)</m> is the general solution to the homogeneous DE, <m>g(x)</m> must be one of the solutions in <m>y_c(x)</m>. Thus <m>\phi(x)=g(x)+y_p(x)</m> must be one of the solutions in <m>y(x)=y_c(x)+y_p(x)</m>, or to put it the other way, <m>y(x)=y_c(x)+y_p(x)</m> contains all solutions to the non-homogeneous DE.
+            </p>
+            <p>
+                Thus to solve a non-homogeneous second order DE with constant coefficients we have to first find the complementary solution, then find any particular solution and then add these solutions together. We already know how to find the complementary solution (see <term>12 Homogenous Second Order Linear DEs</term>) so all that remains is to work out how to find a particular solution, <m>y_p</m>. The <term>method of undetermined coefficients</term> tries to find <m>y_p</m> by guessing that the form that <m>y_p</m> should take is a linear combination of the non-homogeneous term, <m>f(x)</m>, and its derivatives.
+            </p>
+
+            <example>
+                <p>
+                    Find a particular solution to the DE
+                    <me>y''+2y'-3y=4x^2</me>
+                </p>
+                <solution>
+                    <p>
+                        Here the non-homogeneous term is <m>f(x)=4x^2</m>. This is a 2nd degree polynomial. The first and second derivatives of this will be a linear polynomial and a constant respectively. Thus we guess that a particular solution can found of the form
+                        <men>y_p(x)=Ax^2+Bx+C</men>
+                        where <m>A</m>, <m>B</m> and <m>C</m> are coefficients to be determined by substituting into the DE. Now, from (13.2.1)
+                        <me>y_p'=2Ax+B</me>
+                        <me>y_p''=2A</me>
+                        Substituting into the DE gives
+                    </p>
+                    <p><md>
+                        <mrow>y_p''+2y_p'-3y_p \amp = 4x^2</mrow>
+                        <mrow>(2A)+2(2Ax+B)-3(Ax^2+Bx+C)\amp = 4x^2</mrow>
+                        <mrow>(-3A)x^2+(4A-3B)x+(2A+2B-3C)\amp = 4x^2</mrow>
+                    </md></p>
+                    <p>
+                        Thus for <m>y_p</m> to be a solution
+                    </p>
+                    <p><md>
+                        <mrow>-3A \amp = 4</mrow>
+                        <mrow>4A-3B \amp = 0</mrow>
+                        <mrow>2A+2B-3C \amp = 0</mrow>
+                    </md></p>
+                    <p>
+                        Solving these equations gives
+                        <me>A=-\frac{4}{3}, \hspace{5mm} B=-\frac{16}{9}, \hspace{5mm} C=-\frac{56}{27}</me>
+                        Thus a particular solution to the DE is
+                        <me>y_p(x)=-\frac{4}{3}x^2-\frac{16}{9}x-\frac{56}{27}</me>
+                    </p>
+                </solution>
+            </example>
+
+            <p>
+                The method of undetermined coefficients is only useful for finding the particular solution when the non-homogeneous term is fairly simple. Table 13.2.3 gives a guide to the form of the particular solution, <m>y_p</m>, to try for various non-homogeneous terms <m>f</m>.
+                <table>
+                    <tabular halign="center">
+                        <row header="yes" bottom="minor" >
+                        <cell>Non-Homogenous Term</cell>
+                        <cell>Form of Particular Solution</cell>
+                        </row>
+                        <row>
+                        <cell><m>f(x)=ae^{kx}</m></cell>
+                        <cell><m>y_p(x)=Ce^{kx}</m></cell>
+                        </row>
+                        <row>
+                        <cell><m>f(x)=a\sin(kx)</m></cell>
+                        <cell><m>y_p(x)=C_1\sin(kx)+C_2\cos(kx)</m></cell>
+                        </row>
+                        <row>
+                        <cell><m>f(x)=a\cos(kx)</m></cell>
+                        <cell><m>y_p(x)=C_1\sin(kx)+C_2\cos(kx)</m></cell>
+                        </row>
+                        <row>
+                        <cell><m>f(x)=\sum_{i=0}^{n} a_{n-i}x^{n-i}</m></cell>
+                        <cell><m>y_p(x)=\sum_{i=0}^{n} C_{n-i}x^{n-i}</m></cell>
+                        </row>
+                        <row>
+                        </row>
+                    </tabular>
+                </table>                
+            </p>
+
+            <example>
+                <p>
+                    Find the general solution to
+                    <me>x''+6x'+8x=8\sin(2t)</me>
+                </p>
+                <solution>
+                    <p>
+                        The first step is to find the general solution to the homogeneous DE
+                        <me>x''+6x'+8x=0</me>
+                        The characteristic equation for this DE is
+                        <me>r^2+6r+8=0</me>
+                        which has solutions
+                        <me>r=-2, -4</me>
+                        Thus the complementary solution is
+                        <me>x_c(t)=Ae^{-2t}+Be^{-4t}</me>
+                        The next step is to find a particular solution to the non-homogeneous DE. Using the method of undetermined coefficients we try a particular solution of the form
+                        <me>x_p(t)=C_1\sin(2t)+C_2\cos(2t)</me>
+                        where <m>C_1</m> and <m>C_2</m> are the coefficients to be determined. Now
+                    </p>
+                    <p><md>
+                        <mrow>x_p'(t) \amp = 2C_1\cos(2t)-2C_2\sin(2t)</mrow>
+                        <mrow>x_p''(t) \amp = -4C_1\sin(2t)-4C_2\cos(2t)</mrow>
+                    </md></p>  
+                    <p>
+                        For <m>x_p(t)</m> to be a solution
+                        <me>x_p''+6x_p'+8x_p=8\sin(2t)</me>
+                        and so, on substituting
+                        <me>(-4C_1\sin(2t)-4C_2\cos(2t))+6(2C_1\cos(2t)-2C_2\sin(2t))+8(C_1\sin(2t)+C_2\cos(2t)) = 8\sin(2t)</me>
+                        which simplifies to
+                        <me>(4C_1-12C_2)\sin(2t)+(12C_1+4C_2)\cos(2t) = 8\sin(2t)</me>
+                        Equating coefficients on each side of the equation gives
+                    </p>
+                    <p><md>
+                        <mrow>4C_1-12C_2 \amp = 8</mrow>
+                        <mrow>12C_1+4C_2 \amp = 0</mrow>
+                    </md></p>  
+                    <p>
+                        Solving these equations gives
+                        <me>C_1=\frac{1}{5}, \hspace{5mm} C_2=-\frac{3}{5}</me>
+                        and so a particular solution is
+                        <me>x_p(t)=\frac{1}{5}\sin(2t)-\frac{3}{5}\cos(2t)</me>
+                        Combining the particular solution with the complementary solution gives the general solution
+                        <me>x(t)=Ae^{-2t}+Be^{-4t}+\frac{1}{5}\sin(2t)-\frac{3}{5}\cos(2t)</me>
+                    </p>
+                </solution>
+            </example>
+
+            <example>
+                <p>
+                    Solve the initial-value problem
+                    <me>y''+3y'=5e^{2x}</me>
+                    <me>y(0)=1,\hspace{5mm} y'(0)=-2</me>
+                </p>
+                <solution>
+                    <p>
+                        To solve the initial-value problem we have to begin by finding the general solution to the DE. Since this DE is a non-homogeneous second order DE with constant coefficients we have to first find the general solution to the associated homogeneous DE
+                        <me>y''+3y'=0</me>
+                        The characteristic equation for this DE is
+                        <me>r^2+3r=0</me>
+                        which has solutions
+                        <me>r=0, -3</me>
+                        Thus the complementary solution is
+                        <me>y_c(x)=A+Be^{-3x}</me>
+                        For the particular solution try a function of the form
+                        <me>y_p(x)=Ce^{2x}</me>
+                        Then
+                    </p>
+                    <p><md>
+                        <mrow>y_p'(x) \amp =2Ce^{2x}</mrow>
+                        <mrow>y_p''(x) \amp=4Ce^{2x}</mrow>
+                    </md></p>  
+                    <p>
+                        For this to be a solution
+                        <me>y_p''+3y_p'=5e^{2x}</me>
+                        and so
+                    </p>
+                    <p><md>
+                        <mrow>4Ce^{2x}+3(2Ce^{2x}) \amp =5e^{2x}</mrow>
+                        <mrow>10Ce^{2x} \amp=5e^{2x}</mrow>
+                    </md></p> 
+                    <p>
+                        On equating coefficients on both sides of this equation
+                        <me>10C=5\Rightarrow C=\frac{1}{2}</me>
+                        Combining the complementary solution and this particular solution gives the general solution as
+                        <me>y(x)=A+Be^{-3x}+\frac{1}{2}e^{2x}</me>
+                        On using the initial condition <m>y(0)=1</m> we find
+                        <me>A+B=\frac{1}{2}</me>
+                        Since
+                        <me>y'(x)=-3Be^{-3x}+e^{2x}</me>
+                        on using the initial condition <m>y'(0)=2</m> we find
+                        <me>B=1</me>
+                        Thus <m>A=-\frac{1}{2}, B=1</m> and the solution to the initial-value problem is
+                        <me>y(x)=e^{-3x}+\frac{1}{2}e^{2x}-\frac{1}{2}</me>
+                    </p>
+                </solution>
+            </example>
+
+            <p>
+                If the non-homogeneous term <m>f</m> is itself a solution to the associated homogeneous DE then the form that we guess for the particular solution has to change. Guided by our experience from non-homogeneous first order constant coefficient DEs (see Section 13.1, Example 13.1.3) what we try for the particular solution is to multiply the usual form by <m>x</m> (or <m>x^2</m>, <m>x^3</m> etc. if necessary) so that no term in the particular solution is itself a solution to the homogeneous DE.
+            </p>
+
+            <example>
+                <p>
+                    Find the general solution to
+                    <me>\frac{d^2u}{dt^2}+\frac{du}{dt}-2u=e^t</me>
+                </p>
+                <solution>
+                    <p>
+                        The general solution to the associated homogeneous DE, i.e.
+                        <me>\frac{d^2u}{dt^2}+\frac{du}{dt}-2u=0</me>
+                        is the complementary solution to the given DE. Thus
+                        <me>u_c(t)=Ae^t+Be^{-2t}</me>
+                        We can see here that the non-homogeneous term <m>f(x)=e^x</m> is a solution to the homogeneous DE (put <m>A=1</m> and <m>B=0</m> into <m>u_c(t)</m>). Obviously then, trying a particular solution of the form
+                        <me>u_p(t)=Ce^t</me>
+                        will not work. Thus we try instead a solution of the form
+                        <me>u_p(t)=Cte^t</me>
+                        For this function, using the product rule
+                        <me>\frac{du_p}{dt}=Cte^t+Ce^t</me>
+                        and
+                        <me>\frac{d^2u_p}{dt^2}=Cte^t+2Ce^t</me>
+                        Substituting into the DE gives
+                    </p>
+                    <p><md>
+                        <mrow>(Cte^t+2Ce^t)+(Cte^t+Ce^t)-2(Cte^t) \amp =e^t</mrow>
+                        <mrow>3Ce^t \amp =e^t</mrow>
+                    </md></p>
+                    <p>
+                        Notice that the <m>te^t</m> terms will cancel out and so on equating the coefficients of the <m>e^t</m> terms gives
+                        <me>C=\frac{1}{3}</me>
+                        Thus, a particular solution is
+                        <me>u_p(t)=\frac{1}{3}te^t</me>
+                        and hence the general solution is
+                        <me>u(t)=Ae^t+Be^{-2t}+\frac{1}{3}te^t</me>
+                    </p>
+                </solution>
+            </example>
+
+            <example>
+                <p>
+                   Solve the initial-value problem
+                   <me>y''+y'=x</me>                       
+                   <me>y(0)=1,\hspace{5mm} y'(0)=1</me>
+                </p>
+                <solution>
+                    <p>
+                        The associated homogeneous DE is
+                        <me>y''+y'=0</me>
+                        Thus the complementary solution is
+                        <me>y_c(x)=Ae^{-x}+B</me>
+                        Since the non-homogeneous term is <m>f(x)=x</m> the usual form that we would try for the particular solution would be
+                        <me>y_p(x)=C_1x+C_2</me>
+                        However this contains a constant term and we can see from the complementary solution (put <m>A=0</m>) that a constant will satisfy the homogeneous DE. Thus the constant term in the particular solution will not work and we must modify the particular solution. So instead try a particular solution of the form
+                        <me>y_p(x)=C_1x^2+C_2x</me>
+                        Thus
+                    </p>
+                    <p><md>
+                        <mrow>y_p'(x) \amp=2C_1x+C_2</mrow>
+                        <mrow>y_p''(x) \amp=2C_1</mrow>
+                    </md></p>
+                    <p>
+                        Substituting into the DE gives
+                    </p>
+                    <p><md>
+                        <mrow>(2C_1)+(2C_1x+C_2) \amp =x</mrow>
+                        <mrow>(2C_1)x+(2C_1+C_2) \amp =x</mrow>
+                    </md></p>
+                    <p>
+                        Equating coefficients yields
+                    </p>
+                    <p><md>
+                        <mrow>2C_1 \amp =1</mrow>
+                        <mrow>2C_1+C_2 \amp =0</mrow>
+                    </md></p>
+                    <p>
+                        and hence
+                        <me>C_1=\frac{1}{2},\hspace{5mm} C_2=-1</me>
+                        Thus, a particular solution is
+                        <me>y_p(x)=\frac{1}{2}x^2-x</me>
+                        and hence the general solution is
+                        <me>y(x)=Ae^{-x}+B+\frac{1}{2}x^2-x</me>
+                        To solve the initial-value problem we need the derivative of <m>y</m> which is
+                        <me>y'(x)=-Ae^{-x}+2x-1</me>
+                        Using <m>y(0)=1</m>
+                        <me>A+B=1</me>
+                        Using <m>y'(0)=1</m>
+                        <me>-A-1=1</me>
+                        Thus
+                        <me>A=-2,\hspace{5mm} B=3</me>
+                        and the solution is
+                        <me>y(x)=3-2e^{-x}+\frac{1}{2}x^2-x</me>
+                    </p>
+                </solution>
+            </example>
+
+            <exercises>
+                <title>Example Tasks</title>
+
+                <exercise>
+                    <statement>
+                        <p>
+                           Find the general solution to the DE
+                           <me>y''+3y'-10y=10x^2+4x</me>
+                        </p>
+                    </statement>
+                </exercise>
+                <exercise>
+                    <statement>
+                        <p>
+                           Find the general solution to the DE
+                            <me>r''+r=\sin(x)</me>
+                        </p>
+                    </statement>
+                </exercise>
+                <exercise>
+                    <statement>
+                        <p>
+                            Solve the initial value problem
+                           <me>y''-y'-6y=\sinh(x),\hspace{5mm}y(0)=1,\hspace{5mm}y'(0)=0</me>
+                        </p>
+                    </statement>
+                </exercise>
+                <exercise>
+                    <statement>
+                        <p>
+                           Find the general solution to the DE
+                           <me>u''+u'=xe^x+3\sin(x)</me>
+                        </p>
+                    </statement>
+                </exercise>
+            </exercises>
+
+        </section>
+
+<!-- =================================================================================================== -->
+
+</chapter>

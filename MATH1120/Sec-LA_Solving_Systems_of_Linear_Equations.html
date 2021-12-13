@@ -1,0 +1,482 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-12-08T21:42:23+11:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Solving Systems of Linear Equations</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    useLabelIds: true,
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext.js"></script><script xmlns:svg="http://www.w3.org/2000/svg">miniversion=0.6</script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script xmlns:svg="http://www.w3.org/2000/svg">sagecellEvalName='Evaluate (Sage)';
+</script><link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/colors_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link xmlns:svg="http://www.w3.org/2000/svg" href="developer.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div xmlns:svg="http://www.w3.org/2000/svg" id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\bm}[1]{\boldsymbol{#1}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="MATH1120-Course-Notes.html"><span class="title">MATH1120:</span> <span class="subtitle">Mathematics for Engineering, Science and Technology 2</span></a></h1>
+<p class="byline"></p>
+</div>
+</div></div>
+<nav xmlns:svg="http://www.w3.org/2000/svg" id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="Sec-LA_Matrices_and_Systems_of_Linear_Equations.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="Linear_Algebra_1.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="Linear_Algebra__2.html" title="Next">Next</a></span></div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="Sec-LA_Matrices_and_Systems_of_Linear_Equations.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="Linear_Algebra_1.html" title="Up">Up</a><a class="next-button button toolbar-item" href="Linear_Algebra__2.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div xmlns:svg="http://www.w3.org/2000/svg" id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link part"><a href="Part-Calculus.html" data-scroll="Part-Calculus"><span class="codenumber">I</span> <span class="title">Calculus</span></a></li>
+<li class="link">
+<a href="Chap-Calculus_1.html" data-scroll="Chap-Calculus_1"><span class="codenumber">1</span> <span class="title">Maclaurin Series</span></a><ul>
+<li><a href="Sec-Introduction.html" data-scroll="Sec-Introduction">Introduction</a></li>
+<li><a href="Sec-Infinite_Series.html" data-scroll="Sec-Infinite_Series">Infinite Series</a></li>
+<li><a href="Sec-Maclaurin_Series.html" data-scroll="Sec-Maclaurin_Series">Maclaurin Series</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Calculus_2.html" data-scroll="Calculus_2"><span class="codenumber">2</span> <span class="title">Taylor Series</span></a><ul>
+<li><a href="Generating-New-Series-from-Known-Series.html" data-scroll="Generating-New-Series-from-Known-Series">Generating New Series from Known Series</a></li>
+<li><a href="Taylor_Series.html" data-scroll="Taylor_Series">Taylor Series</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Calculus_3.html" data-scroll="Calculus_3"><span class="codenumber">3</span> <span class="title">Functions of Several Variables</span></a><ul>
+<li><a href="functions-of-two-variables.html" data-scroll="functions-of-two-variables">Functions of Two Variables</a></li>
+<li><a href="level-curves.html" data-scroll="level-curves">Level Curves</a></li>
+<li><a href="surfaces-of-revolution.html" data-scroll="surfaces-of-revolution">Surfaces of Revolution</a></li>
+<li><a href="functions-of-3-or-more-variables.html" data-scroll="functions-of-3-or-more-variables">Functions of 3 (or more) Variables</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Chap-Calculus_4.html" data-scroll="Chap-Calculus_4"><span class="codenumber">4</span> <span class="title">Partial Differentiation</span></a><ul>
+<li><a href="Sec-Partial_Differentiation.html" data-scroll="Sec-Partial_Differentiation">Partial Differentiation</a></li>
+<li><a href="Sec-Higher_Partial_Derivatives.html" data-scroll="Sec-Higher_Partial_Derivatives">Higher Partial Derivatives</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Chap-Calculus_5.html" data-scroll="Chap-Calculus_5"><span class="codenumber">5</span> <span class="title">Linear Approximations</span></a><ul>
+<li><a href="Sec-Tangent_Planes.html" data-scroll="Sec-Tangent_Planes">Tangent Planes</a></li>
+<li><a href="Sec-Linear_Approximations.html" data-scroll="Sec-Linear_Approximations">Linear Approximations</a></li>
+<li><a href="Quadratic-Approximations.html" data-scroll="Quadratic-Approximations">Quadratic Approximations</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Calculus_6.html" data-scroll="Calculus_6"><span class="codenumber">6</span> <span class="title">The Directional Derivative</span></a><ul>
+<li><a href="Directional-Derivatives.html" data-scroll="Directional-Derivatives">Directional Derivatives</a></li>
+<li><a href="In_Three_Variables.html" data-scroll="In_Three_Variables">In Three Variables</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Calculus_7.html" data-scroll="Calculus_7"><span class="codenumber">7</span> <span class="title">Local and Global Extrema</span></a><ul>
+<li><a href="Critical-Points.html" data-scroll="Critical-Points">Critical Points</a></li>
+<li><a href="Second-Derivative-Test.html" data-scroll="Second-Derivative-Test">Second Derivative Test</a></li>
+<li><a href="Global-Extrema.html" data-scroll="Global-Extrema">Global Extrema</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Chap-Calculus_8.html" data-scroll="Chap-Calculus_8"><span class="codenumber">8</span> <span class="title">Chain Rules</span></a><ul>
+<li><a href="Sec-The_single_variable_chain_rule.html" data-scroll="Sec-The_single_variable_chain_rule">The Single Variable Chain Rule</a></li>
+<li><a href="Sec-Multivariable-chain-rules.html" data-scroll="Sec-Multivariable-chain-rules">Multivariable Chain Rules</a></li>
+<li><a href="section-22.html" data-scroll="section-22">Implicit Differentiation</a></li>
+</ul>
+</li>
+<li class="link part"><a href="Part-Differenial_Equations.html" data-scroll="Part-Differenial_Equations"><span class="codenumber">II</span> <span class="title">Differential Equations</span></a></li>
+<li class="link">
+<a href="Differential_Equations_1.html" data-scroll="Differential_Equations_1"><span class="codenumber">9</span> <span class="title">Introduction</span></a><ul>
+<li><a href="introduction.html" data-scroll="introduction">Introduction</a></li>
+<li><a href="direction-fields-and-eulers-method.html" data-scroll="direction-fields-and-eulers-method">Direction Fields and Euler's Method</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Differential_Equations_2.html" data-scroll="Differential_Equations_2"><span class="codenumber">10</span> <span class="title">First Order Separable DEs</span></a><ul>
+<li><a href="Sec-First_Order_Separable_DEs.html" data-scroll="Sec-First_Order_Separable_DEs">First Order Separable DEs</a></li>
+<li><a href="Sec-Some-Simple-Applications-of-First-Order-Separable-DEs.html" data-scroll="Sec-Some-Simple-Applications-of-First-Order-Separable-DEs">Some Simple Applications of First Order Separable DEs</a></li>
+<li><a href="appendix-1.html" data-scroll="appendix-1">Partial Fraction Decomposition</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Differential_Equations_3.html" data-scroll="Differential_Equations_3"><span class="codenumber">11</span> <span class="title">First Order Linear DEs</span></a><ul>
+<li><a href="Exact_First_Order_DEs.html" data-scroll="Exact_First_Order_DEs">Exact First Order DEs</a></li>
+<li><a href="First_Order_Linear_DEs.html" data-scroll="First_Order_Linear_DEs">First Order Linear DEs</a></li>
+<li><a href="Simple_Applications_of_First_Order_Linear_DEs.html" data-scroll="Simple_Applications_of_First_Order_Linear_DEs">Some Simple Applications of First Order Linear DEs</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Differential_Equations_4.html" data-scroll="Differential_Equations_4"><span class="codenumber">12</span> <span class="title">Homogeneous Second Order Linear DEs</span></a><ul><li><a href="Homogeneous_Second_Order_Linear_DEs_With_Constant_Coefficients.html" data-scroll="Homogeneous_Second_Order_Linear_DEs_With_Constant_Coefficients">Homogeneous Second Order Linear DEs With Constant Coefficients</a></li></ul>
+</li>
+<li class="link">
+<a href="Differential_Equations_5.html" data-scroll="Differential_Equations_5"><span class="codenumber">13</span> <span class="title">Non-Homogeneous Second Order Linear DEs</span></a><ul>
+<li><a href="Non-Homogeneous_First_Order_Linear_DEs.html" data-scroll="Non-Homogeneous_First_Order_Linear_DEs">Non-Homogeneous First Order Linear DEs</a></li>
+<li><a href="The_Method_of_Undetermined_Coefficients.html" data-scroll="The_Method_of_Undetermined_Coefficients">The Method of Undetermined Coefficients</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Differential_Equations_6.html" data-scroll="Differential_Equations_6"><span class="codenumber">14</span> <span class="title">An Application of Second Order Linear DEs with Constant Coefficients</span></a><ul>
+<li><a href="A_Simple_Model.html" data-scroll="A_Simple_Model">A Simple Model</a></li>
+<li><a href="Adding_Damping.html" data-scroll="Adding_Damping">Adding Damping</a></li>
+<li><a href="Adding_an_External_Force.html" data-scroll="Adding_an_External_Force">Adding an External Force</a></li>
+</ul>
+</li>
+<li class="link part"><a href="Part-Linear_Algebra.html" data-scroll="Part-Linear_Algebra"><span class="codenumber">III</span> <span class="title">Linear Algebra</span></a></li>
+<li class="link">
+<a href="Linear_Algebra_1.html" data-scroll="Linear_Algebra_1"><span class="codenumber">15</span> <span class="title">Systems of Linear Equations</span></a><ul>
+<li><a href="Sec-LA_Introduction.html" data-scroll="Sec-LA_Introduction">Introduction</a></li>
+<li><a href="Sec-LA_Matrices_and_Systems_of_Linear_Equations.html" data-scroll="Sec-LA_Matrices_and_Systems_of_Linear_Equations">Matrices and Systems of Linear Equations</a></li>
+<li><a href="Sec-LA_Solving_Systems_of_Linear_Equations.html" data-scroll="Sec-LA_Solving_Systems_of_Linear_Equations" class="active">Solving Systems of Linear Equations</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Linear_Algebra__2.html" data-scroll="Linear_Algebra__2"><span class="codenumber">16</span> <span class="title">Geometric Interpretations of Linear Equations</span></a><ul>
+<li><a href="Interpretation_Via_Rows.html" data-scroll="Interpretation_Via_Rows">Interpretation Via Rows</a></li>
+<li><a href="Interpretation_Via_Columns.html" data-scroll="Interpretation_Via_Columns">Interpretation Via Columns</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Chap-Linear_Algebra_3.html" data-scroll="Chap-Linear_Algebra_3"><span class="codenumber">17</span> <span class="title">Matrix Algebra</span></a><ul>
+<li><a href="Sec-Linear_Algebra_Intro.html" data-scroll="Sec-Linear_Algebra_Intro">Introduction</a></li>
+<li><a href="Sec-Addition_and_Scalar_Multiplication.html" data-scroll="Sec-Addition_and_Scalar_Multiplication">Addition and Scalar Multiplication</a></li>
+<li><a href="Sec-Matrix_multiplication.html" data-scroll="Sec-Matrix_multiplication">Matrix Multiplication</a></li>
+<li><a href="Sec-Matrices_and_Systems_of_Linear_Equations.html" data-scroll="Sec-Matrices_and_Systems_of_Linear_Equations">Matrices and Systems of Linear Equations</a></li>
+<li><a href="Sec-Linear_transformations.html" data-scroll="Sec-Linear_transformations">Linear Transformations</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Linear_Algebra_4.html" data-scroll="Linear_Algebra_4"><span class="codenumber">18</span> <span class="title">Square Matrices</span></a><ul>
+<li><a href="Inverse_Matrices.html" data-scroll="Inverse_Matrices">Inverse Matrices</a></li>
+<li><a href="Determinants.html" data-scroll="Determinants">Determinants</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Linear_Algebra_5.html" data-scroll="Linear_Algebra_5"><span class="codenumber">19</span> <span class="title">Eigenvalues and Eigenvectors</span></a><ul>
+<li><a href="Sec-LA_5_Introduction.html" data-scroll="Sec-LA_5_Introduction">Introduction</a></li>
+<li><a href="Sec-LA_5_Finding_Eigenvalues_and_Eigenvectors.html" data-scroll="Sec-LA_5_Finding_Eigenvalues_and_Eigenvectors">Finding Eigenvalues and Eigenvectors</a></li>
+<li><a href="Sec-LA_5_A_Simple_Application.html" data-scroll="Sec-LA_5_A_Simple_Application">A Simple Application</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Linear_Algebra_6.html" data-scroll="Linear_Algebra_6"><span class="codenumber">20</span> <span class="title">Some Applications of Eigenvalues and Eigenvectors</span></a><ul>
+<li><a href="Powers_of_Matrices.html" data-scroll="Powers_of_Matrices">Powers of Matrices</a></li>
+<li><a href="Coupled_Linear_Differential_Equations.html" data-scroll="Coupled_Linear_Differential_Equations">Coupled Linear Differential Equations</a></li>
+</ul>
+</li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="Sec-LA_Solving_Systems_of_Linear_Equations"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">15.3</span> <span class="title">Solving Systems of Linear Equations</span>
+</h2>
+<p id="p-912">Two systems of linear equations are said to be <dfn class="terminology">equivalent</dfn> if they have the same number of variables and have the same solution sets.</p>
+<article class="example example-like" id="example-142"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-142"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">15.3.1</span><span class="period">.</span><span class="space"> </span><span class="title">(cont.).</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-142"><article class="example example-like"><p id="p-913">It turns out that the systems of linear equations in Example 15.2.5. are equivalent, i.e.</p>
+<div class="displaymath process-math">
+\begin{align*}
+3x-2y+2z \amp =-3 \hspace{48mm} x=1\\
+-x+6y+4z \amp =7 \hspace{10mm} \textrm{ is equivalent to } \hspace{10mm} y=2\\
+x+y+5z \amp =-2 \hspace{49mm} z=-1
+\end{align*}
+</div>
+<p class="continuation">The solution to these equivalent systems can be seen from the system on the right whereas they are not at all obvious from the system on the left.</p></article></div>
+<p id="p-914">Notice that, given a system of linear equations, we can produce an equivalent system by doing any one of the following:</p>
+<ul id="p-915" class="disc">
+<li id="li-178"><p id="p-916">Multiplying any one equation by a non-zero constant</p></li>
+<li id="li-179"><p id="p-917">Re-writing the equations in a different order</p></li>
+<li id="li-180"><p id="p-918">Adding any multiple of one equation to another</p></li>
+</ul>
+<article class="example example-like" id="example-143"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-143"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">15.3.2</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-143"><article class="example example-like"><p id="p-919">The following systems of linear equations are equivalent because we have just written the equations in a different order.</p>
+<div class="displaymath process-math">
+\begin{align*}
+3x-2y+2z \amp =-3 \hspace{52mm} 3x-2y+2z =-3\\
+-x+6y+4z \amp =7 \hspace{10mm} \textrm{ is equivalent to } \hspace{18mm} x+y+5z =-2\\
+x+y+5z \amp =-2 \hspace{48mm} -x+6y+4z =7
+\end{align*}
+</div>
+<p class="continuation">The following systems of linear equations are equivalent because we have just multiplied the second equation by <span class="process-math">\(3\text{.}\)</span></p>
+<div class="displaymath process-math">
+\begin{align*}
+3x-2y+2z \amp =-3 \hspace{54mm} 3x-2y+2z =-3\\
+x+y+5z \amp =-2 \hspace{10mm} \textrm{ is equivalent to } \hspace{9mm} 3x+3y+15z =-6\\
+-x+6y+4z \amp =7 \hspace{54mm} -x+6y+4z =7
+\end{align*}
+</div>
+<p class="continuation">The following systems of linear equations are equivalent because we have just subtracted the first equation from the second equation, (i.e. added <span class="process-math">\(-1\)</span> times the first equation to the second equation.)</p>
+<div class="displaymath process-math">
+\begin{align*}
+3x-2y+2z \amp =-3 \hspace{48mm} 3x-2y+2z =-3\\
+3x+3y+15z \amp =-6 \hspace{10mm} \textrm{ is equivalent to } \hspace{15mm} 5y+13z =-3\\
+-x+6y+4z \amp =7 \hspace{49mm} -x+6y+4z =7
+\end{align*}
+</div></article></div>
+<p id="p-920">Thus the strategy for solving a system of linear equations will be to apply the above operations in a systematic way to produce an equivalent system from which we can determine the solution (such as that given in Example 15.3.2(b)). This strategy, in the form described below, is called Gauss-Jordon Elimination. In order to describe this strategy we need some terminology.</p>
+<article class="definition definition-like" id="definition-32"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">15.3.3</span><span class="period">.</span>
+</h3>
+<p id="p-921">Given a matrix an <dfn class="terminology">equivalent</dfn> matrix can be produced by applying any one of the following three <dfn class="terminology">elementary row operations</dfn>:</p>
+<ul id="p-922" class="disc">
+<li id="li-181"><p id="p-923">Swapping two rows</p></li>
+<li id="li-182"><p id="p-924">Multiplying a row by a non-zero constant</p></li>
+<li id="li-183"><p id="p-925">Adding a multiple of one row to another row</p></li>
+</ul></article><p id="p-926"><dfn class="terminology">Note:</dfn></p>
+<ol id="p-927" class="lower-roman">
+<li id="li-184"><p id="p-928">We use the symbol <span class="process-math">\(\sim\)</span>  to denote that two matrices are equivalent.</p></li>
+<li id="li-185"><p id="p-929">The process of applying elementary row operations to a matrix is called <dfn class="terminology">row reduction</dfn></p></li>
+</ol>
+<article class="example example-like" id="example-144"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-144"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">15.3.4</span><span class="period">.</span><span class="space"> </span><span class="title">(cont.).</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-144"><article class="example example-like"><p id="p-930">The following matrices are equivalent because we have just swapped two rows.</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{pmatrix} 3 \amp -2 \amp 2 \amp -3 \\ -1 \amp 6 \amp 4 \amp 7 \\ 1 \amp 1 \amp 5 \amp -2 \end{pmatrix} \sim \begin{pmatrix} 3 \amp -2 \amp 2 \amp -3 \\ 1 \amp 1 \amp 5 \amp -2 \\ -1 \amp 6 \amp 4 \amp 7 \end{pmatrix}  \begin{matrix} \\ \hspace{5mm} R_2'=R_3 \\ \hspace{5mm} R_3'=R_2 \end{matrix}
+\end{equation*}
+</div>
+<p class="continuation">The following matrices are equivalent because we have just multiplied Row <span class="process-math">\(2\)</span> by <span class="process-math">\(3\text{.}\)</span></p>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{pmatrix} 3 \amp -2 \amp 2 \amp -3 \\ 1 \amp 1 \amp 5 \amp -2 \\ -1 \amp 6 \amp 4 \amp 7 \end{pmatrix} \sim \begin{pmatrix} 3 \amp -2 \amp 2 \amp -3 \\ 3 \amp 3 \amp 15 \amp -6 \\ -1 \amp 6 \amp 4 \amp 7 \end{pmatrix} \hspace{5mm} R_2'=3R_2 
+\end{equation*}
+</div>
+<p class="continuation">The following matrices are equivalent because we have just subtracted Row <span class="process-math">\(1\)</span> from Row <span class="process-math">\(2\text{,}\)</span> (i.e. added <span class="process-math">\(-1\)</span> times Row <span class="process-math">\(1\)</span> to Row <span class="process-math">\(2\)</span>)</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{pmatrix} 3 \amp -2 \amp 2 \amp -3 \\ 3 \amp 3 \amp 15 \amp -6 \\ -1 \amp 6 \amp 4 \amp 7 \end{pmatrix} \sim \begin{pmatrix} 3 \amp -2 \amp 2 \amp -3 \\ 0 \amp 5 \amp 13 \amp -3 \\ -1 \amp 6 \amp 4 \amp 7 \end{pmatrix} \hspace{5mm} R_2'=R_2-R_1
+\end{equation*}
+</div></article></div>
+<article class="definition definition-like" id="definition-33"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">15.3.5</span><span class="period">.</span>
+</h3>
+<p id="p-931">A matrix is said to be in <dfn class="terminology">row-echelon form</dfn> if the first non-zero entry (i.e. the leading entry) in each row occurs further to the right than in the row above it.</p>
+<p id="p-932">A matrix is said to be in <dfn class="terminology">reduced row-echelon form</dfn> if it is in row-echelon form and each leading entry is 1 with no non-zero entries above it.</p></article><article class="example example-like" id="example-145"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-145"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">15.3.6</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-145"><article class="example example-like"><p id="p-933">For the following matrices decide if it is row-echelon form, reduced row-echelon form or neither. For those matrices in reduced row-echelon form what can you say about the system of linear equations represented by those matrices?</p>
+<ol id="p-934" class="lower-alpha">
+<li id="li-186"><div class="displaymath process-math" id="p-935">
+\begin{equation*}
+\begin{pmatrix} 1 \amp 0 \amp 3 \amp 2 \\ 0 \amp 1 \amp -1 \amp -3 \\ 0 \amp 0 \amp 0 \amp 0 \end{pmatrix} 
+\end{equation*}
+</div></li>
+<li id="li-187"><div class="displaymath process-math" id="p-936">
+\begin{equation*}
+\begin{pmatrix} 3 \amp -1 \amp 2 \amp 1 \amp \bigm| \amp 2 \\ 0 \amp 7 \amp 7 \amp -7 \amp \bigm| \amp -16 \\ 1 \amp 1 \amp 7 \amp 4 \amp \bigm| \amp 8 \end{pmatrix} 
+\end{equation*}
+</div></li>
+<li id="li-188"><div class="displaymath process-math" id="p-937">
+\begin{equation*}
+\begin{pmatrix} 1 \amp 4 \amp -1 \amp 2 \\ 0 \amp 2 \amp 3 \amp -2 \\ 0 \amp 0 \amp 4 \amp 5 \\ 0 \amp 0 \amp 0 \amp 6 \end{pmatrix} 
+\end{equation*}
+</div></li>
+<li id="li-189"><div class="displaymath process-math" id="p-938">
+\begin{equation*}
+\begin{pmatrix} 1 \amp 0 \amp 0 \amp 1 \\ 0 \amp 1 \amp 0 \amp 2 \\ 0 \amp 0 \amp 1 \amp -1 \end{pmatrix} 
+\end{equation*}
+</div></li>
+</ol>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-116" id="solution-116"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-116"><div class="solution solution-like"><ol id="p-939" class="lower-alpha">
+<li id="li-190">
+<p id="p-940">This matrix is in reduced row-echelon form. The system of equations represented by this matrix is</p>
+<div class="displaymath process-math">
+\begin{align*}
+x+3z \amp =2\\
+y-z \amp =-3\\
+0 \amp =0
+\end{align*}
+</div>
+<p class="continuation">The third equation in this system is satisfied no matter what values we choose for <span class="process-math">\(x\text{,}\)</span> <span class="process-math">\(y\)</span> and <span class="process-math">\(z\text{.}\)</span> Once we choose a value for <span class="process-math">\(z\)</span> (say) then from the first two equations we can determine the values for <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> as</p>
+<div class="displaymath process-math">
+\begin{align*}
+x \amp =2-3z\\
+y \amp =-3+z
+\end{align*}
+</div>
+<p class="continuation">Thus this system of equations has an infinite number of solutions given by</p>
+<div class="displaymath process-math">
+\begin{equation*}
+(x,y,z)=(2-3t,-3+t,t)
+\end{equation*}
+</div>
+<p class="continuation">or</p>
+<div class="displaymath process-math">
+\begin{equation*}
+(x,y,z)=(2,-3,0)+t(-3,1,1)
+\end{equation*}
+</div>
+</li>
+<li id="li-191"><p id="p-941">This matrix isn’t in row-echelon form (and hence not in reduced row-echelon form either) since the leading entry in row <span class="process-math">\(3\)</span> occurs to the left of the leading entry is row <span class="process-math">\(2\text{.}\)</span></p></li>
+<li id="li-192">
+<p id="p-942">This matrix is in row-echelon form but not reduced row-echelon form. Notice that in this case we can tell that the associated system of linear equations is inconsistent even though the matrix is not in reduced row-echelon form. The fourth equation in this system is</p>
+<div class="displaymath process-math">
+\begin{equation*}
+0=6
+\end{equation*}
+</div>
+<p class="continuation">and this cannot be satisfied no matter which values of <span class="process-math">\(x\text{,}\)</span> <span class="process-math">\(y\)</span> and <span class="process-math">\(z\)</span> we choose.</p>
+</li>
+<li id="li-193">
+<p id="p-943">This matrix is in reduced row-echelon form and the solution of the associated systems of linear equations is</p>
+<div class="displaymath process-math">
+\begin{equation*}
+(x,y,z)=(1,2,-1)
+\end{equation*}
+</div>
+</li>
+</ol></div></div></article></div>
+<article class="definition definition-like" id="definition-34"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">15.3.7</span><span class="period">.</span>
+</h3>
+<p id="p-944">In <dfn class="terminology">Gauss-Jordon Elimination</dfn>, the augmented matrix associated with the system of linear equations is systematically row reduced to reduced row-echelon form by:</p>
+<ul id="p-945" class="disc">
+<li id="li-194"><p id="p-946">Obtaining a 1 in entry <span class="process-math">\(a_{11}\)</span></p></li>
+<li id="li-195"><p id="p-947">Obtaining <span class="process-math">\(0\)</span>’s in the remainder of column <span class="process-math">\(1\)</span> by using the elementary row operation of adding multiples of row <span class="process-math">\(1\)</span> to another row.</p></li>
+<li id="li-196"><p id="p-948">Obtaining a 1 in entry <span class="process-math">\(a_{22}\)</span></p></li>
+<li id="li-197"><p id="p-949">Obtaining <span class="process-math">\(0\)</span>’s in the remainder of column <span class="process-math">\(2\)</span> by using the elementary row operation of adding multiples of row <span class="process-math">\(2\)</span> to another row.</p></li>
+<li id="li-198"><p id="p-950">And so on across the columns.</p></li>
+</ul>
+<p id="p-951">The solution is then read off from the equivalent system represented by the matrix in reduced row-echelon form</p></article><article class="example example-like" id="example-146"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-146"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">15.3.8</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-146"><article class="example example-like"><p id="p-952">Use Gauss Jordon Elimination to solve the following system of linear equations:</p>
+<div class="displaymath process-math">
+\begin{align*}
+2x+3y \amp =1\\
+3x-4y \amp =10
+\end{align*}
+</div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-117" id="solution-117"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-117"><div class="solution solution-like">
+<p id="p-953">The augmented matrix for this system is</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{pmatrix} 2 \amp 3 \amp 1 \\ 3 \amp -4 \amp 10 \end{pmatrix}
+\end{equation*}
+</div>
+<p class="continuation">We now want to row reduce this matrix to reduced row-echelon form. Following the steps as outlined:</p>
+<div class="displaymath process-math">
+\begin{align*}
+\begin{pmatrix} 2 \amp 3 \amp 1 \\ 3 \amp -4 \amp 10 \end{pmatrix} \amp \sim \begin{pmatrix} 1 \amp \frac{3}{2} \amp \frac{1}{2} \\ 0 \amp -\frac{17}{2} \amp \frac{17}{2} \end{pmatrix}   \begin{matrix} R_1'=R_1/2 \\ \hspace{8mm} R_2'=R_2-3R_1' \end{matrix}\\
+\amp \sim \begin{pmatrix} 1 \amp 0 \amp 2 \\ 0 \amp 1 \amp -1 \end{pmatrix}  \begin{matrix} \hspace{15mm} R_1'=R_1-3R_2'/2 \\ \hspace{10mm} R_2'=-2R_2/17 \end{matrix} 
+\end{align*}
+</div>
+<p class="continuation">We can now read off the solution as</p>
+<div class="displaymath process-math">
+\begin{equation*}
+(x,y)=(2,-1)
+\end{equation*}
+</div>
+<p class="continuation">Of course we can check that this solution is correct by substituting these values into the original equations.</p>
+<p id="p-954">In doing the row reduction here were had to use fractions. It is possible to apply the elementary row operations in a manner that avoids the fractions until the last steps. However you have to be very careful in doing this that you don’t lose some of the <span class="process-math">\(0\)</span>’s that you have already created and hence start going around in circles!</p>
+</div></div></article></div>
+<article class="example example-like" id="example-147"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-147"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">15.3.9</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-147"><article class="example example-like"><p id="p-955">Use Gauss Jordon Elimination to solve the following system of linear equations.</p>
+<div class="displaymath process-math">
+\begin{align*}
+2x+6y+2z \amp = 4\\
+3x+2y+z \amp = 0\\
+2x+3y \amp = 1
+\end{align*}
+</div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-118" id="solution-118"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-118"><div class="solution solution-like">
+<p id="p-956">The augmented matrix for this system is</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{pmatrix} 2 \amp 6 \amp 2 \amp 4 \\ 3 \amp 2 \amp 1 \amp 0 \\ 2 \amp 3 \amp 0 \amp 1 \end{pmatrix} 
+\end{equation*}
+</div>
+<p class="continuation">Now using the steps as outlined to reduce this to reduced row-echelon form:</p>
+<div class="displaymath process-math">
+\begin{align*}
+\begin{pmatrix} 2 \amp 6 \amp 2 \amp 4 \\ 3 \amp 2 \amp 1 \amp 0 \\ 2 \amp 3 \amp 0 \amp 1 \end{pmatrix} \amp \sim \begin{pmatrix} 1 \amp 3 \amp 1 \amp 2 \\ 0 \amp -7 \amp -2 \amp -6 \\ 0 \amp -3 \amp -2 \amp -3 \end{pmatrix}  \begin{matrix} R_1'=R_1/2 \\ \hspace{10mm} R_2'=R_2-3R_1' \\ \hspace{10mm} R_3'=R_3-2R_1' \end{matrix} \\
+\amp \sim \begin{pmatrix} 1 \amp 0 \amp \frac{1}{7} \amp -\frac{4}{7} \\ 0 \amp 1 \amp \frac{2}{7} \amp \frac{6}{7} \\ 0 \amp 0 \amp -\frac{8}{7} \amp -\frac{3}{7} \end{pmatrix}  \hspace{6mm} \begin{matrix} \hspace{5mm} R_1'=R_1-3R_2' \\  R_2'=-R_2/7 \\ \hspace{5.5mm} R_3'=R_3+3R_2' \end{matrix}\\
+\amp \sim \begin{pmatrix} 1 \amp 0 \amp 0 \amp -\frac{5}{8} \\ 0 \amp 1 \amp 0 \amp \frac{3}{4} \\ 0 \amp 0 \amp 1 \amp \frac{3}{8} \end{pmatrix}   \begin{matrix} \hspace{14.5mm} R_1'=R_1-R_3'/7 \\ \hspace{16.5mm} R_2'=R_2-2R_3'/7 \\ \hspace{10mm} R_3'=-7R_3/8 \end{matrix}
+\end{align*}
+</div>
+<p class="continuation">Thus the solution is</p>
+<div class="displaymath process-math">
+\begin{equation*}
+(x,y,z)=\left(-\frac{5}{8},\frac{3}{4},\frac{3}{8}\right)
+\end{equation*}
+</div>
+</div></div></article></div>
+<section class="exercises" id="exercises-31"><h3 class="heading hide-type">
+<span class="type">Exercises</span> <span class="codenumber"></span> <span class="title">Example Tasks</span>
+</h3>
+<article class="exercise exercise-like" id="exercise-83"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<p id="p-957">For the following augmented matrices write down the general solution of the associated system of linear equations, (i.e. write down the set of all solutions).</p>
+<ol id="p-958" class="lower-alpha">
+<li id="li-199"><div class="displaymath process-math" id="p-959">
+\begin{equation*}
+\begin{pmatrix} 0 \amp 2 \amp 2 \amp 2 \\ 0 \amp 0 \amp 3 \amp 3\end{pmatrix} 
+\end{equation*}
+</div></li>
+<li id="li-200"><div class="displaymath process-math" id="p-960">
+\begin{equation*}
+\begin{pmatrix} 1 \amp 0 \amp 0 \amp 2 \\ 0 \amp 1 \amp 0 \amp 3 \\ 0 \amp 0 \amp 0 \amp 0 \end{pmatrix} 
+\end{equation*}
+</div></li>
+<li id="li-201"><div class="displaymath process-math" id="p-961">
+\begin{equation*}
+\begin{pmatrix} 1 \amp -1 \amp 2 \amp 3 \\ 0 \amp 0 \amp 0 \amp 0 \\ 0 \amp 0 \amp 0 \amp 0 \end{pmatrix} 
+\end{equation*}
+</div></li>
+<li id="li-202"><div class="displaymath process-math" id="p-962">
+\begin{equation*}
+\begin{pmatrix} 1 \amp -6 \amp 0 \amp 0 \amp 3 \amp -2 \\ 0 \amp 0 \amp 1 \amp 0 \amp 4 \amp 7 \\ 0 \amp 0 \amp 0 \amp 1 \amp 5 \amp 8 \\ 0 \amp 0 \amp 0 \amp 0 \amp 0 \amp 0 \end{pmatrix} 
+\end{equation*}
+</div></li>
+</ol></article><article class="exercise exercise-like" id="exercise-84"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<p id="p-963">Solve the following system of linear equations by Gauss-Jordan elimination.</p>
+<div class="displaymath process-math">
+\begin{align*}
+5x+2y-z \amp =11\\
+x-y+z \amp =1\\
+4x+2y+3z \amp =5
+\end{align*}
+</div></article><article class="exercise exercise-like" id="exercise-85"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
+<p id="p-964">The general equation of a circle is <span class="process-math">\(x^2+y^2+ax+by+c=0\text{.}\)</span> Find the equation of the circle that passes through the points <span class="process-math">\((1,0)\text{,}\)</span> <span class="process-math">\((2,1)\)</span> and <span class="process-math">\((2,-1)\text{.}\)</span></p></article></section></section></div></main>
+</div>
+</body>
+</html>

@@ -1,0 +1,360 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-12-08T21:40:42+11:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Maclaurin Series</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    useLabelIds: true,
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext.js"></script><script xmlns:svg="http://www.w3.org/2000/svg">miniversion=0.6</script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script xmlns:svg="http://www.w3.org/2000/svg">sagecellEvalName='Evaluate (Sage)';
+</script><link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/colors_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link xmlns:svg="http://www.w3.org/2000/svg" href="developer.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div xmlns:svg="http://www.w3.org/2000/svg" id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\bm}[1]{\boldsymbol{#1}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="MATH1120-Course-Notes.html"><span class="title">MATH1120:</span> <span class="subtitle">Mathematics for Engineering, Science and Technology 2</span></a></h1>
+<p class="byline"></p>
+</div>
+</div></div>
+<nav xmlns:svg="http://www.w3.org/2000/svg" id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="Sec-Infinite_Series.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="Chap-Calculus_1.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="Calculus_2.html" title="Next">Next</a></span></div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="Sec-Infinite_Series.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="Chap-Calculus_1.html" title="Up">Up</a><a class="next-button button toolbar-item" href="Calculus_2.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div xmlns:svg="http://www.w3.org/2000/svg" id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link part"><a href="Part-Calculus.html" data-scroll="Part-Calculus"><span class="codenumber">I</span> <span class="title">Calculus</span></a></li>
+<li class="link">
+<a href="Chap-Calculus_1.html" data-scroll="Chap-Calculus_1"><span class="codenumber">1</span> <span class="title">Maclaurin Series</span></a><ul>
+<li><a href="Sec-Introduction.html" data-scroll="Sec-Introduction">Introduction</a></li>
+<li><a href="Sec-Infinite_Series.html" data-scroll="Sec-Infinite_Series">Infinite Series</a></li>
+<li><a href="Sec-Maclaurin_Series.html" data-scroll="Sec-Maclaurin_Series" class="active">Maclaurin Series</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Calculus_2.html" data-scroll="Calculus_2"><span class="codenumber">2</span> <span class="title">Taylor Series</span></a><ul>
+<li><a href="Generating-New-Series-from-Known-Series.html" data-scroll="Generating-New-Series-from-Known-Series">Generating New Series from Known Series</a></li>
+<li><a href="Taylor_Series.html" data-scroll="Taylor_Series">Taylor Series</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Calculus_3.html" data-scroll="Calculus_3"><span class="codenumber">3</span> <span class="title">Functions of Several Variables</span></a><ul>
+<li><a href="functions-of-two-variables.html" data-scroll="functions-of-two-variables">Functions of Two Variables</a></li>
+<li><a href="level-curves.html" data-scroll="level-curves">Level Curves</a></li>
+<li><a href="surfaces-of-revolution.html" data-scroll="surfaces-of-revolution">Surfaces of Revolution</a></li>
+<li><a href="functions-of-3-or-more-variables.html" data-scroll="functions-of-3-or-more-variables">Functions of 3 (or more) Variables</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Chap-Calculus_4.html" data-scroll="Chap-Calculus_4"><span class="codenumber">4</span> <span class="title">Partial Differentiation</span></a><ul>
+<li><a href="Sec-Partial_Differentiation.html" data-scroll="Sec-Partial_Differentiation">Partial Differentiation</a></li>
+<li><a href="Sec-Higher_Partial_Derivatives.html" data-scroll="Sec-Higher_Partial_Derivatives">Higher Partial Derivatives</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Chap-Calculus_5.html" data-scroll="Chap-Calculus_5"><span class="codenumber">5</span> <span class="title">Linear Approximations</span></a><ul>
+<li><a href="Sec-Tangent_Planes.html" data-scroll="Sec-Tangent_Planes">Tangent Planes</a></li>
+<li><a href="Sec-Linear_Approximations.html" data-scroll="Sec-Linear_Approximations">Linear Approximations</a></li>
+<li><a href="Quadratic-Approximations.html" data-scroll="Quadratic-Approximations">Quadratic Approximations</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Calculus_6.html" data-scroll="Calculus_6"><span class="codenumber">6</span> <span class="title">The Directional Derivative</span></a><ul>
+<li><a href="Directional-Derivatives.html" data-scroll="Directional-Derivatives">Directional Derivatives</a></li>
+<li><a href="In_Three_Variables.html" data-scroll="In_Three_Variables">In Three Variables</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Calculus_7.html" data-scroll="Calculus_7"><span class="codenumber">7</span> <span class="title">Local and Global Extrema</span></a><ul>
+<li><a href="Critical-Points.html" data-scroll="Critical-Points">Critical Points</a></li>
+<li><a href="Second-Derivative-Test.html" data-scroll="Second-Derivative-Test">Second Derivative Test</a></li>
+<li><a href="Global-Extrema.html" data-scroll="Global-Extrema">Global Extrema</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Chap-Calculus_8.html" data-scroll="Chap-Calculus_8"><span class="codenumber">8</span> <span class="title">Chain Rules</span></a><ul>
+<li><a href="Sec-The_single_variable_chain_rule.html" data-scroll="Sec-The_single_variable_chain_rule">The Single Variable Chain Rule</a></li>
+<li><a href="Sec-Multivariable-chain-rules.html" data-scroll="Sec-Multivariable-chain-rules">Multivariable Chain Rules</a></li>
+<li><a href="section-22.html" data-scroll="section-22">Implicit Differentiation</a></li>
+</ul>
+</li>
+<li class="link part"><a href="Part-Differenial_Equations.html" data-scroll="Part-Differenial_Equations"><span class="codenumber">II</span> <span class="title">Differential Equations</span></a></li>
+<li class="link">
+<a href="Differential_Equations_1.html" data-scroll="Differential_Equations_1"><span class="codenumber">9</span> <span class="title">Introduction</span></a><ul>
+<li><a href="introduction.html" data-scroll="introduction">Introduction</a></li>
+<li><a href="direction-fields-and-eulers-method.html" data-scroll="direction-fields-and-eulers-method">Direction Fields and Euler's Method</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Differential_Equations_2.html" data-scroll="Differential_Equations_2"><span class="codenumber">10</span> <span class="title">First Order Separable DEs</span></a><ul>
+<li><a href="Sec-First_Order_Separable_DEs.html" data-scroll="Sec-First_Order_Separable_DEs">First Order Separable DEs</a></li>
+<li><a href="Sec-Some-Simple-Applications-of-First-Order-Separable-DEs.html" data-scroll="Sec-Some-Simple-Applications-of-First-Order-Separable-DEs">Some Simple Applications of First Order Separable DEs</a></li>
+<li><a href="appendix-1.html" data-scroll="appendix-1">Partial Fraction Decomposition</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Differential_Equations_3.html" data-scroll="Differential_Equations_3"><span class="codenumber">11</span> <span class="title">First Order Linear DEs</span></a><ul>
+<li><a href="Exact_First_Order_DEs.html" data-scroll="Exact_First_Order_DEs">Exact First Order DEs</a></li>
+<li><a href="First_Order_Linear_DEs.html" data-scroll="First_Order_Linear_DEs">First Order Linear DEs</a></li>
+<li><a href="Simple_Applications_of_First_Order_Linear_DEs.html" data-scroll="Simple_Applications_of_First_Order_Linear_DEs">Some Simple Applications of First Order Linear DEs</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Differential_Equations_4.html" data-scroll="Differential_Equations_4"><span class="codenumber">12</span> <span class="title">Homogeneous Second Order Linear DEs</span></a><ul><li><a href="Homogeneous_Second_Order_Linear_DEs_With_Constant_Coefficients.html" data-scroll="Homogeneous_Second_Order_Linear_DEs_With_Constant_Coefficients">Homogeneous Second Order Linear DEs With Constant Coefficients</a></li></ul>
+</li>
+<li class="link">
+<a href="Differential_Equations_5.html" data-scroll="Differential_Equations_5"><span class="codenumber">13</span> <span class="title">Non-Homogeneous Second Order Linear DEs</span></a><ul>
+<li><a href="Non-Homogeneous_First_Order_Linear_DEs.html" data-scroll="Non-Homogeneous_First_Order_Linear_DEs">Non-Homogeneous First Order Linear DEs</a></li>
+<li><a href="The_Method_of_Undetermined_Coefficients.html" data-scroll="The_Method_of_Undetermined_Coefficients">The Method of Undetermined Coefficients</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Differential_Equations_6.html" data-scroll="Differential_Equations_6"><span class="codenumber">14</span> <span class="title">An Application of Second Order Linear DEs with Constant Coefficients</span></a><ul>
+<li><a href="A_Simple_Model.html" data-scroll="A_Simple_Model">A Simple Model</a></li>
+<li><a href="Adding_Damping.html" data-scroll="Adding_Damping">Adding Damping</a></li>
+<li><a href="Adding_an_External_Force.html" data-scroll="Adding_an_External_Force">Adding an External Force</a></li>
+</ul>
+</li>
+<li class="link part"><a href="Part-Linear_Algebra.html" data-scroll="Part-Linear_Algebra"><span class="codenumber">III</span> <span class="title">Linear Algebra</span></a></li>
+<li class="link">
+<a href="Linear_Algebra_1.html" data-scroll="Linear_Algebra_1"><span class="codenumber">15</span> <span class="title">Systems of Linear Equations</span></a><ul>
+<li><a href="Sec-LA_Introduction.html" data-scroll="Sec-LA_Introduction">Introduction</a></li>
+<li><a href="Sec-LA_Matrices_and_Systems_of_Linear_Equations.html" data-scroll="Sec-LA_Matrices_and_Systems_of_Linear_Equations">Matrices and Systems of Linear Equations</a></li>
+<li><a href="Sec-LA_Solving_Systems_of_Linear_Equations.html" data-scroll="Sec-LA_Solving_Systems_of_Linear_Equations">Solving Systems of Linear Equations</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Linear_Algebra__2.html" data-scroll="Linear_Algebra__2"><span class="codenumber">16</span> <span class="title">Geometric Interpretations of Linear Equations</span></a><ul>
+<li><a href="Interpretation_Via_Rows.html" data-scroll="Interpretation_Via_Rows">Interpretation Via Rows</a></li>
+<li><a href="Interpretation_Via_Columns.html" data-scroll="Interpretation_Via_Columns">Interpretation Via Columns</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Chap-Linear_Algebra_3.html" data-scroll="Chap-Linear_Algebra_3"><span class="codenumber">17</span> <span class="title">Matrix Algebra</span></a><ul>
+<li><a href="Sec-Linear_Algebra_Intro.html" data-scroll="Sec-Linear_Algebra_Intro">Introduction</a></li>
+<li><a href="Sec-Addition_and_Scalar_Multiplication.html" data-scroll="Sec-Addition_and_Scalar_Multiplication">Addition and Scalar Multiplication</a></li>
+<li><a href="Sec-Matrix_multiplication.html" data-scroll="Sec-Matrix_multiplication">Matrix Multiplication</a></li>
+<li><a href="Sec-Matrices_and_Systems_of_Linear_Equations.html" data-scroll="Sec-Matrices_and_Systems_of_Linear_Equations">Matrices and Systems of Linear Equations</a></li>
+<li><a href="Sec-Linear_transformations.html" data-scroll="Sec-Linear_transformations">Linear Transformations</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Linear_Algebra_4.html" data-scroll="Linear_Algebra_4"><span class="codenumber">18</span> <span class="title">Square Matrices</span></a><ul>
+<li><a href="Inverse_Matrices.html" data-scroll="Inverse_Matrices">Inverse Matrices</a></li>
+<li><a href="Determinants.html" data-scroll="Determinants">Determinants</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Linear_Algebra_5.html" data-scroll="Linear_Algebra_5"><span class="codenumber">19</span> <span class="title">Eigenvalues and Eigenvectors</span></a><ul>
+<li><a href="Sec-LA_5_Introduction.html" data-scroll="Sec-LA_5_Introduction">Introduction</a></li>
+<li><a href="Sec-LA_5_Finding_Eigenvalues_and_Eigenvectors.html" data-scroll="Sec-LA_5_Finding_Eigenvalues_and_Eigenvectors">Finding Eigenvalues and Eigenvectors</a></li>
+<li><a href="Sec-LA_5_A_Simple_Application.html" data-scroll="Sec-LA_5_A_Simple_Application">A Simple Application</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Linear_Algebra_6.html" data-scroll="Linear_Algebra_6"><span class="codenumber">20</span> <span class="title">Some Applications of Eigenvalues and Eigenvectors</span></a><ul>
+<li><a href="Powers_of_Matrices.html" data-scroll="Powers_of_Matrices">Powers of Matrices</a></li>
+<li><a href="Coupled_Linear_Differential_Equations.html" data-scroll="Coupled_Linear_Differential_Equations">Coupled Linear Differential Equations</a></li>
+</ul>
+</li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="Sec-Maclaurin_Series"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">1.3</span> <span class="title">Maclaurin Series</span>
+</h2>
+<p id="p-43">In this section we will discuss the task of finding an infinite series representation for a given function of one variable, <span class="process-math">\(f\text{.}\)</span> We begin by assuming that the given function <span class="process-math">\(f(x)\)</span> does indeed have a power series representation, at least initially about <span class="process-math">\(x=0\text{.}\)</span> Thus we assume that on some interval <span class="process-math">\(|x| &lt; R\)</span></p>
+<div class="displaymath process-math">
+\begin{equation}
+f(x) = \sum_{k=0}^{\infty}c_kx^k = c_0 + c_1x +c_2x^2 +c_3x^3 + \cdots.\label{Eq-Maclaurin_of_f}\tag{1.3.1}
+\end{equation}
+</div>
+<p id="p-44">We know that the power series reduces to <span class="process-math">\(c_0\)</span> when <span class="process-math">\(x=0\)</span> and so for the power series to match the function when <span class="process-math">\(x=0\)</span> we must have <span class="process-math">\(c_0 = f(0)\text{.}\)</span> On differentiating <a href="" class="xref" data-knowl="./knowl/Eq-Maclaurin_of_f.html" title="Equation 1.3.1">(1.3.1)</a> we get</p>
+<div class="displaymath process-math">
+\begin{equation}
+f'(x) = \sum_{k=1}^{\infty}kc_kx^{k-1} = c_1 +2c_2x +3c_3x^2 + 4c_4x^3 + \cdots\label{Eq-First_derivative_Maclaurin}\tag{1.3.2}
+\end{equation}
+</div>
+<p class="continuation">and putting on <span class="process-math">\(x=0\)</span> into this gives <span class="process-math">\(c_1=f'(0)\text{.}\)</span> Similarly, differentiating <a href="" class="xref" data-knowl="./knowl/Eq-First_derivative_Maclaurin.html" title="Equation 1.3.2">(1.3.2)</a></p>
+<div class="displaymath process-math">
+\begin{equation}
+f''(x) = \sum_{k=2}^{\infty}k(k-1)c_kx^{k-2} = 2c_2 +6c_3x + 12c_4x^2 + \cdots\tag{1.3.3}
+\end{equation}
+</div>
+<p class="continuation">and substituting <span class="process-math">\(x=0\)</span> gives <span class="process-math">\(c_2=\dfrac{1}{2}f''(0)\text{.}\)</span> By continuing this process, we can see that in general</p>
+<div class="displaymath process-math">
+\begin{equation}
+f^{(n)}(x) = \sum_{k=n}^{\infty}k(k-1)(k-2)\cdots(k-(n-1))c_kx^{k-n}\tag{1.3.4}
+\end{equation}
+</div>
+<p class="continuation">and hence (by substituting <span class="process-math">\(x=0\)</span>) that <span class="process-math">\(c_n = \dfrac{1}{n!}f^{(n)}(0)\text{.}\)</span></p>
+<article class="definition definition-like" id="definition-2"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.3.1</span><span class="period">.</span><span class="space"> </span><span class="title">Maclaurin Series.</span>
+</h3>
+<p id="p-45">The series</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\sum_{k=0}^{\infty}\dfrac{f^{(k)}(0)}{k!}x^k = f(0) + f'(0)x +\dfrac{f^{''}(0)}{2!}x^2 +\dfrac{f^{'''}(0)}{3!}x^3 + \cdots
+\end{equation*}
+</div>
+<p class="continuation">is called the <dfn class="terminology">Maclaurin series</dfn> for <span class="process-math">\(f(x)\text{.}\)</span></p></article><p id="p-46">We know that the Maclaurin series for <span class="process-math">\(f\)</span> converges when <span class="process-math">\(x=0\)</span> (since all power series converge for <span class="process-math">\(f(x)\)</span>) and we also know that the series converges to <span class="process-math">\(f(0)\)</span> (because we constructed it that way). However for other values of <span class="process-math">\(x\)</span> we cannot be sure that the infinite series will converge and if it does, does it converge to the function value.</p>
+<article class="example example-like" id="Ex-Maclaurin_series_geometric"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-Ex-Maclaurin_series_geometric"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.3.2</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Ex-Maclaurin_series_geometric"><article class="example example-like"><p id="p-47">Find the Maclaurin series for <span class="process-math">\(f(x)=\dfrac{1}{1-x}\text{.}\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-5" id="answer-5"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-5"><div class="answer solution-like"><p id="p-48"><span class="process-math">\(\displaystyle \sum_{k=0}^{\infty}x^k = 1+x+x^2+x^3+x^4+ \cdots\)</span></p></div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-5" id="solution-5"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-5"><div class="solution solution-like">
+<p id="p-49">Firstly find the derivatives of <span class="process-math">\(f\)</span> and evaluate them at <span class="process-math">\(x=0\text{.}\)</span></p>
+<div class="displaymath process-math">
+\begin{alignat*}{1}
+f(x) \amp = (1-x)^{-1} \text{ and hence } f(0)=1\\
+f'(x) \amp = (1-x)^{-2} \text{ and hence } f'(0)=1\\
+f''(x) \amp = 2(1-x)^{-3} \text{ and hence } f''(0)=2\\
+\quad\amp \vdots \quad \\
+f^{(k)}(x) \amp = k!(1-x)^{-k-1} \text{ and hence } f^{(k)}(0) = k!
+\end{alignat*}
+</div>
+<p class="continuation">Substituting these results into the formula derived above gives the Maclaurin series for <span class="process-math">\(f\)</span> as</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\sum_{k=0}^{\infty}\dfrac{k!}{k!}x^k = 1+x+x^2+x^3+x^4+ \cdots.
+\end{equation*}
+</div>
+<p class="continuation">This agrees with the result that we found in an earlier example. As we saw in that example, however, the Maclaurin series only converges for <span class="process-math">\(|x| &lt;1 \)</span> and that for those values it converges to the function value.</p>
+</div></div>
+</div></article></div>
+<article class="definition definition-like" id="definition-3"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.3.3</span><span class="period">.</span><span class="space"> </span><span class="title">Maclaurin Polynomial.</span>
+</h3>
+<p id="p-50">The <span class="process-math">\(n\)</span>th partial sum of the Maclaurin series for <span class="process-math">\(f(x)\text{,}\)</span> i.e.,</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\sum_{k=0}^{n}\dfrac{f^{(k)}(0)}{k!}x^k = f(0) + f'(0)x +\dfrac{f^{''}(0)}{2!}x^2 +\cdots + \dfrac{f^{(n)}(0)}{n!}x^n 
+\end{equation*}
+</div>
+<p class="continuation">is called the <dfn class="terminology">Maclaurin polynomial of degree <span class="process-math">\(n\)</span></dfn> for <span class="process-math">\(f(x)\text{.}\)</span></p></article><article class="example example-like" id="Ex-Maclaurin_polynomial_cosine"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-Ex-Maclaurin_polynomial_cosine"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.3.4</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Ex-Maclaurin_polynomial_cosine"><article class="example example-like"><p id="p-51">Find the Maclaurin polynomials of degree <span class="process-math">\(0,1,2,3\)</span> and <span class="process-math">\(4\)</span> for the function <span class="process-math">\(f(x)=\cos(x)\text{.}\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-6" id="answer-6"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-6"><div class="answer solution-like">
+<p id="p-52"><span class="process-math">\(M_0(x)=1\)</span></p>
+<p id="p-53"><span class="process-math">\(M_1(x)=1\)</span></p>
+<p id="p-54"><span class="process-math">\(M_2(x)=1-\dfrac{x^2}{2}\)</span></p>
+<p id="p-55"><span class="process-math">\(M_3(x)=1-\dfrac{x^2}{2}\)</span></p>
+<p id="p-56"><span class="process-math">\(M_4(x)=1-\dfrac{x^2}{2}+\dfrac{x^4}{24}\)</span></p>
+</div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-6" id="solution-6"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-6"><div class="solution solution-like">
+<p id="p-57">For <span class="process-math">\(f(x)=\cos(x)\text{,}\)</span></p>
+<div class="displaymath process-math">
+\begin{alignat*}{1}
+f(x) \amp = \cos(x) \text{ and hence } f(0)=1\\
+f'(x) \amp = -\sin(x) \text{ and hence } f'(0)=0\\
+f''(x) \amp = -\cos(x) \text{ and hence } f''(0)=-1\\
+f'''(x) \amp = \sin(x) \text{ and hence } f'''(0)=0\\
+f^{(iv)}(x) \amp = \cos(x) \text{ and hence } f^{(iv)}(0)=1
+\end{alignat*}
+</div>
+<p class="continuation">and so the <span class="process-math">\(0\)</span>th degree Maclaurin polynomial is</p>
+<div class="displaymath process-math">
+\begin{equation*}
+M_0(x)=f(0)=1.
+\end{equation*}
+</div>
+<p class="continuation">Notice that the <span class="process-math">\(0\)</span>th degree Maclaurin polynomial is the horizontal line passing through the point <span class="process-math">\((0,f(0))\text{.}\)</span></p>
+<p id="p-58">The <span class="process-math">\(1\)</span>st degree Maclaurin polynomial is</p>
+<div class="displaymath process-math">
+\begin{alignat*}{1}
+M_1(x) \amp = f(0) + f'(0)x\\
+\amp = 1+0\\
+\amp = 1
+\end{alignat*}
+</div>
+<p class="continuation">Notice that the <span class="process-math">\(1\)</span>st degree Maclaurin polynomial is the tangent to the function at the point  <span class="process-math">\((0,f(0))\text{.}\)</span> Notice also, that in this case, the <span class="process-math">\(0\)</span>th degree and the <span class="process-math">\(1\)</span>st  degree Maclaurin polynomials are the same.</p>
+<p id="p-59">The <span class="process-math">\(2\)</span>nd degree Maclaurin polynomial is</p>
+<div class="displaymath process-math">
+\begin{alignat*}{1}
+M_2(x) \amp = f(0) + f'(0)x + \dfrac{f''(0)}{2}x^2\\
+\amp = 1+0x + \dfrac{(-1)}{2}x^2\\
+\amp = 1-\dfrac{x^2}{2}
+\end{alignat*}
+</div>
+<p id="p-60">The <span class="process-math">\(3\)</span>rd degree Maclaurin polynomial is</p>
+<div class="displaymath process-math">
+\begin{alignat*}{1}
+M_3(x)  \amp = f(0) + f'(0)x + \dfrac{f''(0)}{2}x^2 + \dfrac{f'''(0)}{3!}x^3\\
+\amp = 1+0x + \dfrac{(-1)}{2}x^2 + \dfrac{0}{3!}x^3\\
+\amp = 1-\dfrac{x^2}{2}
+\end{alignat*}
+</div>
+<p id="p-61">The <span class="process-math">\(4\)</span>th degree Maclaurin polynomial is</p>
+<div class="displaymath process-math">
+\begin{alignat*}{1}
+M_4(x)  \amp = f(0) + f'(0)x + \dfrac{f''(0)}{2}x^2 + \dfrac{f'''(0)}{3!}x^3 + \dfrac{f^{(iv)}(0)}{4!}x^4\\
+\amp = 1+0x + \dfrac{(-1)}{2}x^2 + \dfrac{0}{3!}x^3 + \dfrac{1}{4!}x^4\\
+\amp = 1-\dfrac{x^2}{2} + \dfrac{x^4}{24}
+\end{alignat*}
+</div>
+<p class="continuation">As can be seen in <a href="" class="xref" data-knowl="./knowl/Fig-Maclaurin_polynomial_cosine.html" title="Figure 1.3.5">Figure 1.3.5</a>, in this case as the degree of the Maclaurin polynomial increases so the polynomial provides a good approximation to the function for a larger interval surrounding <span class="process-math">\(x=0\text{.}\)</span> In fact, using the Ratio test we can show that the Maclaurin series for <span class="process-math">\(\cos(x)\)</span> converges for all values of <span class="process-math">\(x\)</span> and by using some more advanced mathematics we can show that the series converges to <span class="process-math">\(\cos(x)\)</span> for all values of <span class="process-math">\(x\text{.}\)</span></p>
+<figure class="figure figure-like" id="Fig-Maclaurin_polynomial_cosine"><div class="image-box" style="width: 90%; margin-left: 5%; margin-right: 5%;"><img src="./Calculus/Images/1/Fig-Maclaurin_polynomial_cosine.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.3.5<span class="period">.</span></span><span class="space"> </span></figcaption></figure>
+</div></div>
+</div></article></div>
+<section class="exercises" id="exercises-2"><h3 class="heading hide-type">
+<span class="type">Exercises</span> <span class="codenumber"></span> <span class="title">Example Tasks</span>
+</h3>
+<article class="exercise exercise-like" id="exercise-3"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>Let <span class="process-math">\(f(x)=e^x\text{.}\)</span> Find the Maclaurin series for <span class="process-math">\(f\)</span> and find its interval of convergence.</article><article class="exercise exercise-like" id="exercise-4"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>Find the Maclaurin polynomial of degree <span class="process-math">\(3\)</span> for <span class="process-math">\(g(x) = \tan^{-1}(x)\text{.}\)</span></article></section><article class="remark remark-like" id="remark-3"><h3 class="heading">
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">1.3.6</span><span class="period">.</span><span class="space"> </span><span class="title">Aside.</span>
+</h3>
+<p id="p-62">Computer Algebra Systems usually have a command for calculating Maclaurin series. For example, the following shows part of the output from a Wolfram Alpha query.</p>
+<figure class="figure figure-like" id="Fig-C1_WA_3"><div class="image-box" style="width: 90%; margin-left: 5%; margin-right: 5%;"><img src="./Calculus/Images/1/C1_WA_3.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.3.7<span class="period">.</span></span><span class="space"> </span></figcaption></figure></article></section></div></main>
+</div>
+</body>
+</html>

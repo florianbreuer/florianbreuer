@@ -1,0 +1,576 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- =================================================================================================== -->
+<!-- To process this file with xsltproc do                                                        -->
+<!--                                                                                              -->
+<!-- (1) LaTeX/PDF:                                                                               -->
+<!--     xsltproc -o minimal.tex PATH_TO/mathbook/xsl/pretext-latex.xsl source/main.ptx           -->
+<!--     pdflatex minimal.tex                                                                     -->
+<!--     xelatex minimal.tex                                                                      -->
+<!--                                                                                              -->
+<!-- (2) HTML:                                                                                    -->
+<!--     xsltproc PATH_TO/mathbook/xsl/pretext-html.xsl source/main.ptx                           -->
+<!--     <browser>  minimal.html                                                                  -->
+<!--        ~/xsltproc/xsltproc.exe ~/mathbook/xsl/mathbook-html.xsl test.xml                     -->
+<!--                                                                                              -->
+<!-- (3) CoCalc worksheet (parameter causes a single file for output)                             -->
+<!--     REMOVE the "X" in the double dash (which is not legal in an XML comment)                 -->
+<!--     xsltproc -X-stringparam chunk.level 0 PATH_TO/mathbook/xsl/pretext-smc.xsl source/main.ptx   -->
+<!--     <CoCalc> minimal.sagews                                                                  -->
+<!--                                                                                              -->
+<!-- (4) Sage doctesting                                                                          -->
+<!--     REMOVE the "X" in the double dash (which is not legal in an XML comment)                 -->
+<!--     xsltproc -X-stringparam chunk.level 0 PATH_TO/mathbook/xsl/pretext-sage-doctest.xsl source/main.ptx  -->
+<!--     <read further instructions in> minimal.py                                                -->
+<!-- =================================================================================================== -->
+
+<chapter xml:id="Differential_Equations_4">
+
+
+
+<!-- =================================================================================================== -->
+<!-- Title and Other Preliminaries -->
+<!-- =================================================================================================== -->
+        <title>Homogeneous Second Order Linear DEs</title>
+
+        <!-- <frontmatter> -->
+
+<!--             <titlepage>
+                <author>
+                    <institution>University of Newcastle</institution>
+                </author>
+                <date><today /></date>
+            </titlepage> -->
+
+            <!-- <abstract>
+                <p>This is a very short article, but it still exercises some advanced features of MathBook XML.</p>
+            </abstract> -->
+
+        <!-- </frontmatter> -->
+
+        <!-- <introduction>
+            <p>This is a short paragraph to introduce the article (but it is not the abstract).  It is optional, in case it would be preferable to have the first section be titled an <q>Introduction.</q></p>
+        </introduction> -->
+<!-- =================================================================================================== -->
+
+
+
+
+<!-- =================================================================================================== -->
+<!-- Section 1: Partial Differentiation -->
+<!-- =================================================================================================== -->
+<section xml:id="Homogeneous_Second_Order_Linear_DEs_With_Constant_Coefficients">
+<title>Homogeneous Second Order Linear DEs With Constant Coefficients</title>      
+
+<p> 
+So far we have learnt how to find exact solutions to separable first order DEs and linear first order DEs. For other types of first order DEs finding exact solutions can become quite involved (or even impossible) and so instead we will turn our attention to second order DEs. Recall that a second order DE is one that involves the second derivative of the unknown function. As with first order DEs we can only find analytic methods for solving second order DEs for certain classes of such DEs.
+</p>
+
+<p>
+The class of second order DEs that we are going to consider in this lecture is called the class of “homogeneous, second order, linear DEs with constant coefficients”. Let’s try to put this into some sort of context. Recall from DEs (<m> 3 </m>) that a first order linear DE is a DE of the form:
+</p>
+
+<p> 
+<me> 
+P(x)y'+Q(x)y=f(x).
+</me>
+</p>
+
+<p>
+As we have seen, this equation is called linear because it is the sum of terms that either don’t involve y or only involve y or its derivatives raised to the power of one . Extending this idea to second order DEs gives the following definition.
+</p>
+
+<definition>
+<statement>
+<p>A differential equation of the form,</p>
+<p>   <me> P(x)y''+Q(x)y'+R(x)y=f(x) </me>. </p>
+<p> where <m> P(x)\neq 0 </m> is called a <term> second order linear DE. </term> </p>
+</statement>
+</definition>
+
+<p> In the case where   <m> f(x)= 0 </m> the DE is called homogeneous. Thus: </p>
+
+<definition>
+<statement>
+<p>A differential equation of the form,</p>
+<p>   <me> P(x)y''+Q(x)y'+R(x)y=0 </me>. </p>
+<p> where <m> P(x)\neq 0 </m> is called a <term> homogeneous second order linear DE. </term> </p>
+</statement>
+</definition>
+
+<p> Further, if each of  <m> P(x),\; Q(x), \text{and}\; R(x) </m>   and   are constant functions then the DE is said to have constant coefficients. Thus: </p>
+
+<definition>
+<statement>
+<p>A differential equation of the form,</p>
+<p>   <me> ay''+by'+cy=0 </me>. </p>
+<p> where  <m> a,\; b, \; c \in \mathbb{R} \; \text{and}\; a\neq 0 </m> is called a <term> homogeneous second order linear DE with constant coefficients. </term> </p>
+</statement>
+</definition>
+       
+<example xml:id="Two_simple_example_homogeneous">
+<p> Guess solutions to the following homogeneous second order linear DEs with constant coefficients. </p>               
+<p><ol label="a">
+<li><p> <m> y''=0. </m> </p></li>
+<li><p><m> y''-y=0 </m>  </p></li>
+</ol></p> 
+<p><ol label="a">
+<li><p> What function has its second derivative zero (i.e. has zero curvature)? Clearly any linear function satisfies this property and so we guess that the general solution to this DE is <me> y(x)=Ax+B, \; A,B\in \mathbb{R} </me> </p></li>
+<li><p>  This DE can be rewritten as <me> y''=y. </me>  The solution, then, is any function that has its second derivative equal to the function itself. This is a property of any of the exponential functions <me> y(x)=Ae^{x}. </me> It is also a property of the exponential functions <me> y(x)=Be^{-x}. </me> Thus every function of the form <me> y(x)=Ae^{x}+Be^{-x}, \; A,B\in \mathbb{R} </me> will be a solution to the DE. </p>
+</li>
+</ol></p>
+</example>     
+ 
+<p> Before looking at the method for solving a homogeneous second order linear DE with constant coefficients, i.e. a DE of the form </p>       
+          
+<men xml:id="homogeneous_2_order_constant_coefficients"> ay''+by'+cy=0,\;\;\;\; a\neq 0, b,c\in \mathbb{R}, </men>
+
+<p> there are several things that we can predict about the solution, (based on <xref ref="Two_simple_example_homogeneous"/> and previous lectures):   </p>
+
+<p><ol label="a">
+<li><p> The general solution will be a family of functions involving two parameters. </p></li>
+<li><p> The exponential function is a likely candidate for a solution.  </p></li>
+</ol></p>
+
+<p>
+Notice also that if both <m> y_{1}(x) </m>  and <m> y_{1}(x) </m>  are solutions to <xref ref="homogeneous_2_order_constant_coefficients"/> then so will be <m> y(x)=A y_{1}(x)+B y_{2}(x) </m> where <m> A </m> and <m> B </m> are arbitrary constants. To see this, let <m> y_{1}(x) </m>  and <m> y_{2}(x) </m>  be solutions to <xref ref="homogeneous_2_order_constant_coefficients"/>, i.e.
+</p>
+
+<p><md>
+<mrow> ay''_{1}+by'_{1}+cy_{1} \amp =0,  </mrow>           
+<mrow> ay''_{2}+by'_{2}+cy_{2} \amp =0.  </mrow>
+</md>
+Now let <me> y(x) = A y_{1}(x) + B y_{2}(x). </me> Then  
+<md>
+<mrow>  y'(x) \amp =  A y'_{1}(x) + B y'_{2}(x),  </mrow>           
+<mrow>  y''(x) \amp =  A y''_{1}(x) + B y''_{2}(x).  </mrow>
+</md>
+Substituting into <xref ref="homogeneous_2_order_constant_coefficients"/> gives:
+<md>
+<mrow>  lhs \amp =  ay + by +cy  </mrow>           
+<mrow>  \amp = a(A y''_{1}(x) + B y''_{2}(x)) + b(A y'_{1}(x) + B y'_{2}(x)) +c(A y_{1}(x) + B y_{2}(x))   </mrow>
+<mrow>  \amp = A(ay''_{1}+by'_{1}+cy_{1}) + B(ay''_{2}+by'_{2}+cy_{2})   </mrow>
+<mrow>  \amp = 0  </mrow> 
+</md>
+</p>
+
+<p> These observations, along with the following theorem, enable us to develop a method of solution for DEs of the form <xref ref="homogeneous_2_order_constant_coefficients"/>.  </p>
+
+<theorem>
+<statement>
+<p>
+For the homogeneous second order linear DE
+<me> P(x)y''+Q(x)y'+R(x)y=0 </me>
+where <m> P(x)\neq 0, </m>
+given any pair of solutions    <m> y_{1}(x) </m>  and <m> y_{2}(x) </m>    that are not constant multiples of each other a general solution to the DE is
+<me> y(x) =  A y_{1}(x) + B y_{2}(x). </me>
+</p>
+</statement>
+</theorem>            
+<p>
+<term> Note: </term> The proof of this theorem is beyond the scope of this course.
+</p>            
+
+<example xml:id="example_y_double_derivative_minus_y_complete_solution">
+<p> 
+Given that
+<m> y=e^{x},\; y=e^{-x}, \; y=\sinh(x), \text{and} y=\cosh(x) </m>
+are all solutions to the DE
+<me>
+y''-y=0
+</me>
+write down a general solution for to this DE.
+</p>
+<p>
+From the above theorem, since none of these solutions are constant multiples of each other, any pair of them can be combined to form a general solution to the DE. Thus possible general solutions could be
+<md>
+<mrow>  y_{1}(x) \amp =  A e^{x} + B e^{-x},  </mrow>           
+<mrow>  y_{2}(x) \amp =  A \sinh(x) + B \cosh(x),    </mrow>
+<mrow>  y_{3}(x) \amp =  A e^{x} + B \cosh(x).   </mrow>
+</md>
+and so on.
+</p>
+<p>
+Recall that a general solution to the DE contains every solution to the DE. For example consider the particular solution 
+<me>
+y(x) =  2 \sinh(x) - 3 \cosh(x).
+</me>
+This solution belongs to the general solution <m> y_{2}(x) </m>  with <m> A=2 \; \text{and}\; B=-3.   </m> It  also belongs to the general solution <m> y_{1}(x) </m>  with <m> A=-\frac{1}{2} \; \text{and}\; B=-\frac{5}{2}.   </m> and to the general solution <m> y_{3}(x) </m>  with <m> A=2 \; \text{and}\; B=-5.  </m>
+</p>
+</example>
+
+
+<p>
+Thus, initially at least, our method for trying to find the solutions to <xref ref="homogeneous_2_order_constant_coefficients"/> is to try to find two different exponential functions that satisfy the DE and then combine them to obtain a general solution. To this end, let
+<men xml:id="y_equal_e_to_rx">
+y(x)=e^{rx}
+</men>
+where <m> r </m> is some, as yet unspecified, constant. Since <m> y'=e^{rx}, \; \text{and}, y''=r^{2}e^{rx} </m>  for this to be a solution of <xref ref="homogeneous_2_order_constant_coefficients"/> we have
+<md>
+<mrow>  a (r^{2} e^{rx}) + b(r e^{rx}) + c(e^{ex}) \amp =0,  </mrow>           
+<mrow> (ar^{2} + br + c) e^{ex} \amp =0.  </mrow>
+</md>
+Since <m> e^{rx}\neq 0 </m>  for any value of <m> r </m> or <m> x </m> we conclude that <xref ref="y_equal_e_to_rx"/> is a solution of <xref ref="homogeneous_2_order_constant_coefficients"/> when
+<men xml:id="characteristic_equation">
+ar^{2}+br+c=0.
+</men>
+<xref ref="characteristic_equation"/> is called the <term> characteristic equation </term> for a DE of the form of <xref ref="homogeneous_2_order_constant_coefficients"/>).
+</p>
+
+<p>
+If the characteristic equation <xref ref="characteristic_equation"/>) has two real solutions (i.e. <m> b^{2}-4ac>0 </m>) then we are done since we will have found two solutions to <xref ref="homogeneous_2_order_constant_coefficients"/> and, via the given theorem, we can combine these solutions to produce a general solution to <xref ref="homogeneous_2_order_constant_coefficients"/>. So if the solutions to the characteristic equation are  <m> r_{1} </m> and <m> r_{2} </m>    say, then the general solution to <xref ref="homogeneous_2_order_constant_coefficients"/> is <me> y(x)=Ae^{r_{1}x} + Be^{r_{1}x}. </me>
+</p>
+
+<example xml:id="example_y_double_derivative_plus_3yderivative_2y">
+<p> 
+Find the general solution to 
+<m> y''+3y'+2y=0. </m>
+</p>
+
+<p>
+The characteristic equation for this homogeneous second order linear DE with constant coefficients is
+<me> r^{2}+3r+2=0 </me>
+which has solutions 
+<me> r=-1,\; -2. </me>
+Thus the general solution to the DE is 
+<me> y(x)=A e^{-x} + B e^{-2 x}. </me>
+</p>
+</example>
+
+<p>
+If the characteristic equation <xref ref="characteristic_equation"/> has only one real solution (i.e. <m> b^{2}-4ac=0 </m>) then we will have found only one exponential solution to  <xref ref="homogeneous_2_order_constant_coefficients"/> , i.e.
+<men xml:id="y_equal_e__power_rx">
+y(x)=e^{rx}\; \text{where}\; r=-\frac{b}{2a}.
+</men>
+To find a general solution we have to find another solution (that is not a constant multiple <xref ref="homogeneous_2_order_constant_coefficients"/>). It turns out that another solution to <xref ref="characteristic_equation"/> can be found by trying a function of the form 
+<men xml:id="y_equal_fx_e__power_rx">
+y(x)=f(x) e^{rx},\; r=-\frac{b}{2a}.
+</men>
+Differentiating <m> y </m> and substituting into <xref ref="homogeneous_2_order_constant_coefficients"/> gives
+<md>
+<mrow>  a e^{rx} (r^{2}f(x)+2r f'(x)+f''(x)) + be^{rx}(rf(x) + f'(x)) + c f(x) e^{rx} \amp =0,  </mrow>           
+<mrow> f(x) e^{rx} (ar^{2} + br + c) + f'(x) e^{rx}(2ar+b) + f''(x) e^{rx}  \amp =0.  </mrow>
+</md>
+Since <m> ar^{2}+br+c=0, \; 2ar+b=0 </m> and <m>  e^{rx}\neq 0, </m>  <xref ref="y_equal_fx_e__power_rx"/> is a solution when
+<men xml:id="ftwo_order_derivative_equal_zero">
+f''(x)=0.
+</men>
+Clearly  <m> f(x)=1 </m> satisfies <xref ref="ftwo_order_derivative_equal_zero"/> but this just gives us solution <xref ref="y_equal_e__power_rx"/>.   also satisfies <xref ref="ftwo_order_derivative_equal_zero"/> and gives us a solution that is not a constant multiple of <xref ref="y_equal_e__power_rx"/>. Thus a general solution to <xref ref="homogeneous_2_order_constant_coefficients"/> will be
+<me> 
+y(x)=(Ax+B)e^{rx},\; r=-\frac{b}{2a}.
+</me>
+</p>
+
+<example>
+<p>
+Find the general solution to 
+<m> y''-4y'+4=0. </m>
+</p>
+
+<p>
+The characteristic equation for this DE is 
+<me>
+r^{2}-4r+4=0
+</me>
+which has only the one real solution
+<me>
+r=2.
+</me>
+Thus the general solution to the DE is
+<me> 
+y(x)=Ae^{2x} + Bxe^{2x}.
+</me>
+</p>
+</example>
+
+<p>
+The final case to consider is that the characteristic equation <xref ref="characteristic_equation"/> has complex roots, say
+<me>
+r=\alpha\pm i\beta .
+</me>
+Even though we are looking for real solutions, for the moment let us consider the “complex solutions” 
+<md>
+<mrow>  y_{1}(x) \amp =e^{\alpha x} e^{i \beta x} =e^{\alpha x} (\cos(\beta x) + i\sin(\beta x)),  </mrow>           
+<mrow>  y_{2}(x) \amp =e^{\alpha x} e^{-i \beta x} =e^{\alpha x} (\cos(\beta x) - i\sin(\beta x)).  </mrow>
+</md>
+Adding constant multiples of two solutions gives another solution. Now
+<md>
+<mrow>  y_{3}(x) \amp =\frac{1}{2} y_{1}(x) + \frac{1}{2} y_{2}(x)  </mrow>           
+<mrow>                \amp =e^{\alpha x} \cos(\beta x)  </mrow>
+</md>
+and
+<md>
+<mrow>  y_{4}(x) \amp =\frac{i}{2} y_{1}(x) - \frac{i}{2} y_{2}(x)  </mrow>           
+<mrow>                \amp =e^{\alpha x} \sin(\beta x)  </mrow>
+</md>
+which are both real. We can check that functions are indeed solutions to <xref ref="homogeneous_2_order_constant_coefficients"/> and so we have found two real solutions to <xref ref="homogeneous_2_order_constant_coefficients"/> that aren’t constant multiples of each other. Thus, in the case that the characteristic equation has complex roots the general solution to the DE is
+<me>
+y(x)=Ae^{\alpha x}\cos(\beta x) + B e^{\alpha x}\sin(\beta x).
+</me>
+</p>
+
+<example>
+Find the general solution to <m> y''-4y'+13y=0. </m>
+<p>
+The characteristic equation for this homogeneous second order linear DE with constant coefficients is
+<me>
+r^{2}-4r+13=0
+</me>
+which has the complex solutions
+<me>
+r=2\pm 3i.
+</me>
+Thus the general solution to the DE is
+<me>
+y(x)=Ae^{2 x}\cos(3 x) + B e^{2 x}\sin(3 x).
+</me>
+</p>
+</example>
+
+<theorem>
+<statement>
+<p>
+To solve the homogeneous second order linear DE with constant coefficients                  
+<men xml:id="homogeneous_2_order_constant_coefficients_Repeated_in_Theorem">
+ay''+by'+cy=0
+</men>
+</p>
+<p><ol label="i">
+<li><p> 
+Find the roots of the characteristic equation
+<me>
+ar^{2}+br+c=0.
+</me>
+</p></li>
+<li><p>
+If the characteristic equation has two real roots <m> r_{1}\; \text{and}\; r_{2} </m> then the general solution to <xref ref="homogeneous_2_order_constant_coefficients_Repeated_in_Theorem"/> is
+<me>
+y(x)=Ae^{r_{1}x} + Be^{r_{2}x}.
+</me>
+</p></li>
+<li><p>
+If the characteristic equation has a repeated real root <m> r </m> then the general solution to <xref ref="homogeneous_2_order_constant_coefficients_Repeated_in_Theorem"/> is
+<me> 
+y(x)=A e^{rx} + Bxe^{rx}.
+</me>
+</p></li>
+<li><p>
+If the characteristic equation has complex roots <m> \alpha\pm i\beta </m>  then the general solution to <xref ref="homogeneous_2_order_constant_coefficients_Repeated_in_Theorem"/> is
+<me> 
+y(x)=A e^{\alpha x}\cos(\beta x) + B e^{\alpha x}\sin(\beta x).
+</me>
+</p></li>
+</ol></p>
+</statement>
+</theorem> 
+ 
+<p>
+Given that the general solution to a second order DE has two arbitrary constants in order to find a particular solution it is necessary to give two conditions. In an <term> initial-value problem </term> the conditions given are the values of <m> y </m> and <m> y' </m> at the same value of <m> x </m>, usually <m> x=0. </m> In a <term> boundary-value problem </term> the conditions given are the values of <m> y </m> at two different values of <m> x. </m> Even when we have a general solution to the DE, it may not always be possible to satisfy a given set of boundary-value conditions.
+</p>   
+     
+<example>
+Solve the initial-value problem 
+<me> 4y''-3y'-y=0, </me>
+<me> y(0)=3,\; y'(0)=0. </me>
+<p>
+The DE is a homogeneous second order linear DE with constant coefficients. The characteristic equation then is
+<me>
+4r^{2}-3r-1=0.
+</me>
+Since this equation has two real solutions,
+<me>
+r=-\frac{1}{4},\, 1
+</me>
+<p>
+the general solution is 
+</p>
+<me>
+y(x) = A e^{-\frac{x}{4}} + B e^{x}.
+</me>
+Thus
+<me>
+y'(x) = -\frac{1}{4} A e^{-\frac{x}{4}} + B e^{x}.
+</me>
+Using the initial conditions gives the equations.
+<md>
+<mrow>  A + B \amp = 3  </mrow>           
+<mrow>  -\frac{1}{4} A + B \amp = 0. </mrow>
+</md>
+Solving these simultaneously gives
+<me>
+A=\frac{12}{5},\; B=\frac{3}{5}.
+</me>
+Thus the solution to the initial-value problem is
+<me>
+y(x) = \frac{12}{5} e^{-\frac{x}{4}} + \frac{3}{5} e^{x}.
+</me>
+This solution is shown in <xref ref="Fig-initial_value_problem"/>. Note that since 
+<m> r_{1}=-\frac{1}{4} &lt; 0 </m>
+the term in the general solution associated with this root (i.e. <m> \frac{12}{5} e^{-\frac{x}{4}} </m>) decays as <m> x\to \infty. </m> On the other hand since <m> r_{2}=1 &gt; 0 </m> the term in the general solution associated with this root (i.e. <m> \frac{3}{5} e^{x} </m>) grows as <m> x\to \infty. </m>
+</p>
+<figure xml:id="Fig-initial_value_problem">
+<caption></caption>
+<image source="./DifferentialEquations/Images/4/initial_value_problem.png" width="85%"/>
+</figure>
+</example>
+
+<example> 
+Solve the boundary-value problem 
+<me> 
+4y''-6y'+25y=0, 
+</me>
+<me> 
+y(0)=1,\;  y(\frac{\pi}{8})=2. 
+</me>
+The characteristic equation is
+<me> 
+r^{2}-6r+25=0, 
+</me>
+which has the complex solutions
+<me> 
+r=3\pm i 4. 
+</me>
+Thus the general solution is
+<me>
+y(x)=e^{3x} (A \cos(4 x) + B \sin(4 x)).
+</me>
+Using the boundary conditions gives the equations
+<md>
+<mrow>  A  \amp = 1,  </mrow>           
+<mrow>  B  e^{-\frac{3\pi}{8}} \amp = 2. </mrow>
+</md>
+Thus the solution to the boundary-value problem is
+<me>
+y(x)=e^{3x} ( \cos(4 x) + 2 e^{-\frac{3\pi}{8}} \sin(4 x)).
+</me>
+This graph of this function is shown in <xref ref="Fig-boundary_value_problem"/>. Note that when the characteristic equation has complex roots, the solutions the homogeneous second order linear DE with constant coefficients will be periodic in nature with frequency.
+<m>
+\beta.
+</m>
+Further, if 
+<m>
+\alpha &gt; 0
+</m>
+then the oscillations will grow as <m> x\to \infty </m>  whereas if 
+<m>
+\alpha &lt; 0
+</m>  
+the oscillations will decay as  <m> x\to \infty. </m>
+<me> 
+r=\alpha \pm i \beta. 
+</me>
+In this case 
+<m>
+\alpha =3
+</m>   
+and hence the oscillations increase in amplitude.
+<figure xml:id="Fig-boundary_value_problem">
+<caption></caption>
+<image source="./DifferentialEquations/Images/4/boundary_value_problem.png" width="85%"/>
+</figure>
+</example>
+
+<exercises>
+<title>Example Tasks</title>
+
+<exercise> 
+<statement>
+<p> If <m> x=x(t) </m> find the solution to the initial-value problem 
+<me> 15x''-16x'+4x=0 </me>
+<me> x(0)=1,\; x'(0)=3. </me>
+</p>
+</statement>
+</exercise>
+        
+<exercise> 
+<statement>
+<p>
+Find the solution to the boundary-value problem
+<me> y''+6y'+9y=0 </me>
+<me> y(1)=0,\; y'(2)=3. </me>
+</p>
+</statement>
+</exercise>
+            
+ <exercise> 
+<statement>
+<p>
+Describe the long term behaviour of the solutions to the DE
+<me>
+p''(t)=-9p(t).
+</me>
+</p>
+</statement>
+</exercise>
+
+<exercise> 
+<statement>
+<p> Use the substitution  <m> x=e^{z}. </m> to solve the DE </p>
+<me> 
+x^{2}\frac{d^{2}y}{dx^{2}} + 3x\frac{dy}{dx} + \frac{dy}{dx} = 0,\; (x &gt; 0).
+</me>
+</statement>
+</exercise>
+        
+ </exercises>           
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</section>
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+ 
+ 
+ 
+ 
+ 
+<!-- =================================================================================================== -->
+</chapter>

@@ -1,0 +1,61 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-12-08T21:44:18+11:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h4 class="heading"><span class="type">Paragraph</span></h4>
+<p>Let <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(T(t)\)</span> be the temperature of the cup of coffee at time <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(t\)</span> min after it was poured and let <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(T_a\)</span> be the room (ambient) temperature. Now, Newton’s law of cooling says that the rate at which the temperature of an object falls is proportional to the difference in the temperature of the object and the temperature of its surroundings. Thus</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\frac{dT}{dt}=-k(T-T_a), \hspace{5mm} T(0)=95, \hspace{5mm} T(2)=90
+\end{equation*}
+</div>
+<p class="continuation">where <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(k\gt 0\)</span> is the constant of proportionality. This is a first order separable DE and on separating the variables and integrating both sides with respect to <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(t\)</span> we get</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\int \frac{1}{T-T_a}\hspace{2mm}dT=\int -k\hspace{2mm}dt
+\end{equation*}
+</div>
+<p class="continuation">Evaluating the integrals gives <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{align*}
+\ln(\vert T-T_a\vert) \amp=-kt+C\\
+T(t) \amp =Ae^{-kt}+T_a
+\end{align*}
+</div> Since <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(T_a=20\text{,}\)</span> using <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(T(0)=95\)</span> gives <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(A=75\text{.}\)</span> Using <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(T(2)=90\)</span> gives</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+90=75e^{-2k}+20
+\end{equation*}
+</div>
+<p class="continuation">and hence</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+k=-\frac{\ln(\frac{14}{15})}{2}\approx 0.034
+\end{equation*}
+</div>
+<p class="continuation">Thus, according to Newton’s law of cooling the coffee will have cooled to <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(25^oC\)</span> at the value of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(t\)</span> satisfying</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+25=75e^{-kt}+20
+\end{equation*}
+</div>
+<p class="continuation">from which we find</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+t=-\frac{\ln(\frac{1}{15})}{k}\approx 78.5 \textrm{ min}
+\end{equation*}
+</div>
+<span class="incontext"><a href="Sec-Some-Simple-Applications-of-First-Order-Separable-DEs.html#p-671">in-context</a></span>
+</body>
+</html>

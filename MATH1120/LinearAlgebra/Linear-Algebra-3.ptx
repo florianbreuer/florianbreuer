@@ -1,0 +1,637 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- =================================================================================================== -->
+<!-- To process this file with xsltproc do                                                        -->
+<!--                                                                                              -->
+<!-- (1) LaTeX/PDF:                                                                               -->
+<!--     xsltproc -o minimal.tex PATH_TO/mathbook/xsl/pretext-latex.xsl source/main.ptx           -->
+<!--     pdflatex minimal.tex                                                                     -->
+<!--     xelatex minimal.tex                                                                      -->
+<!--                                                                                              -->
+<!-- (2) HTML:                                                                                    -->
+<!--     xsltproc PATH_TO/mathbook/xsl/pretext-html.xsl source/main.ptx                           -->
+<!--     <browser>  minimal.html                                                                  -->
+<!--        ~/xsltproc/xsltproc.exe ~/mathbook/xsl/mathbook-html.xsl test.xml                     -->
+<!--                                                                                              -->
+<!-- (3) CoCalc worksheet (parameter causes a single file for output)                             -->
+<!--     REMOVE the "X" in the double dash (which is not legal in an XML comment)                 -->
+<!--     xsltproc -X-stringparam chunk.level 0 PATH_TO/mathbook/xsl/pretext-smc.xsl source/main.ptx   -->
+<!--     <CoCalc> minimal.sagews                                                                  -->
+<!--                                                                                              -->
+<!-- (4) Sage doctesting                                                                          -->
+<!--     REMOVE the "X" in the double dash (which is not legal in an XML comment)                 -->
+<!--     xsltproc -X-stringparam chunk.level 0 PATH_TO/mathbook/xsl/pretext-sage-doctest.xsl source/main.ptx  -->
+<!--     <read further instructions in> minimal.py                                                -->
+<!-- =================================================================================================== -->
+
+<chapter xml:id="Chap-Linear_Algebra_3">
+
+
+
+<!-- =================================================================================================== -->
+<!-- Title and Other Preliminaries -->
+<!-- =================================================================================================== -->
+        <title>Matrix Algebra</title>
+
+        <!-- <frontmatter> -->
+
+<!--             <titlepage>
+                <author>
+                    <institution>University of Newcastle</institution>
+                </author>
+                <date><today /></date>
+            </titlepage> -->
+
+            <!-- <abstract>
+                <p>This is a very short article, but it still exercises some advanced features of MathBook XML.</p>
+            </abstract> -->
+
+        <!-- </frontmatter> -->
+
+        <!-- <introduction>
+            <p>This is a short paragraph to introduce the article (but it is not the abstract).  It is optional, in case it would be preferable to have the first section be titled an <q>Introduction.</q></p>
+        </introduction> -->
+<!-- =================================================================================================== -->
+        <section xml:id="Sec-Linear_Algebra_Intro">
+            <title>Introduction</title>
+
+            <p>We introduced matrices when discussing systems of linear equations. Recall that an <m>m \times n</m> matrix is a rectangular array of numbers, written in the form
+                <me>
+                    \begin{pmatrix}
+                        a_{11} \amp a_{12} \amp  \cdots \amp a_{1n}\\
+                        a_{21} \amp a_{22} \amp \cdots \amp a_{2n}\\
+                        \vdots \amp \vdots \amp \ddots \amp \vdots\\
+                        a_{m1} \amp a_{m2} \amp \cdots \amp a_{mn}\\
+                    \end{pmatrix},
+                </me>
+                which is sometimes written in the abbreviated form <me>A=\left(a_{ij}\right)_{m \times n}.</me>
+            </p>
+
+            <p>Note that we usually use a capital letter to denote a matrix.</p>
+
+            <p>In the context of systems of linear equations the main concept was row reducing a matrix to produce equivalent matrices. In different contexts, however, other operations on matrices have proved useful and we shall discuss these operations below. Before doing this, though, we will introduce some new terminology.</p>
+
+            <definition>
+                <title>Equal matrices</title>
+                <statement>
+                    Two matrices are said to be <term>equal</term> if they are of the same size and all corresponding entries are equal.
+                </statement>
+            </definition>
+
+
+            <example xml:id="Ex-Matrix_equality">
+                <statement>
+                    <p>
+                        Let <m>A = \begin{pmatrix}5 \amp 0 \amp 1\\ -3 \amp \sqrt{2} \amp 1/2\end{pmatrix}, \quad B = \begin{pmatrix}5 \amp -3 \\ 0 \amp \sqrt{2} \\ 1 \amp 1/2\end{pmatrix}, \quad C = \begin{pmatrix} 5 \amp 0 \amp 1\\ -3 \amp a \amp b\end{pmatrix}.</m>
+                        <ol label="a">
+                            <li>For what values of <m>a</m> and <m>b</m> does <m>A=C</m>?</li>
+                            <li>For what values of <m>a</m> and <m>b</m> does <m>B=C</m>?</li>
+                        </ol>
+                    </p>
+                </statement>
+                <solution>
+                    <ol label="a">
+                        <li>Since <m>A</m> and <m>C</m> are of the same size, the matrices will be equal when <m>a=\sqrt{2}</m> and <m>b=1/2</m>.</li>
+                        <li>Since <m>B</m> and <m>C</m> are not the same size they can never be equal.</li>
+                    </ol>
+                </solution>
+            </example>
+
+
+            <definition>
+                <title>Zero matrix</title>
+                <statement>
+                    The <term>zero <m>m \times n</m> matrix</term> is the <m>m \times n</m>  matrix with all entries <m>0</m>, i.e.
+                    <me>
+                        0 = \begin{pmatrix}
+                            0 \amp 0 \amp  \cdots \amp 0\\
+                            0 \amp 0\amp \cdots \amp 0\\
+                            \vdots \amp \vdots \amp \ddots \amp \vdots\\
+                            0\amp 0\amp \cdots \amp 0\\
+                        \end{pmatrix}.
+                    </me>
+                </statement>
+            </definition>
+
+            <p>Note that by using the symbol <m>0</m> to denote the zero matrix we have to tell from the context whether the <m>0</m> refers to a number or a matrix.</p>
+
+            <definition>
+                <title>Transpose</title>
+                <statement>
+                    For the matrix <m>A=(a_{ij})_{m \times n}</m>, its <term>transpose</term>, denoted by <m>A^T</m>, is defined by <m>A^T = \left(a_{ji}\right)_{n \times m}</m>.
+                </statement>
+            </definition>
+
+
+            <p>Note that this definition is saying that the rows of matrix <m>A</m> are the columns of its transpose <m>A^T</m> and vice versa.</p>
+
+            <example xml:id="Ex-Transpose">
+                <statement>
+                    <p>
+                        Let <me>B = \begin{pmatrix}5 \amp -3 \\ 0 \amp \sqrt{2} \\ 1 \amp 1/2\end{pmatrix}, \quad C = \begin{pmatrix} 5 \amp 0 \amp 1\\ -3 \amp a \amp b\end{pmatrix}.</me>
+                        For what values of <m>a</m> and <m>b</m> does <m>B^T=C</m>?
+                    </p>
+                </statement>
+                <answer>
+                    <m>a=\sqrt{2}, \ b=1/2</m>
+                </answer>
+                <solution>
+                    Since <m>B^T = \begin{pmatrix} 5 \amp 0 \amp 1\\ -3 \amp \sqrt{2} \amp 1/2\end{pmatrix}</m>, <m>B^T = C</m> when <m>a=\sqrt{2}</m> and <m>b=1/2</m>.
+                </solution>
+            </example>
+
+
+            <definition>
+                <title>Square matrix</title>
+                <statement>
+                    A <term>square matrix</term> is a matrix that has the same number of rows and columns.
+                </statement>
+            </definition>
+
+
+            <example xml:id="Ex-Square_matrices">
+                <statement>
+                    <p>
+                        Matrix <m>A</m> is a square matrix whereas matrix <m>B</m> is not.
+                        <me>A = \begin{pmatrix}-1 \amp 3 \amp 4\\ 5 \amp 0 \amp -2 \\ 3 \amp 1/3 \amp 6 \end{pmatrix}, \quad B = \begin{pmatrix} -1 \amp 3 \\ 5 \amp 0 \\ 3 \amp 1/3\end{pmatrix}</me>
+                    </p>
+                </statement>
+            </example>
+
+
+
+            <definition>
+                <title>Identity matrix</title>
+                <statement>
+                    The <term><m>n \times n</m> identity matrix</term>, <term><m>I_n</m></term>, is the matrix with <m>n</m> rows and <m>n</m> columns with all entries on the main diagonal equal to <m>1</m> and all other entries <m>0</m>, i.e.
+                    <me>
+                    I_n = \begin{pmatrix}
+                            1 \amp 0 \amp  \cdots \amp 0\\
+                            0 \amp 1 \amp \cdots \amp 0\\
+                            \vdots \amp \vdots \amp \ddots \amp \vdots\\
+                            0\amp 0 \amp \cdots \amp 1\
+                        \end{pmatrix}.
+                    </me>
+                </statement>
+            </definition>
+
+            <p>Often, when the size of the identity matrix is clear the subscript is dropped from the notation and the identity matrix is denoted just by <m>I</m>.</p>
+
+        </section>
+
+
+
+<!-- =================================================================================================== -->
+<!-- Section 1: Partial Differentiation -->
+<!-- =================================================================================================== -->
+        <section xml:id="Sec-Addition_and_Scalar_Multiplication">
+            <title>Addition and Scalar Multiplication</title>
+
+            <definition>
+                <title>Matrix addition and scalar multiplication</title>
+                <statement>
+                    Let <m>A</m> and <m>B</m> be <m>m \times n</m> matrices, i.e., <m>A=\left(a_{ij}\right)_{m \times n}</m> and <m>B = \left(b_{ij}\right)_{m \times n}</m>. Then
+                    <ol label="i">
+                        <li><term>Matrix addition</term> is defined by <m>A+B = \left(a_{ij} + b_{ij}\right)_{m \times n}</m>.</li>
+                        <li><term>Scalar multiplication</term> is defined by <m>kA = \left(k \cdot a_{ij}\right)_{m \times n}</m> where <m>k</m> is a constant.</li>
+                    </ol>
+                </statement>
+            </definition>
+
+            <p>Thus, to add two matrices of the same size, add up the corresponding entries in each matrix. Matrix addition of matrices not of the same size is not defined. To multiply a matrix by a scalar, multiply each entry in the matrix by that scalar. Note that we now can also subtract two matrices by defining <me>A-B = A+ (-1)B.</me></p>
+
+            <example xml:id="Ex-Matrix_addition_and_scalar_multiplication">
+                <statement>
+                    <p>
+                    If <m>A = \begin{pmatrix} 1 \amp 2 \amp 3\\ 4 \amp 3 \amp 2\end{pmatrix}, \quad B = \begin{pmatrix} 5 \amp 3 \\ 9 \amp 2 \\ 4 \amp 3\end{pmatrix}.</m> Then calculate the given expression or explain why it does not exist.
+                    <ol label="a">
+                        <li><m>3A+B</m></li>
+                        <li><m>(2A^T - B)_{32} \, </m> (i.e. the entry in row <m>3</m>, column <m>2</m> of the matrix <m>2A^T-B\,</m>)</li>
+                        <li><m>(B^T+A)_{31}</m></li>
+                    </ol>
+                    </p>
+                </statement>
+                <solution>
+                    <ol label="a">
+                        <li>Since <m>A</m> is a <m>2 \times 3</m> matrix so will be <m>3A</m>. Since <m>3A</m> and <m>B</m> are not the same size we cannot add these two matrices.</li>
+                        <li>
+                            <m>A^T = \begin{pmatrix} 1 \amp 4 \\ 2 \amp 3 \\ 3\amp 2\end{pmatrix}</m> and so <m>2A^T = \begin{pmatrix} 2 \amp 8 \\ 4 \amp 6 \\ 6 \amp 4\end{pmatrix}</m>. Thus
+                                <m>2A^T-B = \begin{pmatrix} -3 \amp 5 \\ -5 \amp 4 \\ 2 \amp 1\end{pmatrix}</m>
+                                and <m>(2A^T - B)_{32} =1.</m>
+                        </li>
+                        <li><m>B^T + A = \begin{pmatrix} 5 \amp 9 \amp 4 \\ 3 \amp 2 \amp 3\end{pmatrix} + \begin{pmatrix} 1 \amp 2 \amp 3\\ 4 \amp 3 \amp 2\end{pmatrix} =  \begin{pmatrix} 6 \amp 11 \amp 7\\ 7 \amp 5 \amp 5\end{pmatrix}</m>. Since this is a <m>2 \times 3</m>  matrix there is no entry in row <m>3</m>, column <m>1</m>.</li>
+                    </ol>
+                    <p>From the definitions of matrix addition and scalar multiplication the following general properties can be shown.</p>
+                </solution>
+            </example>
+
+
+            <theorem>
+                <title>Properties of Scalar Multiplication and Matrix Addition</title>
+                    <statement>
+                        <p>
+                        Let <m>A</m>, <m>B</m> and <m>C</m> be matrices of the same size. Then
+                        <dl>
+                            <li><title>(A1)</title> <m>A+B = B+A \qquad </m> (Commutative Law)</li>
+                            <li><title>(A2)</title> <m>(A+B)+C = A+(B+C)  \qquad </m>(Associative Law)</li>
+                            <li><title>(A3)</title> <m>A+0 = A \qquad </m> (Identity Law)</li>
+                            <li><title>(A4)</title> <m>A+(-A) = 0 \qquad </m> (Inverse Law)</li>
+                            <li><title>(S1)</title> <m>k(A+B) = kA+kB</m> </li>
+                            <li><title>(S2)</title> <m>(k_1 + k_2)A= k_1A + k_2A</m> </li>
+                            <li><title>(S3)</title> <m>k_1(k_2A) = (k_1k_2)A</m> </li>
+                            <li><title>(S4)</title> <m>1A = A</m> </li>
+                        </dl>
+                        </p>
+                    </statement>
+            </theorem>
+
+            <exercises>
+                <title>Example Tasks</title>
+
+                <exercise>
+                    <statement>
+                        <p>Let <me>A = \begin{pmatrix}4 \amp -2 \amp 1\\ 0 \amp 2 \amp 3\end{pmatrix} \quad \mbox{and} \quad B=\begin{pmatrix}1 \amp 2 \\ 3 \amp 4 \\ 5 \amp 6\end{pmatrix}.</me>
+                            <ol label="a">
+                                <li>Find <m>(2A-B^{T})_{12}</m>.</li>
+                                <li>Find <m>(2A-B)^T</m>.</li>
+                            </ol>
+                        </p>
+                    </statement>
+                </exercise>
+
+                <exercise>
+                    <statement>
+                        <p>Show that for any matrix <m>A\,</m>, <m>3A = A + A + A</m>. For what values of <m>k</m> is it true that <m>kA = \underbrace{A + A + \cdots + A}_{k \mbox{ times}}\,</m>?</p>
+                    </statement>
+                </exercise>
+
+                <exercise>
+                    <statement>
+                        <p>Prove that for two matrices <m>A</m> and <m>B</m> of the same size <m>A+B = B+A</m>.</p>
+                    </statement>
+                </exercise>
+            </exercises>
+        </section>
+
+
+<!-- =================================================================================================== -->
+<!-- Section 2: Matrix Multiplication -->
+<!-- =================================================================================================== -->
+        <section xml:id="Sec-Matrix_multiplication">
+            <title>Matrix Multiplication</title>
+
+            <definition>
+                <title>Matrix multiplication</title>
+                <statement>
+                    Let <m>A=\left(a_{ij}\right)_{m \times n}</m> and <m>B = \left(b_{ij}\right)_{n \times p}</m>. Then <term>matrix multiplication</term> is defined by
+                    <me>AB = \left(\sum_{k=1}^n a_{ik}b_{kj}\right)_{m \times p}.</me>
+                </statement>
+            </definition>
+
+            <p>
+                If we call <m>C=AB</m>  then from this definition it can be seen:
+                <ol label="1">
+                    <li>For the matrix multiplication <m>AB</m> to be defined the number of columns in <m>A</m> has to be equal to the number of rows in <m>B</m>. The resulting matrix, <m>C</m>, has the same number of rows as <m>A</m> and the same number of columns as <m>B</m>.</li>
+                    <li>Entry <m>c_{ij}</m> in <m>C</m> is found by taking the scalar (or dot) product of the <m>i^{\mbox{th}}</m> row vector from <m>A</m> with (the transpose of) the <m>j^{\mbox{th}}</m> column vector from <m>B</m>, i.e.
+                        <md>
+                            <mrow> c_{ij} \amp = (a_{i1},a_{i2}, \ldots, a_{in})\cdot (b_{1j},b_{2j}, \ldots, b_{nj}) </mrow>
+                            <mrow> \amp = a_{i1}b_{1j} + a_{i2}b_{2j} + \cdots + a_{in}b_{nj}.</mrow>
+                        </md>
+                    </li>
+                </ol>
+            </p>
+
+            <example xml:id="Ex-Matrix_multiplication_not_commutative">
+                <p>Let <me>A=\begin{pmatrix} 0 \amp 1 \\ -1 \amp 3 \\ 2 \amp 5 \end{pmatrix} \quad \mbox{and} \quad B=\begin{pmatrix} -2 \amp 1/2 \\ -3 \amp 4 \end{pmatrix}.</me>
+                    <ol label="a">
+                        <li>Calculate <m>AB</m>.</li>
+                        <li>Calculate <m>BA</m>.</li>
+                    </ol>
+                </p>
+                <answer>
+                    <ol label="a">
+                        <li><m>AB=\begin{pmatrix} -3 \amp 4 \\ -7 \amp 23/2 \\ -19 \amp 21 \end{pmatrix}</m></li>
+                        <li><m>BA</m> is not defined.</li>
+                    </ol>
+                </answer>
+                <solution>
+                    <ol label="a">
+                        <li>
+                            <p>
+                                Since <m>A</m> is a <m>3 \times 2</m>  matrix and <m>B</m> is <m>2\times 2</m> then <m>AB</m> is defined since <m>A</m> has <m>2</m> columns and <m>B</m> has <m>2</m> rows. The resultant matrix will be a <m>3 \times 2</m>  matrix since <m>A</m> has <m>3</m> rows and <m>B</m> has <m>2</m> columns. Thus <m>AB</m> will be of the form
+                                <me>AB = \begin{pmatrix}c_{11} \amp c_{12}\\ c_{21} \amp c_{22}\\ c_{31} \amp c_{32}\end{pmatrix}.</me>
+                                Now <md>
+                                        <mrow>c_{11} \amp = (0,1)\cdot (-2,-3) = 0 -3 = -3 </mrow>
+                                        <mrow>c_{12} \amp = (0,1)\cdot (1/2,4) = 0 + 4 = 4 </mrow>
+                                        <mrow>c_{21} \amp = (-1,3)\cdot (-2,-3) = 2 - 9 = -7 </mrow>
+                                        <mrow>c_{22} \amp = (-1,3)\cdot (1/2,4) = -1/2 +12 = 23/2 </mrow>
+                                        <mrow>c_{31} \amp = (2,5)\cdot (-2,-3) = -4 -15 = -19 </mrow>
+                                        <mrow>c_{32} \amp = (2,5)\cdot (1/2,4) = 1 + 20  = 21 </mrow>
+                                    </md>
+                                and so <me>AB=\begin{pmatrix} -3 \amp 4 \\ -7 \amp 23/2 \\ -19 \amp 21 \end{pmatrix}.</me>
+                            </p>
+                        </li>
+                        <li>
+                            <p><m>BA</m> is not defined because the number of columns in <m>B</m> (i.e. 2) is not equal to the number of rows in <m>A</m> (i.e. 3).</p>
+                        </li>
+                    </ol>
+                    <p>Notice that this example shows that matrix multiplication is not commutative, i.e. in general <me>AB \neq BA.</me></p>
+                </solution>
+            </example>
+
+            <example xml:id="Ex-Matrix_multiplication_associative">
+                <p>Let <me>A=\begin{pmatrix} 3\amp 2 \amp 1 \amp 6 \\ 2 \amp 1 \amp 3 \amp -1\end{pmatrix},  \quad  B=\begin{pmatrix} 1 \amp 0 \\ -1 \amp 2 \\ 3 \amp 1 \\ 4 \amp 5 \end{pmatrix}, \quad C =\begin{pmatrix}-2 \amp 1 \amp 0 \\ 4 \amp -1 \amp 3\end{pmatrix}.</me>
+                    <ol label="a">
+                        <li>Calculate <m>A(BC)</m>.</li>
+                        <li>Calculate <m>(AB)C</m>.</li>
+                    </ol>
+                </p>
+                <answer>
+                    <p><m>A(BC) =  \begin{pmatrix}84 \amp -7 \amp 105 \\ -12 \amp 6 \amp 0\end{pmatrix} = (AB)C</m></p>
+                </answer>
+                <solution>
+                    <ol label="a">
+                        <li>
+                            <p>
+                                <m>BC = \begin{pmatrix} 1 \amp 0 \\ -1 \amp 2 \\ 3 \amp 1 \\ 4 \amp 5 \end{pmatrix}\begin{pmatrix}-2 \amp 1 \amp 0 \\ 4 \amp -1 \amp 3\end{pmatrix} = \begin{pmatrix} -2 \amp 1 \amp 0\\ 10 \amp -3 \amp 6 \\ -2 \amp 2 \amp 3 \\ 12 \amp -1 \amp 15\end{pmatrix}</m>
+                                <me>A(BC) = \begin{pmatrix} 3\amp 2 \amp 1 \amp 6 \\ 2 \amp 1 \amp 3 \amp -1\end{pmatrix}\begin{pmatrix} -2 \amp 1 \amp 0\\ 10 \amp -3 \amp 6 \\ -2 \amp 2 \amp 3 \\ 12 \amp -1 \amp 15\end{pmatrix} = \begin{pmatrix} 84 \amp -7 \amp 105 \\ -12 \amp 6 \amp 0\end{pmatrix}.</me>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                <m>AB = \begin{pmatrix} 3\amp 2 \amp 1 \amp 6 \\ 2 \amp 1 \amp 3 \amp -1\end{pmatrix} \begin{pmatrix} 1 \amp 0 \\ -1 \amp 2 \\ 3 \amp 1 \\ 4 \amp 5 \end{pmatrix} = \begin{pmatrix} 28 \amp 35 \\ 6 \amp 0\end{pmatrix}</m>
+                                <me>(AB)C = \begin{pmatrix} 28 \amp 35 \\ 6 \amp 0\end{pmatrix} \begin{pmatrix}-2 \amp 1 \amp 0 \\ 4 \amp -1 \amp 3\end{pmatrix} = \begin{pmatrix}84 \amp -7 \amp 105 \\ -12 \amp 6 \amp 0\end{pmatrix}.</me>
+                            </p>
+                        </li>
+                    </ol>
+                    <p>Notice that this example is an illustration that matrix multiplication is associative, i.e. in general <me>A(BC) = (AB)C</me>.</p>
+                </solution>
+            </example>
+
+            <p>From the definition of matrix multiplication the following properties can be shown to hold.</p>
+
+            <theorem>
+                <title>Properties of Matrix Multiplication</title>
+                    <statement>
+                        <p>
+                        Let <m>A</m>, <m>B</m> and <m>C</m> be appropriately sized matrices. Then
+                        <ol label="(1)">
+                            <li><m>A(BC)=(AB)C \qquad</m> (Associative Law)</li>
+                            <li><m>A(B+C) = AB + AC \qquad</m> (Left Distributive Law)</li>
+                            <li><m>(A+B)C = AC + BC \qquad</m> (Right Distributive Law)</li>
+                            <li><m>k(AB) = (kA)B = A(kB)</m></li>
+                            <li><m>I_mA = A = AI_n</m> if <m>A</m> is an <m>m \times n</m> matrix <m>\quad</m> (Identity Law)</li>
+                        </ol>
+                        </p>
+                    </statement>
+            </theorem>
+            <p>For later reference, some properties of the transpose of a matrix with respect to the various matrix operations that we have been discussing are listed below.</p>
+
+            <theorem>
+                <title>Properties of Matrix Transpose</title>
+                    <statement>
+                        <p>
+                        Let <m>A</m> and <m>B</m> be appropriately sized matrices. Then
+                        <ol label="(1)">
+                            <li><m>(A^T)^T = A</m> </li>
+                            <li><m>(A+B)^T = A^T + B^T </m> </li>
+                            <li><m>(kA)^T = k A^T </m> </li>
+                            <li><m>(AB)^T = B^TA^T </m> </li>
+                            <li><m>(A^r)^T = (A^T)^r </m> where <m>r \in \mathbb{Z}^{+}</m>.</li>
+                        </ol>
+                        </p>
+                    </statement>
+            </theorem>
+
+
+            <example xml:id="Ex-Properties_of_transpose">
+                <statement>
+                    <p>Confirm that <m>(AB)^T = B^T A^T</m> holds for the matrices <me>A = \begin{pmatrix}0 \amp 1\\ -1 \amp 3 \\ 2 \amp 5\end{pmatrix} \quad \mbox{and} \quad B = \begin{pmatrix}-2 \amp 1/2 \\ -3 \amp 4 \end{pmatrix}.</me></p>
+                </statement>
+                <solution>
+                    <p>Firstly
+                        <md>
+                            <mrow>(AB)^T \amp = \left( \begin{pmatrix}0 \amp 1\\ -1 \amp 3 \\ 2 \amp 5\end{pmatrix} \begin{pmatrix}-2 \amp 1/2 \\ -3 \amp 4 \end{pmatrix}\right)^T</mrow>
+                            <mrow>\amp = \begin{pmatrix}-3 \amp 4 \\ -7 \amp 23/2 \\ -19 \amp 21\end{pmatrix}^T</mrow>
+                            <mrow>\amp = \begin{pmatrix}-3 \amp -7 \amp -19 \\ 4 \amp 23/2 \amp 21 \end{pmatrix}.</mrow>
+                        </md>
+                        Next
+                        <md>
+                            <mrow>B^TA^T \amp = \begin{pmatrix}-2 \amp -3 \\ 1/2 \amp 4 \end{pmatrix}  \begin{pmatrix}0 \amp -1 \amp 2\\ 1 \amp 3 \amp 5\end{pmatrix} </mrow>
+                            <mrow>\amp = \begin{pmatrix}-3 \amp -7 \amp -19 \\ 4 \amp 23/2 \amp 21 \end{pmatrix}.</mrow>
+                        </md>
+                    </p>
+                </solution>
+            </example>
+
+
+            <exercises>
+                <title>Example Tasks</title>
+                <exercise>
+                    <statement>
+                        <p>Let <me>A = \begin{pmatrix} 3 \amp -1 \\ -2 \amp 2\end{pmatrix} \quad \mbox{ and } \quad B=\begin{pmatrix} 0 \amp 1 \\ 4 \amp -1 \end{pmatrix}.</me>
+                            <ol label="a">
+                                <li>Calculate <m>(A+B)^2</m>.</li>
+                                <li>Calculate <m>A^2 + 2AB + B^2</m>.</li>
+                            </ol>
+                        </p>
+                    </statement>
+                </exercise>
+                <exercise>
+                    <statement>
+                        <p>Let <me>E = \begin{pmatrix} 6 \amp 1 \\ -1 \amp 3 \\ -5 \amp 2\end{pmatrix} \quad \mbox{ and } \quad F=\begin{pmatrix} 1 \amp -2 \amp 0 \\ 3 \amp 1 \amp 4 \end{pmatrix}.</me>
+                            <ol label="a">
+                                <li>Calculate <m>(EF)_{23}</m>.</li>
+                                <li>Calculate <m>(FE)_{12}</m>.</li>
+                            </ol>
+                        </p>
+                    </statement>
+                </exercise>
+            </exercises>
+        </section>
+
+
+<!-- =================================================================================================== -->
+<!-- Section 3: Matrices and Systems of Linear Equations -->
+<!-- =================================================================================================== -->
+        <section xml:id="Sec-Matrices_and_Systems_of_Linear_Equations">
+            <title>Matrices and Systems of Linear Equations</title>
+            <p>Consider the following system of linear equations
+                <md>
+                    <mrow>a_{11}x_1 + a_{12}x_2 + \cdots + a_{1n}x_n  \amp= b_1</mrow>
+                    <mrow>a_{21}x_1 + a_{22}x_2 + \cdots + a_{2n}x_n  \amp= b_2</mrow>
+                    <mrow>\quad\amp \vdots \quad</mrow>
+                    <mrow>a_{m1}x_1 + a_{m2}x_2 + \cdots + a_{mn}x_n  \amp= b_m</mrow>
+                </md>
+            </p>
+            <p>
+                Now that we have introduced matrix multiplication we can write this system as <me>A \mathbf{x} = \mathbf{b}</me>
+                where <m>A</m> is the <m>m \times n</m> coefficient matrix
+                    <me>A = \begin{pmatrix}
+                                a_{11} \amp a_{12} \amp  \cdots \amp a_{1n}\\
+                                a_{21} \amp a_{22} \amp \cdots \amp a_{2n}\\
+                                \vdots \amp \vdots \amp \ddots \amp \vdots\\
+                                a_{m1} \amp a_{m2} \amp \cdots \amp a_{mn}\\
+                                \end{pmatrix},
+                    </me>
+                <m>\mathbf{x}</m> is the <m>n \times 1</m> matrix (i.e. the column vector of the variables) <me>\mathbf{x}=\begin{pmatrix}x_1 \\ x_2 \\\vdots \\x_n\end{pmatrix}</me>
+                and <m>\mathbf{b}</m> is the <m>m \times 1</m> (i.e. the column vector of the constants) <me>\mathbf{b} = \begin{pmatrix}b_1 \\ b_2 \\ \vdots \\ b_m\end{pmatrix}.</me>
+            </p>
+
+            <example xml:id="Ex-Matrix_for_systems_of_equations">
+                <statement>
+                    <p>The system of linear equations
+                        <md>
+                            <mrow>3x_1 - x_2 + 2x_3 + x_4  \amp= 2</mrow>
+                            <mrow>-x_1 + 6x_2 - 11x_4  \amp= -22</mrow>
+                            <mrow>x_1 + x_2 + 7x_3 + 4x_4  \amp= 8</mrow>
+                        </md>
+                        can be written as
+                        <me>A = \begin{pmatrix} 3 \amp -1 \amp 2 \amp 1 \\ -1 \amp 6 \amp 0 \amp -11 \\ 1 \amp 1 \amp 7 \amp 4 \end{pmatrix} \begin{pmatrix}x_1\\ x_2 \\ x_3 \\ x_4\end{pmatrix} = \begin{pmatrix} 2 \\ -22 \\ 8\end{pmatrix}.</me>
+                    </p>
+                </statement>
+            </example>
+
+            <p>We can now use the properties of matrix multiplication to establish some interesting facts about the solutions to systems of linear equations. For example:</p>
+
+            <theorem>
+                    <statement>
+                        <p>
+                        Consider the non-homogenous system of linear equations <men xml:id = "Eqn-Axb"> A\mathbf{x} = \mathbf{b}, \ \mathbf{b} \neq 0</men>
+                        and the corresponding homogeneous system <men xml:id = "Eqn-Ax0"> A\mathbf{x} = \mathbf{0}</men>
+                        <ol label="(1)">
+                            <li>If <xref ref="Eqn-Axb"/> has two distinct solutions then it has an infinite number of solutions. </li>
+                            <li>If <xref ref="Eqn-Axb"/> has a unique solution then <xref ref="Eqn-Ax0"/> has only the trivial solution <m>\mathbf{x}=\mathbf{0}</m>.</li>
+                            <li>If <xref ref="Eqn-Axb"/>  has an infinite number of solution then so does <xref ref="Eqn-Ax0"/>.</li>
+                        </ol>
+                        </p>
+                    </statement>
+                    <proof>
+                        <p>
+                        <ol label="1">
+                            <li><p>Let <m>\mathbf{x} = \mathbf{u}</m> and <m>\mathbf{x} = \mathbf{v}</m> be two distinct solutions to <xref ref="Eqn-Axb"/> and let <m>\mathbf{w} = \mathbf{u} − \mathbf{v}</m>. By using the properties of matrix multiplication we can see that <me>A\mathbf{w} = A(\mathbf{u} − \mathbf{v}) = A\mathbf{u} − A\mathbf{v} =\mathbf{b} − \mathbf{b} = \mathbf{0}.</me> So, any vector of the form <m>\mathbf{u} + t\mathbf{w}</m>, <m>t \in \mathbb{R}</m>, will be a solution to <xref ref="Eqn-Axb"/> since <me>A(\mathbf{u} +t\mathbf{w}) = A\mathbf{u} + A(t\mathbf{w}) = A\mathbf{u} +tA\mathbf{w} = \mathbf{b} +t\mathbf{0} = \mathbf{b}</me>, i.e. <xref ref="Eqn-Axb"/> has an infinite number of solutions.</p></li>
+                            <li><p>Let <m>\mathbf{x} = \mathbf{u}</m> be the unique solution to <xref ref="Eqn-Axb"/> and let <m>\mathbf{x} = \mathbf{v}</m> be a non-zero solution to <xref ref="Eqn-Ax0"/>. Then <me>A(\mathbf{u} + \mathbf{v}) = A\mathbf{u} + A\mathbf{v} = \mathbf{b} + \mathbf{0} = \mathbf{b}</me> and so <m>\mathbf{x} = \mathbf{u} + \mathbf{v}</m> is another solution to <xref ref="Eqn-Axb"/>, which is not possible. Thus there cannot be any non-zero solutions to <xref ref="Eqn-Ax0"/>.</p></li>
+                            <li>Since <xref ref="Eqn-Axb"/> has an infinite number of solutions let <m>\mathbf{x} = \mathbf{u}</m> and <m>\mathbf{x} = \mathbf{v}</m> be two distinct solutions to <xref ref="Eqn-Axb"/>. Now let <m>\mathbf{w} = \mathbf{u} − \mathbf{v}</m> and <m>t \in \mathbb{R}</m>. Then <me>A(t\mathbf{w}) = tA(\mathbf{u} − \mathbf{v}) = t(A\mathbf{u} − A\mathbf{v}) = t(\mathbf{b} − \mathbf{b}) = \mathbf{0}</me>, i.e. there are an infinite number of solutions to <xref ref="Eqn-Ax0"/>.</li>
+                        </ol>
+                        </p>
+                    </proof>
+            </theorem>
+
+            <p>Note that these arguments are general and hold for any system of <m>m</m> linear equations in <m>n</m> variables. Note also that if the system consists of <m>3</m> linear equations in <m>3</m> variables then result <xref ref="Eqn-Ax0"/> above can be stated as:</p>
+
+            <remark>
+                <statement>
+                <p>
+                Consider the system of linear equations whose augmented matrix is <me>\begin{pmatrix} a_{11} \amp a_{12} \amp a_{13} \amp b_1 \\ a_{21} \amp a_{22} \amp a_{23} \amp b_2 \\ a_{31} \amp a_{32} \amp a_{33} \amp b_3 \end{pmatrix}.</me> The following statements are equivalent:
+                <ol label="1">
+                    <li>The system has a unique solution.</li>
+                    <li>The planes represented by the rows intersect in a point.</li>
+                    <li>The column vectors of the coefficient matrix are linearly independent.</li>
+                </ol>
+                </p>
+                </statement>
+            </remark>
+
+            <exercises>
+                <title>Example Tasks</title>
+                <exercise>
+                    <statement>
+                        <p>Consider the following system of linear equations:
+                            <md>
+                                <mrow>x_1 -x_2 -x_3 \amp =1</mrow>
+                                <mrow>x_2 + 3x_3 \amp =1</mrow>
+                                <mrow>2x_1 -x_2 +x_3 \amp =3.</mrow>
+                            </md>
+                            <ol label="a">
+                                <li>Calculate <m>A\mathbf{u}</m> where <me>A=\begin{pmatrix}1 \amp -1 \amp -1 \\ 0 \amp 1 \amp 3 \\ 2 \amp -1 \amp 1\end{pmatrix}, \quad \mathbf{u} = \begin{pmatrix}2 \\ 3 \\ -1\end{pmatrix}</me>.</li>
+                                <li>Show that <m>(1,1,0)</m> is a solution to the system of equations.</li>
+                                <li>Write down all solutions to the system of equations.</li>
+                            </ol>
+                        </p>
+                    </statement>
+                </exercise>
+            </exercises>
+        </section>
+
+
+<!-- =================================================================================================== -->
+<!-- Section 4: Linear Transformations -->
+<!-- =================================================================================================== -->
+        <section xml:id="Sec-Linear_transformations">
+            <title>Linear Transformations</title>
+            <p> There are many applications of matrices where we view the matrix as a transformation (or mapping) that takes one vector and transforms (or maps) it to another vector. So, if <m>A</m> is an <m>m \times n</m> matrix then <m>A</m> can be thought of as a transformation that takes the <m>n \times 1</m> vector <m>x</m> to the <m>m \times 1</m> vector <m>\mathbf{b} = A\mathbf{x}</m>.</p>
+
+            <example xml:id="Ex-Linear_transformation_reflection">
+                <statement>
+                    <p> Consider the matrix <me>A = \begin{pmatrix} 0 \amp 1 \\ 1 \amp 0\end{pmatrix}.</me> Since <m>A</m> is a <m>2 \times 2</m> matrix, we can think of <m>A</m> as a transformation that takes each vector <m>x</m> in the plane to another vector in the plane, <m>b = A\mathbf{x}</m>. Under this transformation, for example, <m>\mathbf{x} = \begin{pmatrix} 2 \\ 1 \end{pmatrix}</m> goes to
+                        <me>\mathbf{b} = A\mathbf{x} = \begin{pmatrix} 0 \amp 1 \\ 1 \amp 0\end{pmatrix}\begin{pmatrix}2 \\ 1\end{pmatrix} = \begin{pmatrix}1 \\ 2\end{pmatrix}</me> and <m>\mathbf{x} = \begin{pmatrix} -1 \\ -4\end{pmatrix}</m> goes to <me>\mathbf{b} = A\mathbf{x} =\begin{pmatrix} 0 \amp 1 \\ 1 \amp 0\end{pmatrix}\begin{pmatrix} -1\\ 4\end{pmatrix} = \begin{pmatrix} -4 \\ -1\end{pmatrix}.</me> See <xref ref="Fig-Linear_transformation_reflection"/>
+                        <figure xml:id="Fig-Linear_transformation_reflection">
+                            <caption></caption>
+                            <image source="./LinearAlgebra/Images/3/Linear_transformation.png" width="70%"/>
+                        </figure>
+                    </p>
+                    <p>
+                        In fact, <m>A</m> is the matrix for the transformation that we would describe as a reflection in the line <m>y = x</m>. To see this, let the vector <m>(x,y)</m> be transformed to the vector <m>(b_1,b_2)</m> under this reflection. Then we know that
+                            <md>
+                                <mrow>b_1 \amp = y = 0x +y </mrow>
+                                <mrow>b_2 \amp = x = 1x + 0y </mrow>
+                            </md>
+                        which we can write via matrices as <me>\mathbf{b} = \begin{pmatrix}b_1 \\ b_2 \end{pmatrix} = \begin{pmatrix} 0 \amp 1 \\ 1 \amp 0\end{pmatrix}\begin{pmatrix} x \\ y \end{pmatrix} = A\mathbf{x}.</me>
+                    </p>
+                </statement>
+            </example>
+
+            <example xml:id="Ex-Linear_transformation_rotation">
+                <statement>
+                    <p>It can be shown that a rotation (in the plane) about the origin through angle <m>\theta</m> can be represented by the matrix <me>A = \begin{pmatrix} \cos(\theta) \amp -\sin(\theta) \\ \sin(\theta) \amp \cos(\theta)\end{pmatrix}.</me></p>
+                    <p>For example the matrix for a rotation about the origin through <m>\pi^{c}</m> (or <m>180^{\circ}</m>) is <me>A = \begin{pmatrix} -1 \amp 0 \\ 0 \amp -1 \end{pmatrix}.</me></p>
+                </statement>
+            </example>
+
+            <example xml:id="Ex-Linear_transformation_reflection_rotation">
+                <statement>
+                    <p>Determine the matrix for the transformation in which a reflection in the line <m>y = x</m> is followed by a rotation about the origin through <m>\pi^c</m>.</p>
+                </statement>
+                <answer>
+                    <m>\begin{pmatrix} 0 \amp -1 \\ -1 \amp 0\end{pmatrix}</m>
+                </answer>
+                <solution>
+                    <p>
+                        Let <m>A_1 = \begin{pmatrix} 0 \amp 1 \\ 1 \amp 0\end{pmatrix}</m> and <m>A_2 = \begin{pmatrix} -1 \amp 0 \\ 0 \amp -1 \end{pmatrix}.</m> Then, under the given transformation the vector <m>\mathbf{x}</m> will be mapped to the vector <m>\mathbf{b}</m> where <me>\mathbf{b} = A_2(A_1 \mathbf{x}) = (A_2A_1)\mathbf{x},</me>
+                        so the required matrix <m>A</m> can be found via matrix multiplication, i.e.,
+                        <me>A = A_2A_1 =\begin{pmatrix} -1 \amp 0 \\ 0 \amp -1 \end{pmatrix} \begin{pmatrix} 0 \amp 1 \\ 1 \amp 0\end{pmatrix} = \begin{pmatrix} 0 \amp -1 \\ -1 \amp 0\end{pmatrix}.</me>
+                    </p>
+                    <p>
+                        Note that given that the matrix for a reflection in the line <m>y = kx</m> is
+                        <me>\begin{pmatrix} \dfrac{1-k^2}{1+k^2} \amp \dfrac{2k}{1+k^2}\\ \dfrac{2k}{1+k^2} \amp -\dfrac{1-k^2}{1+k^2} \end{pmatrix}</me>
+                        we can see that the matrix <m>A</m> represents a reflection in the line <m>y=-x</m>.
+                    </p>
+                </solution>
+            </example>
+
+
+            <p>Transformations that can be represented via a matrix are called <term>linear transformations</term>. When the matrix is a <m>2 \times 2</m> matrix the transformation is called a linear transformation of the plane.</p>
+
+            <exercises>
+                <title>Example Tasks</title>
+                <exercise>
+                    <statement>
+                        <p>Which vectors are mapped to <m>\begin{pmatrix} 1 \amp 1 \amp 0 \end{pmatrix}^T</m> under the transformation whose matrix is <me>\begin{pmatrix} 1 \amp 2 \amp -1 \\ 0 \amp -1 \amp 2 \\ 2 \amp 3 \amp 0 \end{pmatrix} \text{?}</me>
+                        </p>
+                    </statement>
+                </exercise>
+                <exercise>
+                    <statement>
+                        <p>Find the matrix for the transformation of the plane in which a rotation about the origin through <m>180^{\circ}</m> is followed by a reflection in the line <m>y = 2x</m>.
+                        </p>
+                    </statement>
+                </exercise>
+                <exercise>
+                    <statement>
+                        <p>Find the vector to which <m>\mathbf{x} = \begin{pmatrix}1 \\ 2\end{pmatrix}</m> is mapped by <m>\begin{pmatrix} 3 \amp 4 \\ 1 \amp 2 \end{pmatrix}</m> followed by <m>\begin{pmatrix}2 \amp 1 \\ 3 \amp 3 \end{pmatrix}</m> followed by <m>\begin{pmatrix}-1 \amp 1 \\ -1 \amp 0\end{pmatrix}.</m>
+                        </p>
+                    </statement>
+                </exercise>
+            </exercises>
+
+        </section>
+</chapter>

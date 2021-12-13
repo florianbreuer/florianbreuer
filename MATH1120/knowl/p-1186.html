@@ -1,0 +1,81 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-12-08T21:44:51+11:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h3 class="heading"><span class="type">Paragraph</span></h3>
+<p>Consider the system of coupled linear differential equations</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation}
+\dot{\bm{x}} = A \bm{x}\tag{20.2.3}
+\end{equation}
+</div>
+<p class="continuation">where the entries in <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(A\)</span> are all real. Now imagine that this system has a complex solution given by</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation}
+\bm{x}(t) = \bm{x}_1(t) + i \bm{x}_2(t)\text{.}\tag{20.2.4}
+\end{equation}
+</div>
+<p class="continuation">Taking the complex conjugates of both sides of <a href="" class="xref" data-knowl="./knowl/Eq3-matri_form_for_system_linear_DEs.html" title="Equation 20.2.3">(20.2.3)</a></p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\bar{\dot{\bm{x}}} = \overline{A \bm{x}} = \bar{A} \bar{\bm{x}}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Since <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\bar{\dot{\bm{x}}} = \dot{\bar{\bm{x}}}\)</span> and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\bar{A} = A\)</span> (as the entries in <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(A\)</span> are all real),</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\dot{\bar{\bm{x}}} = A \bar{\bm{x}}
+\end{equation*}
+</div>
+<p class="continuation">i.e.</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation}
+\bar{\bm{x}}(t) = \bm{x}_1(t) - i \bm{x}_2 (t)\tag{20.2.5}
+\end{equation}
+</div>
+<p class="continuation">will also be a solution to <a href="" class="xref" data-knowl="./knowl/Eq3-matri_form_for_system_linear_DEs.html" title="Equation 20.2.3">(20.2.3)</a>. Substituting <a href="" class="xref" data-knowl="./knowl/Eq4-complex_solution.html" title="Equation 20.2.4">(20.2.4)</a> into <a href="" class="xref" data-knowl="./knowl/Eq3-matri_form_for_system_linear_DEs.html" title="Equation 20.2.3">(20.2.3)</a> gives</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation}
+\dot{\bm{x}}_1 + i \dot{\bm{x}}_2 = A \bm{x}_1 + i A \bm{x}_2\tag{20.2.6}
+\end{equation}
+</div>
+<p class="continuation">while substituting <a href="" class="xref" data-knowl="./knowl/Eq5-complex_conjugate_solution.html" title="Equation 20.2.5">(20.2.5)</a> into <a href="" class="xref" data-knowl="./knowl/Eq3-matri_form_for_system_linear_DEs.html" title="Equation 20.2.3">(20.2.3)</a> gives</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation}
+\dot{\bm{x}}_1 - i \dot{\bm{x}}_2 = A \bm{x}_1 - i A \bm{x}_2\text{.}\tag{20.2.7}
+\end{equation}
+</div>
+<p class="continuation">Now, adding equations <a href="" class="xref" data-knowl="./knowl/Eq6-substituting_4_into_3.html" title="Equation 20.2.6">(20.2.6)</a> and <a href="" class="xref" data-knowl="./knowl/Eq7-substituting_5_into_3.html" title="Equation 20.2.7">(20.2.7)</a> gives</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\dot{\bm{x}}_1 = A \bm{x}_1\text{,}
+\end{equation*}
+</div>
+<p class="continuation">while subtracting <a href="" class="xref" data-knowl="./knowl/Eq7-substituting_5_into_3.html" title="Equation 20.2.7">(20.2.7)</a> from <a href="" class="xref" data-knowl="./knowl/Eq6-substituting_4_into_3.html" title="Equation 20.2.6">(20.2.6)</a> gives</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\dot{\bm{x}}_2 = A \bm{x}_2
+\end{equation*}
+</div>
+<p class="continuation">Thus if we have a complex solution to <a href="" class="xref" data-knowl="./knowl/Eq3-matri_form_for_system_linear_DEs.html" title="Equation 20.2.3">(20.2.3)</a> then both the real and imaginary parts of this complex solution must separately be solutions and hence a general solution to <a href="" class="xref" data-knowl="./knowl/Eq3-matri_form_for_system_linear_DEs.html" title="Equation 20.2.3">(20.2.3)</a> is</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\bm{x}(t) = C_1 \bm{x}_1(t) + C_2 \bm{x}_2(t)\text{.}
+\end{equation*}
+</div>
+<p class="continuation">This gives us another way of proceeding when the eigenvalues of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(A\)</span> are complex.</p>
+<span class="incontext"><a href="Coupled_Linear_Differential_Equations.html#p-1186">in-context</a></span>
+</body>
+</html>

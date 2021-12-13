@@ -1,0 +1,350 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-12-08T21:40:51+11:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Some Simple Applications of First Order Separable DEs</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    useLabelIds: true,
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext.js"></script><script xmlns:svg="http://www.w3.org/2000/svg">miniversion=0.6</script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script xmlns:svg="http://www.w3.org/2000/svg">sagecellEvalName='Evaluate (Sage)';
+</script><link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/colors_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link xmlns:svg="http://www.w3.org/2000/svg" href="developer.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div xmlns:svg="http://www.w3.org/2000/svg" id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\bm}[1]{\boldsymbol{#1}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="MATH1120-Course-Notes.html"><span class="title">MATH1120:</span> <span class="subtitle">Mathematics for Engineering, Science and Technology 2</span></a></h1>
+<p class="byline"></p>
+</div>
+</div></div>
+<nav xmlns:svg="http://www.w3.org/2000/svg" id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="Sec-First_Order_Separable_DEs.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="Differential_Equations_2.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="appendix-1.html" title="Next">Next</a></span></div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="Sec-First_Order_Separable_DEs.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="Differential_Equations_2.html" title="Up">Up</a><a class="next-button button toolbar-item" href="appendix-1.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div xmlns:svg="http://www.w3.org/2000/svg" id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link part"><a href="Part-Calculus.html" data-scroll="Part-Calculus"><span class="codenumber">I</span> <span class="title">Calculus</span></a></li>
+<li class="link">
+<a href="Chap-Calculus_1.html" data-scroll="Chap-Calculus_1"><span class="codenumber">1</span> <span class="title">Maclaurin Series</span></a><ul>
+<li><a href="Sec-Introduction.html" data-scroll="Sec-Introduction">Introduction</a></li>
+<li><a href="Sec-Infinite_Series.html" data-scroll="Sec-Infinite_Series">Infinite Series</a></li>
+<li><a href="Sec-Maclaurin_Series.html" data-scroll="Sec-Maclaurin_Series">Maclaurin Series</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Calculus_2.html" data-scroll="Calculus_2"><span class="codenumber">2</span> <span class="title">Taylor Series</span></a><ul>
+<li><a href="Generating-New-Series-from-Known-Series.html" data-scroll="Generating-New-Series-from-Known-Series">Generating New Series from Known Series</a></li>
+<li><a href="Taylor_Series.html" data-scroll="Taylor_Series">Taylor Series</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Calculus_3.html" data-scroll="Calculus_3"><span class="codenumber">3</span> <span class="title">Functions of Several Variables</span></a><ul>
+<li><a href="functions-of-two-variables.html" data-scroll="functions-of-two-variables">Functions of Two Variables</a></li>
+<li><a href="level-curves.html" data-scroll="level-curves">Level Curves</a></li>
+<li><a href="surfaces-of-revolution.html" data-scroll="surfaces-of-revolution">Surfaces of Revolution</a></li>
+<li><a href="functions-of-3-or-more-variables.html" data-scroll="functions-of-3-or-more-variables">Functions of 3 (or more) Variables</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Chap-Calculus_4.html" data-scroll="Chap-Calculus_4"><span class="codenumber">4</span> <span class="title">Partial Differentiation</span></a><ul>
+<li><a href="Sec-Partial_Differentiation.html" data-scroll="Sec-Partial_Differentiation">Partial Differentiation</a></li>
+<li><a href="Sec-Higher_Partial_Derivatives.html" data-scroll="Sec-Higher_Partial_Derivatives">Higher Partial Derivatives</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Chap-Calculus_5.html" data-scroll="Chap-Calculus_5"><span class="codenumber">5</span> <span class="title">Linear Approximations</span></a><ul>
+<li><a href="Sec-Tangent_Planes.html" data-scroll="Sec-Tangent_Planes">Tangent Planes</a></li>
+<li><a href="Sec-Linear_Approximations.html" data-scroll="Sec-Linear_Approximations">Linear Approximations</a></li>
+<li><a href="Quadratic-Approximations.html" data-scroll="Quadratic-Approximations">Quadratic Approximations</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Calculus_6.html" data-scroll="Calculus_6"><span class="codenumber">6</span> <span class="title">The Directional Derivative</span></a><ul>
+<li><a href="Directional-Derivatives.html" data-scroll="Directional-Derivatives">Directional Derivatives</a></li>
+<li><a href="In_Three_Variables.html" data-scroll="In_Three_Variables">In Three Variables</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Calculus_7.html" data-scroll="Calculus_7"><span class="codenumber">7</span> <span class="title">Local and Global Extrema</span></a><ul>
+<li><a href="Critical-Points.html" data-scroll="Critical-Points">Critical Points</a></li>
+<li><a href="Second-Derivative-Test.html" data-scroll="Second-Derivative-Test">Second Derivative Test</a></li>
+<li><a href="Global-Extrema.html" data-scroll="Global-Extrema">Global Extrema</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Chap-Calculus_8.html" data-scroll="Chap-Calculus_8"><span class="codenumber">8</span> <span class="title">Chain Rules</span></a><ul>
+<li><a href="Sec-The_single_variable_chain_rule.html" data-scroll="Sec-The_single_variable_chain_rule">The Single Variable Chain Rule</a></li>
+<li><a href="Sec-Multivariable-chain-rules.html" data-scroll="Sec-Multivariable-chain-rules">Multivariable Chain Rules</a></li>
+<li><a href="section-22.html" data-scroll="section-22">Implicit Differentiation</a></li>
+</ul>
+</li>
+<li class="link part"><a href="Part-Differenial_Equations.html" data-scroll="Part-Differenial_Equations"><span class="codenumber">II</span> <span class="title">Differential Equations</span></a></li>
+<li class="link">
+<a href="Differential_Equations_1.html" data-scroll="Differential_Equations_1"><span class="codenumber">9</span> <span class="title">Introduction</span></a><ul>
+<li><a href="introduction.html" data-scroll="introduction">Introduction</a></li>
+<li><a href="direction-fields-and-eulers-method.html" data-scroll="direction-fields-and-eulers-method">Direction Fields and Euler's Method</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Differential_Equations_2.html" data-scroll="Differential_Equations_2"><span class="codenumber">10</span> <span class="title">First Order Separable DEs</span></a><ul>
+<li><a href="Sec-First_Order_Separable_DEs.html" data-scroll="Sec-First_Order_Separable_DEs">First Order Separable DEs</a></li>
+<li><a href="Sec-Some-Simple-Applications-of-First-Order-Separable-DEs.html" data-scroll="Sec-Some-Simple-Applications-of-First-Order-Separable-DEs" class="active">Some Simple Applications of First Order Separable DEs</a></li>
+<li><a href="appendix-1.html" data-scroll="appendix-1">Partial Fraction Decomposition</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Differential_Equations_3.html" data-scroll="Differential_Equations_3"><span class="codenumber">11</span> <span class="title">First Order Linear DEs</span></a><ul>
+<li><a href="Exact_First_Order_DEs.html" data-scroll="Exact_First_Order_DEs">Exact First Order DEs</a></li>
+<li><a href="First_Order_Linear_DEs.html" data-scroll="First_Order_Linear_DEs">First Order Linear DEs</a></li>
+<li><a href="Simple_Applications_of_First_Order_Linear_DEs.html" data-scroll="Simple_Applications_of_First_Order_Linear_DEs">Some Simple Applications of First Order Linear DEs</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Differential_Equations_4.html" data-scroll="Differential_Equations_4"><span class="codenumber">12</span> <span class="title">Homogeneous Second Order Linear DEs</span></a><ul><li><a href="Homogeneous_Second_Order_Linear_DEs_With_Constant_Coefficients.html" data-scroll="Homogeneous_Second_Order_Linear_DEs_With_Constant_Coefficients">Homogeneous Second Order Linear DEs With Constant Coefficients</a></li></ul>
+</li>
+<li class="link">
+<a href="Differential_Equations_5.html" data-scroll="Differential_Equations_5"><span class="codenumber">13</span> <span class="title">Non-Homogeneous Second Order Linear DEs</span></a><ul>
+<li><a href="Non-Homogeneous_First_Order_Linear_DEs.html" data-scroll="Non-Homogeneous_First_Order_Linear_DEs">Non-Homogeneous First Order Linear DEs</a></li>
+<li><a href="The_Method_of_Undetermined_Coefficients.html" data-scroll="The_Method_of_Undetermined_Coefficients">The Method of Undetermined Coefficients</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Differential_Equations_6.html" data-scroll="Differential_Equations_6"><span class="codenumber">14</span> <span class="title">An Application of Second Order Linear DEs with Constant Coefficients</span></a><ul>
+<li><a href="A_Simple_Model.html" data-scroll="A_Simple_Model">A Simple Model</a></li>
+<li><a href="Adding_Damping.html" data-scroll="Adding_Damping">Adding Damping</a></li>
+<li><a href="Adding_an_External_Force.html" data-scroll="Adding_an_External_Force">Adding an External Force</a></li>
+</ul>
+</li>
+<li class="link part"><a href="Part-Linear_Algebra.html" data-scroll="Part-Linear_Algebra"><span class="codenumber">III</span> <span class="title">Linear Algebra</span></a></li>
+<li class="link">
+<a href="Linear_Algebra_1.html" data-scroll="Linear_Algebra_1"><span class="codenumber">15</span> <span class="title">Systems of Linear Equations</span></a><ul>
+<li><a href="Sec-LA_Introduction.html" data-scroll="Sec-LA_Introduction">Introduction</a></li>
+<li><a href="Sec-LA_Matrices_and_Systems_of_Linear_Equations.html" data-scroll="Sec-LA_Matrices_and_Systems_of_Linear_Equations">Matrices and Systems of Linear Equations</a></li>
+<li><a href="Sec-LA_Solving_Systems_of_Linear_Equations.html" data-scroll="Sec-LA_Solving_Systems_of_Linear_Equations">Solving Systems of Linear Equations</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Linear_Algebra__2.html" data-scroll="Linear_Algebra__2"><span class="codenumber">16</span> <span class="title">Geometric Interpretations of Linear Equations</span></a><ul>
+<li><a href="Interpretation_Via_Rows.html" data-scroll="Interpretation_Via_Rows">Interpretation Via Rows</a></li>
+<li><a href="Interpretation_Via_Columns.html" data-scroll="Interpretation_Via_Columns">Interpretation Via Columns</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Chap-Linear_Algebra_3.html" data-scroll="Chap-Linear_Algebra_3"><span class="codenumber">17</span> <span class="title">Matrix Algebra</span></a><ul>
+<li><a href="Sec-Linear_Algebra_Intro.html" data-scroll="Sec-Linear_Algebra_Intro">Introduction</a></li>
+<li><a href="Sec-Addition_and_Scalar_Multiplication.html" data-scroll="Sec-Addition_and_Scalar_Multiplication">Addition and Scalar Multiplication</a></li>
+<li><a href="Sec-Matrix_multiplication.html" data-scroll="Sec-Matrix_multiplication">Matrix Multiplication</a></li>
+<li><a href="Sec-Matrices_and_Systems_of_Linear_Equations.html" data-scroll="Sec-Matrices_and_Systems_of_Linear_Equations">Matrices and Systems of Linear Equations</a></li>
+<li><a href="Sec-Linear_transformations.html" data-scroll="Sec-Linear_transformations">Linear Transformations</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Linear_Algebra_4.html" data-scroll="Linear_Algebra_4"><span class="codenumber">18</span> <span class="title">Square Matrices</span></a><ul>
+<li><a href="Inverse_Matrices.html" data-scroll="Inverse_Matrices">Inverse Matrices</a></li>
+<li><a href="Determinants.html" data-scroll="Determinants">Determinants</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Linear_Algebra_5.html" data-scroll="Linear_Algebra_5"><span class="codenumber">19</span> <span class="title">Eigenvalues and Eigenvectors</span></a><ul>
+<li><a href="Sec-LA_5_Introduction.html" data-scroll="Sec-LA_5_Introduction">Introduction</a></li>
+<li><a href="Sec-LA_5_Finding_Eigenvalues_and_Eigenvectors.html" data-scroll="Sec-LA_5_Finding_Eigenvalues_and_Eigenvectors">Finding Eigenvalues and Eigenvectors</a></li>
+<li><a href="Sec-LA_5_A_Simple_Application.html" data-scroll="Sec-LA_5_A_Simple_Application">A Simple Application</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Linear_Algebra_6.html" data-scroll="Linear_Algebra_6"><span class="codenumber">20</span> <span class="title">Some Applications of Eigenvalues and Eigenvectors</span></a><ul>
+<li><a href="Powers_of_Matrices.html" data-scroll="Powers_of_Matrices">Powers of Matrices</a></li>
+<li><a href="Coupled_Linear_Differential_Equations.html" data-scroll="Coupled_Linear_Differential_Equations">Coupled Linear Differential Equations</a></li>
+</ul>
+</li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="Sec-Some-Simple-Applications-of-First-Order-Separable-DEs"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">10.2</span> <span class="title">Some Simple Applications of First Order Separable DEs</span>
+</h2>
+<article class="example example-like" id="example-103"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-103"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">10.2.1</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-103"><article class="example example-like"><p id="p-668">Find a curve in the <span class="process-math">\(xy\)</span>-plane that passes through the point <span class="process-math">\((0,3)\)</span> and whose tangent line at any point <span class="process-math">\((x,y)\)</span> has its slope given by <span class="process-math">\(\frac{2x}{y^2}\text{.}\)</span></p>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-87" id="solution-87"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-87"><div class="solution solution-like">
+<p id="p-669">Let the curve be <span class="process-math">\(y(x)\text{.}\)</span> Then we know</p>
+<div class="displaymath process-math">
+\begin{equation*}
+y'=\frac{2x}{y^2}, \hspace{5mm} y(0)=3
+\end{equation*}
+</div>
+<p class="continuation">i.e. <span class="process-math">\(y\)</span> is the solution to an initial-value problem involving a first order separable DE. From the DE, we obtain</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\int y^2 \hspace{2mm}dy=\int 2x\hspace{2mm}dx
+\end{equation*}
+</div>
+<p class="continuation">and hence</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{1}{3}y^3=x^2+C
+\end{equation*}
+</div>
+<p class="continuation">Using the initial condition gives <span class="process-math">\(C=9\)</span> and hence the required curve is</p>
+<div class="displaymath process-math">
+\begin{equation*}
+y(x)=(3x^2+27)^{1/3}
+\end{equation*}
+</div>
+</div></div></article></div>
+<article class="example example-like" id="example-104"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-104"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">10.2.2</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-104"><article class="example example-like"><p id="p-670">Suppose that the temperature a cup of coffee when it is poured is <span class="process-math">\(95^oC\text{.}\)</span> The cup is left to stand in a room where the temperature is <span class="process-math">\(20^oC\text{.}\)</span> If the temperature of the coffee is <span class="process-math">\(90^oC\)</span> after <span class="process-math">\(2\)</span> min, how long will it take for the temperature of the coffee in the cup to reach <span class="process-math">\(25^oC\)</span> according to Newton’s law of cooling?</p>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-88" id="solution-88"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-88"><div class="solution solution-like">
+<p id="p-671">Let <span class="process-math">\(T(t)\)</span> be the temperature of the cup of coffee at time <span class="process-math">\(t\)</span> min after it was poured and let <span class="process-math">\(T_a\)</span> be the room (ambient) temperature. Now, Newton’s law of cooling says that the rate at which the temperature of an object falls is proportional to the difference in the temperature of the object and the temperature of its surroundings. Thus</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\frac{dT}{dt}=-k(T-T_a), \hspace{5mm} T(0)=95, \hspace{5mm} T(2)=90
+\end{equation*}
+</div>
+<p class="continuation">where <span class="process-math">\(k\gt 0\)</span> is the constant of proportionality. This is a first order separable DE and on separating the variables and integrating both sides with respect to <span class="process-math">\(t\)</span> we get</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\int \frac{1}{T-T_a}\hspace{2mm}dT=\int -k\hspace{2mm}dt
+\end{equation*}
+</div>
+<p class="continuation">Evaluating the integrals gives <div class="displaymath process-math" id="p-672">
+\begin{align*}
+\ln(\vert T-T_a\vert) \amp=-kt+C\\
+T(t) \amp =Ae^{-kt}+T_a
+\end{align*}
+</div> Since <span class="process-math">\(T_a=20\text{,}\)</span> using <span class="process-math">\(T(0)=95\)</span> gives <span class="process-math">\(A=75\text{.}\)</span> Using <span class="process-math">\(T(2)=90\)</span> gives</p>
+<div class="displaymath process-math">
+\begin{equation*}
+90=75e^{-2k}+20
+\end{equation*}
+</div>
+<p class="continuation">and hence</p>
+<div class="displaymath process-math">
+\begin{equation*}
+k=-\frac{\ln(\frac{14}{15})}{2}\approx 0.034
+\end{equation*}
+</div>
+<p class="continuation">Thus, according to Newton’s law of cooling the coffee will have cooled to <span class="process-math">\(25^oC\)</span> at the value of <span class="process-math">\(t\)</span> satisfying</p>
+<div class="displaymath process-math">
+\begin{equation*}
+25=75e^{-kt}+20
+\end{equation*}
+</div>
+<p class="continuation">from which we find</p>
+<div class="displaymath process-math">
+\begin{equation*}
+t=-\frac{\ln(\frac{1}{15})}{k}\approx 78.5 \textrm{ min}
+\end{equation*}
+</div>
+</div></div></article></div>
+<article class="example example-like" id="example-105"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-105"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">10.2.3</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-105"><article class="example example-like"><p id="p-673">Consider a <span class="process-math">\(100\)</span>L tank which contains pure water. At time <span class="process-math">\(t=0\)</span> salt water begins to flow into the tank at a rate of <span class="process-math">\(2\)</span>L/min and the mixed water flows out of the tank at the same rate. If the concentration of the salt in the inflowing water is <span class="process-math">\(35\)</span>g/L determine the concentration, <span class="process-math">\(C(t)\text{,}\)</span> of the salt in the tank as a function of time. <figure class="figure figure-like" id="figure-67"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="./DifferentialEquations/Images/2/1_example9.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">10.2.4<span class="period">.</span></span><span class="space"> </span></figcaption></figure></p>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-89" id="solution-89"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-89"><div class="solution solution-like">
+<p id="p-674">Let <span class="process-math">\(A(t)\)</span> be the amount of salt in the tank (in grams) at time <span class="process-math">\(t\text{.}\)</span> Then, since there is <span class="process-math">\(100\)</span>L of water in the tank</p>
+<div class="displaymath process-math">
+\begin{equation}
+A(t)=100\times C(t)\tag{10.2.1}
+\end{equation}
+</div>
+<p class="continuation">Now, since the water in the tank is initially pure, we have the initial condition <span class="process-math">\(A(0)=0\)</span> or equivalently <span class="process-math">\(C(0)=0\text{.}\)</span> Finally, the rate at which the amount of salt in the tank is changing is given by the difference of the rate at which the amount of salt is increasing (due to the salt water entering the tank) and the rate at which the amount is decreasing (due to the mixed water flowing out). Since salt water is entering the tank at a rate of <span class="process-math">\(2\)</span>L/min and each litre contains <span class="process-math">\(35\)</span>g of salt, the rate at which the amount of salt is increasing is <span class="process-math">\(70\)</span>g/min. Since the mixed water is flowing out of the tank at the rate of <span class="process-math">\(2\)</span>L/min and each litre contains <span class="process-math">\(C(t)\)</span>g the rate at which the amount of salt is decreasing is <span class="process-math">\(2C\)</span>g/min. Thus</p>
+<div class="displaymath process-math">
+\begin{equation}
+\frac{dA}{dt}=70-2C\tag{10.2.2}
+\end{equation}
+</div>
+<p class="continuation">From (10.2.1.)</p>
+<div class="displaymath process-math">
+\begin{equation}
+\frac{dA}{dt}=100\frac{dC}{dt}\tag{10.2.3}
+\end{equation}
+</div>
+<p class="continuation">Putting (10.2.3.) into (10.2.2.)</p>
+<div class="displaymath process-math">
+\begin{equation*}
+100\frac{dC}{dt}=70-2C
+\end{equation*}
+</div>
+<p class="continuation">which is a first order separable DE. Separating the variables and integrating both sides with respect <span class="process-math">\(t\)</span> gives</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\int \frac{1}{70-2C}\hspace{2mm} dC=\int \frac{1}{100}\hspace{2mm}dt
+\end{equation*}
+</div>
+<p class="continuation">Evaluating the integrals gives</p>
+<div class="displaymath process-math">
+\begin{equation*}
+-\frac{1}{2}\ln(70-2C)=\frac{1}{100}t+K
+\end{equation*}
+</div>
+<p class="continuation">and hence</p>
+<div class="displaymath process-math">
+\begin{equation*}
+C(t)=35-ke^{-t/50}
+\end{equation*}
+</div>
+<p class="continuation">Using the initial condition <span class="process-math">\(C(0)=0\)</span> gives <span class="process-math">\(k=35\)</span> and hence</p>
+<div class="displaymath process-math">
+\begin{equation*}
+C(t)=35-35e^{-t/50}
+\end{equation*}
+</div>
+</div></div></article></div>
+<section class="exercises" id="exercises-23"><h3 class="heading hide-type">
+<span class="type">Exercises</span> <span class="codenumber"></span> <span class="title">Example Tasks</span>
+</h3>
+<article class="exercise exercise-like" id="exercise-63"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<p id="p-675">An ingot of gold is placed into a furnace which has a temperature of <span class="process-math">\(1200^oC\text{.}\)</span>  After <span class="process-math">\(3\)</span> min the temperature of the ingot has risen from <span class="process-math">\(40^oC\)</span> to <span class="process-math">\(610^oC\text{.}\)</span> Assuming Newton’s Law of Cooling how long before the ingot reaches the melting temperature of <span class="process-math">\(1064^oC\text{?}\)</span></p></article><article class="exercise exercise-like" id="exercise-64"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<p id="p-676">Consider a <span class="process-math">\(50\)</span>L tank which contains salt water with concentration of <span class="process-math">\(20\)</span>g/L. At time <span class="process-math">\(t=0\)</span> more salt water begins to flow into the tank at the rate of <span class="process-math">\(3\)</span>L/min and the mixed water flows out of the tank at the same rate. Assuming that the concentration of salt in the inflowing water is <span class="process-math">\(30\)</span>g/L how long will it take for the concentration of the water in the tank to reach <span class="process-math">\(25\)</span>g/L?</p></article></section></section></div></main>
+</div>
+</body>
+</html>

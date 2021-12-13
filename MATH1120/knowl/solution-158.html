@@ -1,0 +1,59 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-12-08T21:44:49+11:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<div class="solution solution-like">
+<h3 class="heading">
+<span class="type">Solution</span><span xmlns:svg="http://www.w3.org/2000/svg" class="space"> </span><span class="codenumber">20.1.1.1</span><span xmlns:svg="http://www.w3.org/2000/svg" class="period">.</span>
+</h3>
+<p>Since <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(n\)</span> is small here it is easiest just to do the matrix multiplications to obtain</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+A^3 = \begin{pmatrix} 3 \amp 1 \\ 1 \amp 3 \end{pmatrix} \begin{pmatrix} 3 \amp 1 \\ 1 \amp 3 \end{pmatrix} \begin{pmatrix} 3 \amp 1 \\ 1 \amp 3 \end{pmatrix} = \begin{pmatrix} 3 \amp 1 \\ 1 \amp 3 \end{pmatrix} \begin{pmatrix} 10 \amp 6 \\ 6 \amp 10 \end{pmatrix} = \begin{pmatrix} 36 \amp 28 \\ 28 \amp 36 \end{pmatrix}
+\end{equation*}
+</div>
+<p class="continuation">However,  let’s  illustrate  the  above  method  (admittedly  leaving  out  the  working  of finding  eigenvalues,  eigenvectors  and  matrix  inverse).  <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(A\)</span>  has  two  distinct  eigenvalues <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\lambda_1 = 2\)</span> and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\lambda_2 = 4\)</span> with corresponding eigenvectors <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\bm{v}_1 = \begin{pmatrix} 1 \\ -1 \end{pmatrix}\)</span> and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\bm{v}_2 = \begin{pmatrix} 1 \\ 1 \end{pmatrix}\text{,}\)</span> so let</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+P = \begin{pmatrix} 1 \amp 1 \\ -1 \amp 1 \end{pmatrix}\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Thus</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+P^{-1} = \dfrac{1}{2} \begin{pmatrix} 1 \amp -1 \\ 1 \amp 1 \end{pmatrix}
+\end{equation*}
+</div>
+<p class="continuation">and therefore</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{align*}
+A^3 \amp = PD^3 P^{-1}\\
+\amp = \begin{pmatrix} 1 \amp 1 \\ -1 \amp 1 \end{pmatrix} \begin{pmatrix} 2^3 \amp 0 \\ 0 \amp 4^3 \end{pmatrix} \begin{pmatrix} 1/2 \amp -1/2 \\ 1/2 \amp 1/2 \end{pmatrix}\\
+\amp = \begin{pmatrix} 1 \amp 1 \\ -1 \amp 1 \end{pmatrix} \begin{pmatrix} 4 \amp -4 \\ 32 \amp 32 \end{pmatrix}\\
+\amp = \begin{pmatrix} 36 \amp 28 \\ 28 \amp 36 \end{pmatrix}
+\end{align*}
+</div>
+<p class="continuation">As an aside, note that</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{align*}
+P^{-1} AP \amp = \dfrac{1}{2} \begin{pmatrix} 1 \amp -1 \\ 1 \amp 1 \end{pmatrix} \begin{pmatrix} 3 \amp 1 \\ 1 \amp 3 \end{pmatrix} \begin{pmatrix} 1 \amp 1 \\ -1 \amp 1 \end{pmatrix}\\
+\amp = \dfrac{1}{2} \begin{pmatrix} 1 \amp -1 \\ 1 \amp 1 \end{pmatrix} \begin{pmatrix} 2 \amp 4 \\ -2 \amp 4 \end{pmatrix}\\
+\amp = \begin{pmatrix} 2 \amp 0 \\ 0 \amp 4 \end{pmatrix}
+\end{align*}
+</div>
+</div>
+<span class="incontext"><a href="Powers_of_Matrices.html#solution-158">in-context</a></span>
+</body>
+</html>

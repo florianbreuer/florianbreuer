@@ -1,0 +1,49 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-12-08T21:44:40+11:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math"><article class="example example-like"><p>Consider the matrix</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+A = \begin{pmatrix} 0 \amp 1 \\ 1 \amp 0\end{pmatrix}.
+\end{equation*}
+</div>
+<p class="continuation">Since <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(A\)</span> is a <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(2 \times 2\)</span> matrix, we can think of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(A\)</span> as a transformation that takes each vector <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(x\)</span> in the plane to another vector in the plane, <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(b = A\mathbf{x}\text{.}\)</span> Under this transformation, for example, <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\mathbf{x} = \begin{pmatrix} 2 \\ 1 \end{pmatrix}\)</span> goes to</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\mathbf{b} = A\mathbf{x} = \begin{pmatrix} 0 \amp 1 \\ 1 \amp 0\end{pmatrix}\begin{pmatrix}2 \\ 1\end{pmatrix} = \begin{pmatrix}1 \\ 2\end{pmatrix}
+\end{equation*}
+</div>
+<p class="continuation">and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\mathbf{x} = \begin{pmatrix} -1 \\ -4\end{pmatrix}\)</span> goes to</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\mathbf{b} = A\mathbf{x} =\begin{pmatrix} 0 \amp 1 \\ 1 \amp 0\end{pmatrix}\begin{pmatrix} -1\\ 4\end{pmatrix} = \begin{pmatrix} -4 \\ -1\end{pmatrix}.
+\end{equation*}
+</div>
+<p class="continuation">See <a href="" class="xref" data-knowl="./knowl/Fig-Linear_transformation_reflection.html" title="Figure 17.5.2">Figure 17.5.2</a> <figure class="figure figure-like"><div xmlns:svg="http://www.w3.org/2000/svg" class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="./LinearAlgebra/Images/3/Linear_transformation.png" class="contained"></div>
+<figcaption xmlns:svg="http://www.w3.org/2000/svg"><span class="type">Figure</span><span class="space"> </span><span class="codenumber">17.5.2<span class="period">.</span></span><span class="space"> </span></figcaption></figure></p>
+<p>In fact, <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(A\)</span> is the matrix for the transformation that we would describe as a reflection in the line <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(y = x\text{.}\)</span> To see this, let the vector <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\((x,y)\)</span> be transformed to the vector <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\((b_1,b_2)\)</span> under this reflection. Then we know that</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{align*}
+b_1 \amp = y = 0x +y \\
+b_2 \amp = x = 1x + 0y 
+\end{align*}
+</div>
+<p class="continuation">which we can write via matrices as</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\mathbf{b} = \begin{pmatrix}b_1 \\ b_2 \end{pmatrix} = \begin{pmatrix} 0 \amp 1 \\ 1 \amp 0\end{pmatrix}\begin{pmatrix} x \\ y \end{pmatrix} = A\mathbf{x}.
+\end{equation*}
+</div></article></body>
+</html>

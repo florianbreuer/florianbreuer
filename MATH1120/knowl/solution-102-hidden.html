@@ -1,0 +1,135 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-12-08T21:44:22+11:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math"><div class="solution solution-like">
+<p>Let <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(v(t)\)</span> be the velocity of the ball at time <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(t\)</span> seconds after it was fired from the cannon and let the downward direction be the positive direction as shown in <a href="" class="xref" data-knowl="./knowl/Fig-Ball_of_Mass_Example.html" title="Figure 11.3.5">Figure 11.3.5</a>.</p>
+<figure class="figure figure-like"><div xmlns:svg="http://www.w3.org/2000/svg" class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="./DifferentialEquations/Images/3/Fig2_ball_of_mass.png" class="contained"></div>
+<figcaption xmlns:svg="http://www.w3.org/2000/svg"><span class="type">Figure</span><span class="space"> </span><span class="codenumber">11.3.5<span class="period">.</span></span><span class="space"> </span></figcaption></figure><p>The motion of the ball will be governed by Newton’s second law of motion which says</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+F = ma\text{,}
+\end{equation*}
+</div>
+<p class="continuation">where <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(F\)</span> is the net force acting on the ball, <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(m\)</span> is its mass and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(a\)</span> is its acceleration. Once the ball leaves the cannon the forces acting on the ball are gravity, which we will denote by <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(F_G\)</span> and air resistance, denoted by <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(F_R\text{.}\)</span> Now with the positive direction as shown in <a href="" class="xref" data-knowl="./knowl/Fig-Ball_of_Mass_Example.html" title="Figure 11.3.5">Figure 11.3.5</a>,</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+F_G = mg
+\end{equation*}
+</div>
+<p class="continuation">where <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(g\)</span> is the acceleration due to gravity. In the initial phase where the ball is going up the air resistance will be acting against the motion, (i.e. in the positive direction). Thus, since the velocity <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(v\)</span> is negative</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+F_R = -5v\text{.}
+\end{equation*}
+</div>
+<p class="continuation">In the second phase where the ball is falling the air resistance will again be acting against the motion (i.e. in the negative direction). In this phase the velocity is positive and so once again</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+F_R = -5v\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Thus the net force acting on the ball is</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+F = F_G + F_R = mg-5v\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Since</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+a = \dfrac{dv}{dt}
+\end{equation*}
+</div>
+<p class="continuation">Newton's second law gives</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+m \dfrac{dv}{dt} = mg - 5v
+\end{equation*}
+</div>
+<p class="continuation">or</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\dfrac{dv}{dt} + \dfrac{5}{m} v = g
+\end{equation*}
+</div>
+<p class="continuation">with</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+v(0) = -10\text{.}
+\end{equation*}
+</div>
+<p class="continuation">This is a first order linear DE in <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(v(t)\text{.}\)</span> To solve, multiply both sides of the DE by the integrating factor</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+I(t) = \exp \left( \displaystyle \int \frac{5}{m} dt \right) = \exp \left( \frac{5t}{m} \right)
+\end{equation*}
+</div>
+<p class="continuation">to get</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\dfrac{d}{dt} \left[ \exp \left( \frac{5t}{m} v \right) \right] = g \exp \left( \frac{5t}{m} \right)\text{.}
+\end{equation*}
+</div>
+<p>Integrating both sides gives</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+v(t) = \frac{mg}{5} + C \exp \left(-\frac{5t}{m} \right)
+\end{equation*}
+</div>
+<p class="continuation">and hence, using <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(m=50\text{,}\)</span> <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(g=9.8\)</span> and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(v(0) = -10\text{,}\)</span></p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+v(t) = 98 - 108 e^{-t/10}\text{.}
+\end{equation*}
+</div>
+<p>Thus we have determined the velocity function for the ball. To use this to determine the speed of the ball when it hits the ground we must first determine the time at which the ball hits the ground. To do this we will need the displacement function which we can obtain by integrating the velocity function. So, letting <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(s(t)\)</span> be the displacement of the ball at time <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(t\text{,}\)</span> we have</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+s(t) = \int v(t) \, dt = 98t + 1080e^{-t/10} + K
+\end{equation*}
+</div>
+<p class="continuation">Using <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(s(0)=0\)</span> gives <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(K=-108\)</span> and so the displacement function is</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+s(t) = 98t + 1080e^{-t/10} - 1080\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Now <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(s(t) = 100\)</span> when</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+98t + 1080e^{-t/10} - 1080 = 100\text{.}
+\end{equation*}
+</div>
+<p class="continuation"><a href="" class="xref" data-knowl="./knowl/Fig-Motion_in_one_dim.html" title="Figure 11.3.6">Figure 11.3.6</a> shows a plot of the function</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+f(t) = 98t + 1080e^{-t/10} - 1180
+\end{equation*}
+</div>
+<p class="continuation">and as can be seen there is only one positive solution. Solving this equation numerically (using Newton’s method for example), shows this solution to be</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+t = 5.98147\text{.}
+\end{equation*}
+</div>
+<figure class="figure figure-like"><div xmlns:svg="http://www.w3.org/2000/svg" class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="./DifferentialEquations/Images/3/Fig3_motion_in_one_dim.png" class="contained"></div>
+<figcaption xmlns:svg="http://www.w3.org/2000/svg"><span class="type">Figure</span><span class="space"> </span><span class="codenumber">11.3.6<span class="period">.</span></span><span class="space"> </span></figcaption></figure><p>Thus the velocity of the ball when it hits the ground will be</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+v(5.98147) = 38.6 \, \text{m/s} \: (\text{to 1dp})\text{.}
+\end{equation*}
+</div>
+</div></body>
+</html>

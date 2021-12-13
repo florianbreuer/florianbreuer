@@ -1,0 +1,55 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2021-12-08T21:44:17+11:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<div class="solution solution-like">
+<h3 class="heading">
+<span class="type">Solution</span><span xmlns:svg="http://www.w3.org/2000/svg" class="space"> </span><span class="codenumber">10.1.8.1</span><span xmlns:svg="http://www.w3.org/2000/svg" class="period">.</span>
+</h3>
+<p>This is a first order separable DE with <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(f(x)=1\)</span> (i.e. it is autonomous) and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(g(y)=y(1-y)\text{.}\)</span> On separating the variables and integrating both sides with respect to <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(x\)</span> we obtain</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\int \frac{1}{y(1-y)}\hspace{2mm}dy=\int 1\hspace{2mm}dx
+\end{equation*}
+</div>
+<p class="continuation">To evaluate the integral on the left hand side we have to use partial fraction decomposition, by which we can determine that</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\frac{1}{y(1-y)}=\frac{1}{y}+\frac{1}{1-y}
+\end{equation*}
+</div>
+<p class="continuation">Thus <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{align*}
+\int \frac{1}{y(1-y)}\hspace{2mm}dy \amp=\int \frac{1}{y}\hspace{2mm}dy +\int \frac{1}{1-y}\hspace{2mm}dy\\
+\amp =\ln(\vert y\vert)-\ln(\vert 1-y\vert)+C
+\end{align*}
+</div> (Some more detail on partial fraction decomposition can be found in an appendix to this lecture.) So, on evaluating the integral on the right hand side and combining the two constants of integration we obtain</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\ln(\vert y\vert)-\ln(\vert 1-y\vert)=x+K
+\end{equation*}
+</div>
+<p class="continuation">This can be rearranged as</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+y(x)=\frac{Ae^x}{1+Ae^x}
+\end{equation*}
+</div>
+<p class="continuation">Figure 10.1.9. shows this curve when <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(A=1\)</span> superimposed on top of the direction field for the DE. Also shown in the figure are the solutions <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(y(x)=0\)</span> and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(y(x)=1\)</span> which come from checking separately the cases where <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(g(y)=0\text{.}\)</span> <figure class="figure figure-like"><div xmlns:svg="http://www.w3.org/2000/svg" class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="./DifferentialEquations/Images/2/1_example5.png" class="contained"></div>
+<figcaption xmlns:svg="http://www.w3.org/2000/svg"><span class="type">Figure</span><span class="space"> </span><span class="codenumber">10.1.9<span class="period">.</span></span><span class="space"> </span></figcaption></figure></p>
+</div>
+<span class="incontext"><a href="Sec-First_Order_Separable_DEs.html#solution-85">in-context</a></span>
+</body>
+</html>

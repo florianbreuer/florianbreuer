@@ -1,0 +1,1 @@
+xsltproc --xinclude ..\xsl\pretext-html.xsl M1120_Book_Format.ptx
