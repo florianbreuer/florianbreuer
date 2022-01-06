@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-12-08T21:44:17+11:00       *-->
+<!--*       on 2022-01-06T23:31:50+11:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,43 +15,13 @@
 </head>
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
-<p>This is a first order separable DE with <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(f(x)=x\)</span> and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(g(y)=y+1\text{.}\)</span> On separating the variables and integrating both sides with respect to <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(x\)</span> we obtain</p>
+<p>Find the solution to the initial-value problem</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
 \begin{equation*}
-\int \frac{1}{y+1}\hspace{2mm}dy=\int x\hspace{2mm}dx
+\frac{dy}{dx}=xy+x, \hspace{5mm} y(0)=1
 \end{equation*}
 </div>
-<p class="continuation">Evaluating the integrals and rearranging gives</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{equation*}
-y(x)=Ce^{x^2/2}-1
-\end{equation*}
-</div>
-<p class="continuation">To satisfy the initial condition <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{align*}
-1 \amp=Ce^0-1\\
-C \amp =2
-\end{align*}
-</div> Thus the solution to the initial-value problem is</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{equation*}
-y(x)=2e^{x^2/2}-1
-\end{equation*}
-</div>
-<p class="continuation"><dfn xmlns:svg="http://www.w3.org/2000/svg" class="terminology">Note</dfn>: From this solution</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{equation*}
-y(0.3)=2e^{(0.3)^2/2}-1=1.0921 \textrm{ to 4.d.p.}
-\end{equation*}
-</div>
-<p class="continuation">The Euler method approximation was</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{equation*}
-y(0.3)=1.0604 \textrm{ to 4.d.p.}
-\end{equation*}
-</div>
-<p class="continuation">Figure 10.1.11. shows both the analytic solution and the Euler approximation over the domain <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(0\leq x\leq 0.3\text{.}\)</span> <figure class="figure figure-like"><div xmlns:svg="http://www.w3.org/2000/svg" class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="./DifferentialEquations/Images/2/1_example6.png" class="contained"></div>
-<figcaption xmlns:svg="http://www.w3.org/2000/svg"><span class="type">Figure</span><span class="space"> </span><span class="codenumber">10.1.11<span class="period">.</span></span><span class="space"> </span></figcaption></figure></p>
+<p class="continuation"><dfn xmlns:svg="http://www.w3.org/2000/svg" class="terminology">Note</dfn>: We looked at this example in section <dfn xmlns:svg="http://www.w3.org/2000/svg" class="terminology">9 Introduction</dfn> where we used Euler’s method with <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\Delta x=0.1\)</span> to approximate the value of the solution at <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(x=0.3\text{.}\)</span></p>
 <span class="incontext"><a href="Sec-First_Order_Separable_DEs.html#p-664">in-context</a></span>
 </body>
 </html>

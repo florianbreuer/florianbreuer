@@ -103,12 +103,12 @@
                         will be eigenvectors of <m>A</m> with an eigenvalue of <m>1</m>. (Note that we could check this algebraically if so desired.)
                     </p>
                     <p>
-                        As also illustrated in Figure 19.1.4., any vector perpendicular to the line <m>y=x</m> will be mapped by a reflection in that line to a vector of the same length but in the opposite direction, i.e. for such vectors
+                        As also illustrated in <xref ref="Fig-Geometric_Interpretation"/>, any vector perpendicular to the line <m>y=x</m> will be mapped by a reflection in that line to a vector of the same length but in the opposite direction, i.e. for such vectors
                         <me>A\mathbf{x}=-\mathbf{x}</me>
                         Thus vectors of the form
                         <me>\mathbf{x}=\begin{pmatrix} t \\ -t \end{pmatrix}=t\begin{pmatrix} 1 \\ -1 \end{pmatrix}, \textrm{ where } t\in \mathbb{R}</me>
                         will be eigenvectors of <m>A</m> with an eigenvalue of <m>-1</m>.
-                        <figure>
+                        <figure xml:id="Fig-Geometric_Interpretation">
                             <image source="./LinearAlgebra/Images/5/figure1.png" width="75%"/>
                         </figure>
                         Since no other vectors will be mapped by a reflection in the line <m>y=x</m> into scalar multiples of themselves, <m>A</m> will not have any more eigenvectors.
@@ -116,7 +116,7 @@
                 </solution>
             </example>
 
-            <example>
+            <example xml:id="Ex-Find_all_eigenvectors_given_eigenvalue">
                 <p>
                     Given that <m>\lambda=5</m> is an eigenvalue for the matrix
                     <me> A=\begin{pmatrix} 1 \amp 2 \\ 4 \amp 3 \end{pmatrix}</me>
@@ -161,20 +161,20 @@
 
             <p>
                 For the square matrix <m>A</m>, the eigenvalues and associated eigenvectors are defined by the equation
-                <men>A\mathbf{x}=\lambda\mathbf{x}</men>
-                Thus, we want to find values of <m>\lambda</m>, and associated vectors <m>\mathbf{x}</m>, that satisfy this equation. To do this, rearrange Equation (19.2.1) to obtain
+                <men xml:id="Eq-Eigenvector_definition">A\mathbf{x}=\lambda\mathbf{x}</men>
+                Thus, we want to find values of <m>\lambda</m>, and associated vectors <m>\mathbf{x}</m>, that satisfy this equation. To do this, rearrange <xref ref="Eq-Eigenvector_definition"/> to obtain
                 <me>A\mathbf{x}-\lambda\mathbf{x}=\mathbf{0}</me>
                 which can be written as
                 <me>A\mathbf{x}-\lambda I\mathbf{x}=\mathbf{0}</me>
                 or
-                <men>(A-\lambda I)\mathbf{x}=\mathbf{0}</men>
-                where <m>I</m> is the identity matrix of order <m>n</m>. Since Equation (19.2.2) is a homogeneous system of linear equations it will only have a non-zero solution when 
-                <men>det(A-\lambda I)=0</men>
+                <men xml:id="Eq-Eigenvector_definition_with_identity_matrix">(A-\lambda I)\mathbf{x}=\mathbf{0}</men>
+                where <m>I</m> is the identity matrix of order <m>n</m>. Since <xref ref="Eq-Eigenvector_definition_with_identity_matrix"/> is a homogeneous system of linear equations it will only have a non-zero solution when 
+                <men xml:id="Eq-Eigenvector_definition_with_determinant">\det(A-\lambda I)=0</men>
             </p>
             <definition>
                 <p>
                     The eigenvalues, <m>\lambda</m>, of the <m>n\times n</m> matrix <m>A</m> are found by solving the <term>characteristic equation</term>
-                    <me>det(A-\lambda I)=0</me>
+                    <me>\det(A-\lambda I)=0</me>
                     The eigenvectors of the matrix <m>A</m> are found by solving the homogeneous linear system of equations 
                     <me>(A-\lambda I)\mathbf{x}=\mathbf{0}</me>
                     for each eigenvalue <m>\lambda</m>.
@@ -189,12 +189,12 @@
                 <solution>
                     <p>
                         The eigenvalues, <m>\lambda</m>, of <m>A</m> satisfy the characteristic equation
-                        <me>det(A-\lambda I)=0</me>
+                        <me>\det(A-\lambda I)=0</me>
                         Since
                         <me> A-\lambda I=\begin{pmatrix} 2\amp 1 \\ 1\amp 2 \end{pmatrix}-\lambda \begin{pmatrix} 1\amp 0 \\ 0\amp 1 \end{pmatrix}=\begin{pmatrix} 2-\lambda \amp 1 \\ 1\amp 2-\lambda \end{pmatrix}</me>
                         the characteristic equation is
                         <md> 
-                            <mrow>det\begin{pmatrix} 2-\lambda \amp 1 \\ 1\amp 2-\lambda \end{pmatrix} \amp =0</mrow>
+                            <mrow>\det\begin{pmatrix} 2-\lambda \amp 1 \\ 1\amp 2-\lambda \end{pmatrix} \amp =0</mrow>
                             <mrow>(2-\lambda)^2-1 \amp =0</mrow>
                             <mrow>\lambda^2-4\lambda+3 \amp =0</mrow>
                         </md>
@@ -202,7 +202,7 @@
                         <me>\lambda=1 \textrm{ and } \lambda=3</me>
                     </p>
                     <p>
-                        To find the eigenvectors associated with each of these eigenvalues we follow the procedure illustrated in Example 19.1.5., i.e. solve the homogeneous system of linear equations
+                        To find the eigenvectors associated with each of these eigenvalues we follow the procedure illustrated in <xref ref="Ex-Find_all_eigenvectors_given_eigenvalue"/>, i.e. solve the homogeneous system of linear equations
                         <me>(A-\lambda I)\mathbf{x}=\mathbf{0}</me>
                         for each eigenvalue.
                     </p>
@@ -224,8 +224,8 @@
                         As always, you can very easily check that these vectors are indeed eigenvectors by performing the matrix multiplication <m>A\mathbf{x}</m>.
                     </p>
                     <p>
-                        As an aside, we can get some geometric insight if we consider <m>A</m> as the matrix of a plane transformation, (even though <m>A</m> isn’t the matrix for any well known transformation). Figure 19.2.3. shows the result of applying <m>A</m> to a square centred on the origin.
-                        <figure>
+                        As an aside, we can get some geometric insight if we consider <m>A</m> as the matrix of a plane transformation, (even though <m>A</m> isn’t the matrix for any well known transformation). <xref ref="Fig-Transformation_visualised"/> shows the result of applying <m>A</m> to a square centred on the origin.
+                        <figure xml:id="Fig-Transformation_visualised">
                             <image source="./LinearAlgebra/Images/5/figure2.png" width="75%"/>
                         </figure>
                         Informally, the effect of <m>A</m> is to pull the square out along the diagonal joining vertices <m>B</m> and <m>D</m>. Thus vectors along this diagonal will be mapped to scalar multiples of themselves while vectors along the diagonal joining vertices <m>A</m> and <m>C</m> will be left unchanged. 
@@ -242,7 +242,7 @@
                     <p>
                         The characteristic equation for <m>A</m> is
                         <md> 
-                            <mrow>det\begin{pmatrix} 1-\lambda \amp 2 \\ 3\amp 4-\lambda \end{pmatrix} \amp =0</mrow>
+                            <mrow>\det\begin{pmatrix} 1-\lambda \amp 2 \\ 3\amp 4-\lambda \end{pmatrix} \amp =0</mrow>
                             <mrow>(1-\lambda)(4-\lambda)-6 \amp =0</mrow>
                             <mrow>\lambda^2-5\lambda-2 \amp =0</mrow>
                         </md>
@@ -251,14 +251,14 @@
                         Clearly the eigenvalues don’t always turn out to be nice numbers, even when the matrix is quite simple. The eigenvectors will also turn out to be rather complicated.
                     </p>
                     <p>
-                        When <m>\lambda=\frac{5+\sqrt{33}}{2}</m> the augmented matrix and its reduced row echelon form are
+                        When <m>\lambda=\dfrac{5+\sqrt{33}}{2}</m> the augmented matrix and its reduced row echelon form are
                         <me>\begin{pmatrix} 1-\left(\frac{5+\sqrt{33}}{2} \right) \amp 2 \amp 0 \\ 3 \amp 4-\left(\frac{5+\sqrt{33}}{2} \right) \amp 0 \end{pmatrix} \sim \begin{pmatrix} \frac{-3-\sqrt{33}}{2} \amp 2 \amp 0 \\ 0 \amp 0 \amp 0 \end{pmatrix} </me>
                         Thus, the eigenvectors take the form
                         <md>
                             <mrow>\mathbf{x} \amp =\begin{pmatrix} x_1 \\ x_2 \end{pmatrix} \textrm{ where } \left(\frac{-3-\sqrt{33}}{2}\right)x_1+2x_2=0 </mrow>
                             <mrow>\Rightarrow \mathbf{x} \amp =\begin{pmatrix} 4t \\ t(3+\sqrt{33}) \end{pmatrix} = t\begin{pmatrix} 4 \\ 3+\sqrt{33} \end{pmatrix}</mrow>
                         </md>
-                        When <m>\lambda=\frac{5-\sqrt{33}}{2}</m> the augmented matrix and its reduced row echelon form are
+                        When <m>\lambda=\dfrac{5-\sqrt{33}}{2}</m> the augmented matrix and its reduced row echelon form are
                         <me>\begin{pmatrix} 1-\left(\frac{5-\sqrt{33}}{2} \right) \amp 2 \amp 0 \\ 3 \amp 4-\left(\frac{5-\sqrt{33}}{2} \right) \amp 0 \end{pmatrix} \sim \begin{pmatrix} \frac{-3+\sqrt{33}}{2} \amp 2 \amp 0 \\ 0 \amp 0 \amp 0 \end{pmatrix} </me>
                         Thus, the eigenvectors take the form
                         <md>
@@ -278,7 +278,7 @@
                     <p>
                         The characteristic equation for <m>A</m> is
                         <md> 
-                            <mrow>det\begin{pmatrix} 1-\lambda \amp 2 \\ 2\amp 4-\lambda \end{pmatrix} \amp =0</mrow>
+                            <mrow>\det\begin{pmatrix} 1-\lambda \amp 2 \\ 2\amp 4-\lambda \end{pmatrix} \amp =0</mrow>
                             <mrow>(1-\lambda)(4-\lambda)-4 \amp =0</mrow>
                             <mrow>\lambda^2-5\lambda \amp =0</mrow>
                         </md>
@@ -319,10 +319,10 @@
                     <p>
                         The characteristic equation for <m>A</m> is
                         <md>
-                            <mrow>det\begin{pmatrix} 0-\lambda \amp 1 \\ -1 \amp 0-\lambda \end{pmatrix} \amp =0 </mrow>
+                            <mrow>\det\begin{pmatrix} 0-\lambda \amp 1 \\ -1 \amp 0-\lambda \end{pmatrix} \amp =0 </mrow>
                             <mrow>\lambda^2+1 \amp =0 </mrow>
                         </md>
-                        This equation has no real solutions and so <m>A</m> does not have any real eigenvalues. (Notice that <m>A</m> is the matrix for a rotation in the plane about the origin and through <m>-\frac{\pi}{2}^C</m>.) However there are applications where it is advantageous to allow the eigenvalues and eigenvectors to be complex. So, proceeding as before, the eigenvalues for <m>A</m> are
+                        This equation has no real solutions and so <m>A</m> does not have any real eigenvalues. (Notice that <m>A</m> is the matrix for a rotation in the plane about the origin and through <m>-\frac{\pi}{2}^c</m>.) However there are applications where it is advantageous to allow the eigenvalues and eigenvectors to be complex. So, proceeding as before, the eigenvalues for <m>A</m> are
                         <me>\lambda=\pm i</me>
                         When <m>\lambda=i</m> the augmented matrix and its reduced row echelon form are
                         <me>\begin{pmatrix} -i \amp 1 \amp 0 \\ -1 \amp -i \amp 0 \end{pmatrix} \sim \begin{pmatrix} 1 \amp i \amp 0 \\ 0 \amp 0 \amp 0 \end{pmatrix} </me>
@@ -354,11 +354,12 @@
                 <solution>
                     <p>
                         The characteristic equation for <m>A</m> is
-                        <me>det\begin{pmatrix} 7-\lambda \amp 1 \amp -2 \\ -3 \amp 3-\lambda \amp 6 \\ 2 \amp 2\amp 2-\lambda \end{pmatrix}=0</me>
+                        <me>\det\begin{pmatrix} 7-\lambda \amp 1 \amp -2 \\ -3 \amp 3-\lambda \amp 6 \\ 2 \amp 2\amp 2-\lambda \end{pmatrix}=0</me>
                         Now, using the minors method and expanding along row 1,
                         <md>
-                            <mrow>det\begin{pmatrix} 7-\lambda \amp 1 \amp -2 \\ -3 \amp 3-\lambda \amp 6 \\ 2 \amp 2\amp 2-\lambda \end{pmatrix} \amp =(7-\lambda)\begin{vmatrix} 3-\lambda \amp 6 \\ 2 \amp 2-\lambda \end{vmatrix}-1\begin{vmatrix} -3 \amp 6 \\ 2 \amp 2-\lambda \end{vmatrix}+(-2)\begin{vmatrix} -3 \amp 3-\lambda \\ 2 \amp 2 \end{vmatrix} </mrow>
-                            <mrow>\amp = (7-\lambda)\{(3-\lambda)(2-\lambda)-12\}-\{(-3)(2-\lambda)-12\}-2\{-6-2(3-\lambda)\}</mrow>
+                            <mrow>\det\begin{pmatrix} 7-\lambda \amp 1 \amp -2 \\ -3 \amp 3-\lambda \amp 6 \\ 2 \amp 2\amp 2-\lambda \end{pmatrix} \amp =(7-\lambda)\begin{vmatrix} 3-\lambda \amp 6 \\ 2 \amp 2-\lambda \end{vmatrix}-1\begin{vmatrix} -3 \amp 6 \\ 2 \amp 2-\lambda \end{vmatrix}+(-2)\begin{vmatrix} -3 \amp 3-\lambda \\ 2 \amp 2 \end{vmatrix} </mrow>
+                            <mrow>\amp = (7-\lambda)\{(3-\lambda)(2-\lambda)-12\}</mrow>
+                            <mrow>\amp \quad \quad \quad \quad -\{(-3)(2-\lambda)-12\}-2\{-6-2(3-\lambda)\}</mrow>
                             <mrow>\amp = -\lambda^3+12\lambda^2-36\lambda</mrow>
                         </md>
                         Thus the eigenvalues for <m>A</m> satisfy
@@ -388,7 +389,7 @@
                 </solution>
             </example>
 
-            <example>
+            <example xml:id="Ex-Find_eigen_upper_triangular_matrix">
                 <p>
                     Find all eigenvalues and associated eigenvectors for
                     <me>A=\begin{pmatrix} 7 \amp 1 \amp -2 \\ 0 \amp 3 \amp 6 \\ 0 \amp 0 \amp 2 \end{pmatrix}</me>
@@ -396,10 +397,10 @@
                 <solution>
                     <p>
                         The characteristic equation for <m>A</m> is
-                        <me>det\begin{pmatrix} 7-\lambda \amp 1 \amp -2 \\ 0 \amp 3-\lambda \amp 6 \\ 0 \amp 0 \amp 2-\lambda \end{pmatrix}=0</me>
+                        <me>\det\begin{pmatrix} 7-\lambda \amp 1 \amp -2 \\ 0 \amp 3-\lambda \amp 6 \\ 0 \amp 0 \amp 2-\lambda \end{pmatrix}=0</me>
                         Now, using the minors method and expanding down column 1,
                         <md>
-                            <mrow>det\begin{pmatrix} 7-\lambda \amp 1 \amp -2 \\ 0 \amp 3-\lambda \amp 6 \\ 0 \amp 0\amp 2-\lambda \end{pmatrix} \amp =(7-\lambda)\begin{vmatrix} 3-\lambda \amp 6 \\ 0 \amp 2-\lambda \end{vmatrix}-0\begin{vmatrix} 1 \amp -2 \\ 0 \amp 2-\lambda \end{vmatrix}+0\begin{vmatrix} 1 \amp -2 \\ 3-\lambda \amp 6 \end{vmatrix} </mrow>
+                            <mrow>\det\begin{pmatrix} 7-\lambda \amp 1 \amp -2 \\ 0 \amp 3-\lambda \amp 6 \\ 0 \amp 0\amp 2-\lambda \end{pmatrix} \amp =(7-\lambda)\begin{vmatrix} 3-\lambda \amp 6 \\ 0 \amp 2-\lambda \end{vmatrix}-0\begin{vmatrix} 1 \amp -2 \\ 0 \amp 2-\lambda \end{vmatrix}+0\begin{vmatrix} 1 \amp -2 \\ 3-\lambda \amp 6 \end{vmatrix} </mrow>
                             <mrow>\amp = (7-\lambda)\{(3-\lambda)(2-\lambda)-0\}-0+0</mrow>
                             <mrow>\amp = (7-\lambda)(3-\lambda)(2-\lambda)</mrow>
                         </md>
@@ -431,7 +432,7 @@
             </example>
 
             <p>
-                As illustrated in Example 19.2.8., for an upper triangular matrix the eigenvalues are the entries on the main diagonal. Unfortunately, we cannot use row reduction to find eigenvalues because equivalent matrices do not necessarily have the same eigenvalues. Interestingly though, it can be shown that sum of the eigenvalues of any square matrix is equal to the sum of the entries on the main diagonal (i.e. to the <term>trace</term> of the matrix).
+                As illustrated in <xref ref="Ex-Find_eigen_upper_triangular_matrix"/>, for an upper triangular matrix the eigenvalues are the entries on the main diagonal. Unfortunately, we cannot use row reduction to find eigenvalues because equivalent matrices do not necessarily have the same eigenvalues. Interestingly though, it can be shown that sum of the eigenvalues of any square matrix is equal to the sum of the entries on the main diagonal (i.e. to the <term>trace</term> of the matrix).
             </p>
             <p>
                 To close this section, we can once again add one more statement to our theorem connecting the ideas that we have studied so far.
@@ -511,7 +512,7 @@
                 <me>0\leq r_i\leq 1</me>
                 <me>\sum_{i=1}^{5} r_i =1</me> 
                 and
-                <me> r_i \propto \textrm{ sum of the rankings of the sites which have links to it}</me>
+                <me> r_i \propto \textrm{ sum of the rankings of the sites which have links to it.}</me>
                 The idea here is that if a site has links to it from an important site (i.e. one with a high ranking) then that is better than having a link to it from an obscure site (i.e. one with a low ranking). So, letting the constant of proportionality be <m>k</m>, for the websites linked according to Figure 19.3.1. we have
                 <md>
                     <mrow>r_1 \amp =kr_3</mrow>

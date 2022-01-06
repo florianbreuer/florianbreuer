@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-12-08T21:44:27+11:00       *-->
+<!--*       on 2022-01-06T23:32:01+11:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,12 +15,37 @@
 </head>
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
+<p>To solve the initial-value problem we have to begin by finding the general solution to the DE. Since this DE is a non-homogeneous second order DE with constant coefficients we have to first find the general solution to the associated homogeneous DE</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{align*}
-y_p'(x) \amp =2Ce^{2x}\\
-y_p''(x) \amp=4Ce^{2x}
-\end{align*}
+\begin{equation*}
+y''+3y'=0
+\end{equation*}
 </div>
+<p class="continuation">The characteristic equation for this DE is</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+r^2+3r=0
+\end{equation*}
+</div>
+<p class="continuation">which has solutions</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+r=0, -3
+\end{equation*}
+</div>
+<p class="continuation">Thus the complementary solution is</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+y_c(x)=A+Be^{-3x}
+\end{equation*}
+</div>
+<p class="continuation">For the particular solution try a function of the form</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+y_p(x)=Ce^{2x}
+\end{equation*}
+</div>
+<p class="continuation">Then</p>
 <span class="incontext"><a href="The_Method_of_Undetermined_Coefficients.html#p-827">in-context</a></span>
 </body>
 </html>

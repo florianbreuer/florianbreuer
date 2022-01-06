@@ -56,7 +56,7 @@
 <!-- =================================================================================================== -->
 <!-- Section 1: Functions of Two Variables -->
 <!-- =================================================================================================== -->
-    <section xml:id="functions-of-two-variables">
+    <section xml:id="Functions-of-Two-Variables">
       <title>Functions of Two Variables</title>
 
       <p>
@@ -76,7 +76,7 @@
           and say that <m>T</m> is a function of two variables.
           Note that functions of two variables are of the form
           <me>f:D\rightarrow\mathbb{R}^2</me>
-          where <m>D\subseteq\mathbb{R}^2</m> is again the domain. 
+          where <m>D\subseteq\mathbb{R}^2</m> is again the domain.
         </p>
       </example>
       <p>
@@ -84,7 +84,7 @@
         <definition>
           <term>A (real valued) function <m>f</m> of two variables</term> is a rule that assigns to each ordered pair of real numbers <m>(x,y)</m> in a set <m>D</m> a unique (real) number denoted by <m>f(x,y)</m>.
         </definition>
-        Thus,  
+        Thus,
         <me>g(x,t)=\frac{\sin(t+1)}{s^2+t^2}, h(x,y)=(x-y)^2e^{-(x+y)}+6</me>
         are examples of functions of two variables.
       </p>
@@ -141,7 +141,7 @@
             <li><p><m>f(3,1)=1-3\times 1=-2</m></p></li>
             <li><p><m>f(\frac{1}{2},-\sqrt{5})=-\sqrt{5}+\frac{1}{2}\times\sqrt{5}=-\frac{\sqrt{5}}{2}</m></p></li>
             <li><p><m>f(1,3)=3-1\times 3=0</m></p></li>
-          </ol></p>    
+          </ol></p>
         </solution>
       </example>
       <p>
@@ -156,7 +156,7 @@
             <figure>
               <image source="./Calculus/Images/3/1_example4.png" width="75%"/>
             </figure>
-            
+
           </p>
         </solution>
       </example>
@@ -194,18 +194,18 @@
             <image source="./Calculus/Images/3/1_example7.png" width="75%"/>
           </figure>
         </p>
-         
+
       </example>
 
       <exercises>
         <title>Example Tasks</title>
 
-        <exercise> 
+        <exercise>
           <statement>
             <p>Determine the domain of the function <m>f(x,y)=\frac{\sin(y)}{xy-1}</m>.</p>
           </statement>
         </exercise>
-        <exercise> 
+        <exercise>
           <statement>
             <p>Sketch the graph of the following functions.</p>
             <p><ol label="a.">
@@ -214,7 +214,7 @@
             </ol></p>
           </statement>
         </exercise>
-        <exercise> 
+        <exercise>
           <statement>
             <p>Sketch the surface associated with the equation <m>f(x,y)=x^2+y^2-4</m>. Could the surface be the graph of a function of two variables?</p>
           </statement>
@@ -276,7 +276,7 @@
           <p>
             The contours (i.e. level curves) of a function satisfy the equation <m>z=k</m>. So for this function the level curves are:
             <me>x^2+y^2=k</me>
-            that is, circles centred on the origin and whose radius is <m>\sqrt{k}</m>. 
+            that is, circles centred on the origin and whose radius is <m>\sqrt{k}</m>.
             <figure>
               <image source="./Calculus/Images/3/2_example9.png" width="75%"/>
             </figure>
@@ -287,12 +287,12 @@
       <exercises>
         <title>Example Tasks</title>
 
-        <exercise> 
+        <exercise>
           <statement>
             <p>Draw the level curves associated with <m>k=-2,-1,0,1,2</m> for the function <me>z=2x-x^2+y</me>.</p>
           </statement>
         </exercise>
-        <exercise> 
+        <exercise>
           <statement>
             <p>Make a rough sketch of the contour map (centred on the origin) for the function whose graph is:</p>
             <figure>
@@ -300,7 +300,7 @@
             </figure>
           </statement>
         </exercise>
-        <exercise> 
+        <exercise>
           <statement>
             <p>Make a rough sketch of the contour map (centred on the origin) for the function whose graph is:</p>
             <figure>
@@ -321,14 +321,14 @@
 
     <section xml:id="surfaces-of-revolution">
       <title>Surfaces of Revolution</title>
-      
+
       <p>
         The surface associated with the graph of <m>f(x,y)=\sqrt{x^2+y^2}e^{-(x^2+y^2)}</m> (see example in section 1) is an example of a special kind of surface...a surface of revolution.
         <definition>
           A <term>surface of revolution</term> is a surface in <m>\mathbb{R}^3</m> obtained by rotating a curve about an axis.
         </definition>
       </p>
-        
+
       <example>
         <p>
           Determine the equation of the surface obtained by rotating the curve in the <m>xz</m>-plane <m>z=2-3x, x\geq 0</m> about the <m>z</m>-axis.
@@ -380,7 +380,7 @@
         </p>
         <solution>
           <p>
-            Since we can write the function as 
+            Since we can write the function as
             <me>f(x,y)=4-\big(\sqrt{x^2+y^2}\big)^2</me>
             this surface can be obtained by rotating the curve in the <m>xz</m>-plane
             <me>z=4-x^2, x\geq 0</me>
@@ -389,19 +389,19 @@
       </example>
       <exercises>
         <title>Example Tasks</title>
-        <exercise> 
+        <exercise>
           <statement>
             <p>Determine the equation of the surface obtained by rotating the curve <m>z=\sqrt{4-x^2}, x\geq 0</m> about the <m>z</m>-axis. Make a sketch of the surface.</p>
           </statement>
         </exercise>
-        <exercise> 
+        <exercise>
           <statement>
             <p>Is the graph of <m>f(x,y)=xy^2-y^3</m> a surface of revolution?</p>
           </statement>
         </exercise>
       </exercises>
 
-    
+
     </section>
 
 <!-- =================================================================================================== -->
@@ -419,12 +419,12 @@
       </p>
       <example>
         <p>
-          The function <m>f(x,y,z)=x^2+y^2+z^2</m> is a function of the form <m>f:\mathbb{R}^3\rightarrow\mathbb{R}</m> . 
+          The function <m>f(x,y,z)=x^2+y^2+z^2</m> is a function of the form <m>f:\mathbb{R}^3\rightarrow\mathbb{R}</m> .
         </p>
       </example>
       <example>
         <p>
-          The function <m>f(w,x,y,z)=2wx^2+yz+\frac{w}{(x+z)}</m> is a function of the form <m>f:\mathbb{R}^4\rightarrow\mathbb{R}</m> . 
+          The function <m>f(w,x,y,z)=2wx^2+yz+\frac{w}{(x+z)}</m> is a function of the form <m>f:\mathbb{R}^4\rightarrow\mathbb{R}</m> .
         </p>
       </example>
       <p>

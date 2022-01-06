@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-12-08T21:44:17+11:00       *-->
+<!--*       on 2022-01-06T23:31:50+11:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,13 +15,12 @@
 </head>
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
-<p>Find the solution to the initial-value problem</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{equation*}
-\frac{dy}{dx}=xy+x, \hspace{5mm} y(0)=1
-\end{equation*}
+\begin{align*}
+\int \frac{1}{y(1-y)}\hspace{2mm}dy \amp=\int \frac{1}{y}\hspace{2mm}dy +\int \frac{1}{1-y}\hspace{2mm}dy\\
+\amp =\ln(\vert y\vert)-\ln(\vert 1-y\vert)+C
+\end{align*}
 </div>
-<p class="continuation"><dfn xmlns:svg="http://www.w3.org/2000/svg" class="terminology">Note</dfn>: We looked at this example in section <dfn xmlns:svg="http://www.w3.org/2000/svg" class="terminology">9 Introduction</dfn> where we used Euler’s method with <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\Delta x=0.1\)</span> to approximate the value of the solution at <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(x=0.3\text{.}\)</span></p>
 <span class="incontext"><a href="Sec-First_Order_Separable_DEs.html#p-663">in-context</a></span>
 </body>
 </html>

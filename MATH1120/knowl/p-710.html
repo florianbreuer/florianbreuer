@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-12-08T21:44:20+11:00       *-->
+<!--*       on 2022-01-06T23:31:54+11:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,7 +15,21 @@
 </head>
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
-<p>Solve <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(y' = x+y\)</span></p>
+<p>To solve the first order linear DE</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+y' + P(x) y = Q(x)
+\end{equation*}
+</div>
+<ol class="decimal">
+<li><p>Calculate the integrating factor<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+I(x) = e^{\int P(x) dx}
+\end{equation*}
+</div></p></li>
+<li><p>Multiply both sides of the DE by the integrating factor <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(I(x)\)</span></p></li>
+<li><p>Solve the resulting exact DE <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\dfrac{d}{dx} \left(I(x) y \right) = I(x) Q(x)\)</span></p></li>
+</ol>
 <span class="incontext"><a href="First_Order_Linear_DEs.html#p-710">in-context</a></span>
 </body>
 </html>

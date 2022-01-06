@@ -1,7 +1,7 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-12-08T21:40:44+11:00       *-->
+<!--*       on 2022-01-06T23:29:39+11:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -87,7 +87,7 @@
 </li>
 <li class="link">
 <a href="Calculus_3.html" data-scroll="Calculus_3"><span class="codenumber">3</span> <span class="title">Functions of Several Variables</span></a><ul>
-<li><a href="functions-of-two-variables.html" data-scroll="functions-of-two-variables">Functions of Two Variables</a></li>
+<li><a href="Functions-of-Two-Variables.html" data-scroll="Functions-of-Two-Variables">Functions of Two Variables</a></li>
 <li><a href="level-curves.html" data-scroll="level-curves">Level Curves</a></li>
 <li><a href="surfaces-of-revolution.html" data-scroll="surfaces-of-revolution">Surfaces of Revolution</a></li>
 <li><a href="functions-of-3-or-more-variables.html" data-scroll="functions-of-3-or-more-variables">Functions of 3 (or more) Variables</a></li>
@@ -210,20 +210,20 @@
 <main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="Directional-Derivatives"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">6.1</span> <span class="title">Directional Derivatives</span>
 </h2>
-<p id="p-374">Firstly, note that <span class="process-math">\(2D\)</span> vectors are a convenient way to specify directions in the <span class="process-math">\(xy\)</span>-plane. For example, we could say the slope of the function in the direction of the vector <span class="process-math">\(\bm{i} = \langle 1, 0 \rangle\)</span> is <span class="process-math">\(f_x(x_0,y_0)\)</span> while in the direction of the vector <span class="process-math">\(\bm{j} = \langle 0,1 \rangle\)</span> it is <span class="process-math">\(f_y(x_0,y_0)\text{.}\)</span> Thus the problem we are looking at is that of finding the slope of the function at the point <span class="process-math">\((x,y) = (x_0,y_0)\)</span> in the direction given by some vector <span class="process-math">\(\bm{u} = \langle u_1, u_2 \rangle\text{.}\)</span> Mathematically, we would say that we are trying to find the <em class="emphasis">directional derivative</em> of the function <span class="process-math">\(f(x,y)\)</span> at the point <span class="process-math">\((x_0,y_0)\)</span> in the direction <span class="process-math">\(\bm{u}\text{.}\)</span> The notation that we use to denote this directional derivative is</p>
+<p id="p-375">Firstly, note that <span class="process-math">\(2D\)</span> vectors are a convenient way to specify directions in the <span class="process-math">\(xy\)</span>-plane. For example, we could say the slope of the function in the direction of the vector <span class="process-math">\(\bm{i} = \langle 1, 0 \rangle\)</span> is <span class="process-math">\(f_x(x_0,y_0)\)</span> while in the direction of the vector <span class="process-math">\(\bm{j} = \langle 0,1 \rangle\)</span> it is <span class="process-math">\(f_y(x_0,y_0)\text{.}\)</span> Thus the problem we are looking at is that of finding the slope of the function at the point <span class="process-math">\((x,y) = (x_0,y_0)\)</span> in the direction given by some vector <span class="process-math">\(\bm{u} = \langle u_1, u_2 \rangle\text{.}\)</span> Mathematically, we would say that we are trying to find the <em class="emphasis">directional derivative</em> of the function <span class="process-math">\(f(x,y)\)</span> at the point <span class="process-math">\((x_0,y_0)\)</span> in the direction <span class="process-math">\(\bm{u}\text{.}\)</span> The notation that we use to denote this directional derivative is</p>
 <div class="displaymath process-math">
 \begin{equation*}
 D_{\bm{u}}f(x_0,y_0)\text{.}
 \end{equation*}
 </div>
-<p id="p-375">One way to approach the problem of finding the directional derivative <span class="process-math">\(D_{\bm{u}}f(x_0,y_0)\)</span> is to use the tangent plane to the function at the point <span class="process-math">\((x_0,y_0)\text{,}\)</span> i.e.</p>
+<p id="p-376">One way to approach the problem of finding the directional derivative <span class="process-math">\(D_{\bm{u}}f(x_0,y_0)\)</span> is to use the tangent plane to the function at the point <span class="process-math">\((x_0,y_0)\text{,}\)</span> i.e.</p>
 <div class="displaymath process-math">
 \begin{equation*}
 L(x,y) = f(x_0,y_0) + f_x (x_0,y_0)(x - x_0) + f_y(x_0,y_0) (y-y_0)\text{.}
 \end{equation*}
 </div>
-<p id="p-376">Then the slope of the function <span class="process-math">\(f(x,y)\)</span> in the direction of <span class="process-math">\(\bm{u}\)</span> is the slope of <span class="process-math">\(L(x,y)\)</span> in that direction. If <span class="process-math">\(\hat{\bm{u}} = \langle u_1, u_2 \rangle\)</span> is a unit vector in the direction of <span class="process-math">\(\bm{u}\)</span> then the required slope is the amount by which the value of <span class="process-math">\(L\)</span> changes as the independent variables change from <span class="process-math">\((x_0,y_0)\)</span> to <span class="process-math">\((x_0+u_1,y_0+u_2)\text{,}\)</span> i.e.</p>
-<div class="displaymath process-math" id="p-377">
+<p id="p-377">Then the slope of the function <span class="process-math">\(f(x,y)\)</span> in the direction of <span class="process-math">\(\bm{u}\)</span> is the slope of <span class="process-math">\(L(x,y)\)</span> in that direction. If <span class="process-math">\(\hat{\bm{u}} = \langle u_1, u_2 \rangle\)</span> is a unit vector in the direction of <span class="process-math">\(\bm{u}\)</span> then the required slope is the amount by which the value of <span class="process-math">\(L\)</span> changes as the independent variables change from <span class="process-math">\((x_0,y_0)\)</span> to <span class="process-math">\((x_0+u_1,y_0+u_2)\text{,}\)</span> i.e.</p>
+<div class="displaymath process-math" id="p-378">
 \begin{align*}
 D_u f(x_0,y_0) \amp = L(x_0+u_1, y_0+u_2) - L(x_0,y_0)\\
 \amp = \bigg[ f(x_0,y_0) + f_x(x_0,y_0)(x_0+u_1 - x_0) + f_y(x_0,y_0)(y_0+u_2-y_0) \bigg] - f(x_0,y_0)\\
@@ -232,24 +232,24 @@ D_u f(x_0,y_0) \amp = L(x_0+u_1, y_0+u_2) - L(x_0,y_0)\\
 </div>
 <article class="example example-like" id="Ex-Directional_Derivative"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-Ex-Directional_Derivative"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">6.1.1</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Ex-Directional_Derivative"><article class="example example-like"><p id="p-378">Consider the function <span class="process-math">\(z(x,y) = 5 - \dfrac{x^2+y^2}{2}\text{.}\)</span> Figure 2 shows the graph of this function along with its the tangent plane at <span class="process-math">\((x,y) = (2,1)\text{.}\)</span> Also shown on the diagram are the vectors <span class="process-math">\(\bm{u} = \langle 2,2 \rangle\)</span> and <span class="process-math">\(\bm{v} = \langle 2,-1 \rangle\)</span> drawn in the <span class="process-math">\(xy\)</span>-plane with their tails at the point <span class="process-math">\((x,y) = (2,1)\text{.}\)</span> Then the directional derivative <span class="process-math">\(D_{\bm{u}}(z(2,1))\)</span> will be the slope of the line joining the points <span class="process-math">\((2,1,z(2,1))\)</span> and <span class="process-math">\((4,3,L(4,3))\)</span> while the directional derivative <span class="process-math">\(D_{\bm{v}}(f(2,1))\)</span> will be the slope of the line joining the points <span class="process-math">\((2,1,z(2,1))\)</span> and <span class="process-math">\((4,0,L(4,0))\text{.}\)</span></p>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Ex-Directional_Derivative"><article class="example example-like"><p id="p-379">Consider the function <span class="process-math">\(z(x,y) = 5 - \dfrac{x^2+y^2}{2}\text{.}\)</span> Figure 2 shows the graph of this function along with its the tangent plane at <span class="process-math">\((x,y) = (2,1)\text{.}\)</span> Also shown on the diagram are the vectors <span class="process-math">\(\bm{u} = \langle 2,2 \rangle\)</span> and <span class="process-math">\(\bm{v} = \langle 2,-1 \rangle\)</span> drawn in the <span class="process-math">\(xy\)</span>-plane with their tails at the point <span class="process-math">\((x,y) = (2,1)\text{.}\)</span> Then the directional derivative <span class="process-math">\(D_{\bm{u}}(z(2,1))\)</span> will be the slope of the line joining the points <span class="process-math">\((2,1,z(2,1))\)</span> and <span class="process-math">\((4,3,L(4,3))\)</span> while the directional derivative <span class="process-math">\(D_{\bm{v}}(f(2,1))\)</span> will be the slope of the line joining the points <span class="process-math">\((2,1,z(2,1))\)</span> and <span class="process-math">\((4,0,L(4,0))\text{.}\)</span></p>
 <figure class="figure figure-like" id="Fig-Example_2-Directional-Derivative"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="./Calculus/Images/6/Directional_Derivative_Example.png" class="contained"></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">6.1.2<span class="period">.</span></span><span class="space"> </span></figcaption></figure></article></div>
-<p id="p-379">To summarise:</p>
+<p id="p-380">To summarise:</p>
 <article class="definition definition-like" id="definition-13"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">6.1.3</span><span class="period">.</span><span class="space"> </span><span class="title">Directional Derivative.</span>
 </h3>
-<p id="p-380">The <em class="emphasis">directional derivative</em> of the differentiable function <span class="process-math">\(f(x,y)\)</span> at the point <span class="process-math">\((x_0,y_0)\)</span> in the direction of the unit vector <span class="process-math">\(\hat{\bm{u}} = \langle u_1, u_2 \rangle\)</span> is given by</p>
+<p id="p-381">The <em class="emphasis">directional derivative</em> of the differentiable function <span class="process-math">\(f(x,y)\)</span> at the point <span class="process-math">\((x_0,y_0)\)</span> in the direction of the unit vector <span class="process-math">\(\hat{\bm{u}} = \langle u_1, u_2 \rangle\)</span> is given by</p>
 <div class="displaymath process-math">
 \begin{equation*}
 D_{\bm{u}} f(x_0,y_0) = f_x(x_0,y_0)u_1 + f_y (x_0,y_0)u_2\text{.}
 \end{equation*}
 </div></article><article class="example example-like" id="Ex-Find_Directional_Derivative"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-Ex-Find_Directional_Derivative"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">6.1.4</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Ex-Find_Directional_Derivative"><article class="example example-like"><p id="p-381">Find the directional derivative of <span class="process-math">\(f(x,y) = y\ln(x)\)</span> at <span class="process-math">\((1,-3)\)</span> in the direction <span class="process-math">\(\bm{u} = \langle -4, 3 \rangle\text{.}\)</span></p>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Ex-Find_Directional_Derivative"><article class="example example-like"><p id="p-382">Find the directional derivative of <span class="process-math">\(f(x,y) = y\ln(x)\)</span> at <span class="process-math">\((1,-3)\)</span> in the direction <span class="process-math">\(\bm{u} = \langle -4, 3 \rangle\text{.}\)</span></p>
 <div class="solutions">
 <a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-44" id="solution-44"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-44"><div class="solution solution-like">
-<p id="p-382">For the given function</p>
+<p id="p-383">For the given function</p>
 <div class="displaymath process-math">
 \begin{equation*}
 f_x = \dfrac{y}{x} \: \text{ and } \: f_y = \ln(x)\text{.}
@@ -277,10 +277,10 @@ D_\hat{\bm{u}} f(1,-3) = (-3) \left( -\dfrac{4}{5} \right) + (0) \left( \dfrac{3
 </div></article></div>
 <article class="example example-like" id="Ex-Find_Directional_Derivative_2"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-Ex-Find_Directional_Derivative_2"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">6.1.5</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Ex-Find_Directional_Derivative_2"><article class="example example-like"><p id="p-383">Find the directional derivative of <span class="process-math">\(f(x,y) = \sin(x+2y)\)</span> in the direction of the angle (from the positive <span class="process-math">\(x\)</span>-axis) <span class="process-math">\(\theta = \dfrac{3 \pi}{4}\text{.}\)</span></p>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Ex-Find_Directional_Derivative_2"><article class="example example-like"><p id="p-384">Find the directional derivative of <span class="process-math">\(f(x,y) = \sin(x+2y)\)</span> in the direction of the angle (from the positive <span class="process-math">\(x\)</span>-axis) <span class="process-math">\(\theta = \dfrac{3 \pi}{4}\text{.}\)</span></p>
 <div class="solutions">
 <a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-45" id="solution-45"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-45"><div class="solution solution-like">
-<p id="p-384">For the given function</p>
+<p id="p-385">For the given function</p>
 <div class="displaymath process-math">
 \begin{equation*}
 f_x = \cos(x+2y) \: \text{ and } \: f_y = 2\cos(x+2y)\text{.}
@@ -301,17 +301,17 @@ D_\hat{\bm{u}} f(x,y) \amp = \cos(x+2y) \left( - \dfrac{1}{\sqrt{2}} \right) + 2
 </div>
 </div></div>
 </div></article></div>
-<p id="p-385">Note that the directional derivative <span class="process-math">\(D_\bm{u} f(x_0,y_0)\)</span> can be expressed in the terms of the scalar product if we use the following definition.</p>
+<p id="p-386">Note that the directional derivative <span class="process-math">\(D_\bm{u} f(x_0,y_0)\)</span> can be expressed in the terms of the scalar product if we use the following definition.</p>
 <article class="definition definition-like" id="definition-14"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">6.1.6</span><span class="period">.</span><span class="space"> </span><span class="title">Gradient Vector.</span>
 </h3>
-<p id="p-386">The vector</p>
+<p id="p-387">The vector</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \nabla f(x_0,y_0) = \langle f_x(x_0,y_0), f_y(x_0,y_0) \rangle
 \end{equation*}
 </div>
-<p class="continuation">is called the <em class="emphasis">gradient vector</em> of <span class="process-math">\(f(x,y)\)</span> at <span class="process-math">\((x_0,y_0)\text{.}\)</span></p></article><p id="p-387">With this definition the directional derivative can be written as:</p>
+<p class="continuation">is called the <em class="emphasis">gradient vector</em> of <span class="process-math">\(f(x,y)\)</span> at <span class="process-math">\((x_0,y_0)\text{.}\)</span></p></article><p id="p-388">With this definition the directional derivative can be written as:</p>
 <div class="displaymath process-math">
 \begin{align*}
 D_\bm{u} f(x_0,y_0) \amp = \langle f_x(x_0,y_0),f_y(x_0,y_0) \cdot \langle u_1, u_2 \rangle\\
@@ -320,10 +320,10 @@ D_\bm{u} f(x_0,y_0) \amp = \langle f_x(x_0,y_0),f_y(x_0,y_0) \cdot \langle u_1, 
 </div>
 <article class="example example-like" id="Ex-Find_Gradient_Vector"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-Ex-Find_Gradient_Vector"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">6.1.7</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Ex-Find_Gradient_Vector"><article class="example example-like"><p id="p-388">Find the gradient vector for the function <span class="process-math">\(f(x,y) = e^{-x} \sin(y)\text{.}\)</span> Hence find <span class="process-math">\(\nabla f(0,\pi/3)\)</span> and the directional derivative in the direction of the origin.</p>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Ex-Find_Gradient_Vector"><article class="example example-like"><p id="p-389">Find the gradient vector for the function <span class="process-math">\(f(x,y) = e^{-x} \sin(y)\text{.}\)</span> Hence find <span class="process-math">\(\nabla f(0,\pi/3)\)</span> and the directional derivative in the direction of the origin.</p>
 <div class="solutions">
 <a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-46" id="solution-46"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-46"><div class="solution solution-like">
-<p id="p-389">For the given function</p>
+<p id="p-390">For the given function</p>
 <div class="displaymath process-math">
 \begin{equation*}
 f_x = -e^{-x} \sin(y) \: \text{ and } \: f_y = e^{-x}\cos(y)\text{,}
@@ -355,10 +355,10 @@ D_{\hat{\bm{u}}} f \left( 0, \dfrac{\pi}{3} \right) = \left \langle -\dfrac{\sqr
 </div>
 </div></div>
 </div></article></div>
-<p id="p-390">The gradient vector has some interesting facts associated with it. Note in the following we are assuming that <span class="process-math">\(\nabla f \neq \langle 0, 0 \rangle\text{.}\)</span></p>
-<ol id="p-391" class="decimal">
+<p id="p-391">The gradient vector has some interesting facts associated with it. Note in the following we are assuming that <span class="process-math">\(\nabla f \neq \langle 0, 0 \rangle\text{.}\)</span></p>
+<ol id="p-392" class="decimal">
 <li id="li-72">
-<p id="p-392"><span class="process-math">\(\nabla f\)</span> points in the direction in which the directional derivative takes on its largest value. To see this, note that</p>
+<p id="p-393"><span class="process-math">\(\nabla f\)</span> points in the direction in which the directional derivative takes on its largest value. To see this, note that</p>
 <div class="displaymath process-math">
 \begin{align*}
 D_{\bm{u}} f(x,y) \amp = \nabla f(x,y) \cdot \hat{\bm{u}}\\
@@ -367,11 +367,11 @@ D_{\bm{u}} f(x,y) \amp = \nabla f(x,y) \cdot \hat{\bm{u}}\\
 \end{align*}
 </div>
 <p class="continuation">At a given point <span class="process-math">\(\| \nabla f \|\)</span> is fixed and so the largest value of <span class="process-math">\(D_{\bm{u}} f(x,y)\)</span> will occur when <span class="process-math">\(\cos(\theta) = 1\text{,}\)</span> i.e. when <span class="process-math">\(\theta = 0\)</span> or put another way, when <span class="process-math">\(\hat{\bm{u}}\)</span> is parallel to <span class="process-math">\(\nabla f\text{.}\)</span> We can also see from this that the largest value that the directional derivative can take is <span class="process-math">\(\| \nabla f \|\text{.}\)</span></p>
-<p id="p-393">Similarly, the directional derivative takes on its smallest value in the direction of <span class="process-math">\(-\nabla f\)</span> and has value <span class="process-math">\(- \| \nabla f \|\text{.}\)</span></p>
+<p id="p-394">Similarly, the directional derivative takes on its smallest value in the direction of <span class="process-math">\(-\nabla f\)</span> and has value <span class="process-math">\(- \| \nabla f \|\text{.}\)</span></p>
 </li>
 <li id="li-73">
-<p id="p-394"><span class="process-math">\(\nabla f(x_0,y_0)\)</span> is orthogonal (i.e. at right angles) to the level curve passing through <span class="process-math">\((x_0,y_0)\text{.}\)</span></p>
-<p id="p-395">For the function <span class="process-math">\(z = f(x,y)\)</span> the level curve passing through the point <span class="process-math">\((x_0,y_0)\)</span> is given</p>
+<p id="p-395"><span class="process-math">\(\nabla f(x_0,y_0)\)</span> is orthogonal (i.e. at right angles) to the level curve passing through <span class="process-math">\((x_0,y_0)\text{.}\)</span></p>
+<p id="p-396">For the function <span class="process-math">\(z = f(x,y)\)</span> the level curve passing through the point <span class="process-math">\((x_0,y_0)\)</span> is given</p>
 <div class="displaymath process-math">
 \begin{equation*}
 f(x,y) = f(x_0,y_0)\text{.}
@@ -379,18 +379,18 @@ f(x,y) = f(x_0,y_0)\text{.}
 </div>
 <p class="continuation">Now, as shown in Figure <a href="" class="xref" data-knowl="./knowl/Fig_tangent_vector.html" title="Figure 6.1.8">Figure 6.1.8</a>, a vector parallel to the tangent to this curve at the point <span class="process-math">\((x_0,y_0)\)</span> will be <span class="process-math">\(\left \langle 1, \dfrac{dy}{dx} \right \rangle\text{.}\)</span></p>
 <figure class="figure figure-like" id="Fig_tangent_vector"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="./Calculus/Images/6/Fig3_tangent_vector.png" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">6.1.8<span class="period">.</span></span><span class="space"> </span></figcaption></figure><p id="p-396">Thus a vector normal to the curve at the point <span class="process-math">\((x_0,y_0)\)</span> will be <span class="process-math">\(\left \langle \dfrac{f_x(x_0,y_0)}{f_y(x_0,y_0)}, 1 \right \rangle\text{,}\)</span> which is parallel to <span class="process-math">\(\nabla f(x_0,y_0)\text{.}\)</span></p>
-<p id="p-397">Notice that since <span class="process-math">\(\nabla f(x_0,y_0)\)</span> is orthogonal to the level curve passing through the point <span class="process-math">\((x_0,y_0)\)</span> and that <span class="process-math">\(\nabla f (x_0,y_0)\)</span> is the direction in which the directional derivative takes on its largest value, the “path of steepest ascent” on any surface <span class="process-math">\(z=f(x,y)\)</span> is always at right angles to its contours. See the following diagram for an attempt to show this.</p>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">6.1.8<span class="period">.</span></span><span class="space"> </span></figcaption></figure><p id="p-397">Thus a vector normal to the curve at the point <span class="process-math">\((x_0,y_0)\)</span> will be <span class="process-math">\(\left \langle \dfrac{f_x(x_0,y_0)}{f_y(x_0,y_0)}, 1 \right \rangle\text{,}\)</span> which is parallel to <span class="process-math">\(\nabla f(x_0,y_0)\text{.}\)</span></p>
+<p id="p-398">Notice that since <span class="process-math">\(\nabla f(x_0,y_0)\)</span> is orthogonal to the level curve passing through the point <span class="process-math">\((x_0,y_0)\)</span> and that <span class="process-math">\(\nabla f (x_0,y_0)\)</span> is the direction in which the directional derivative takes on its largest value, the “path of steepest ascent” on any surface <span class="process-math">\(z=f(x,y)\)</span> is always at right angles to its contours. See the following diagram for an attempt to show this.</p>
 <figure class="figure figure-like" id="Fig_Contour_Plot"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="./Calculus/Images/6/Fig4_Contour_Plot.png" class="contained"></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">6.1.9<span class="period">.</span></span><span class="space"> </span></figcaption></figure>
 </li>
 </ol>
 <article class="example example-like" id="Ex-Find_Max_Min_Directional_Derivative"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-Ex-Find_Max_Min_Directional_Derivative"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">6.1.10</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Ex-Find_Max_Min_Directional_Derivative"><article class="example example-like"><p id="p-398">For the function <span class="process-math">\(f(x,y) = x^2y^3-3x\)</span> find the directions in which the directional derivative at the point <span class="process-math">\((-2,4)\)</span> is maximised, minimised and <span class="process-math">\(0\text{.}\)</span></p>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Ex-Find_Max_Min_Directional_Derivative"><article class="example example-like"><p id="p-399">For the function <span class="process-math">\(f(x,y) = x^2y^3-3x\)</span> find the directions in which the directional derivative at the point <span class="process-math">\((-2,4)\)</span> is maximised, minimised and <span class="process-math">\(0\text{.}\)</span></p>
 <div class="solutions">
 <a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-47" id="solution-47"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-47"><div class="solution solution-like">
-<p id="p-399">For the given function</p>
+<p id="p-400">For the given function</p>
 <div class="displaymath process-math">
 \begin{equation*}
 f_x = 2xy^3-3 \: \text{ and } \: f_y = 3x^2y^2\text{,}
@@ -432,10 +432,10 @@ f_x = 2xy^3-3 \: \text{ and } \: f_y = 3x^2y^2\text{,}
 </div></article></div>
 <article class="example example-like" id="Ex-Find_lvlcurve_tanline_gradvec"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-Ex-Find_lvlcurve_tanline_gradvec"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">6.1.11</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Ex-Find_lvlcurve_tanline_gradvec"><article class="example example-like"><p id="p-400">For the function <span class="process-math">\(f(x,y) = x^2-y\)</span> find the level curve, the tangent line and the gradient vector at the point <span class="process-math">\((-3,1)\text{.}\)</span></p>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Ex-Find_lvlcurve_tanline_gradvec"><article class="example example-like"><p id="p-401">For the function <span class="process-math">\(f(x,y) = x^2-y\)</span> find the level curve, the tangent line and the gradient vector at the point <span class="process-math">\((-3,1)\text{.}\)</span></p>
 <div class="solutions">
 <a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-48" id="solution-48"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-48"><div class="solution solution-like">
-<p id="p-401">Since <span class="process-math">\(f(-3,1)=8\)</span> the level curve through the point <span class="process-math">\((-3,1)\)</span> is <span class="process-math">\(x^2-y=8\)</span> or <span class="process-math">\(y=x^2-8\text{.}\)</span> We can find the equation of the tangent by standard calculus to obtain</p>
+<p id="p-402">Since <span class="process-math">\(f(-3,1)=8\)</span> the level curve through the point <span class="process-math">\((-3,1)\)</span> is <span class="process-math">\(x^2-y=8\)</span> or <span class="process-math">\(y=x^2-8\text{.}\)</span> We can find the equation of the tangent by standard calculus to obtain</p>
 <div class="displaymath process-math">
 \begin{equation*}
 y=-6x-17\text{.}
@@ -454,18 +454,18 @@ y=-6x-17\text{.}
 </div></article></div>
 <article class="example example-like" id="Ex-Hill_Climbing"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-Ex-Hill_Climbing"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">6.1.13</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Ex-Hill_Climbing"><article class="example example-like"><p id="p-402">Suppose you are climbing a hill whose shape is given by the equation</p>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Ex-Hill_Climbing"><article class="example example-like"><p id="p-403">Suppose you are climbing a hill whose shape is given by the equation</p>
 <div class="displaymath process-math">
 \begin{equation*}
 z = 1000-0.01x^2 - 0.02y^2
 \end{equation*}
 </div>
-<p class="continuation">and you are standing at the point with coordinates <span class="process-math">\((60,100,764)\text{.}\)</span> <ol id="p-403" class="lower-alpha">
+<p class="continuation">and you are standing at the point with coordinates <span class="process-math">\((60,100,764)\text{.}\)</span> <ol id="p-404" class="lower-alpha">
 <li id="li-74"><p id="p-derived-li-74">In which direction should you proceed initially in order to be ascending most rapidly?</p></li>
 <li id="li-75"><p id="p-derived-li-75">If you climb in that direction, at what angle to the horizontal will you be climbing initially?</p></li>
 </ol></p>
 <div class="solutions">
-<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-49" id="solution-49"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-49"><div class="solution solution-like"><ol id="p-404" class="lower-alpha">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-49" id="solution-49"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-49"><div class="solution solution-like"><ol id="p-405" class="lower-alpha">
 <li id="li-76"><p id="p-derived-li-76">Since we want to travel on the path of steepest ascent we will want to head in the direction of <span class="process-math">\(\nabla f(60,100)\text{.}\)</span> Now<div class="displaymath process-math">
 \begin{equation*}
 \nabla f(x,y) = \langle -0.02x, -0.04y \rangle
@@ -490,12 +490,12 @@ D_{\hat{\bm{u}}} f(60,100) = \| \nabla f(60,100) \| \simeq 4.17\text{.}
 <span class="type">Exercises</span> <span class="codenumber"></span> <span class="title">Example Tasks</span>
 </h3>
 <article class="exercise exercise-like" id="exercise-40"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
-<p id="p-405">Find the directional derivative for <span class="process-math">\(f(x,y) = (x-2y)^2 + 5x^2\)</span> at the point <span class="process-math">\((-3,1)\)</span> in the direction of the point <span class="process-math">\((1,4)\text{.}\)</span></p></article><article class="exercise exercise-like" id="exercise-41"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
-<p id="p-406">Find the maximum value of the rate of change of <span class="process-math">\(h(s,t) = \dfrac{1}{\sqrt{s^2+t^2}}\)</span> at <span class="process-math">\((3,4)\text{.}\)</span></p></article><article class="exercise exercise-like" id="exercise-42"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
-<p id="p-407">For the curve <span class="process-math">\(e^x \ln (y) - xy = 0\)</span> use the gradient vector of a two variable function to find the tangent line and the normal line at the point <span class="process-math">\((2,e^2)\text{.}\)</span></p></article><article class="exercise exercise-like" id="exercise-43"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
-<p id="p-408">For the following contour plot for some unspecified function of two variables estimate the sign of the directional derivatives at:</p>
+<p id="p-406">Find the directional derivative for <span class="process-math">\(f(x,y) = (x-2y)^2 + 5x^2\)</span> at the point <span class="process-math">\((-3,1)\)</span> in the direction of the point <span class="process-math">\((1,4)\text{.}\)</span></p></article><article class="exercise exercise-like" id="exercise-41"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<p id="p-407">Find the maximum value of the rate of change of <span class="process-math">\(h(s,t) = \dfrac{1}{\sqrt{s^2+t^2}}\)</span> at <span class="process-math">\((3,4)\text{.}\)</span></p></article><article class="exercise exercise-like" id="exercise-42"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
+<p id="p-408">For the curve <span class="process-math">\(e^x \ln (y) - xy = 0\)</span> use the gradient vector of a two variable function to find the tangent line and the normal line at the point <span class="process-math">\((2,e^2)\text{.}\)</span></p></article><article class="exercise exercise-like" id="exercise-43"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
+<p id="p-409">For the following contour plot for some unspecified function of two variables estimate the sign of the directional derivatives at:</p>
 <figure class="figure figure-like" id="ET_Contour_Plot"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="./Calculus/Images/6/Example-Task-4_Contour_Plot.png" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">6.1.14<span class="period">.</span></span><span class="space"> </span></figcaption></figure><ol id="p-409" class="lower-alpha">
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">6.1.14<span class="period">.</span></span><span class="space"> </span></figcaption></figure><ol id="p-410" class="lower-alpha">
 <li id="li-78"><p id="p-derived-li-78">The point <span class="process-math">\(A\)</span> and in the direction of <span class="process-math">\(\bm{u} = \langle 1,2 \rangle\text{.}\)</span></p></li>
 <li id="li-79"><p id="p-derived-li-79">The point <span class="process-math">\(B\)</span> and in the direction of <span class="process-math">\(\bm{w} = \langle -1,-1 \rangle\text{.}\)</span></p></li>
 <li id="li-80"><p id="p-derived-li-80">The point <span class="process-math">\(A\)</span> and in the direction of the origin.</p></li>

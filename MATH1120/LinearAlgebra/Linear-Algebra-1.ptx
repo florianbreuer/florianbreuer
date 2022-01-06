@@ -113,8 +113,8 @@
                         Multiplying the second equation by <m>2</m> and then subtracting this from the first equation gives <m>y=-3</m>. Substituting this result into either of the original equations gives <m>x=2</m>. Thus the solution is <m>(x,y)=(2,-3)</m>.
                     </p>
                     <p>
-                        As shown in Figure 15.1.4., we can interpret the solution <m>(x,y)=(2,-3)</m> as the point in the plane at which the straight lines represented by the equations <m>2x-3y=13</m> and <m>x-y=5</m> intersect.
-                        <figure>
+                        As shown in <xref ref="Fig-Intersection_of_two_lines"/>, we can interpret the solution <m>(x,y)=(2,-3)</m> as the point in the plane at which the straight lines represented by the equations <m>2x-3y=13</m> and <m>x-y=5</m> intersect.
+                        <figure xml:id="Fig-Intersection_of_two_lines">
                             <image source="./LinearAlgebra/Images/1/figure1.png" width="60%"/>
                         </figure>
                     </p>
@@ -138,8 +138,8 @@
                         Thus, the parameter <m>t</m> labels the infinite family of solutions.
                     </p>
                     <p>
-                        The geometric interpretation of this system of linear equations is that both equations represent the same line (as shown in Figure 15.1.6.).
-                        <figure>
+                        The geometric interpretation of this system of linear equations is that both equations represent the same line (as shown in <xref ref="Fig-Same_line"/>).
+                        <figure xml:id="Fig-Same_line">
                             <image source="./LinearAlgebra/Images/1/figure2.png" width="60%"/>
                         </figure>
                         Note that the solution written in terms of the parameter <m>t</m> can be interpreted as a vector equation for the line. By writing the solution as
@@ -162,8 +162,8 @@
                         Multiplying the first equation by <m>2</m> and then subtracting this from the second equation gives <m>0=-21</m>. This tells us that no values of <m>x</m> and <m>y</m> will satisfy these equations. Thus there are no solutions. A system of equations with no solution is said to be <term>inconsistent</term>.
                     </p>
                     <p>
-                        Geometrically, this system of linear equations can be interpreted as two parallel lines in the plane, as shown in Figure 15.1.8.
-                        <figure>
+                        Geometrically, this system of linear equations can be interpreted as two parallel lines in the plane, as shown in <xref ref="Fig-Parallel_lines"/>.
+                        <figure xml:id="Fig-Parallel_lines">
                             <image source="./LinearAlgebra/Images/1/figure3.png" width="60%"/>
                         </figure>
                     </p>
@@ -217,7 +217,7 @@
                 <p>
                     The following are examples of matrices.
                     <me> \begin{pmatrix} 1 \amp 2 \amp 3 \\ 4 \amp 5 \amp 10 \end{pmatrix} \hspace{5mm} \begin{pmatrix} 0 \amp \frac{1}{4} \\ -\frac{1}{2} \amp 3 \end{pmatrix} \hspace{5mm} \begin{pmatrix} \sqrt{2} \\ 1 \\ -3 \end{pmatrix} </me>
-                    <me> \hspace{5mm} 2\times 3 \textrm{ matrix } \hspace{5mm} 2\times 2 \textrm{ matrix } \hspace{3mm} 3\times 1 \textrm{ matrix }</me>
+                    <me> \hspace{5mm} 2\times 3 \textrm{ matrix } \hspace{5mm} 2\times 2 \textrm{ matrix } \hspace{4mm} 3\times 1 \textrm{ matrix }</me>
                 </p>
             </example>
 
@@ -267,7 +267,7 @@
                 </p>
             </example>
 
-            <example>
+            <example xml:id="Ex-Write_down_the_system_of_equations">
                 <p> 
                     Write down the system of linear equations that correspond to the following augmented matrices.
                 </p>
@@ -319,7 +319,7 @@
             <example>
                 <title>(cont.)</title>
                 <p>
-                    It turns out that the systems of linear equations in Example 15.2.5. are equivalent, i.e.
+                    It turns out that the systems of linear equations in <xref ref="Ex-Write_down_the_system_of_equations"/> are equivalent, i.e.
                     <md>
                         <mrow>3x-2y+2z \amp =-3 \hspace{48mm} x=1</mrow>
                         <mrow>-x+6y+4z \amp =7 \hspace{10mm} \textrm{ is equivalent to } \hspace{10mm} y=2</mrow>
@@ -338,7 +338,7 @@
                 <li><p>Adding any multiple of one equation to another</p></li>                
             </ul></p>
 
-            <example>
+            <example xml:id="Ex-Equivalent_systems_of_linear_equations">
                 <p>
                     The following systems of linear equations are equivalent because we have just written the equations in a different order.
                     <md>
@@ -362,7 +362,7 @@
             </example>
 
             <p>
-                Thus the strategy for solving a system of linear equations will be to apply the above operations in a systematic way to produce an equivalent system from which we can determine the solution (such as that given in Example 15.3.2(b)). This strategy, in the form described below, is called Gauss-Jordon Elimination. In order to describe this strategy we need some terminology.
+                Thus the strategy for solving a system of linear equations will be to apply the above operations in a systematic way to produce an equivalent system from which we can determine the solution (such as that given in <xref ref="Ex-Equivalent_systems_of_linear_equations"/>(b)). This strategy, in the form described below, is called <term>Gauss-Jordon Elimination</term>. In order to describe this strategy we need some terminology.
             </p>
 
             <definition>

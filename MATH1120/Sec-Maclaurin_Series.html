@@ -1,7 +1,7 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-12-08T21:40:42+11:00       *-->
+<!--*       on 2022-01-06T23:29:37+11:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -87,7 +87,7 @@
 </li>
 <li class="link">
 <a href="Calculus_3.html" data-scroll="Calculus_3"><span class="codenumber">3</span> <span class="title">Functions of Several Variables</span></a><ul>
-<li><a href="functions-of-two-variables.html" data-scroll="functions-of-two-variables">Functions of Two Variables</a></li>
+<li><a href="Functions-of-Two-Variables.html" data-scroll="Functions-of-Two-Variables">Functions of Two Variables</a></li>
 <li><a href="level-curves.html" data-scroll="level-curves">Level Curves</a></li>
 <li><a href="surfaces-of-revolution.html" data-scroll="surfaces-of-revolution">Surfaces of Revolution</a></li>
 <li><a href="functions-of-3-or-more-variables.html" data-scroll="functions-of-3-or-more-variables">Functions of 3 (or more) Variables</a></li>
@@ -210,13 +210,13 @@
 <main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="Sec-Maclaurin_Series"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">1.3</span> <span class="title">Maclaurin Series</span>
 </h2>
-<p id="p-43">In this section we will discuss the task of finding an infinite series representation for a given function of one variable, <span class="process-math">\(f\text{.}\)</span> We begin by assuming that the given function <span class="process-math">\(f(x)\)</span> does indeed have a power series representation, at least initially about <span class="process-math">\(x=0\text{.}\)</span> Thus we assume that on some interval <span class="process-math">\(|x| &lt; R\)</span></p>
+<p id="p-44">In this section we will discuss the task of finding an infinite series representation for a given function of one variable, <span class="process-math">\(f\text{.}\)</span> We begin by assuming that the given function <span class="process-math">\(f(x)\)</span> does indeed have a power series representation, at least initially about <span class="process-math">\(x=0\text{.}\)</span> Thus we assume that on some interval <span class="process-math">\(|x| &lt; R\)</span></p>
 <div class="displaymath process-math">
 \begin{equation}
 f(x) = \sum_{k=0}^{\infty}c_kx^k = c_0 + c_1x +c_2x^2 +c_3x^3 + \cdots.\label{Eq-Maclaurin_of_f}\tag{1.3.1}
 \end{equation}
 </div>
-<p id="p-44">We know that the power series reduces to <span class="process-math">\(c_0\)</span> when <span class="process-math">\(x=0\)</span> and so for the power series to match the function when <span class="process-math">\(x=0\)</span> we must have <span class="process-math">\(c_0 = f(0)\text{.}\)</span> On differentiating <a href="" class="xref" data-knowl="./knowl/Eq-Maclaurin_of_f.html" title="Equation 1.3.1">(1.3.1)</a> we get</p>
+<p id="p-45">We know that the power series reduces to <span class="process-math">\(c_0\)</span> when <span class="process-math">\(x=0\)</span> and so for the power series to match the function when <span class="process-math">\(x=0\)</span> we must have <span class="process-math">\(c_0 = f(0)\text{.}\)</span> On differentiating <a href="" class="xref" data-knowl="./knowl/Eq-Maclaurin_of_f.html" title="Equation 1.3.1">(1.3.1)</a> we get</p>
 <div class="displaymath process-math">
 \begin{equation}
 f'(x) = \sum_{k=1}^{\infty}kc_kx^{k-1} = c_1 +2c_2x +3c_3x^2 + 4c_4x^3 + \cdots\label{Eq-First_derivative_Maclaurin}\tag{1.3.2}
@@ -238,20 +238,20 @@ f^{(n)}(x) = \sum_{k=n}^{\infty}k(k-1)(k-2)\cdots(k-(n-1))c_kx^{k-n}\tag{1.3.4}
 <article class="definition definition-like" id="definition-2"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.3.1</span><span class="period">.</span><span class="space"> </span><span class="title">Maclaurin Series.</span>
 </h3>
-<p id="p-45">The series</p>
+<p id="p-46">The series</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \sum_{k=0}^{\infty}\dfrac{f^{(k)}(0)}{k!}x^k = f(0) + f'(0)x +\dfrac{f^{''}(0)}{2!}x^2 +\dfrac{f^{'''}(0)}{3!}x^3 + \cdots
 \end{equation*}
 </div>
-<p class="continuation">is called the <dfn class="terminology">Maclaurin series</dfn> for <span class="process-math">\(f(x)\text{.}\)</span></p></article><p id="p-46">We know that the Maclaurin series for <span class="process-math">\(f\)</span> converges when <span class="process-math">\(x=0\)</span> (since all power series converge for <span class="process-math">\(f(x)\)</span>) and we also know that the series converges to <span class="process-math">\(f(0)\)</span> (because we constructed it that way). However for other values of <span class="process-math">\(x\)</span> we cannot be sure that the infinite series will converge and if it does, does it converge to the function value.</p>
+<p class="continuation">is called the <dfn class="terminology">Maclaurin series</dfn> for <span class="process-math">\(f(x)\text{.}\)</span></p></article><p id="p-47">We know that the Maclaurin series for <span class="process-math">\(f\)</span> converges when <span class="process-math">\(x=0\)</span> (since all power series converge for <span class="process-math">\(f(x)\)</span>) and we also know that the series converges to <span class="process-math">\(f(0)\)</span> (because we constructed it that way). However for other values of <span class="process-math">\(x\)</span> we cannot be sure that the infinite series will converge and if it does, does it converge to the function value.</p>
 <article class="example example-like" id="Ex-Maclaurin_series_geometric"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-Ex-Maclaurin_series_geometric"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">1.3.2</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Ex-Maclaurin_series_geometric"><article class="example example-like"><p id="p-47">Find the Maclaurin series for <span class="process-math">\(f(x)=\dfrac{1}{1-x}\text{.}\)</span></p>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Ex-Maclaurin_series_geometric"><article class="example example-like"><p id="p-48">Find the Maclaurin series for <span class="process-math">\(f(x)=\dfrac{1}{1-x}\text{.}\)</span></p>
 <div class="solutions">
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-5" id="answer-5"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-5"><div class="answer solution-like"><p id="p-48"><span class="process-math">\(\displaystyle \sum_{k=0}^{\infty}x^k = 1+x+x^2+x^3+x^4+ \cdots\)</span></p></div></div>
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-5" id="answer-5"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-5"><div class="answer solution-like"><p id="p-49"><span class="process-math">\(\displaystyle \sum_{k=0}^{\infty}x^k = 1+x+x^2+x^3+x^4+ \cdots\)</span></p></div></div>
 <a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-5" id="solution-5"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-5"><div class="solution solution-like">
-<p id="p-49">Firstly find the derivatives of <span class="process-math">\(f\)</span> and evaluate them at <span class="process-math">\(x=0\text{.}\)</span></p>
+<p id="p-50">Firstly find the derivatives of <span class="process-math">\(f\)</span> and evaluate them at <span class="process-math">\(x=0\text{.}\)</span></p>
 <div class="displaymath process-math">
 \begin{alignat*}{1}
 f(x) \amp = (1-x)^{-1} \text{ and hence } f(0)=1\\
@@ -273,7 +273,7 @@ f^{(k)}(x) \amp = k!(1-x)^{-k-1} \text{ and hence } f^{(k)}(0) = k!
 <article class="definition definition-like" id="definition-3"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.3.3</span><span class="period">.</span><span class="space"> </span><span class="title">Maclaurin Polynomial.</span>
 </h3>
-<p id="p-50">The <span class="process-math">\(n\)</span>th partial sum of the Maclaurin series for <span class="process-math">\(f(x)\text{,}\)</span> i.e.,</p>
+<p id="p-51">The <span class="process-math">\(n\)</span>th partial sum of the Maclaurin series for <span class="process-math">\(f(x)\text{,}\)</span> i.e.,</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \sum_{k=0}^{n}\dfrac{f^{(k)}(0)}{k!}x^k = f(0) + f'(0)x +\dfrac{f^{''}(0)}{2!}x^2 +\cdots + \dfrac{f^{(n)}(0)}{n!}x^n 
@@ -281,17 +281,17 @@ f^{(k)}(x) \amp = k!(1-x)^{-k-1} \text{ and hence } f^{(k)}(0) = k!
 </div>
 <p class="continuation">is called the <dfn class="terminology">Maclaurin polynomial of degree <span class="process-math">\(n\)</span></dfn> for <span class="process-math">\(f(x)\text{.}\)</span></p></article><article class="example example-like" id="Ex-Maclaurin_polynomial_cosine"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-Ex-Maclaurin_polynomial_cosine"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">1.3.4</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Ex-Maclaurin_polynomial_cosine"><article class="example example-like"><p id="p-51">Find the Maclaurin polynomials of degree <span class="process-math">\(0,1,2,3\)</span> and <span class="process-math">\(4\)</span> for the function <span class="process-math">\(f(x)=\cos(x)\text{.}\)</span></p>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Ex-Maclaurin_polynomial_cosine"><article class="example example-like"><p id="p-52">Find the Maclaurin polynomials of degree <span class="process-math">\(0,1,2,3\)</span> and <span class="process-math">\(4\)</span> for the function <span class="process-math">\(f(x)=\cos(x)\text{.}\)</span></p>
 <div class="solutions">
 <a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-6" id="answer-6"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-6"><div class="answer solution-like">
-<p id="p-52"><span class="process-math">\(M_0(x)=1\)</span></p>
-<p id="p-53"><span class="process-math">\(M_1(x)=1\)</span></p>
-<p id="p-54"><span class="process-math">\(M_2(x)=1-\dfrac{x^2}{2}\)</span></p>
-<p id="p-55"><span class="process-math">\(M_3(x)=1-\dfrac{x^2}{2}\)</span></p>
-<p id="p-56"><span class="process-math">\(M_4(x)=1-\dfrac{x^2}{2}+\dfrac{x^4}{24}\)</span></p>
+<p id="p-53"><span class="process-math">\(M_0(x)=1\)</span></p>
+<p id="p-54"><span class="process-math">\(M_1(x)=1\)</span></p>
+<p id="p-55"><span class="process-math">\(M_2(x)=1-\dfrac{x^2}{2}\)</span></p>
+<p id="p-56"><span class="process-math">\(M_3(x)=1-\dfrac{x^2}{2}\)</span></p>
+<p id="p-57"><span class="process-math">\(M_4(x)=1-\dfrac{x^2}{2}+\dfrac{x^4}{24}\)</span></p>
 </div></div>
 <a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-6" id="solution-6"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-6"><div class="solution solution-like">
-<p id="p-57">For <span class="process-math">\(f(x)=\cos(x)\text{,}\)</span></p>
+<p id="p-58">For <span class="process-math">\(f(x)=\cos(x)\text{,}\)</span></p>
 <div class="displaymath process-math">
 \begin{alignat*}{1}
 f(x) \amp = \cos(x) \text{ and hence } f(0)=1\\
@@ -308,7 +308,7 @@ M_0(x)=f(0)=1.
 \end{equation*}
 </div>
 <p class="continuation">Notice that the <span class="process-math">\(0\)</span>th degree Maclaurin polynomial is the horizontal line passing through the point <span class="process-math">\((0,f(0))\text{.}\)</span></p>
-<p id="p-58">The <span class="process-math">\(1\)</span>st degree Maclaurin polynomial is</p>
+<p id="p-59">The <span class="process-math">\(1\)</span>st degree Maclaurin polynomial is</p>
 <div class="displaymath process-math">
 \begin{alignat*}{1}
 M_1(x) \amp = f(0) + f'(0)x\\
@@ -317,7 +317,7 @@ M_1(x) \amp = f(0) + f'(0)x\\
 \end{alignat*}
 </div>
 <p class="continuation">Notice that the <span class="process-math">\(1\)</span>st degree Maclaurin polynomial is the tangent to the function at the point  <span class="process-math">\((0,f(0))\text{.}\)</span> Notice also, that in this case, the <span class="process-math">\(0\)</span>th degree and the <span class="process-math">\(1\)</span>st  degree Maclaurin polynomials are the same.</p>
-<p id="p-59">The <span class="process-math">\(2\)</span>nd degree Maclaurin polynomial is</p>
+<p id="p-60">The <span class="process-math">\(2\)</span>nd degree Maclaurin polynomial is</p>
 <div class="displaymath process-math">
 \begin{alignat*}{1}
 M_2(x) \amp = f(0) + f'(0)x + \dfrac{f''(0)}{2}x^2\\
@@ -325,7 +325,7 @@ M_2(x) \amp = f(0) + f'(0)x + \dfrac{f''(0)}{2}x^2\\
 \amp = 1-\dfrac{x^2}{2}
 \end{alignat*}
 </div>
-<p id="p-60">The <span class="process-math">\(3\)</span>rd degree Maclaurin polynomial is</p>
+<p id="p-61">The <span class="process-math">\(3\)</span>rd degree Maclaurin polynomial is</p>
 <div class="displaymath process-math">
 \begin{alignat*}{1}
 M_3(x)  \amp = f(0) + f'(0)x + \dfrac{f''(0)}{2}x^2 + \dfrac{f'''(0)}{3!}x^3\\
@@ -333,7 +333,7 @@ M_3(x)  \amp = f(0) + f'(0)x + \dfrac{f''(0)}{2}x^2 + \dfrac{f'''(0)}{3!}x^3\\
 \amp = 1-\dfrac{x^2}{2}
 \end{alignat*}
 </div>
-<p id="p-61">The <span class="process-math">\(4\)</span>th degree Maclaurin polynomial is</p>
+<p id="p-62">The <span class="process-math">\(4\)</span>th degree Maclaurin polynomial is</p>
 <div class="displaymath process-math">
 \begin{alignat*}{1}
 M_4(x)  \amp = f(0) + f'(0)x + \dfrac{f''(0)}{2}x^2 + \dfrac{f'''(0)}{3!}x^3 + \dfrac{f^{(iv)}(0)}{4!}x^4\\
@@ -352,7 +352,7 @@ M_4(x)  \amp = f(0) + f'(0)x + \dfrac{f''(0)}{2}x^2 + \dfrac{f'''(0)}{3!}x^3 + \
 <article class="exercise exercise-like" id="exercise-3"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>Let <span class="process-math">\(f(x)=e^x\text{.}\)</span> Find the Maclaurin series for <span class="process-math">\(f\)</span> and find its interval of convergence.</article><article class="exercise exercise-like" id="exercise-4"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>Find the Maclaurin polynomial of degree <span class="process-math">\(3\)</span> for <span class="process-math">\(g(x) = \tan^{-1}(x)\text{.}\)</span></article></section><article class="remark remark-like" id="remark-3"><h3 class="heading">
 <span class="type">Remark</span><span class="space"> </span><span class="codenumber">1.3.6</span><span class="period">.</span><span class="space"> </span><span class="title">Aside.</span>
 </h3>
-<p id="p-62">Computer Algebra Systems usually have a command for calculating Maclaurin series. For example, the following shows part of the output from a Wolfram Alpha query.</p>
+<p id="p-63">Computer Algebra Systems usually have a command for calculating Maclaurin series. For example, the following shows part of the output from a Wolfram Alpha query.</p>
 <figure class="figure figure-like" id="Fig-C1_WA_3"><div class="image-box" style="width: 90%; margin-left: 5%; margin-right: 5%;"><img src="./Calculus/Images/1/C1_WA_3.png" class="contained"></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.3.7<span class="period">.</span></span><span class="space"> </span></figcaption></figure></article></section></div></main>
 </div>

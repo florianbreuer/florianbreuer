@@ -61,9 +61,9 @@
     <section xml:id="Sec-Introduction">
         <title>Introduction</title>
 
-        <p>Have you ever wondered how your calculator actually calculates <m>e^x</m> or <m>\sin(x)</m> (or other non-polynomial functions) for particular values of <m>x</m>? Essentially, the way it is done is to write the function as an infinite series and then use as many terms of this series as necessary to obtain a value accurate to the number of digits in the calculator's display. For example, (as we will learn later on) the function <m>f(x)</m> can be represented by the infinite series <me>1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \frac{x^4}{4!} + \cdots</me>.</p>
+        <p>Have you ever wondered how your calculator actually calculates <m>e^x</m> or <m>\sin(x)</m> (or other non-polynomial functions) for particular values of <m>x</m>? Essentially, the way it is done is to write the function as an infinite series and then use as many terms of this series as necessary to obtain a value accurate to the number of digits in the calculator's display. For example, (as we will learn later on) the function <m>e^x</m> can be represented by the infinite series <me>1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \frac{x^4}{4!} + \cdots</me>.</p>
 
-        <p>Thus, to calculate <m>e^{0.3}</m> say, we could put <m>x=0.3</m> into the series. As the table below shows, as we use more and more terms from the series it seems that the sum isn't changing in the first few decimal places. Thus we might claim that to four decimal accuracy <m>e^{0.3}=1.1350</m>.</p>
+        <p>Thus, to calculate <m>e^{0.3}</m> say, we could put <m>x=0.3</m> into the series. As the table below shows, as we use more and more terms from the series it seems that the sum isn't changing in the first few decimal places. Thus we might claim that to four decimal digits <m>e^{0.3}=1.350</m>.</p>
 
         <tabular top="minor">
             <row header="yes" bottom="minor" left="minor">
@@ -132,7 +132,7 @@
 
         <p>In this section we will discuss the concepts and terminology associated with infinite series that we will need in order to discuss representing functions by infinite series. </p>
 
-        <p>An infinite series is a sum of the form <me>\sum_{k=1}^{\infty}t_k = t_1 + t_2 +t_3 + \cdots</me> where <m>t_k</m> are real numbers.</p>
+        <p>An <term>infinite series</term> is a sum of the form <me>\sum_{k=1}^{\infty}t_k = t_1 + t_2 +t_3 + \cdots</me> where <m>t_k</m> are (real) numbers.</p>
 
         <p>We call <m>t_1, t_1+t_2, t_1+t_2+t_3, \ldots</m> the <term>sequence</term> of partial sums for the series.</p>
 
@@ -152,9 +152,9 @@
 
         <p>On adding the first <m>10</m> terms of the series <m>\displaystyle \sum_{k=1}^{\infty}\frac{1}{2^k}</m> we get <m>0.99902344\cdots</m>, on adding the first <m>20</m> terms we get <m>0.99999905\cdots</m>. So even though as we add more terms the sum is getting larger it is getting closer and closer to some fixed number. Adding lots of terms of the series (as we did above) suggests that for this case the sum is converging to <m>1</m>. If this is the case (and we will show below that it is) then we would say:
             <ul>
-                <li>The series converges to <m>1</m></li>
-                <li>The sum of the series is <m>1</m></li>
-                <li>The limit of the series is <m>1</m></li>
+                <li>The series <term>converges</term> to <m>1</m></li>
+                <li>The <term>sum</term> of the series is <m>1</m></li>
+                <li>The <term>limit</term> of the series is <m>1</m></li>
             </ul>
         </p>
 
@@ -291,7 +291,7 @@
                 <statement>
                     <p>Determine the interval of convergence for the following series.
                         <ol label="a" cols="2">
-                            <li><m>\displaystyle \sum_{k=1}^{\infty}\dfrac{(3x-2)^k}{k3^k}</m></li>
+                            <li><m>\displaystyle \sum_{k=1}^{\infty}\dfrac{(3x-2)^k}{k\,3^k}</m></li>
                             <li><m>\displaystyle \sum_{k=1}^{\infty}(-1)^k\dfrac{x^{2k}}{(2k)!}</m></li>
                         </ol>
                     </p>
@@ -307,6 +307,9 @@
                 <figure xml:id="Fig-C1_WA_1">
                     <image source="./Calculus/Images/1/C1_WA_1.png" width="90%"/>
                 </figure>
+                <p>
+                   The following example shows another query to Wolfram Alpha and the associated output.
+                </p>
                 <figure xml:id="Fig-C1_WA_2">
                         <image source="./Calculus/Images/1/C1_WA_2.png" width="90%"/>
                 </figure>

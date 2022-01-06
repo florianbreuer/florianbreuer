@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-12-08T21:44:13+11:00       *-->
+<!--*       on 2022-01-06T23:31:45+11:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,19 +15,26 @@
 </head>
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
-<p>Again this is a first order DE since the highest derivative in the equation is a first derivative. In this case we can’t solve the equation via anti-differentiation. However, given that the equation says that the function must be such that its derivative must be equal to the negative of itself it would be reasonable to guess that the function must be an exponential function. For <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(y(x)=e^x\)</span> we can see that</p>
+<p>Because this equation only involves the first derivative of the function it is a first order differential equation. Next, since the differential equation is of the form</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
 \begin{equation*}
-y'=e^x=y
+\frac{dy}{dx}=f(x) 
 \end{equation*}
 </div>
-<p class="continuation">and so try instead <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(y(x)=e^{-x}\text{.}\)</span> Then</p>
+<p class="continuation">we can solve it by simple anti-differentiation. Thus</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
 \begin{equation*}
-y'=-e^{-x}=-y
+y(x)=\int x \hspace{2mm} dx =\frac{1}{2}x^2+C 
 \end{equation*}
 </div>
-<p class="continuation">and so we have found a (particular) solution.</p>
+<p class="continuation">Note that this solution is the general solution to the DE, it is a description of all possible solutions to the equation. As shown in Figure 9.1.11., when we graph all of the functions in this general solution they fill the entire plane but there are no points of intersection. <figure class="figure figure-like"><div xmlns:svg="http://www.w3.org/2000/svg" class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="./DifferentialEquations/Images/1/1_example6.png" class="contained"></div>
+<figcaption xmlns:svg="http://www.w3.org/2000/svg"><span class="type">Figure</span><span class="space"> </span><span class="codenumber">9.1.11<span class="period">.</span></span><span class="space"> </span></figcaption></figure> A solution with a given value of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(C\)</span> would be a particular solution of the DE, for example</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+y(x)=\frac{1}{2}x^2+1 
+\end{equation*}
+</div>
+<p class="continuation">This particular solution is highlighted in Figure 9.1.11.</p>
 <span class="incontext"><a href="introduction.html#p-581">in-context</a></span>
 </body>
 </html>

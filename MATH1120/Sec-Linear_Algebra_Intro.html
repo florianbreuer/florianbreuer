@@ -1,7 +1,7 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-12-08T21:42:26+11:00       *-->
+<!--*       on 2022-01-06T23:30:29+11:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -87,7 +87,7 @@
 </li>
 <li class="link">
 <a href="Calculus_3.html" data-scroll="Calculus_3"><span class="codenumber">3</span> <span class="title">Functions of Several Variables</span></a><ul>
-<li><a href="functions-of-two-variables.html" data-scroll="functions-of-two-variables">Functions of Two Variables</a></li>
+<li><a href="Functions-of-Two-Variables.html" data-scroll="Functions-of-Two-Variables">Functions of Two Variables</a></li>
 <li><a href="level-curves.html" data-scroll="level-curves">Level Curves</a></li>
 <li><a href="surfaces-of-revolution.html" data-scroll="surfaces-of-revolution">Surfaces of Revolution</a></li>
 <li><a href="functions-of-3-or-more-variables.html" data-scroll="functions-of-3-or-more-variables">Functions of 3 (or more) Variables</a></li>
@@ -210,7 +210,7 @@
 <main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="Sec-Linear_Algebra_Intro"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">17.1</span> <span class="title">Introduction</span>
 </h2>
-<p id="p-1004">We introduced matrices when discussing systems of linear equations. Recall that an <span class="process-math">\(m \times n\)</span> matrix is a rectangular array of numbers, written in the form</p>
+<p id="p-1005">We introduced matrices when discussing systems of linear equations. Recall that an <span class="process-math">\(m \times n\)</span> matrix is a rectangular array of numbers, written in the form</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \begin{pmatrix}
@@ -227,13 +227,13 @@ a_{m1} \amp a_{m2} \amp \cdots \amp a_{mn}\\
 A=\left(a_{ij}\right)_{m \times n}.
 \end{equation*}
 </div>
-<p id="p-1005">Note that we usually use a capital letter to denote a matrix.</p>
-<p id="p-1006">In the context of systems of linear equations the main concept was row reducing a matrix to produce equivalent matrices. In different contexts, however, other operations on matrices have proved useful and we shall discuss these operations below. Before doing this, though, we will introduce some new terminology.</p>
+<p id="p-1006">Note that we usually use a capital letter to denote a matrix.</p>
+<p id="p-1007">In the context of systems of linear equations the main concept was row reducing a matrix to produce equivalent matrices. In different contexts, however, other operations on matrices have proved useful and we shall discuss these operations below. Before doing this, though, we will introduce some new terminology.</p>
 <article class="definition definition-like" id="definition-38"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">17.1.1</span><span class="period">.</span><span class="space"> </span><span class="title">Equal matrices.</span>
 </h3>Two matrices are said to be <dfn class="terminology">equal</dfn> if they are of the same size and all corresponding entries are equal.</article><article class="example example-like" id="Ex-Matrix_equality"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-Ex-Matrix_equality"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">17.1.2</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Ex-Matrix_equality"><article class="example example-like"><p id="p-1007">Let <span class="process-math">\(A = \begin{pmatrix}5 \amp 0 \amp 1\\ -3 \amp \sqrt{2} \amp 1/2\end{pmatrix}, \quad B = \begin{pmatrix}5 \amp -3 \\ 0 \amp \sqrt{2} \\ 1 \amp 1/2\end{pmatrix}, \quad C = \begin{pmatrix} 5 \amp 0 \amp 1\\ -3 \amp a \amp b\end{pmatrix}.\)</span></p>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Ex-Matrix_equality"><article class="example example-like"><p id="p-1008">Let <span class="process-math">\(A = \begin{pmatrix}5 \amp 0 \amp 1\\ -3 \amp \sqrt{2} \amp 1/2\end{pmatrix}, \quad B = \begin{pmatrix}5 \amp -3 \\ 0 \amp \sqrt{2} \\ 1 \amp 1/2\end{pmatrix}, \quad C = \begin{pmatrix} 5 \amp 0 \amp 1\\ -3 \amp a \amp b\end{pmatrix}.\)</span></p>
 <ol class="lower-alpha">
 <li id="li-216"><p id="p-derived-li-216">For what values of <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> does <span class="process-math">\(A=C\text{?}\)</span></p></li>
 <li id="li-217"><p id="p-derived-li-217">For what values of <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> does <span class="process-math">\(B=C\text{?}\)</span></p></li>
@@ -255,13 +255,13 @@ A=\left(a_{ij}\right)_{m \times n}.
 0\amp 0\amp \cdots \amp 0\\
 \end{pmatrix}.
 \end{equation*}
-</div></article><p id="p-1008">Note that by using the symbol <span class="process-math">\(0\)</span> to denote the zero matrix we have to tell from the context whether the <span class="process-math">\(0\)</span> refers to a number or a matrix.</p>
+</div></article><p id="p-1009">Note that by using the symbol <span class="process-math">\(0\)</span> to denote the zero matrix we have to tell from the context whether the <span class="process-math">\(0\)</span> refers to a number or a matrix.</p>
 <article class="definition definition-like" id="definition-40"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">17.1.4</span><span class="period">.</span><span class="space"> </span><span class="title">Transpose.</span>
-</h3>For the matrix <span class="process-math">\(A=(a_{ij})_{m \times n}\text{,}\)</span> its <dfn class="terminology">transpose</dfn>, denoted by <span class="process-math">\(A^T\text{,}\)</span> is defined by <span class="process-math">\(A^T = \left(a_{ji}\right)_{n \times m}\text{.}\)</span></article><p id="p-1009">Note that this definition is saying that the rows of matrix <span class="process-math">\(A\)</span> are the columns of its transpose <span class="process-math">\(A^T\)</span> and vice versa.</p>
+</h3>For the matrix <span class="process-math">\(A=(a_{ij})_{m \times n}\text{,}\)</span> its <dfn class="terminology">transpose</dfn>, denoted by <span class="process-math">\(A^T\text{,}\)</span> is defined by <span class="process-math">\(A^T = \left(a_{ji}\right)_{n \times m}\text{.}\)</span></article><p id="p-1010">Note that this definition is saying that the rows of matrix <span class="process-math">\(A\)</span> are the columns of its transpose <span class="process-math">\(A^T\)</span> and vice versa.</p>
 <article class="example example-like" id="Ex-Transpose"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-Ex-Transpose"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">17.1.5</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Ex-Transpose"><article class="example example-like"><p id="p-1010">Let</p>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Ex-Transpose"><article class="example example-like"><p id="p-1011">Let</p>
 <div class="displaymath process-math">
 \begin{equation*}
 B = \begin{pmatrix}5 \amp -3 \\ 0 \amp \sqrt{2} \\ 1 \amp 1/2\end{pmatrix}, \quad C = \begin{pmatrix} 5 \amp 0 \amp 1\\ -3 \amp a \amp b\end{pmatrix}.
@@ -277,7 +277,7 @@ B = \begin{pmatrix}5 \amp -3 \\ 0 \amp \sqrt{2} \\ 1 \amp 1/2\end{pmatrix}, \qua
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">17.1.6</span><span class="period">.</span><span class="space"> </span><span class="title">Square matrix.</span>
 </h3>A <dfn class="terminology">square matrix</dfn> is a matrix that has the same number of rows and columns.</article><article class="example example-like" id="Ex-Square_matrices"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-Ex-Square_matrices"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">17.1.7</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Ex-Square_matrices"><article class="example example-like"><p id="p-1011">Matrix <span class="process-math">\(A\)</span> is a square matrix whereas matrix <span class="process-math">\(B\)</span> is not.</p>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Ex-Square_matrices"><article class="example example-like"><p id="p-1012">Matrix <span class="process-math">\(A\)</span> is a square matrix whereas matrix <span class="process-math">\(B\)</span> is not.</p>
 <div class="displaymath process-math">
 \begin{equation*}
 A = \begin{pmatrix}-1 \amp 3 \amp 4\\ 5 \amp 0 \amp -2 \\ 3 \amp 1/3 \amp 6 \end{pmatrix}, \quad B = \begin{pmatrix} -1 \amp 3 \\ 5 \amp 0 \\ 3 \amp 1/3\end{pmatrix}
@@ -294,7 +294,7 @@ I_n = \begin{pmatrix}
 0\amp 0 \amp \cdots \amp 1\
 \end{pmatrix}.
 \end{equation*}
-</div></article><p id="p-1012">Often, when the size of the identity matrix is clear the subscript is dropped from the notation and the identity matrix is denoted just by <span class="process-math">\(I\text{.}\)</span></p></section></div></main>
+</div></article><p id="p-1013">Often, when the size of the identity matrix is clear the subscript is dropped from the notation and the identity matrix is denoted just by <span class="process-math">\(I\text{.}\)</span></p></section></div></main>
 </div>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-12-08T21:44:24+11:00       *-->
+<!--*       on 2022-01-06T23:31:58+11:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -14,36 +14,23 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h3 class="heading"><span class="type">Paragraph</span></h3>
-<p>If the characteristic equation <a href="" class="xref" data-knowl="./knowl/characteristic_equation.html" title="Equation 12.1.3">(12.1.3)</a> has only one real solution (i.e. <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(b^{2}-4ac=0 \)</span>) then we will have found only one exponential solution to  <a href="" class="xref" data-knowl="./knowl/homogeneous_2_order_constant_coefficients.html" title="Equation 12.1.1">(12.1.1)</a> , i.e.</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{equation}
-y(x)=e^{rx}\; \text{where}\; r=-\frac{b}{2a}.\tag{12.1.4}
-\end{equation}
-</div>
-<p class="continuation">To find a general solution we have to find another solution (that is not a constant multiple <a href="" class="xref" data-knowl="./knowl/homogeneous_2_order_constant_coefficients.html" title="Equation 12.1.1">(12.1.1)</a>). It turns out that another solution to <a href="" class="xref" data-knowl="./knowl/characteristic_equation.html" title="Equation 12.1.3">(12.1.3)</a> can be found by trying a function of the form</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{equation}
-y(x)=f(x) e^{rx},\; r=-\frac{b}{2a}.\tag{12.1.5}
-\end{equation}
-</div>
-<p class="continuation">Differentiating <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(y \)</span> and substituting into <a href="" class="xref" data-knowl="./knowl/homogeneous_2_order_constant_coefficients.html" title="Equation 12.1.1">(12.1.1)</a> gives</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{align*}
-a e^{rx} (r^{2}f(x)+2r f'(x)+f''(x)) + be^{rx}(rf(x) + f'(x)) + c f(x) e^{rx} \amp =0,  \\
-f(x) e^{rx} (ar^{2} + br + c) + f'(x) e^{rx}(2ar+b) + f''(x) e^{rx}  \amp =0.  
-\end{align*}
-</div>
-<p class="continuation">Since <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(ar^{2}+br+c=0, \; 2ar+b=0 \)</span> and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(e^{rx}\neq 0, \)</span>  <a href="" class="xref" data-knowl="./knowl/y_equal_fx_e__power_rx.html" title="Equation 12.1.5">(12.1.5)</a> is a solution when</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{equation}
-f''(x)=0.\tag{12.1.6}
-\end{equation}
-</div>
-<p class="continuation">Clearly  <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(f(x)=1 \)</span> satisfies <a href="" class="xref" data-knowl="./knowl/ftwo_order_derivative_equal_zero.html" title="Equation 12.1.6">(12.1.6)</a> but this just gives us solution <a href="" class="xref" data-knowl="./knowl/y_equal_e__power_rx.html" title="Equation 12.1.4">(12.1.4)</a>.   also satisfies <a href="" class="xref" data-knowl="./knowl/ftwo_order_derivative_equal_zero.html" title="Equation 12.1.6">(12.1.6)</a> and gives us a solution that is not a constant multiple of <a href="" class="xref" data-knowl="./knowl/y_equal_e__power_rx.html" title="Equation 12.1.4">(12.1.4)</a>. Thus a general solution to <a href="" class="xref" data-knowl="./knowl/homogeneous_2_order_constant_coefficients.html" title="Equation 12.1.1">(12.1.1)</a> will be</p>
+<h4 class="heading"><span class="type">Paragraph</span></h4>
+<p>The characteristic equation for this homogeneous second order linear DE with constant coefficients is</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
 \begin{equation*}
-y(x)=(Ax+B)e^{rx},\; r=-\frac{b}{2a}.
+r^{2}+3r+2=0 
+\end{equation*}
+</div>
+<p class="continuation">which has solutions</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+r=-1,\; -2. 
+\end{equation*}
+</div>
+<p class="continuation">Thus the general solution to the DE is</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+y(x)=A e^{-x} + B e^{-2 x}. 
 \end{equation*}
 </div>
 <span class="incontext"><a href="Homogeneous_Second_Order_Linear_DEs_With_Constant_Coefficients.html#p-777">in-context</a></span>

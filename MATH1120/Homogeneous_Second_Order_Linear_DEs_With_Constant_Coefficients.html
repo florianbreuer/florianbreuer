@@ -1,7 +1,7 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-12-08T21:41:37+11:00       *-->
+<!--*       on 2022-01-06T23:30:00+11:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -87,7 +87,7 @@
 </li>
 <li class="link">
 <a href="Calculus_3.html" data-scroll="Calculus_3"><span class="codenumber">3</span> <span class="title">Functions of Several Variables</span></a><ul>
-<li><a href="functions-of-two-variables.html" data-scroll="functions-of-two-variables">Functions of Two Variables</a></li>
+<li><a href="Functions-of-Two-Variables.html" data-scroll="Functions-of-Two-Variables">Functions of Two Variables</a></li>
 <li><a href="level-curves.html" data-scroll="level-curves">Level Curves</a></li>
 <li><a href="surfaces-of-revolution.html" data-scroll="surfaces-of-revolution">Surfaces of Revolution</a></li>
 <li><a href="functions-of-3-or-more-variables.html" data-scroll="functions-of-3-or-more-variables">Functions of 3 (or more) Variables</a></li>
@@ -210,53 +210,53 @@
 <main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="Homogeneous_Second_Order_Linear_DEs_With_Constant_Coefficients"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">12.1</span> <span class="title">Homogeneous Second Order Linear DEs With Constant Coefficients</span>
 </h2>
-<p id="p-738">So far we have learnt how to find exact solutions to separable first order DEs and linear first order DEs. For other types of first order DEs finding exact solutions can become quite involved (or even impossible) and so instead we will turn our attention to second order DEs. Recall that a second order DE is one that involves the second derivative of the unknown function. As with first order DEs we can only find analytic methods for solving second order DEs for certain classes of such DEs.</p>
-<p id="p-739">The class of second order DEs that we are going to consider in this lecture is called the class of “homogeneous, second order, linear DEs with constant coefficients”. Let’s try to put this into some sort of context. Recall from DEs (<span class="process-math">\(3 \)</span>) that a first order linear DE is a DE of the form:</p>
-<div class="displaymath process-math" id="p-740">
+<p id="p-739">So far we have learnt how to find exact solutions to separable first order DEs and linear first order DEs. For other types of first order DEs finding exact solutions can become quite involved (or even impossible) and so instead we will turn our attention to second order DEs. Recall that a second order DE is one that involves the second derivative of the unknown function. As with first order DEs we can only find analytic methods for solving second order DEs for certain classes of such DEs.</p>
+<p id="p-740">The class of second order DEs that we are going to consider in this lecture is called the class of “homogeneous, second order, linear DEs with constant coefficients”. Let’s try to put this into some sort of context. Recall from DEs (<span class="process-math">\(3 \)</span>) that a first order linear DE is a DE of the form:</p>
+<div class="displaymath process-math" id="p-741">
 \begin{equation*}
 P(x)y'+Q(x)y=f(x).
 \end{equation*}
 </div>
-<p id="p-741">As we have seen, this equation is called linear because it is the sum of terms that either don’t involve y or only involve y or its derivatives raised to the power of one . Extending this idea to second order DEs gives the following definition.</p>
+<p id="p-742">As we have seen, this equation is called linear because it is the sum of terms that either don’t involve y or only involve y or its derivatives raised to the power of one . Extending this idea to second order DEs gives the following definition.</p>
 <article class="definition definition-like" id="definition-22"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">12.1.1</span><span class="period">.</span>
 </h3>
-<p id="p-742">A differential equation of the form,</p>
-<div class="displaymath process-math" id="p-743">
+<p id="p-743">A differential equation of the form,</p>
+<div class="displaymath process-math" id="p-744">
 \begin{equation*}
 P(x)y''+Q(x)y'+R(x)y=f(x) \text{.}
 \end{equation*}
 </div>
-<p id="p-744">where <span class="process-math">\(P(x)\neq 0 \)</span> is called a <dfn class="terminology">second order linear DE.</dfn></p></article><p id="p-745">In the case where   <span class="process-math">\(f(x)= 0 \)</span> the DE is called homogeneous. Thus:</p>
+<p id="p-745">where <span class="process-math">\(P(x)\neq 0 \)</span> is called a <dfn class="terminology">second order linear DE.</dfn></p></article><p id="p-746">In the case where   <span class="process-math">\(f(x)= 0 \)</span> the DE is called homogeneous. Thus:</p>
 <article class="definition definition-like" id="definition-23"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">12.1.2</span><span class="period">.</span>
 </h3>
-<p id="p-746">A differential equation of the form,</p>
-<div class="displaymath process-math" id="p-747">
+<p id="p-747">A differential equation of the form,</p>
+<div class="displaymath process-math" id="p-748">
 \begin{equation*}
 P(x)y''+Q(x)y'+R(x)y=0 \text{.}
 \end{equation*}
 </div>
-<p id="p-748">where <span class="process-math">\(P(x)\neq 0 \)</span> is called a <dfn class="terminology">homogeneous second order linear DE.</dfn></p></article><p id="p-749">Further, if each of  <span class="process-math">\(P(x),\; Q(x), \text{and}\; R(x) \)</span>   and   are constant functions then the DE is said to have constant coefficients. Thus:</p>
+<p id="p-749">where <span class="process-math">\(P(x)\neq 0 \)</span> is called a <dfn class="terminology">homogeneous second order linear DE.</dfn></p></article><p id="p-750">Further, if each of  <span class="process-math">\(P(x),\; Q(x), \text{and}\; R(x) \)</span>   and   are constant functions then the DE is said to have constant coefficients. Thus:</p>
 <article class="definition definition-like" id="definition-24"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">12.1.3</span><span class="period">.</span>
 </h3>
-<p id="p-750">A differential equation of the form,</p>
-<div class="displaymath process-math" id="p-751">
+<p id="p-751">A differential equation of the form,</p>
+<div class="displaymath process-math" id="p-752">
 \begin{equation*}
 ay''+by'+cy=0 \text{.}
 \end{equation*}
 </div>
-<p id="p-752">where  <span class="process-math">\(a,\; b, \; c \in \mathbb{R} \; \text{and}\; a\neq 0 \)</span> is called a <dfn class="terminology">homogeneous second order linear DE with constant coefficients.</dfn></p></article><article class="example example-like" id="Two_simple_example_homogeneous"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-Two_simple_example_homogeneous"><h3 class="heading">
+<p id="p-753">where  <span class="process-math">\(a,\; b, \; c \in \mathbb{R} \; \text{and}\; a\neq 0 \)</span> is called a <dfn class="terminology">homogeneous second order linear DE with constant coefficients.</dfn></p></article><article class="example example-like" id="Two_simple_example_homogeneous"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-Two_simple_example_homogeneous"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">12.1.4</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Two_simple_example_homogeneous"><article class="example example-like"><p id="p-753">Guess solutions to the following homogeneous second order linear DEs with constant coefficients.</p>
-<ol id="p-754" class="lower-alpha">
-<li id="li-161"><p id="p-755"><span class="process-math">\(\displaystyle y''=0. \)</span></p></li>
-<li id="li-162"><p id="p-756"><span class="process-math">\(\displaystyle y''-y=0 \)</span></p></li>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Two_simple_example_homogeneous"><article class="example example-like"><p id="p-754">Guess solutions to the following homogeneous second order linear DEs with constant coefficients.</p>
+<ol id="p-755" class="lower-alpha">
+<li id="li-161"><p id="p-756"><span class="process-math">\(\displaystyle y''=0. \)</span></p></li>
+<li id="li-162"><p id="p-757"><span class="process-math">\(\displaystyle y''-y=0 \)</span></p></li>
 </ol>
-<ol id="p-757" class="lower-alpha">
+<ol id="p-758" class="lower-alpha">
 <li id="li-163">
-<p id="p-758">What function has its second derivative zero (i.e. has zero curvature)? Clearly any linear function satisfies this property and so we guess that the general solution to this DE is</p>
+<p id="p-759">What function has its second derivative zero (i.e. has zero curvature)? Clearly any linear function satisfies this property and so we guess that the general solution to this DE is</p>
 <div class="displaymath process-math">
 \begin{equation*}
 y(x)=Ax+B, \; A,B\in \mathbb{R} 
@@ -264,7 +264,7 @@ y(x)=Ax+B, \; A,B\in \mathbb{R}
 </div>
 </li>
 <li id="li-164">
-<p id="p-759">This DE can be rewritten as</p>
+<p id="p-760">This DE can be rewritten as</p>
 <div class="displaymath process-math">
 \begin{equation*}
 y''=y. 
@@ -291,19 +291,19 @@ y(x)=Ae^{x}+Be^{-x}, \; A,B\in \mathbb{R}
 <p class="continuation">will be a solution to the DE.</p>
 </li>
 </ol></article></div>
-<p id="p-760">Before looking at the method for solving a homogeneous second order linear DE with constant coefficients, i.e. a DE of the form</p>
+<p id="p-761">Before looking at the method for solving a homogeneous second order linear DE with constant coefficients, i.e. a DE of the form</p>
 <div class="displaymath process-math">
 \begin{equation}
 ay''+by'+cy=0,\;\;\;\; a\neq 0, b,c\in \mathbb{R}, \label{homogeneous_2_order_constant_coefficients}\tag{12.1.1}
 \end{equation}
 </div>
-<p id="p-761">there are several things that we can predict about the solution, (based on <a href="" class="xref" data-knowl="./knowl/Two_simple_example_homogeneous.html" title="Example 12.1.4">Example 12.1.4</a> and previous lectures):</p>
-<ol id="p-762" class="lower-alpha">
-<li id="li-165"><p id="p-763">The general solution will be a family of functions involving two parameters.</p></li>
-<li id="li-166"><p id="p-764">The exponential function is a likely candidate for a solution.</p></li>
+<p id="p-762">there are several things that we can predict about the solution, (based on <a href="" class="xref" data-knowl="./knowl/Two_simple_example_homogeneous.html" title="Example 12.1.4">Example 12.1.4</a> and previous lectures):</p>
+<ol id="p-763" class="lower-alpha">
+<li id="li-165"><p id="p-764">The general solution will be a family of functions involving two parameters.</p></li>
+<li id="li-166"><p id="p-765">The exponential function is a likely candidate for a solution.</p></li>
 </ol>
-<p id="p-765">Notice also that if both <span class="process-math">\(y_{1}(x) \)</span>  and <span class="process-math">\(y_{1}(x) \)</span>  are solutions to <a href="" class="xref" data-knowl="./knowl/homogeneous_2_order_constant_coefficients.html" title="Equation 12.1.1">(12.1.1)</a> then so will be <span class="process-math">\(y(x)=A y_{1}(x)+B y_{2}(x) \)</span> where <span class="process-math">\(A \)</span> and <span class="process-math">\(B \)</span> are arbitrary constants. To see this, let <span class="process-math">\(y_{1}(x) \)</span>  and <span class="process-math">\(y_{2}(x) \)</span>  be solutions to <a href="" class="xref" data-knowl="./knowl/homogeneous_2_order_constant_coefficients.html" title="Equation 12.1.1">(12.1.1)</a>, i.e.</p>
-<div class="displaymath process-math" id="p-766">
+<p id="p-766">Notice also that if both <span class="process-math">\(y_{1}(x) \)</span>  and <span class="process-math">\(y_{1}(x) \)</span>  are solutions to <a href="" class="xref" data-knowl="./knowl/homogeneous_2_order_constant_coefficients.html" title="Equation 12.1.1">(12.1.1)</a> then so will be <span class="process-math">\(y(x)=A y_{1}(x)+B y_{2}(x) \)</span> where <span class="process-math">\(A \)</span> and <span class="process-math">\(B \)</span> are arbitrary constants. To see this, let <span class="process-math">\(y_{1}(x) \)</span>  and <span class="process-math">\(y_{2}(x) \)</span>  be solutions to <a href="" class="xref" data-knowl="./knowl/homogeneous_2_order_constant_coefficients.html" title="Equation 12.1.1">(12.1.1)</a>, i.e.</p>
+<div class="displaymath process-math" id="p-767">
 \begin{align*}
 ay''_{1}+by'_{1}+cy_{1} \amp =0,  \\
 ay''_{2}+by'_{2}+cy_{2} \amp =0.  
@@ -331,11 +331,11 @@ lhs \amp =  ay + by +cy  \\
 \amp = 0  
 \end{align*}
 </div>
-<p id="p-767">These observations, along with the following theorem, enable us to develop a method of solution for DEs of the form <a href="" class="xref" data-knowl="./knowl/homogeneous_2_order_constant_coefficients.html" title="Equation 12.1.1">(12.1.1)</a>.</p>
+<p id="p-768">These observations, along with the following theorem, enable us to develop a method of solution for DEs of the form <a href="" class="xref" data-knowl="./knowl/homogeneous_2_order_constant_coefficients.html" title="Equation 12.1.1">(12.1.1)</a>.</p>
 <article class="theorem theorem-like" id="theorem-16"><h3 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">12.1.5</span><span class="period">.</span>
 </h3>
-<p id="p-768">For the homogeneous second order linear DE</p>
+<p id="p-769">For the homogeneous second order linear DE</p>
 <div class="displaymath process-math">
 \begin{equation*}
 P(x)y''+Q(x)y'+R(x)y=0 
@@ -346,17 +346,17 @@ P(x)y''+Q(x)y'+R(x)y=0
 \begin{equation*}
 y(x) =  A y_{1}(x) + B y_{2}(x). 
 \end{equation*}
-</div></article><p id="p-769"><dfn class="terminology">Note:</dfn> The proof of this theorem is beyond the scope of this course.</p>
+</div></article><p id="p-770"><dfn class="terminology">Note:</dfn> The proof of this theorem is beyond the scope of this course.</p>
 <article class="example example-like" id="example_y_double_derivative_minus_y_complete_solution"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example_y_double_derivative_minus_y_complete_solution"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">12.1.6</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example_y_double_derivative_minus_y_complete_solution"><article class="example example-like"><p id="p-770">Given that <span class="process-math">\(y=e^{x},\; y=e^{-x}, \; y=\sinh(x), \text{and} y=\cosh(x) \)</span> are all solutions to the DE</p>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example_y_double_derivative_minus_y_complete_solution"><article class="example example-like"><p id="p-771">Given that <span class="process-math">\(y=e^{x},\; y=e^{-x}, \; y=\sinh(x), \text{and} y=\cosh(x) \)</span> are all solutions to the DE</p>
 <div class="displaymath process-math">
 \begin{equation*}
 y''-y=0
 \end{equation*}
 </div>
 <p class="continuation">write down a general solution for to this DE.</p>
-<p id="p-771">From the above theorem, since none of these solutions are constant multiples of each other, any pair of them can be combined to form a general solution to the DE. Thus possible general solutions could be</p>
+<p id="p-772">From the above theorem, since none of these solutions are constant multiples of each other, any pair of them can be combined to form a general solution to the DE. Thus possible general solutions could be</p>
 <div class="displaymath process-math">
 \begin{align*}
 y_{1}(x) \amp =  A e^{x} + B e^{-x},  \\
@@ -365,14 +365,14 @@ y_{3}(x) \amp =  A e^{x} + B \cosh(x).
 \end{align*}
 </div>
 <p class="continuation">and so on.</p>
-<p id="p-772">Recall that a general solution to the DE contains every solution to the DE. For example consider the particular solution</p>
+<p id="p-773">Recall that a general solution to the DE contains every solution to the DE. For example consider the particular solution</p>
 <div class="displaymath process-math">
 \begin{equation*}
 y(x) =  2 \sinh(x) - 3 \cosh(x).
 \end{equation*}
 </div>
 <p class="continuation">This solution belongs to the general solution <span class="process-math">\(y_{2}(x) \)</span>  with <span class="process-math">\(A=2 \; \text{and}\; B=-3.   \)</span> It  also belongs to the general solution <span class="process-math">\(y_{1}(x) \)</span>  with <span class="process-math">\(A=-\frac{1}{2} \; \text{and}\; B=-\frac{5}{2}.   \)</span> and to the general solution <span class="process-math">\(y_{3}(x) \)</span>  with <span class="process-math">\(A=2 \; \text{and}\; B=-5.  \)</span></p></article></div>
-<p id="p-773">Thus, initially at least, our method for trying to find the solutions to <a href="" class="xref" data-knowl="./knowl/homogeneous_2_order_constant_coefficients.html" title="Equation 12.1.1">(12.1.1)</a> is to try to find two different exponential functions that satisfy the DE and then combine them to obtain a general solution. To this end, let</p>
+<p id="p-774">Thus, initially at least, our method for trying to find the solutions to <a href="" class="xref" data-knowl="./knowl/homogeneous_2_order_constant_coefficients.html" title="Equation 12.1.1">(12.1.1)</a> is to try to find two different exponential functions that satisfy the DE and then combine them to obtain a general solution. To this end, let</p>
 <div class="displaymath process-math">
 \begin{equation}
 y(x)=e^{rx}\label{y_equal_e_to_rx}\tag{12.1.2}
@@ -392,7 +392,7 @@ ar^{2}+br+c=0.\label{characteristic_equation}\tag{12.1.3}
 \end{equation}
 </div>
 <p class="continuation"><a href="" class="xref" data-knowl="./knowl/characteristic_equation.html" title="Equation 12.1.3">(12.1.3)</a> is called the <dfn class="terminology">characteristic equation</dfn> for a DE of the form of <a href="" class="xref" data-knowl="./knowl/homogeneous_2_order_constant_coefficients.html" title="Equation 12.1.1">(12.1.1)</a>).</p>
-<p id="p-774">If the characteristic equation <a href="" class="xref" data-knowl="./knowl/characteristic_equation.html" title="Equation 12.1.3">(12.1.3)</a>) has two real solutions (i.e. <span class="process-math">\(b^{2}-4ac&gt;0 \)</span>) then we are done since we will have found two solutions to <a href="" class="xref" data-knowl="./knowl/homogeneous_2_order_constant_coefficients.html" title="Equation 12.1.1">(12.1.1)</a> and, via the given theorem, we can combine these solutions to produce a general solution to <a href="" class="xref" data-knowl="./knowl/homogeneous_2_order_constant_coefficients.html" title="Equation 12.1.1">(12.1.1)</a>. So if the solutions to the characteristic equation are  <span class="process-math">\(r_{1} \)</span> and <span class="process-math">\(r_{2} \)</span>    say, then the general solution to <a href="" class="xref" data-knowl="./knowl/homogeneous_2_order_constant_coefficients.html" title="Equation 12.1.1">(12.1.1)</a> is</p>
+<p id="p-775">If the characteristic equation <a href="" class="xref" data-knowl="./knowl/characteristic_equation.html" title="Equation 12.1.3">(12.1.3)</a>) has two real solutions (i.e. <span class="process-math">\(b^{2}-4ac&gt;0 \)</span>) then we are done since we will have found two solutions to <a href="" class="xref" data-knowl="./knowl/homogeneous_2_order_constant_coefficients.html" title="Equation 12.1.1">(12.1.1)</a> and, via the given theorem, we can combine these solutions to produce a general solution to <a href="" class="xref" data-knowl="./knowl/homogeneous_2_order_constant_coefficients.html" title="Equation 12.1.1">(12.1.1)</a>. So if the solutions to the characteristic equation are  <span class="process-math">\(r_{1} \)</span> and <span class="process-math">\(r_{2} \)</span>    say, then the general solution to <a href="" class="xref" data-knowl="./knowl/homogeneous_2_order_constant_coefficients.html" title="Equation 12.1.1">(12.1.1)</a> is</p>
 <div class="displaymath process-math">
 \begin{equation*}
 y(x)=Ae^{r_{1}x} + Be^{r_{1}x}. 
@@ -400,8 +400,8 @@ y(x)=Ae^{r_{1}x} + Be^{r_{1}x}.
 </div>
 <article class="example example-like" id="example_y_double_derivative_plus_3yderivative_2y"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example_y_double_derivative_plus_3yderivative_2y"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">12.1.7</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example_y_double_derivative_plus_3yderivative_2y"><article class="example example-like"><p id="p-775">Find the general solution to <span class="process-math">\(y''+3y'+2y=0. \)</span></p>
-<p id="p-776">The characteristic equation for this homogeneous second order linear DE with constant coefficients is</p>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example_y_double_derivative_plus_3yderivative_2y"><article class="example example-like"><p id="p-776">Find the general solution to <span class="process-math">\(y''+3y'+2y=0. \)</span></p>
+<p id="p-777">The characteristic equation for this homogeneous second order linear DE with constant coefficients is</p>
 <div class="displaymath process-math">
 \begin{equation*}
 r^{2}+3r+2=0 
@@ -419,7 +419,7 @@ r=-1,\; -2.
 y(x)=A e^{-x} + B e^{-2 x}. 
 \end{equation*}
 </div></article></div>
-<p id="p-777">If the characteristic equation <a href="" class="xref" data-knowl="./knowl/characteristic_equation.html" title="Equation 12.1.3">(12.1.3)</a> has only one real solution (i.e. <span class="process-math">\(b^{2}-4ac=0 \)</span>) then we will have found only one exponential solution to  <a href="" class="xref" data-knowl="./knowl/homogeneous_2_order_constant_coefficients.html" title="Equation 12.1.1">(12.1.1)</a> , i.e.</p>
+<p id="p-778">If the characteristic equation <a href="" class="xref" data-knowl="./knowl/characteristic_equation.html" title="Equation 12.1.3">(12.1.3)</a> has only one real solution (i.e. <span class="process-math">\(b^{2}-4ac=0 \)</span>) then we will have found only one exponential solution to  <a href="" class="xref" data-knowl="./knowl/homogeneous_2_order_constant_coefficients.html" title="Equation 12.1.1">(12.1.1)</a> , i.e.</p>
 <div class="displaymath process-math">
 \begin{equation}
 y(x)=e^{rx}\; \text{where}\; r=-\frac{b}{2a}.\label{y_equal_e__power_rx}\tag{12.1.4}
@@ -452,8 +452,8 @@ y(x)=(Ax+B)e^{rx},\; r=-\frac{b}{2a}.
 </div>
 <article class="example example-like" id="example-122"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-122"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">12.1.8</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-122"><article class="example example-like"><p id="p-778">Find the general solution to <span class="process-math">\(y''-4y'+4=0. \)</span></p>
-<p id="p-779">The characteristic equation for this DE is</p>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-122"><article class="example example-like"><p id="p-779">Find the general solution to <span class="process-math">\(y''-4y'+4=0. \)</span></p>
+<p id="p-780">The characteristic equation for this DE is</p>
 <div class="displaymath process-math">
 \begin{equation*}
 r^{2}-4r+4=0
@@ -471,7 +471,7 @@ r=2.
 y(x)=Ae^{2x} + Bxe^{2x}.
 \end{equation*}
 </div></article></div>
-<p id="p-780">The final case to consider is that the characteristic equation <a href="" class="xref" data-knowl="./knowl/characteristic_equation.html" title="Equation 12.1.3">(12.1.3)</a> has complex roots, say</p>
+<p id="p-781">The final case to consider is that the characteristic equation <a href="" class="xref" data-knowl="./knowl/characteristic_equation.html" title="Equation 12.1.3">(12.1.3)</a> has complex roots, say</p>
 <div class="displaymath process-math">
 \begin{equation*}
 r=\alpha\pm i\beta .
@@ -506,7 +506,7 @@ y(x)=Ae^{\alpha x}\cos(\beta x) + B e^{\alpha x}\sin(\beta x).
 </div>
 <article class="example example-like" id="example-123"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-123"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">12.1.9</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-123"><article class="example example-like">Find the general solution to <span class="process-math">\(y''-4y'+13y=0. \)</span><p id="p-781">The characteristic equation for this homogeneous second order linear DE with constant coefficients is</p>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-123"><article class="example example-like">Find the general solution to <span class="process-math">\(y''-4y'+13y=0. \)</span><p id="p-782">The characteristic equation for this homogeneous second order linear DE with constant coefficients is</p>
 <div class="displaymath process-math">
 \begin{equation*}
 r^{2}-4r+13=0
@@ -527,15 +527,15 @@ y(x)=Ae^{2 x}\cos(3 x) + B e^{2 x}\sin(3 x).
 <article class="theorem theorem-like" id="theorem-17"><h3 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">12.1.10</span><span class="period">.</span>
 </h3>
-<p id="p-782">To solve the homogeneous second order linear DE with constant coefficients</p>
+<p id="p-783">To solve the homogeneous second order linear DE with constant coefficients</p>
 <div class="displaymath process-math">
 \begin{equation}
 ay''+by'+cy=0\label{homogeneous_2_order_constant_coefficients_Repeated_in_Theorem}\tag{12.1.7}
 \end{equation}
 </div>
-<ol id="p-783" class="lower-roman">
+<ol id="p-784" class="lower-roman">
 <li id="li-167">
-<p id="p-784">Find the roots of the characteristic equation</p>
+<p id="p-785">Find the roots of the characteristic equation</p>
 <div class="displaymath process-math">
 \begin{equation*}
 ar^{2}+br+c=0.
@@ -543,7 +543,7 @@ ar^{2}+br+c=0.
 </div>
 </li>
 <li id="li-168">
-<p id="p-785">If the characteristic equation has two real roots <span class="process-math">\(r_{1}\; \text{and}\; r_{2} \)</span> then the general solution to <a href="" class="xref" data-knowl="./knowl/homogeneous_2_order_constant_coefficients_Repeated_in_Theorem.html" title="Equation 12.1.7">(12.1.7)</a> is</p>
+<p id="p-786">If the characteristic equation has two real roots <span class="process-math">\(r_{1}\; \text{and}\; r_{2} \)</span> then the general solution to <a href="" class="xref" data-knowl="./knowl/homogeneous_2_order_constant_coefficients_Repeated_in_Theorem.html" title="Equation 12.1.7">(12.1.7)</a> is</p>
 <div class="displaymath process-math">
 \begin{equation*}
 y(x)=Ae^{r_{1}x} + Be^{r_{2}x}.
@@ -551,7 +551,7 @@ y(x)=Ae^{r_{1}x} + Be^{r_{2}x}.
 </div>
 </li>
 <li id="li-169">
-<p id="p-786">If the characteristic equation has a repeated real root <span class="process-math">\(r \)</span> then the general solution to <a href="" class="xref" data-knowl="./knowl/homogeneous_2_order_constant_coefficients_Repeated_in_Theorem.html" title="Equation 12.1.7">(12.1.7)</a> is</p>
+<p id="p-787">If the characteristic equation has a repeated real root <span class="process-math">\(r \)</span> then the general solution to <a href="" class="xref" data-knowl="./knowl/homogeneous_2_order_constant_coefficients_Repeated_in_Theorem.html" title="Equation 12.1.7">(12.1.7)</a> is</p>
 <div class="displaymath process-math">
 \begin{equation*}
 y(x)=A e^{rx} + Bxe^{rx}.
@@ -559,14 +559,14 @@ y(x)=A e^{rx} + Bxe^{rx}.
 </div>
 </li>
 <li id="li-170">
-<p id="p-787">If the characteristic equation has complex roots <span class="process-math">\(\alpha\pm i\beta \)</span>  then the general solution to <a href="" class="xref" data-knowl="./knowl/homogeneous_2_order_constant_coefficients_Repeated_in_Theorem.html" title="Equation 12.1.7">(12.1.7)</a> is</p>
+<p id="p-788">If the characteristic equation has complex roots <span class="process-math">\(\alpha\pm i\beta \)</span>  then the general solution to <a href="" class="xref" data-knowl="./knowl/homogeneous_2_order_constant_coefficients_Repeated_in_Theorem.html" title="Equation 12.1.7">(12.1.7)</a> is</p>
 <div class="displaymath process-math">
 \begin{equation*}
 y(x)=A e^{\alpha x}\cos(\beta x) + B e^{\alpha x}\sin(\beta x).
 \end{equation*}
 </div>
 </li>
-</ol></article><p id="p-788">Given that the general solution to a second order DE has two arbitrary constants in order to find a particular solution it is necessary to give two conditions. In an <dfn class="terminology">initial-value problem</dfn> the conditions given are the values of <span class="process-math">\(y \)</span> and <span class="process-math">\(y' \)</span> at the same value of <span class="process-math">\(x \text{,}\)</span> usually <span class="process-math">\(x=0. \)</span> In a <dfn class="terminology">boundary-value problem</dfn> the conditions given are the values of <span class="process-math">\(y \)</span> at two different values of <span class="process-math">\(x. \)</span> Even when we have a general solution to the DE, it may not always be possible to satisfy a given set of boundary-value conditions.</p>
+</ol></article><p id="p-789">Given that the general solution to a second order DE has two arbitrary constants in order to find a particular solution it is necessary to give two conditions. In an <dfn class="terminology">initial-value problem</dfn> the conditions given are the values of <span class="process-math">\(y \)</span> and <span class="process-math">\(y' \)</span> at the same value of <span class="process-math">\(x \text{,}\)</span> usually <span class="process-math">\(x=0. \)</span> In a <dfn class="terminology">boundary-value problem</dfn> the conditions given are the values of <span class="process-math">\(y \)</span> at two different values of <span class="process-math">\(x. \)</span> Even when we have a general solution to the DE, it may not always be possible to satisfy a given set of boundary-value conditions.</p>
 <article class="example example-like" id="example-124"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-124"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">12.1.11</span><span class="period">.</span>
 </h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-124"><article class="example example-like">Solve the initial-value problem<div class="displaymath process-math">
@@ -579,7 +579,7 @@ y(x)=A e^{\alpha x}\cos(\beta x) + B e^{\alpha x}\sin(\beta x).
 y(0)=3,\; y'(0)=0. 
 \end{equation*}
 </div>
-<p id="p-789">The DE is a homogeneous second order linear DE with constant coefficients. The characteristic equation then is</p>
+<p id="p-790">The DE is a homogeneous second order linear DE with constant coefficients. The characteristic equation then is</p>
 <div class="displaymath process-math">
 \begin{equation*}
 4r^{2}-3r-1=0.
@@ -591,7 +591,7 @@ y(0)=3,\; y'(0)=0.
 r=-\frac{1}{4},\, 1
 \end{equation*}
 </div>
-<p class="continuation"><p id="p-790">the general solution is</p></p>
+<p class="continuation"><p id="p-791">the general solution is</p></p>
 <div class="displaymath process-math">
 \begin{equation*}
 y(x) = A e^{-\frac{x}{4}} + B e^{x}.
@@ -667,7 +667,7 @@ r=\alpha \pm i \beta.
 <span class="type">Exercises</span> <span class="codenumber"></span> <span class="title">Example Tasks</span>
 </h3>
 <article class="exercise exercise-like" id="exercise-71"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
-<p id="p-791">If <span class="process-math">\(x=x(t) \)</span> find the solution to the initial-value problem</p>
+<p id="p-792">If <span class="process-math">\(x=x(t) \)</span> find the solution to the initial-value problem</p>
 <div class="displaymath process-math">
 \begin{equation*}
 15x''-16x'+4x=0 
@@ -678,7 +678,7 @@ r=\alpha \pm i \beta.
 x(0)=1,\; x'(0)=3. 
 \end{equation*}
 </div></article><article class="exercise exercise-like" id="exercise-72"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
-<p id="p-792">Find the solution to the boundary-value problem</p>
+<p id="p-793">Find the solution to the boundary-value problem</p>
 <div class="displaymath process-math">
 \begin{equation*}
 y''+6y'+9y=0 
@@ -689,13 +689,13 @@ y''+6y'+9y=0
 y(1)=0,\; y'(2)=3. 
 \end{equation*}
 </div></article><article class="exercise exercise-like" id="exercise-73"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
-<p id="p-793">Describe the long term behaviour of the solutions to the DE</p>
+<p id="p-794">Describe the long term behaviour of the solutions to the DE</p>
 <div class="displaymath process-math">
 \begin{equation*}
 p''(t)=-9p(t).
 \end{equation*}
 </div></article><article class="exercise exercise-like" id="exercise-74"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
-<p id="p-794">Use the substitution  <span class="process-math">\(x=e^{z}. \)</span> to solve the DE</p>
+<p id="p-795">Use the substitution  <span class="process-math">\(x=e^{z}. \)</span> to solve the DE</p>
 <div class="displaymath process-math">
 \begin{equation*}
 x^{2}\frac{d^{2}y}{dx^{2}} + 3x\frac{dy}{dx} + \frac{dy}{dx} = 0,\; (x &gt; 0).

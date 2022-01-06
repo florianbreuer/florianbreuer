@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-12-08T21:44:46+11:00       *-->
+<!--*       on 2022-01-06T23:32:27+11:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,13 +15,20 @@
 </head>
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
-<p>Given that <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\lambda=5\)</span> is an eigenvalue for the matrix</p>
+<p>As also illustrated in <a href="" class="xref" data-knowl="./knowl/Fig-Geometric_Interpretation.html" title="Figure 19.1.4">Figure 19.1.4</a>, any vector perpendicular to the line <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(y=x\)</span> will be mapped by a reflection in that line to a vector of the same length but in the opposite direction, i.e. for such vectors</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
 \begin{equation*}
-A=\begin{pmatrix} 1 \amp 2 \\ 4 \amp 3 \end{pmatrix}
+A\mathbf{x}=-\mathbf{x}
 \end{equation*}
 </div>
-<p class="continuation">find all eigenvectors associated with this eigenvalue.</p>
+<p class="continuation">Thus vectors of the form</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\mathbf{x}=\begin{pmatrix} t \\ -t \end{pmatrix}=t\begin{pmatrix} 1 \\ -1 \end{pmatrix}, \textrm{ where } t\in \mathbb{R}
+\end{equation*}
+</div>
+<p class="continuation">will be eigenvectors of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(A\)</span> with an eigenvalue of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(-1\text{.}\)</span> <figure class="figure figure-like"><div xmlns:svg="http://www.w3.org/2000/svg" class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="./LinearAlgebra/Images/5/figure1.png" class="contained"></div>
+<figcaption xmlns:svg="http://www.w3.org/2000/svg"><span class="type">Figure</span><span class="space"> </span><span class="codenumber">19.1.4<span class="period">.</span></span><span class="space"> </span></figcaption></figure> Since no other vectors will be mapped by a reflection in the line <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(y=x\)</span> into scalar multiples of themselves, <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(A\)</span> will not have any more eigenvectors.</p>
 <span class="incontext"><a href="Sec-LA_5_Introduction.html#p-1131">in-context</a></span>
 </body>
 </html>

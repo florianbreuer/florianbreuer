@@ -104,7 +104,7 @@ Thus <m> A^{-1}=B\; \text{and}\; B^{-1}=A. </m>
 </example>
 
 <example xml:id="Ex-Matrix_not_invertible">
-<p>Let 
+<p>Show that 
 <m>A=\begin{pmatrix} 1 \amp -1 \\ 1 \amp -1 \end{pmatrix}  </m> 
 is not invertible.
 </p>
@@ -126,7 +126,7 @@ Given a square matrix <m> A </m> to find its inverse we need to find a matrix <m
 <me> 
 A=\begin{pmatrix} 1 \amp -1 \\ 1 \amp -1 \end{pmatrix},
 </me> 
-where <m> a, \; b,\; c,\; \text{and}, \; d </m> are given. We want to find the entries in
+where <m>a</m>, <m>b</m>, <m>c</m> and <m>d</m> are given. We want to find the entries in
 <me> 
 A^{-1}=\begin{pmatrix} x_{1} \amp y_{1} \\ x_{2} \amp y_{2} \end{pmatrix}.
 </me> 
@@ -142,7 +142,7 @@ or equivalently,
 ax_{1} + bx_{2} = 1\\
 cx_{1} + dx_{2} = 0
 \end{cases}
-\;\;\; and \;\;\; 
+\;\;\; \text{ and } \;\;\; 
  \begin{cases}
 ay_{1} + by_{2} = 0\\
 cy_{1} + dy_{2} = 1
@@ -155,7 +155,7 @@ Both systems of equations have the same coefficient matrix, i.e.
 The augmented matrices for these systems are
 <me>
 \begin{pmatrix} a \amp b \amp 1 \\ c \amp d \amp 0 \end{pmatrix}
-\;\;\; and \;\;\; 
+\;\;\; \text{ and } \;\;\; 
 \begin{pmatrix} a \amp b \amp 0 \\ c \amp d \amp 1 \end{pmatrix}
 </me>
 and since these have the same coefficient matrix we can combine the augmented matrices to get
@@ -220,7 +220,7 @@ We can read off the inverse as
 </answer>
 
 <solution>
-Using the same procedure as in <xref ref="Ex-Inverse_Matrix_1_minus1_1_minus1"/> begin by augmenting matrix <m> A </m> with the identity matrix <m> I </m>,
+Using the same procedure as in <xref ref="Ex-Inverse_Matrix_1_1_1_2"/> begin by augmenting matrix <m> A </m> with the identity matrix <m> I </m>,
 <me>
 \begin{pmatrix}
   1 \amp -1 \amp \bigm |  \amp  1 \amp 0 \\
@@ -412,7 +412,7 @@ Let <m> A </m> and <m> B </m> be square invertible matrices of order <m> n </m> 
 </p></li>
 
 <li><p> 
-<m> (A^{r})^{-1}=(A^{-1})^{r}\;\;\;\; \text{where}\;\; r\in \mathbb{R} </m>
+<m> (A^{r})^{-1}=(A^{-1})^{r}\;\;\;\; \text{where}\;\; r\in \mathbb{N} </m>
 </p></li>
 
 </ol></p>
@@ -436,7 +436,7 @@ Next
 <me> A^{-1}=\begin{pmatrix} 3 \amp 1 \\ -1 \amp -9 \end{pmatrix}^{-1} = \frac{1}{7}\begin{pmatrix} 2 \amp -1 \\ 1 \amp 3 \end{pmatrix}, </me>
 <me> B^{-1}=\begin{pmatrix} 1 \amp 5 \\ 0 \amp -2 \end{pmatrix}^{-1} = -\frac{1}{2}\begin{pmatrix} -2 \amp -5 \\ 0 \amp 1 \end{pmatrix}, </me>
 and so
-<me> B^{-1}A^{-1}= -\frac{1}{2}\begin{pmatrix} -2 \amp -5 \\ 0 \amp 1 \end{pmatrix} \frac{1}{7}\begin{pmatrix} 2 \amp -1 \\ 1 \amp 3 \end{pmatrix} = \frac{1}{14}\begin{pmatrix} -9 \amp -13 \\ 1 \amp 3 \end{pmatrix}. </me>
+<me> B^{-1}A^{-1}= -\frac{1}{2}\begin{pmatrix} -2 \amp -5 \\ 0 \amp 1 \end{pmatrix} \frac{1}{7}\begin{pmatrix} 2 \amp -1 \\ 1 \amp 3 \end{pmatrix} = - \frac{1}{14}\begin{pmatrix} -9 \amp -13 \\ 1 \amp 3 \end{pmatrix}. </me>
 </solution>
 
 </example>
@@ -461,18 +461,18 @@ a_{n1} x_{1}+a_{n2}x_{2} + \dots +a_{nn} x_{n}= \amp b_{n}
 </md>
 using matrix notation as
 <men xml:id="Ax_equal_b">
-Ax=b
+A \bm{x} = \bm{b}
 </men>
-where <m> A </m> is the <m> n\times n </m> coefficient matrix, <m> x </m> is the <m> n\times 1 </m>  column vector of variables and <m> b </m> is the column vector of the constants. If the coefficient matrix <m> A </m> has an inverse, then from  <xref ref="Ax_equal_b"/>
+where <m> A </m> is the <m> n\times n </m> coefficient matrix, <m> \bm{x} </m> is the <m> n\times 1 </m>  column vector of variables and <m> \bm{b} </m> is the column vector of the constants. If the coefficient matrix <m> A </m> has an inverse, then from  <xref ref="Ax_equal_b"/>
 <md>
 <mrow>  
-A^{-1}(Ax)= \amp A^{-1}b,
+A^{-1}(A \bm{x})= \amp A^{-1} \bm{b},
 </mrow>  
 <mrow>  
-(A^{-1}A)x= \amp A^{-1}b,
+(A^{-1}A) \bm{x}= \amp A^{-1} \bm{b},
 </mrow> 
 <mrow>   
-x= \amp A^{-1}b.
+\bm{x}= \amp A^{-1}\bm{b}.
 </mrow>  
 </md>
 
@@ -493,7 +493,7 @@ Solve the system of equations
 </md>
 </p> 
 <answer>
-<p> <m> x=-1, \; y=-1,\; \text{and}, \; z=2. </m> </p>
+<p> <m> x=-1, \; y=-1,\; \text{and} \; z=2. </m> </p>
 </answer>
 
 <solution>
@@ -538,7 +538,7 @@ z
 2
 \end{pmatrix}
 </me>
-Thus the solution is  <m> x=-1, \; y=-1,\; \text{and}, \; z=2. </m>
+Thus the solution is  <m> x=-1, \; y=-1,\; \text{and} \; z=2. </m>
 </solution>
 </example>
 
@@ -549,7 +549,7 @@ Of course, the work involved finding the inverse of a matrix is (basically) the 
 <statement>
 Consider the non-homogenous system of <m> n </m> linear equations in <m> n </m> variables
 <me>
-Ax=b,\; n\neq 0.
+A \bm{x} = \bm{b} ,\; \bm{b} \neq 0.
 </me>
 The following statements are equivalent:
 <p><ol>
@@ -558,7 +558,7 @@ The system has a unique solution,
 </p></li>
 
 <li><p> 
-<m> Ax=0 </m>  has only the trivial solution  <m> x=0, </m>
+<m> A \bm{x} =0 </m>  has only the trivial solution  <m> \bm{x} =0, </m>
 </p></li>
 
 <li><p> 
@@ -601,7 +601,7 @@ B = \amp \begin{pmatrix}
         
 <exercise> 
 <statement>
-Find the matrix for a rotation in the plane about the origin through <m> (\frac{\pi}{4})^{c} </m>  . Find the inverse of this matrix and interpret it geometrically. </statement>
+Find the matrix for a rotation in the plane about the origin through <m> \frac{\pi}{4}^{c} </m>  . Find the inverse of this matrix and interpret it geometrically. </statement>
 </exercise>  
         
 </exercises>      
@@ -609,7 +609,7 @@ Find the matrix for a rotation in the plane about the origin through <m> (\frac{
 
 <section xml:id="Determinants">
 <title> Determinants </title>
-If we attempted to find the inverse of the general <m> n\times n </m> matrix
+If we attempted to find the inverse of the general <m> 2\times 2 </m> matrix
 <me> A= \begin{pmatrix}
 a \amp b  \\
 c \amp d
@@ -645,7 +645,7 @@ We can also think about the determinant of a <m> 2\times 2</m>  matrix geometric
 a \amp b  \\
 c \amp d
 \end{pmatrix} </me>
-will have an inverse when the vectors <m> (a,c)^{T} </m> and <m> (b,d)^{T} </m>  are linearly independent. Now we also know (from <xref ref="Linear_Algebra__2"/>) that two vectors in the plane are linearly independent if they define a parallelogram with non-zero area. Finally, from Math1110, we know that the area of the parallelogram defined by the vectors  <m> u=(u_{1},u_{2})^{T} </m> and <m> v=(v_{1},v_{2})^{T} </m>   is 
+will have an inverse when the vectors <m> (a,c)^{T} </m> and <m> (b,d)^{T} </m>  are linearly independent. Now we also know (from <xref ref="Linear_Algebra__2"/>) that two vectors in the plane are linearly independent if they define a parallelogram with non-zero area. Finally, from Math1110, we know that the area of the parallelogram defined by the vectors  <m> \bm{u} = (u_{1},u_{2})^{T} </m> and <m> \bm{v} = (v_{1},v_{2})^{T} </m>   is 
 <me> Area=\vert u_{1}v_{2} - u_{2}v_{1}\vert. </me>
 Thus matrix <m> A </m> will have an inverse when <m> ad-bc\neq 0 </m> , i.e.  <m> \det(A)\neq 0. </m>
 
@@ -656,22 +656,22 @@ A=\begin{pmatrix}
 u_{1} \amp v_{1} \amp w_{1}  \\
 u_{2} \amp v_{2} \amp w_{2} \\
 u_{3} \amp v_{3} \amp w_{3} 
-\end{pmatrix}=(u,v,w).
+\end{pmatrix}=(\bm{u}, \bm{v}, \bm{w}).
 </me>
 </p>
 <p>
-Three vectors in space are linearly independent if they define a parallelepiped with non-zero volume. Now, the volume of the parallelepiped formed by the vectors <me> u=(u_{1},u_{2},u_{3})^{T} ,\;  v=(v_{1},v_{2},v_{3})^{T}, \; \text{and}, \; w=(w_{1},w_{2},w_{3})^{T} </me> is
-<me> Volume=\vert u.v\times w \vert, </me>
-i.e. the absolute values of the scalar triple product of the vectors, (again see Math1110). Thus the matrix <m> A </m> will have an inverse when <m> u.v\times w\neq 0. </m> Hence for a <m> 3\times 3 </m> matrix its determinant is defined as
+Three vectors in space are linearly independent if they define a parallelepiped with non-zero volume. Now, the volume of the parallelepiped formed by the vectors <me> \bm{u} = (u_{1},u_{2},u_{3})^{T} ,\;  \bm{v} = (v_{1},v_{2},v_{3})^{T}, \; \text{and} \; \bm{w} =(w_{1},w_{2},w_{3})^{T} </me> is
+<me> Volume=\vert \bm{u} \cdot \bm{v} \times \bm{w} \vert, </me>
+i.e. the absolute values of the scalar triple product of the vectors, (again see Math1110). Thus the matrix <m> A </m> will have an inverse when <m> \bm{u} \cdot \bm{v} \times \bm{w} \neq 0. </m> Hence for a <m> 3\times 3 </m> matrix its determinant is defined as
 <men xml:id="Eq-det_with_three_vectors">
- \det(A)=\vert  u.v\times w \vert
+ \det(A)=\vert  \bm{u} \cdot \bm{v} \times \bm{w} \vert
 </men>
 </p>
 
 <example xml:id="Ex-determinant_3_by_3_matrix_by_volume">
 <p> Find the determinant of 
 <me>
-A=\begin{pmatrix}
+A= \begin{pmatrix}
 2 \amp 4 \amp 6  \\
 3 \amp 2 \amp 1 \\
 1 \amp 1 \amp 2 
@@ -680,13 +680,13 @@ A=\begin{pmatrix}
 </p>
 
 <solution>
-Let <m> u=(2,3,1)^{T},\;  u=(4,2,1)^{T},\; w=(6,1,2)^{T}. </m> Then
+Let <m> \bm{u}=(2,3,1)^{T},\;  \bm{v}=(4,2,1)^{T},\; \bm{w}=(6,1,2)^{T}. </m> Then
 <me> 
-v\times w=(4,3,1) ^{T} \times (6,1,2)^{T}=(3,-2,-8)^{T}
+\bm{v} \times \bm{w}=(4,3,1) ^{T} \times (6,1,2)^{T}=(3,-2,-8)^{T}
 </me>
 and hence
 <me> 
-\det(A) = (2,3,1) ^{T} \dot (3,-2,-8)^{T}=(3,-2,-8)^{T}=-8.
+\det(A) = (2,3,1) ^{T} (3,-2,-8)^{T}=(3,-2,-8)^{T}=-8.
 </me>
 </solution>
 </example>
@@ -697,10 +697,10 @@ While we can calculate the determinant of a <m> 3\times 3</m> matrix using formu
 <statement>
 <p><ol>
 <li><p> 
-For the <m> 2\times 2</m> matrix \begin{pmatrix}
+For the <m> 2\times 2</m> matrix <m> \begin{pmatrix}
 a \amp b \\ 
 c \amp d
-\end{pmatrix}=ad-bc. 
+\end{pmatrix}</m>, <m>\det \begin{pmatrix} a \amp b \\ c \amp d \end{pmatrix}=ad-bc </m>. 
 </p></li>
 
 <li><p> 
@@ -711,11 +711,11 @@ a_{ij}
 </m>
 we define the <term> minor, </term> <m> M_{ij} </m> as the determinant of the <m> (n-1)\times (n-1) </m> matrix obtained by deleting the <m> i</m>th row and the <m> j</m>th column of <m> A </m>. Then
 <me>
-\det(A)=\sum_{j=1}^{n}(-1)^{i+j}a_{ij}M_{ij}\qquad \text{for}\qquad i=1,2,3,
+\det(A)=\sum_{j=1}^{n}(-1)^{i+j}a_{ij}M_{ij}\qquad \text{for any}\qquad i=1,2,3,\ldots,n
 </me>
 or
 <me>
-\det(A)=\sum_{i=1}^{n}(-1)^{i+j}a_{ij}M_{ij}\qquad \text{for}\qquad i=1,2,3.
+\det(A)=\sum_{i=1}^{n}(-1)^{i+j}a_{ij}M_{ij}\qquad \text{for any}\qquad j=1,2,3, \ldots, n.
 </me>
 </p></li>
 
@@ -734,7 +734,7 @@ A=\begin{pmatrix}
 </me> 
 </p>
 <answer>
-The determinant of <m> A </m> is <m> -8. </m> 
+<m>\det ( A ) = -8</m> 
 </answer>
 
 <solution>
@@ -768,7 +768,7 @@ A=\begin{pmatrix}
 </me> 
 </p>
 <answer>
-The determinant of <m> A </m> is <m> -8. </m> 
+<m>\det ( A ) = -24</m>
 </answer>
 
 <solution>
@@ -788,9 +788,11 @@ Using the first of the formulas given above with <m> i=1: </m>
 <mrow>  =\amp 2(-12-0)-0\\  </mrow>  
 <mrow>  =\amp -24. </mrow>  
 </md>
-</solution>
 Notice that for a matrix that is upper triangular the determinant is just the product of the entries on the main diagonal.
+</solution>
 </example>
+
+
 
 Calculating the determinant of a <m> 3 \times 3 </m> matrix via minors is relatively easy. However for matrices of higher orders the calculation can become very tedious. For example, to calculate the determinant of a <m> 4\times 4 </m> matrix potentially involves calculating the determinants of four <m> 3\times 3</m> matrices. Thus for large matrices the preferred strategy for calculating its determinant is based on the observation that for an upper triangular matrix the determinant is just the product of the entries on the main diagonal.
 
@@ -847,14 +849,14 @@ A=\begin{pmatrix}
 </me> 
 </p>
 <answer>
-The determinant of <m> A </m> is <m> -8. </m> 
+<m>\det ( A ) = -8</m>
 </answer>
 
 <solution>
 Using the row reduction method, first reduce <m> A </m> to an equivalent upper triangular matrix.
 <md>
 <mrow> 
-=\begin{pmatrix}
+\begin{pmatrix}
 2 \amp 4 \amp 6  \\
 3 \amp 2 \amp 1 \\
 1 \amp 1 \amp 2 
@@ -867,8 +869,8 @@ Using the row reduction method, first reduce <m> A </m> to an equivalent upper t
 \end{pmatrix} \;\;\;
 \begin{matrix}
 \amp  \\
-R'_{2}  = \amp R_{2}-3\dfrac{R_{2}}{2}\;\;\;\qquad\\
-R'_{3}  = \amp R_{3}-\dfrac{R_{1}}{2}
+R'_{2} \amp =  R_{2}-3\dfrac{R_{2}}{2} \\
+R'_{3} \amp =  R_{3}-\dfrac{R_{1}}{2}
 \end{matrix}
 </mrow>           
 <mrow> 
@@ -881,7 +883,7 @@ R'_{3}  = \amp R_{3}-\dfrac{R_{1}}{2}
 \begin{matrix}
 \amp  \\
 \amp  \\
-R'_{3} = \amp R_{3}-\dfrac{R_{2}}{4}
+R'_{3} \amp = R_{3}-\dfrac{R_{2}}{4}
 \end{matrix} 
 </mrow>  
 </md>
@@ -908,7 +910,7 @@ Let <m> A </m> and <m> B </m> be square invertible matrices of order <m> n </m> 
 
 <li><p> 
 <m>
-\det(A^{T})=\det(T)
+\det(A^{T})=\det(A)
 </m>
 </p></li>
 
@@ -932,18 +934,15 @@ Let <m> A </m> and <m> B </m> be square invertible matrices of order <m> n </m> 
 <example xml:id="Ex-determinant_2_by_2_matrix_Property">
 <p> Calculate the determinant of the following matrices. Which property of determinants does this illustrate?</p>
 <me>
-A=\begin{vmatrix}
+A=\begin{pmatrix}
 -1 \amp 2 \\
 3 \amp -4 
-\end{vmatrix},\; 
-B=\begin{vmatrix}
+\end{pmatrix},\; 
+B=\begin{pmatrix}
 2 \amp 4 \\
 6 \amp -8 
-\end{vmatrix}
+\end{pmatrix}
 </me>
-<answer>
-This example illustrates the fourth property of <xref ref="Th-Determinant_Property"/> 
-</answer>
 
 <solution>
 Firstly,
@@ -954,7 +953,7 @@ Next
 <me>
 \det(B)=(-2)\times (-8)-4\times 6=16-24=-8.
 </me>
-Since <m> A </m> and <m> A </m> are square matrices of order <m> 2 </m> and <m> B=2A </m> the fact that <m> \det(A)=4\det(B) </m> illustrates Property of <xref ref="Th-Determinant_Property"/>.
+Since <m> A </m> and <m> B </m> are square matrices of order <m> 2 </m> and <m> B=2A </m> the fact that <m> \det(B)=4\det(A) </m> illustrates Property of <xref ref="Th-Determinant_Property"/>.
 </solution>
 </example>
 
@@ -964,7 +963,7 @@ To close this section, note that we can now add one more statement to our theore
 <statement>
 Consider the non-homogenous system of <m> n </m> linear equations in <m> n </m> variables
 <me>
-Ax=b,\; n\neq 0.
+A \bm{x} = \bm{b},\; \bm{b} \neq 0.
 </me>
 The following statements are equivalent:
 <p><ol>
@@ -973,7 +972,7 @@ The system has a unique solution,
 </p></li>
 
 <li><p> 
-<m> Ax=0 </m>  has only the trivial solution  <m> x=0, </m>
+<m> A \bm{x} =0 </m>  has only the trivial solution  <m> \bm{x} =0, </m>
 </p></li>
 
 <li><p> 
@@ -999,7 +998,7 @@ The columns of <m> A </m>  are linearly independent,
 <statement>
 Find the determinant of 
 <me>
-A=\begin{pmatrix}
+M=\begin{pmatrix}
 1 \amp 1 \amp 2  \\
 1 \amp -1 \amp 1 \\
 0 \amp 2 \amp 4 

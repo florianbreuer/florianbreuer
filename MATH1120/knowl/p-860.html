@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-12-08T21:44:28+11:00       *-->
+<!--*       on 2022-01-06T23:32:03+11:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,21 +15,14 @@
 </head>
 <body class="ignore-math">
 <h3 class="heading"><span class="type">Paragraph</span></h3>
-<p>If <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(p^2-q^2\gt 0\)</span> (or equivalently <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\delta=\frac{p}{q}\gt 1\)</span>) then the general solution is</p>
+<p>If <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(p^2-q^2\gt 0\)</span> (or equivalently <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\delta=\frac{p}{q}\lt 1\)</span>) then the general solution is</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
 \begin{equation*}
-y(t)=C_1e^{p_1t}+C_2e^{p_2t}
+y(t)=e^{-pt}(C_1\cos(\omega t)+C_2\sin(\omega t))
 \end{equation*}
 </div>
-<p class="continuation">where both <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(r_1\)</span> and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(r_2\)</span> are negative and hence the function will be like that shown in Figure 14.2.3. In this case the system is called <dfn xmlns:svg="http://www.w3.org/2000/svg" class="terminology">over-damped</dfn>. <figure class="figure figure-like"><div xmlns:svg="http://www.w3.org/2000/svg" class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="./DifferentialEquations/Images/6/figure_6.png" class="contained"></div>
-<figcaption xmlns:svg="http://www.w3.org/2000/svg"><span class="type">Figure</span><span class="space"> </span><span class="codenumber">14.2.3<span class="period">.</span></span><span class="space"> </span></figcaption></figure> Finally if <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(p^2-q^2=0\)</span> (or equivalently <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\delta=\frac{p}{q}=1\)</span>) then the general solution is</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{equation*}
-y(t)=(C_1+C_2t)e^{-pt}
-\end{equation*}
-</div>
-<p class="continuation">and hence the function will be like that shown in Figure 14.2.4. In this case the system is called <dfn xmlns:svg="http://www.w3.org/2000/svg" class="terminology">critically-damped</dfn>. <figure class="figure figure-like"><div xmlns:svg="http://www.w3.org/2000/svg" class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="./DifferentialEquations/Images/6/figure_7.png" class="contained"></div>
-<figcaption xmlns:svg="http://www.w3.org/2000/svg"><span class="type">Figure</span><span class="space"> </span><span class="codenumber">14.2.4<span class="period">.</span></span><span class="space"> </span></figcaption></figure> The critically-damped case is of practical interest. Often we want to add damping to a system so that it returns close to its equilibrium position "as quickly as possible", (for example in the shock absorber of a car). It turns out that this is achieved by critical damping.</p>
+<p class="continuation">where <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\omega=\sqrt{q^2-p^2}\)</span> and hence the function will be like that shown in Figure 14.2.2. In this case the system is called <dfn xmlns:svg="http://www.w3.org/2000/svg" class="terminology">under-damped</dfn>. <figure class="figure figure-like"><div xmlns:svg="http://www.w3.org/2000/svg" class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="./DifferentialEquations/Images/6/figure_5.png" class="contained"></div>
+<figcaption xmlns:svg="http://www.w3.org/2000/svg"><span class="type">Figure</span><span class="space"> </span><span class="codenumber">14.2.2<span class="period">.</span></span><span class="space"> </span></figcaption></figure></p>
 <span class="incontext"><a href="Adding_Damping.html#p-860">in-context</a></span>
 </body>
 </html>

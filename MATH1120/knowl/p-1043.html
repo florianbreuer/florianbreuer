@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-12-08T21:44:39+11:00       *-->
+<!--*       on 2022-01-06T23:32:18+11:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,36 +15,22 @@
 </head>
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
+<p>Consider the non-homogenous system of linear equations</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation}
+A\mathbf{x} = \mathbf{b}, \ \mathbf{b} \neq 0\tag{17.4.1}
+\end{equation}
+</div>
+<p class="continuation">and the corresponding homogeneous system</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation}
+A\mathbf{x} = \mathbf{0}\tag{17.4.2}
+\end{equation}
+</div>
 <ol class="decimal">
-<li>
-<p>Let <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\mathbf{x} = \mathbf{u}\)</span> and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\mathbf{x} = \mathbf{v}\)</span> be two distinct solutions to <a href="" class="xref" data-knowl="./knowl/Eqn-Axb.html" title="Equation 17.4.1">(17.4.1)</a> and let <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\mathbf{w} = \mathbf{u} − \mathbf{v}\text{.}\)</span> By using the properties of matrix multiplication we can see that</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{equation*}
-A\mathbf{w} = A(\mathbf{u} − \mathbf{v}) = A\mathbf{u} − A\mathbf{v} =\mathbf{b} − \mathbf{b} = \mathbf{0}.
-\end{equation*}
-</div>
-<p class="continuation">So, any vector of the form <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\mathbf{u} + t\mathbf{w}\text{,}\)</span> <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(t \in \mathbb{R}\text{,}\)</span> will be a solution to <a href="" class="xref" data-knowl="./knowl/Eqn-Axb.html" title="Equation 17.4.1">(17.4.1)</a> since</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{equation*}
-A(\mathbf{u} +t\mathbf{w}) = A\mathbf{u} + A(t\mathbf{w}) = A\mathbf{u} +tA\mathbf{w} = \mathbf{b} +t\mathbf{0} = \mathbf{b}\text{,}
-\end{equation*}
-</div>
-<p class="continuation">i.e. <a href="" class="xref" data-knowl="./knowl/Eqn-Axb.html" title="Equation 17.4.1">(17.4.1)</a> has an infinite number of solutions.</p>
-</li>
-<li>
-<p>Let <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\mathbf{x} = \mathbf{u}\)</span> be the unique solution to <a href="" class="xref" data-knowl="./knowl/Eqn-Axb.html" title="Equation 17.4.1">(17.4.1)</a> and let <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\mathbf{x} = \mathbf{v}\)</span> be a non-zero solution to <a href="" class="xref" data-knowl="./knowl/Eqn-Ax0.html" title="Equation 17.4.2">(17.4.2)</a>. Then</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{equation*}
-A(\mathbf{u} + \mathbf{v}) = A\mathbf{u} + A\mathbf{v} = \mathbf{b} + \mathbf{0} = \mathbf{b}
-\end{equation*}
-</div>
-<p class="continuation">and so <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\mathbf{x} = \mathbf{u} + \mathbf{v}\)</span> is another solution to <a href="" class="xref" data-knowl="./knowl/Eqn-Axb.html" title="Equation 17.4.1">(17.4.1)</a>, which is not possible. Thus there cannot be any non-zero solutions to <a href="" class="xref" data-knowl="./knowl/Eqn-Ax0.html" title="Equation 17.4.2">(17.4.2)</a>.</p>
-</li>
-<li><p>Since <a href="" class="xref" data-knowl="./knowl/Eqn-Axb.html" title="Equation 17.4.1">(17.4.1)</a> has an infinite number of solutions let <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\mathbf{x} = \mathbf{u}\)</span> and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\mathbf{x} = \mathbf{v}\)</span> be two distinct solutions to <a href="" class="xref" data-knowl="./knowl/Eqn-Axb.html" title="Equation 17.4.1">(17.4.1)</a>. Now let <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\mathbf{w} = \mathbf{u} − \mathbf{v}\)</span> and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(t \in \mathbb{R}\text{.}\)</span> Then<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{equation*}
-A(t\mathbf{w}) = tA(\mathbf{u} − \mathbf{v}) = t(A\mathbf{u} − A\mathbf{v}) = t(\mathbf{b} − \mathbf{b}) = \mathbf{0}\text{,}
-\end{equation*}
-</div>i.e. there are an infinite number of solutions to <a href="" class="xref" data-knowl="./knowl/Eqn-Ax0.html" title="Equation 17.4.2">(17.4.2)</a>.</p></li>
+<li><p>If <a href="" class="xref" data-knowl="./knowl/Eqn-Axb.html" title="Equation 17.4.1">(17.4.1)</a> has two distinct solutions then it has an infinite number of solutions.</p></li>
+<li><p>If <a href="" class="xref" data-knowl="./knowl/Eqn-Axb.html" title="Equation 17.4.1">(17.4.1)</a> has a unique solution then <a href="" class="xref" data-knowl="./knowl/Eqn-Ax0.html" title="Equation 17.4.2">(17.4.2)</a> has only the trivial solution <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\mathbf{x}=\mathbf{0}\text{.}\)</span></p></li>
+<li><p>If <a href="" class="xref" data-knowl="./knowl/Eqn-Axb.html" title="Equation 17.4.1">(17.4.1)</a>  has an infinite number of solution then so does <a href="" class="xref" data-knowl="./knowl/Eqn-Ax0.html" title="Equation 17.4.2">(17.4.2)</a>.</p></li>
 </ol>
 <span class="incontext"><a href="Sec-Matrices_and_Systems_of_Linear_Equations.html#p-1043">in-context</a></span>
 </body>

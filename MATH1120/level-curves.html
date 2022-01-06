@@ -1,7 +1,7 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-12-08T21:40:43+11:00       *-->
+<!--*       on 2022-01-06T23:29:38+11:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -63,10 +63,10 @@
 </div></div>
 <nav xmlns:svg="http://www.w3.org/2000/svg" id="primary-navbar" class="navbar"><div class="container">
 <div class="navbar-top-buttons">
-<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="functions-of-two-variables.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="Calculus_3.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="surfaces-of-revolution.html" title="Next">Next</a></span></div>
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="Functions-of-Two-Variables.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="Calculus_3.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="surfaces-of-revolution.html" title="Next">Next</a></span></div>
 </div>
 <div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
-<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="functions-of-two-variables.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="Calculus_3.html" title="Up">Up</a><a class="next-button button toolbar-item" href="surfaces-of-revolution.html" title="Next">Next</a>
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="Functions-of-Two-Variables.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="Calculus_3.html" title="Up">Up</a><a class="next-button button toolbar-item" href="surfaces-of-revolution.html" title="Next">Next</a>
 </div>
 </div></nav></header><div class="page">
 <div xmlns:svg="http://www.w3.org/2000/svg" id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
@@ -87,7 +87,7 @@
 </li>
 <li class="link">
 <a href="Calculus_3.html" data-scroll="Calculus_3"><span class="codenumber">3</span> <span class="title">Functions of Several Variables</span></a><ul>
-<li><a href="functions-of-two-variables.html" data-scroll="functions-of-two-variables">Functions of Two Variables</a></li>
+<li><a href="Functions-of-Two-Variables.html" data-scroll="Functions-of-Two-Variables">Functions of Two Variables</a></li>
 <li><a href="level-curves.html" data-scroll="level-curves" class="active">Level Curves</a></li>
 <li><a href="surfaces-of-revolution.html" data-scroll="surfaces-of-revolution">Surfaces of Revolution</a></li>
 <li><a href="functions-of-3-or-more-variables.html" data-scroll="functions-of-3-or-more-variables">Functions of 3 (or more) Variables</a></li>
@@ -210,25 +210,25 @@
 <main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="level-curves"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">3.2</span> <span class="title">Level Curves</span>
 </h2>
-<p id="p-188">As we have seen, visualising the surface corresponding to the function <span class="process-math">\(z=f(x,y)\)</span> can be quite difficult. One method that aids in this task is to draw level curves (sometimes known as contours). Level curves are the equivalent of contours on a topographical map. In such a map the terrain is shown by drawing curves through all points which have the same height above sea level. The numbers on the curves in the map shown below are the heights above sea level in metres. <figure class="figure figure-like" id="figure-13"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="./Calculus/Images/3/2_topographicmap.png" class="contained"></div>
+<p id="p-189">As we have seen, visualising the surface corresponding to the function <span class="process-math">\(z=f(x,y)\)</span> can be quite difficult. One method that aids in this task is to draw level curves (sometimes known as contours). Level curves are the equivalent of contours on a topographical map. In such a map the terrain is shown by drawing curves through all points which have the same height above sea level. The numbers on the curves in the map shown below are the heights above sea level in metres. <figure class="figure figure-like" id="figure-13"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="./Calculus/Images/3/2_topographicmap.png" class="contained"></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.2.1<span class="period">.</span></span><span class="space"> </span>Sample Topographic Map (Part of the Watagan Mountains)</figcaption></figure></p>
 <article class="definition definition-like" id="definition-6"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.2.2</span><span class="period">.</span>
-</h3>The <dfn class="terminology">level curves</dfn> of a function <span class="process-math">\(z=(x,y)\)</span> are curves in the <span class="process-math">\(xy\)</span>-plane on which the function has the same value, i.e. on which <span class="process-math">\(z=k\text{,}\)</span> where <span class="process-math">\(k\)</span> is some constant.</article><p id="p-189">Note: <ol id="p-190" class="decimal">
-<li id="li-64"><p id="p-191">Each point in the domain of the function lies on exactly one level curve.</p></li>
-<li id="li-65"><p id="p-192">When a collection of level curves for a function are drawn on the same plane it is sometimes called a contour plot.</p></li>
-<li id="li-66"><p id="p-193">We can also think of level curves as the intersection of the surface and the horizontal plane <span class="process-math">\(z=k\text{.}\)</span></p></li>
+</h3>The <dfn class="terminology">level curves</dfn> of a function <span class="process-math">\(z=(x,y)\)</span> are curves in the <span class="process-math">\(xy\)</span>-plane on which the function has the same value, i.e. on which <span class="process-math">\(z=k\text{,}\)</span> where <span class="process-math">\(k\)</span> is some constant.</article><p id="p-190">Note: <ol id="p-191" class="decimal">
+<li id="li-64"><p id="p-192">Each point in the domain of the function lies on exactly one level curve.</p></li>
+<li id="li-65"><p id="p-193">When a collection of level curves for a function are drawn on the same plane it is sometimes called a contour plot.</p></li>
+<li id="li-66"><p id="p-194">We can also think of level curves as the intersection of the surface and the horizontal plane <span class="process-math">\(z=k\text{.}\)</span></p></li>
 </ol></p>
 <article class="example example-like" id="example-25"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-25"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">3.2.3</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-25"><article class="example example-like"><p id="p-194">Draw the level curves associated with <span class="process-math">\(k=-2,-1,0,1,2\)</span> for the function</p>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-25"><article class="example example-like"><p id="p-195">Draw the level curves associated with <span class="process-math">\(k=-2,-1,0,1,2\)</span> for the function</p>
 <div class="displaymath process-math">
 \begin{equation*}
 z=xy
 \end{equation*}
 </div>
 <a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-20" id="solution-20"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-20"><div class="solution solution-like">
-<p id="p-195">The level curves of a function satisfy the equation <span class="process-math">\(z=k\text{.}\)</span> So for this function the level curves are:</p>
+<p id="p-196">The level curves of a function satisfy the equation <span class="process-math">\(z=k\text{.}\)</span> So for this function the level curves are:</p>
 <div class="displaymath process-math">
 \begin{equation*}
 xy=k \textrm{ or }y=\frac{k}{x}
@@ -239,9 +239,9 @@ xy=k \textrm{ or }y=\frac{k}{x}
 </div></div></article></div>
 <article class="example example-like" id="example-26"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-26"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">3.2.5</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-26"><article class="example example-like"><p id="p-196">Draw a contour plot for the function <span class="process-math">\(z=x^2+y^2\text{.}\)</span></p>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-26"><article class="example example-like"><p id="p-197">Draw a contour plot for the function <span class="process-math">\(z=x^2+y^2\text{.}\)</span></p>
 <a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-21" id="solution-21"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-21"><div class="solution solution-like">
-<p id="p-197">The contours (i.e. level curves) of a function satisfy the equation <span class="process-math">\(z=k\text{.}\)</span> So for this function the level curves are:</p>
+<p id="p-198">The contours (i.e. level curves) of a function satisfy the equation <span class="process-math">\(z=k\text{.}\)</span> So for this function the level curves are:</p>
 <div class="displaymath process-math">
 \begin{equation*}
 x^2+y^2=k
@@ -254,16 +254,16 @@ x^2+y^2=k
 <span class="type">Exercises</span> <span class="codenumber"></span> <span class="title">Example Tasks</span>
 </h3>
 <article class="exercise exercise-like" id="exercise-17"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
-<p id="p-198">Draw the level curves associated with <span class="process-math">\(k=-2,-1,0,1,2\)</span> for the function</p>
+<p id="p-199">Draw the level curves associated with <span class="process-math">\(k=-2,-1,0,1,2\)</span> for the function</p>
 <div class="displaymath process-math">
 \begin{equation*}
 z=2x-x^2+y\text{.}
 \end{equation*}
 </div></article><article class="exercise exercise-like" id="exercise-18"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
-<p id="p-199">Make a rough sketch of the contour map (centred on the origin) for the function whose graph is:</p>
+<p id="p-200">Make a rough sketch of the contour map (centred on the origin) for the function whose graph is:</p>
 <figure class="figure figure-like" id="figure-16"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="./Calculus/Images/3/2_ET2.png" class="contained"></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.2.7<span class="period">.</span></span><span class="space"> </span></figcaption></figure></article><article class="exercise exercise-like" id="exercise-19"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
-<p id="p-200">Make a rough sketch of the contour map (centred on the origin) for the function whose graph is:</p>
+<p id="p-201">Make a rough sketch of the contour map (centred on the origin) for the function whose graph is:</p>
 <figure class="figure figure-like" id="figure-17"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="./Calculus/Images/3/2_ET3.png" class="contained"></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">3.2.8<span class="period">.</span></span><span class="space"> </span></figcaption></figure></article></section></section></div></main>
 </div>

@@ -78,8 +78,8 @@
                     <p>
                         Forming the augmented matrix and row reducing it to reduced row-echelon form gives
                         <me>\begin{pmatrix} 2 \amp 3 \amp 6 \\ -1 \amp 2 \amp 2 \\ 3 \amp -2 \amp -3 \end{pmatrix} \sim \begin{pmatrix} 1 \amp 0 \amp \frac{6}{7} \\ 0 \amp 1 \amp \frac{10}{7} \\ 0 \amp 0 \amp -\frac{19}{7} \end{pmatrix} </me>
-                        We can see from the reduced row-echelon form that this system of equations is inconsistent. The geometric interpretation of this is that there is no point in the plane that lies on all three lines, as can be seen in Figure 16.1.2.
-                        <figure>
+                        We can see from the reduced row-echelon form that this system of equations is inconsistent. The geometric interpretation of this is that there is no point in the plane that lies on all three lines, as can be seen in <xref ref="Fig-Inconsistent_set_of_linear_equations"/>.
+                        <figure xml:id="Fig-Inconsistent_set_of_linear_equations">
                             <image source="./LinearAlgebra/Images/2/figure1.png" width="60%"/>
                         </figure>
                     </p>
@@ -107,10 +107,10 @@
                         <me>\begin{pmatrix} 1 \amp 2 \amp 3 \amp -3 \\ 4 \amp 3 \amp 2 \amp 8 \\ -1 \amp 3 \amp 7 \amp -17 \end{pmatrix} \sim \begin{pmatrix} 1 \amp 0 \amp -1 \amp 5 \\ 0 \amp 1 \amp 2 \amp -4 \\ 0 \amp 0 \amp 0 \amp 0 \end{pmatrix} </me>
                         From the reduced row-echelon form we can see that the solution set is
                         <me>(x,y,z)=(5+t,-4-2t,t), \hspace{5mm} t\in\mathbb{R}</me>
-                        The geometric interpretation of this solution, as shown in Figure 16.1.4., is that the <m>3</m> planes intersect in the line with vector equation
+                        The geometric interpretation of this solution, as shown in <xref ref="Fig-Intersection_of_planes"/>., is that the <m>3</m> planes intersect in the line with vector equation
                         <me>(x,y,z)=(5,-4,0)+t(1,-2,1)</me>
                         i.e. the line passing through the point <m>(5,-4,0)</m> and parallel to the vector <m>(1,-2,1)</m>
-                        <figure>
+                        <figure xml:id="Fig-Intersection_of_planes">
                             <image source="./LinearAlgebra/Images/2/figure2.png" width="60%"/>
                         </figure>
                     </p>
@@ -118,7 +118,7 @@
             </example>
 
             <p>
-                A linear equation in more than <m>n</m> variables (where <m>n\gt 3</m>) is said to represent an "<m>n</m>-dimensional hyperplane". The geometric interpretation (in terms of rows) of the solution to a system of linear equations involving such equations would be the set of <m>n</m>-dimensional points that lie on all of the hyperplanes. Obviously drawing pictures for such systems is not possible.
+                A linear equation in more than <m>n</m> variables (where <m>n\gt 3</m>) is said to represent an <q><m>n</m>-dimensional hyperplane</q>. The geometric interpretation (in terms of rows) of the solution to a system of linear equations involving such equations would be the set of <m>n</m>-dimensional points that lie on all of the hyperplanes. Obviously drawing pictures for such systems is not possible.
             </p>
 
             <exercises>
@@ -180,8 +180,8 @@
 
             <example>
                 <p>
-                    The vector represented by <m>\begin{pmatrix} 3 \\ 2 \end{pmatrix} </m> is sketched in Figure 16.2.2.
-                    <figure>
+                    The vector represented by <m>\begin{pmatrix} 3 \\ 2 \end{pmatrix} </m> is sketched in <xref ref="Fig-Vector_sketch"/>.
+                    <figure xml:id="Fig-Vector_sketch">
                         <image source="./LinearAlgebra/Images/2/figure3.png" width="60%"/>
                     </figure>
                 </p>
@@ -209,8 +209,8 @@
                         <me> \begin{pmatrix} 2 \amp -3 \amp -3 \\ 2 \amp 2 \amp 7 \end{pmatrix} \sim \begin{pmatrix} 1 \amp 0 \amp \frac{3}{2} \\ 0 \amp 1 \amp 2 \end{pmatrix}</me>
                         Thus the solution is <m>(x,y)=\left(\frac{3}{2},2 \right)</m>. Geometrically we can interpret this solution as saying the vector <m>\begin{pmatrix} -3 \\ 7 \end{pmatrix}</m> can be written in terms of the vectors <m>\begin{pmatrix} 2 \\ 2 \end{pmatrix}</m> and <m>\begin{pmatrix} -3 \\ 2 \end{pmatrix}</m> via the expression
                         <me>\frac{3}{2} \begin{pmatrix} 2 \\ 2 \end{pmatrix} +2 \begin{pmatrix} -3 \\ 2 \end{pmatrix} </me>
-                        See Figure 16.2.4. Note that the solution is also saying that there is only one way in which <m>\begin{pmatrix} -3 \\ 7 \end{pmatrix}</m> can be written in terms of <m>\begin{pmatrix} 2 \\ 2 \end{pmatrix}</m> and <m>\begin{pmatrix} -3 \\ 2 \end{pmatrix}</m>.
-                        <figure>
+                        See <xref ref="Fig-Vector_sum_parallelogram"/> Note that the solution is also saying that there is only one way in which <m>\begin{pmatrix} -3 \\ 7 \end{pmatrix}</m> can be written in terms of <m>\begin{pmatrix} 2 \\ 2 \end{pmatrix}</m> and <m>\begin{pmatrix} -3 \\ 2 \end{pmatrix}</m>.
+                        <figure xml:id="Fig-Vector_sum_parallelogram">
                             <image source="./LinearAlgebra/Images/2/figure4.png" width="60%"/>
                         </figure>
                     </p>
@@ -249,7 +249,7 @@
 
             <example>
                 <p>
-                    Describe the span of the set of vectors <m>\{\mathbf{v_1, v_2}\}=\Big\{\begin{pmatrix} 2 \\ 2 \end{pmatrix}, \begin{pmatrix} -3 \\ 2 \end{pmatrix} \Big\}</m>.
+                    Describe the span of the set of vectors <m>\left \{\mathbf{v_1, v_2} \right \}=\left \{\begin{pmatrix} 2 \\ 2 \end{pmatrix}, \begin{pmatrix} -3 \\ 2 \end{pmatrix} \right \}</m>.
                 </p>
                 <solution>
                     <p>
@@ -266,17 +266,17 @@
 
             <example>
                 <p>
-                    Describe the span of the set of vectors <m>\{\mathbf{v_1, v_2}\}=\Bigg\{\begin{pmatrix} 2 \\ 2 \\ 1 \end{pmatrix}, \begin{pmatrix} -3 \\ 2 \\ -1 \end{pmatrix} \Bigg\}</m>.
+                    Describe the span of the set of vectors <m>\{\mathbf{v_1, v_2}\}=\left \{\begin{pmatrix} 2 \\ 2 \\ 1 \end{pmatrix}, \begin{pmatrix} -3 \\ 2 \\ -1 \end{pmatrix} \right \}</m>.
                 </p>
                 <solution>
                     <p>
                         Firstly note that the vectors in this set are <m>3</m>-dimensional vectors and hence the vectors in the span will also be <m>3</m>-dimensional. Now, the span of the set <m>\{\mathbf{v_1, v_2}\}</m> is the set of vectors <m>\mathbf{u}</m> of the form
                         <me>\mathbf{u}=x \begin{pmatrix} 2 \\ 2 \\ 1 \end{pmatrix} +y \begin{pmatrix} -3 \\ 2 \\ -1 \end{pmatrix}</me>
-                        We recognise this as the vector equation of the plane through the origin and with direction vectors <m>\mathbf{v_1}</m> and <m>\mathbf{v_2}</m>, as shown in Figure 16.2.9.
-                        <figure>
+                        We recognise this as the vector equation of the plane through the origin and with direction vectors <m>\mathbf{v_1}</m> and <m>\mathbf{v_2}</m>, as shown in <xref ref="Fig-Vector_equation_of_plane"/>.
+                        <figure xml:id="Fig-Vector_equation_of_plane">
                             <image source="./LinearAlgebra/Images/2/figure5.png" width="60%"/>
                         </figure>
-                        Recall that the normal to this plane (shown in blue in Figure 16.2.9.) is given by <m>\mathbf{n=v_1\times v_2}</m> and so here (using the column vector notation) is
+                        Recall that the normal to this plane (shown in blue in <xref ref="Fig-Vector_equation_of_plane"/>) is given by <m>\mathbf{n=v_1\times v_2}</m> and so here (using the column vector notation) is
                         <me>\mathbf{n}=\begin{pmatrix} -4 \\ -1 \\ 10 \end{pmatrix}</me>
                         Thus the Cartesian equation of this plane is
                         <me>-4x-y+10z=0</me>
@@ -297,8 +297,8 @@
                 <p>
                     Decide if the following sets of vectors are linearly independent or not.
                     <ol label="(a).">
-                        <li><m>\{\mathbf{v_1, v_2, v_3}\}=\Big\{\begin{pmatrix} 2 \\ 2 \end{pmatrix}, \begin{pmatrix} -3 \\ 2 \end{pmatrix}, \begin{pmatrix} -3 \\ 7 \end{pmatrix} \Big\}</m></li>
-                        <li><m>\{\mathbf{v_1, v_2}\}=\Big\{\begin{pmatrix} 2 \\ 2 \end{pmatrix}, \begin{pmatrix} -3 \\ 2 \end{pmatrix} \Big\}</m></li>
+                        <li><m>\{\mathbf{v_1, v_2, v_3}\}=\left \{\begin{pmatrix} 2 \\ 2 \end{pmatrix}, \begin{pmatrix} -3 \\ 2 \end{pmatrix}, \begin{pmatrix} -3 \\ 7 \end{pmatrix} \right \}</m></li>
+                        <li><m>\{\mathbf{v_1, v_2}\}=\left \{\begin{pmatrix} 2 \\ 2 \end{pmatrix}, \begin{pmatrix} -3 \\ 2 \end{pmatrix} \right \}</m></li>
                     </ol>
                 </p>
                 <solution>
@@ -346,8 +346,8 @@
                     <p>
                         The augmented matrix and its reduced row-echelon equivalent matrix are
                         <me>\begin{pmatrix} 2 \amp 4 \amp 2 \amp 3 \\ 2 \amp 3 \amp 3 \amp 6 \\4 \amp 1 \amp -1 \amp 3 \end{pmatrix} \sim \begin{pmatrix} 1 \amp 0 \amp 0 \amp \frac{3}{2} \\ 0 \amp 1 \amp 0 \amp -1 \\ 0 \amp 0 \amp 1 \amp 2 \end{pmatrix}</me>
-                        Thus the solution is <m>(x,y,z)=\left(\frac{3}{2},-1,2 \right)</m>. The geometric interpretation of this solution is that the vector <m>\begin{pmatrix} 3 \\ 6 \\ 3 \end{pmatrix}</m> (shown in blue in Figure 16.2.13.) can be written as a linear combination of the vectors <m>\Bigg\{\begin{pmatrix} 2 \\ 2 \\ 4 \end{pmatrix}, \begin{pmatrix} 4 \\ 3 \\ 1 \end{pmatrix}, \begin{pmatrix} 2 \\ 3 \\ -1 \end{pmatrix} \Bigg\}</m> (shown in red in Figure 16.2.3.) and in only one way, (shown in green in Figure 16.2.13.).
-                        <figure>
+                        Thus the solution is <m>(x,y,z)=\left(\frac{3}{2},-1,2 \right)</m>. The geometric interpretation of this solution is that the vector <m>\begin{pmatrix} 3 \\ 6 \\ 3 \end{pmatrix}</m> (shown in blue in <xref ref="Fig-Vector_as_a_linear_combination"/>) can be written as a linear combination of the vectors <m>\left \{\begin{pmatrix} 2 \\ 2 \\ 4 \end{pmatrix}, \begin{pmatrix} 4 \\ 3 \\ 1 \end{pmatrix}, \begin{pmatrix} 2 \\ 3 \\ -1 \end{pmatrix} \right \}</m> (shown in red in <xref ref="Fig-Vector_as_a_linear_combination"/>) and in only one way, (shown in green in <xref ref="Fig-Vector_as_a_linear_combination"/>).
+                        <figure xml:id="Fig-Vector_as_a_linear_combination">
                             <image source="./LinearAlgebra/Images/2/figure6.png" width="60%"/>
                         </figure>
                         Note that if the system of linear equations is homogeneous (i.e. <m>\mathbf{b=0}</m>) then the solution of the system tells us if the set of vectors <m>\{\mathbf{a_1, a_2, a_3}\}</m>  is linearly independent or not.
@@ -370,8 +370,8 @@
                         <me>\begin{pmatrix} 2 \amp 4 \amp 2 \amp 0 \\ 2 \amp 3 \amp 3 \amp 0 \\ 4 \amp 1 \amp -1 \amp 0 \end{pmatrix} \sim \begin{pmatrix} 1 \amp 0 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \amp 0 \\ 0 \amp 0 \amp 1 \amp 0 \end{pmatrix} </me>
                         Thus the solution is <m>(x,y,z)=(0,0,0)</m>. The geometric interpretatifon of this solution is that the column vectors of the coefficient matrix are linearly independent, i.e. that no one of those vectors can be written in terms of the other two. If the column vectors had turned out to be linearly dependent then we could have written, for example,
                         <me>\mathbf{a_3}=k_1\mathbf{a_1}+k_2\mathbf{a_2}</me>
-                        This would imply that <m>\mathbf{a_3}</m> lies in the plane defined by the vectors <m>\mathbf{a_1}</m> and <m>\mathbf{a_2}</m>, or to say the same thing, that  <m>\mathbf{a_1}</m>, <m>\mathbf{a_2}</m> and <m>\mathbf{a_3}</m> are coplanar. Since the vectors are linearly independent we can say these vectors are not coplanar. See Figure 16.2.15.
-                        <figure>
+                        This would imply that <m>\mathbf{a_3}</m> lies in the plane defined by the vectors <m>\mathbf{a_1}</m> and <m>\mathbf{a_2}</m>, or to say the same thing, that  <m>\mathbf{a_1}</m>, <m>\mathbf{a_2}</m> and <m>\mathbf{a_3}</m> are coplanar. Since the vectors are linearly independent we can say these vectors are not coplanar. See <xref ref="Fig-Vectors_not_coplanar"/>.
+                        <figure xml:id="Fig-Vectors_not_coplanar">
                             <image source="./LinearAlgebra/Images/2/figure7.png" width="60%"/>
                         </figure>
                     </p>
@@ -430,8 +430,8 @@
                         <p>
                             Decide if the following sets of vectors are linearly independent or not
                             <ol label="(a).">
-                                <li><m>\{\mathbf{v_1, v_2}\}=\Big\{(1,1), (1,-1)\Big\}</m></li>
-                                <li><m>\{\mathbf{v_1, v_2, v_3}\}=\Big\{(1,1, 2), (1,-1,0), (3,2,1)\Big\}</m></li>
+                                <li><m>\{\mathbf{v_1, v_2}\}=\left \{(1,1), (1,-1)\right \}</m></li>
+                                <li><m>\{\mathbf{v_1, v_2, v_3}\}=\left \{(1,1, 2), (1,-1,0), (3,2,1)\right \}</m></li>
                             </ol>
                         </p>
                     </statement>
@@ -454,7 +454,7 @@
                     <statement>
                         <p>
                             <ol label="(a).">
-                                <li> Show that the set of vectors <m>\Big\{(2,3, 7), (3,4, 5), (2,1,-15) \Big\}</m> are linearly dependent. </li>
+                                <li> Show that the set of vectors <m>\left \{(2,3, 7), (3,4, 5), (2,1,-15) \right\}</m> are linearly dependent. </li>
                                 <li>
                                     Find values of <m>a</m>, <m>b</m> and <m>c</m> such that the following system of linear equations has infinitely many solutions
                                     <md>

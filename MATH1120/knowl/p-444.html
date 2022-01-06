@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-12-08T21:44:07+11:00       *-->
+<!--*       on 2022-01-06T23:31:36+11:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,7 +15,13 @@
 </head>
 <body class="ignore-math">
 <h3 class="heading"><span class="type">Paragraph</span></h3>
-<p>From this we can see that if <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(f_{xx} &gt; 0\)</span> and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(D = f_{xx} f_{yy} - f_{xy}^2 &gt; 0\)</span> then when <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(x\)</span> and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(y\)</span> are varied from <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\((0,0)\text{,}\)</span> <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(f(x,y)\)</span> increases and so <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\((x_0,y_0) = (0,0)\)</span> will be a local minimum.</p>
+<p>On completing the square (and dropping the evaluation at <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\((0,0)\)</span> for brevity)</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{align*}
+f(x,y) \amp \simeq f + \dfrac{f_{xx}}{2} \left \{x^2 + \dfrac{2f_{xy}}{f_{xx}} + \left( \dfrac{f_{xy}}{f_{xx}} \right)^2 y^2 \right \} - \dfrac{f_{xx}}{2} \left( \dfrac{f_{xy}}{f_{xx}} \right)^2 y^2 + \dfrac{f_{yy}}{2}y^2\\
+\amp = f + \dfrac{f_{xx}}{2} \left( x + \dfrac{f_{xy}}{f_{xx}} y \right)^2 + \dfrac{1}{2 f_{xx}} y^2 \left( f_{xx} f_{yy} - f_{xy}^2 \right)\text{.}
+\end{align*}
+</div>
 <span class="incontext"><a href="Second-Derivative-Test.html#p-444">in-context</a></span>
 </body>
 </html>

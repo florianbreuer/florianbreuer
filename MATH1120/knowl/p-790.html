@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-12-08T21:44:25+11:00       *-->
+<!--*       on 2022-01-06T23:31:59+11:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,7 +15,50 @@
 </head>
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
-<p>the general solution is</p>
+<p>The DE is a homogeneous second order linear DE with constant coefficients. The characteristic equation then is</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+4r^{2}-3r-1=0.
+\end{equation*}
+</div>
+<p class="continuation">Since this equation has two real solutions,</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+r=-\frac{1}{4},\, 1
+\end{equation*}
+</div>
+<p class="continuation"><p>the general solution is</p></p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+y(x) = A e^{-\frac{x}{4}} + B e^{x}.
+\end{equation*}
+</div>
+<p class="continuation">Thus</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+y'(x) = -\frac{1}{4} A e^{-\frac{x}{4}} + B e^{x}.
+\end{equation*}
+</div>
+<p class="continuation">Using the initial conditions gives the equations.</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{align*}
+A + B \amp = 3  \\
+-\frac{1}{4} A + B \amp = 0. 
+\end{align*}
+</div>
+<p class="continuation">Solving these simultaneously gives</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+A=\frac{12}{5},\; B=\frac{3}{5}.
+\end{equation*}
+</div>
+<p class="continuation">Thus the solution to the initial-value problem is</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+y(x) = \frac{12}{5} e^{-\frac{x}{4}} + \frac{3}{5} e^{x}.
+\end{equation*}
+</div>
+<p class="continuation">This solution is shown in <a href="" class="xref" data-knowl="./knowl/Fig-initial_value_problem.html" title="Figure 12.1.12">Figure 12.1.12</a>. Note that since <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(r_{1}=-\frac{1}{4} &lt; 0 \)</span> the term in the general solution associated with this root (i.e. <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\frac{12}{5} e^{-\frac{x}{4}} \)</span>) decays as <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(x\to \infty. \)</span> On the other hand since <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(r_{2}=1 &gt; 0 \)</span> the term in the general solution associated with this root (i.e. <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\frac{3}{5} e^{x} \)</span>) grows as <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(x\to \infty. \)</span></p>
 <span class="incontext"><a href="Homogeneous_Second_Order_Linear_DEs_With_Constant_Coefficients.html#p-790">in-context</a></span>
 </body>
 </html>

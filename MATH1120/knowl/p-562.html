@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-12-08T21:44:13+11:00       *-->
+<!--*       on 2022-01-06T23:31:44+11:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,7 +15,26 @@
 </head>
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
-<p>A population of bacteria reproduces at a rate proportional to the population. If the population of bacteria is <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(N_0\)</span> at the beginning of the study, predict the behaviour of this population over time.</p>
+<p>Solutions to the DE for the temperature of the cooling body are of the form</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+T(t)=Ae^{-kt}+T_a 
+\end{equation*}
+</div>
+<p class="continuation">where <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(A\)</span> is an arbitrary constant. Even though we haven’t yet looked at the method for finding this solution we can check that it is correct by substituting back into the original equation. Here</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+LHS=\frac{dT}{dt}=\frac{d}{dt}\left(Ae^{-kt}+T_a \right)=-kAe^{-kt} 
+\end{equation*}
+</div>
+<p class="continuation">and</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+RHS=-k(T-T_a)=-k(Ae^{-kt}+T_a-T_a)=-kAe^{-kt}
+\end{equation*}
+</div>
+<p class="continuation">Once we know the function itself we can now answer questions concerning the temperature of the cooling body over time. For example we see that over time, the temperature of the body starts out at <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(A+T_a\)</span> and falls exponentially toward <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(T_a\text{.}\)</span> See Figure 9.1.6. <figure class="figure figure-like"><div xmlns:svg="http://www.w3.org/2000/svg" class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="./DifferentialEquations/Images/1/1_example3.png" class="contained"></div>
+<figcaption xmlns:svg="http://www.w3.org/2000/svg"><span class="type">Figure</span><span class="space"> </span><span class="codenumber">9.1.6<span class="period">.</span></span><span class="space"> </span></figcaption></figure></p>
 <span class="incontext"><a href="introduction.html#p-562">in-context</a></span>
 </body>
 </html>

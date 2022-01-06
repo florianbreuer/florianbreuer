@@ -1,7 +1,7 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-12-08T21:42:36+11:00       *-->
+<!--*       on 2022-01-06T23:30:34+11:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -87,7 +87,7 @@
 </li>
 <li class="link">
 <a href="Calculus_3.html" data-scroll="Calculus_3"><span class="codenumber">3</span> <span class="title">Functions of Several Variables</span></a><ul>
-<li><a href="functions-of-two-variables.html" data-scroll="functions-of-two-variables">Functions of Two Variables</a></li>
+<li><a href="Functions-of-Two-Variables.html" data-scroll="Functions-of-Two-Variables">Functions of Two Variables</a></li>
 <li><a href="level-curves.html" data-scroll="level-curves">Level Curves</a></li>
 <li><a href="surfaces-of-revolution.html" data-scroll="surfaces-of-revolution">Surfaces of Revolution</a></li>
 <li><a href="functions-of-3-or-more-variables.html" data-scroll="functions-of-3-or-more-variables">Functions of 3 (or more) Variables</a></li>
@@ -210,13 +210,13 @@
 <main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="Sec-LA_5_Finding_Eigenvalues_and_Eigenvectors"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">19.2</span> <span class="title">Finding Eigenvalues and Eigenvectors</span>
 </h2>
-<p id="p-1134">For the square matrix <span class="process-math">\(A\text{,}\)</span> the eigenvalues and associated eigenvectors are defined by the equation</p>
+<p id="p-1135">For the square matrix <span class="process-math">\(A\text{,}\)</span> the eigenvalues and associated eigenvectors are defined by the equation</p>
 <div class="displaymath process-math">
 \begin{equation}
-A\mathbf{x}=\lambda\mathbf{x}\tag{19.2.1}
+A\mathbf{x}=\lambda\mathbf{x}\label{Eq-Eigenvector_definition}\tag{19.2.1}
 \end{equation}
 </div>
-<p class="continuation">Thus, we want to find values of <span class="process-math">\(\lambda\text{,}\)</span> and associated vectors <span class="process-math">\(\mathbf{x}\text{,}\)</span> that satisfy this equation. To do this, rearrange Equation (19.2.1) to obtain</p>
+<p class="continuation">Thus, we want to find values of <span class="process-math">\(\lambda\text{,}\)</span> and associated vectors <span class="process-math">\(\mathbf{x}\text{,}\)</span> that satisfy this equation. To do this, rearrange <a href="" class="xref" data-knowl="./knowl/Eq-Eigenvector_definition.html" title="Equation 19.2.1">(19.2.1)</a> to obtain</p>
 <div class="displaymath process-math">
 \begin{equation*}
 A\mathbf{x}-\lambda\mathbf{x}=\mathbf{0}
@@ -231,22 +231,22 @@ A\mathbf{x}-\lambda I\mathbf{x}=\mathbf{0}
 <p class="continuation">or</p>
 <div class="displaymath process-math">
 \begin{equation}
-(A-\lambda I)\mathbf{x}=\mathbf{0}\tag{19.2.2}
+(A-\lambda I)\mathbf{x}=\mathbf{0}\label{Eq-Eigenvector_definition_with_identity_matrix}\tag{19.2.2}
 \end{equation}
 </div>
-<p class="continuation">where <span class="process-math">\(I\)</span> is the identity matrix of order <span class="process-math">\(n\text{.}\)</span> Since Equation (19.2.2) is a homogeneous system of linear equations it will only have a non-zero solution when</p>
+<p class="continuation">where <span class="process-math">\(I\)</span> is the identity matrix of order <span class="process-math">\(n\text{.}\)</span> Since <a href="" class="xref" data-knowl="./knowl/Eq-Eigenvector_definition_with_identity_matrix.html" title="Equation 19.2.2">(19.2.2)</a> is a homogeneous system of linear equations it will only have a non-zero solution when</p>
 <div class="displaymath process-math">
 \begin{equation}
-det(A-\lambda I)=0\tag{19.2.3}
+\det(A-\lambda I)=0\label{Eq-Eigenvector_definition_with_determinant}\tag{19.2.3}
 \end{equation}
 </div>
 <article class="definition definition-like" id="definition-47"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">19.2.1</span><span class="period">.</span>
 </h3>
-<p id="p-1135">The eigenvalues, <span class="process-math">\(\lambda\text{,}\)</span> of the <span class="process-math">\(n\times n\)</span> matrix <span class="process-math">\(A\)</span> are found by solving the <dfn class="terminology">characteristic equation</dfn></p>
+<p id="p-1136">The eigenvalues, <span class="process-math">\(\lambda\text{,}\)</span> of the <span class="process-math">\(n\times n\)</span> matrix <span class="process-math">\(A\)</span> are found by solving the <dfn class="terminology">characteristic equation</dfn></p>
 <div class="displaymath process-math">
 \begin{equation*}
-det(A-\lambda I)=0
+\det(A-\lambda I)=0
 \end{equation*}
 </div>
 <p class="continuation">The eigenvectors of the matrix <span class="process-math">\(A\)</span> are found by solving the homogeneous linear system of equations</p>
@@ -257,17 +257,17 @@ det(A-\lambda I)=0
 </div>
 <p class="continuation">for each eigenvalue <span class="process-math">\(\lambda\text{.}\)</span></p></article><article class="example example-like" id="example-187"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-187"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">19.2.2</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-187"><article class="example example-like"><p id="p-1136">Find all eigenvalues and associated eigenvectors for</p>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-187"><article class="example example-like"><p id="p-1137">Find all eigenvalues and associated eigenvectors for</p>
 <div class="displaymath process-math">
 \begin{equation*}
 A=\begin{pmatrix} 2 \amp 1 \\ 1 \amp 2 \end{pmatrix} 
 \end{equation*}
 </div>
 <a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-152" id="solution-152"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-152"><div class="solution solution-like">
-<p id="p-1137">The eigenvalues, <span class="process-math">\(\lambda\text{,}\)</span> of <span class="process-math">\(A\)</span> satisfy the characteristic equation</p>
+<p id="p-1138">The eigenvalues, <span class="process-math">\(\lambda\text{,}\)</span> of <span class="process-math">\(A\)</span> satisfy the characteristic equation</p>
 <div class="displaymath process-math">
 \begin{equation*}
-det(A-\lambda I)=0
+\det(A-\lambda I)=0
 \end{equation*}
 </div>
 <p class="continuation">Since</p>
@@ -279,7 +279,7 @@ A-\lambda I=\begin{pmatrix} 2\amp 1 \\ 1\amp 2 \end{pmatrix}-\lambda \begin{pmat
 <p class="continuation">the characteristic equation is</p>
 <div class="displaymath process-math">
 \begin{align*}
-det\begin{pmatrix} 2-\lambda \amp 1 \\ 1\amp 2-\lambda \end{pmatrix} \amp =0\\
+\det\begin{pmatrix} 2-\lambda \amp 1 \\ 1\amp 2-\lambda \end{pmatrix} \amp =0\\
 (2-\lambda)^2-1 \amp =0\\
 \lambda^2-4\lambda+3 \amp =0
 \end{align*}
@@ -290,14 +290,14 @@ det\begin{pmatrix} 2-\lambda \amp 1 \\ 1\amp 2-\lambda \end{pmatrix} \amp =0\\
 \lambda=1 \textrm{ and } \lambda=3
 \end{equation*}
 </div>
-<p id="p-1138">To find the eigenvectors associated with each of these eigenvalues we follow the procedure illustrated in Example 19.1.5., i.e. solve the homogeneous system of linear equations</p>
+<p id="p-1139">To find the eigenvectors associated with each of these eigenvalues we follow the procedure illustrated in <a href="" class="xref" data-knowl="./knowl/Ex-Find_all_eigenvectors_given_eigenvalue.html" title="Example 19.1.5">Example 19.1.5</a>, i.e. solve the homogeneous system of linear equations</p>
 <div class="displaymath process-math">
 \begin{equation*}
 (A-\lambda I)\mathbf{x}=\mathbf{0}
 \end{equation*}
 </div>
 <p class="continuation">for each eigenvalue.</p>
-<p id="p-1139">When <span class="process-math">\(\lambda=1\)</span> the augmented matrix and its reduced row echelon form are</p>
+<p id="p-1140">When <span class="process-math">\(\lambda=1\)</span> the augmented matrix and its reduced row echelon form are</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \begin{pmatrix} 1 \amp 1 \amp 0 \\ 1 \amp 1 \amp 0 \end{pmatrix} \sim \begin{pmatrix} 1 \amp 1 \amp 0 \\ 0 \amp 0 \amp 0 \end{pmatrix}  \begin{matrix} \\ \hspace{5mm} R_2'=R_2-R_1 \end{matrix}
@@ -324,22 +324,22 @@ det\begin{pmatrix} 2-\lambda \amp 1 \\ 1\amp 2-\lambda \end{pmatrix} \amp =0\\
 \end{align*}
 </div>
 <p class="continuation">As always, you can very easily check that these vectors are indeed eigenvectors by performing the matrix multiplication <span class="process-math">\(A\mathbf{x}\text{.}\)</span></p>
-<p id="p-1140">As an aside, we can get some geometric insight if we consider <span class="process-math">\(A\)</span> as the matrix of a plane transformation, (even though <span class="process-math">\(A\)</span> isn’t the matrix for any well known transformation). Figure 19.2.3. shows the result of applying <span class="process-math">\(A\)</span> to a square centred on the origin. <figure class="figure figure-like" id="figure-95"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="./LinearAlgebra/Images/5/figure2.png" class="contained"></div>
+<p id="p-1141">As an aside, we can get some geometric insight if we consider <span class="process-math">\(A\)</span> as the matrix of a plane transformation, (even though <span class="process-math">\(A\)</span> isn’t the matrix for any well known transformation). <a href="" class="xref" data-knowl="./knowl/Fig-Transformation_visualised.html" title="Figure 19.2.3">Figure 19.2.3</a> shows the result of applying <span class="process-math">\(A\)</span> to a square centred on the origin. <figure class="figure figure-like" id="Fig-Transformation_visualised"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="./LinearAlgebra/Images/5/figure2.png" class="contained"></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">19.2.3<span class="period">.</span></span><span class="space"> </span></figcaption></figure> Informally, the effect of <span class="process-math">\(A\)</span> is to pull the square out along the diagonal joining vertices <span class="process-math">\(B\)</span> and <span class="process-math">\(D\text{.}\)</span> Thus vectors along this diagonal will be mapped to scalar multiples of themselves while vectors along the diagonal joining vertices <span class="process-math">\(A\)</span> and <span class="process-math">\(C\)</span> will be left unchanged.</p>
 </div></div></article></div>
 <article class="example example-like" id="example-188"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-188"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">19.2.4</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-188"><article class="example example-like"><p id="p-1141">Find all eigenvalues and associated eigenvectors for</p>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-188"><article class="example example-like"><p id="p-1142">Find all eigenvalues and associated eigenvectors for</p>
 <div class="displaymath process-math">
 \begin{equation*}
 A=\begin{pmatrix} 1 \amp 2 \\ 3 \amp 4 \end{pmatrix} 
 \end{equation*}
 </div>
 <a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-153" id="solution-153"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-153"><div class="solution solution-like">
-<p id="p-1142">The characteristic equation for <span class="process-math">\(A\)</span> is</p>
+<p id="p-1143">The characteristic equation for <span class="process-math">\(A\)</span> is</p>
 <div class="displaymath process-math">
 \begin{align*}
-det\begin{pmatrix} 1-\lambda \amp 2 \\ 3\amp 4-\lambda \end{pmatrix} \amp =0\\
+\det\begin{pmatrix} 1-\lambda \amp 2 \\ 3\amp 4-\lambda \end{pmatrix} \amp =0\\
 (1-\lambda)(4-\lambda)-6 \amp =0\\
 \lambda^2-5\lambda-2 \amp =0
 \end{align*}
@@ -351,7 +351,7 @@ det\begin{pmatrix} 1-\lambda \amp 2 \\ 3\amp 4-\lambda \end{pmatrix} \amp =0\\
 \end{equation*}
 </div>
 <p class="continuation">Clearly the eigenvalues don’t always turn out to be nice numbers, even when the matrix is quite simple. The eigenvectors will also turn out to be rather complicated.</p>
-<p id="p-1143">When <span class="process-math">\(\lambda=\frac{5+\sqrt{33}}{2}\)</span> the augmented matrix and its reduced row echelon form are</p>
+<p id="p-1144">When <span class="process-math">\(\lambda=\dfrac{5+\sqrt{33}}{2}\)</span> the augmented matrix and its reduced row echelon form are</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \begin{pmatrix} 1-\left(\frac{5+\sqrt{33}}{2} \right) \amp 2 \amp 0 \\ 3 \amp 4-\left(\frac{5+\sqrt{33}}{2} \right) \amp 0 \end{pmatrix} \sim \begin{pmatrix} \frac{-3-\sqrt{33}}{2} \amp 2 \amp 0 \\ 0 \amp 0 \amp 0 \end{pmatrix} 
@@ -364,7 +364,7 @@ det\begin{pmatrix} 1-\lambda \amp 2 \\ 3\amp 4-\lambda \end{pmatrix} \amp =0\\
 \Rightarrow \mathbf{x} \amp =\begin{pmatrix} 4t \\ t(3+\sqrt{33}) \end{pmatrix} = t\begin{pmatrix} 4 \\ 3+\sqrt{33} \end{pmatrix}
 \end{align*}
 </div>
-<p class="continuation">When <span class="process-math">\(\lambda=\frac{5-\sqrt{33}}{2}\)</span> the augmented matrix and its reduced row echelon form are</p>
+<p class="continuation">When <span class="process-math">\(\lambda=\dfrac{5-\sqrt{33}}{2}\)</span> the augmented matrix and its reduced row echelon form are</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \begin{pmatrix} 1-\left(\frac{5-\sqrt{33}}{2} \right) \amp 2 \amp 0 \\ 3 \amp 4-\left(\frac{5-\sqrt{33}}{2} \right) \amp 0 \end{pmatrix} \sim \begin{pmatrix} \frac{-3+\sqrt{33}}{2} \amp 2 \amp 0 \\ 0 \amp 0 \amp 0 \end{pmatrix} 
@@ -380,17 +380,17 @@ det\begin{pmatrix} 1-\lambda \amp 2 \\ 3\amp 4-\lambda \end{pmatrix} \amp =0\\
 </div></div></article></div>
 <article class="example example-like" id="example-189"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-189"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">19.2.5</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-189"><article class="example example-like"><p id="p-1144">Find all eigenvalues and associated eigenvectors for</p>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-189"><article class="example example-like"><p id="p-1145">Find all eigenvalues and associated eigenvectors for</p>
 <div class="displaymath process-math">
 \begin{equation*}
 A=\begin{pmatrix} 1 \amp 2 \\ 2 \amp 4 \end{pmatrix} 
 \end{equation*}
 </div>
 <a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-154" id="solution-154"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-154"><div class="solution solution-like">
-<p id="p-1145">The characteristic equation for <span class="process-math">\(A\)</span> is</p>
+<p id="p-1146">The characteristic equation for <span class="process-math">\(A\)</span> is</p>
 <div class="displaymath process-math">
 \begin{align*}
-det\begin{pmatrix} 1-\lambda \amp 2 \\ 2\amp 4-\lambda \end{pmatrix} \amp =0\\
+\det\begin{pmatrix} 1-\lambda \amp 2 \\ 2\amp 4-\lambda \end{pmatrix} \amp =0\\
 (1-\lambda)(4-\lambda)-4 \amp =0\\
 \lambda^2-5\lambda \amp =0
 \end{align*}
@@ -428,7 +428,7 @@ det\begin{pmatrix} 1-\lambda \amp 2 \\ 2\amp 4-\lambda \end{pmatrix} \amp =0\\
 \end{align*}
 </div>
 </div></div></article></div>
-<p id="p-1146">Notice that when <span class="process-math">\(0\)</span> is an eigenvalue of <span class="process-math">\(A\)</span> the system of equations that are solved to find the associated eigenvectors, i.e.</p>
+<p id="p-1147">Notice that when <span class="process-math">\(0\)</span> is an eigenvalue of <span class="process-math">\(A\)</span> the system of equations that are solved to find the associated eigenvectors, i.e.</p>
 <div class="displaymath process-math">
 \begin{equation*}
 (A-\lambda I)\mathbf{x}=\mathbf{0}
@@ -443,21 +443,21 @@ A\mathbf{x}=\mathbf{0}
 <p class="continuation">Since <span class="process-math">\(0\)</span> is an eigenvalue of <span class="process-math">\(A\)</span> we know that this system must have non-zero solutions which in turn tells us that <span class="process-math">\(A\)</span> is not invertible. Thus, if <span class="process-math">\(A\)</span> has <span class="process-math">\(0\)</span> as an eigenvalue it will not be invertible and vice versa.</p>
 <article class="example example-like" id="example-190"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-190"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">19.2.6</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-190"><article class="example example-like"><p id="p-1147">Find all eigenvalues and associated eigenvectors for</p>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-190"><article class="example example-like"><p id="p-1148">Find all eigenvalues and associated eigenvectors for</p>
 <div class="displaymath process-math">
 \begin{equation*}
 A=\begin{pmatrix} 0 \amp 1 \\ -1 \amp 0 \end{pmatrix}
 \end{equation*}
 </div>
 <a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-155" id="solution-155"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-155"><div class="solution solution-like">
-<p id="p-1148">The characteristic equation for <span class="process-math">\(A\)</span> is</p>
+<p id="p-1149">The characteristic equation for <span class="process-math">\(A\)</span> is</p>
 <div class="displaymath process-math">
 \begin{align*}
-det\begin{pmatrix} 0-\lambda \amp 1 \\ -1 \amp 0-\lambda \end{pmatrix} \amp =0 \\
+\det\begin{pmatrix} 0-\lambda \amp 1 \\ -1 \amp 0-\lambda \end{pmatrix} \amp =0 \\
 \lambda^2+1 \amp =0 
 \end{align*}
 </div>
-<p class="continuation">This equation has no real solutions and so <span class="process-math">\(A\)</span> does not have any real eigenvalues. (Notice that <span class="process-math">\(A\)</span> is the matrix for a rotation in the plane about the origin and through <span class="process-math">\(-\frac{\pi}{2}^C\text{.}\)</span>) However there are applications where it is advantageous to allow the eigenvalues and eigenvectors to be complex. So, proceeding as before, the eigenvalues for <span class="process-math">\(A\)</span> are</p>
+<p class="continuation">This equation has no real solutions and so <span class="process-math">\(A\)</span> does not have any real eigenvalues. (Notice that <span class="process-math">\(A\)</span> is the matrix for a rotation in the plane about the origin and through <span class="process-math">\(-\frac{\pi}{2}^c\text{.}\)</span>) However there are applications where it is advantageous to allow the eigenvalues and eigenvectors to be complex. So, proceeding as before, the eigenvalues for <span class="process-math">\(A\)</span> are</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \lambda=\pm i
@@ -490,27 +490,28 @@ det\begin{pmatrix} 0-\lambda \amp 1 \\ -1 \amp 0-\lambda \end{pmatrix} \amp =0 \
 \end{align*}
 </div>
 </div></div></article></div>
-<p id="p-1149">As we have seen the characteristic equation for a <span class="process-math">\(2\times 2\)</span> matrix is always a polynomial of degree <span class="process-math">\(2\text{.}\)</span> Once we allow complex solutions we can that every <span class="process-math">\(2\times 2\)</span> matrix will have exactly <span class="process-math">\(2\)</span> eigenvalues (so long as we count repeated roots). In fact, it can be shown that this result holds more generally. Every square matrix of order <span class="process-math">\(n\)</span> has <span class="process-math">\(n\)</span> eigenvalues (counting repeated roots).</p>
+<p id="p-1150">As we have seen the characteristic equation for a <span class="process-math">\(2\times 2\)</span> matrix is always a polynomial of degree <span class="process-math">\(2\text{.}\)</span> Once we allow complex solutions we can that every <span class="process-math">\(2\times 2\)</span> matrix will have exactly <span class="process-math">\(2\)</span> eigenvalues (so long as we count repeated roots). In fact, it can be shown that this result holds more generally. Every square matrix of order <span class="process-math">\(n\)</span> has <span class="process-math">\(n\)</span> eigenvalues (counting repeated roots).</p>
 <article class="example example-like" id="example-191"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-191"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">19.2.7</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-191"><article class="example example-like"><p id="p-1150">Find all eigenvalues and associated eigenvectors for</p>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-191"><article class="example example-like"><p id="p-1151">Find all eigenvalues and associated eigenvectors for</p>
 <div class="displaymath process-math">
 \begin{equation*}
 A=\begin{pmatrix} 7 \amp 1 \amp -2 \\ -3 \amp 3 \amp 6 \\ 2 \amp 2\amp 2 \end{pmatrix}
 \end{equation*}
 </div>
 <a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-156" id="solution-156"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-156"><div class="solution solution-like">
-<p id="p-1151">The characteristic equation for <span class="process-math">\(A\)</span> is</p>
+<p id="p-1152">The characteristic equation for <span class="process-math">\(A\)</span> is</p>
 <div class="displaymath process-math">
 \begin{equation*}
-det\begin{pmatrix} 7-\lambda \amp 1 \amp -2 \\ -3 \amp 3-\lambda \amp 6 \\ 2 \amp 2\amp 2-\lambda \end{pmatrix}=0
+\det\begin{pmatrix} 7-\lambda \amp 1 \amp -2 \\ -3 \amp 3-\lambda \amp 6 \\ 2 \amp 2\amp 2-\lambda \end{pmatrix}=0
 \end{equation*}
 </div>
 <p class="continuation">Now, using the minors method and expanding along row 1,</p>
 <div class="displaymath process-math">
 \begin{align*}
-det\begin{pmatrix} 7-\lambda \amp 1 \amp -2 \\ -3 \amp 3-\lambda \amp 6 \\ 2 \amp 2\amp 2-\lambda \end{pmatrix} \amp =(7-\lambda)\begin{vmatrix} 3-\lambda \amp 6 \\ 2 \amp 2-\lambda \end{vmatrix}-1\begin{vmatrix} -3 \amp 6 \\ 2 \amp 2-\lambda \end{vmatrix}+(-2)\begin{vmatrix} -3 \amp 3-\lambda \\ 2 \amp 2 \end{vmatrix} \\
-\amp = (7-\lambda)\{(3-\lambda)(2-\lambda)-12\}-\{(-3)(2-\lambda)-12\}-2\{-6-2(3-\lambda)\}\\
+\det\begin{pmatrix} 7-\lambda \amp 1 \amp -2 \\ -3 \amp 3-\lambda \amp 6 \\ 2 \amp 2\amp 2-\lambda \end{pmatrix} \amp =(7-\lambda)\begin{vmatrix} 3-\lambda \amp 6 \\ 2 \amp 2-\lambda \end{vmatrix}-1\begin{vmatrix} -3 \amp 6 \\ 2 \amp 2-\lambda \end{vmatrix}+(-2)\begin{vmatrix} -3 \amp 3-\lambda \\ 2 \amp 2 \end{vmatrix} \\
+\amp = (7-\lambda)\{(3-\lambda)(2-\lambda)-12\}\\
+\amp \quad \quad \quad \quad -\{(-3)(2-\lambda)-12\}-2\{-6-2(3-\lambda)\}\\
 \amp = -\lambda^3+12\lambda^2-36\lambda
 \end{align*}
 </div>
@@ -523,7 +524,7 @@ det\begin{pmatrix} 7-\lambda \amp 1 \amp -2 \\ -3 \amp 3-\lambda \amp 6 \\ 2 \am
 \end{align*}
 </div>
 <p class="continuation">Since <span class="process-math">\(\lambda=6\)</span> is a repeated root of the characteristic equation we say that this is an eigenvalue of <dfn class="terminology">multiplicity</dfn> <span class="process-math">\(2\text{.}\)</span> Also, since <span class="process-math">\(\lambda=0\)</span> is an eigenvalue of <span class="process-math">\(A\)</span> we know that <span class="process-math">\(A\)</span> is not invertible.</p>
-<p id="p-1152">When <span class="process-math">\(\lambda=0\)</span> the augmented matrix and its reduced row echelon form are</p>
+<p id="p-1153">When <span class="process-math">\(\lambda=0\)</span> the augmented matrix and its reduced row echelon form are</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \begin{pmatrix} 7 \amp 1 \amp -2 \amp 0 \\ -3 \amp 3 \amp 6 \amp 0 \\ 2 \amp 2 \amp 2 \amp 0 \end{pmatrix} \sim \begin{pmatrix} 1 \amp 0 \amp -\frac{1}{2} \amp 0 \\ 0 \amp 1 \amp \frac{3}{2} \amp 0 \\ 0 \amp 0 \amp 0 \amp 0 \end{pmatrix} 
@@ -550,25 +551,25 @@ det\begin{pmatrix} 7-\lambda \amp 1 \amp -2 \\ -3 \amp 3-\lambda \amp 6 \\ 2 \am
 \end{align*}
 </div>
 </div></div></article></div>
-<article class="example example-like" id="example-192"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-192"><h3 class="heading">
+<article class="example example-like" id="Ex-Find_eigen_upper_triangular_matrix"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-Ex-Find_eigen_upper_triangular_matrix"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">19.2.8</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-192"><article class="example example-like"><p id="p-1153">Find all eigenvalues and associated eigenvectors for</p>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Ex-Find_eigen_upper_triangular_matrix"><article class="example example-like"><p id="p-1154">Find all eigenvalues and associated eigenvectors for</p>
 <div class="displaymath process-math">
 \begin{equation*}
 A=\begin{pmatrix} 7 \amp 1 \amp -2 \\ 0 \amp 3 \amp 6 \\ 0 \amp 0 \amp 2 \end{pmatrix}
 \end{equation*}
 </div>
 <a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-157" id="solution-157"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-157"><div class="solution solution-like">
-<p id="p-1154">The characteristic equation for <span class="process-math">\(A\)</span> is</p>
+<p id="p-1155">The characteristic equation for <span class="process-math">\(A\)</span> is</p>
 <div class="displaymath process-math">
 \begin{equation*}
-det\begin{pmatrix} 7-\lambda \amp 1 \amp -2 \\ 0 \amp 3-\lambda \amp 6 \\ 0 \amp 0 \amp 2-\lambda \end{pmatrix}=0
+\det\begin{pmatrix} 7-\lambda \amp 1 \amp -2 \\ 0 \amp 3-\lambda \amp 6 \\ 0 \amp 0 \amp 2-\lambda \end{pmatrix}=0
 \end{equation*}
 </div>
 <p class="continuation">Now, using the minors method and expanding down column 1,</p>
 <div class="displaymath process-math">
 \begin{align*}
-det\begin{pmatrix} 7-\lambda \amp 1 \amp -2 \\ 0 \amp 3-\lambda \amp 6 \\ 0 \amp 0\amp 2-\lambda \end{pmatrix} \amp =(7-\lambda)\begin{vmatrix} 3-\lambda \amp 6 \\ 0 \amp 2-\lambda \end{vmatrix}-0\begin{vmatrix} 1 \amp -2 \\ 0 \amp 2-\lambda \end{vmatrix}+0\begin{vmatrix} 1 \amp -2 \\ 3-\lambda \amp 6 \end{vmatrix} \\
+\det\begin{pmatrix} 7-\lambda \amp 1 \amp -2 \\ 0 \amp 3-\lambda \amp 6 \\ 0 \amp 0\amp 2-\lambda \end{pmatrix} \amp =(7-\lambda)\begin{vmatrix} 3-\lambda \amp 6 \\ 0 \amp 2-\lambda \end{vmatrix}-0\begin{vmatrix} 1 \amp -2 \\ 0 \amp 2-\lambda \end{vmatrix}+0\begin{vmatrix} 1 \amp -2 \\ 3-\lambda \amp 6 \end{vmatrix} \\
 \amp = (7-\lambda)\{(3-\lambda)(2-\lambda)-0\}-0+0\\
 \amp = (7-\lambda)(3-\lambda)(2-\lambda)
 \end{align*}
@@ -619,12 +620,12 @@ det\begin{pmatrix} 7-\lambda \amp 1 \amp -2 \\ 0 \amp 3-\lambda \amp 6 \\ 0 \amp
 \end{align*}
 </div>
 </div></div></article></div>
-<p id="p-1155">As illustrated in Example 19.2.8., for an upper triangular matrix the eigenvalues are the entries on the main diagonal. Unfortunately, we cannot use row reduction to find eigenvalues because equivalent matrices do not necessarily have the same eigenvalues. Interestingly though, it can be shown that sum of the eigenvalues of any square matrix is equal to the sum of the entries on the main diagonal (i.e. to the <dfn class="terminology">trace</dfn> of the matrix).</p>
-<p id="p-1156">To close this section, we can once again add one more statement to our theorem connecting the ideas that we have studied so far.</p>
+<p id="p-1156">As illustrated in <a href="" class="xref" data-knowl="./knowl/Ex-Find_eigen_upper_triangular_matrix.html" title="Example 19.2.8">Example 19.2.8</a>, for an upper triangular matrix the eigenvalues are the entries on the main diagonal. Unfortunately, we cannot use row reduction to find eigenvalues because equivalent matrices do not necessarily have the same eigenvalues. Interestingly though, it can be shown that sum of the eigenvalues of any square matrix is equal to the sum of the entries on the main diagonal (i.e. to the <dfn class="terminology">trace</dfn> of the matrix).</p>
+<p id="p-1157">To close this section, we can once again add one more statement to our theorem connecting the ideas that we have studied so far.</p>
 <article class="theorem theorem-like" id="theorem-29"><h3 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">19.2.9</span><span class="period">.</span>
 </h3>
-<p id="p-1157">Consider the non-homogenous system of <span class="process-math">\(n\)</span> linear equations in <span class="process-math">\(n\)</span> variables</p>
+<p id="p-1158">Consider the non-homogenous system of <span class="process-math">\(n\)</span> linear equations in <span class="process-math">\(n\)</span> variables</p>
 <div class="displaymath process-math">
 \begin{equation*}
 A\mathbf{x}=\mathbf{b}, \hspace{5mm} \mathbf{b\neq 0}
@@ -642,19 +643,19 @@ A\mathbf{x}=\mathbf{b}, \hspace{5mm} \mathbf{b\neq 0}
 <span class="type">Exercises</span> <span class="codenumber"></span> <span class="title">Example Tasks</span>
 </h3>
 <article class="exercise exercise-like" id="exercise-104"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
-<p id="p-1158">Find all eigenvalues and associated eigenvectors for</p>
+<p id="p-1159">Find all eigenvalues and associated eigenvectors for</p>
 <div class="displaymath process-math">
 \begin{equation*}
 A=\begin{pmatrix} -2 \amp -3 \\ 3 \amp 4 \end{pmatrix}
 \end{equation*}
 </div></article><article class="exercise exercise-like" id="exercise-105"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
-<p id="p-1159">Find all eigenvalues and associated eigenvectors for</p>
+<p id="p-1160">Find all eigenvalues and associated eigenvectors for</p>
 <div class="displaymath process-math">
 \begin{equation*}
 A=\begin{pmatrix} 4 \amp 0 \amp 1 \\ 2 \amp 3 \amp 2 \\ -1 \amp 0 \amp 2 \end{pmatrix}
 \end{equation*}
 </div></article><article class="exercise exercise-like" id="exercise-106"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
-<p id="p-1160">Show that if <span class="process-math">\(\lambda\)</span> is an eigenvalue of the matrix <span class="process-math">\(A\)</span> then <span class="process-math">\(\lambda^2\)</span> is an eigenvalue of the matrix <span class="process-math">\(A^2\text{.}\)</span></p></article></section></section></div></main>
+<p id="p-1161">Show that if <span class="process-math">\(\lambda\)</span> is an eigenvalue of the matrix <span class="process-math">\(A\)</span> then <span class="process-math">\(\lambda^2\)</span> is an eigenvalue of the matrix <span class="process-math">\(A^2\text{.}\)</span></p></article></section></section></div></main>
 </div>
 </body>
 </html>

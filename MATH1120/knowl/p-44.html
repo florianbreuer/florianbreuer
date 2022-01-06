@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-12-08T21:43:52+11:00       *-->
+<!--*       on 2022-01-06T23:31:17+11:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,25 +15,12 @@
 </head>
 <body class="ignore-math">
 <h3 class="heading"><span class="type">Paragraph</span></h3>
-<p>We know that the power series reduces to <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(c_0\)</span> when <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(x=0\)</span> and so for the power series to match the function when <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(x=0\)</span> we must have <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(c_0 = f(0)\text{.}\)</span> On differentiating <a href="" class="xref" data-knowl="./knowl/Eq-Maclaurin_of_f.html" title="Equation 1.3.1">(1.3.1)</a> we get</p>
+<p>In this section we will discuss the task of finding an infinite series representation for a given function of one variable, <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(f\text{.}\)</span> We begin by assuming that the given function <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(f(x)\)</span> does indeed have a power series representation, at least initially about <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(x=0\text{.}\)</span> Thus we assume that on some interval <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(|x| &lt; R\)</span></p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
 \begin{equation}
-f'(x) = \sum_{k=1}^{\infty}kc_kx^{k-1} = c_1 +2c_2x +3c_3x^2 + 4c_4x^3 + \cdots\tag{1.3.2}
+f(x) = \sum_{k=0}^{\infty}c_kx^k = c_0 + c_1x +c_2x^2 +c_3x^3 + \cdots.\tag{1.3.1}
 \end{equation}
 </div>
-<p class="continuation">and putting on <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(x=0\)</span> into this gives <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(c_1=f'(0)\text{.}\)</span> Similarly, differentiating <a href="" class="xref" data-knowl="./knowl/Eq-First_derivative_Maclaurin.html" title="Equation 1.3.2">(1.3.2)</a></p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{equation}
-f''(x) = \sum_{k=2}^{\infty}k(k-1)c_kx^{k-2} = 2c_2 +6c_3x + 12c_4x^2 + \cdots\tag{1.3.3}
-\end{equation}
-</div>
-<p class="continuation">and substituting <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(x=0\)</span> gives <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(c_2=\dfrac{1}{2}f''(0)\text{.}\)</span> By continuing this process, we can see that in general</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{equation}
-f^{(n)}(x) = \sum_{k=n}^{\infty}k(k-1)(k-2)\cdots(k-(n-1))c_kx^{k-n}\tag{1.3.4}
-\end{equation}
-</div>
-<p class="continuation">and hence (by substituting <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(x=0\)</span>) that <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(c_n = \dfrac{1}{n!}f^{(n)}(0)\text{.}\)</span></p>
 <span class="incontext"><a href="Sec-Maclaurin_Series.html#p-44">in-context</a></span>
 </body>
 </html>

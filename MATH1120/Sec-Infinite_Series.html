@@ -1,7 +1,7 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2021-12-08T21:40:42+11:00       *-->
+<!--*       on 2022-01-06T23:29:37+11:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -87,7 +87,7 @@
 </li>
 <li class="link">
 <a href="Calculus_3.html" data-scroll="Calculus_3"><span class="codenumber">3</span> <span class="title">Functions of Several Variables</span></a><ul>
-<li><a href="functions-of-two-variables.html" data-scroll="functions-of-two-variables">Functions of Two Variables</a></li>
+<li><a href="Functions-of-Two-Variables.html" data-scroll="Functions-of-Two-Variables">Functions of Two Variables</a></li>
 <li><a href="level-curves.html" data-scroll="level-curves">Level Curves</a></li>
 <li><a href="surfaces-of-revolution.html" data-scroll="surfaces-of-revolution">Surfaces of Revolution</a></li>
 <li><a href="functions-of-3-or-more-variables.html" data-scroll="functions-of-3-or-more-variables">Functions of 3 (or more) Variables</a></li>
@@ -211,13 +211,13 @@
 <span class="type">Section</span> <span class="codenumber">1.2</span> <span class="title">Infinite Series</span>
 </h2>
 <p id="p-8">In this section we will discuss the concepts and terminology associated with infinite series that we will need in order to discuss representing functions by infinite series.</p>
-<p id="p-9">An infinite series is a sum of the form</p>
+<p id="p-9">An <dfn class="terminology">infinite series</dfn> is a sum of the form</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \sum_{k=1}^{\infty}t_k = t_1 + t_2 +t_3 + \cdots
 \end{equation*}
 </div>
-<p class="continuation">where <span class="process-math">\(t_k\)</span> are real numbers.</p>
+<p class="continuation">where <span class="process-math">\(t_k\)</span> are (real) numbers.</p>
 <p id="p-10">We call <span class="process-math">\(t_1, t_1+t_2, t_1+t_2+t_3, \ldots\)</span> the <dfn class="terminology">sequence</dfn> of partial sums for the series.</p>
 <article class="example example-like" id="Ex-Sample_infinite_series"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-Ex-Sample_infinite_series"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">1.2.1</span><span class="period">.</span>
@@ -255,9 +255,9 @@
 </ul>
 <p id="p-13">On adding the first <span class="process-math">\(10\)</span> terms of the series <span class="process-math">\(\displaystyle \sum_{k=1}^{\infty}\frac{1}{2^k}\)</span> we get <span class="process-math">\(0.99902344\cdots\text{,}\)</span> on adding the first <span class="process-math">\(20\)</span> terms we get <span class="process-math">\(0.99999905\cdots\text{.}\)</span> So even though as we add more terms the sum is getting larger it is getting closer and closer to some fixed number. Adding lots of terms of the series (as we did above) suggests that for this case the sum is converging to <span class="process-math">\(1\text{.}\)</span> If this is the case (and we will show below that it is) then we would say:</p>
 <ul class="disc">
-<li id="li-3"><p id="p-derived-li-3">The series converges to <span class="process-math">\(1\)</span></p></li>
-<li id="li-4"><p id="p-derived-li-4">The sum of the series is <span class="process-math">\(1\)</span></p></li>
-<li id="li-5"><p id="p-derived-li-5">The limit of the series is <span class="process-math">\(1\)</span></p></li>
+<li id="li-3"><p id="p-derived-li-3">The series <dfn class="terminology">converges</dfn> to <span class="process-math">\(1\)</span></p></li>
+<li id="li-4"><p id="p-derived-li-4">The <dfn class="terminology">sum</dfn> of the series is <span class="process-math">\(1\)</span></p></li>
+<li id="li-5"><p id="p-derived-li-5">The <dfn class="terminology">limit</dfn> of the series is <span class="process-math">\(1\)</span></p></li>
 </ul>
 <p id="p-14">There is a lot of mathematics devoted to determining the nature of an infinite series. We will mention just three useful results.</p>
 <article class="theorem theorem-like" id="theorem-1"><h3 class="heading">
@@ -437,14 +437,15 @@ f(x) = \sum_{k=0}^{\infty}\dfrac{(x-1)^k}{k+1}.
 </ol></article><article class="exercise exercise-like" id="exercise-2"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
 <p id="p-41">Determine the interval of convergence for the following series.</p>
 <ol class="lower-alpha cols2">
-<li id="li-22"><p id="p-derived-li-22"><span class="process-math">\(\displaystyle \displaystyle \sum_{k=1}^{\infty}\dfrac{(3x-2)^k}{k3^k}\)</span></p></li>
+<li id="li-22"><p id="p-derived-li-22"><span class="process-math">\(\displaystyle \displaystyle \sum_{k=1}^{\infty}\dfrac{(3x-2)^k}{k\,3^k}\)</span></p></li>
 <li id="li-23"><p id="p-derived-li-23"><span class="process-math">\(\displaystyle \displaystyle \sum_{k=1}^{\infty}(-1)^k\dfrac{x^{2k}}{(2k)!}\)</span></p></li>
 </ol></article></section><article class="remark remark-like" id="remark-2"><h3 class="heading">
 <span class="type">Remark</span><span class="space"> </span><span class="codenumber">1.2.13</span><span class="period">.</span><span class="space"> </span><span class="title">Aside.</span>
 </h3>
 <p id="p-42">Computer algebra systems usually have commands for summing infinite series. For example, with Wolfram Alpha you can just type in the first few terms as shown.</p>
 <figure class="figure figure-like" id="Fig-C1_WA_1"><div class="image-box" style="width: 90%; margin-left: 5%; margin-right: 5%;"><img src="./Calculus/Images/1/C1_WA_1.png" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.2.14<span class="period">.</span></span><span class="space"> </span></figcaption></figure><figure class="figure figure-like" id="Fig-C1_WA_2"><div class="image-box" style="width: 90%; margin-left: 5%; margin-right: 5%;"><img src="./Calculus/Images/1/C1_WA_2.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.2.14<span class="period">.</span></span><span class="space"> </span></figcaption></figure><p id="p-43">The following example shows another query to Wolfram Alpha and the associated output.</p>
+<figure class="figure figure-like" id="Fig-C1_WA_2"><div class="image-box" style="width: 90%; margin-left: 5%; margin-right: 5%;"><img src="./Calculus/Images/1/C1_WA_2.png" class="contained"></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">1.2.15<span class="period">.</span></span><span class="space"> </span></figcaption></figure></article></section></div></main>
 </div>
 </body>
