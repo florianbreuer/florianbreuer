@@ -29,7 +29,7 @@
 <!-- =================================================================================================== -->
 <!-- Title and Other Preliminaries -->
 <!-- =================================================================================================== -->
-        <title>Systems of Linear Equations</title>
+        <title>LA1: Systems of Linear Equations</title>
 
         <!-- <frontmatter> -->
 
@@ -61,7 +61,7 @@
             <p>
                 An equation such as
                 <me>a_1x_1+a_2x_2+\dots+a_nx_n=b</me>
-                (where the <m>a_i</m> and <m>b</m> are numbers and the <m>x_i</m> are variables) is a <term>linear equation</term> in <m>n</m> variables, (or <m>n</m> unknowns). In the special case in which <m>b=0</m> the equation is called <term>homogeneous</term>. (Of course when there are only a small number of variables, <m>2</m> or <m>3</m> say, it is common to use completely different labels (such as <m>x</m>, <m>y</m> and <m>z</m>) for the variables rather than to use subscripts (such as <m>x_1</m>, <m>x_2</m> and <m>x_3</m>).) 
+                (where the <m>a_i</m> and <m>b</m> are numbers and the <m>x_i</m> are variables) is a <term>linear equation</term> in <m>n</m> variables, (or <m>n</m> unknowns). In the special case in which <m>b=0</m> the equation is called <term>homogeneous</term>. (Of course when there are only a small number of variables, <m>2</m> or <m>3</m> say, it is common to use completely different labels (such as <m>x</m>, <m>y</m> and <m>z</m>) for the variables rather than to use subscripts (such as <m>x_1</m>, <m>x_2</m> and <m>x_3</m>).)
             </p>
 
             <definition>
@@ -132,7 +132,7 @@
                 <solution>
                     <p>
                         Multiplying the first equation by <m>2</m> and then subtracting this from the second equation gives <m>0=0</m>. This tells us that any values of <m>x</m> and <m>y</m> that satisfy the first equation will also satisfy the second equation. Thus there are infinitely many solutions. We may choose <m>x</m> (say) to be anything we like, and then find a corresponding value for <m>y</m> (from either equation). So if we set <m>x=t</m>, then
-                        <me>y=\frac{4}{3}-\frac{2}{3}t</me> 
+                        <me>y=\frac{4}{3}-\frac{2}{3}t</me>
                         and the solution set is
                         <me>(x,y)=\left(t,\frac{4}{3}-\frac{2}{3}t\right)</me>
                         Thus, the parameter <m>t</m> labels the infinite family of solutions.
@@ -152,7 +152,7 @@
             <example>
                 <p>
                     Solve the following system of linear equations and interpret the answer geometrically
-                </p>    
+                </p>
                 <p><md>
                     <mrow>2x-3y \amp =13</mrow>
                     <mrow>4x-6y \amp =5</mrow>
@@ -172,7 +172,7 @@
 
             <p>
             	The above (simple) examples illustrate two important facts that hold for all systems of linear equations. Firstly:
-            </p> 
+            </p>
 
             <definition>
                 <p>
@@ -186,7 +186,7 @@
             </definition>
 
             <p>
-                Thus it is impossible, for example, for a system of linear equations to have exactly two or exactly three solutions. (We will see why this is later.) Secondly, we cannot tell which of these cases (i.e. a unique solution, infinitely many solutions or no solution) applies simply by counting the number of equations and unknowns. 
+                Thus it is impossible, for example, for a system of linear equations to have exactly two or exactly three solutions. (We will see why this is later.) Secondly, we cannot tell which of these cases (i.e. a unique solution, infinitely many solutions or no solution) applies simply by counting the number of equations and unknowns.
             </p>
             <p>
                 For systems of two linear equations in two unknowns we have seen that we can solve the system via the "substitution method" (viz. making one variable the subject of one equation and then substituting this into the second equation) or the "elimination method" (viz. adding a multiple of one equation to other). For larger system of equations this basic idea can still be used but the working can be become quite messy. In the following sections we will look at a systematic way of solving a system of <m>m</m> linear equations in <m>n</m> unknowns using matrices.
@@ -222,7 +222,7 @@
             </example>
 
             <p>
-                Matrices have proved useful in many areas of mathematics and we will study them in more detail throughout this strand. With respect to the following system of linear equations 
+                Matrices have proved useful in many areas of mathematics and we will study them in more detail throughout this strand. With respect to the following system of linear equations
             </p>
             <p><md>
                 <mrow>a_{11}x_1+a_{12}x_2+\dots+a_{1n}x_n \amp =b_1</mrow>
@@ -268,7 +268,7 @@
             </example>
 
             <example xml:id="Ex-Write_down_the_system_of_equations">
-                <p> 
+                <p>
                     Write down the system of linear equations that correspond to the following augmented matrices.
                 </p>
                 <p><ol label="(a).">
@@ -283,7 +283,7 @@
                 <solution>
                     <p><ol label="(a).">
                         <li><p>
-                            Calling the variables as <m>x</m>, <m>y</m> and <m>z</m> the system of equations is 
+                            Calling the variables as <m>x</m>, <m>y</m> and <m>z</m> the system of equations is
                             <md>
                                 <mrow>3x-2y+2z \amp =-3</mrow>
                                 <mrow>-x+6y+4z \amp =7</mrow>
@@ -313,7 +313,7 @@
             <title>Solving Systems of Linear Equations</title>
 
             <p>
-                Two systems of linear equations are said to be <term>equivalent</term> if they have the same number of variables and have the same solution sets. 
+                Two systems of linear equations are said to be <term>equivalent</term> if they have the same number of variables and have the same solution sets.
             </p>
 
             <example>
@@ -335,7 +335,7 @@
             <p><ul>
                 <li><p>Multiplying any one equation by a non-zero constant</p></li>
                 <li><p>Re-writing the equations in a different order</p></li>
-                <li><p>Adding any multiple of one equation to another</p></li>                
+                <li><p>Adding any multiple of one equation to another</p></li>
             </ul></p>
 
             <example xml:id="Ex-Equivalent_systems_of_linear_equations">
@@ -372,12 +372,12 @@
                 <p><ul>
                     <li><p>Swapping two rows</p></li>
                     <li><p>Multiplying a row by a non-zero constant</p></li>
-                    <li><p>Adding a multiple of one row to another row</p></li>                
+                    <li><p>Adding a multiple of one row to another row</p></li>
                 </ul></p>
             </definition>
 
             <p>
-                <term>Note:</term> 
+                <term>Note:</term>
             </p>
             <p><ol label="i.">
                 <li><p>We use the symbol <m>\sim</m>  to denote that two matrices are equivalent.</p></li>
@@ -389,11 +389,11 @@
                 <p>
                     The following matrices are equivalent because we have just swapped two rows.
                     <me> \begin{pmatrix} 3 \amp -2 \amp 2 \amp -3 \\ -1 \amp 6 \amp 4 \amp 7 \\ 1 \amp 1 \amp 5 \amp -2 \end{pmatrix} \sim \begin{pmatrix} 3 \amp -2 \amp 2 \amp -3 \\ 1 \amp 1 \amp 5 \amp -2 \\ -1 \amp 6 \amp 4 \amp 7 \end{pmatrix}  \begin{matrix} \\ \hspace{5mm} R_2'=R_3 \\ \hspace{5mm} R_3'=R_2 \end{matrix}</me>
-                    The following matrices are equivalent because we have just multiplied Row <m>2</m> by <m>3</m>. 
+                    The following matrices are equivalent because we have just multiplied Row <m>2</m> by <m>3</m>.
                     <me> \begin{pmatrix} 3 \amp -2 \amp 2 \amp -3 \\ 1 \amp 1 \amp 5 \amp -2 \\ -1 \amp 6 \amp 4 \amp 7 \end{pmatrix} \sim \begin{pmatrix} 3 \amp -2 \amp 2 \amp -3 \\ 3 \amp 3 \amp 15 \amp -6 \\ -1 \amp 6 \amp 4 \amp 7 \end{pmatrix} \hspace{5mm} R_2'=3R_2 </me>
                     The following matrices are equivalent because we have just subtracted Row <m>1</m> from Row <m>2</m>, (i.e. added <m>-1</m> times Row <m>1</m> to Row <m>2</m>)
                     <me> \begin{pmatrix} 3 \amp -2 \amp 2 \amp -3 \\ 3 \amp 3 \amp 15 \amp -6 \\ -1 \amp 6 \amp 4 \amp 7 \end{pmatrix} \sim \begin{pmatrix} 3 \amp -2 \amp 2 \amp -3 \\ 0 \amp 5 \amp 13 \amp -3 \\ -1 \amp 6 \amp 4 \amp 7 \end{pmatrix} \hspace{5mm} R_2'=R_2-R_1</me>
-                    
+
                 </p>
             </example>
 
@@ -494,7 +494,7 @@
                         </md>
                         We can now read off the solution as
                         <me>(x,y)=(2,-1)</me>
-                        Of course we can check that this solution is correct by substituting these values into the original equations. 
+                        Of course we can check that this solution is correct by substituting these values into the original equations.
                     </p>
                     <p>
                         In doing the row reduction here were had to use fractions. It is possible to apply the elementary row operations in a manner that avoids the fractions until the last steps. However you have to be very careful in doing this that you don’t lose some of the <m>0</m>’s that you have already created and hence start going around in circles!
@@ -520,7 +520,7 @@
                             <mrow> \begin{pmatrix} 2 \amp 6 \amp 2 \amp 4 \\ 3 \amp 2 \amp 1 \amp 0 \\ 2 \amp 3 \amp 0 \amp 1 \end{pmatrix} \amp \sim \begin{pmatrix} 1 \amp 3 \amp 1 \amp 2 \\ 0 \amp -7 \amp -2 \amp -6 \\ 0 \amp -3 \amp -2 \amp -3 \end{pmatrix}  \begin{matrix} R_1'=R_1/2 \\ \hspace{10mm} R_2'=R_2-3R_1' \\ \hspace{10mm} R_3'=R_3-2R_1' \end{matrix} </mrow>
                             <mrow> \amp \sim \begin{pmatrix} 1 \amp 0 \amp \frac{1}{7} \amp -\frac{4}{7} \\ 0 \amp 1 \amp \frac{2}{7} \amp \frac{6}{7} \\ 0 \amp 0 \amp -\frac{8}{7} \amp -\frac{3}{7} \end{pmatrix}  \hspace{6mm} \begin{matrix} \hspace{5mm} R_1'=R_1-3R_2' \\  R_2'=-R_2/7 \\ \hspace{5.5mm} R_3'=R_3+3R_2' \end{matrix}</mrow>
                             <mrow> \amp \sim \begin{pmatrix} 1 \amp 0 \amp 0 \amp -\frac{5}{8} \\ 0 \amp 1 \amp 0 \amp \frac{3}{4} \\ 0 \amp 0 \amp 1 \amp \frac{3}{8} \end{pmatrix}   \begin{matrix} \hspace{14.5mm} R_1'=R_1-R_3'/7 \\ \hspace{16.5mm} R_2'=R_2-2R_3'/7 \\ \hspace{10mm} R_3'=-7R_3/8 \end{matrix}</mrow>
-                        
+
                         </md>
                         Thus the solution is
                         <me>(x,y,z)=\left(-\frac{5}{8},\frac{3}{4},\frac{3}{8}\right)</me>
@@ -531,7 +531,7 @@
             <exercises>
                 <title>Example Tasks</title>
 
-                <exercise> 
+                <exercise>
                     <statement>
                         <p>
                             For the following augmented matrices write down the general solution of the associated system of linear equations, (i.e. write down the set of all solutions).
@@ -553,7 +553,7 @@
                     </statement>
                 </exercise>
 
-                <exercise> 
+                <exercise>
                     <statement>
                         <p>
                             Solve the following system of linear equations by Gauss-Jordan elimination.
@@ -565,8 +565,8 @@
                         </p>
                     </statement>
                 </exercise>
-                
-                <exercise> 
+
+                <exercise>
                     <statement>
                         <p>
                             The general equation of a circle is <m>x^2+y^2+ax+by+c=0</m>. Find the equation of the circle that passes through the points <m>(1,0)</m>, <m>(2,1)</m> and <m>(2,-1)</m>.
@@ -574,7 +574,7 @@
                     </statement>
                 </exercise>
             </exercises>
-        
+
         </section>
 
 <!-- =================================================================================================== -->

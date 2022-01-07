@@ -30,7 +30,7 @@
 <!-- =================================================================================================== -->
 <!-- Title and Other Preliminaries -->
 <!-- =================================================================================================== -->
-        <title>Geometric Interpretations of Linear Equations</title>
+        <title>LA2: Geometric Interpretations of Linear Equations</title>
 
         <!-- <frontmatter> -->
 
@@ -60,7 +60,7 @@
             <title>Interpretation Via Rows</title>
 
             <p>
-                We know that a linear equation in two variables can be interpreted as the equation of a line in the plane. For example the equation 
+                We know that a linear equation in two variables can be interpreted as the equation of a line in the plane. For example the equation
                 <me>2x+3y=6</me>
                 can be interpreted as a line of slope <m>-\frac{2}{3}</m> and with a <m>y</m>-intercept of <m>2</m>. Thus, for a system of linear equations involving two variables each row can be interpreted as a line in the plane and finding the solution to this system can be thought of as finding all of those points in the plane (if any) that lie on all of the lines. (We had several examples last week where we interpreted systems involving just two linear equations this way.)
             </p>
@@ -153,7 +153,7 @@
                     </statement>
                 </exercise>
             </exercises>
-        
+
         </section>
 
 <!-- =================================================================================================== -->
@@ -173,7 +173,7 @@
                 </md>
                 which can be represented by the augmented matrix
                 <me> \begin{pmatrix} a_{11} \amp a_{12} \amp b_1 \\ a_{21} \amp a_{22} \amp b_2 \end{pmatrix}</me>
-                To give a geometric interpretation of this system of equations (in terms of the columns) we are going to think of the <m>2\times 1</m> matrix 
+                To give a geometric interpretation of this system of equations (in terms of the columns) we are going to think of the <m>2\times 1</m> matrix
                 <me> \begin{pmatrix} v_{1} \\ v_{2} \end{pmatrix}</me>
                 as representing the vector in <m>\mathbb{R}^2</m> (i.e. in the plane) whose tail is at the origin and whose head is at the point <m>(v_1,v_2)</m>. Thus this matrix is sometimes called a <term>column vector</term>.
             </p>
@@ -232,14 +232,14 @@
 
             <example>
                 <title>(cont.)</title>
-                
+
                 <p>
-                    The geometric interpretation (in terms of the columns) of the system of linear equations 
+                    The geometric interpretation (in terms of the columns) of the system of linear equations
                     <md>
                         <mrow>2x-3y \amp =-3</mrow>
                         <mrow>2x+2y \amp = 7</mrow>
                     </md>
-                    can be now be phrased as: 
+                    can be now be phrased as:
                     <ul>
                         <li> The vector <m>\begin{pmatrix} -3 \\ 7 \end{pmatrix}</m> can be written as a linear combination of the vectors <m>\begin{pmatrix} 2 \\ 2 \end{pmatrix}</m> and <m>\begin{pmatrix} -3 \\ 2 \end{pmatrix}</m>, and in only one way, or</li>
                         <li> The vector <m>\begin{pmatrix} -3 \\ 7 \end{pmatrix}</m> is in the span of the vectors <m>\begin{pmatrix} 2 \\ 2 \end{pmatrix}</m> and <m>\begin{pmatrix} -3 \\ 2 \end{pmatrix}</m>.</li>
@@ -305,12 +305,12 @@
                     <p>
                         <ol label="(a).">
                             <li>
-                                This set of vectors is linearly dependent since (from our previous examples) we know that 
+                                This set of vectors is linearly dependent since (from our previous examples) we know that
                                 <me>\begin{pmatrix} -3 \\ 7 \end{pmatrix}=\frac{3}{2} \begin{pmatrix} 2 \\ 2 \end{pmatrix}+2\begin{pmatrix} -3 \\ 2 \end{pmatrix}</me>
                                 i.e. <m>\mathbf{v_3}</m> can be written as a linear combination of <m>\mathbf{v_1}</m> and <m>\mathbf{v_2}</m>.
                             </li>
                             <li>
-                                This set of vectors is linearly independent since the only solution to 
+                                This set of vectors is linearly independent since the only solution to
                                 <me>x_1\mathbf{v_1}+x_2\mathbf{v_2}=\mathbf{0}</me>
                                 is <m>x_1=x_2=0</m>. Note that in this case this is telling us that <m>\mathbf{v_2}</m> is not a scalar multiple of <m>\mathbf{v_1}</m>, i.e. <m>\mathbf{v_2}</m> is not parallel to <m>\mathbf{v_1}</m>.
                             </li>
@@ -318,7 +318,7 @@
                     </p>
                 </solution>
             </example>
-            
+
             <p>
                 We are now ready to discuss the geometric interpretation, in terms of the columns, of a system of three linear equations in three unknowns <m>x</m>, <m>y</m> and <m>z</m>, i.e. of
                 <md>
@@ -342,7 +342,7 @@
                         <mrow>4x+y-z \amp=3</mrow>
                     </md>
                 </p>
-                <solution>  
+                <solution>
                     <p>
                         The augmented matrix and its reduced row-echelon equivalent matrix are
                         <me>\begin{pmatrix} 2 \amp 4 \amp 2 \amp 3 \\ 2 \amp 3 \amp 3 \amp 6 \\4 \amp 1 \amp -1 \amp 3 \end{pmatrix} \sim \begin{pmatrix} 1 \amp 0 \amp 0 \amp \frac{3}{2} \\ 0 \amp 1 \amp 0 \amp -1 \\ 0 \amp 0 \amp 1 \amp 2 \end{pmatrix}</me>
@@ -425,7 +425,7 @@
             <exercises>
                 <title>Example Tasks</title>
 
-                <exercise> 
+                <exercise>
                     <statement>
                         <p>
                             Decide if the following sets of vectors are linearly independent or not
@@ -437,7 +437,7 @@
                     </statement>
                 </exercise>
 
-                <exercise> 
+                <exercise>
                     <statement>
                         <p>
                             Solve the following system of linear equations and interpret your answer geometrically in terms of the columns of the augmented matrix.
@@ -450,7 +450,7 @@
                     </statement>
                 </exercise>
 
-                 <exercise> 
+                 <exercise>
                     <statement>
                         <p>
                             <ol label="(a).">
@@ -467,9 +467,9 @@
                         </p>
                     </statement>
                 </exercise>
-            
+
             </exercises>
-        
+
         </section>
 
 <!-- =================================================================================================== -->

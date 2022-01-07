@@ -30,7 +30,7 @@
 <!-- =================================================================================================== -->
 <!-- Title and Other Preliminaries -->
 <!-- =================================================================================================== -->
-        <title>Some Applications of Eigenvalues and Eigenvectors</title>
+        <title>LA6: Some Applications of Eigenvalues and Eigenvectors</title>
 
         <!-- <frontmatter> -->
 
@@ -64,8 +64,8 @@
 
             <p>Given the square matrix <m>A</m> of order <m>k</m> the problem is to calculate the matrix <m>A^n</m> where <m>n \in \mathbb{N}</m>. For small values of <m>n</m> the calculation can be done by brute force but for large values of <m>n</m> this becomes intractable. A solution to this problem if the matrix <m>A</m> has <m>k</m> distinct eigenvalues is as follows.</p>
 
-            <p>Let the <m>k</m> distinct eigenvalues of matrix <m>A</m> be <m>\lambda_1, \lambda_2, \ldots, \lambda_k</m> and let the associated eigenvectors be <m>\bm{v}_1, \bm{v}_2, \ldots, \bm{v}_k</m>. Now let <m>P</m> be the matrix whose columns are these eigenvectors, i.e. 
-                <me>P = \begin{pmatrix} 
+            <p>Let the <m>k</m> distinct eigenvalues of matrix <m>A</m> be <m>\lambda_1, \lambda_2, \ldots, \lambda_k</m> and let the associated eigenvectors be <m>\bm{v}_1, \bm{v}_2, \ldots, \bm{v}_k</m>. Now let <m>P</m> be the matrix whose columns are these eigenvectors, i.e.
+                <me>P = \begin{pmatrix}
                             \bm{v}_1 \amp \bm{v}_2 \amp \cdots \amp \bm{v}_k
                         \end{pmatrix}
                 </me>
@@ -95,7 +95,7 @@
                             0 \amp 0 \amp \cdots \amp \lambda_k^n
                             \end{pmatrix}
                     </me>.
-                this provides a relatively easy way to calculate <m>A^n</m> for large values of <m>n</m>. 
+                this provides a relatively easy way to calculate <m>A^n</m> for large values of <m>n</m>.
             </p>
 
 
@@ -108,7 +108,7 @@
 
                 <solution>
                     <p>
-                        Since <m>n</m> is small here it is easiest just to do the matrix multiplications to obtain 
+                        Since <m>n</m> is small here it is easiest just to do the matrix multiplications to obtain
                             <me>
                                 A^3 = \begin{pmatrix} 3 \amp 1 \\ 1 \amp 3 \end{pmatrix} \begin{pmatrix} 3 \amp 1 \\ 1 \amp 3 \end{pmatrix} \begin{pmatrix} 3 \amp 1 \\ 1 \amp 3 \end{pmatrix} = \begin{pmatrix} 3 \amp 1 \\ 1 \amp 3 \end{pmatrix} \begin{pmatrix} 10 \amp 6 \\ 6 \amp 10 \end{pmatrix} = \begin{pmatrix} 36 \amp 28 \\ 28 \amp 36 \end{pmatrix}
                             </me>
@@ -168,7 +168,7 @@
                         <li>
                             A  square  matrix  <m>D</m>  of  order  <m>k</m>  is  called  <em>diagonal</em> if  all  of  its  off-diagonal  entries are 0, i.e. it is of the form
                                 <me>
-                                    D = \begin{pmatrix} 
+                                    D = \begin{pmatrix}
                                         d_1 \amp 0 \amp \cdots \amp 0 \\
                                         0 \amp d_2 \amp \cdots \amp 0 \\
                                         \vdots \amp \vdots \amp \ddots \amp \vdots \\
@@ -188,7 +188,7 @@
             <example>
                 <statement>
                     <p>
-                        A town contains <m>51000</m> inhabitants. Initially <m>2000</m> of these are sick. Each month there is a change in the population: of those who are well <m>\frac{3}{4}</m> remain well and <m>\frac{1}{4}</m> become sick, of those who are sick <m>\frac{1}{2}</m> recover but <m>\frac{1}{2}</m> remain unwell. What is the long term prognosis for this town? 
+                        A town contains <m>51000</m> inhabitants. Initially <m>2000</m> of these are sick. Each month there is a change in the population: of those who are well <m>\frac{3}{4}</m> remain well and <m>\frac{1}{4}</m> become sick, of those who are sick <m>\frac{1}{2}</m> recover but <m>\frac{1}{2}</m> remain unwell. What is the long term prognosis for this town?
                     </p>
                 </statement>
 
@@ -207,7 +207,7 @@
                             <me>
                                 \bm{w}_n = \begin{pmatrix} w_n \\ s_n \end{pmatrix}, \, \, A = \begin{pmatrix} 3/4 \amp 1/2 \\ 1/4 \amp 1/2 \end{pmatrix}
                             </me>.
-                        Now 
+                        Now
                             <me>
                                 \bm{w}_n = A \bm{w}_{n-1} = A \left( A \bm{w}_{n-2} \right) = A \left( A \left( A \bm{w}_{n-3} \right) \right) = \ldots = A^n \bm{w}_0
                             </me>.
@@ -217,7 +217,7 @@
                                 <mrow>\amp = \begin{pmatrix} 2 \amp -1 \\ 1 \amp 1 \end{pmatrix} \begin{pmatrix} 1^n \amp 0 \\ 0 \amp (1/4)^n \end{pmatrix} \dfrac{1}{3} \begin{pmatrix} 1 \amp 1 \\ -1 \amp 2 \end{pmatrix}</mrow>
                                 <mrow>\amp = \dfrac{1}{3} \begin{pmatrix} 2+(1/4)^n \amp 2-2(1/4)^n \\ 1-(1/4)^n \amp 1+2(1/4)^n \end{pmatrix}</mrow>
                             </md>.
-                        Notice that 
+                        Notice that
                             <md>
                                 <mrow>\lim_{n \to \infty} A^n \amp = \lim_{n \to \infty} \dfrac{1}{3} \begin{pmatrix} 2+(1/4)^n \amp 2-2(1/4)^n \\ 1-(1/4)^n \amp 1+2(1/4)^n \end{pmatrix}</mrow>
                                 <mrow>\amp = \dfrac{1}{3} \begin{pmatrix} 2 \amp 2 \\ 1 \amp 1 \end{pmatrix}</mrow>
@@ -242,7 +242,7 @@
                     </statement>
                 </exercise>
 
-                <exercise> 
+                <exercise>
                     <statement>
                         <p>Find a matrix <m>P</m> such that <m>P^{-1} AP</m> is diagonal if <me>A = \begin{pmatrix} 0 \amp 3 \amp 0 \\ 1 \amp 0 \amp -1 \\ 0 \amp 2 \amp 0 \end{pmatrix}</me>.</p>
                     </statement>
@@ -268,7 +268,7 @@
             <p>
                 Recall that the linear differential equation
                     <me>\dfrac{dx}{dt} = ax, \, \, a \in \mathbb{R}</me>,
-                has the solution (via separation of variables) 
+                has the solution (via separation of variables)
                     <me>x(t) = C e^{at}</me>,
                 where <m>C</m> is an arbitrary constant. Consider now the system of two linear differential equations
                     <md>
@@ -307,7 +307,7 @@
                             <mrow>\dfrac{dx_1}{dt} \amp = x_1 + 2x_2</mrow>
                             <mrow>\dfrac{dx_2}{dt} \amp = 2x_1 + x_2</mrow>
                         </md>,
-                        where <m>x_1(0) = 2</m> and <m>x_2(0) = 3</m>. 
+                        where <m>x_1(0) = 2</m> and <m>x_2(0) = 3</m>.
                     </p>
                 </statement>
 
@@ -317,7 +317,7 @@
                             <me>
                                 \dot{\bm{x}} = \begin{pmatrix} 1 \amp 2 \\ 2 \amp 1 \end{pmatrix} \bm{x}, \quad \bm{x}(0) = \begin{pmatrix} 2 \\ 3 \end{pmatrix}
                             </me>.
-                        The eigenvalues of <m>\begin{pmatrix} 1 \amp 2 \\ 2 \amp 1 \end{pmatrix}</m> turn out to be <m>\lambda_1 = -1</m> and <m>\lambda_2 = 3</m> with associated eigenvectors <m>\bm{v}_1 = \begin{pmatrix} 1 \\ -1 \end{pmatrix}</m> and <m>\bm{v}_2 = \begin{pmatrix} 1 \\ 1 \end{pmatrix}</m>. Thus, from <xref ref="Eq-general_solution_coupled_linear_DEs"/> the general solution is 
+                        The eigenvalues of <m>\begin{pmatrix} 1 \amp 2 \\ 2 \amp 1 \end{pmatrix}</m> turn out to be <m>\lambda_1 = -1</m> and <m>\lambda_2 = 3</m> with associated eigenvectors <m>\bm{v}_1 = \begin{pmatrix} 1 \\ -1 \end{pmatrix}</m> and <m>\bm{v}_2 = \begin{pmatrix} 1 \\ 1 \end{pmatrix}</m>. Thus, from <xref ref="Eq-general_solution_coupled_linear_DEs"/> the general solution is
                             <me>
                                 \bm{x} = C_1 e^{-t} \begin{pmatrix} 1 \\ -1 \end{pmatrix} + C_2 e^{3t} \begin{pmatrix} 1 \\ 1 \end{pmatrix}
                             </me>.
@@ -341,7 +341,7 @@
                     </p>
 
                     <p>
-                        Note that you can always check your answer by checking that the functions do indeed satisfy the original equations. 
+                        Note that you can always check your answer by checking that the functions do indeed satisfy the original equations.
                     </p>
 
                     <p>
@@ -361,8 +361,8 @@
                     <p>
                         Solve the initial value problem
                             <me>
-                                \dot{\bm{x}} = A \bm{x}, \: A = 
-                                \begin{pmatrix} 0 \amp 1 \\ -1 \amp 0 \end{pmatrix}, \: \bm{x}(0) = 
+                                \dot{\bm{x}} = A \bm{x}, \: A =
+                                \begin{pmatrix} 0 \amp 1 \\ -1 \amp 0 \end{pmatrix}, \: \bm{x}(0) =
                                 \begin{pmatrix} -4 \\ 8 \end{pmatrix}
                             </me>.
                     </p>
@@ -382,7 +382,7 @@
                             <me>
                                 C_1 = 4-2i \, \text{ and } \, C_2 = 4+2i
                             </me>.
-                        Thus, the solution to the initial value problem is 
+                        Thus, the solution to the initial value problem is
                             <me>
                                 \bm{x} = (4-2i) e^{it} \begin{pmatrix} -i \\ 1 \end{pmatrix} + (4-2i) e^{-it} \begin{pmatrix} i \\ 1 \end{pmatrix}
                             </me>.
@@ -390,11 +390,11 @@
                             <me>
                                 e^{i \theta} = \cos( \theta ) + i \sin( \theta )
                             </me>.
-                        Thus 
+                        Thus
                             <me>
                                 \bm{x} = (4-2i) \left( \cos(t) + i\sin(t) \right) \begin{pmatrix} -i \\ 1 \end{pmatrix} + (4+2i) \left( \cos(t) - i \sin(t) \right) \begin{pmatrix} i \\ 1 \end{pmatrix}
                             </me>,
-                        which simplifies to 
+                        which simplifies to
                             <me>
                                 \bm{x} = \begin{pmatrix} 8 \sin(t) - 4 \cos(t) \\ 8 \cos(t) + 4 \sin(t) \end{pmatrix}
                             </me>.
@@ -432,7 +432,7 @@
                         \dot{\bar{\bm{x}}} = A \bar{\bm{x}}
                     </me>
                 i.e.
-                    <men xml:id="Eq5-complex_conjugate_solution">   
+                    <men xml:id="Eq5-complex_conjugate_solution">
                         \bar{\bm{x}}(t) = \bm{x}_1(t) - i \bm{x}_2 (t)
                     </men>
                 will also be a solution to <xref ref="Eq3-matri_form_for_system_linear_DEs"/>. Substituting <xref ref="Eq4-complex_solution"/> into <xref ref="Eq3-matri_form_for_system_linear_DEs"/> gives
@@ -462,9 +462,9 @@
             <example>
                 <statement>
                     <p>
-                        Find the general solution to 
+                        Find the general solution to
                             <me>
-                                \dot{\bm{x}} = A \bm{x}, \: A = 
+                                \dot{\bm{x}} = A \bm{x}, \: A =
                                 \begin{pmatrix} 1 \amp -5 \\ 2 \amp 3 \end{pmatrix}
                             </me>.
                     </p>
@@ -472,7 +472,7 @@
 
                 <solution>
                     <p>
-                        Here the eigenvalues of <m>A</m> are complex with <m>\lambda_1 = 2+3i</m> and <m>\lambda_2 = 2-3i</m>. The eigenvector associated with <m>\lambda_1</m> is <m>\bm{v}_1 = \begin{pmatrix} -5 \\ 1+3i \end{pmatrix}</m>. Thus, one solution to the system is 
+                        Here the eigenvalues of <m>A</m> are complex with <m>\lambda_1 = 2+3i</m> and <m>\lambda_2 = 2-3i</m>. The eigenvector associated with <m>\lambda_1</m> is <m>\bm{v}_1 = \begin{pmatrix} -5 \\ 1+3i \end{pmatrix}</m>. Thus, one solution to the system is
                             <me>
                                 \bm{x} = e^{(2+3i)t} \begin{pmatrix} -5 \\ 1+3i \end{pmatrix}
                             </me>.
@@ -483,7 +483,7 @@
                         Since we know that both the real part and the imaginary part are solutions to the system we know that the general solution is
                             <me>
                                 \bm{x} = C_1 e^{2t} \begin{pmatrix} -5\cos(3t) \\ \cos(3t) - 3 \sin(3t) \end{pmatrix} + C_2 e^{2t} \begin{pmatrix} -5\sin(3t) \\ \sin(3t) + 3\cos(3t) \end{pmatrix}
-                            </me>. 
+                            </me>.
                         <xref ref="Fig-Coupled_DEs_Solutions_Plotted_3"/> shows a plot of this solution when <m>C_1 = C_2 = 1</m>.
                     </p>
 
@@ -501,7 +501,7 @@
 
 
             <p>
-                The discussion so far has concentrated on systems of two coupled first-order linear differential equations. However the ideas carry over to systems with more equations. 
+                The discussion so far has concentrated on systems of two coupled first-order linear differential equations. However the ideas carry over to systems with more equations.
             </p>
 
             <theorem>
@@ -512,11 +512,11 @@
                         <me>
                             \dot{\bm{x}} = A \bm{x}
                         </me>
-                    where <m>A</m> is a real <m>n \times n</m> matrix with <m>n</m> distinct eigenvalues <m>\lambda_i</m>, <m>i = 1,2,\ldots,n</m>. Then the general solution to this system is 
+                    where <m>A</m> is a real <m>n \times n</m> matrix with <m>n</m> distinct eigenvalues <m>\lambda_i</m>, <m>i = 1,2,\ldots,n</m>. Then the general solution to this system is
                         <me>
                             \bm{x}(t) = \sum_{i=1}^{n} C_i e^{\lambda_i t} \bm{v}_i
-                        </me> 
-                    where <m>\bm{v}_i</m> is the eigenvector corresponding to eigenvalue <m>\lambda_i</m>. 
+                        </me>
+                    where <m>\bm{v}_i</m> is the eigenvector corresponding to eigenvalue <m>\lambda_i</m>.
                 </statement>
             </theorem>
 
@@ -546,7 +546,7 @@
                 <exercise>
                     <statement>
                         <p>
-                            Describe the long term behaviour of the solutions to the system <m>\dot{\bm{x}} = A \bm{x}</m>, where 
+                            Describe the long term behaviour of the solutions to the system <m>\dot{\bm{x}} = A \bm{x}</m>, where
                                 <me>
                                     A = \begin{pmatrix} -1 \amp 2 \amp 3 \\ 0 \amp -2 \amp 4 \\ 0 \amp 0 \amp 0 \end{pmatrix}
                                 </me>.

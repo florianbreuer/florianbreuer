@@ -30,7 +30,7 @@
 <!-- =================================================================================================== -->
 <!-- Title and Other Preliminaries -->
 <!-- =================================================================================================== -->
-        <title>An Application of Second Order Linear DEs with Constant Coefficients</title>
+        <title>DE6: An Application of Second Order Linear DEs with Constant Coefficients</title>
 
         <!-- <frontmatter> -->
 
@@ -87,20 +87,20 @@
 
             <definition>
                 <title>Newton's Second Law of Motion</title>
-                
+
                 <p>
                     The acceleration, <term><m>a</m></term>, of an object as produced by a net force, <term><m>F</m></term>,  is directly proportional to the magnitude of the net force, in the same direction as the net force, and inversely proportional to the mass, <m>m</m>, of the object, i.e. <term><m>F=ma</m></term>.
                 </p>
             </definition>
 
             <p>
-                So, now consider the forces acting on the object at any time <m>t</m> after the object has been pulled down and released. In our initial model we will assume that there are just two forces acting on the object as shown in Figure 14.1.4.: firstly the force due to gravity, <term><m>F_g</m></term>, and secondly the restoring force, <term><m>F_r</m></term>, due to the spring. 
+                So, now consider the forces acting on the object at any time <m>t</m> after the object has been pulled down and released. In our initial model we will assume that there are just two forces acting on the object as shown in Figure 14.1.4.: firstly the force due to gravity, <term><m>F_g</m></term>, and secondly the restoring force, <term><m>F_r</m></term>, due to the spring.
                 <figure>
                     <image source="./DifferentialEquations/Images/6/figure_2.png" width="60%"/>
                 </figure>
                 With the axis as set up in Figure 14.1.4. (or Figure 14.1.1.), <term><m>F_g</m></term> will always act in the negative direction. However, <term><m>F_r</m></term> will be positive when the displacement of the object is less than <m>N</m> and negative when the displacement of the object is greater than <m>N</m> (i.e. the restoring force always acts in the direction of the natural position of the spring). Notice that since the motion of the object is one dimensional we can represent the relevant vector quantities by real numbers. The sign of the number will give us the direction of the vector.
             </p>
-            <p> 
+            <p>
                 Thus, the force due to gravity is constant and is given by
                 <me>F_g=-mg</me>
                 where <m>m</m> is the mass of the object and <m>g</m> is the acceleration due to gravity. (This follows from Newton’s Universal Law of Gravitation and Newton’s second law of motion.). If <m>y</m> represents the displacement of (the centre of) the object then from Hooke's Law
@@ -135,7 +135,7 @@
                 </figure>
                 Of course real springs do not oscillate forever and so we conclude that our model must have ignored some important details (e.g. air resistance, frictional forces etc.) Despite this obvious shortcoming we will use this simple model as the basis for looking at more complicated contexts.
             </p>
-            
+
         </section>
 
 <!-- =================================================================================================== -->
@@ -204,7 +204,7 @@
             <title>Adding an External Force</title>
 
             <p>
-                In our final model we will look at the situation where some other external force, <term><m>F_e</m></term>, is also acting on the object along the <m>y</m>-axis, as shown in Figure 14.3.1. This context has many applications, especially in engineering, although in most applications the context doesn’t actually look like the diagram shown in Figure 14.3.1. For example if the top of a power pole is pulled to one side and let go it will behave like an object-spring system with damping. Now when a wind blows past the pole it is possible that aerodynamic effects can result in an oscillating side force acting on the pole. 
+                In our final model we will look at the situation where some other external force, <term><m>F_e</m></term>, is also acting on the object along the <m>y</m>-axis, as shown in Figure 14.3.1. This context has many applications, especially in engineering, although in most applications the context doesn’t actually look like the diagram shown in Figure 14.3.1. For example if the top of a power pole is pulled to one side and let go it will behave like an object-spring system with damping. Now when a wind blows past the pole it is possible that aerodynamic effects can result in an oscillating side force acting on the pole.
                 <figure>
                     <image source="./DifferentialEquations/Images/6/figure_8.png" width="60%"/>
                 </figure>
@@ -248,7 +248,7 @@
                             Determine the values of <m>a</m> and <m>b</m> in the DE <m>\frac{d^2x}{dt^2}+2a\frac{dx}{dt}+bx=0</m> that give the damped object-spring system a damping parameter of <m>0.5</m> and a natural frequency of <m>2</m>.
                         </p>
                     </statement>
-                </exercise> 
+                </exercise>
                 <exercise>
                     <statement>
                         <p>
@@ -258,7 +258,7 @@
                             </figure>
                         </p>
                     </statement>
-                </exercise> 
+                </exercise>
                 <exercise>
                     <statement>
                         <p>
@@ -266,7 +266,7 @@
                             <me>C=\sqrt{a^2+b^2} \textrm{ and } \beta=\tan^{-1}\left(\frac{b}{a}\right)</me>
                         </p>
                     </statement>
-                </exercise> 
+                </exercise>
             </exercises>
 
         </section>

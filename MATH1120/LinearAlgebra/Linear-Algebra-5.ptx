@@ -30,7 +30,7 @@
 <!-- =================================================================================================== -->
 <!-- Title and Other Preliminaries -->
 <!-- =================================================================================================== -->
-        <title>Eigenvalues and Eigenvectors</title>
+        <title>LA5: Eigenvalues and Eigenvectors</title>
 
         <!-- <frontmatter> -->
 
@@ -79,7 +79,7 @@
                         <me>A\mathbf{x}=\begin{pmatrix} 0 \amp 4 \amp 3 \\ \frac{1}{2} \amp 0 \amp 0 \\ 0 \amp \frac{1}{4} \amp 0 \end{pmatrix} \begin{pmatrix} 18 \\ 6 \\ 1 \end{pmatrix} = \begin{pmatrix} 27 \\ 9 \\ \frac{3}{2} \end{pmatrix} = \frac{3}{2}\begin{pmatrix} 18 \\ 6 \\ 1 \end{pmatrix} </me>
                         <m>\mathbf{x}</m> is an eigenvector of <m>A</m> associated with the eigenvalue <m>\frac{3}{2}</m>. Since
                         <me>A\mathbf{y}=\begin{pmatrix} 0 \amp 4 \amp 3 \\ \frac{1}{2} \amp 0 \amp 0 \\ 0 \amp \frac{1}{4} \amp 0 \end{pmatrix} \begin{pmatrix} -2 \\ 3 \\ 4 \end{pmatrix} = \begin{pmatrix} 24 \\ -1 \\ \frac{3}{4} \end{pmatrix} \neq \lambda\begin{pmatrix} -2 \\ 3 \\ 4 \end{pmatrix} </me>
-                        <m>\mathbf{y}</m> is not an eigenvector of <m>A</m>. Since 
+                        <m>\mathbf{y}</m> is not an eigenvector of <m>A</m>. Since
                         <me>A\mathbf{z}=\begin{pmatrix} 0 \amp 4 \amp 3 \\ \frac{1}{2} \amp 0 \amp 0 \\ 0 \amp \frac{1}{4} \amp 0 \end{pmatrix} \begin{pmatrix} 36 \\ 12 \\ 2 \end{pmatrix} = \begin{pmatrix} 54 \\ 18 \\ 3 \end{pmatrix} = \frac{3}{2}\begin{pmatrix} 36 \\ 12 \\ 2 \end{pmatrix} </me>
                         <m>\mathbf{z}</m> is also an eigenvector of <m>A</m> associated with the eigenvalue <m>\frac{3}{2}</m>.
                     </p>
@@ -132,13 +132,13 @@
                             <mrow>\begin{pmatrix} x_1+2x_2-5x_1 \\ 4x_1+3x_2-5x_2 \end{pmatrix} \amp =\begin{pmatrix} 0 \\ 0 \end{pmatrix}</mrow>
                             <mrow>\begin{pmatrix} -4 \amp 2 \\ 4 \amp -2 \end{pmatrix} \begin{pmatrix} x_1 \\ x_2 \end{pmatrix} \amp =\begin{pmatrix} 0 \\ 0 \end{pmatrix}</mrow>
                         </md>
-                        Now, using Gauss Jordon elimination to solve this homogeneous system 
+                        Now, using Gauss Jordon elimination to solve this homogeneous system
                         <me> \begin{pmatrix} -4 \amp 2 \amp 0 \\ 4 \amp -2 \amp 0 \end{pmatrix} \sim \begin{pmatrix} 2 \amp -1 \amp 0 \\ 0 \amp 0 \amp 0 \end{pmatrix}  \begin{matrix} \hspace{5mm} R_1'=R_1/(-2) \\ \hspace{5mm} R_2'=R_2+R_1 \end{matrix}</me>
                         we see that this system has an infinite number of solutions which take the form
                         <me>\mathbf{x}=\begin{pmatrix} x_1 \\ x_2 \end{pmatrix} \textrm{ where } 2x_1-x_2=0</me>
                         or equivalently
                         <me>\mathbf{x}=\begin{pmatrix} t \\ 2t \end{pmatrix}=t\begin{pmatrix} 1 \\ 2 \end{pmatrix}</me>
-                        Thus the eigenvectors associated with the eigenvalue <m>\lambda=5</m> are all scalar multiples of the vector <m>\begin{pmatrix} 1 \amp 2 \end{pmatrix}^T</m>. 
+                        Thus the eigenvectors associated with the eigenvalue <m>\lambda=5</m> are all scalar multiples of the vector <m>\begin{pmatrix} 1 \amp 2 \end{pmatrix}^T</m>.
                     </p>
                     <p>
                         Of course, it is a good idea to check this result. Since
@@ -147,7 +147,7 @@
                     </p>
                 </solution>
             </example>
-            
+
         </section>
 
 <!-- =================================================================================================== -->
@@ -168,14 +168,14 @@
                 <me>A\mathbf{x}-\lambda I\mathbf{x}=\mathbf{0}</me>
                 or
                 <men xml:id="Eq-Eigenvector_definition_with_identity_matrix">(A-\lambda I)\mathbf{x}=\mathbf{0}</men>
-                where <m>I</m> is the identity matrix of order <m>n</m>. Since <xref ref="Eq-Eigenvector_definition_with_identity_matrix"/> is a homogeneous system of linear equations it will only have a non-zero solution when 
+                where <m>I</m> is the identity matrix of order <m>n</m>. Since <xref ref="Eq-Eigenvector_definition_with_identity_matrix"/> is a homogeneous system of linear equations it will only have a non-zero solution when
                 <men xml:id="Eq-Eigenvector_definition_with_determinant">\det(A-\lambda I)=0</men>
             </p>
             <definition>
                 <p>
                     The eigenvalues, <m>\lambda</m>, of the <m>n\times n</m> matrix <m>A</m> are found by solving the <term>characteristic equation</term>
                     <me>\det(A-\lambda I)=0</me>
-                    The eigenvectors of the matrix <m>A</m> are found by solving the homogeneous linear system of equations 
+                    The eigenvectors of the matrix <m>A</m> are found by solving the homogeneous linear system of equations
                     <me>(A-\lambda I)\mathbf{x}=\mathbf{0}</me>
                     for each eigenvalue <m>\lambda</m>.
                 </p>
@@ -193,12 +193,12 @@
                         Since
                         <me> A-\lambda I=\begin{pmatrix} 2\amp 1 \\ 1\amp 2 \end{pmatrix}-\lambda \begin{pmatrix} 1\amp 0 \\ 0\amp 1 \end{pmatrix}=\begin{pmatrix} 2-\lambda \amp 1 \\ 1\amp 2-\lambda \end{pmatrix}</me>
                         the characteristic equation is
-                        <md> 
+                        <md>
                             <mrow>\det\begin{pmatrix} 2-\lambda \amp 1 \\ 1\amp 2-\lambda \end{pmatrix} \amp =0</mrow>
                             <mrow>(2-\lambda)^2-1 \amp =0</mrow>
                             <mrow>\lambda^2-4\lambda+3 \amp =0</mrow>
                         </md>
-                        Thus the eigenvalues for <m>A</m> are 
+                        Thus the eigenvalues for <m>A</m> are
                         <me>\lambda=1 \textrm{ and } \lambda=3</me>
                     </p>
                     <p>
@@ -228,7 +228,7 @@
                         <figure xml:id="Fig-Transformation_visualised">
                             <image source="./LinearAlgebra/Images/5/figure2.png" width="75%"/>
                         </figure>
-                        Informally, the effect of <m>A</m> is to pull the square out along the diagonal joining vertices <m>B</m> and <m>D</m>. Thus vectors along this diagonal will be mapped to scalar multiples of themselves while vectors along the diagonal joining vertices <m>A</m> and <m>C</m> will be left unchanged. 
+                        Informally, the effect of <m>A</m> is to pull the square out along the diagonal joining vertices <m>B</m> and <m>D</m>. Thus vectors along this diagonal will be mapped to scalar multiples of themselves while vectors along the diagonal joining vertices <m>A</m> and <m>C</m> will be left unchanged.
                     </p>
                 </solution>
             </example>
@@ -241,7 +241,7 @@
                 <solution>
                     <p>
                         The characteristic equation for <m>A</m> is
-                        <md> 
+                        <md>
                             <mrow>\det\begin{pmatrix} 1-\lambda \amp 2 \\ 3\amp 4-\lambda \end{pmatrix} \amp =0</mrow>
                             <mrow>(1-\lambda)(4-\lambda)-6 \amp =0</mrow>
                             <mrow>\lambda^2-5\lambda-2 \amp =0</mrow>
@@ -277,7 +277,7 @@
                 <solution>
                     <p>
                         The characteristic equation for <m>A</m> is
-                        <md> 
+                        <md>
                             <mrow>\det\begin{pmatrix} 1-\lambda \amp 2 \\ 2\amp 4-\lambda \end{pmatrix} \amp =0</mrow>
                             <mrow>(1-\lambda)(4-\lambda)-4 \amp =0</mrow>
                             <mrow>\lambda^2-5\lambda \amp =0</mrow>
@@ -305,7 +305,7 @@
             <p>
                 Notice that when <m>0</m> is an eigenvalue of <m>A</m> the system of equations that are solved to find the associated eigenvectors, i.e.
                 <me>(A-\lambda I)\mathbf{x}=\mathbf{0}</me>
-                reduces to 
+                reduces to
                 <me>A\mathbf{x}=\mathbf{0}</me>
                 Since <m>0</m> is an eigenvalue of <m>A</m> we know that this system must have non-zero solutions which in turn tells us that <m>A</m> is not invertible. Thus, if <m>A</m> has <m>0</m> as an eigenvalue it will not be invertible and vice versa.
             </p>
@@ -495,7 +495,7 @@
             <title>A Simple Application</title>
 
             <p>
-                Imagine that a query into an internet search engine finds <m>5</m> websites. The engine wants to report these sites to the user in some sort of order relating to how useful each site might be, i.e. the engine wants to work out a ranking for each site. 
+                Imagine that a query into an internet search engine finds <m>5</m> websites. The engine wants to report these sites to the user in some sort of order relating to how useful each site might be, i.e. the engine wants to work out a ranking for each site.
             </p>
             <p>
                 One approach to this problem is to look at the links between the sites. For the sake of discussion, let the links between the sites be as shown in Figure 19.3.1.
@@ -503,14 +503,14 @@
                     <image source="./LinearAlgebra/Images/5/figure3.png" width="60%"/>
                 </figure>
                 We can represent the information in this diagram via a matrix <m>A</m> where the entries <m>a_{ij}</m> satisfy
-                <me> 
+                <me>
                     a_{ij}=\begin{cases} 1 \amp \textrm{ if website } i \textrm{ has a link to  it from website } j \\ 0 \amp \textrm{ otherwise } \end{cases}
                 </me>
                 Thus
                 <me>A=\begin{pmatrix} 0 \amp 0 \amp 1 \amp 0 \amp 0 \\ 1 \amp 0 \amp 0 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \amp 0 \amp 1 \\ 1 \amp 1 \amp 1 \amp 0 \amp 0 \\ 1 \amp 1 \amp 0 \amp 1 \amp 0 \end{pmatrix}</me>
-                Now let <m>r_i</m> be the ranking of website <m>i</m>. Then we require 
+                Now let <m>r_i</m> be the ranking of website <m>i</m>. Then we require
                 <me>0\leq r_i\leq 1</me>
-                <me>\sum_{i=1}^{5} r_i =1</me> 
+                <me>\sum_{i=1}^{5} r_i =1</me>
                 and
                 <me> r_i \propto \textrm{ sum of the rankings of the sites which have links to it.}</me>
                 The idea here is that if a site has links to it from an important site (i.e. one with a high ranking) then that is better than having a link to it from an obscure site (i.e. one with a low ranking). So, letting the constant of proportionality be <m>k</m>, for the websites linked according to Figure 19.3.1. we have
@@ -529,12 +529,12 @@
                 <me>A\mathbf{r}=\frac{1}{k}\mathbf{r}=\lambda\mathbf{r}</me>
                 i.e. an eigenvalue problem. For the matrix <m>A</m> as given above it turns out that the ranking vector is
                 <me>\mathbf{r}=\begin{pmatrix} 0.14 \amp 0.08 \amp 0.22 \amp 0.27 \amp 0.29\end{pmatrix}^T</me>
-                and so the sites would be listed in the order <m>5, 4, 3, 1, 2</m>. 
+                and so the sites would be listed in the order <m>5, 4, 3, 1, 2</m>.
             </p>
             <p>
                 Of course Google’s page ranking system is much more sophisticated than that described above but the idea is essentially the same. Also, there is much more advanced mathematics needed behind the scenes than indicated above. For example how do we know which eigenvalue and associated eigenvector to take? What happens if all of the eigenvalues are complex? And so on.
             </p>
-        
+
         </section>
 
 

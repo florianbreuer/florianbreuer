@@ -30,7 +30,7 @@
 <!-- =================================================================================================== -->
 <!-- Title and Other Preliminaries -->
 <!-- =================================================================================================== -->
-        <title>Local and Global Extrema</title>
+        <title>CA7: Local and Global Extrema</title>
 
         <!-- <frontmatter> -->
 
@@ -168,7 +168,7 @@
             <exercises>
             <title>Example Tasks</title>
 
-                <exercise> 
+                <exercise>
                     <statement>
                         <p>Find the critical points of the function <m>f(x,y) = 3x-x^3-2y^2+y^4</m> and use the plot of level curves given below to determine the nature of each critical point.</p>
 
@@ -222,7 +222,7 @@
             </me>.
             </p>
 
-            <p>On completing the square (and dropping the evaluation at <m>(0,0)</m> for brevity) 
+            <p>On completing the square (and dropping the evaluation at <m>(0,0)</m> for brevity)
             <md>
                 <mrow>f(x,y) \amp \simeq f + \dfrac{f_{xx}}{2} \left \{x^2 + \dfrac{2f_{xy}}{f_{xx}} + \left( \dfrac{f_{xy}}{f_{xx}} \right)^2 y^2 \right \} - \dfrac{f_{xx}}{2} \left( \dfrac{f_{xy}}{f_{xx}} \right)^2 y^2 + \dfrac{f_{yy}}{2}y^2</mrow>
                 <mrow>\amp = f + \dfrac{f_{xx}}{2} \left( x + \dfrac{f_{xy}}{f_{xx}} y \right)^2 + \dfrac{1}{2 f_{xx}} y^2 \left( f_{xx} f_{yy} - f_{xy}^2 \right)</mrow>
@@ -240,7 +240,7 @@
                 <solution>
                     <p>We located the critical points of this function in an earlier example. We found that there are 4 critical points at <me>\left( 0, 0 \right), \left( -\dfrac{5}{3}, 0 \right), \left( -1, 2 \right) \: \text{ and } \left( -1, -2 \right)</me>.</p>
 
-                    <p>To determine the nature of these critical points, in this example we will use the second derivative test. To this end, note that <me>f_{xx} = 12x+10, \: f_{xy} = 2y, \: \text{ and } f_{yy} = 2x+2</me>. Thus 
+                    <p>To determine the nature of these critical points, in this example we will use the second derivative test. To this end, note that <me>f_{xx} = 12x+10, \: f_{xy} = 2y, \: \text{ and } f_{yy} = 2x+2</me>. Thus
                     <md>
                         <mrow>D \amp = f_{xx} f_{yy} - f_{xy}^2 = (12x+10)(2x+2) - (2y)^2</mrow>
                         <mrow>\amp = 24x^2 + 44x -4y^2+20</mrow>
@@ -266,7 +266,7 @@
                 </statement>
 
                 <solution>
-                    <p>Here 
+                    <p>Here
                         <me>
                             g_x = \dfrac{-x}{\sqrt{x^2+y^2}} \: \text{ and } \: g_y = \dfrac{-y}{\sqrt{x^2+y^2}}
                         </me>.
@@ -292,7 +292,7 @@
                     </statement>
                 </exercise>
 
-                <exercise> 
+                <exercise>
                     <statement>
                         <p>Locate and identify the critical points of the function <m>z=\exp \left(xy-\frac{2}{3}x^2 - \frac{2}{3}y^3 \right)</m>.</p>
 
@@ -455,7 +455,7 @@
                     </statement>
                 </exercise>
 
-                <exercise> 
+                <exercise>
                     <statement>
                         <p>Find the global extrema of <m>R(x,y) = x \sqrt{8-x^2-y^2}</m> on <m>D = \left \{ (x,y): x^2+y^2 \leq 8 \right \}</m>.</p>
                     </statement>

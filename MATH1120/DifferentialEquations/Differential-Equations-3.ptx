@@ -30,7 +30,7 @@
 <!-- =================================================================================================== -->
 <!-- Title and Other Preliminaries -->
 <!-- =================================================================================================== -->
-        <title>First Order Linear DEs </title>
+        <title>DE3: First Order Linear DEs </title>
 
         <!-- <frontmatter> -->
 
@@ -163,7 +163,7 @@
 
 
             <p>
-                As illustrated in <xref ref="Which_Are_First_Order_Linear_DEs"/>(c), we can solve a first order linear DE if it is of the form 
+                As illustrated in <xref ref="Which_Are_First_Order_Linear_DEs"/>(c), we can solve a first order linear DE if it is of the form
                     <men xml:id = "Eqn-first_order_linear_form">f(x) y' + f'(x) y = g(x)</men>
                 since in this case the DE is already exact. If the DE is not of this form we proceed by looking for an integrating factor, <m>I(x)</m>, for the DE. Remember that multiplying both sides of the DE by an integrating factor makes the equation exact. So, consider the first order linear DE <me>y'+P(x)y = Q(x)</me>.
             </p>
@@ -210,15 +210,15 @@
 
                 <solution>
                     <p>
-                        This equation is linear with <m>P(x) = \sin(x)</m> and <m>Q(x) = \sin(x)</m>. Thus an integrating factor will be 
+                        This equation is linear with <m>P(x) = \sin(x)</m> and <m>Q(x) = \sin(x)</m>. Thus an integrating factor will be
                             <me>I(x) = e^{\int \sin(x) dx} = e^{-\cos(x)}</me>.
-                        Multiplying both sides of the DE by the integrating factor gives 
+                        Multiplying both sides of the DE by the integrating factor gives
                             <me>\dfrac{d}{dx} \left( e^{-\cos(x)}y \right) = \sin(x) e^{-\cos(x)}</me>,
-                        and hence 
+                        and hence
                             <me>e^{-\cos(x)} y = \int \sin(x) e^{-\cos(x)} dx</me>.
-                        Using integration by substitution gives 
+                        Using integration by substitution gives
                             <me>e^{-\cos(x)}y = e^{-\cos(x)} + C</me>.
-                        Thus the general solution is 
+                        Thus the general solution is
                             <me>y(x) = 1+C e^{\cos(x)}</me>.
                         Once again we should check that this is indeed a solution by substituting back into the original DE.
                     </p>
@@ -231,15 +231,15 @@
 
                 <solution>
                     <p>
-                        On rearranging the equation as 
+                        On rearranging the equation as
                             <me>y' - \frac{1}{x} y = 2x^2</me>.
-                        we see that this DE is linear with <m>P(x) = -\frac{1}{x}</m> and <m>Q(x) = 2x^2</m>. Thus an integrating factor will be 
+                        we see that this DE is linear with <m>P(x) = -\frac{1}{x}</m> and <m>Q(x) = 2x^2</m>. Thus an integrating factor will be
                             <me>I(x) = e^{\int -x^{-1} dx} = e^{\ln (x^{-1})} = \frac{1}{x}</me>.
-                        Multiplying both sides by <m>I(x)</m> gives 
+                        Multiplying both sides by <m>I(x)</m> gives
                             <me>\dfrac{d}{dx} \left( \dfrac{1}{x} y \right) = 2x</me>,
-                        and hence 
+                        and hence
                             <me>\dfrac{1}{x} y = x^2 + C</me>.
-                        Thus the general solution is 
+                        Thus the general solution is
                             <me>y(x) = x^3 + Cx</me>.
                         Using the initial condition <m>y(1) = 2</m> gives
                             <me>2 = 1^3 +1 \cdot C</me>
@@ -260,7 +260,7 @@
                     </statement>
                 </exercise>
 
-                <exercise> 
+                <exercise>
                     <statement>
                         <p>Solve the initial-value problem <me>y' = e^x + y, \: \, y(0) = 4</me>.</p>
                     </statement>
@@ -272,7 +272,7 @@
                     </statement>
                 </exercise>
 
-                <exercise> 
+                <exercise>
                     <statement>
                         <p>Solve the first order linear DE <m>\dfrac{dP}{dt} = t^2 - P</m>.</p>
                     </statement>
@@ -310,16 +310,16 @@
                         <li>
                             Let <m>Q(t)</m> be the amount (in milligrams) of thorium 234 present at time t (in days). Then
                                 <me>\dfrac{dQ}{dt} = -kQ</me>,
-                            where <m>k</m> is a positive constant and 
+                            where <m>k</m> is a positive constant and
                                 <me>Q(0) = 100, Q(7) = 82.04</me>.
 
                             The DE is separable but if we write it as
                                 <me>\dfrac{dQ}{dt} + kQ = 0</me>,
-                            then we see that it is also linear. The integrating factor is 
+                            then we see that it is also linear. The integrating factor is
                                 <me>I(t) = e^{\int k \, dt} = e^{kt}</me>.
-                            Multiplying both sides by this integrating factor gives 
+                            Multiplying both sides by this integrating factor gives
                                 <me>\dfrac{d}{dt} \left( e^{kt} Q \right) = 0</me>,
-                            and hence the general solution is 
+                            and hence the general solution is
                                 <me>Q(t) = Ae^{-kt}</me>.
 
                             Using <m>Q(0) = 100</m> gives <m>A = 100</m> and from <m>Q(7) = 82.04</m> we obtain
@@ -362,9 +362,9 @@
                             <me>3 \times C(t) \: \text{g/min}</me>.
                         Thus <m>A(t)</m> will satisfy the DE
                             <me>\dfrac{dA}{dt} = 75 - 3C</me>.
-                        Using <m>A(t) = 200 C(t)</m> this becomes 
+                        Using <m>A(t) = 200 C(t)</m> this becomes
                             <me>200 \dfrac{dC}{dt} = 75 - 3C</me>
-                        which can be written as 
+                        which can be written as
                             <me>\dfrac{dC}{dt} + \dfrac{3}{200}C = \dfrac{75}{200}</me>.
                     </p>
 
@@ -377,7 +377,7 @@
                             <me>\exp \left(\dfrac{3}{200}t \right) C = 25 \exp \left(\dfrac{3}{200}t \right) + K.</me>
                         Thus the general solution is
                             <me>C(t) = 25 + K \exp\left( - \dfrac{3}{200} t \right)</me>.
-                        Using <m>C(0) = 0</m> gives <m>K = -25</m> and so the required concentration function is 
+                        Using <m>C(0) = 0</m> gives <m>K = -25</m> and so the required concentration function is
                             <me>C(t) = 25 - 25 \exp \left(- \dfrac{3}{200}t \right)</me>.
                         <xref ref="Fig-Mixing_Tank_Example"/> shows a graph of this function. It can be seen that as <m>t \to \infty</m>, <m>C \to 25</m>. Thus as time goes by the concentration of salt in the tank water approaches the concentration of the salt in the brackish water coming into the tank.
                     </p>
@@ -400,7 +400,7 @@
                         A ball of mass 50 kg is shot from a cannon 100 meters above the ground straight up with an initial velocity of 10 m/s. Assuming that the air resistance is given by <m>5v</m>, where <m>v</m> is the velocity, determine the velocity of the ball when it hits the ground.
                     </p>
                     <p>
-                        <em>Note:</em> This is a very simple model for the air resistance chosen mostly to simplify the resultant equations 
+                        <em>Note:</em> This is a very simple model for the air resistance chosen mostly to simplify the resultant equations
                     </p>
                 </statement>
 
@@ -419,7 +419,7 @@
                             <me>F = ma</me>,
                         where <m>F</m> is the net force acting on the ball, <m>m</m> is its mass and <m>a</m> is its acceleration. Once the ball leaves the cannon the forces acting on the ball are gravity, which we will denote by <m>F_G</m> and air resistance, denoted by <m>F_R</m>. Now with the positive direction as shown in <xref ref="Fig-Ball_of_Mass_Example"/>,
                             <me>F_G = mg</me>
-                        where <m>g</m> is the acceleration due to gravity. In the initial phase where the ball is going up the air resistance will be acting against the motion, (i.e. in the positive direction). Thus, since the velocity <m>v</m> is negative 
+                        where <m>g</m> is the acceleration due to gravity. In the initial phase where the ball is going up the air resistance will be acting against the motion, (i.e. in the positive direction). Thus, since the velocity <m>v</m> is negative
                             <me>F_R = -5v</me>.
                         In the second phase where the ball is falling the air resistance will again be acting against the motion (i.e. in the negative direction). In this phase the velocity is positive and so once again
                             <me>F_R = -5v</me>.
@@ -427,11 +427,11 @@
                             <me>F = F_G + F_R = mg-5v</me>.
                         Since
                             <me>a = \dfrac{dv}{dt}</me>
-                        Newton's second law gives 
+                        Newton's second law gives
                             <me>m \dfrac{dv}{dt} = mg - 5v</me>
                         or
                             <me>\dfrac{dv}{dt} + \dfrac{5}{m} v = g</me>
-                        with 
+                        with
                             <me>v(0) = -10</me>.
                         This is a first order linear DE in <m>v(t)</m>. To solve, multiply both sides of the DE by the integrating factor
                             <me>I(t) = \exp \left( \displaystyle \int \frac{5}{m} dt \right) = \exp \left( \frac{5t}{m} \right)</me>
@@ -465,7 +465,7 @@
                     </figure>
 
                     <p>
-                        Thus the velocity of the ball when it hits the ground will be 
+                        Thus the velocity of the ball when it hits the ground will be
                             <me>v(5.98147) = 38.6 \, \text{m/s} \: (\text{to 1dp})</me>.
                     </p>
 

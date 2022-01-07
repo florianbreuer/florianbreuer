@@ -30,7 +30,7 @@
 <!-- =================================================================================================== -->
 <!-- Title and Other Preliminaries -->
 <!-- =================================================================================================== -->
-        <title>Non-Homogeneous Second Order Linear DEs</title>
+        <title>DE5: Non-Homogeneous Second Order Linear DEs</title>
 
         <!-- <frontmatter> -->
 
@@ -49,9 +49,9 @@
 
         <introduction>
             <p>
-                Recall that a 2nd order linear DE is a differential equation of the form 
+                Recall that a 2nd order linear DE is a differential equation of the form
                 <me>P(x)y''+Q(x)y'+R(x)y=f(x)</me>
-                
+
                 If the functions <m>P</m>, <m>Q</m> and <m>R</m> are all constant functions then the DE is said to have constant coefficients. If <m>f(x)=0</m> then the DE is said to be homogeneous. In the previous lecture (i.e. <term>12 Homogenous Second Order Linear DEs</term>) we discussed how to find solutions to a second order linear homogeneous DE with constant coefficients, i.e. to a DE of the form
                 <me>ay''+by'+c=0</me>
                 In this lecture we are going to look at solving some non-homogeneous second order linear DEs with constant coefficients, i.e. DEs of the form
@@ -105,9 +105,9 @@
                     <p>
                         Solving via an integrating factor gives the general solution as
                         <me>y(x)=Ae^x+\frac{1}{2}\sin(x)-\frac{1}{2}\cos(x)</me>
-                        Once again writing this as 
+                        Once again writing this as
                         <me>y(x)=y_c(x)+y_p(x)</me>
-                        where 
+                        where
                         <me>y_c(x)=Ae^x \textrm{ and } y_p(x)=\frac{1}{2}\sin(x)-\frac{1}{2}\cos(x)</me>
                         we see that <m>y_c(x)</m> is the general solution to the associated homogeneous DE and that <m>y_p(x)</m> and <m>f(x)</m> are both trigonometric functions. In this case it seems reasonable that <m>y_c(x)</m> contains both a <m>\cos(x)</m> term and a <m>\sin(x)</m> since to satisfy the DE we would expect the particular solution to contain terms like <m>f(x)=\cos(x)</m> and its derivative <m>f'(x)=-\sin(x)</m>.
                     </p>
@@ -142,7 +142,7 @@
                     <me>y(x)=y_c(x)+y_p(x)</me>
                     where <m>y_c(x)</m> is the general solution to the associated homogeneous DE
                     <me>ay'+by=0</me>
-                    and <m>y_p(x)</m> is any particular solution to non-homogeneous DE. 
+                    and <m>y_p(x)</m> is any particular solution to non-homogeneous DE.
                 </p>
             </definition>
 
@@ -152,11 +152,11 @@
                 <exercise>
                     <statement>
                         <p>
-                            If <m>y_c(x)</m> is the general solution to 
+                            If <m>y_c(x)</m> is the general solution to
                             <me>ay'+by=0</me>
-                            and <m>y_p(x)</m> is any particular solution to 
+                            and <m>y_p(x)</m> is any particular solution to
                             <me>ay'+by=f(x)</me>
-                            show that 
+                            show that
                             <me>y(x)=y_c(x)+y_p(x)</me>
                             is also a solution to
                             <me>ay'+by=f(x)</me>
@@ -177,7 +177,7 @@
             <title>The Method of Undetermined Coefficients</title>
 
             <p>
-                We return now to the problem of finding solutions to non-homogeneous second order linear DEs with constant coefficients, i.e. to DEs of the form 
+                We return now to the problem of finding solutions to non-homogeneous second order linear DEs with constant coefficients, i.e. to DEs of the form
                 <me>ay''+by'+cy=f(x)</me>
                 Since we don’t have any alternative method (such as using an integrating factor) for finding a solution to this class of DE we are forced to use the method suggested by the previous section.
             </p>
@@ -277,7 +277,7 @@
                         <row>
                         </row>
                     </tabular>
-                </table>                
+                </table>
             </p>
 
             <example>
@@ -302,7 +302,7 @@
                     <p><md>
                         <mrow>x_p'(t) \amp = 2C_1\cos(2t)-2C_2\sin(2t)</mrow>
                         <mrow>x_p''(t) \amp = -4C_1\sin(2t)-4C_2\cos(2t)</mrow>
-                    </md></p>  
+                    </md></p>
                     <p>
                         For <m>x_p(t)</m> to be a solution
                         <me>x_p''+6x_p'+8x_p=8\sin(2t)</me>
@@ -315,7 +315,7 @@
                     <p><md>
                         <mrow>4C_1-12C_2 \amp = 8</mrow>
                         <mrow>12C_1+4C_2 \amp = 0</mrow>
-                    </md></p>  
+                    </md></p>
                     <p>
                         Solving these equations gives
                         <me>C_1=\frac{1}{5}, \hspace{5mm} C_2=-\frac{3}{5}</me>
@@ -350,7 +350,7 @@
                     <p><md>
                         <mrow>y_p'(x) \amp =2Ce^{2x}</mrow>
                         <mrow>y_p''(x) \amp=4Ce^{2x}</mrow>
-                    </md></p>  
+                    </md></p>
                     <p>
                         For this to be a solution
                         <me>y_p''+3y_p'=5e^{2x}</me>
@@ -359,7 +359,7 @@
                     <p><md>
                         <mrow>4Ce^{2x}+3(2Ce^{2x}) \amp =5e^{2x}</mrow>
                         <mrow>10Ce^{2x} \amp=5e^{2x}</mrow>
-                    </md></p> 
+                    </md></p>
                     <p>
                         On equating coefficients on both sides of this equation
                         <me>10C=5\Rightarrow C=\frac{1}{2}</me>
@@ -420,7 +420,7 @@
             <example>
                 <p>
                    Solve the initial-value problem
-                   <me>y''+y'=x</me>                       
+                   <me>y''+y'=x</me>
                    <me>y(0)=1,\hspace{5mm} y'(0)=1</me>
                 </p>
                 <solution>

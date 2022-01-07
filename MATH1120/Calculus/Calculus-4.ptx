@@ -30,7 +30,7 @@
 <!-- =================================================================================================== -->
 <!-- Title and Other Preliminaries -->
 <!-- =================================================================================================== -->
-    <title>Partial Differentiation</title>
+    <title>CA4: Partial Differentiation</title>
 
     <!-- <frontmatter> -->
 
@@ -122,10 +122,10 @@
             <title>Partial Derivative</title>
             <statement>
                 <p>Consider the function of two variables, <m>f(x,y)</m></p>
-                <p>The <term>partial derivative of <m>f</m> with respect to <m>x</m></term> at the point <m>(x_0,y_0)</m> is given by the limit (if it exists) 
+                <p>The <term>partial derivative of <m>f</m> with respect to <m>x</m></term> at the point <m>(x_0,y_0)</m> is given by the limit (if it exists)
                     <me>\frac{\partial f}{\partial x} (x_0,y_0) = \lim_{h \to 0} \left[ \frac{f(x_0+h,y_0)-f(x_0,y_0)}{h} \right]</me>.
                 </p>
-                <p>The <term>partial derivative of <m>f</m> with respect to <m>y</m></term> at the point <m>(x_0,y_0)</m> is given by the limit (if it exists) 
+                <p>The <term>partial derivative of <m>f</m> with respect to <m>y</m></term> at the point <m>(x_0,y_0)</m> is given by the limit (if it exists)
                     <me>\frac{\partial f}{\partial y} (x_0,y_0) = \lim_{h \to 0} \left[ \frac{f(x_0,y_0+h)-f(x_0,y_0)}{h} \right]</me>.
                 </p>
             </statement>
@@ -192,7 +192,7 @@
                         <mrow>\amp = x</mrow>
                     </md></p>
                 </solution>
-        </example>         
+        </example>
 
 
         <p>As can be seen in the above example, to calculate the partial derivative of <m>f</m> with respect to <m>x</m> at the general point <m>(x,y)</m> all we have to do is treat <m>y</m> as a constant and differentiate <m>f(x,y)</m> with respect to <m>x</m> (using all of the familiar rules of differentiation for functions of one variable). Similarly, to calculate the partial derivative of <m>f</m> with respect to <m>y</m> at the general point <m>(x,y)</m> treat <m>x</m> as a constant and differentiate <m>f(x,y)</m> with respect to <m>y</m>.</p>
@@ -231,7 +231,7 @@
                         \dfrac{\partial f}{\partial y}(2,1) = -1.
                     </me></p>
                 </solution>
-        </example>      
+        </example>
 
 
         <p>A shorter notation for the partial derivative of <m>f</m> with respect to <m>x</m> is <m>f_x</m>. Similarly the partial derivative with respect to <m>y</m> is written as <m>f_y</m>.</p>
@@ -246,7 +246,7 @@
                     <p>To find <m>f_x (x,y)</m>, think of <m>y</m> as a constant. Thus, <me>f_x(x,y) = 2xy</me>.</p>
                     <p>To find <m>f_y (x,y)</m>, think of <m>x</m> as a constant. So, <me>f_y(x,y) = x^2</me>.</p>
                 </solution>
-        </example>   
+        </example>
 
 
         <example xml:id="Ex-shorthand_computation_example_arcsin">
@@ -255,7 +255,7 @@
                 </statement>
 
                 <solution>
-                    <p>To find <m>f_x (x,y)</m>, think of <m>y</m> as a constant. Thus, using the chain rule: 
+                    <p>To find <m>f_x (x,y)</m>, think of <m>y</m> as a constant. Thus, using the chain rule:
                         <md>
                             <mrow>f_x(x,y) \amp = \frac{1}{\sqrt{1 - \left(\dfrac{x}{y}\right)^2 }} \cdot \frac{1}{y} - 10x</mrow>
                             <mrow>\amp = \frac{1}{\sqrt{y^2 - x^2}} - 10x</mrow>
@@ -268,7 +268,7 @@
                         </md>
                     </p>
                 </solution>
-        </example>        
+        </example>
 
 
         <example xml:id="Ex-shorthand_computation_example-3_variables_implicit">
@@ -292,7 +292,7 @@
                         <mrow>z_y \amp = \frac{-2yz^3}{x+3y^2 z^2}</mrow>
                     </md></p>
                 </solution>
-        </example>    
+        </example>
 
 
         <p>Partial derivatives can be found for functions of more than two variables.</p>
@@ -327,7 +327,7 @@
         <exercises>
             <title>Example Tasks</title>
 
-            <exercise> 
+            <exercise>
                 <statement>
                     <p>Find both partial derivatives of the function <m>f(x,y)=4-xy-y^2</m> at the point <m>(3,2)</m>.</p>
                 </statement>
@@ -410,7 +410,7 @@
                     <p>Notice that for this function <m>f_{xy}(x,y) = f_{yx}(x,y)</m>.
                     </p>
                 </solution>
-        </example>   
+        </example>
 
 
         <example xml:id="Ex-third_partial_derivatives">
@@ -434,9 +434,9 @@
                         <me>
                             g_{xxy} = 6x^{-4}, \; g_{xyx} = 6x^{-4}, \; g_{yxx} = 6x^{-4}
                         </me>.
-                    </p> 
+                    </p>
                 </solution>
-        </example>  
+        </example>
 
 
         <p>The above instances have provided examples of the following general result.</p>
@@ -462,7 +462,7 @@
                 </statement>
 
                 <solution>
-                    <p>Even though <m>g</m> is a function of <m>3</m> variables, Clairaut's Theorem still holds. Thus there will be only 6 distinct second partial derivatives, i.e. <m>g_{xx}</m>, <m>g_{xy}</m>, <m>g_{xz}</m>, <m>g_{yy}</m>, <m>g_{yz}</m>, <m>g_{zz}</m>.</p> 
+                    <p>Even though <m>g</m> is a function of <m>3</m> variables, Clairaut's Theorem still holds. Thus there will be only 6 distinct second partial derivatives, i.e. <m>g_{xx}</m>, <m>g_{xy}</m>, <m>g_{xz}</m>, <m>g_{yy}</m>, <m>g_{yz}</m>, <m>g_{zz}</m>.</p>
                     <p>Now
                         <me>
                             g_x = \dfrac{2x}{1+2z}, \,\, g_y = \dfrac{6y}{1+2z}, \,\, g_z = \dfrac{-2(x^2+3y^2)}{(1+2z)^2}
@@ -476,13 +476,13 @@
                         </me>
                     </p>
                 </solution>
-        </example>  
+        </example>
 
 
         <exercises>
             <title>Example Tasks</title>
 
-            <exercise> 
+            <exercise>
                 <statement>
                     <p>Find the second partial derivatives for the function <m>z=xye^y</m>.</p>
                 </statement>
@@ -505,7 +505,7 @@
         <remark>
             <title>A little remark</title>
                 <p>
-                    Computer algebra systems can find partial derivatives. For example, here are some examples of a queries to Wolfram Alpha that will work. 
+                    Computer algebra systems can find partial derivatives. For example, here are some examples of a queries to Wolfram Alpha that will work.
                 </p>
                 <figure xml:id="Fig-WA_1">
                     <image source="./Calculus/Images/4/WA_1.png" width="90%"/>
