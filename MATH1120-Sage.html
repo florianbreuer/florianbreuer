@@ -1235,6 +1235,70 @@ def _(A=input_grid(2,2, default = example,
     )
 </script></div>
 
+<br>
+Here is a better visualisation of eigenvectors: Since the property of being an eigenvector of a given matrix
+depends only on the direction (not magnitude) of the vector, we draw a bunch of (blue) unit vectors
+\({\bf v}\), as well as the output vectors \(A{\bf v}\) in red. Where the red vector is parallel to the blue
+one pointing to it, that blue vector is an eigenvector. The factor by which its red vecctor is longer or shorter
+is the corresponding eigenvalue. <br>
+<div class="compute"><script type="text/x-sage">
+example = [[1,1], [0,2]]
+
+def point(w):
+    return tuple((w[0][0], w[1][0]))
+
+
+@interact
+def _(A = input_grid(2, 2, default = example, label='A=', to_value=matrix),
+      N = slider(1, 50, step_size=1, default=20),
+      auto_update = False
+     ):
+
+    pretty_print('A = ', A)
+    unitvectors = [Matrix(RR, [[cos(t*2*pi/N)],[sin(t*2*pi/N)]]) for t in range(N)]
+    p = circle((0,0), 1, color='blue', figsize=8)
+    for v in unitvectors:
+        p = p + arrow((0,0), point(v), color='blue', arrowsize=2)
+        p = p + arrow(point(v), point(v + A*v), color='red', arrowsize=2)
+    display(p)
+</script></div>
+
+<br><br>
+
+Here is the same idea, but in three dimensions:<br>
+<div class="compute"><script type="text/x-sage">
+example = [[1,1,1],
+           [0,1,0],
+           [0,0,3]]
+
+def point3d(w):
+    return tuple((w[0][0], w[1][0], w[2][0]))
+
+
+@interact
+def _(A = input_grid(3, 3, default = example, label='A = ', to_value=matrix),
+      N = slider(1, 50, step_size=1, default=20),
+      auto_update = False,
+      scale = slider(0.1, 1, step_size=0.1, default=1, label='scale output: ')
+     ):
+
+    pretty_print('A = ', A)
+    unitvectors3d = [
+        Matrix(RR, [[cos(s*2*pi/N)*cos(t*2*pi/N)],
+                    [cos(s*2*pi/N)*sin(t*2*pi/N)],
+                    [sin(s*2*pi/N)]
+                   ])
+        for t in range(N)
+        for s in range(N)
+    ]
+    p = sphere((0,0,0), 1, opacity=0.2, color='blue')
+    for v in unitvectors3d:
+        p = p + arrow((0,0,0), point3d(v), color='blue', arrowsize=1)
+        p = p + arrow(point3d(v), point3d(v + scale*A*v), color='red', arrowsize=1)
+    display(p)
+</script></div>
+<br><br>
+
 <h1 ID="LA6">Linear Algebra VI: Applications of Eigenvalues and Eigenvectors</h1>
 
 For a square matrix \(A\), let \(P\) be the matrix whose columns are the
