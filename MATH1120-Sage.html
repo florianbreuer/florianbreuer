@@ -164,14 +164,25 @@ show(plot([log(x), ft], (x,0,10), ymax=10, ymin=-5, legend_label = ['ln(x)','T_'
 
 \(f(x,y)=xy\):<br>
 <div class="compute"><script type="text/x-sage">
-x,y=var('x','y')
-f=x*y
-Mx=1
-My=1
-plot3d(f,(x,-Mx,Mx),(y,-My,My),axes=true)
+x, y = var('x','y')
+f = x*y
+Mx = 1
+My = 1
+plot3d(f, (x,-Mx,Mx), (y,-My,My), axes=true)
 </script></div>
 
+<br><br>
+
+Here are the level curves (contours) for the same function:
+<div class="compute"><script type="text/x-sage">
+x, y = var('x','y')
+f = x*y
+Mx = 2
+My = 2
+show(contour_plot(f, (x,-Mx,Mx), (y,-My,My), fill=False, labels=True, contours=[-2,-1,0,1,2], cmap='rainbow'))
+</script></div>
 <br>
+
 The sombrero:
 \(f(x,y)=1-\sqrt{x^2+y^2}e^{-(x^2+y^2)}\):<br>
 <div class="compute"><script type="text/x-sage">
@@ -183,15 +194,32 @@ plot3d(f,(x,-Mx,Mx),(y,-My,My))
 </script></div>
 
 <br>
-Now we plot both the 3D graph and a contour plot:<br>
+Now we plot both the 3D graph and a contour plot:
+<br>
 \( f(x,y)=\sin(y)e^{x/5}\)<br>
 <div class="compute"><script type="text/x-sage">
-x,y=var('x','y')
-f=sin(y)*exp(x/5)
-Mx=10
-My=10
-show(plot3d(f,(x,-Mx,Mx),(y,-My,My)),plot_points=500,adaptive=true)
-show(contour_plot(f,(x,-Mx,Mx),(y,-My,My),colorbar=True,labels=True,contours=30,plot_points=500))
+x, y = var('x','y')
+f = sin(y)*exp(x/5)
+Mx = 10
+My = 10
+colormaps = sage.plot.colors.colormaps.keys()
+
+show(plot3d(f, (x,-Mx,Mx), (y,-My,My),
+            plot_points=100)
+           )
+
+@interact
+def _(colours=selector(colormaps, default='jet'),
+     fill=True,
+     labels=False,
+     contours=slider([1..100], default=50)):
+    show(contour_plot(f,(x,-Mx,Mx),(y,-My,My),
+                      colorbar=True,
+                      labels=labels,
+                      contours=contours,
+                      plot_points=500,
+                      cmap=colours,
+                      fill=fill))
 </script></div>
 <br>
 
