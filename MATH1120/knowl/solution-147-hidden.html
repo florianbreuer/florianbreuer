@@ -1,0 +1,52 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-01-07T17:22:57+11:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math"><div class="solution solution-like">Using the row reduction method, first reduce <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(A \)</span> to an equivalent upper triangular matrix.<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{align*}
+\begin{pmatrix}
+2 \amp 4 \amp 6  \\
+3 \amp 2 \amp 1 \\
+1 \amp 1 \amp 2
+\end{pmatrix}
+\amp \sim
+\begin{pmatrix}
+2 \amp 4 \amp 6  \\
+0 \amp -4 \amp -8 \\
+0 \amp -1 \amp  -1
+\end{pmatrix} \;\;\;
+\begin{matrix}
+\amp  \\
+R'_{2} \amp =  R_{2}-3\dfrac{R_{2}}{2} \\
+R'_{3} \amp =  R_{3}-\dfrac{R_{1}}{2}
+\end{matrix}\\
+\amp \sim
+\begin{pmatrix}
+2 \amp 4 \amp 6  \\
+0 \amp -4 \amp -8 \\
+0 \amp 0 \amp  1
+\end{pmatrix} \;\;\;
+\begin{matrix}
+\amp  \\
+\amp  \\
+R'_{3} \amp = R_{3}-\dfrac{R_{2}}{4}
+\end{matrix}
+\end{align*}
+</div>Since the only elementary row operation used here was that of adding a multiple of one row to another the determinant of the reduced matrix will be the same as the determinant of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(A \text{.}\)</span> Thus<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\det(A)=2\times (-4)\times 1 = -8.
+\end{equation*}
+</div>
+</div></body>
+</html>

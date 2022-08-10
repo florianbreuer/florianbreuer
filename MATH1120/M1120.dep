@@ -1,0 +1,227 @@
+\RequireVersions{
+  *{application}{pdfTeX}  {0000/00/00 v1.40.23}
+  *{format} {LaTeX2e}     {2021-06-01 v2.e}
+  *{package}{snapshot}    {2020/06/17 v2.14}
+  *{class}  {book}        {2021/02/12 v1.4n}
+  *{file}   {bk10.clo}    {2021/02/12 v1.4n}
+  *{package}{geometry}    {2020/01/02 v5.9}
+  *{package}{keyval}      {2014/10/28 v1.15}
+  *{package}{ifvtex}      {2019/10/25 v1.7}
+  *{package}{iftex}       {2020/03/06 v1.0d}
+  *{file}   {geometry.cfg}{0000/00/00 v0.0}
+  *{package}{ifthen}      {2020/11/24 v1.1c}
+  *{package}{etoolbox}    {2020/10/05 v2.5k}
+  *{package}{ifxetex}     {2019/10/25 v0.7}
+  *{package}{ifluatex}    {2019/10/25 v1.5}
+  *{package}{graphicx}    {2020/12/05 v1.2c}
+  *{package}{graphics}    {2021/03/04 v1.4d}
+  *{package}{trig}        {2016/01/03 v1.10}
+  *{file}   {graphics.cfg}{2016/06/04 v1.11}
+  *{file}   {pdftex.def}  {2020/10/05 v1.2a}
+  *{package}{xcolor}      {2016/05/11 v2.12}
+  *{file}   {color.cfg}   {2016/01/02 v1.6}
+  *{package}{colortbl}    {2020/01/04 v1.0e}
+  *{package}{array}       {2021/04/20 v2.5e}
+  *{file}   {dvipsnam.def}{2016/06/17 v3.0m}
+  *{file}   {svgnam.def}  {2016/05/11 v2.12}
+  *{package}{tcolorbox}   {2021/06/14 v4.51}
+  *{package}{pgf}         {2021/05/15 v3.1.9a}
+  *{package}{pgfrcs}      {2021/05/15 v3.1.9a}
+  *{file}   {pgfrcs.code.tex}{0000/00/00 v0.0}
+  *{package}{pgfcore}     {2021/05/15 v3.1.9a}
+  *{package}{pgfsys}      {2021/05/15 v3.1.9a}
+  *{file}   {pgfsys.code.tex}{0000/00/00 v0.0}
+  *{file}   {pgfsyssoftpath.code.tex}{2021/05/15 v3.1.9a}
+  *{file}   {pgfsysprotocol.code.tex}{2021/05/15 v3.1.9a}
+  *{file}   {pgfcore.code.tex}{0000/00/00 v0.0}
+  *{package}{pgfcomp-version-0-65}{2021/05/15 v3.1.9a}
+  *{package}{pgfcomp-version-1-18}{2021/05/15 v3.1.9a}
+  *{package}{verbatim}    {2020-07-07 v1.5u}
+  *{package}{environ}     {2014/05/04 v0.3}
+  *{package}{trimspaces}  {2009/09/17 v1.1}
+  *{package}{tikz}        {2021/05/15 v3.1.9a}
+  *{package}{pgffor}      {2021/05/15 v3.1.9a}
+  *{package}{pgfkeys}     {0000/00/00 v0.0}
+  *{file}   {pgfkeys.code.tex}{0000/00/00 v0.0}
+  *{package}{pgfmath}     {0000/00/00 v0.0}
+  *{file}   {pgfmath.code.tex}{0000/00/00 v0.0}
+  *{file}   {pgffor.code.tex}{0000/00/00 v0.0}
+  *{file}   {tikz.code.tex}{0000/00/00 v0.0}
+  *{package}{pdfcol}      {2019/12/29 v1.6}
+  *{package}{ltxcmds}     {2020-05-10 v1.25}
+  *{package}{infwarerr}   {2019/12/03 v1.5}
+  *{package}{xparse}      {2021-08-27 v3}
+  *{package}{expl3}       {2021-10-12 v3}
+  *{file}   {l3backend-pdftex.def}{2021-10-12 v3}
+  *{package}{xstring}     {2021/07/21 v1.84}
+  *{package}{inputenc}    {2021/02/14 v1.3d}
+  *{package}{lmodern}     {2009/10/30 v1.6}
+  *{package}{fontenc}     {0000/00/00 v0.0}
+  *{file}   {t1lmr.fd}    {2009/10/30 v1.6}
+  *{package}{microtype}   {2021/12/02 v3.0a}
+  *{file}   {microtype-pdftex.def}{2021/12/02 v3.0a}
+  *{file}   {microtype.cfg}{2021/12/02 v3.0a}
+  *{package}{amsmath}     {2021/04/20 v2.17j}
+  *{package}{amstext}     {2000/06/29 v2.01}
+  *{package}{amsgen}      {1999/11/30 v2.0}
+  *{package}{amsbsy}      {1999/11/29 v1.2d}
+  *{package}{amsopn}      {2016/03/08 v2.02}
+  *{package}{amscd}       {2017/04/14 v2.1}
+  *{package}{amssymb}     {2013/01/14 v3.01}
+  *{package}{amsfonts}    {2013/01/14 v3.01}
+  *{package}{titlesec}    {2021/07/05 v2.14}
+  *{package}{titleps}     {0000/00/00 v0.0}
+  *{package}{titletoc}    {2021/07/05 v2.14}
+  *{package}{siunitx}     {2021-12-03 v3.0.37}
+  *{package}{translations}{2021/01/17 v1.10a}
+  *{package}{pdftexcmds}  {2020-06-27 v0.33}
+  *{package}{l3keys2e}    {2021-08-27 v2e}
+  *{package}{multicol}    {2019/12/09 v1.8y}
+  *{package}{enumitem}    {2019/06/20 v3.9}
+  *{package}{hyperref}    {2021-06-07 v7.00m}
+  *{package}{kvsetkeys}   {2019/12/15 v1.18}
+  *{package}{kvdefinekeys}{2019-12-19 v1.6}
+  *{package}{pdfescape}   {2019/12/09 v1.15}
+  *{package}{hycolor}     {2020-01-27 v1.10}
+  *{package}{letltxmacro} {2019/12/03 v1.6}
+  *{package}{auxhook}     {2019-12-17 v1.6}
+  *{package}{kvoptions}   {2020-10-07 v3.14}
+  *{file}   {pd1enc.def}  {2021-06-07 v7.00m}
+  *{file}   {hyperref-langpatches.def}{2021-06-07 v7.00m}
+  *{package}{intcalc}     {2019/12/15 v1.3}
+  *{package}{etexcmds}    {2019/12/15 v1.7}
+  *{file}   {puenc.def}   {2021-06-07 v7.00m}
+  *{package}{url}         {2013/09/16 v3.4}
+  *{package}{bitset}      {2019/12/09 v1.3}
+  *{package}{bigintcalc}  {2019/12/15 v1.5}
+  *{package}{atbegshi-ltx}{2021/01/10 v1.0c}
+  *{file}   {hpdftex.def} {2021-06-07 v7.00m}
+  *{package}{atveryend-ltx}{2020/08/19 v1.0a}
+  *{package}{rerunfilecheck}{2019/12/05 v1.9}
+  *{package}{uniquecounter}{2019/12/15 v1.4}
+  *{package}{extpfeil}    {2009/10/31 v0.4}
+  *{package}{mathtools}   {2021/04/12 v1.27}
+  *{package}{calc}        {2017/05/25 v4.3}
+  *{package}{mhsetup}     {2021/03/18 v1.4}
+  *{package}{stmaryrd}    {1994/03/03 v0.0}
+  *{file}   {ot1lmr.fd}   {2009/10/30 v1.6}
+  *{file}   {omllmm.fd}   {2009/10/30 v1.6}
+  *{file}   {omslmsy.fd}  {2009/10/30 v1.6}
+  *{file}   {omxlmex.fd}  {2009/10/30 v1.6}
+  *{file}   {umsa.fd}     {2013/01/14 v3.01}
+  *{file}   {umsb.fd}     {2013/01/14 v3.01}
+  *{file}   {ustmry.fd}   {0000/00/00 v0.0}
+  *{file}   {ts1lmr.fd}   {2009/10/30 v1.6}
+  *{-------}{Document-specific files:}{----}
+  *{file}   {supp-pdf.mkii}{0000/00/00 v0.0}
+  *{package}{epstopdf-base}{2020-01-24 v2.11}
+  *{file}   {epstopdf-sys.cfg}{2021/03/18 v2.0}
+  *{file}   {mt-cmr.cfg}  {2013/05/19 v2.2}
+  *{file}   {translations-basic-dictionary-english.trsl}{(english v0.0}
+  *{package}{nameref}     {2021-04-02 v2.47}
+  *{package}{refcount}    {2019/12/15 v3.6}
+  *{package}{gettitlestring}{2019/12/15 v1.6}
+  *{file}   {M1120.out}   {0000/00/00 v0.0}
+  *{file}   {M1120.out}   {0000/00/00 v0.0}
+  *{file}   {mt-msa.cfg}  {2006/02/04 v1.1}
+  *{file}   {mt-msb.cfg}  {2005/06/01 v1.0}
+  *{file}   {./Calculus/Images/1/Linear_approximation_of_exponential.png}{0000/00/00 v0.0}
+  *{file}   {./Calculus/Images/1/Quadratic_approximation_of_exponential.png}{0000/00/00 v0.0}
+  *{file}   {./Calculus/Images/1/C1_WA_1.png}{0000/00/00 v0.0}
+  *{file}   {./Calculus/Images/1/C1_WA_2.png}{0000/00/00 v0.0}
+  *{file}   {./Calculus/Images/1/Fig-Maclaurin_polynomial_cosine.png}{0000/00/00 v0.0}
+  *{file}   {./Calculus/Images/1/C1_WA_3.png}{0000/00/00 v0.0}
+  *{file}   {./Calculus/Images/2/Taylor_series_cos.png}{0000/00/00 v0.0}
+  *{file}   {./Calculus/Images/2/Taylor_series_cos_Mathematica.png}{0000/00/00 v0.0}
+  *{file}   {./Calculus/Images/3/1_example4.png}{0000/00/00 v0.0}
+  *{file}   {./Calculus/Images/3/1_example5.png}{0000/00/00 v0.0}
+  *{file}   {./Calculus/Images/3/1_example6.png}{0000/00/00 v0.0}
+  *{file}   {./Calculus/Images/3/1_example7.png}{0000/00/00 v0.0}
+  *{file}   {./Calculus/Images/3/2_topographicmap.png}{0000/00/00 v0.0}
+  *{file}   {./Calculus/Images/3/2_example8.png}{0000/00/00 v0.0}
+  *{file}   {./Calculus/Images/3/2_example9.png}{0000/00/00 v0.0}
+  *{file}   {./Calculus/Images/3/2_ET2.png}{0000/00/00 v0.0}
+  *{file}   {./Calculus/Images/3/2_ET3.png}{0000/00/00 v0.0}
+  *{file}   {./Calculus/Images/3/3_example10.png}{0000/00/00 v0.0}
+  *{file}   {./Calculus/Images/3/3_example11.png}{0000/00/00 v0.0}
+  *{file}   {./Calculus/Images/4/Slope_of_tangent.png}{0000/00/00 v0.0}
+  *{file}   {./Calculus/Images/4/Ex1_Contour_Plot_Fig_1.png}{0000/00/00 v0.0}
+  *{file}   {./Calculus/Images/4/Ex2_x_axis_rate_of_change.png}{0000/00/00 v0.0}
+  *{file}   {./Calculus/Images/4/Ex2_y_axis_rate_of_change.png}{0000/00/00 v0.0}
+  *{file}   {./Calculus/Images/4/Contour_plot.png}{0000/00/00 v0.0}
+  *{file}   {./Calculus/Images/4/WA_1.png}{0000/00/00 v0.0}
+  *{file}   {./Calculus/Images/4/WA_2.png}{0000/00/00 v0.0}
+  *{file}   {./Calculus/Images/4/WA_3.png}{0000/00/00 v0.0}
+  *{file}   {./Calculus/Images/5/Ex1_Tangent_Plane.png}{0000/00/00 v0.0}
+  *{file}   {./Calculus/Images/5/Tangent_Plane_Vector_Form.png}{0000/00/00 v0.0}
+  *{file}   {./Calculus/Images/5/Ex2_Tangent_Planes.png}{0000/00/00 v0.0}
+  *{file}   {./Calculus/Images/5/Ex3_Tangent_Plane.png}{0000/00/00 v0.0}
+  *{file}   {./Calculus/Images/5/Task_4_Figure.png}{0000/00/00 v0.0}
+  *{file}   {./Calculus/Images/6/Ex1_Contour_Plot_Fig_1.png}{0000/00/00 v0.0}
+  *{file}   {./Calculus/Images/6/Directional_Derivative_Example.png}{0000/00/00 v0.0}
+  *{file}   {./Calculus/Images/6/Fig3_tangent_vector.png}{0000/00/00 v0.0}
+  *{file}   {./Calculus/Images/6/Fig4_Contour_Plot.png}{0000/00/00 v0.0}
+  *{file}   {./Calculus/Images/6/Fig5_gradvec_orthogonal_levelcurve.png}{0000/00/00 v0.0}
+  *{file}   {./Calculus/Images/6/Example-Task-4_Contour_Plot.png}{0000/00/00 v0.0}
+  *{file}   {./Calculus/Images/7/Fig1_max_min_inflection.png}{0000/00/00 v0.0}
+  *{file}   {./Calculus/Images/7/Fig2_Local_max_and_min.png}{0000/00/00 v0.0}
+  *{file}   {./Calculus/Images/7/Fig3_Saddle_point.png}{0000/00/00 v0.0}
+  *{file}   {./Calculus/Images/7/Fig4-Locate_critical_points.png}{0000/00/00 v0.0}
+  *{file}   {./Calculus/Images/7/Fig5-Locate_critical_points.png}{0000/00/00 v0.0}
+  *{file}   {./Calculus/Images/7/Ex_task_section_1.png}{0000/00/00 v0.0}
+  *{file}   {./Calculus/Images/7/Fig6_Loc_and_identify_critical_points.png}{0000/00/00 v0.0}
+  *{file}   {./Calculus/Images/7/Ex2_crit_points.png}{0000/00/00 v0.0}
+  *{file}   {./Calculus/Images/7/Fig7_Global_Extrema.png}{0000/00/00 v0.0}
+  *{file}   {./Calculus/Images/7/Fig8_Global_Extrema_1D.png}{0000/00/00 v0.0}
+  *{file}   {./Calculus/Images/7/Fig9_closed_region.png}{0000/00/00 v0.0}
+  *{file}   {./Calculus/Images/7/Fig10_bounded_region.png}{0000/00/00 v0.0}
+  *{file}   {./Calculus/Images/7/Fig11_Example7.png}{0000/00/00 v0.0}
+  *{file}   {./Calculus/Images/7/Fig12_Example7_z_function.png}{0000/00/00 v0.0}
+  *{file}   {./Calculus/Images/7/Fig13_Example7_z_function_2.png}{0000/00/00 v0.0}
+  *{file}   {./Calculus/Images/7/Fig14_Example7_z_function_3.png}{0000/00/00 v0.0}
+  *{file}   {./DifferentialEquations/Images/1/1_example2.png}{0000/00/00 v0.0}
+  *{file}   {./DifferentialEquations/Images/1/1_example3.png}{0000/00/00 v0.0}
+  *{file}   {./DifferentialEquations/Images/1/1_example6.png}{0000/00/00 v0.0}
+  *{file}   {./DifferentialEquations/Images/1/2_example8.png}{0000/00/00 v0.0}
+  *{file}   {./DifferentialEquations/Images/1/2_example8_2.png}{0000/00/00 v0.0}
+  *{file}   {./DifferentialEquations/Images/1/2_example9.png}{0000/00/00 v0.0}
+  *{file}   {./DifferentialEquations/Images/1/2_example11.png}{0000/00/00 v0.0}
+  *{file}   {./DifferentialEquations/Images/1/2_ET2.png}{0000/00/00 v0.0}
+  *{file}   {./DifferentialEquations/Images/2/1_example3.png}{0000/00/00 v0.0}
+  *{file}   {./DifferentialEquations/Images/2/1_example4.png}{0000/00/00 v0.0}
+  *{file}   {./DifferentialEquations/Images/2/1_example5.png}{0000/00/00 v0.0}
+  *{file}   {./DifferentialEquations/Images/2/1_example6.png}{0000/00/00 v0.0}
+  *{file}   {./DifferentialEquations/Images/2/1_example9.png}{0000/00/00 v0.0}
+  *{file}   {./DifferentialEquations/Images/3/Fig1_Mixing_Tank.png}{0000/00/00 v0.0}
+  *{file}   {./DifferentialEquations/Images/3/Fig2_ball_of_mass.png}{0000/00/00 v0.0}
+  *{file}   {./DifferentialEquations/Images/3/Fig3_motion_in_one_dim.png}{0000/00/00 v0.0}
+  *{file}   {./DifferentialEquations/Images/4/initial_value_problem.png}{0000/00/00 v0.0}
+  *{file}   {./DifferentialEquations/Images/4/boundary_value_problem.png}{0000/00/00 v0.0}
+  *{file}   {./DifferentialEquations/Images/6/figure_1.png}{0000/00/00 v0.0}
+  *{file}   {./DifferentialEquations/Images/6/figure_2.png}{0000/00/00 v0.0}
+  *{file}   {./DifferentialEquations/Images/6/figure_3.png}{0000/00/00 v0.0}
+  *{file}   {./DifferentialEquations/Images/6/figure_4.png}{0000/00/00 v0.0}
+  *{file}   {./DifferentialEquations/Images/6/figure_5.png}{0000/00/00 v0.0}
+  *{file}   {./DifferentialEquations/Images/6/figure_6.png}{0000/00/00 v0.0}
+  *{file}   {./DifferentialEquations/Images/6/figure_7.png}{0000/00/00 v0.0}
+  *{file}   {./DifferentialEquations/Images/6/figure_8.png}{0000/00/00 v0.0}
+  *{file}   {./DifferentialEquations/Images/6/figure_9.png}{0000/00/00 v0.0}
+  *{file}   {./DifferentialEquations/Images/6/figure_cantilever.png}{0000/00/00 v0.0}
+  *{file}   {./LinearAlgebra/Images/1/figure1.png}{0000/00/00 v0.0}
+  *{file}   {./LinearAlgebra/Images/1/figure2.png}{0000/00/00 v0.0}
+  *{file}   {./LinearAlgebra/Images/1/figure3.png}{0000/00/00 v0.0}
+  *{file}   {./LinearAlgebra/Images/2/figure1.png}{0000/00/00 v0.0}
+  *{file}   {./LinearAlgebra/Images/2/figure2.png}{0000/00/00 v0.0}
+  *{file}   {./LinearAlgebra/Images/2/figure3.png}{0000/00/00 v0.0}
+  *{file}   {./LinearAlgebra/Images/2/figure4.png}{0000/00/00 v0.0}
+  *{file}   {./LinearAlgebra/Images/2/figure5.png}{0000/00/00 v0.0}
+  *{file}   {./LinearAlgebra/Images/2/figure6.png}{0000/00/00 v0.0}
+  *{file}   {./LinearAlgebra/Images/2/figure7.png}{0000/00/00 v0.0}
+  *{file}   {./LinearAlgebra/Images/3/Linear_transformation.png}{0000/00/00 v0.0}
+  *{file}   {./LinearAlgebra/Images/5/figure1.png}{0000/00/00 v0.0}
+  *{file}   {./LinearAlgebra/Images/5/figure2.png}{0000/00/00 v0.0}
+  *{file}   {./LinearAlgebra/Images/5/figure3.png}{0000/00/00 v0.0}
+  *{file}   {./LinearAlgebra/Images/6/Fig1-solution_curves_plotted.png}{0000/00/00 v0.0}
+  *{file}   {./LinearAlgebra/Images/6/Fig2-solution_curves_plotted_2.png}{0000/00/00 v0.0}
+  *{file}   {./LinearAlgebra/Images/6/Fig3-solution_curves_plotted_3.png}{0000/00/00 v0.0}
+}

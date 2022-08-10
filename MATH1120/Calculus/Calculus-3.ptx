@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- =================================================================================================== -->
+<!-- To process this file with xsltproc do                                                        -->
+<!--                                                                                              -->
+<!-- (1) LaTeX/PDF:                                                                               -->
+<!--     xsltproc -o minimal.tex PATH_TO/mathbook/xsl/pretext-latex.xsl source/main.ptx           -->
+<!--     pdflatex minimal.tex                                                                     -->
+<!--     xelatex minimal.tex                                                                      -->
+<!--                                                                                              -->
+<!-- (2) HTML:                                                                                    -->
+<!--     xsltproc PATH_TO/mathbook/xsl/pretext-html.xsl source/main.ptx                           -->
+<!--     <browser>  minimal.html                                                                  -->
+<!--        ~/xsltproc/xsltproc.exe ~/mathbook/xsl/mathbook-html.xsl test.xml                     -->
+<!--                                                                                              -->
+<!-- (3) CoCalc worksheet (parameter causes a single file for output)                             -->
+<!--     REMOVE the "X" in the double dash (which is not legal in an XML comment)                 -->
+<!--     xsltproc -X-stringparam chunk.level 0 PATH_TO/mathbook/xsl/pretext-smc.xsl source/main.ptx   -->
+<!--     <CoCalc> minimal.sagews                                                                  -->
+<!--                                                                                              -->
+<!-- (4) Sage doctesting                                                                          -->
+<!--     REMOVE the "X" in the double dash (which is not legal in an XML comment)                 -->
+<!--     xsltproc -X-stringparam chunk.level 0 PATH_TO/mathbook/xsl/pretext-sage-doctest.xsl source/main.ptx  -->
+<!--     <read further instructions in> minimal.py                                                -->
+<!-- =================================================================================================== -->
+
+<chapter xml:id="Calculus_3">
+
+
+
+<!-- =================================================================================================== -->
+<!-- Title and Other Preliminaries -->
+<!-- =================================================================================================== -->
+        <title>CA3: Functions of Several Variables</title>
+
+        <!-- <frontmatter> -->
+
+<!--             <titlepage>
+                <author>
+                    <institution>University of Newcastle</institution>
+                </author>
+                <date><today /></date>
+            </titlepage> -->
+
+            <!-- <abstract>
+                <p>This is a very short article, but it still exercises some advanced features of MathBook XML.</p>
+            </abstract> -->
+
+        <!-- </frontmatter> -->
+
+        <!-- <introduction>
+            <p>This is a short paragraph to introduce the article (but it is not the abstract).  It is optional, in case it would be preferable to have the first section be titled an <q>Introduction.</q></p>
+        </introduction> -->
+<!-- =================================================================================================== -->
+
+
+<!-- =================================================================================================== -->
+<!-- Section 1: Functions of Two Variables -->
+<!-- =================================================================================================== -->
+    <section xml:id="Functions-of-Two-Variables">
+      <title>Functions of Two Variables</title>
+
+      <p>
+        In Math1110 we studied "(real valued) functions of one variable", that is functions of the form,
+        <me>f:D\rightarrow\mathbb{R}</me>
+        where <m>D\subseteq\mathbb{R}</m> is called the domain. We used the notation <m>y=f(x)</m>  to denote such functions where <m>x</m> denotes the independent variable and <m>y</m> the dependent variable.
+      </p>
+
+      <p>
+        We have seen that functions of one variable are useful in practice but (of course) there are many real world relationships that are more complicated and can't be well modelled by these functions.
+      </p>
+
+      <example>
+        <p>
+          Suppose that we have a thin metal plate and that we are interested in the temperature <m>T</m> on this plate. In general the temperature will vary from point to point. If we imagine a coordinate grid on the plate then points on the plate can be identified by their coordinates <m>(x,y)</m>. Thus <m>T</m> will depend on two independent variables, <m>x</m> and <m>y</m>. Thus we would write
+          <me>T(x,y)</me>
+          and say that <m>T</m> is a function of two variables.
+          Note that functions of two variables are of the form
+          <me>f:D\rightarrow\mathbb{R}^2</me>
+          where <m>D\subseteq\mathbb{R}^2</m> is again the domain.
+        </p>
+      </example>
+      <p>
+        Formally, we define a function of two variables as:
+        <definition>
+          <term>A (real valued) function <m>f</m> of two variables</term> is a rule that assigns to each ordered pair of real numbers <m>(x,y)</m> in a set <m>D</m> a unique (real) number denoted by <m>f(x,y)</m>.
+        </definition>
+        Thus,
+        <me>g(x,t)=\frac{\sin(t+1)}{s^2+t^2}, h(x,y)=(x-y)^2e^{-(x+y)}+6</me>
+        are examples of functions of two variables.
+      </p>
+      <p>
+        The set <m>D</m> is called the <term>domain</term> of the function. Unless specified otherwise, we take <m>D</m> to be the largest possible set of ordered pairs for which we can calculate <m>f</m>. The <term>range</term> of <m>f</m> is the associated set of values that <m>f</m> takes on.
+      </p>
+      <example>
+        <p>
+          Consider the function <m>f(x,y)=\ln(x-y-1)</m>.
+        </p>
+        <p><ol label="a.">
+          <li><p>Find the domain of <m>f</m></p></li>
+          <li><p>Find: </p></li>
+        </ol></p>
+        <p><ol label="i.">
+          <li><p><m>f(3,1)</m></p></li>
+          <li><p><m>f(\frac{1}{2},-\sqrt{5})</m></p></li>
+          <li><p><m>f(1,3)</m></p></li>
+        </ol></p>
+
+        <solution>
+          <p><ol label="a.">
+            <li><p>Since the argument of the log function has to be positive, the domain <m>D</m> is the set of points in the plane satisfying
+            <me>D=\{(x,y):y \lt x-1\}</me></p></li>
+            <li><p> </p></li>
+          </ol></p>
+          <p><ol label="i.">
+            <li><p><m>f(3,1)=\ln(3-1-1)=\ln(1)=0</m></p></li>
+            <li><p><m>f(\frac{1}{2},-\sqrt{5})=\ln(\frac{1}{2}+\sqrt{5}-1)=\ln(\sqrt{5}-\frac{1}{2})=0.5516</m> (to 4.d.p.).</p></li>
+            <li><p>Since <m>(1,3)</m> is not in the domain of <m>f</m>, <m>f(1,3)</m> is not defined.</p></li>
+          </ol></p>
+        </solution>
+      </example>
+      <example>
+        <p>
+          Consider the function <m>f(x,y)=y-xy</m>
+        </p>
+        <p><ol label="a.">
+          <li><p>Find the domain of <m>f</m></p></li>
+          <li><p>Find: </p></li>
+        </ol></p>
+        <p><ol label="i.">
+          <li><p><m>f(3,1)</m></p></li>
+          <li><p><m>f(\frac{1}{2},-\sqrt{5})</m></p></li>
+          <li><p><m>f(1,3)</m></p></li>
+        </ol></p>
+
+        <solution>
+          <p><ol label="a.">
+            <li><p>Since we can calculate <m>f</m> for all values of <m>x</m> and <m>y</m> the domain of <m>f</m> is <m>\mathbb{R}^2</m></p></li>
+            <li><p> </p></li>
+          </ol></p>
+          <p><ol label="i.">
+            <li><p><m>f(3,1)=1-3\times 1=-2</m></p></li>
+            <li><p><m>f(\frac{1}{2},-\sqrt{5})=-\sqrt{5}+\frac{1}{2}\times\sqrt{5}=-\frac{\sqrt{5}}{2}</m></p></li>
+            <li><p><m>f(1,3)=3-1\times 3=0</m></p></li>
+          </ol></p>
+        </solution>
+      </example>
+      <p>
+        The graph of a function of two variables is a surface in <m>\mathbb{R}^3</m> which passes the vertical line test. In general it is hard to draw the graph of a function of two variables by hand and so usually we get a computer to do it. The following plots have been done using the specialist mathematical software Maple but Wolfram Alpha will produce such plots too.
+      </p>
+      <example>
+        <p>
+          Produce the graph of the function <m>z=f(x,y)=x^2+y^2</m>
+        </p>
+        <solution>
+          <p>
+            <figure>
+              <image source="./Calculus/Images/3/1_example4.png" width="75%"/>
+            </figure>
+
+          </p>
+        </solution>
+      </example>
+      <example>
+        <p>
+          Produce the graph of the function <m>f(x,y)=x(3y-2)(5x+2)e^{-(x^2+y^2)/5}</m>
+        </p>
+        <solution>
+          <p>
+            <figure>
+              <image source="./Calculus/Images/3/1_example5.png" width="75%"/>
+            </figure>
+          </p>
+        </solution>
+      </example>
+      <example>
+        <p>
+          Produce the graph of the function <m>f(x,y)=\sqrt{x^2+y^2}e^{-(x^2+y^2)}</m>
+        </p>
+        <solution>
+          <p>
+            <figure>
+              <image source="./Calculus/Images/3/1_example6.png" width="100%"/>
+            </figure>
+          </p>
+        </solution>
+      </example>
+      <p>
+        Not all surfaces in <m>\mathbb{R}^3</m> represent the graph of a function of two variables.
+      </p>
+      <example>
+        <p>
+          The surface associated the equation <m>x^2+y^2+z^2=4</m> is a sphere of radius <m>2</m> and whose centre is the origin. Clearly this surface does not pass the vertical line test. For example, when <m>(x,y)=(0,0)</m>, <m>z</m> could be either <m>+2</m> or <m>-2</m>.
+          <figure>
+            <image source="./Calculus/Images/3/1_example7.png" width="75%"/>
+          </figure>
+        </p>
+
+      </example>
+
+      <exercises>
+        <title>Example Tasks</title>
+
+        <exercise>
+          <statement>
+            <p>Determine the domain of the function <m>f(x,y)=\frac{\sin(y)}{xy-1}</m>.</p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>Sketch the graph of the following functions.</p>
+            <p><ol label="a.">
+              <li><p><m>f(x,y)=3</m></p></li>
+              <li><p><m>f(x,y)=-x-2y+2</m></p></li>
+            </ol></p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>Sketch the surface associated with the equation <m>f(x,y)=x^2+y^2-4</m>. Could the surface be the graph of a function of two variables?</p>
+          </statement>
+        </exercise>
+
+      </exercises>
+
+    </section>
+
+<!-- =================================================================================================== -->
+
+
+<!-- =================================================================================================== -->
+<!-- Section 2: Level Curves -->
+<!-- =================================================================================================== -->
+
+    <section xml:id="level-curves">
+      <title>Level Curves</title>
+
+      <p>
+        As we have seen, visualising the surface corresponding to the function <m>z=f(x,y)</m> can be quite difficult. One method that aids in this task is to draw level curves (sometimes known as contours). Level curves are the equivalent of contours on a topographical map. In such a map the terrain is shown by drawing curves through all points which have the same height above sea level. The numbers on the curves in the map shown below are the heights above sea level in metres.
+        <figure>
+          <caption> Sample Topographic Map (Part of the Watagan Mountains) </caption>
+          <image source="./Calculus/Images/3/2_topographicmap.png" width="75%"/>
+        </figure>
+      </p>
+      <definition>
+        The <term>level curves</term> of a function <m>z=(x,y)</m> are curves in the <m>xy</m>-plane on which the function has the same value, i.e. on which <m>z=k</m>, where <m>k</m> is some constant.
+      </definition>
+      <p>
+        Note:
+        <p><ol label="1.">
+          <li><p>Each point in the domain of the function lies on exactly one level curve.</p></li>
+          <li><p>When a collection of level curves for a function are drawn on the same plane it is sometimes called a contour plot.</p></li>
+          <li><p>We can also think of level curves as the intersection of the surface and the horizontal plane <m>z=k</m>.</p></li>
+        </ol></p>
+      </p>
+      <example>
+        <p>
+          Draw the level curves associated with <m>k=-2,-1,0,1,2</m> for the function
+          <me>z=xy</me>
+        </p>
+        <solution>
+          <p>
+            The level curves of a function satisfy the equation <m>z=k</m>. So for this function the level curves are:
+            <me>xy=k \textrm{ or }y=\frac{k}{x}</me>
+            Thus the level curves are rectangular hyperbolae (except for <m>k=0</m>).  The level curves for <m>k=-2,-1,0,1,2</m> are shown in following diagram.
+            <figure>
+              <image source="./Calculus/Images/3/2_example8.png" width="75%"/>
+            </figure>
+          </p>
+        </solution>
+      </example>
+      <example>
+        <p>
+          Draw a contour plot for the function <m>z=x^2+y^2</m>.
+        </p>
+        <solution>
+          <p>
+            The contours (i.e. level curves) of a function satisfy the equation <m>z=k</m>. So for this function the level curves are:
+            <me>x^2+y^2=k</me>
+            that is, circles centred on the origin and whose radius is <m>\sqrt{k}</m>.
+            <figure>
+              <image source="./Calculus/Images/3/2_example9.png" width="75%"/>
+            </figure>
+            Notice that there are no level curves when <m>k\lt 0</m>. This tells us that the surface does not go below the <m>xy</m>-plane.
+          </p>
+        </solution>
+      </example>
+      <exercises>
+        <title>Example Tasks</title>
+
+        <exercise>
+          <statement>
+            <p>Draw the level curves associated with <m>k=-2,-1,0,1,2</m> for the function <me>z=2x-x^2+y</me>.</p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>Make a rough sketch of the contour map (centred on the origin) for the function whose graph is:</p>
+            <figure>
+              <image source="./Calculus/Images/3/2_ET2.png" width="75%"/>
+            </figure>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>Make a rough sketch of the contour map (centred on the origin) for the function whose graph is:</p>
+            <figure>
+              <image source="./Calculus/Images/3/2_ET3.png" width="75%"/>
+            </figure>
+          </statement>
+        </exercise>
+      </exercises>
+
+    </section>
+
+<!-- =================================================================================================== -->
+
+
+<!-- =================================================================================================== -->
+<!-- Section 3: Surfaces of Revolution -->
+<!-- =================================================================================================== -->
+
+    <section xml:id="surfaces-of-revolution">
+      <title>Surfaces of Revolution</title>
+
+      <p>
+        The surface associated with the graph of <m>f(x,y)=\sqrt{x^2+y^2}e^{-(x^2+y^2)}</m> (see example in section 1) is an example of a special kind of surface...a surface of revolution.
+        <definition>
+          A <term>surface of revolution</term> is a surface in <m>\mathbb{R}^3</m> obtained by rotating a curve about an axis.
+        </definition>
+      </p>
+
+      <example>
+        <p>
+          Determine the equation of the surface obtained by rotating the curve in the <m>xz</m>-plane <m>z=2-3x, x\geq 0</m> about the <m>z</m>-axis.
+        </p>
+        <solution>
+          <p>
+            <figure>
+              <image source="./Calculus/Images/3/3_example10.png" width="75%"/>
+            </figure>
+            Let the equation of the surface be <m>z=f(x,y)</m>. Then the equation of the level curves of the surface will be
+            <me>f(x,y)=k</me>
+            Now, note that the cross-sections of the surface of revolution perpendicular to the <m>z</m>-axis (i.e. the level curves) will be circles. For example the cross section at <m>z=k</m> will be a circle with centre <m>(0,0)</m> and radius <m>\frac{2-k}{3}</m> and hence has equation
+            <me>x^2+y^2=\big(\frac{2-k}{3}\big)^2</me>
+            On re-arranging this equation we obtain
+            <me>k=2-3\sqrt{x^2+y^2}</me>
+            Putting this into <m>f(x,y)=k</m> gives
+            <me>f(x,y)=2-3\sqrt{x^2+y^2}</me>
+          </p>
+        </solution>
+      </example>
+      <p>
+        On repeating what we did in the above example in general gives:
+        <definition>
+          The equation of a surface of revolution obtained by rotating the curve <m>z=f(x), x\geq 0</m> in the <m>xz</m>-plane about the <m>z</m>-axis will be
+          <me>z=f(\sqrt{x^2+y^2})</me>
+        </definition>
+      </p>
+      <example>
+        <p>
+          Determine the equation of the surface obtained by rotating the curve in the <m>xz</m>-plane
+          <me>z=xe^{-x^2}, x\geq 0</me>
+          about the <m>z</m>-axis.
+        </p>
+        <solution>
+          <p>
+            <figure>
+              <image source="./Calculus/Images/3/3_example11.png" width="50%"/>
+            </figure>
+            The equation of the surface of revolution will be
+            <me>z=f(\sqrt{x^2+y^2}) \textrm{ where } f(x)=xe^{-x^2}</me>
+            that is,
+            <me>z=\sqrt{x^2+y^2}e^{-\big(\sqrt{x^2+y^2}\big)^2}=\sqrt{x^2+y^2}e^{-(x^2+y^2)}</me>
+          </p>
+        </solution>
+      </example>
+      <example>
+        <p>
+          Is the graph of <m>f(x,y)=4-x^2-y^2</m> a surface of revolution?
+        </p>
+        <solution>
+          <p>
+            Since we can write the function as
+            <me>f(x,y)=4-\big(\sqrt{x^2+y^2}\big)^2</me>
+            this surface can be obtained by rotating the curve in the <m>xz</m>-plane
+            <me>z=4-x^2, x\geq 0</me>
+          </p>
+        </solution>
+      </example>
+      <exercises>
+        <title>Example Tasks</title>
+        <exercise>
+          <statement>
+            <p>Determine the equation of the surface obtained by rotating the curve <m>z=\sqrt{4-x^2}, x\geq 0</m> about the <m>z</m>-axis. Make a sketch of the surface.</p>
+          </statement>
+        </exercise>
+        <exercise>
+          <statement>
+            <p>Is the graph of <m>f(x,y)=xy^2-y^3</m> a surface of revolution?</p>
+          </statement>
+        </exercise>
+      </exercises>
+
+
+    </section>
+
+<!-- =================================================================================================== -->
+
+
+<!-- =================================================================================================== -->
+<!-- Section 4: Functions of 3 (or more) Variables -->
+<!-- =================================================================================================== -->
+
+    <section xml:id="functions-of-3-or-more-variables">
+      <title>Functions of 3 (or more) Variables</title>
+
+      <p>
+        Although we won’t do much with them in this course it is possible to define (real valued) functions in <m>n</m> variables where <m>n</m> is any natural number, that is functions of the form <m>f:\mathbb{R}^n\rightarrow\mathbb{R}</m>.
+      </p>
+      <example>
+        <p>
+          The function <m>f(x,y,z)=x^2+y^2+z^2</m> is a function of the form <m>f:\mathbb{R}^3\rightarrow\mathbb{R}</m> .
+        </p>
+      </example>
+      <example>
+        <p>
+          The function <m>f(w,x,y,z)=2wx^2+yz+\frac{w}{(x+z)}</m> is a function of the form <m>f:\mathbb{R}^4\rightarrow\mathbb{R}</m> .
+        </p>
+      </example>
+      <p>
+        Of course, for such functions geometric representations are somewhat impractical.
+      </p>
+
+    </section>
+<!-- =================================================================================================== -->
+</chapter>

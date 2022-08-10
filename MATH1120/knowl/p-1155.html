@@ -1,0 +1,79 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-01-07T17:23:01+11:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h4 class="heading"><span class="type">Paragraph</span></h4>
+<p>The characteristic equation for <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(A\)</span> is</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\det\begin{pmatrix} 7-\lambda \amp 1 \amp -2 \\ 0 \amp 3-\lambda \amp 6 \\ 0 \amp 0 \amp 2-\lambda \end{pmatrix}=0
+\end{equation*}
+</div>
+<p class="continuation">Now, using the minors method and expanding down column 1,</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{align*}
+\det\begin{pmatrix} 7-\lambda \amp 1 \amp -2 \\ 0 \amp 3-\lambda \amp 6 \\ 0 \amp 0\amp 2-\lambda \end{pmatrix} \amp =(7-\lambda)\begin{vmatrix} 3-\lambda \amp 6 \\ 0 \amp 2-\lambda \end{vmatrix}-0\begin{vmatrix} 1 \amp -2 \\ 0 \amp 2-\lambda \end{vmatrix}+0\begin{vmatrix} 1 \amp -2 \\ 3-\lambda \amp 6 \end{vmatrix} \\
+\amp = (7-\lambda)\{(3-\lambda)(2-\lambda)-0\}-0+0\\
+\amp = (7-\lambda)(3-\lambda)(2-\lambda)
+\end{align*}
+</div>
+<p class="continuation">Thus the eigenvalues for <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(A\)</span> satisfy</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\lambda=2,3,7
+\end{equation*}
+</div>
+<p class="continuation">When <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\lambda=2\)</span> the augmented matrix and its reduced row echelon form are</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\begin{pmatrix} 5 \amp 1 \amp -2 \amp 0 \\ 0 \amp 1 \amp 6 \amp 0 \\ 0 \amp 0 \amp 0 \amp 0 \end{pmatrix} \sim \begin{pmatrix} 5 \amp 0 \amp -8 \amp 0 \\ 0 \amp 1 \amp 6 \amp 0 \\ 0 \amp 0 \amp 0 \amp 0 \end{pmatrix} 
+\end{equation*}
+</div>
+<p class="continuation">Thus, the eigenvectors take the form</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{align*}
+\mathbf{x} \amp =\begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix} \textrm{ where } \begin{matrix}  \hspace{2mm} 5x_1-8x_3=0 \\ \hspace{4mm} x_2+6x_3=0 \end{matrix} \\
+\Rightarrow \mathbf{x} \amp =\begin{pmatrix} 8t \\ -30t \\ 5t \end{pmatrix} = t\begin{pmatrix} 8 \\ -30 \\ 5 \end{pmatrix}
+\end{align*}
+</div>
+<p class="continuation">When <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\lambda=3\)</span> the augmented matrix and its reduced row echelon form are</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\begin{pmatrix} 4 \amp 1 \amp -2 \amp 0 \\ 0 \amp 0 \amp 6 \amp 0 \\ 0 \amp 0 \amp -1 \amp 0 \end{pmatrix} \sim \begin{pmatrix} 4 \amp 1 \amp 0 \amp 0 \\ 0 \amp 0 \amp 1 \amp 0 \\ 0 \amp 0 \amp 0 \amp 0 \end{pmatrix} 
+\end{equation*}
+</div>
+<p class="continuation">Thus, the eigenvectors take the form</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{align*}
+\mathbf{x} \amp =\begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix} \textrm{ where } \begin{matrix} \hspace{2mm} 4x_1+x_2=0 \\ \hspace{14.5mm} x_3=0 \end{matrix} \\
+\Rightarrow \mathbf{x} \amp =\begin{pmatrix} -t \\ 4t \\ 0 \end{pmatrix} = t\begin{pmatrix} -1 \\ 4 \\ 0 \end{pmatrix}
+\end{align*}
+</div>
+<p class="continuation">When <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\lambda=7\)</span> the augmented matrix and its reduced row echelon form are</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\begin{pmatrix} 0 \amp 1 \amp -2 \amp 0 \\ 0 \amp -4 \amp 6 \amp 0 \\ 0 \amp 0 \amp -5 \amp 0 \end{pmatrix} \sim \begin{pmatrix} 0 \amp 1 \amp 0 \amp 0 \\ 0 \amp 0 \amp 1 \amp 0 \\ 0 \amp 0 \amp 0 \amp 0 \end{pmatrix} 
+\end{equation*}
+</div>
+<p class="continuation">Thus, the eigenvectors take the form</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{align*}
+\mathbf{x} \amp =\begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix} \textrm{ where } \begin{matrix} \hspace{2mm} x_2=0 \\ \hspace{2mm} x_3=0 \end{matrix} \\
+\Rightarrow \mathbf{x} \amp =\begin{pmatrix} t \\ 0 \\ 0 \end{pmatrix} = t\begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}
+\end{align*}
+</div>
+<span class="incontext"><a href="Sec-LA_5_Finding_Eigenvalues_and_Eigenvectors.html#p-1155">in-context</a></span>
+</body>
+</html>

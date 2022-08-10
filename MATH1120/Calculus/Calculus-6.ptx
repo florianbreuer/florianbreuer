@@ -1,0 +1,390 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- =================================================================================================== -->
+<!-- To process this file with xsltproc do                                                        -->
+<!--                                                                                              -->
+<!-- (1) LaTeX/PDF:                                                                               -->
+<!--     xsltproc -o minimal.tex PATH_TO/mathbook/xsl/pretext-latex.xsl source/main.ptx           -->
+<!--     pdflatex minimal.tex                                                                     -->
+<!--     xelatex minimal.tex                                                                      -->
+<!--                                                                                              -->
+<!-- (2) HTML:                                                                                    -->
+<!--     xsltproc PATH_TO/mathbook/xsl/pretext-html.xsl source/main.ptx                           -->
+<!--     <browser>  minimal.html                                                                  -->
+<!--        ~/xsltproc/xsltproc.exe ~/mathbook/xsl/mathbook-html.xsl test.xml                     -->
+<!--                                                                                              -->
+<!-- (3) CoCalc worksheet (parameter causes a single file for output)                             -->
+<!--     REMOVE the "X" in the double dash (which is not legal in an XML comment)                 -->
+<!--     xsltproc -X-stringparam chunk.level 0 PATH_TO/mathbook/xsl/pretext-smc.xsl source/main.ptx   -->
+<!--     <CoCalc> minimal.sagews                                                                  -->
+<!--                                                                                              -->
+<!-- (4) Sage doctesting                                                                          -->
+<!--     REMOVE the "X" in the double dash (which is not legal in an XML comment)                 -->
+<!--     xsltproc -X-stringparam chunk.level 0 PATH_TO/mathbook/xsl/pretext-sage-doctest.xsl source/main.ptx  -->
+<!--     <read further instructions in> minimal.py                                                -->
+<!-- =================================================================================================== -->
+
+<chapter xml:id="Calculus_6">
+
+
+
+<!-- =================================================================================================== -->
+<!-- Title and Other Preliminaries -->
+<!-- =================================================================================================== -->
+        <title>CA6: The Directional Derivative </title>
+
+        <!-- <frontmatter> -->
+
+<!--             <titlepage>
+                <author>
+                    <institution>University of Newcastle</institution>
+                </author>
+                <date><today /></date>
+            </titlepage> -->
+
+            <!-- <abstract>
+                <p>This is a very short article, but it still exercises some advanced features of MathBook XML.</p>
+            </abstract> -->
+
+        <!-- </frontmatter> -->
+
+        <introduction>
+            <p>We have noted previously that the instantaneous rate of change of a function <m>z = f(x,y)</m> at the point <m>(x,y) = (x_0,y_0)</m> will depend on the direction in which the independent variables are changing. </p>
+
+            <example xml:id="Ex-Direction_and_rate_of_change_Copy">
+            <!-- <title>Direction and Rate of Change</title> -->
+
+                <p>Consider the function <m>f(x,y) = x^2-y^2</m>. The graph of this function is shown below. At <m>(x,y)=(0,0)</m>, <m>f=0</m>. As we can see by looking at the graph, as we move away from the origin along the positive <m>x</m>-axis the value of <m>f</m> is increasing, i.e. the rate of change of the function will be positive. However, if we move away from the origin along the positive <m>y</m>-axis the value of <m>f</m> is decreasing, i.e. the rate of change of the function will be negative.</p>
+
+                <figure xml:id="Fig-Example_1_Contour_Plot_Copy">
+                    <caption></caption>
+                    <image source="./Calculus/Images/6/Ex1_Contour_Plot_Fig_1.png" width="70%"/>
+                </figure>
+            </example>
+
+            <p>In the case that the direction is parallel to the positive x-axis we already know that the slope is given by the partial derivative <m>f_x(x_0,y_0)</m> and in the case that the direction is parallel to the positive <m>y</m>-axis the slope is given by <m>f_y(x_0,y_0)</m>. In this section we will look at the problem of finding the slope of the function if we move away from the point <m>(x,y) = (x_0,y_0)</m> in any direction.</p>
+
+        </introduction>
+<!-- =================================================================================================== -->
+
+
+
+
+<!-- =================================================================================================== -->
+<!-- Section 1: Directional Derivatives -->
+<!-- =================================================================================================== -->
+        <section xml:id="Directional-Derivatives">
+            <title>Directional Derivatives</title>
+
+            <p>Firstly, note that <m>2D</m> vectors are a convenient way to specify directions in the <m>xy</m>-plane. For example, we could say the slope of the function in the direction of the vector <m>\bm{i} = \langle 1, 0 \rangle</m> is <m>f_x(x_0,y_0)</m> while in the direction of the vector <m>\bm{j} = \langle 0,1 \rangle</m> it is <m>f_y(x_0,y_0)</m>. Thus the problem we are looking at is that of finding the slope of the function at the point <m>(x,y) = (x_0,y_0)</m> in the direction given by some vector <m>\bm{u} = \langle u_1, u_2 \rangle</m>. Mathematically, we would say that we are trying to find the <em>directional derivative</em> of the function <m>f(x,y)</m> at the point <m>(x_0,y_0)</m> in the direction <m>\bm{u}</m>. The notation that we use to denote this directional derivative is <me>D_{\bm{u}}f(x_0,y_0)</me>.</p>
+
+            <p>One way to approach the problem of finding the directional derivative <m>D_{\bm{u}}f(x_0,y_0)</m> is to use the tangent plane to the function at the point <m>(x_0,y_0)</m>, i.e. <me>L(x,y) = f(x_0,y_0) + f_x (x_0,y_0)(x - x_0) + f_y(x_0,y_0) (y-y_0)</me>.</p>
+
+            <p>Then the slope of the function <m>f(x,y)</m> in the direction of <m>\bm{u}</m> is the slope of <m>L(x,y)</m> in that direction. If <m>\hat{\bm{u}} = \langle u_1, u_2 \rangle</m> is a unit vector in the direction of <m>\bm{u}</m> then the required slope is the amount by which the value of <m>L</m> changes as the independent variables change from <m>(x_0,y_0)</m> to <m>(x_0+u_1,y_0+u_2)</m>, i.e.</p>
+
+            <p><md>
+                <mrow>D_u f(x_0,y_0) \amp = L(x_0+u_1, y_0+u_2) - L(x_0,y_0)</mrow>
+                <mrow>\amp = \bigg[ f(x_0,y_0) + f_x(x_0,y_0)(x_0+u_1 - x_0) + f_y(x_0,y_0)(y_0+u_2-y_0) \bigg] - f(x_0,y_0)</mrow>
+                <mrow>\amp = f_x(x_0,y_0)u_1 + f_y(x_0,y_0)u_2</mrow>
+            </md></p>
+
+            <example xml:id="Ex-Directional_Derivative">
+            <!-- <title>Direction and Rate of Change</title> -->
+
+                <p>Consider the function <m>z(x,y) = 5 - \dfrac{x^2+y^2}{2}</m>. Figure 2 shows the graph of this function along with its the tangent plane at <m>(x,y) = (2,1)</m>. Also shown on the diagram are the vectors <m>\bm{u} = \langle 2,2 \rangle</m> and <m>\bm{v} = \langle 2,-1 \rangle</m> drawn in the <m>xy</m>-plane with their tails at the point <m>(x,y) = (2,1)</m>. Then the directional derivative <m>D_{\bm{u}}(z(2,1))</m> will be the slope of the line joining the points <m>(2,1,z(2,1))</m> and <m>(4,3,L(4,3))</m> while the directional derivative <m>D_{\bm{v}}(f(2,1))</m> will be the slope of the line joining the points <m>(2,1,z(2,1))</m> and <m>(4,0,L(4,0))</m>.</p>
+
+                <figure xml:id="Fig-Example_2-Directional-Derivative">
+                    <caption></caption>
+                    <image source="./Calculus/Images/6/Directional_Derivative_Example.png" width="70%"/>
+                </figure>
+            </example>
+
+            <p>To summarise:</p>
+
+            <definition>
+                <title>Directional Derivative</title>
+                <statement><p>The <em>directional derivative</em> of the differentiable function <m>f(x,y)</m> at the point <m>(x_0,y_0)</m> in the direction of the unit vector <m>\hat{\bm{u}} = \langle u_1, u_2 \rangle</m> is given by <me>D_{\bm{u}} f(x_0,y_0) = f_x(x_0,y_0)u_1 + f_y (x_0,y_0)u_2</me>.</p>
+                </statement>
+            </definition>
+
+            <example xml:id="Ex-Find_Directional_Derivative">
+            <!-- <title>Calculating Partial Derivatives at a Particular Point</title> -->
+                <statement>
+                    <p>Find the directional derivative of <m>f(x,y) = y\ln(x)</m> at <m>(1,-3)</m> in the direction <m>\bm{u} = \langle -4, 3 \rangle</m>.</p>
+                </statement>
+
+                <solution>
+                    <p>For the given function <me>f_x = \dfrac{y}{x} \: \text{ and } \: f_y = \ln(x)</me>. Thus <me>f_x(1,-3) = -3 \: \text{ and } \: f_y(1,-3) = 0</me>. Now the unit vector in the direction of <m>\langle -4,3 \rangle</m> is <me>\hat{\bm{u}} = \left \langle -\dfrac{4}{5}, \dfrac{3}{5} \right \rangle</me>. Thus the required directional derivative is <me>D_\hat{\bm{u}} f(1,-3) = (-3) \left( -\dfrac{4}{5} \right) + (0) \left( \dfrac{3}{5} \right) = \dfrac{12}{5}</me>.</p>
+                </solution>
+            </example>
+
+            <example xml:id="Ex-Find_Directional_Derivative_2">
+            <!-- <title>Calculating Partial Derivatives at a Particular Point</title> -->
+                <statement>
+                    <p>Find the directional derivative of <m>f(x,y) = \sin(x+2y)</m> in the direction of the angle (from the positive <m>x</m>-axis) <m>\theta = \dfrac{3 \pi}{4}</m>.</p>
+                </statement>
+
+                <solution>
+                    <p>For the given function <me>f_x = \cos(x+2y) \: \text{ and } \: f_y = 2\cos(x+2y)</me>. Now, the unit vector in the direction of the angle <m>\theta = \dfrac{3 \pi}{4}</m> is <me>\hat{\bm{u}} = \left \langle - \dfrac{1}{\sqrt{2}}, \dfrac{1}{\sqrt{2}} \right \rangle</me>. Thus the required directional derivative is
+                        <md>
+                            <mrow>D_\hat{\bm{u}} f(x,y) \amp = \cos(x+2y) \left( - \dfrac{1}{\sqrt{2}} \right) + 2\cos(x+2y) \left( \dfrac{1}{\sqrt{2}} \right)</mrow>
+                            <mrow>\amp = \dfrac{1}{\sqrt{2}} \cos(x+2y)</mrow>
+                        </md>
+                    </p>
+                </solution>
+            </example>
+
+            <p>Note that the directional derivative <m>D_\bm{u} f(x_0,y_0)</m> can be expressed in the terms of the scalar product if we use the following definition.</p>
+
+            <definition>
+                <title>Gradient Vector</title>
+                <statement><p>The vector <me>\nabla f(x_0,y_0) = \langle f_x(x_0,y_0), f_y(x_0,y_0) \rangle</me> is called the <em>gradient vector</em> of <m>f(x,y)</m> at <m>(x_0,y_0)</m>.</p>
+                </statement>
+            </definition>
+
+            <p>With this definition the directional derivative can be written as:
+                <md>
+                    <mrow>D_\bm{u} f(x_0,y_0) \amp = \langle f_x(x_0,y_0),f_y(x_0,y_0) \cdot \langle u_1, u_2 \rangle</mrow>
+                    <mrow>\amp = \nabla f(x_0,y_0) \cdot \hat{\bm{u}}</mrow>
+                </md>
+            </p>
+
+            <example xml:id="Ex-Find_Gradient_Vector">
+            <!-- <title>Calculating Partial Derivatives at a Particular Point</title> -->
+                <statement>
+                    <p>Find the gradient vector for the function <m>f(x,y) = e^{-x} \sin(y)</m>. Hence find <m>\nabla f(0,\pi/3)</m> and the directional derivative in the direction of the origin.</p>
+                </statement>
+
+                <solution>
+                    <p>For the given function <me>f_x = -e^{-x} \sin(y) \: \text{ and } \: f_y = e^{-x}\cos(y)</me>, and so the gradient vector is <me>\nabla f = \left \langle -e^{-x}\sin(y), e^{-x}\cos(y) \right \rangle</me>. Thus <me>\nabla f(0, \pi/3) = \left \langle -e^0 \sin \left( \dfrac{\pi}{3} \right), e^0 \cos \left( \dfrac{\pi}{3} \right) \right \rangle = \left \langle - \dfrac{\sqrt{3}}{2} , \dfrac{1}{2} \right \rangle</me>. Now, the unit vector in the direction of the origin from the point <m>\left( 0, \dfrac{\pi}{3} \right)</m> is <me>\hat{\bm{u}} = \langle 0, -1 \rangle</me>. Thus the required directional derivative is <me>D_{\hat{\bm{u}}} f \left( 0, \dfrac{\pi}{3} \right) = \left \langle -\dfrac{\sqrt{3}}{2} , \dfrac{1}{2} \right \rangle \cdot \langle 0, -1 \rangle = - \dfrac{1}{2}</me>.
+                    </p>
+                </solution>
+            </example>
+
+
+            <p>The gradient vector has some interesting facts associated with it. Note in the following we are assuming that <m>\nabla f \neq \langle 0, 0 \rangle</m>.</p>
+
+            <p><ol label="1">
+
+                <li>
+                    <p><m>\nabla f</m> points in the direction in which the directional derivative takes on its largest value. To see this, note that
+                    <md>
+                        <mrow>D_{\bm{u}} f(x,y) \amp = \nabla f(x,y) \cdot \hat{\bm{u}}</mrow>
+                        <mrow>\amp = \| \nabla f \| \| \hat{\bm{u}} \| \cos(\theta)</mrow>
+                        <mrow>\amp = \| \nabla f \| \cos(\theta)</mrow>
+                    </md>
+                    At a given point <m>\| \nabla f \|</m> is fixed and so the largest value of <m>D_{\bm{u}} f(x,y)</m> will occur when <m>\cos(\theta) = 1</m>, i.e. when <m>\theta = 0</m> or put another way, when <m>\hat{\bm{u}}</m> is parallel to <m>\nabla f</m>. We can also see from this that the largest value that the directional derivative can take is <m>\| \nabla f \|</m>.</p>
+
+                    <p>Similarly, the directional derivative takes on its smallest value in the direction of <m>-\nabla f</m> and has value <m>- \| \nabla f \|</m>.
+                    </p>
+                </li>
+
+                <li>
+                    <p><m>\nabla f(x_0,y_0)</m> is orthogonal (i.e. at right angles) to the level curve passing through <m>(x_0,y_0)</m>.
+                    </p>
+
+                    <p>For the function <m>z = f(x,y)</m> the level curve passing through the point <m>(x_0,y_0)</m> is given <me>f(x,y) = f(x_0,y_0)</me>. Now, as shown in Figure <xref ref= "Fig_tangent_vector"/>, a vector parallel to the tangent to this curve at the point <m>(x_0,y_0)</m> will be <m> \left \langle 1, \dfrac{dy}{dx} \right \rangle</m>.
+                    </p>
+
+                    <figure xml:id="Fig_tangent_vector">
+                        <caption></caption>
+                        <image source="./Calculus/Images/6/Fig3_tangent_vector.png" width="70%"/>
+                    </figure>
+
+                    <p>Thus a vector normal to the curve at the point <m>(x_0,y_0)</m> will be <m>\left \langle \dfrac{f_x(x_0,y_0)}{f_y(x_0,y_0)}, 1 \right \rangle</m>, which is parallel to <m>\nabla f(x_0,y_0)</m>. </p>
+
+                    <p>Notice that since <m>\nabla f(x_0,y_0)</m> is orthogonal to the level curve passing through the point <m>(x_0,y_0)</m> and that <m>\nabla f (x_0,y_0)</m> is the direction in which the directional derivative takes on its largest value, the <q>path of steepest ascent</q> on any surface <m>z=f(x,y)</m> is always at right angles to its contours. See the following diagram for an attempt to show this.</p>
+
+                    <figure xml:id="Fig_Contour_Plot">
+                        <caption></caption>
+                        <image source="./Calculus/Images/6/Fig4_Contour_Plot.png" width="70%"/>
+                    </figure>
+                </li>
+
+            </ol></p>
+
+
+            <example xml:id="Ex-Find_Max_Min_Directional_Derivative">
+                <statement>
+                    <p>For the function <m>f(x,y) = x^2y^3-3x</m> find the directions in which the directional derivative at the point <m>(-2,4)</m> is maximised, minimised and <m>0</m>.</p>
+                </statement>
+
+                <solution>
+                    <p>For the given function <me>f_x = 2xy^3-3 \: \text{ and } \: f_y = 3x^2y^2</me>, and so <me>\nabla f(-2,4) = \langle -259,192 \rangle</me>. Thus the directional derivative, <m>D_{\hat{\bm{u}}} f(-2,4)</m>, will be maximised in the direction <me>\bm{u} = \nabla f(-2,4) = \langle -259, 192 \rangle</me> and minimised in the direction <me>\bm{u} = -\nabla f(-2,4) = \langle 259, -192 \rangle</me>. Finally <m>D_{\hat{\bm{u}}} f(-2,4)</m> will be <m>0</m> when
+                    <md>
+                        <mrow>\nabla f(-2,4) \cdot \bm{u} \amp = 0</mrow>
+                        <mrow>-259u_1 + 192u_2 \amp = 0</mrow>
+                    </md>
+                    i.e. when <me>\bm{u} = \langle 192, 259 \rangle</me> or some scalar multiple of this.
+                    </p>
+                </solution>
+            </example>
+
+
+            <example xml:id="Ex-Find_lvlcurve_tanline_gradvec">
+                <statement>
+                    <p>For the function <m>f(x,y) = x^2-y</m> find the level curve, the tangent line and the gradient vector at the point <m>(-3,1)</m>.</p>
+                </statement>
+
+                <solution>
+                    <p>Since <m>f(-3,1)=8</m> the level curve through the point <m>(-3,1)</m> is <m>x^2-y=8</m> or <m>y=x^2-8</m>. We can find the equation of the tangent by standard calculus to obtain <me>y=-6x-17</me>. Next, the gradient vector is <me>\nabla f(-3,1) = \langle f_x(-3,1), f_y(-3,1) \rangle = \langle -6, -1 \rangle</me>. As can be seen in the diagram below, the gradient vector is orthogonal to the level curve.
+                    </p>
+
+                    <figure xml:id="Fig_gradvec_orthogonal_levelcurve">
+                        <caption></caption>
+                        <image source="./Calculus/Images/6/Fig5_gradvec_orthogonal_levelcurve.png" width="70%"/>
+                    </figure>
+                </solution>
+            </example>
+
+
+            <example xml:id="Ex-Hill_Climbing">
+                <statement>
+                    <p>
+                        Suppose you are climbing a hill whose shape is given by the equation <me>z = 1000-0.01x^2 - 0.02y^2</me> and you are standing at the point with coordinates <m>(60,100,764)</m>.
+                        <p><ol label="a">
+                            <li>In which direction should you proceed initially in order to be ascending most rapidly?</li>
+                            <li>If you climb in that direction, at what angle to the horizontal will you be climbing initially?</li>
+                        </ol></p>
+                    </p>
+                </statement>
+
+                <solution>
+                    <p><ol label="a">
+                        <li>Since we want to travel on the path of steepest ascent we will want to head in the direction of <m>\nabla f(60,100)</m>. Now <me>\nabla f(x,y) = \langle -0.02x, -0.04y \rangle</me> and hence <me>\nabla f (60,100) = \langle-1.2,-4 \rangle</me>.</li>
+                        <li>In this direction we know that <me>D_{\hat{\bm{u}}} f(60,100) = \| \nabla f(60,100) \| \simeq 4.17</me>. Thus the angle, <m>\theta</m>, to the horizontal will be <me>\theta = \tan^{-1} (4.17) \simeq 1.33^{c}</me>.</li>
+                    </ol></p>
+                </solution>
+            </example>
+
+
+            <exercises>
+            <title>Example Tasks</title>
+
+            <exercise>
+                <statement>
+                    <p>Find the directional derivative for <m>f(x,y) = (x-2y)^2 + 5x^2</m> at the point <m>(-3,1)</m> in the direction of the point <m>(1,4)</m>.</p>
+                </statement>
+            </exercise>
+
+            <exercise>
+                <statement>
+                    <p>Find the maximum value of the rate of change of <m>h(s,t) = \dfrac{1}{\sqrt{s^2+t^2}}</m> at <m>(3,4)</m>.</p>
+                </statement>
+            </exercise>
+
+            <exercise>
+                <statement>
+                    <p>For the curve <m>e^x \ln (y) - xy = 0</m> use the gradient vector of a two variable function to find the tangent line and the normal line at the point <m>(2,e^2)</m>.</p>
+                </statement>
+            </exercise>
+
+            <exercise>
+                <statement>
+                    <p>For the following contour plot for some unspecified function of two variables estimate the sign of the directional derivatives at:</p>
+
+                    <figure xml:id="ET_Contour_Plot">
+                        <caption></caption>
+                        <image source="./Calculus/Images/6/Example-Task-4_Contour_Plot.png" width="70%"/>
+                    </figure>
+
+                    <p><ol label="a">
+                        <li>The point <m>A</m> and in the direction of <m>\bm{u} = \langle 1,2 \rangle</m>.</li>
+                        <li>The point <m>B</m> and in the direction of <m>\bm{w} = \langle -1,-1 \rangle</m>.</li>
+                        <li>The point <m>A</m> and in the direction of the origin.</li>
+                        <li>The point <m>B</m> and in the direction of the origin.</li>
+                    </ol></p>
+                </statement>
+            </exercise>
+
+        </exercises>
+
+
+        </section>
+
+
+
+<!-- =================================================================================================== -->
+<!-- Section 2: In Three Variables -->
+<!-- =================================================================================================== -->
+        <section xml:id="In_Three_Variables">
+            <title>In Three Variables</title>
+
+            <p>The concepts of the directional derivative and the gradient vector extend to functions of more than two variables. In this section we will look at some examples for functions of three variables.</p>
+
+            <example xml:id="Ex-rate_of_change">
+                <statement>
+                    <p>Find the rate of change of the function <m>f(x,y,z) = xy+yz^2+xz^3</m> at the point <m>(2,0,3)</m> in the direction <m>\hat{\bm{u}} = \left \langle -\dfrac{2}{3}, -\dfrac{1}{3}, \dfrac{2}{3} \right \rangle</m>.</p>
+                </statement>
+
+                <solution>
+                    <p>The gradient vector for the given function is
+                        <md>
+                            <mrow>\nabla f \amp = \left \langle f_x, f_y, f_z \right \rangle</mrow>
+                            <mrow>\amp = \left \langle y +z^3, x+z^2, 2yz+3xz^2 \right \rangle</mrow>
+                        </md>.
+                        Thus <me>\nabla f (2,0,3) = \langle 27, 11, 54 \rangle</me> and so the required directional derivative is <me>D_{\hat{\bm{u}}} f(2,0,3) = \langle 27, 11, 54 \rangle \cdot \left \langle -\dfrac{2}{3}, -\dfrac{1}{3}, \dfrac{2}{3} \right \rangle = \dfrac{43}{3}</me>.
+                    </p>
+                </solution>
+            </example>
+
+
+            <example xml:id="Ex-Temperature">
+                <statement>
+                    <p>The temperature at the point <m>(x,y,z)</m> is given by the function <me>T(x,y,z) = 200e^{-x^2-3y^2-9z^2}</me>.
+                        <p><ol label="a">
+                            <li>Find the rate of change of temperature at the point <m>P = (2,-1,2)</m> in the direction <m>\overrightarrow{PQ}</m> where <m>Q = (3,-3,3)</m>.</li>
+                            <li>In which direction does the temperature increase the fastest at <m>P</m>?</li>
+                            <li>Find the maximum rate of increase at <m>P</m>.</li>
+                        </ol></p>
+                    </p>
+                </statement>
+
+                <solution>
+                    <p>The gradient vector for the given function is
+                        <md>
+                            <mrow>\nabla T \amp = \left \langle T_x, T_y, T_z \right \rangle</mrow>
+                            <mrow>\amp = \left \langle -400xe^{-x^2-3y^2-9z^2}, -1200ye^{-x^2-3y^2-9z^2},-3600ze^{-x^2-3y^2-9z^2} \right \rangle</mrow>
+                        </md>.
+                        Thus <me>\nabla T (2,-1,2) = 400e^{-43} \langle -2, 3, -18 \rangle</me>.
+                    </p>
+
+                    <p><ol label="a">
+                        <li>Since <m>\overrightarrow{PQ} = \langle 1, -2, 1 \rangle</m>, the required rate of change is given by the directional derivative <me>D_{\hat{\bm{u}}} T(2,-1,2) = 400 e^{-43} \langle -2, 3, -18 \rangle \cdot \dfrac{1}{\sqrt{6}} \langle 1, -2, 1 \rangle = \dfrac{-10400}{\sqrt{6}} e^{-43}</me>.</li>
+                        <li>The direction in which the temperature increase the fastest at <m>P</m> is <me>\nabla T (2,-1,2) = 400e^{-43} \langle -2, 3, -18 \rangle</me>.</li>
+                        <li>The maximum rate of increase at <m>P</m> is the maximum value of <m>D_{\bm{u}} T(2,-1,2)</m> which is <me>\| \nabla T (2,-1,2) \| = \dfrac{400 \sqrt{337}}{e^{43}}</me>.</li>
+                    </ol></p>
+                </solution>
+            </example>
+
+
+            <example xml:id="Ex-Level_surface_equation">
+                <statement>
+                    <p>Find the equation of the tangent plane to the level surface of <m>f(x,y,z) = x^2+y^2 - z + \cos(z)</m> at the point <m>(-1,1,0)</m>.</p>
+                </statement>
+
+                <solution>
+                    <p>Since <m>f(-1,1,0) = 3</m>, the level surface for this function satisfies the equation <me>x^2+y^2 - z + \cos(z) = 3</me>. A normal to this surface at the point <m>(-1,1,0)</m>, and hence to the tangent plane at this point, is given by <m>\nabla f (-1,1,0)</m>. Now, <me>\nabla f = \left \langle 2x, 2y, -1-\sin(z) \right \rangle</me>, and so <me>\nabla f (-1,1,0) = \langle-2, 2, -1 \rangle</me>. Thus the equation of the tangent plane is <me>\langle -2, 2, -1 \rangle \cdot \left( \langle x, y, z \rangle - \langle -1, 1, 0 \rangle \right) = 0</me> which simplifies to <me>2x-2y+z = -4</me>.</p>
+                </solution>
+            </example>
+
+
+            <exercises>
+            <title>Example Tasks</title>
+
+            <exercise>
+                <statement>
+                    <p>Find the directional derivative of <m>g(x,y,z) = \dfrac{z-x}{z+y}</m> at <m>(1,0,-3)</m> in the direction <m>\bm{a} = -6\bm{i} + 3\bm{j} - 2\bm{k}</m>.</p>
+                </statement>
+            </exercise>
+
+            <exercise>
+                <statement>
+                    <p>By thinking of level surfaces to a function of 3 variables show that the normal lines to a sphere pass through its centre.</p>
+                </statement>
+            </exercise>
+
+        </exercises>
+
+        </section>
+<!-- =================================================================================================== -->
+</chapter>

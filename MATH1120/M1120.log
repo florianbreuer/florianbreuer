@@ -1,0 +1,3175 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.10) (preloaded format=pdflatex 2021.10.20)  13 DEC 2021 18:35
+entering extended mode
+**./M1120.tex
+(M1120.tex
+LaTeX2e <2021-06-01> patch level 1
+L3 programming layer <2021-10-12>
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/snapshot\snapshot.sty
+Package: snapshot 2020/06/17 v2.14
+)
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/base\book.cls
+Document Class: book 2021/02/12 v1.4n Standard LaTeX document class
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/base\bk10.clo
+File: bk10.clo 2021/02/12 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count182
+\c@chapter=\count183
+\c@section=\count184
+\c@subsection=\count185
+\c@subsubsection=\count186
+\c@paragraph=\count187
+\c@subparagraph=\count188
+\c@figure=\count189
+\c@table=\count190
+\abovecaptionskip=\skip47
+\belowcaptionskip=\skip48
+\bibindent=\dimen138
+)
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks16
+)
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
+Package: iftex 2020/03/06 v1.0d TeX engine tests
+))
+\Gm@cnth=\count191
+\Gm@cntv=\count192
+\c@Gm@tempcnt=\count193
+\Gm@bindingoffset=\dimen139
+\Gm@wd@mp=\dimen140
+\Gm@odd@mp=\dimen141
+\Gm@even@mp=\dimen142
+\Gm@layoutwidth=\dimen143
+\Gm@layoutheight=\dimen144
+\Gm@layouthoffset=\dimen145
+\Gm@layoutvoffset=\dimen146
+\Gm@dimlist=\toks17
+
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg))
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/base\ifthen.sty
+Package: ifthen 2020/11/24 v1.1c Standard LaTeX ifthen package (DPC)
+)
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count194
+)
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifxetex.sty
+Package: ifxetex 2019/10/25 v0.7 ifxetex legacy package. Use iftex instead.
+)
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifluatex.sty
+Package: ifluatex 2019/10/25 v1.5 ifluatex legacy package. Use iftex instead.
+)
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+Package: graphicx 2020/12/05 v1.2c Enhanced LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+Package: graphics 2021/03/04 v1.4d Standard LaTeX Graphics (DPC,SPQR)
+
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.c
+fg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 107.
+
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
+File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen147
+\Gin@req@width=\dimen148
+) (C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
+Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Package option `usenames' ignored on input line 216.
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/colortbl\colortbl.sty
+Package: colortbl 2020/01/04 v1.0e Color table columns (DPC)
+
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/tools\array.sty
+Package: array 2021/04/20 v2.5e Tabular extension package (FMi)
+\col@sep=\dimen149
+\ar@mcellbox=\box50
+\extrarowheight=\dimen150
+\NC@list=\toks18
+\extratabsurround=\skip49
+\backup@length=\skip50
+\ar@cellbox=\box51
+)
+\everycr=\toks19
+\minrowclearance=\skip51
+)
+\rownum=\count195
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
+Package xcolor Info: Model `RGB' extended on input line 1364.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
+
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/graphics\dvipsnam.def
+File: dvipsnam.def 2016/06/17 v3.0m Driver-dependent file (DPC,SPQR)
+)
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\svgnam.def
+File: svgnam.def 2016/05/11 v2.12 Predefined colors according to SVG 1.1 (UK)
+))
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcolorbox.sty
+Package: tcolorbox 2021/06/14 version 4.51 text color boxes
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\pgf.sty
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgfrcs.st
+y
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil
+-common.tex
+\pgfutil@everybye=\toks20
+\pgfutil@tempdima=\dimen151
+\pgfutil@tempdimb=\dimen152
+
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil
+-common-lists.tex))
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfutil
+-latex.def
+\pgfutil@abb=\box52
+)
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfrcs.
+code.tex
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/pgf\pgf.revision.tex)
+Package: pgfrcs 2021/05/15 v3.1.9a (3.1.9a)
+))
+Package: pgf 2021/05/15 v3.1.9a (3.1.9a)
+
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/pgf/basiclayer\pgfcore.
+sty
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/pgf/systemlayer\pgfsys.
+sty
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
+s.code.tex
+Package: pgfsys 2021/05/15 v3.1.9a (3.1.9a)
+
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeys
+.code.tex
+\pgfkeys@pathtoks=\toks21
+\pgfkeys@temptoks=\toks22
+
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeys
+filtered.code.tex
+\pgfkeys@tmptoks=\toks23
+))
+\pgf@x=\dimen153
+\pgf@y=\dimen154
+\pgf@xa=\dimen155
+\pgf@ya=\dimen156
+\pgf@xb=\dimen157
+\pgf@yb=\dimen158
+\pgf@xc=\dimen159
+\pgf@yc=\dimen160
+\pgf@xd=\dimen161
+\pgf@yd=\dimen162
+\w@pgf@writea=\write3
+\r@pgf@reada=\read2
+\c@pgf@counta=\count196
+\c@pgf@countb=\count197
+\c@pgf@countc=\count198
+\c@pgf@countd=\count199
+\t@pgf@toka=\toks24
+\t@pgf@tokb=\toks25
+\t@pgf@tokc=\toks26
+\pgf@sys@id@count=\count266
+
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgf.c
+fg
+File: pgf.cfg 2021/05/15 v3.1.9a (3.1.9a)
+)
+Driver file for pgf: pgfsys-pdftex.def
+
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
+s-pdftex.def
+File: pgfsys-pdftex.def 2021/05/15 v3.1.9a (3.1.9a)
+
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
+s-common-pdf.def
+File: pgfsys-common-pdf.def 2021/05/15 v3.1.9a (3.1.9a)
+)))
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
+ssoftpath.code.tex
+File: pgfsyssoftpath.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfsyssoftpath@smallbuffer@items=\count267
+\pgfsyssoftpath@bigbuffer@items=\count268
+)
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/pgf/systemlayer\pgfsy
+sprotocol.code.tex
+File: pgfsysprotocol.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+))
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+e.code.tex
+Package: pgfcore 2021/05/15 v3.1.9a (3.1.9a)
+
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmath.code
+.tex
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathcalc.
+code.tex
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathutil.
+code.tex)
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathparse
+r.code.tex
+\pgfmath@dimen=\dimen163
+\pgfmath@count=\count269
+\pgfmath@box=\box53
+\pgfmath@toks=\toks27
+\pgfmath@stack@operand=\toks28
+\pgfmath@stack@operation=\toks29
+)
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.code.tex
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.basic.code.tex)
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.trigonometric.code.tex)
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.random.code.tex)
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.comparison.code.tex)
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.base.code.tex)
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.round.code.tex)
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.misc.code.tex)
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfunct
+ions.integerarithmetics.code.tex)))
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmathfloat
+.code.tex
+\c@pgfmathroundto@lastzeros=\count270
+))
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfint.code.
+tex)
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+epoints.code.tex
+File: pgfcorepoints.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@picminx=\dimen164
+\pgf@picmaxx=\dimen165
+\pgf@picminy=\dimen166
+\pgf@picmaxy=\dimen167
+\pgf@pathminx=\dimen168
+\pgf@pathmaxx=\dimen169
+\pgf@pathminy=\dimen170
+\pgf@pathmaxy=\dimen171
+\pgf@xx=\dimen172
+\pgf@xy=\dimen173
+\pgf@yx=\dimen174
+\pgf@yy=\dimen175
+\pgf@zx=\dimen176
+\pgf@zy=\dimen177
+)
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+epathconstruct.code.tex
+File: pgfcorepathconstruct.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@path@lastx=\dimen178
+\pgf@path@lasty=\dimen179
+)
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+epathusage.code.tex
+File: pgfcorepathusage.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@shorten@end@additional=\dimen180
+\pgf@shorten@start@additional=\dimen181
+)
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+escopes.code.tex
+File: pgfcorescopes.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfpic=\box54
+\pgf@hbox=\box55
+\pgf@layerbox@main=\box56
+\pgf@picture@serial@count=\count271
+)
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+egraphicstate.code.tex
+File: pgfcoregraphicstate.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgflinewidth=\dimen182
+)
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+etransformations.code.tex
+File: pgfcoretransformations.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@pt@x=\dimen183
+\pgf@pt@y=\dimen184
+\pgf@pt@temp=\dimen185
+)
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+equick.code.tex
+File: pgfcorequick.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+eobjects.code.tex
+File: pgfcoreobjects.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+epathprocessing.code.tex
+File: pgfcorepathprocessing.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+earrows.code.tex
+File: pgfcorearrows.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfarrowsep=\dimen186
+)
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+eshade.code.tex
+File: pgfcoreshade.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@max=\dimen187
+\pgf@sys@shading@range@num=\count272
+\pgf@shadingcount=\count273
+)
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+eimage.code.tex
+File: pgfcoreimage.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+eexternal.code.tex
+File: pgfcoreexternal.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfexternal@startupbox=\box57
+))
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+elayers.code.tex
+File: pgfcorelayers.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+etransparency.code.tex
+File: pgfcoretransparency.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+epatterns.code.tex
+File: pgfcorepatterns.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/pgf/basiclayer\pgfcor
+erdf.code.tex
+File: pgfcorerdf.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)))
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodule
+shapes.code.tex
+File: pgfmoduleshapes.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfnodeparttextbox=\box58
+)
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodule
+plot.code.tex
+File: pgfmoduleplot.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgfco
+mp-version-0-65.sty
+Package: pgfcomp-version-0-65 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@nodesepstart=\dimen188
+\pgf@nodesepend=\dimen189
+)
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/pgf/compatibility\pgfco
+mp-version-1-18.sty
+Package: pgfcomp-version-1-18 2021/05/15 v3.1.9a (3.1.9a)
+))
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/tools\verbatim.sty
+Package: verbatim 2020-07-07 v1.5u LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks30
+\verbatim@line=\toks31
+\verbatim@in@stream=\read3
+)
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/environ\environ.sty
+Package: environ 2014/05/04 v0.3 A new way to define environments
+
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/trimspaces\trimspaces.s
+ty
+Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
+)
+\@envbody=\toks32
+)
+\tcb@titlebox=\box59
+\tcb@upperbox=\box60
+\tcb@lowerbox=\box61
+\tcb@phantombox=\box62
+\c@tcbbreakpart=\count274
+\c@tcblayer=\count275
+\c@tcolorbox@number=\count276
+\tcb@temp=\box63
+\tcb@temp=\box64
+\tcb@temp=\box65
+\tcb@temp=\box66
+)
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbskins.code
+.tex
+Library (tcolorbox): 'tcbskins.code.tex' version '4.51'
+
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/pgf/frontendlayer\tikz.
+sty
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgffor.st
+y
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/pgf/utilities\pgfkeys.s
+ty
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgfkeys
+.code.tex))
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/pgf/math\pgfmath.sty
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmath.code
+.tex))
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/pgf/utilities\pgffor.
+code.tex
+Package: pgffor 2021/05/15 v3.1.9a (3.1.9a)
+
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/pgf/math\pgfmath.code
+.tex)
+\pgffor@iter=\dimen190
+\pgffor@skip=\dimen191
+\pgffor@stack=\toks33
+\pgffor@toks=\toks34
+))
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z\tikz.code.tex
+Package: tikz 2021/05/15 v3.1.9a (3.1.9a)
+
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/pgf/libraries\pgflibr
+aryplothandlers.code.tex
+File: pgflibraryplothandlers.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgf@plot@mark@count=\count277
+\pgfplotmarksize=\dimen192
+)
+\tikz@lastx=\dimen193
+\tikz@lasty=\dimen194
+\tikz@lastxsaved=\dimen195
+\tikz@lastysaved=\dimen196
+\tikz@lastmovetox=\dimen197
+\tikz@lastmovetoy=\dimen198
+\tikzleveldistance=\dimen199
+\tikzsiblingdistance=\dimen256
+\tikz@figbox=\box67
+\tikz@figbox@bg=\box68
+\tikz@tempbox=\box69
+\tikz@tempbox@bg=\box70
+\tikztreelevel=\count278
+\tikznumberofchildren=\count279
+\tikznumberofcurrentchild=\count280
+\tikz@fig@count=\count281
+
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/pgf/modules\pgfmodule
+matrix.code.tex
+File: pgfmodulematrix.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+\pgfmatrixcurrentrow=\count282
+\pgfmatrixcurrentcolumn=\count283
+\pgf@matrix@numberofcolumns=\count284
+)
+\tikz@expandcount=\count285
+
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibrarytopaths.code.tex
+File: tikzlibrarytopaths.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)))
+\tcb@waterbox=\box71
+
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbskinsjigsa
+w.code.tex
+Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '4.51'
+))
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbbreakable.
+code.tex
+Library (tcolorbox): 'tcbbreakable.code.tex' version '4.51'
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/oberdiek\pdfcol.sty
+Package: pdfcol 2019/12/29 v1.6 Handle new color stacks for pdfTeX (HO)
+
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
+Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
+)
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.s
+ty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+))
+Package pdfcol Info: New color stack `tcb@breakable' = 1 on input line 23.
+\tcb@testbox=\box72
+\tcb@totalupperbox=\box73
+\tcb@totallowerbox=\box74
+)
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbraster.cod
+e.tex
+Library (tcolorbox): 'tcbraster.code.tex' version '4.51'
+\c@tcbrastercolumn=\count286
+\c@tcbrasterrow=\count287
+\c@tcbrasternum=\count288
+\c@tcbraster=\count289
+)
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/tcolorbox\tcbxparse.cod
+e.tex
+Library (tcolorbox): 'tcbxparse.code.tex' version '4.51'
+
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/l3packages/xparse\xpars
+e.sty
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/l3kernel\expl3.sty
+Package: expl3 2021-10-12 L3 programming layer (loader) 
+
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdf
+tex.def
+File: l3backend-pdftex.def 2021-10-12 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count290
+\l__pdf_internal_box=\box75
+))
+Package: xparse 2021-08-27 L3 Experimental document command parser
+))
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/pgf/frontendlayer/tik
+z/libraries\tikzlibrarycalc.code.tex
+File: tikzlibrarycalc.code.tex 2021/05/15 v3.1.9a (3.1.9a)
+)
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/xstring\xstring.sty
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/xstring\xstring.tex
+\integerpart=\count291
+\decimalpart=\count292
+)
+Package: xstring 2021/07/21 v1.84 String manipulations (CT)
+) (C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty
+Package: inputenc 2021/02/14 v1.3d Input encoding file
+\inpenc@prehook=\toks35
+\inpenc@posthook=\toks36
+)
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/lm\lmodern.sty
+Package: lmodern 2009/10/30 v1.6 Latin Modern Fonts
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmr/m/n --> OT1/lmr/m/n on input line 22.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `normal'
+(Font)                  OML/cmm/m/it --> OML/lmm/m/it on input line 23.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
+(Font)                  OMS/cmsy/m/n --> OMS/lmsy/m/n on input line 24.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
+(Font)                  OMX/cmex/m/n --> OMX/lmex/m/n on input line 25.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 26.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
+(Font)                  OML/cmm/b/it --> OML/lmm/b/it on input line 27.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
+(Font)                  OMS/cmsy/b/n --> OMS/lmsy/b/n on input line 28.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
+(Font)                  OMX/cmex/m/n --> OMX/lmex/m/n on input line 29.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 31.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/cmss/m/n --> OT1/lmss/m/n on input line 32.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmr/m/it --> OT1/lmr/m/it on input line 33.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 34.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 35.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/cmss/bx/n --> OT1/lmss/bx/n on input line 36.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmr/bx/it --> OT1/lmr/bx/it on input line 37.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 38.
+)
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
+Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 11
+2.
+
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmr.fd
+File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+))
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/microtype\microtype.sty
+Package: microtype 2021/12/02 v3.0a Micro-typographical refinements (RS)
+\MT@toks=\toks37
+\MT@count=\count293
+\MT@tempbox=\box76
+LaTeX Info: Redefining \leftprotrusion on input line 1006.
+LaTeX Info: Redefining \rightprotrusion on input line 1014.
+LaTeX Info: Redefining \textls on input line 1182.
+\MT@outer@kern=\dimen257
+LaTeX Info: Redefining \textmicrotypecontext on input line 1768.
+\MT@listname@count=\count294
+
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/microtype\microtype-pdf
+tex.def
+File: microtype-pdftex.def 2021/12/02 v3.0a Definitions specific to pdftex (RS)
+
+LaTeX Info: Redefining \lsstyle on input line 897.
+LaTeX Info: Redefining \lslig on input line 897.
+\MT@outer@space=\skip52
+)
+Package microtype Info: Loading configuration file microtype.cfg.
+
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/microtype\microtype.cfg
+File: microtype.cfg 2021/12/02 v3.0a microtype main configuration file (RS)
+)) (C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
+Package: amsmath 2021/04/20 v2.17j AMS math features
+\@mathmargin=\skip53
+
+For additional information on amsmath, use the `?' option.
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
+Package: amstext 2000/06/29 v2.01 AMS text
+
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks38
+\ex@=\dimen258
+))
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen259
+)
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count295
+LaTeX Info: Redefining \frac on input line 234.
+\uproot@=\count296
+\leftroot@=\count297
+LaTeX Info: Redefining \overline on input line 399.
+\classnum@=\count298
+\DOTSCASE@=\count299
+LaTeX Info: Redefining \ldots on input line 496.
+LaTeX Info: Redefining \dots on input line 499.
+LaTeX Info: Redefining \cdots on input line 620.
+\Mathstrutbox@=\box77
+\strutbox@=\box78
+\big@size=\dimen260
+LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
+\macc@depth=\count300
+\c@MaxMatrixCols=\count301
+\dotsspace@=\muskip16
+\c@parentequation=\count302
+\dspbrk@lvl=\count303
+\tag@help=\toks39
+\row@=\count304
+\column@=\count305
+\maxfields@=\count306
+\andhelp@=\toks40
+\eqnshift@=\dimen261
+\alignsep@=\dimen262
+\tagshift@=\dimen263
+\tagwidth@=\dimen264
+\totwidth@=\dimen265
+\lineht@=\dimen266
+\@envbody=\toks41
+\multlinegap=\skip54
+\multlinetaggap=\skip55
+\mathdisplay@stack=\toks42
+LaTeX Info: Redefining \[ on input line 2923.
+LaTeX Info: Redefining \] on input line 2924.
+)
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amscd.sty
+Package: amscd 2017/04/14 v2.1 AMS Commutative Diagrams
+\athelp@=\toks43
+\minaw@=\dimen267
+\bigaw@=\dimen268
+\minCDarrowwidth=\dimen269
+)
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)) (C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/titlesec\titlesec.st
+y
+Package: titlesec 2021/07/05 v2.14 Sectioning titles
+\ttl@box=\box79
+\beforetitleunit=\skip56
+\aftertitleunit=\skip57
+\ttl@plus=\dimen270
+\ttl@minus=\dimen271
+\ttl@toksa=\toks44
+\titlewidth=\dimen272
+\titlewidthlast=\dimen273
+\titlewidthfirst=\dimen274
+
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/titlesec\titleps.sty))
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/titlesec\titletoc.sty
+Package: titletoc 2021/07/05 v2.14 TOC entries
+\ttl@leftsep=\dimen275
+)
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/siunitx\siunitx.sty
+Package: siunitx 2021-12-03 v3.0.37 A comprehensive (SI) units package
+\l__siunitx_angle_tmp_dim=\dimen276
+\l__siunitx_angle_marker_box=\box80
+\l__siunitx_angle_unit_box=\box81
+\l__siunitx_compound_count_int=\count307
+
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/translations\translatio
+ns.sty
+Package: translations 2021/01/17 v1.10a internationalization of LaTeX2e package
+s (CN)
+
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds
+.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+))
+\l__siunitx_number_exponent_fixed_int=\count308
+\l__siunitx_number_min_decimal_int=\count309
+\l__siunitx_number_min_integer_int=\count310
+\l__siunitx_number_round_precision_int=\count311
+\l__siunitx_number_group_minimum_int=\count312
+\l__siunitx_table_tmp_box=\box82
+\l__siunitx_table_tmp_dim=\dimen277
+\l__siunitx_table_column_width_dim=\dimen278
+\l__siunitx_table_integer_box=\box83
+\l__siunitx_table_decimal_box=\box84
+\l__siunitx_table_before_box=\box85
+\l__siunitx_table_after_box=\box86
+\l__siunitx_table_before_dim=\dimen279
+\l__siunitx_table_carry_dim=\dimen280
+\l__siunitx_unit_tmp_int=\count313
+\l__siunitx_unit_position_int=\count314
+\l__siunitx_unit_total_int=\count315
+
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/l3packages/l3keys2e\l3k
+eys2e.sty
+Package: l3keys2e 2021-08-27 LaTeX2e option processing using LaTeX3 keys
+))
+\Oldarrayrulewidth=\skip58
+
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/tools\multicol.sty
+Package: multicol 2019/12/09 v1.8y multicolumn formatting (FMi)
+\c@tracingmulticols=\count316
+\mult@box=\box87
+\multicol@leftmargin=\dimen281
+\c@unbalance=\count317
+\c@collectmore=\count318
+\doublecol@number=\count319
+\multicoltolerance=\count320
+\multicolpretolerance=\count321
+\full@width=\dimen282
+\page@free=\dimen283
+\premulticols=\dimen284
+\postmulticols=\dimen285
+\multicolsep=\skip59
+\multicolbaselineskip=\skip60
+\partial@page=\box88
+\last@line=\box89
+\maxbalancingoverflow=\dimen286
+\mult@rightbox=\box90
+\mult@grightbox=\box91
+\mult@gfirstbox=\box92
+\mult@firstbox=\box93
+\@tempa=\box94
+\@tempa=\box95
+\@tempa=\box96
+\@tempa=\box97
+\@tempa=\box98
+\@tempa=\box99
+\@tempa=\box100
+\@tempa=\box101
+\@tempa=\box102
+\@tempa=\box103
+\@tempa=\box104
+\@tempa=\box105
+\@tempa=\box106
+\@tempa=\box107
+\@tempa=\box108
+\@tempa=\box109
+\@tempa=\box110
+\@tempa=\box111
+\@tempa=\box112
+\@tempa=\box113
+\@tempa=\box114
+\@tempa=\box115
+\@tempa=\box116
+\@tempa=\box117
+\@tempa=\box118
+\@tempa=\box119
+\@tempa=\box120
+\@tempa=\box121
+\@tempa=\box122
+\@tempa=\box123
+\@tempa=\box124
+\@tempa=\box125
+\@tempa=\box126
+\@tempa=\box127
+\@tempa=\box128
+\@tempa=\box129
+\@tempa=\box130
+\c@minrows=\count322
+\c@columnbadness=\count323
+\c@finalcolumnbadness=\count324
+\last@try=\dimen287
+\multicolovershoot=\dimen288
+\multicolundershoot=\dimen289
+\mult@nat@firstbox=\box131
+\colbreak@box=\box132
+\mc@col@check@num=\count325
+)
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/enumitem\enumitem.sty
+Package: enumitem 2019/06/20 v3.9 Customized lists
+\labelindent=\skip61
+\enit@outerparindent=\dimen290
+\enit@toks=\toks45
+\enit@inbox=\box133
+\enit@count@id=\count326
+\enitdp@description=\count327
+)
+\dlititlewidth=\skip62
+\dlimaxnarrowtitle=\skip63
+\dlimaxmediumtitle=\skip64
+
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
+Package: hyperref 2021-06-07 v7.00m Hypertext links for LaTeX
+
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/kvsetkeys\kvsetkeys.s
+ty
+Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
+)
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefine
+keys.sty
+Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+)
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/pdfescape\pdfescape.s
+ty
+Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
+) (C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/hycolor\hycolor.sty
+Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+)
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/letltxmacro\letltxmacro
+.sty
+Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
+)
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/auxhook\auxhook.sty
+Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
+)
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
+Package: kvoptions 2020-10-07 v3.14 Key value format for package options (HO)
+)
+\@linkdim=\dimen291
+\Hy@linkcounter=\count328
+\Hy@pagecounter=\count329
+ (C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
+File: pd1enc.def 2021-06-07 v7.00m Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+)
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref-langp
+atches.def
+File: hyperref-langpatches.def 2021-06-07 v7.00m Hyperref: patches for babel la
+nguages
+)
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty
+Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
+)
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/etexcmds\etexcmds.sty
+Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
+)
+\Hy@SavedSpaceFactor=\count330
+ (C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def
+File: puenc.def 2021-06-07 v7.00m Hyperref: PDF Unicode definition (HO)
+Now handling font encoding PU ...
+... no UTF-8 mapping file for font encoding PU
+)
+Package hyperref Info: Option `hyperfootnotes' set `false' on input line 4073.
+Package hyperref Info: Hyper figures OFF on input line 4192.
+Package hyperref Info: Link nesting OFF on input line 4197.
+Package hyperref Info: Hyper index ON on input line 4200.
+Package hyperref Info: Plain pages OFF on input line 4207.
+Package hyperref Info: Backreferencing OFF on input line 4212.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4445.
+\c@Hy@tempcnt=\count331
+
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
+\Urlmuskip=\muskip17
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 4804.
+\XeTeXLinkMargin=\dimen292
+
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
+Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
+
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/bigintcalc\bigintcalc
+.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
+)
+))
+\Fld@menulength=\count332
+\Field@Width=\dimen293
+\Fld@charsize=\dimen294
+Package hyperref Info: Hyper figures OFF on input line 6076.
+Package hyperref Info: Link nesting OFF on input line 6081.
+Package hyperref Info: Hyper index ON on input line 6084.
+Package hyperref Info: backreferencing OFF on input line 6091.
+Package hyperref Info: Link coloring OFF on input line 6096.
+Package hyperref Info: Link coloring with OCG OFF on input line 6101.
+Package hyperref Info: PDF/A mode OFF on input line 6106.
+LaTeX Info: Redefining \ref on input line 6146.
+LaTeX Info: Redefining \pageref on input line 6150.
+
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/base\atbegshi-ltx.sty
+Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
+package with kernel methods
+)
+\Hy@abspage=\count333
+\c@Item=\count334
+)
+Package hyperref Info: Driver (autodetected): hpdftex.
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
+File: hpdftex.def 2021-06-07 v7.00m Hyperref driver for pdfTeX
+
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/base\atveryend-ltx.sty
+Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atvery packag
+e
+with kernel methods
+)
+\Fld@listcount=\count335
+\c@bookmark@seq@number=\count336
+
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfil
+echeck.sty
+Package: rerunfilecheck 2019/12/05 v1.9 Rerun checks for auxiliary files (HO)
+
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/uniquecounter\uniquec
+ounter.sty
+Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
+)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+86.
+)
+\Hy@SectionHShift=\skip65
+)
+Package hyperref Info: Option `colorlinks' set `true' on input line 495.
+\c@tcb@cnt@block=\count337
+\c@tcb@cnt@project-distinct=\count338
+\c@tcb@cnt@subdisplay=\count339
+
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/extpfeil\extpfeil.sty
+Package: extpfeil 2009/10/31 v0.4 Extensible Pfeile (PE)
+
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/mathtools\mathtools.sty
+Package: mathtools 2021/04/12 v1.27 mathematical typesetting tools
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/tools\calc.sty
+Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count340
+\calc@Bcount=\count341
+\calc@Adimen=\dimen295
+\calc@Bdimen=\dimen296
+\calc@Askip=\skip66
+\calc@Bskip=\skip67
+LaTeX Info: Redefining \setlength on input line 80.
+LaTeX Info: Redefining \addtolength on input line 81.
+\calc@Ccount=\count342
+\calc@Cskip=\skip68
+)
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/mathtools\mhsetup.sty
+Package: mhsetup 2021/03/18 v1.4 programming setup (MH)
+)
+LaTeX Info: Thecontrolsequence`\('isalreadyrobust on input line 130.
+LaTeX Info: Thecontrolsequence`\)'isalreadyrobust on input line 130.
+LaTeX Info: Thecontrolsequence`\['isalreadyrobust on input line 130.
+LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 130.
+\g_MT_multlinerow_int=\count343
+\l_MT_multwidth_dim=\dimen297
+\origjot=\skip69
+\l_MT_shortvdotswithinadjustabove_dim=\dimen298
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen299
+\l_MT_above_intertext_sep=\dimen300
+\l_MT_below_intertext_sep=\dimen301
+\l_MT_above_shortintertext_sep=\dimen302
+\l_MT_below_shortintertext_sep=\dimen303
+\xmathstrut@box=\box134
+\xmathstrut@dim=\dimen304
+) (C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/stmaryrd\stmaryrd.sty
+Package: stmaryrd 1994/03/03 St Mary's Road symbol package
+\symstmry=\mathgroup6
+LaTeX Font Info:    Overwriting symbol font `stmry' in version `bold'
+(Font)                  U/stmry/m/n --> U/stmry/b/n on input line 89.
+))
+Package translations Info: No language package found. I am going to use `englis
+h' as default language. on input line 620.
+ (M1120.aux)
+\openout1 = `M1120.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 620.
+LaTeX Font Info:    ... okay on input line 620.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 620.
+LaTeX Font Info:    ... okay on input line 620.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 620.
+LaTeX Font Info:    ... okay on input line 620.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 620.
+LaTeX Font Info:    ... okay on input line 620.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 620.
+LaTeX Font Info:    ... okay on input line 620.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 620.
+LaTeX Font Info:    ... okay on input line 620.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 620.
+LaTeX Font Info:    ... okay on input line 620.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 620.
+LaTeX Font Info:    ... okay on input line 620.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 620.
+LaTeX Font Info:    ... okay on input line 620.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: letterpaper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(137.14749pt, 340.0pt, 137.1475pt)
+* v-part:(T,H,B)=(57.81598pt, 650.43pt, 86.72401pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=340.0pt
+* \textheight=650.43pt
+* \oddsidemargin=64.8775pt
+* \evensidemargin=64.8775pt
+* \topmargin=-44.5215pt
+* \headheight=12.0pt
+* \headsep=18.06749pt
+* \topskip=10.0pt
+* \footskip=25.29494pt
+* \marginparwidth=69.0pt
+* \marginparsep=7.0pt
+* \columnsep=10.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
+ii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count344
+\scratchdimen=\dimen305
+\scratchbox=\box135
+\nofMPsegments=\count345
+\nofMParguments=\count346
+\everyMPshowfont=\toks46
+\MPscratchCnt=\count347
+\MPscratchDim=\dimen306
+\MPnumerator=\count348
+\makeMPintoPDFobject=\count349
+\everyMPtoPDFconversion=\toks47
+)
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-b
+ase.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/00miktex\epstopdf-sys.c
+fg
+File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
+))
+LaTeX Info: Redefining \microtypecontext on input line 620.
+Package microtype Info: Applying patch `item' on input line 620.
+Package microtype Info: Applying patch `toc' on input line 620.
+Package microtype Info: Applying patch `eqnum' on input line 620.
+Package microtype Info: Applying patch `footnote' on input line 620.
+Package microtype Info: Generating PDF output.
+Package microtype Info: Character protrusion enabled (level 2).
+Package microtype Info: Using default protrusion set `alltext'.
+Package microtype Info: Automatic font expansion enabled (level 2),
+(microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
+Package microtype Info: Using default expansion set `alltext-nott'.
+LaTeX Info: Redefining \showhyphens on input line 620.
+Package microtype Info: No adjustment of tracking.
+Package microtype Info: No adjustment of interword spacing.
+Package microtype Info: No adjustment of character kerning.
+
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-cmr.cfg
+File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
+(RS)
+)
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/translations/dicts\tran
+slations-basic-dictionary-english.trsl
+File: translations-basic-dictionary-english.trsl (english translation file `tra
+nslations-basic-dictionary')
+)
+Package translations Info: loading dictionary `translations-basic-dictionary' f
+or `english'. on input line 620.
+Package hyperref Info: Link coloring ON on input line 620.
+
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
+Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
+
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+)
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestring\gettit
+lestring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+)
+\c@section@level=\count350
+)
+LaTeX Info: Redefining \ref on input line 620.
+LaTeX Info: Redefining \pageref on input line 620.
+LaTeX Info: Redefining \nameref on input line 620.
+ (M1120.out) (M1120.out)
+\@outlinefile=\write4
+\openout4 = `M1120.out'.
+
+
+************************************************
+Part I Calculus
+************************************************
+[1
+
+
+{C:/Users/fb504/AppData/Local/MiKTeX/pdftex/config/pdftex.map}]
+************************************************
+Chapter 1 Maclaurin Series
+************************************************
+Chapter 1.
+************************************************
+Section 1.1 Introduction
+************************************************
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 6
+44.
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/lm\ot1lmr.fd
+File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 6
+44.
+
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/lm\omllmm.fd
+File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
+644.
+
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/lm\omslmsy.fd
+File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
+644.
+
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/lm\omxlmex.fd
+File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 644.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 644.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 644.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 644
+.
+
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-msa.cfg
+File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 644
+.
+
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-msb.cfg
+File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
+)
+LaTeX Font Info:    Trying to load font information for U+stmry on input line 6
+44.
+
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/stmaryrd\ustmry.fd)
+[2
+
+]
+<./Calculus/Images/1/Linear_approximation_of_exponential.png, id=497, 707.64375
+pt x 471.56175pt>
+File: ./Calculus/Images/1/Linear_approximation_of_exponential.png Graphic file 
+(type png)
+<use ./Calculus/Images/1/Linear_approximation_of_exponential.png>
+Package pdftex.def Info: ./Calculus/Images/1/Linear_approximation_of_exponentia
+l.png  used on input line 672.
+(pdftex.def)             Requested size: 154.19897pt x 102.75093pt.
+<./Calculus/Images/1/Quadratic_approximation_of_exponential.png, id=499, 707.64
+375pt x 471.56175pt>
+File: ./Calculus/Images/1/Quadratic_approximation_of_exponential.png Graphic fi
+le (type png)
+<use ./Calculus/Images/1/Quadratic_approximation_of_exponential.png>
+Package pdftex.def Info: ./Calculus/Images/1/Quadratic_approximation_of_exponen
+tial.png  used on input line 678.
+(pdftex.def)             Requested size: 154.19897pt x 102.75093pt.
+
+************************************************
+Section 1.2 Infinite Series
+************************************************
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 7
+21.
+(C:\Users\fb504\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmr.fd
+File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+) [3 <./Calculus/Images/1/Linear_approximation_of_exponential.png> <./Calculus/
+Images/1/Quadratic_approximation_of_exponential.png>] [4] [5] [6]
+************************************************
+Exercises 1.2 Example Tasks
+************************************************
+<./Calculus/Images/1/C1_WA_1.png, id=561, 450.18187pt x 97.86563pt>
+File: ./Calculus/Images/1/C1_WA_1.png Graphic file (type png)
+<use ./Calculus/Images/1/C1_WA_1.png>
+Package pdftex.def Info: ./Calculus/Images/1/C1_WA_1.png  used on input line 92
+7.
+(pdftex.def)             Requested size: 307.67793pt x 66.8897pt.
+<./Calculus/Images/1/C1_WA_2.png, id=562, 447.17062pt x 479.54156pt>
+File: ./Calculus/Images/1/C1_WA_2.png Graphic file (type png)
+<use ./Calculus/Images/1/C1_WA_2.png>
+Package pdftex.def Info: ./Calculus/Images/1/C1_WA_2.png  used on input line 93
+3.
+(pdftex.def)             Requested size: 307.67793pt x 329.95474pt.
+[7 <./Calculus/Images/1/C1_WA_1.png>]
+************************************************
+Section 1.3 Maclaurin Series
+************************************************
+[8 <./Calculus/Images/1/C1_WA_2.png>]
+<./Calculus/Images/1/Fig-Maclaurin_polynomial_cosine.png, id=596, 707.64375pt x
+ 507.69675pt>
+File: ./Calculus/Images/1/Fig-Maclaurin_polynomial_cosine.png Graphic file (typ
+e png)
+<use ./Calculus/Images/1/Fig-Maclaurin_polynomial_cosine.png>
+Package pdftex.def Info: ./Calculus/Images/1/Fig-Maclaurin_polynomial_cosine.pn
+g  used on input line 1059.
+(pdftex.def)             Requested size: 307.67793pt x 220.74559pt.
+ [9] [10]
+************************************************
+Exercises 1.3 Example Tasks
+************************************************
+<./Calculus/Images/1/C1_WA_3.png, id=619, 457.71pt x 465.23813pt>
+File: ./Calculus/Images/1/C1_WA_3.png Graphic file (type png)
+<use ./Calculus/Images/1/C1_WA_3.png>
+Package pdftex.def Info: ./Calculus/Images/1/C1_WA_3.png  used on input line 10
+80.
+(pdftex.def)             Requested size: 307.67793pt x 312.75146pt.
+[11 <./Calculus/Images/1/Fig-Maclaurin_polynomial_cosine.png>]
+************************************************
+Chapter 2 Taylor Series
+************************************************
+[12 <./Calculus/Images/1/C1_WA_3.png>]
+Chapter 2.
+************************************************
+Section 2.1 Generating New Series from Known Series
+************************************************
+
+Overfull \hbox (6.91559pt too wide) in paragraph at lines 1114--1115
+[]$[] \OT1/lmr/m/n/10 (-20) = [] \OML/lmm/m/it/10 x[] \OT1/lmr/m/n/10 (-20) = 1
+ + \OML/lmm/m/it/10 x \OT1/lmr/m/n/10 (-20) + \OML/lmm/m/it/10 x[] \OT1/lmr/m/n
+/10 (-20) + \OML/lmm/m/it/10 x[] \OT1/lmr/m/n/10 (-20) + []  \OML/lmm/m/it/10 :
+ \OMS/lmsy/m/n/10 j\OML/lmm/m/it/10 x\OMS/lmsy/m/n/10 j \OML/lmm/m/it/10 <
+ []
+
+
+Overfull \hbox (4.27014pt too wide) in paragraph at lines 1115--1116
+[]$\OML/lmm/m/it/10 e[] \OT1/lmr/m/n/10 (-20) = [] [] = 1 + \OML/lmm/m/it/10 x 
+\OT1/lmr/m/n/10 (-20) + [] + [] + []  \OML/lmm/m/it/10 :  \OMS/lmsy/m/n/10 $ 
+ []
+
+
+Overfull \hbox (1.27478pt too wide) in paragraph at lines 1121--1122
+[]$[]\OT1/lmr/m/n/10 (-20) (\OML/lmm/m/it/10 x\OT1/lmr/m/n/10 (-20) ) = [] [] =
+ 1 + [] + [] + []  \OML/lmm/m/it/10 :  \OMS/lmsy/m/n/10 $ 
+ []
+
+[13
+
+] [14]
+************************************************
+Exercises 2.1 Example Tasks
+************************************************
+[15]
+************************************************
+Section 2.2 Taylor Series
+************************************************
+
+Underfull \hbox (badness 10000) in paragraph at lines 1244--1253
+
+ []
+
+<./Calculus/Images/2/Taylor_series_cos.png, id=686, 409.53pt x 324.21124pt>
+File: ./Calculus/Images/2/Taylor_series_cos.png Graphic file (type png)
+<use ./Calculus/Images/2/Taylor_series_cos.png>
+Package pdftex.def Info: ./Calculus/Images/2/Taylor_series_cos.png  used on inp
+ut line 1308.
+(pdftex.def)             Requested size: 290.62209pt x 230.08769pt.
+[16]
+Overfull \hbox (116.23029pt too wide) detected at line 1346
+[]
+ []
+
+[17 <./Calculus/Images/2/Taylor_series_cos.png>]
+************************************************
+Exercises 2.2 Example Tasks
+************************************************
+<./Calculus/Images/2/Taylor_series_cos_Mathematica.png, id=718, 621.32124pt x 6
+69.50125pt>
+File: ./Calculus/Images/2/Taylor_series_cos_Mathematica.png Graphic file (type 
+png)
+<use ./Calculus/Images/2/Taylor_series_cos_Mathematica.png>
+Package pdftex.def Info: ./Calculus/Images/2/Taylor_series_cos_Mathematica.png 
+ used on input line 1381.
+(pdftex.def)             Requested size: 307.67793pt x 331.53185pt.
+[18]
+************************************************
+Chapter 3 Functions of Several Variables
+************************************************
+[19 <./Calculus/Images/2/Taylor_series_cos_Mathematica.png>]
+Chapter 3.
+
+Overfull \hbox (12.59084pt too wide) in paragraph at lines 1394--1394
+|\T1/lmr/bx/n/24.88 (-20) Functions of Sev-eral Vari-ables| 
+ []
+
+************************************************
+Section 3.1 Functions of Two Variables
+************************************************
+[20
+
+]
+<./Calculus/Images/3/1_example4.png, id=750, 325.71687pt x 314.17375pt>
+File: ./Calculus/Images/3/1_example4.png Graphic file (type png)
+<use ./Calculus/Images/3/1_example4.png>
+Package pdftex.def Info: ./Calculus/Images/3/1_example4.png  used on input line
+ 1505.
+(pdftex.def)             Requested size: 256.50002pt x 247.4275pt.
+ [21]
+<./Calculus/Images/3/1_example5.png, id=781, 285.065pt x 294.60063pt>
+File: ./Calculus/Images/3/1_example5.png Graphic file (type png)
+<use ./Calculus/Images/3/1_example5.png>
+Package pdftex.def Info: ./Calculus/Images/3/1_example5.png  used on input line
+ 1516.
+(pdftex.def)             Requested size: 256.50002pt x 265.07967pt.
+<./Calculus/Images/3/1_example6.png, id=782, 829.0975pt x 374.39874pt>
+File: ./Calculus/Images/3/1_example6.png Graphic file (type png)
+<use ./Calculus/Images/3/1_example6.png>
+Package pdftex.def Info: ./Calculus/Images/3/1_example6.png  used on input line
+ 1527.
+(pdftex.def)             Requested size: 341.80002pt x 154.34427pt.
+ [22 <./Calculus/Images/3/1_example4.png> <./Calculus/Images/3/1_example5.png>]
+<./Calculus/Images/3/1_example7.png, id=794, 299.1175pt x 298.61563pt>
+File: ./Calculus/Images/3/1_example7.png Graphic file (type png)
+<use ./Calculus/Images/3/1_example7.png>
+Package pdftex.def Info: ./Calculus/Images/3/1_example7.png  used on input line
+ 1537.
+(pdftex.def)             Requested size: 256.50002pt x 256.08907pt.
+
+************************************************
+Exercises 3.1 Example Tasks
+************************************************
+[23 <./Calculus/Images/3/1_example6.png> <./Calculus/Images/3/1_example7.png>]
+************************************************
+Section 3.2 Level Curves
+************************************************
+
+Underfull \hbox (badness 10000) in paragraph at lines 1565--1574
+
+ []
+
+<./Calculus/Images/3/2_topographicmap.png, id=808, 323.2075pt x 378.41376pt>
+File: ./Calculus/Images/3/2_topographicmap.png Graphic file (type png)
+<use ./Calculus/Images/3/2_topographicmap.png>
+Package pdftex.def Info: ./Calculus/Images/3/2_topographicmap.png  used on inpu
+t line 1577.
+(pdftex.def)             Requested size: 256.05pt x 299.79816pt.
+[24 <./Calculus/Images/3/2_topographicmap.png>]
+<./Calculus/Images/3/2_example8.png, id=823, 249.93375pt x 205.76875pt>
+File: ./Calculus/Images/3/2_example8.png Graphic file (type png)
+<use ./Calculus/Images/3/2_example8.png>
+Package pdftex.def Info: ./Calculus/Images/3/2_example8.png  used on input line
+ 1605.
+(pdftex.def)             Requested size: 256.50002pt x 211.1969pt.
+<./Calculus/Images/3/2_example9.png, id=824, 279.54437pt x 213.79875pt>
+File: ./Calculus/Images/3/2_example9.png Graphic file (type png)
+<use ./Calculus/Images/3/2_example9.png>
+Package pdftex.def Info: ./Calculus/Images/3/2_example9.png  used on input line
+ 1620.
+(pdftex.def)             Requested size: 256.50002pt x 196.18178pt.
+ [25 <./Calculus/Images/3/2_example8.png>]
+************************************************
+Exercises 3.2 Example Tasks
+************************************************
+<./Calculus/Images/3/2_ET2.png, id=839, 195.22937pt x 222.8325pt>
+File: ./Calculus/Images/3/2_ET2.png Graphic file (type png)
+<use ./Calculus/Images/3/2_ET2.png>
+Package pdftex.def Info: ./Calculus/Images/3/2_ET2.png  used on input line 1644
+.
+(pdftex.def)             Requested size: 240.3544pt x 274.35095pt.
+<./Calculus/Images/3/2_ET3.png, id=840, 240.39813pt x 249.43187pt>
+File: ./Calculus/Images/3/2_ET3.png Graphic file (type png)
+<use ./Calculus/Images/3/2_ET3.png>
+Package pdftex.def Info: ./Calculus/Images/3/2_ET3.png  used on input line 1653
+.
+(pdftex.def)             Requested size: 240.3544pt x 249.39319pt.
+[26 <./Calculus/Images/3/2_example9.png> <./Calculus/Images/3/2_ET2.png>]
+************************************************
+Section 3.3 Surfaces of Revolution
+************************************************
+
+Underfull \hbox (badness 10000) in paragraph at lines 1657--1666
+
+ []
+
+<./Calculus/Images/3/3_example10.png, id=850, 300.12125pt x 199.74625pt>
+File: ./Calculus/Images/3/3_example10.png Graphic file (type png)
+<use ./Calculus/Images/3/3_example10.png>
+Package pdftex.def Info: ./Calculus/Images/3/3_example10.png  used on input lin
+e 1675.
+(pdftex.def)             Requested size: 256.50002pt x 170.7269pt.
+[27 <./Calculus/Images/3/2_ET3.png> <./Calculus/Images/3/3_example10.png>]
+<./Calculus/Images/3/3_example11.png, id=865, 150.06062pt x 152.57pt>
+File: ./Calculus/Images/3/3_example11.png Graphic file (type png)
+<use ./Calculus/Images/3/3_example11.png>
+Package pdftex.def Info: ./Calculus/Images/3/3_example11.png  used on input lin
+e 1713.
+(pdftex.def)             Requested size: 171.20001pt x 174.07826pt.
+
+[28 <./Calculus/Images/3/3_example11.png>]
+************************************************
+Exercises 3.3 Example Tasks
+************************************************
+************************************************
+Section 3.4 Functions of 3 (or more) Variables
+************************************************
+
+Underfull \hbox (badness 10000) in paragraph at lines 1752--1761
+
+ []
+
+************************************************
+Chapter 4 Partial Differentiation
+************************************************
+[29]
+Chapter 4.
+************************************************
+Section 4.1 Partial Differentiation
+************************************************
+<./Calculus/Images/4/Slope_of_tangent.png, id=889, 614.79688pt x 392.96812pt>
+File: ./Calculus/Images/4/Slope_of_tangent.png Graphic file (type png)
+<use ./Calculus/Images/4/Slope_of_tangent.png>
+Package pdftex.def Info: ./Calculus/Images/4/Slope_of_tangent.png  used on inpu
+t line 1792.
+(pdftex.def)             Requested size: 268.86191pt x 171.85117pt.
+<./Calculus/Images/4/Ex1_Contour_Plot_Fig_1.png, id=890, 452.18938pt x 373.8968
+8pt>
+File: ./Calculus/Images/4/Ex1_Contour_Plot_Fig_1.png Graphic file (type png)
+<use ./Calculus/Images/4/Ex1_Contour_Plot_Fig_1.png>
+Package pdftex.def Info: ./Calculus/Images/4/Ex1_Contour_Plot_Fig_1.png  used o
+n input line 1807.
+(pdftex.def)             Requested size: 239.43896pt x 197.98183pt.
+[30
+
+ <./Calculus/Images/4/Slope_of_tangent.png>]
+<./Calculus/Images/4/Ex2_x_axis_rate_of_change.png, id=903, 193.22188pt x 193.2
+2188pt>
+File: ./Calculus/Images/4/Ex2_x_axis_rate_of_change.png Graphic file (type png)
+
+<use ./Calculus/Images/4/Ex2_x_axis_rate_of_change.png>
+Package pdftex.def Info: ./Calculus/Images/4/Ex2_x_axis_rate_of_change.png  use
+d on input line 1823.
+(pdftex.def)             Requested size: 239.43896pt x 239.43932pt.
+<./Calculus/Images/4/Ex2_y_axis_rate_of_change.png, id=904, 214.30063pt x 216.3
+0812pt>
+File: ./Calculus/Images/4/Ex2_y_axis_rate_of_change.png Graphic file (type png)
+
+<use ./Calculus/Images/4/Ex2_y_axis_rate_of_change.png>
+Package pdftex.def Info: ./Calculus/Images/4/Ex2_y_axis_rate_of_change.png  use
+d on input line 1838.
+(pdftex.def)             Requested size: 239.43896pt x 241.68253pt.
+ [31 <./Calculus/Images/4/Ex1_Contour_Plot_Fig_1.png> <./Calculus/Images/4/Ex2_
+x_axis_rate_of_change.png>]
+[32 <./Calculus/Images/4/Ex2_y_axis_rate_of_change.png>] [33] [34] [35]
+************************************************
+Exercises 4.1 Example Tasks
+************************************************
+<./Calculus/Images/4/Contour_plot.png, id=961, 405.01312pt x 408.02437pt>
+File: ./Calculus/Images/4/Contour_plot.png Graphic file (type png)
+<use ./Calculus/Images/4/Contour_plot.png>
+Package pdftex.def Info: ./Calculus/Images/4/Contour_plot.png  used on input li
+ne 2084.
+(pdftex.def)             Requested size: 224.3698pt x 226.03906pt.
+[36]
+************************************************
+Section 4.2 Higher Partial Derivatives
+************************************************
+[37 <./Calculus/Images/4/Contour_plot.png>]
+************************************************
+Exercises 4.2 Example Tasks
+************************************************
+[38]
+<./Calculus/Images/4/WA_1.png, id=996, 466.74374pt x 175.40532pt>
+File: ./Calculus/Images/4/WA_1.png Graphic file (type png)
+<use ./Calculus/Images/4/WA_1.png>
+Package pdftex.def Info: ./Calculus/Images/4/WA_1.png  used on input line 2219.
+
+(pdftex.def)             Requested size: 307.67793pt x 115.63135pt.
+<./Calculus/Images/4/WA_2.png, id=997, 475.02469pt x 182.93344pt>
+File: ./Calculus/Images/4/WA_2.png Graphic file (type png)
+<use ./Calculus/Images/4/WA_2.png>
+Package pdftex.def Info: ./Calculus/Images/4/WA_2.png  used on input line 2225.
+
+(pdftex.def)             Requested size: 307.67793pt x 118.4922pt.
+<./Calculus/Images/4/WA_3.png, id=998, 478.03593pt x 224.33812pt>
+File: ./Calculus/Images/4/WA_3.png Graphic file (type png)
+<use ./Calculus/Images/4/WA_3.png>
+Package pdftex.def Info: ./Calculus/Images/4/WA_3.png  used on input line 2231.
+
+(pdftex.def)             Requested size: 307.67793pt x 144.39061pt.
+
+************************************************
+Chapter 5 Linear Approximations
+************************************************
+[39 <./Calculus/Images/4/WA_1.png> <./Calculus/Images/4/WA_2.png> <./Calculus/I
+mages/4/WA_3.png>]
+Chapter 5.
+************************************************
+Section 5.1 Tangent Planes
+************************************************
+<./Calculus/Images/5/Ex1_Tangent_Plane.png, id=1012, 337.26pt x 312.41719pt>
+File: ./Calculus/Images/5/Ex1_Tangent_Plane.png Graphic file (type png)
+<use ./Calculus/Images/5/Ex1_Tangent_Plane.png>
+Package pdftex.def Info: ./Calculus/Images/5/Ex1_Tangent_Plane.png  used on inp
+ut line 2264.
+(pdftex.def)             Requested size: 239.43896pt x 221.80344pt.
+[40
+
+]
+
+LaTeX Font Warning: Font shape `U/stmry/b/n' undefined
+(Font)              using `U/stmry/m/n' instead on input line 2275.
+
+<./Calculus/Images/5/Tangent_Plane_Vector_Form.png, id=1021, 250.68657pt x 146.
+04562pt>
+File: ./Calculus/Images/5/Tangent_Plane_Vector_Form.png Graphic file (type png)
+
+<use ./Calculus/Images/5/Tangent_Plane_Vector_Form.png>
+Package pdftex.def Info: ./Calculus/Images/5/Tangent_Plane_Vector_Form.png  use
+d on input line 2280.
+(pdftex.def)             Requested size: 239.01897pt x 139.25508pt.
+<./Calculus/Images/5/Ex2_Tangent_Planes.png, id=1022, 268.00125pt x 243.15843pt
+>
+File: ./Calculus/Images/5/Ex2_Tangent_Planes.png Graphic file (type png)
+<use ./Calculus/Images/5/Ex2_Tangent_Planes.png>
+Package pdftex.def Info: ./Calculus/Images/5/Ex2_Tangent_Planes.png  used on in
+put line 2292.
+(pdftex.def)             Requested size: 239.43896pt x 217.24142pt.
+[41 <./Calculus/Images/5/Ex1_Tangent_Plane.png> <./Calculus/Images/5/Tangent_Pl
+ane_Vector_Form.png>] [42 <./Calculus/Images/5/Ex2_Tangent_Planes.png>]
+<./Calculus/Images/5/Ex3_Tangent_Plane.png, id=1047, 193.22188pt x 193.22188pt>
+
+File: ./Calculus/Images/5/Ex3_Tangent_Plane.png Graphic file (type png)
+<use ./Calculus/Images/5/Ex3_Tangent_Plane.png>
+Package pdftex.def Info: ./Calculus/Images/5/Ex3_Tangent_Plane.png  used on inp
+ut line 2345.
+(pdftex.def)             Requested size: 239.43896pt x 239.43932pt.
+
+[43 <./Calculus/Images/5/Ex3_Tangent_Plane.png>]
+************************************************
+Exercises 5.1 Example Tasks
+************************************************
+
+Overfull \hbox (3.46516pt too wide) in paragraph at lines 2407--2409
+[] [][]\T1/lmr/m/n/10 (-20) Find the equa-tion of the tan-gent plane and nor-ma
+l line to $\OML/lmm/m/it/10 z \OT1/lmr/m/n/10 (-20) = [] [](\OML/lmm/m/it/10 xy
+\OT1/lmr/m/n/10 (-20) )$
+ []
+
+************************************************
+Section 5.2 Linear Approximations
+************************************************
+
+Underfull \hbox (badness 10000) in paragraph at lines 2412--2421
+
+ []
+
+[44] [45] [46]
+************************************************
+Exercises 5.2 Example Tasks
+************************************************
+<./Calculus/Images/5/Task_4_Figure.png, id=1101, 267.49937pt x 162.6075pt>
+File: ./Calculus/Images/5/Task_4_Figure.png Graphic file (type png)
+<use ./Calculus/Images/5/Task_4_Figure.png>
+Package pdftex.def Info: ./Calculus/Images/5/Task_4_Figure.png  used on input l
+ine 2598.
+(pdftex.def)             Requested size: 192.40547pt x 116.96565pt.
+************************************************
+Section 5.3 Quadratic Approximations
+************************************************
+
+Underfull \hbox (badness 10000) in paragraph at lines 2608--2617
+
+ []
+
+[47 <./Calculus/Images/5/Task_4_Figure.png>] [48]
+************************************************
+Exercises 5.3 Example Tasks
+************************************************
+************************************************
+Chapter 6 The Directional Derivative
+************************************************
+
+Underfull \hbox (badness 10000) in paragraph at lines 2710--2720
+
+ []
+
+[49]
+Chapter 6.
+<./Calculus/Images/6/Ex1_Contour_Plot_Fig_1.png, id=1136, 452.18938pt x 373.896
+88pt>
+File: ./Calculus/Images/6/Ex1_Contour_Plot_Fig_1.png Graphic file (type png)
+<use ./Calculus/Images/6/Ex1_Contour_Plot_Fig_1.png>
+Package pdftex.def Info: ./Calculus/Images/6/Ex1_Contour_Plot_Fig_1.png  used o
+n input line 2727.
+(pdftex.def)             Requested size: 239.43896pt x 197.98183pt.
+************************************************
+Section 6.1 Directional Derivatives
+************************************************
+[50
+
+ <./Calculus/Images/6/Ex1_Contour_Plot_Fig_1.png>]
+Overfull \hbox (54.72171pt too wide) detected at line 2760
+[]
+ []
+
+<./Calculus/Images/6/Directional_Derivative_Example.png, id=1146, 318.43968pt x
+ 296.60812pt>
+File: ./Calculus/Images/6/Directional_Derivative_Example.png Graphic file (type
+ png)
+<use ./Calculus/Images/6/Directional_Derivative_Example.png>
+Package pdftex.def Info: ./Calculus/Images/6/Directional_Derivative_Example.png
+  used on input line 2766.
+(pdftex.def)             Requested size: 239.43896pt x 223.02127pt.
+[51] [52 <./Calculus/Images/6/Directional_Derivative_Example.png>] [53]
+<./Calculus/Images/6/Fig3_tangent_vector.png, id=1180, 589.70313pt x 392.96812p
+t>
+File: ./Calculus/Images/6/Fig3_tangent_vector.png Graphic file (type png)
+<use ./Calculus/Images/6/Fig3_tangent_vector.png>
+Package pdftex.def Info: ./Calculus/Images/6/Fig3_tangent_vector.png  used on i
+nput line 2879.
+(pdftex.def)             Requested size: 221.51901pt x 147.61452pt.
+
+Overfull \hbox (12.86395pt too wide) in paragraph at lines 2883--2884
+[]\T1/lmr/m/n/10 (-20) Thus a vec-tor nor-mal to the curve at the point $\OT1/l
+mr/m/n/10 (-20) (\OML/lmm/m/it/10 x[]; y[]\OT1/lmr/m/n/10 (-20) )$ \T1/lmr/m/n/
+10 (-20) will be $[]$,
+ []
+
+<./Calculus/Images/6/Fig4_Contour_Plot.png, id=1181, 246.0465pt x 183.96pt>
+File: ./Calculus/Images/6/Fig4_Contour_Plot.png Graphic file (type png)
+<use ./Calculus/Images/6/Fig4_Contour_Plot.png>
+Package pdftex.def Info: ./Calculus/Images/6/Fig4_Contour_Plot.png  used on inp
+ut line 2888.
+(pdftex.def)             Requested size: 221.51901pt x 165.62982pt.
+[54 <./Calculus/Images/6/Fig3_tangent_vector.png>]
+<./Calculus/Images/6/Fig5_gradvec_orthogonal_levelcurve.png, id=1190, 319.69438
+pt x 231.86626pt>
+File: ./Calculus/Images/6/Fig5_gradvec_orthogonal_levelcurve.png Graphic file (
+type png)
+<use ./Calculus/Images/6/Fig5_gradvec_orthogonal_levelcurve.png>
+Package pdftex.def Info: ./Calculus/Images/6/Fig5_gradvec_orthogonal_levelcurve
+.png  used on input line 2938.
+(pdftex.def)             Requested size: 239.43896pt x 173.6622pt.
+ [55 <./Calculus/Images/6/Fig4_Contour_Plot.png>]
+************************************************
+Exercises 6.1 Example Tasks
+************************************************
+[56 <./Calculus/Images/6/Fig5_gradvec_orthogonal_levelcurve.png>]
+<./Calculus/Images/6/Example-Task-4_Contour_Plot.png, id=1220, 298.86656pt x 30
+2.63063pt>
+File: ./Calculus/Images/6/Example-Task-4_Contour_Plot.png Graphic file (type pn
+g)
+<use ./Calculus/Images/6/Example-Task-4_Contour_Plot.png>
+Package pdftex.def Info: ./Calculus/Images/6/Example-Task-4_Contour_Plot.png  u
+sed on input line 2999.
+(pdftex.def)             Requested size: 224.3698pt x 227.19867pt.
+
+************************************************
+Section 6.2 In Three Variables
+************************************************
+
+Underfull \hbox (badness 10000) in paragraph at lines 3011--3020
+
+ []
+
+[57 <./Calculus/Images/6/Example-Task-4_Contour_Plot.png>]
+************************************************
+Exercises 6.2 Example Tasks
+************************************************
+[58]
+************************************************
+Chapter 7 Local and Global Extrema
+************************************************
+
+Underfull \hbox (badness 10000) in paragraph at lines 3122--3132
+
+ []
+
+[59]
+Chapter 7.
+************************************************
+Section 7.1 Critical Points
+************************************************
+<./Calculus/Images/7/Fig1_max_min_inflection.png, id=1259, 589.70313pt x 392.96
+812pt>
+File: ./Calculus/Images/7/Fig1_max_min_inflection.png Graphic file (type png)
+<use ./Calculus/Images/7/Fig1_max_min_inflection.png>
+Package pdftex.def Info: ./Calculus/Images/7/Fig1_max_min_inflection.png  used 
+on input line 3143.
+(pdftex.def)             Requested size: 239.01897pt x 159.27713pt.
+<./Calculus/Images/7/Fig2_Local_max_and_min.png, id=1260, 589.70313pt x 392.968
+12pt>
+File: ./Calculus/Images/7/Fig2_Local_max_and_min.png Graphic file (type png)
+<use ./Calculus/Images/7/Fig2_Local_max_and_min.png>
+Package pdftex.def Info: ./Calculus/Images/7/Fig2_Local_max_and_min.png  used o
+n input line 3168.
+(pdftex.def)             Requested size: 307.67793pt x 205.03415pt.
+[60
+
+ <./Calculus/Images/7/Fig1_max_min_inflection.png>]
+<./Calculus/Images/7/Fig3_Saddle_point.png, id=1274, 366.2775pt x 244.0755pt>
+File: ./Calculus/Images/7/Fig3_Saddle_point.png Graphic file (type png)
+<use ./Calculus/Images/7/Fig3_Saddle_point.png>
+Package pdftex.def Info: ./Calculus/Images/7/Fig3_Saddle_point.png  used on inp
+ut line 3177.
+(pdftex.def)             Requested size: 307.67793pt x 205.04063pt.
+ [61 <./Calculus/Images/7/Fig2_Local_max_and_min.png> <./Calculus/Images/7/Fig3
+_Saddle_point.png>]
+<./Calculus/Images/7/Fig4-Locate_critical_points.png, id=1296, 220.57407pt x 20
+1.00093pt>
+File: ./Calculus/Images/7/Fig4-Locate_critical_points.png Graphic file (type pn
+g)
+<use ./Calculus/Images/7/Fig4-Locate_critical_points.png>
+Package pdftex.def Info: ./Calculus/Images/7/Fig4-Locate_critical_points.png  u
+sed on input line 3234.
+(pdftex.def)             Requested size: 273.56105pt x 249.29683pt.
+<./Calculus/Images/7/Fig5-Locate_critical_points.png, id=1297, 883.80188pt x 61
+4.295pt>
+File: ./Calculus/Images/7/Fig5-Locate_critical_points.png Graphic file (type pn
+g)
+<use ./Calculus/Images/7/Fig5-Locate_critical_points.png>
+Package pdftex.def Info: ./Calculus/Images/7/Fig5-Locate_critical_points.png  u
+sed on input line 3241.
+(pdftex.def)             Requested size: 273.56105pt x 190.1389pt.
+
+[62]
+************************************************
+Exercises 7.1 Example Tasks
+************************************************
+<./Calculus/Images/7/Ex_task_section_1.png, id=1309, 298.86656pt x 302.63063pt>
+
+File: ./Calculus/Images/7/Ex_task_section_1.png Graphic file (type png)
+<use ./Calculus/Images/7/Ex_task_section_1.png>
+Package pdftex.def Info: ./Calculus/Images/7/Ex_task_section_1.png  used on inp
+ut line 3258.
+(pdftex.def)             Requested size: 256.339pt x 259.58307pt.
+[63 <./Calculus/Images/7/Fig4-Locate_critical_points.png> <./Calculus/Images/7/
+Fig5-Locate_critical_points.png>]
+************************************************
+Section 7.2 Second Derivative Test
+************************************************
+
+Underfull \hbox (badness 10000) in paragraph at lines 3262--3271
+
+ []
+
+[64 <./Calculus/Images/7/Ex_task_section_1.png>]
+<./Calculus/Images/7/Fig6_Loc_and_identify_critical_points.png, id=1327, 193.22
+188pt x 193.22188pt>
+File: ./Calculus/Images/7/Fig6_Loc_and_identify_critical_points.png Graphic fil
+e (type png)
+<use ./Calculus/Images/7/Fig6_Loc_and_identify_critical_points.png>
+Package pdftex.def Info: ./Calculus/Images/7/Fig6_Loc_and_identify_critical_poi
+nts.png  used on input line 3354.
+(pdftex.def)             Requested size: 239.43896pt x 239.43932pt.
+ [65]
+************************************************
+Exercises 7.2 Example Tasks
+************************************************
+<./Calculus/Images/7/Ex2_crit_points.png, id=1338, 182.18062pt x 167.87718pt>
+File: ./Calculus/Images/7/Ex2_crit_points.png Graphic file (type png)
+<use ./Calculus/Images/7/Ex2_crit_points.png>
+Package pdftex.def Info: ./Calculus/Images/7/Ex2_crit_points.png  used on input
+ line 3373.
+(pdftex.def)             Requested size: 224.3698pt x 206.7618pt.
+
+Overfull \hbox (16.9827pt too wide) in paragraph at lines 3369--3376
+[] [][]\T1/lmr/m/n/10 (-20) Locate and iden-tify the crit-i-cal points of the f
+unc-tion $\OML/lmm/m/it/10 z \OT1/lmr/m/n/10 (-20) = [] []$\T1/lmr/m/n/10 (-20)
+ . 
+ []
+
+************************************************
+Section 7.3 Global Extrema
+************************************************
+
+Underfull \hbox (badness 10000) in paragraph at lines 3377--3386
+
+ []
+
+[66 <./Calculus/Images/7/Fig6_Loc_and_identify_critical_points.png> <./Calculus
+/Images/7/Ex2_crit_points.png>]
+<./Calculus/Images/7/Fig7_Global_Extrema.png, id=1349, 589.70313pt x 392.96812p
+t>
+File: ./Calculus/Images/7/Fig7_Global_Extrema.png Graphic file (type png)
+<use ./Calculus/Images/7/Fig7_Global_Extrema.png>
+Package pdftex.def Info: ./Calculus/Images/7/Fig7_Global_Extrema.png  used on i
+nput line 3405.
+(pdftex.def)             Requested size: 273.56105pt x 182.29655pt.
+<./Calculus/Images/7/Fig8_Global_Extrema_1D.png, id=1350, 589.70313pt x 392.968
+12pt>
+File: ./Calculus/Images/7/Fig8_Global_Extrema_1D.png Graphic file (type png)
+<use ./Calculus/Images/7/Fig8_Global_Extrema_1D.png>
+Package pdftex.def Info: ./Calculus/Images/7/Fig8_Global_Extrema_1D.png  used o
+n input line 3413.
+(pdftex.def)             Requested size: 273.08104pt x 181.97874pt.
+ [67 <./Calculus/Images/7/Fig7_Global_Extrema.png>]
+<./Calculus/Images/7/Fig9_closed_region.png, id=1363, 505.38812pt x 392.96812pt
+>
+File: ./Calculus/Images/7/Fig9_closed_region.png Graphic file (type png)
+<use ./Calculus/Images/7/Fig9_closed_region.png>
+Package pdftex.def Info: ./Calculus/Images/7/Fig9_closed_region.png  used on in
+put line 3433.
+(pdftex.def)             Requested size: 153.86896pt x 119.64223pt.
+<./Calculus/Images/7/Fig10_bounded_region.png, id=1364, 505.38812pt x 392.96812
+pt>
+File: ./Calculus/Images/7/Fig10_bounded_region.png Graphic file (type png)
+<use ./Calculus/Images/7/Fig10_bounded_region.png>
+Package pdftex.def Info: ./Calculus/Images/7/Fig10_bounded_region.png  used on 
+input line 3440.
+(pdftex.def)             Requested size: 153.86896pt x 119.64223pt.
+ [68 <./Calculus/Images/7/Fig8_Global_Extrema_1D.png> <./Calculus/Images/7/Fig9
+_closed_region.png>]
+<./Calculus/Images/7/Fig11_Example7.png, id=1377, 505.38812pt x 392.96812pt>
+File: ./Calculus/Images/7/Fig11_Example7.png Graphic file (type png)
+<use ./Calculus/Images/7/Fig11_Example7.png>
+Package pdftex.def Info: ./Calculus/Images/7/Fig11_Example7.png  used on input 
+line 3460.
+(pdftex.def)             Requested size: 205.32208pt x 159.6489pt.
+<./Calculus/Images/7/Fig12_Example7_z_function.png, id=1378, 505.38812pt x 392.
+96812pt>
+File: ./Calculus/Images/7/Fig12_Example7_z_function.png Graphic file (type png)
+
+<use ./Calculus/Images/7/Fig12_Example7_z_function.png>
+Package pdftex.def Info: ./Calculus/Images/7/Fig12_Example7_z_function.png  use
+d on input line 3489.
+(pdftex.def)             Requested size: 205.32208pt x 159.6489pt.
+<./Calculus/Images/7/Fig13_Example7_z_function_2.png, id=1379, 505.38812pt x 39
+2.96812pt>
+File: ./Calculus/Images/7/Fig13_Example7_z_function_2.png Graphic file (type pn
+g)
+<use ./Calculus/Images/7/Fig13_Example7_z_function_2.png>
+Package pdftex.def Info: ./Calculus/Images/7/Fig13_Example7_z_function_2.png  u
+sed on input line 3506.
+(pdftex.def)             Requested size: 205.32208pt x 159.6489pt.
+<./Calculus/Images/7/Fig14_Example7_z_function_3.png, id=1380, 505.38812pt x 39
+2.96812pt>
+File: ./Calculus/Images/7/Fig14_Example7_z_function_3.png Graphic file (type pn
+g)
+<use ./Calculus/Images/7/Fig14_Example7_z_function_3.png>
+Package pdftex.def Info: ./Calculus/Images/7/Fig14_Example7_z_function_3.png  u
+sed on input line 3523.
+(pdftex.def)             Requested size: 205.32208pt x 159.6489pt.
+ [69 <./Calculus/Images/7/Fig10_bounded_region.png> <./Calculus/Images/7/Fig11_
+Example7.png>] [70 <./Calculus/Images/7/Fig12_Example7_z_function.png> <./Calcu
+lus/Images/7/Fig13_Example7_z_function_2.png>]
+************************************************
+Exercises 7.3 Example Tasks
+************************************************
+
+Overfull \hbox (1.50514pt too wide) in paragraph at lines 3538--3540
+[] [][]\T1/lmr/m/n/10 (-20) Find the global ex-trema of $\OML/lmm/m/it/10 z \OT
+1/lmr/m/n/10 (-20) = 2\OML/lmm/m/it/10 x[] \OT1/lmr/m/n/10 (-20) + \OML/lmm/m/i
+t/10 x \OT1/lmr/m/n/10 (-20) + \OML/lmm/m/it/10 y[] \OMS/lmsy/m/n/10   \OT1/lmr
+/m/n/10 (-20) 2$ \T1/lmr/m/n/10 (-20) on $\OML/lmm/m/it/10 D \OT1/lmr/m/n/10 (-
+20) = []$\T1/lmr/m/n/10 (-20) . 
+ []
+
+
+Overfull \hbox (33.7504pt too wide) in paragraph at lines 3541--3543
+[] [][]\T1/lmr/m/n/10 (-20) Find the global ex-trema of $\OML/lmm/m/it/10 R\OT1
+/lmr/m/n/10 (-20) (\OML/lmm/m/it/10 x; y\OT1/lmr/m/n/10 (-20) ) = \OML/lmm/m/it
+/10 x[]$ \T1/lmr/m/n/10 (-20) on $\OML/lmm/m/it/10 D \OT1/lmr/m/n/10 (-20) = []
+$\T1/lmr/m/n/10 (-20) . 
+ []
+
+************************************************
+Chapter 8 Chain Rules
+************************************************
+
+Underfull \hbox (badness 10000) in paragraph at lines 3543--3553
+
+ []
+
+[71 <./Calculus/Images/7/Fig14_Example7_z_function_3.png>]
+Chapter 8.
+************************************************
+Section 8.1 The Single Variable Chain Rule
+************************************************
+************************************************
+Section 8.2 Multivariable Chain Rules
+************************************************
+[72
+
+] [73] [74] [75] [76]
+************************************************
+Exercises 8.2 Example Tasks
+************************************************
+************************************************
+Section 8.3 Implicit Differentiation
+************************************************
+
+Underfull \hbox (badness 10000) in paragraph at lines 3873--3882
+
+ []
+
+[77] [78]
+************************************************
+Exercises 8.3 Example Tasks
+************************************************
+[79]
+************************************************
+Part II Differential Equations
+************************************************
+[80] [81
+
+]
+************************************************
+Chapter 9 Introduction
+************************************************
+Chapter 9.
+************************************************
+Section 9.1 Introduction
+************************************************
+<./DifferentialEquations/Images/1/1_example2.png, id=1527, 203.25937pt x 137.01
+187pt>
+File: ./DifferentialEquations/Images/1/1_example2.png Graphic file (type png)
+<use ./DifferentialEquations/Images/1/1_example2.png>
+Package pdftex.def Info: ./DifferentialEquations/Images/1/1_example2.png  used 
+on input line 4077.
+(pdftex.def)             Requested size: 256.50002pt x 172.90556pt.
+[82
+
+]
+<./DifferentialEquations/Images/1/1_example3.png, id=1538, 190.7125pt x 127.978
+12pt>
+File: ./DifferentialEquations/Images/1/1_example3.png Graphic file (type png)
+<use ./DifferentialEquations/Images/1/1_example3.png>
+Package pdftex.def Info: ./DifferentialEquations/Images/1/1_example3.png  used 
+on input line 4117.
+(pdftex.def)             Requested size: 256.50002pt x 172.1459pt.
+ [83 <./DifferentialEquations/Images/1/1_example2.png>] [84 <./DifferentialEqua
+tions/Images/1/1_example3.png>]
+<./DifferentialEquations/Images/1/1_example6.png, id=1563, 220.32312pt x 147.04
+938pt>
+File: ./DifferentialEquations/Images/1/1_example6.png Graphic file (type png)
+<use ./DifferentialEquations/Images/1/1_example6.png>
+Package pdftex.def Info: ./DifferentialEquations/Images/1/1_example6.png  used 
+on input line 4210.
+(pdftex.def)             Requested size: 237.74998pt x 158.68753pt.
+ [85] [86 <./DifferentialEquations/Images/1/1_example6.png>] [87]
+************************************************
+Exercises 9.1 Example Tasks
+************************************************
+************************************************
+Section 9.2 Direction Fields and Euler's Method
+************************************************
+
+Underfull \hbox (badness 10000) in paragraph at lines 4306--4315
+
+ []
+
+************************************************
+Section 9.2.1 Direction Fields
+************************************************
+<./DifferentialEquations/Images/1/2_example8.png, id=1596, 196.23312pt x 131.99
+312pt>
+File: ./DifferentialEquations/Images/1/2_example8.png Graphic file (type png)
+<use ./DifferentialEquations/Images/1/2_example8.png>
+Package pdftex.def Info: ./DifferentialEquations/Images/1/2_example8.png  used 
+on input line 4346.
+(pdftex.def)             Requested size: 256.50002pt x 172.54164pt.
+<./DifferentialEquations/Images/1/2_example8_2.png, id=1597, 267.49937pt x 238.
+8925pt>
+File: ./DifferentialEquations/Images/1/2_example8_2.png Graphic file (type png)
+
+<use ./DifferentialEquations/Images/1/2_example8_2.png>
+Package pdftex.def Info: ./DifferentialEquations/Images/1/2_example8_2.png  use
+d on input line 4352.
+(pdftex.def)             Requested size: 256.50002pt x 229.0936pt.
+[88]
+<./DifferentialEquations/Images/1/2_example9.png, id=1607, 370.38374pt x 219.31
+938pt>
+File: ./DifferentialEquations/Images/1/2_example9.png Graphic file (type png)
+<use ./DifferentialEquations/Images/1/2_example9.png>
+Package pdftex.def Info: ./DifferentialEquations/Images/1/2_example9.png  used 
+on input line 4380.
+(pdftex.def)             Requested size: 256.50002pt x 151.88605pt.
+ [89 <./DifferentialEquations/Images/1/2_example8.png> <./DifferentialEquations
+/Images/1/2_example8_2.png>]
+************************************************
+Section 9.2.2 Euler's Method
+************************************************
+[90 <./DifferentialEquations/Images/1/2_example9.png>]
+<./DifferentialEquations/Images/1/2_example11.png, id=1627, 268.00125pt x 179.6
+7125pt>
+File: ./DifferentialEquations/Images/1/2_example11.png Graphic file (type png)
+<use ./DifferentialEquations/Images/1/2_example11.png>
+Package pdftex.def Info: ./DifferentialEquations/Images/1/2_example11.png  used
+ on input line 4489.
+(pdftex.def)             Requested size: 256.50002pt x 171.95879pt.
+ [91]
+************************************************
+Exercises 9.2.2 Example Tasks
+************************************************
+[92 <./DifferentialEquations/Images/1/2_example11.png>]
+<./DifferentialEquations/Images/1/2_ET2.png, id=1654, 370.88562pt x 218.31563pt
+>
+File: ./DifferentialEquations/Images/1/2_ET2.png Graphic file (type png)
+<use ./DifferentialEquations/Images/1/2_ET2.png>
+Package pdftex.def Info: ./DifferentialEquations/Images/1/2_ET2.png  used on in
+put line 4553.
+(pdftex.def)             Requested size: 240.3544pt x 141.48373pt.
+
+************************************************
+Chapter 10 First Order Separable DEs
+************************************************
+
+Underfull \hbox (badness 10000) in paragraph at lines 4564--4575
+
+ []
+
+[93 <./DifferentialEquations/Images/1/2_ET2.png>]
+Chapter 10.
+************************************************
+Section 10.1 First Order Separable DEs
+************************************************
+[94
+
+] [95]
+<./DifferentialEquations/Images/2/1_example3.png, id=1696, 248.42813pt x 215.80
+624pt>
+File: ./DifferentialEquations/Images/2/1_example3.png Graphic file (type png)
+<use ./DifferentialEquations/Images/2/1_example3.png>
+Package pdftex.def Info: ./DifferentialEquations/Images/2/1_example3.png  used 
+on input line 4758.
+(pdftex.def)             Requested size: 256.50002pt x 222.83612pt.
+ [96]
+<./DifferentialEquations/Images/2/1_example4.png, id=1704, 229.35687pt x 221.32
+687pt>
+File: ./DifferentialEquations/Images/2/1_example4.png Graphic file (type png)
+<use ./DifferentialEquations/Images/2/1_example4.png>
+Package pdftex.def Info: ./DifferentialEquations/Images/2/1_example4.png  used 
+on input line 4797.
+(pdftex.def)             Requested size: 256.50002pt x 247.53316pt.
+ [97 <./DifferentialEquations/Images/2/1_example3.png>]
+<./DifferentialEquations/Images/2/1_example5.png, id=1714, 249.93375pt x 229.35
+687pt>
+File: ./DifferentialEquations/Images/2/1_example5.png Graphic file (type png)
+<use ./DifferentialEquations/Images/2/1_example5.png>
+Package pdftex.def Info: ./DifferentialEquations/Images/2/1_example5.png  used 
+on input line 4834.
+(pdftex.def)             Requested size: 256.50002pt x 235.40729pt.
+ [98 <./DifferentialEquations/Images/2/1_example4.png>]
+<./DifferentialEquations/Images/2/1_example6.png, id=1722, 269.005pt x 240.9pt>
+
+File: ./DifferentialEquations/Images/2/1_example6.png Graphic file (type png)
+<use ./DifferentialEquations/Images/2/1_example6.png>
+Package pdftex.def Info: ./DifferentialEquations/Images/2/1_example6.png  used 
+on input line 4875.
+(pdftex.def)             Requested size: 256.50002pt x 229.7028pt.
+ [99 <./DifferentialEquations/Images/2/1_example5.png>]
+************************************************
+Exercises 10.1 Example Tasks
+************************************************
+[100 <./DifferentialEquations/Images/2/1_example6.png>]
+************************************************
+Section 10.2 Some Simple Applications of First Order Separable DEs
+************************************************
+
+Underfull \hbox (badness 10000) in paragraph at lines 4901--4910
+
+ []
+
+[101]
+<./DifferentialEquations/Images/2/1_example9.png, id=1752, 148.05313pt x 134.00
+063pt>
+File: ./DifferentialEquations/Images/2/1_example9.png Graphic file (type png)
+<use ./DifferentialEquations/Images/2/1_example9.png>
+Package pdftex.def Info: ./DifferentialEquations/Images/2/1_example9.png  used 
+on input line 4970.
+(pdftex.def)             Requested size: 205.32208pt x 185.84113pt.
+ [102 <./DifferentialEquations/Images/2/1_example9.png>]
+************************************************
+Exercises 10.2 Example Tasks
+************************************************
+************************************************
+Appendix 10.A Partial Fraction Decomposition
+************************************************
+
+! LaTeX Error: Environment appendixptx undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.5031 \begin{appendixptx}
+                          {Partial Fraction Decomposition}{}{Partial Fractio...
+
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \hbox (12.10126pt too wide) in paragraph at lines 5022--5044
+\T1/lmr/m/n/10 (-20) Par-tial Frac-tion De-com-po-si-tion-Par-tial Frac-tion De
+-com-po-si-tiong:appendix:id558348
+ []
+
+[103]
+Overfull \hbox (13.07404pt too wide) detected at line 5091
+\OT1/lmr/m/n/10 2\OML/lmm/m/it/10 x[] \OMS/lmsy/m/n/10   \OT1/lmr/m/n/10 5\OML/
+lmm/m/it/10 x[] \OT1/lmr/m/n/10 + 2\OML/lmm/m/it/10 x \OMS/lmsy/m/n/10   \OT1/l
+mr/m/n/10 2 = (\OML/lmm/m/it/10 A \OT1/lmr/m/n/10 + \OML/lmm/m/it/10 C\OT1/lmr/
+m/n/10 )\OML/lmm/m/it/10 x[] \OT1/lmr/m/n/10 + (\OMS/lmsy/m/n/10  \OT1/lmr/m/n/
+10 2\OML/lmm/m/it/10 A \OT1/lmr/m/n/10 + \OML/lmm/m/it/10 B \OMS/lmsy/m/n/10   
+\OML/lmm/m/it/10 C \OT1/lmr/m/n/10 + \OML/lmm/m/it/10 D\OT1/lmr/m/n/10 )\OML/lm
+m/m/it/10 x[] \OT1/lmr/m/n/10 + (\OML/lmm/m/it/10 A \OMS/lmsy/m/n/10   \OT1/lmr
+/m/n/10 2\OML/lmm/m/it/10 B \OT1/lmr/m/n/10 + 2\OML/lmm/m/it/10 C\OT1/lmr/m/n/1
+0 )\OML/lmm/m/it/10 x \OT1/lmr/m/n/10 + (\OML/lmm/m/it/10 B \OMS/lmsy/m/n/10   
+\OT1/lmr/m/n/10 2\OML/lmm/m/it/10 C \OT1/lmr/m/n/10 + 2\OML/lmm/m/it/10 D\OT1/l
+mr/m/n/10 )
+ []
+
+[104]
+************************************************
+Exercises 10.A Example Tasks
+************************************************
+
+! LaTeX Error: Environment exercises-section-numberless undefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.5112 \begin{exercises-section-numberless}
+                                           {Example Tasks}{}{Example Tasks}{...
+
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: \begin{chapterptx} on input line 4575 ended by \end{exercises-se
+ction-numberless}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.5120 \end{exercises-section-numberless}
+                                         
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! LaTeX Error: \begin{chapterptx} on input line 4575 ended by \end{appendixptx}
+.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.5121 \end{appendixptx}
+                        
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+************************************************
+Chapter 11 First Order Linear DEs
+************************************************
+
+Underfull \hbox (badness 10000) in paragraph at lines 5119--5129
+
+ []
+
+[105]
+Chapter 11.
+************************************************
+Section 11.1 Exact First Order DEs
+************************************************
+[106
+
+]
+************************************************
+Section 11.2 First Order Linear DEs
+************************************************
+[107] [108] [109]
+************************************************
+Exercises 11.2 Example Tasks
+************************************************
+************************************************
+Section 11.3 Some Simple Applications of First Order Linear DEs
+************************************************
+
+Underfull \hbox (badness 10000) in paragraph at lines 5414--5423
+
+ []
+
+[110]
+<./DifferentialEquations/Images/3/Fig1_Mixing_Tank.png, id=1880, 539.51563pt x 
+363.85938pt>
+File: ./DifferentialEquations/Images/3/Fig1_Mixing_Tank.png Graphic file (type 
+png)
+<use ./DifferentialEquations/Images/3/Fig1_Mixing_Tank.png>
+Package pdftex.def Info: ./DifferentialEquations/Images/3/Fig1_Mixing_Tank.png 
+ used on input line 5534.
+(pdftex.def)             Requested size: 239.43896pt x 161.48106pt.
+ [111] [112 <./DifferentialEquations/Images/3/Fig1_Mixing_Tank.png>]
+<./DifferentialEquations/Images/3/Fig2_ball_of_mass.png, id=1901, 464.23438pt x
+ 267.49937pt>
+File: ./DifferentialEquations/Images/3/Fig2_ball_of_mass.png Graphic file (type
+ png)
+<use ./DifferentialEquations/Images/3/Fig2_ball_of_mass.png>
+Package pdftex.def Info: ./DifferentialEquations/Images/3/Fig2_ball_of_mass.png
+  used on input line 5547.
+(pdftex.def)             Requested size: 239.43896pt x 137.96983pt.
+<./DifferentialEquations/Images/3/Fig3_motion_in_one_dim.png, id=1906, 547.5456
+2pt x 363.85938pt>
+File: ./DifferentialEquations/Images/3/Fig3_motion_in_one_dim.png Graphic file 
+(type png)
+<use ./DifferentialEquations/Images/3/Fig3_motion_in_one_dim.png>
+Package pdftex.def Info: ./DifferentialEquations/Images/3/Fig3_motion_in_one_di
+m.png  used on input line 5630.
+(pdftex.def)             Requested size: 239.43896pt x 159.1159pt.
+
+[113 <./DifferentialEquations/Images/3/Fig2_ball_of_mass.png>] [114 <./Differen
+tialEquations/Images/3/Fig3_motion_in_one_dim.png>]
+************************************************
+Exercises 11.3 Example Tasks
+************************************************
+************************************************
+Chapter 12 Homogeneous Second Order Linear DEs
+************************************************
+
+Underfull \hbox (badness 10000) in paragraph at lines 5649--5659
+
+ []
+
+[115]
+Chapter 12.
+************************************************
+Section 12.1 Homogeneous Second Order Linear DEs With Constant Coefficients
+************************************************
+
+Overfull \hbox (7.50705pt too wide) in paragraph at lines 5666--5666
+|[]\T1/lmr/bx/n/14.4 (-20) Homogeneous Sec-ond Or-der Lin-ear DEs With
+ []
+
+[116
+
+] [117] [118] [119] [120]
+<./DifferentialEquations/Images/4/initial_value_problem.png, id=2047, 704.6325p
+t x 610.28pt>
+File: ./DifferentialEquations/Images/4/initial_value_problem.png Graphic file (
+type png)
+<use ./DifferentialEquations/Images/4/initial_value_problem.png>
+Package pdftex.def Info: ./DifferentialEquations/Images/4/initial_value_problem
+.png  used on input line 6013.
+(pdftex.def)             Requested size: 290.62209pt x 251.70634pt.
+ [121]
+<./DifferentialEquations/Images/4/boundary_value_problem.png, id=2062, 747.7937
+5pt x 614.295pt>
+File: ./DifferentialEquations/Images/4/boundary_value_problem.png Graphic file 
+(type png)
+<use ./DifferentialEquations/Images/4/boundary_value_problem.png>
+Package pdftex.def Info: ./DifferentialEquations/Images/4/boundary_value_proble
+m.png  used on input line 6054.
+(pdftex.def)             Requested size: 290.62209pt x 238.73985pt.
+ [122 <./DifferentialEquations/Images/4/initial_value_problem.png>]
+************************************************
+Exercises 12.1 Example Tasks
+************************************************
+************************************************
+Chapter 13 Non-Homogeneous Second Order Linear DEs
+************************************************
+
+Underfull \hbox (badness 10000) in paragraph at lines 6101--6111
+
+ []
+
+[123 <./DifferentialEquations/Images/4/boundary_value_problem.png>]
+Chapter 13.
+
+Overfull \hbox (17.89272pt too wide) in paragraph at lines 6111--6111
+|\T1/lmr/bx/n/24.88 (-20) Non-Homogeneous Sec-ond Or-
+ []
+
+************************************************
+Section 13.1 Non-Homogeneous First Order Linear DEs
+************************************************
+[124
+
+] [125]
+************************************************
+Exercises 13.1 Example Tasks
+************************************************
+************************************************
+Section 13.2 The Method of Undetermined Coefficients
+************************************************
+
+Underfull \hbox (badness 10000) in paragraph at lines 6247--6256
+
+ []
+
+[126] [127]
+Overfull \hbox (63.49117pt too wide) detected at line 6405
+\OT1/lmr/m/n/10 (\OMS/lmsy/m/n/10  \OT1/lmr/m/n/10 4\OML/lmm/m/it/10 C[] []\OT1
+/lmr/m/n/10 (2\OML/lmm/m/it/10 t\OT1/lmr/m/n/10 ) \OMS/lmsy/m/n/10   \OT1/lmr/m
+/n/10 4\OML/lmm/m/it/10 C[] []\OT1/lmr/m/n/10 (2\OML/lmm/m/it/10 t\OT1/lmr/m/n/
+10 )) + 6(2\OML/lmm/m/it/10 C[] []\OT1/lmr/m/n/10 (2\OML/lmm/m/it/10 t\OT1/lmr/
+m/n/10 ) \OMS/lmsy/m/n/10   \OT1/lmr/m/n/10 2\OML/lmm/m/it/10 C[] []\OT1/lmr/m/
+n/10 (2\OML/lmm/m/it/10 t\OT1/lmr/m/n/10 )) + 8(\OML/lmm/m/it/10 C[] []\OT1/lmr
+/m/n/10 (2\OML/lmm/m/it/10 t\OT1/lmr/m/n/10 ) + \OML/lmm/m/it/10 C[] []\OT1/lmr
+/m/n/10 (2\OML/lmm/m/it/10 t\OT1/lmr/m/n/10 )) = 8 [](2\OML/lmm/m/it/10 t\OT1/l
+mr/m/n/10 )
+ []
+
+[128] [129] [130] [131]
+************************************************
+Exercises 13.2 Example Tasks
+************************************************
+[132]
+************************************************
+Chapter 14 An Application of Second Order Linear DEs with Constant Coefficients
+
+************************************************
+
+Underfull \hbox (badness 10000) in paragraph at lines 6689--6699
+
+ []
+
+[133]
+Chapter 14.
+
+Overfull \hbox (2.53786pt too wide) in paragraph at lines 6699--6699
+|\T1/lmr/bx/n/24.88 (-20) An Ap-pli-ca-tion of Sec-ond Or-
+ []
+
+************************************************
+Section 14.1 A Simple Model
+************************************************
+<./DifferentialEquations/Images/6/figure_1.png, id=2158, 249.43187pt x 129.9856
+3pt>
+File: ./DifferentialEquations/Images/6/figure_1.png Graphic file (type png)
+<use ./DifferentialEquations/Images/6/figure_1.png>
+Package pdftex.def Info: ./DifferentialEquations/Images/6/figure_1.png  used on
+ input line 6716.
+(pdftex.def)             Requested size: 256.05pt x 133.44635pt.
+[134
+
+ <./DifferentialEquations/Images/6/figure_1.png>]
+<./DifferentialEquations/Images/6/figure_2.png, id=2165, 172.645pt x 148.555pt>
+
+File: ./DifferentialEquations/Images/6/figure_2.png Graphic file (type png)
+<use ./DifferentialEquations/Images/6/figure_2.png>
+Package pdftex.def Info: ./DifferentialEquations/Images/6/figure_2.png  used on
+ input line 6734.
+(pdftex.def)             Requested size: 204.96208pt x 176.36554pt.
+
+Overfull \hbox (164.89404pt too wide) has occurred while \output is active
+\T1/lmr/m/sl/10 CHAPTER 14. AN APPLICATION OF SECOND ORDER LINEAR DES WITH CONS
+TANT COEFFICIENTS \T1/lmr/m/n/10 135
+ []
+
+[135 <./DifferentialEquations/Images/6/figure_2.png>]
+<./DifferentialEquations/Images/6/figure_3.png, id=2176, 219.31938pt x 213.7987
+5pt>
+File: ./DifferentialEquations/Images/6/figure_3.png Graphic file (type png)
+<use ./DifferentialEquations/Images/6/figure_3.png>
+Package pdftex.def Info: ./DifferentialEquations/Images/6/figure_3.png  used on
+ input line 6789.
+(pdftex.def)             Requested size: 204.96208pt x 199.8062pt.
+
+Overfull \hbox (164.89404pt too wide) has occurred while \output is active
+\T1/lmr/m/sl/10 CHAPTER 14. AN APPLICATION OF SECOND ORDER LINEAR DES WITH CONS
+TANT COEFFICIENTS \T1/lmr/m/n/10 136
+ []
+
+[136]
+************************************************
+Section 14.2 Adding Damping
+************************************************
+<./DifferentialEquations/Images/6/figure_4.png, id=2182, 198.7425pt x 185.69376
+pt>
+File: ./DifferentialEquations/Images/6/figure_4.png Graphic file (type png)
+<use ./DifferentialEquations/Images/6/figure_4.png>
+Package pdftex.def Info: ./DifferentialEquations/Images/6/figure_4.png  used on
+ input line 6804.
+(pdftex.def)             Requested size: 204.96208pt x 191.51038pt.
+
+Overfull \hbox (164.89404pt too wide) has occurred while \output is active
+\T1/lmr/m/sl/10 CHAPTER 14. AN APPLICATION OF SECOND ORDER LINEAR DES WITH CONS
+TANT COEFFICIENTS \T1/lmr/m/n/10 137
+ []
+
+[137 <./DifferentialEquations/Images/6/figure_3.png> <./DifferentialEquations/I
+mages/6/figure_4.png>]
+<./DifferentialEquations/Images/6/figure_5.png, id=2191, 187.19937pt x 183.1843
+7pt>
+File: ./DifferentialEquations/Images/6/figure_5.png Graphic file (type png)
+<use ./DifferentialEquations/Images/6/figure_5.png>
+Package pdftex.def Info: ./DifferentialEquations/Images/6/figure_5.png  used on
+ input line 6844.
+(pdftex.def)             Requested size: 204.96208pt x 200.57822pt.
+<./DifferentialEquations/Images/6/figure_6.png, id=2192, 186.6975pt x 182.6825p
+t>
+File: ./DifferentialEquations/Images/6/figure_6.png Graphic file (type png)
+<use ./DifferentialEquations/Images/6/figure_6.png>
+Package pdftex.def Info: ./DifferentialEquations/Images/6/figure_6.png  used on
+ input line 6856.
+(pdftex.def)             Requested size: 204.96208pt x 200.56389pt.
+
+Overfull \hbox (164.89404pt too wide) has occurred while \output is active
+\T1/lmr/m/sl/10 CHAPTER 14. AN APPLICATION OF SECOND ORDER LINEAR DES WITH CONS
+TANT COEFFICIENTS \T1/lmr/m/n/10 138
+ []
+
+[138 <./DifferentialEquations/Images/6/figure_5.png>]
+<./DifferentialEquations/Images/6/figure_7.png, id=2200, 187.70125pt x 183.6862
+5pt>
+File: ./DifferentialEquations/Images/6/figure_7.png Graphic file (type png)
+<use ./DifferentialEquations/Images/6/figure_7.png>
+Package pdftex.def Info: ./DifferentialEquations/Images/6/figure_7.png  used on
+ input line 6866.
+(pdftex.def)             Requested size: 204.96208pt x 200.58958pt.
+
+************************************************
+Section 14.3 Adding an External Force
+************************************************
+<./DifferentialEquations/Images/6/figure_8.png, id=2201, 173.14688pt x 174.1506
+2pt>
+File: ./DifferentialEquations/Images/6/figure_8.png Graphic file (type png)
+<use ./DifferentialEquations/Images/6/figure_8.png>
+Package pdftex.def Info: ./DifferentialEquations/Images/6/figure_8.png  used on
+ input line 6881.
+(pdftex.def)             Requested size: 204.96208pt x 206.15495pt.
+
+Overfull \hbox (164.89404pt too wide) has occurred while \output is active
+\T1/lmr/m/sl/10 CHAPTER 14. AN APPLICATION OF SECOND ORDER LINEAR DES WITH CONS
+TANT COEFFICIENTS \T1/lmr/m/n/10 139
+ []
+
+[139 <./DifferentialEquations/Images/6/figure_6.png> <./DifferentialEquations/I
+mages/6/figure_7.png>]
+Overfull \hbox (164.89404pt too wide) has occurred while \output is active
+\T1/lmr/m/sl/10 CHAPTER 14. AN APPLICATION OF SECOND ORDER LINEAR DES WITH CONS
+TANT COEFFICIENTS \T1/lmr/m/n/10 140
+ []
+
+[140 <./DifferentialEquations/Images/6/figure_8.png>]
+<./DifferentialEquations/Images/6/figure_9.png, id=2218, 273.52188pt x 236.885p
+t>
+File: ./DifferentialEquations/Images/6/figure_9.png Graphic file (type png)
+<use ./DifferentialEquations/Images/6/figure_9.png>
+Package pdftex.def Info: ./DifferentialEquations/Images/6/figure_9.png  used on
+ input line 6931.
+(pdftex.def)             Requested size: 204.96208pt x 177.51149pt.
+
+************************************************
+Exercises 14.3 Example Tasks
+************************************************
+
+Overfull \hbox (164.89404pt too wide) has occurred while \output is active
+\T1/lmr/m/sl/10 CHAPTER 14. AN APPLICATION OF SECOND ORDER LINEAR DES WITH CONS
+TANT COEFFICIENTS \T1/lmr/m/n/10 141
+ []
+
+[141 <./DifferentialEquations/Images/6/figure_9.png>]
+<./DifferentialEquations/Images/6/figure_cantilever.png, id=2224, 136.51pt x 81
+.80562pt>
+File: ./DifferentialEquations/Images/6/figure_cantilever.png Graphic file (type
+ png)
+<use ./DifferentialEquations/Images/6/figure_cantilever.png>
+Package pdftex.def Info: ./DifferentialEquations/Images/6/figure_cantilever.png
+  used on input line 6951.
+(pdftex.def)             Requested size: 128.46706pt x 76.99089pt.
+
+************************************************
+Part III Linear Algebra
+************************************************
+
+Overfull \hbox (95.4051pt too wide) has occurred while \output is active
+\T1/lmr/m/sl/10 AN APPLICATION OF SECOND ORDER LINEAR DES WITH CONSTANT COEFFIC
+IENTS \T1/lmr/m/n/10 142
+ []
+
+[142 <./DifferentialEquations/Images/6/figure_cantilever.png>] [143
+
+]
+************************************************
+Chapter 15 Systems of Linear Equations
+************************************************
+Chapter 15.
+************************************************
+Section 15.1 Introduction
+************************************************
+[144
+
+]
+<./LinearAlgebra/Images/1/figure1.png, id=2246, 253.94875pt x 190.21063pt>
+File: ./LinearAlgebra/Images/1/figure1.png Graphic file (type png)
+<use ./LinearAlgebra/Images/1/figure1.png>
+Package pdftex.def Info: ./LinearAlgebra/Images/1/figure1.png  used on input li
+ne 7043.
+(pdftex.def)             Requested size: 205.32208pt x 153.79404pt.
+<./LinearAlgebra/Images/1/figure2.png, id=2247, 248.42813pt x 169.63374pt>
+File: ./LinearAlgebra/Images/1/figure2.png Graphic file (type png)
+<use ./LinearAlgebra/Images/1/figure2.png>
+Package pdftex.def Info: ./LinearAlgebra/Images/1/figure2.png  used on input li
+ne 7071.
+(pdftex.def)             Requested size: 205.32208pt x 140.20062pt.
+ [145 <./LinearAlgebra/Images/1/figure1.png>]
+<./LinearAlgebra/Images/1/figure3.png, id=2261, 268.50313pt x 182.6825pt>
+File: ./LinearAlgebra/Images/1/figure3.png Graphic file (type png)
+<use ./LinearAlgebra/Images/1/figure3.png>
+Package pdftex.def Info: ./LinearAlgebra/Images/1/figure3.png  used on input li
+ne 7095.
+(pdftex.def)             Requested size: 205.32208pt x 139.69589pt.
+ [146 <./LinearAlgebra/Images/1/figure2.png> <./LinearAlgebra/Images/1/figure3.
+png>]
+************************************************
+Section 15.2 Matrices and Systems of Linear Equations
+************************************************
+[147] [148]
+************************************************
+Section 15.3 Solving Systems of Linear Equations
+************************************************
+[149] [150] [151] [152]
+************************************************
+Exercises 15.3 Example Tasks
+************************************************
+[153]
+************************************************
+Chapter 16 Geometric Interpretations of Linear Equations
+************************************************
+
+Underfull \hbox (badness 10000) in paragraph at lines 7489--7499
+
+ []
+
+[154]
+Chapter 16.
+************************************************
+Section 16.1 Interpretation Via Rows
+************************************************
+<./LinearAlgebra/Images/2/figure1.png, id=2361, 288.57813pt x 189.70876pt>
+File: ./LinearAlgebra/Images/2/figure1.png Graphic file (type png)
+<use ./LinearAlgebra/Images/2/figure1.png>
+Package pdftex.def Info: ./LinearAlgebra/Images/2/figure1.png  used on input li
+ne 7527.
+(pdftex.def)             Requested size: 205.32208pt x 134.98361pt.
+[155
+
+]
+<./LinearAlgebra/Images/2/figure2.png, id=2369, 229.35687pt x 221.32687pt>
+File: ./LinearAlgebra/Images/2/figure2.png Graphic file (type png)
+<use ./LinearAlgebra/Images/2/figure2.png>
+Package pdftex.def Info: ./LinearAlgebra/Images/2/figure2.png  used on input li
+ne 7561.
+(pdftex.def)             Requested size: 205.32208pt x 198.14201pt.
+
+Overfull \hbox (29.13567pt too wide) has occurred while \output is active
+\T1/lmr/m/sl/10 CHAPTER 16. GEOMETRIC INTERPRETATIONS OF LINEAR EQUATIONS \T1/l
+mr/m/n/10 156
+ []
+
+[156 <./LinearAlgebra/Images/2/figure1.png>]
+************************************************
+Exercises 16.1 Example Tasks
+************************************************
+************************************************
+Section 16.2 Interpretation Via Columns
+************************************************
+
+Underfull \hbox (badness 10000) in paragraph at lines 7589--7598
+
+ []
+
+
+Overfull \hbox (29.13567pt too wide) has occurred while \output is active
+\T1/lmr/m/sl/10 CHAPTER 16. GEOMETRIC INTERPRETATIONS OF LINEAR EQUATIONS \T1/l
+mr/m/n/10 157
+ []
+
+[157 <./LinearAlgebra/Images/2/figure2.png>]
+<./LinearAlgebra/Images/2/figure3.png, id=2389, 210.7875pt x 136.51pt>
+File: ./LinearAlgebra/Images/2/figure3.png Graphic file (type png)
+<use ./LinearAlgebra/Images/2/figure3.png>
+Package pdftex.def Info: ./LinearAlgebra/Images/2/figure3.png  used on input li
+ne 7616.
+(pdftex.def)             Requested size: 205.32208pt x 132.97276pt.
+<./LinearAlgebra/Images/2/figure4.png, id=2390, 296.10625pt x 193.72375pt>
+File: ./LinearAlgebra/Images/2/figure4.png Graphic file (type png)
+<use ./LinearAlgebra/Images/2/figure4.png>
+Package pdftex.def Info: ./LinearAlgebra/Images/2/figure4.png  used on input li
+ne 7649.
+(pdftex.def)             Requested size: 205.32208pt x 134.33461pt.
+
+Overfull \hbox (29.13567pt too wide) has occurred while \output is active
+\T1/lmr/m/sl/10 CHAPTER 16. GEOMETRIC INTERPRETATIONS OF LINEAR EQUATIONS \T1/l
+mr/m/n/10 158
+ []
+
+[158 <./LinearAlgebra/Images/2/figure3.png>]
+Overfull \hbox (15.89441pt too wide) in paragraph at lines 7674--7676
+[]\T1/lmr/bx/n/10 (-20) Example 16.2.7 []\T1/lmr/m/n/10 (-20) De-scribe the spa
+n of the set of vec-tors $\OMS/lmsy/m/n/10 f[]g \OT1/lmr/m/n/10 (-20) = [] [] \
+OML/lmm/m/it/10 ; [] []$\T1/lmr/m/n/10 (-20) . 
+ []
+
+
+Overfull \hbox (29.13567pt too wide) has occurred while \output is active
+\T1/lmr/m/sl/10 CHAPTER 16. GEOMETRIC INTERPRETATIONS OF LINEAR EQUATIONS \T1/l
+mr/m/n/10 159
+ []
+
+[159 <./LinearAlgebra/Images/2/figure4.png>]
+Overfull \hbox (24.22769pt too wide) in paragraph at lines 7691--7693
+[]\T1/lmr/bx/n/10 (-20) Example 16.2.8 []\T1/lmr/m/n/10 (-20) De-scribe the spa
+n of the set of vec-tors $\OMS/lmsy/m/n/10 f[]g \OT1/lmr/m/n/10 (-20) = [] [] \
+OML/lmm/m/it/10 ; [] []$\T1/lmr/m/n/10 (-20) . 
+ []
+
+<./LinearAlgebra/Images/2/figure5.png, id=2416, 303.63437pt x 281.55188pt>
+File: ./LinearAlgebra/Images/2/figure5.png Graphic file (type png)
+<use ./LinearAlgebra/Images/2/figure5.png>
+Package pdftex.def Info: ./LinearAlgebra/Images/2/figure5.png  used on input li
+ne 7700.
+(pdftex.def)             Requested size: 205.32208pt x 190.39159pt.
+
+Overfull \hbox (29.13567pt too wide) has occurred while \output is active
+\T1/lmr/m/sl/10 CHAPTER 16. GEOMETRIC INTERPRETATIONS OF LINEAR EQUATIONS \T1/l
+mr/m/n/10 160
+ []
+
+[160 <./LinearAlgebra/Images/2/figure5.png>]
+<./LinearAlgebra/Images/2/figure6.png, id=2426, 236.38312pt x 238.8925pt>
+File: ./LinearAlgebra/Images/2/figure6.png Graphic file (type png)
+<use ./LinearAlgebra/Images/2/figure6.png>
+Package pdftex.def Info: ./LinearAlgebra/Images/2/figure6.png  used on input li
+ne 7774.
+(pdftex.def)             Requested size: 205.32208pt x 207.50671pt.
+
+Overfull \hbox (29.13567pt too wide) has occurred while \output is active
+\T1/lmr/m/sl/10 CHAPTER 16. GEOMETRIC INTERPRETATIONS OF LINEAR EQUATIONS \T1/l
+mr/m/n/10 161
+ []
+
+[161]
+<./LinearAlgebra/Images/2/figure7.png, id=2440, 293.095pt x 259.97125pt>
+File: ./LinearAlgebra/Images/2/figure7.png Graphic file (type png)
+<use ./LinearAlgebra/Images/2/figure7.png>
+Package pdftex.def Info: ./LinearAlgebra/Images/2/figure7.png  used on input li
+ne 7799.
+(pdftex.def)             Requested size: 205.32208pt x 182.11746pt.
+
+Overfull \hbox (29.13567pt too wide) has occurred while \output is active
+\T1/lmr/m/sl/10 CHAPTER 16. GEOMETRIC INTERPRETATIONS OF LINEAR EQUATIONS \T1/l
+mr/m/n/10 162
+ []
+
+[162 <./LinearAlgebra/Images/2/figure6.png>]
+Overfull \hbox (29.13567pt too wide) has occurred while \output is active
+\T1/lmr/m/sl/10 CHAPTER 16. GEOMETRIC INTERPRETATIONS OF LINEAR EQUATIONS \T1/l
+mr/m/n/10 163
+ []
+
+[163 <./LinearAlgebra/Images/2/figure7.png>]
+************************************************
+Exercises 16.2 Example Tasks
+************************************************
+
+Overfull \hbox (29.13567pt too wide) has occurred while \output is active
+\T1/lmr/m/sl/10 CHAPTER 16. GEOMETRIC INTERPRETATIONS OF LINEAR EQUATIONS \T1/l
+mr/m/n/10 164
+ []
+
+[164]
+************************************************
+Chapter 17 Matrix Algebra
+************************************************
+
+Overfull \hbox (29.13567pt too wide) has occurred while \output is active
+\T1/lmr/m/sl/10 CHAPTER 16. GEOMETRIC INTERPRETATIONS OF LINEAR EQUATIONS \T1/l
+mr/m/n/10 165
+ []
+
+[165]
+Chapter 17.
+************************************************
+Section 17.1 Introduction
+************************************************
+[166
+
+]
+************************************************
+Section 17.2 Addition and Scalar Multiplication
+************************************************
+[167]
+************************************************
+Exercises 17.2 Example Tasks
+************************************************
+[168]
+************************************************
+Section 17.3 Matrix Multiplication
+************************************************
+
+Underfull \hbox (badness 10000) in paragraph at lines 8069--8078
+
+ []
+
+[169] [170] [171]
+************************************************
+Exercises 17.3 Example Tasks
+************************************************
+************************************************
+Section 17.4 Matrices and Systems of Linear Equations
+************************************************
+
+Underfull \hbox (badness 10000) in paragraph at lines 8249--8258
+
+ []
+
+[172]
+
+! Package inputenc Error: Unicode character − (U+2212)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.8324 ...)} and let \(\mathbf{w} = \mathbf{u} −
+                                                   \mathbf{v}\). By using th...
+
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+! Package inputenc Error: Unicode character − (U+2212)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.8326 A\mathbf{w} = A(\mathbf{u} −
+                                      \mathbf{v}) = A\mathbf{u} − A\mathbf...
+
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+! Package inputenc Error: Unicode character − (U+2212)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.8326 ...hbf{u} − \mathbf{v}) = A\mathbf{u} −
+                                                   A\mathbf{v} =\mathbf{b} �...
+
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+! Package inputenc Error: Unicode character − (U+2212)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.8326 ...athbf{u} − A\mathbf{v} =\mathbf{b} −
+                                                   \mathbf{b} = \mathbf{0}.
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+! Package inputenc Error: Unicode character − (U+2212)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.8338 ...}. Now let \(\mathbf{w} = \mathbf{u} −
+                                                   \mathbf{v}\) and \(t \in ...
+
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+! Package inputenc Error: Unicode character − (U+2212)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.8340 A(t\mathbf{w}) = tA(\mathbf{u} −
+                                          \mathbf{v}) = t(A\mathbf{u} − A\...
+
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+! Package inputenc Error: Unicode character − (U+2212)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.8340 ...f{u} − \mathbf{v}) = t(A\mathbf{u} −
+                                                   A\mathbf{v}) = t(\mathbf{...
+
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+! Package inputenc Error: Unicode character − (U+2212)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.8340 ...f{u} − A\mathbf{v}) = t(\mathbf{b} −
+                                                   \mathbf{b}) = \mathbf{0}\...
+
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+[173]
+************************************************
+Exercises 17.4 Example Tasks
+************************************************
+************************************************
+Section 17.5 Linear Transformations
+************************************************
+
+Underfull \hbox (badness 10000) in paragraph at lines 8385--8394
+
+ []
+
+<./LinearAlgebra/Images/3/Linear_transformation.png, id=2654, 539.51563pt x 363
+.85938pt>
+File: ./LinearAlgebra/Images/3/Linear_transformation.png Graphic file (type png
+)
+<use ./LinearAlgebra/Images/3/Linear_transformation.png>
+Package pdftex.def Info: ./LinearAlgebra/Images/3/Linear_transformation.png  us
+ed on input line 8411.
+(pdftex.def)             Requested size: 239.43896pt x 161.48106pt.
+[174] [175 <./LinearAlgebra/Images/3/Linear_transformation.png>]
+************************************************
+Exercises 17.5 Example Tasks
+************************************************
+************************************************
+Chapter 18 Square Matrices
+************************************************
+
+Underfull \hbox (badness 10000) in paragraph at lines 8481--8491
+
+ []
+
+[176]
+Chapter 18.
+************************************************
+Section 18.1 Inverse Matrices
+************************************************
+[177
+
+]
+Overfull \hbox (22.12155pt too wide) in paragraph at lines 8554--8556
+[]\T1/lmr/bx/n/10 (-20) Example 18.1.2 []\T1/lmr/m/n/10 (-20) Let $\OML/lmm/m/i
+t/10 A \OT1/lmr/m/n/10 (-20) = []  [] \OML/lmm/m/it/10 B \OT1/lmr/m/n/10 (-20) 
+= [] \OML/lmm/m/it/10 :$ \T1/lmr/m/n/10 (-20) Cal-cu-late $\OML/lmm/m/it/10 AB 
+[] BA:$ 
+ []
+
+[178] [179]
+Overfull \hbox (35.25296pt too wide) detected at line 8734
+[]
+ []
+
+
+Overfull \hbox (17.66934pt too wide) detected at line 8772
+[]
+ []
+
+[180] [181] [182]
+************************************************
+Exercises 18.1 Example Tasks
+************************************************
+************************************************
+Section 18.2 Determinants
+************************************************
+
+Underfull \hbox (badness 10000) in paragraph at lines 8922--8931
+
+ []
+
+[183]
+Overfull \hbox (14.19951pt too wide) in paragraph at lines 9022--9023
+[]\T1/lmr/m/it/10 (-20) For the $\OT1/lmr/m/n/10 (-20) 2 \OMS/lmsy/m/n/10  \OT
+1/lmr/m/n/10 (-20) 2$ \T1/lmr/m/it/10 (-20) ma-trix \be-gin{pmatrix} a \amp b \
+\ c \amp d \end{pmatrix}=ad-
+ []
+
+[184] [185] [186]
+************************************************
+Exercises 18.2 Example Tasks
+************************************************
+************************************************
+Chapter 19 Eigenvalues and Eigenvectors
+************************************************
+
+Underfull \hbox (badness 10000) in paragraph at lines 9238--9248
+
+ []
+
+[187]
+Chapter 19.
+
+Overfull \hbox (6.14894pt too wide) in paragraph at lines 9248--9248
+|\T1/lmr/bx/n/24.88 (-20) Eigenvalues and Eigen-vec-tors| 
+ []
+
+************************************************
+Section 19.1 Introduction
+************************************************
+<./LinearAlgebra/Images/5/figure1.png, id=2864, 246.9225pt x 167.12437pt>
+File: ./LinearAlgebra/Images/5/figure1.png Graphic file (type png)
+<use ./LinearAlgebra/Images/5/figure1.png>
+Package pdftex.def Info: ./LinearAlgebra/Images/5/figure1.png  used on input li
+ne 9315.
+(pdftex.def)             Requested size: 256.50002pt x 173.61652pt.
+[188
+
+] [189 <./LinearAlgebra/Images/5/figure1.png>]
+************************************************
+Section 19.2 Finding Eigenvalues and Eigenvectors
+************************************************
+[190]
+<./LinearAlgebra/Images/5/figure2.png, id=2893, 310.66063pt x 208.78pt>
+File: ./LinearAlgebra/Images/5/figure2.png Graphic file (type png)
+<use ./LinearAlgebra/Images/5/figure2.png>
+Package pdftex.def Info: ./LinearAlgebra/Images/5/figure2.png  used on input li
+ne 9449.
+(pdftex.def)             Requested size: 256.50002pt x 172.38258pt.
+ [191] [192 <./LinearAlgebra/Images/5/figure2.png>] [193] [194]
+Overfull \hbox (103.15074pt too wide) detected at line 9593
+[]
+ []
+
+[195]
+Overfull \hbox (24.81639pt too wide) detected at line 9638
+[]
+ []
+
+[196] [197]
+************************************************
+Exercises 19.2 Example Tasks
+************************************************
+************************************************
+Section 19.3 A Simple Application
+************************************************
+
+Underfull \hbox (badness 10000) in paragraph at lines 9714--9723
+
+ []
+
+<./LinearAlgebra/Images/5/figure3.png, id=2951, 170.13562pt x 151.06438pt>
+File: ./LinearAlgebra/Images/5/figure3.png Graphic file (type png)
+<use ./LinearAlgebra/Images/5/figure3.png>
+Package pdftex.def Info: ./LinearAlgebra/Images/5/figure3.png  used on input li
+ne 9728.
+(pdftex.def)             Requested size: 204.96208pt x 181.9978pt.
+[198 <./LinearAlgebra/Images/5/figure3.png>]
+************************************************
+Chapter 20 Some Applications of Eigenvalues and Eigenvectors
+************************************************
+[199]
+Chapter 20.
+************************************************
+Section 20.1 Powers of Matrices
+************************************************
+[200
+
+]
+Overfull \hbox (52.95438pt too wide) has occurred while \output is active
+\T1/lmr/m/sl/10 CHAPTER 20. SOME APPLICATIONS OF EIGENVALUES AND EIGENVECTORS \
+T1/lmr/m/n/10 201
+ []
+
+[201]
+Overfull \hbox (52.95438pt too wide) has occurred while \output is active
+\T1/lmr/m/sl/10 CHAPTER 20. SOME APPLICATIONS OF EIGENVALUES AND EIGENVECTORS \
+T1/lmr/m/n/10 202
+ []
+
+[202]
+************************************************
+Exercises 20.1 Example Tasks
+************************************************
+************************************************
+Section 20.2 Coupled Linear Differential Equations
+************************************************
+
+Underfull \hbox (badness 10000) in paragraph at lines 9970--9979
+
+ []
+
+
+Overfull \hbox (52.95438pt too wide) has occurred while \output is active
+\T1/lmr/m/sl/10 CHAPTER 20. SOME APPLICATIONS OF EIGENVALUES AND EIGENVECTORS \
+T1/lmr/m/n/10 203
+ []
+
+[203]
+<./LinearAlgebra/Images/6/Fig1-solution_curves_plotted.png, id=3006, 474.27188p
+t x 363.85938pt>
+File: ./LinearAlgebra/Images/6/Fig1-solution_curves_plotted.png Graphic file (t
+ype png)
+<use ./LinearAlgebra/Images/6/Fig1-solution_curves_plotted.png>
+Package pdftex.def Info: ./LinearAlgebra/Images/6/Fig1-solution_curves_plotted.
+png  used on input line 10054.
+(pdftex.def)             Requested size: 239.43896pt x 183.69478pt.
+
+Overfull \hbox (52.95438pt too wide) has occurred while \output is active
+\T1/lmr/m/sl/10 CHAPTER 20. SOME APPLICATIONS OF EIGENVALUES AND EIGENVECTORS \
+T1/lmr/m/n/10 204
+ []
+
+[204]
+<./LinearAlgebra/Images/6/Fig2-solution_curves_plotted_2.png, id=3020, 474.2718
+8pt x 363.85938pt>
+File: ./LinearAlgebra/Images/6/Fig2-solution_curves_plotted_2.png Graphic file 
+(type png)
+<use ./LinearAlgebra/Images/6/Fig2-solution_curves_plotted_2.png>
+Package pdftex.def Info: ./LinearAlgebra/Images/6/Fig2-solution_curves_plotted_
+2.png  used on input line 10101.
+(pdftex.def)             Requested size: 239.43896pt x 183.69478pt.
+
+Overfull \hbox (52.95438pt too wide) has occurred while \output is active
+\T1/lmr/m/sl/10 CHAPTER 20. SOME APPLICATIONS OF EIGENVALUES AND EIGENVECTORS \
+T1/lmr/m/n/10 205
+ []
+
+[205 <./LinearAlgebra/Images/6/Fig1-solution_curves_plotted.png>]
+Overfull \hbox (52.95438pt too wide) has occurred while \output is active
+\T1/lmr/m/sl/10 CHAPTER 20. SOME APPLICATIONS OF EIGENVALUES AND EIGENVECTORS \
+T1/lmr/m/n/10 206
+ []
+
+[206 <./LinearAlgebra/Images/6/Fig2-solution_curves_plotted_2.png>]
+<./LinearAlgebra/Images/6/Fig3-solution_curves_plotted_3.png, id=3065, 539.5156
+3pt x 363.85938pt>
+File: ./LinearAlgebra/Images/6/Fig3-solution_curves_plotted_3.png Graphic file 
+(type png)
+<use ./LinearAlgebra/Images/6/Fig3-solution_curves_plotted_3.png>
+Package pdftex.def Info: ./LinearAlgebra/Images/6/Fig3-solution_curves_plotted_
+3.png  used on input line 10170.
+(pdftex.def)             Requested size: 239.43896pt x 161.48106pt.
+
+Overfull \hbox (52.95438pt too wide) has occurred while \output is active
+\T1/lmr/m/sl/10 CHAPTER 20. SOME APPLICATIONS OF EIGENVALUES AND EIGENVECTORS \
+T1/lmr/m/n/10 207
+ []
+
+[207]
+Overfull \hbox (52.95438pt too wide) has occurred while \output is active
+\T1/lmr/m/sl/10 CHAPTER 20. SOME APPLICATIONS OF EIGENVALUES AND EIGENVECTORS \
+T1/lmr/m/n/10 208
+ []
+
+[208 <./LinearAlgebra/Images/6/Fig3-solution_curves_plotted_3.png>]
+************************************************
+Exercises 20.2 Example Tasks
+************************************************
+
+Underfull \hbox (badness 10000) in paragraph at lines 10211--10216
+
+ []
+
+
+Overfull \hbox (52.95438pt too wide) has occurred while \output is active
+\T1/lmr/m/sl/10 CHAPTER 20. SOME APPLICATIONS OF EIGENVALUES AND EIGENVECTORS \
+T1/lmr/m/n/10 209
+ []
+
+[209] (M1120.aux)
+\snap@out=\write5
+\openout5 = `M1120.dep'.
+
+
+Dependency list written on M1120.dep.
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+Package rerunfilecheck Info: File `M1120.out' has not changed.
+(rerunfilecheck)             Checksum: 905DA0FC916D75518E3BE0CA39B4E864;19414.
+ ) 
+Here is how much of TeX's memory you used:
+ 36199 strings out of 478927
+ 742526 string characters out of 2852534
+ 1111696 words of memory out of 3000000
+ 51352 multiletter control sequences out of 15000+600000
+ 501344 words of font info for 260 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 83i,21n,89p,1140b,1847s stack positions out of 5000i,500n,10000p,200000b,80000s
+{C:/Users/fb504/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-rm.enc}{C
+:/Users/fb504/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}{C:/Us
+ers/fb504/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Us
+ers/fb504/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathsy.enc}{C:/Us
+ers/fb504/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}{C:/Users
+/fb504/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-mathex.enc}<C:/Users
+/fb504/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Users
+/fb504/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users
+/fb504/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx7.pfb><C:/Users/
+fb504/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbxi10.pfb><C:/Users
+/fb504/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmex10.pfb><C:/Users
+/fb504/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi10.pfb><C:/Users
+/fb504/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi5.pfb><C:/Users/
+fb504/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmi7.pfb><C:/Users/f
+b504/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmib10.pfb><C:/Users/
+fb504/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmmib7.pfb><C:/Users/
+fb504/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/f
+b504/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr5.pfb><C:/Users/fb5
+04/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr7.pfb><C:/Users/fb504
+/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb><C:/Users/fb504
+/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmro10.pfb><C:/Users/fb504
+/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy10.pfb><C:/Users/fb504
+/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy5.pfb><C:/Users/fb504/
+AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmsy7.pfb><C:/Users/fb504/A
+ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:
+/Users/fb504/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/
+msbm10.pfb>
+Output written on M1120.pdf (209 pages, 12768138 bytes).
+PDF statistics:
+ 3538 PDF objects out of 3580 (max. 8388607)
+ 1685 named destinations out of 1728 (max. 500000)
+ 52652 words of extra memory for PDF output out of 61914 (max. 10000000)
+

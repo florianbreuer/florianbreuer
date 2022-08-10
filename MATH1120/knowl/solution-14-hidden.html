@@ -1,0 +1,33 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-01-07T17:21:47+11:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math"><div class="solution solution-like">
+<p>Since we already know the Taylor series for  <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\cos(x) \)</span>  about  <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(x=\frac{\pi}{2}  \)</span>   we can obtain the <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(4^{\text{th}} \)</span> degree Taylor polynomial for <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(f(x)=x\cos(x) \)</span> about <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(x=\frac{\pi}{2}. \)</span> as follows</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{align*}
+f(x) \amp = x\cos(x)  \\
+\amp = (x-\frac{\pi}{2})\cos(x)+\frac{\pi}{2}\cos(x) \\
+\amp = (x-\frac{\pi}{2})  \big[-(x-\frac{\pi}{2}) + \frac{(x-\frac{\pi}{2})^3}{3!} -  \frac{(x-\frac{\pi}{2})^5}{5!} + \dots   \big] + \frac{\pi}{2}\big[ -(x-\frac{\pi}{2}) +  \frac{(x-\frac{\pi}{2})^3}{3!} -  \frac{(x-\frac{\pi}{2})^5}{5!} + \dots   \big] \\
+\amp = \big[-(x-\frac{\pi}{2})^2 + \frac{(x-\frac{\pi}{2})^4}{3!} - \dots   \big] + \big[ -\frac{\pi}{2}(x-\frac{\pi}{2}) + \frac{\pi}{2}\frac{(x-\frac{\pi}{2})^3}{3!} - \dots   \big]. 
+\end{align*}
+</div>
+<p>Thus the <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(4^{\text{th}} \)</span> degree Taylor polynomial is</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+T_{4}(x) = -\frac{\pi}{2}  (x-\frac{\pi}{2}) -  (x-\frac{\pi}{2})^2 +  \frac{\pi}{2} \frac{(x-\frac{\pi}{2})^3}{3!}  + \frac{(x-\frac{\pi}{2})^4}{3!}.
+\end{equation*}
+</div>
+</div></body>
+</html>

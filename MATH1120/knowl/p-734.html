@@ -1,0 +1,86 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-01-07T17:22:24+11:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h4 class="heading"><span class="type">Paragraph</span></h4>
+<p>The motion of the ball will be governed by Newton’s second law of motion which says</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+F = ma\text{,}
+\end{equation*}
+</div>
+<p class="continuation">where <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(F\)</span> is the net force acting on the ball, <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(m\)</span> is its mass and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(a\)</span> is its acceleration. Once the ball leaves the cannon the forces acting on the ball are gravity, which we will denote by <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(F_G\)</span> and air resistance, denoted by <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(F_R\text{.}\)</span> Now with the positive direction as shown in <a href="" class="xref" data-knowl="./knowl/Fig-Ball_of_Mass_Example.html" title="Figure 11.3.5">Figure 11.3.5</a>,</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+F_G = mg
+\end{equation*}
+</div>
+<p class="continuation">where <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(g\)</span> is the acceleration due to gravity. In the initial phase where the ball is going up the air resistance will be acting against the motion, (i.e. in the positive direction). Thus, since the velocity <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(v\)</span> is negative</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+F_R = -5v\text{.}
+\end{equation*}
+</div>
+<p class="continuation">In the second phase where the ball is falling the air resistance will again be acting against the motion (i.e. in the negative direction). In this phase the velocity is positive and so once again</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+F_R = -5v\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Thus the net force acting on the ball is</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+F = F_G + F_R = mg-5v\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Since</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+a = \dfrac{dv}{dt}
+\end{equation*}
+</div>
+<p class="continuation">Newton's second law gives</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+m \dfrac{dv}{dt} = mg - 5v
+\end{equation*}
+</div>
+<p class="continuation">or</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\dfrac{dv}{dt} + \dfrac{5}{m} v = g
+\end{equation*}
+</div>
+<p class="continuation">with</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+v(0) = -10\text{.}
+\end{equation*}
+</div>
+<p class="continuation">This is a first order linear DE in <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(v(t)\text{.}\)</span> To solve, multiply both sides of the DE by the integrating factor</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+I(t) = \exp \left( \displaystyle \int \frac{5}{m} dt \right) = \exp \left( \frac{5t}{m} \right)
+\end{equation*}
+</div>
+<p class="continuation">to get</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\dfrac{d}{dt} \left[ \exp \left( \frac{5t}{m} v \right) \right] = g \exp \left( \frac{5t}{m} \right)\text{.}
+\end{equation*}
+</div>
+<span class="incontext"><a href="Simple_Applications_of_First_Order_Linear_DEs.html#p-734">in-context</a></span>
+</body>
+</html>

@@ -1,0 +1,523 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- =================================================================================================== -->
+<!-- To process this file with xsltproc do                                                        -->
+<!--                                                                                              -->
+<!-- (1) LaTeX/PDF:                                                                               -->
+<!--     xsltproc -o minimal.tex PATH_TO/mathbook/xsl/pretext-latex.xsl source/main.ptx           -->
+<!--     pdflatex minimal.tex                                                                     -->
+<!--     xelatex minimal.tex                                                                      -->
+<!--                                                                                              -->
+<!-- (2) HTML:                                                                                    -->
+<!--     xsltproc PATH_TO/mathbook/xsl/pretext-html.xsl source/main.ptx                           -->
+<!--     <browser>  minimal.html                                                                  -->
+<!--        ~/xsltproc/xsltproc.exe ~/mathbook/xsl/mathbook-html.xsl test.xml                     -->
+<!--                                                                                              -->
+<!-- (3) CoCalc worksheet (parameter causes a single file for output)                             -->
+<!--     REMOVE the "X" in the double dash (which is not legal in an XML comment)                 -->
+<!--     xsltproc -X-stringparam chunk.level 0 PATH_TO/mathbook/xsl/pretext-smc.xsl source/main.ptx   -->
+<!--     <CoCalc> minimal.sagews                                                                  -->
+<!--                                                                                              -->
+<!-- (4) Sage doctesting                                                                          -->
+<!--     REMOVE the "X" in the double dash (which is not legal in an XML comment)                 -->
+<!--     xsltproc -X-stringparam chunk.level 0 PATH_TO/mathbook/xsl/pretext-sage-doctest.xsl source/main.ptx  -->
+<!--     <read further instructions in> minimal.py                                                -->
+<!-- =================================================================================================== -->
+
+<chapter xml:id="Chap-Calculus_4">
+
+
+
+<!-- =================================================================================================== -->
+<!-- Title and Other Preliminaries -->
+<!-- =================================================================================================== -->
+    <title>CA4: Partial Differentiation</title>
+
+    <!-- <frontmatter> -->
+
+<!--             <titlepage>
+            <author>
+                <institution>University of Newcastle</institution>
+            </author>
+            <date><today /></date>
+        </titlepage> -->
+
+        <!-- <abstract>
+            <p>This is a very short article, but it still exercises some advanced features of MathBook XML.</p>
+        </abstract> -->
+
+    <!-- </frontmatter> -->
+
+    <!-- <introduction>
+        <p>This is a short paragraph to introduce the article (but it is not the abstract).  It is optional, in case it would be preferable to have the first section be titled an <q>Introduction.</q></p>
+    </introduction> -->
+<!-- =================================================================================================== -->
+
+
+
+
+<!-- =================================================================================================== -->
+<!-- Section 1: Partial Differentiation -->
+<!-- =================================================================================================== -->
+    <section xml:id="Sec-Partial_Differentiation">
+        <title>Partial Differentiation</title>
+
+        <p>Firstly, let’s recall some of the important things that we know about the derivative of the function of one variable, <m>f(x)</m>.</p>
+
+        <p><ol label="i">
+            <li><p>At any given point <m>x_0</m>, <m>f'(x_0)</m> gives the slope of the tangent to the graph of the function at that point.
+            <figure xml:id="Fig-Slope_of_tangent">
+                <caption></caption>
+                <image source="./Calculus/Images/4/Slope_of_tangent.png" width="85%"/>
+            </figure>
+            </p></li>
+            <li><p>At any given point <m>x_0</m>, <m>f'(x_0)</m> gives the instantaneous rate of change of the function at that point.</p></li>
+            <li><p>The derivative <m>f'(x)</m> is itself a function of one variable, when it exists.</p></li>
+        </ol></p>
+
+        <p>For a function of two variables,  , the rate at which the function is changing at any point as we vary the independent variables depends upon the direction in which we vary those variables.</p>
+
+
+        <example xml:id="Ex-Direction_and_rate_of_change">
+            <!-- <title>Direction and Rate of Change</title> -->
+
+            <p>Consider the function <m>f(x,y) = x^2-y^2</m>. The graph of this function is shown below. At <m>(x,y)=(0,0)</m>, <m>f=0</m>. As we can see by looking at the graph, as we move away from the origin along the positive <m>x</m>-axis the value of <m>f</m> is increasing, i.e. the rate of change of the function will be positive. However, if we move away from the origin along the positive <m>y</m>-axis the value of <m>f</m> is decreasing, i.e. the rate of change of the function will be negative.</p>
+
+            <figure xml:id="Fig-Example_1_Contour_Plot">
+                <caption></caption>
+                <image source="./Calculus/Images/4/Ex1_Contour_Plot_Fig_1.png" width="70%"/>
+            </figure>
+        </example>
+
+        <p>As a first step to analyzing more formally how a function of two variables can change with respect to its independent variables we will first consider the cases where we vary only one variable at a time.</p>
+
+
+        <example xml:id="Ex-Direction_and_instantaneous_rate_of_change">
+            <!-- <title>Direction and Instantaneous Rate of Change</title> -->
+
+            <p>Consider the function <m>f(x,y) = 5 - \dfrac{x^2+y^2}{2}</m> at the point <m>(2,1)</m>.</p>
+            <p>Firstly, let’s look at the instantaneous rate of change of <m>f</m> in the direction of the positive <m>x</m>-axis, As shown in the diagram below, if we hold <m>y</m> constant at and vary <m>x</m> we are actually moving along the curve <me>z=\frac{9}{2}-\frac{1}{2}x^2</me>.</p>
+
+            <figure xml:id="Fig-Example_2_x_axis">
+                <caption></caption>
+                <image source="./Calculus/Images/4/Ex2_x_axis_rate_of_change.png" width="70%"/>
+            </figure>
+
+            <p>Along this curve <m>\dfrac{dz}{dx}=-x</m> and at <m>x=2</m> we have <m>\dfrac{dz}{dx}=-2</m>. Thus, the instantaneous rate of change of <m>f</m> in the direction of the positive <m>x</m>-axis at the point <m>(2,1)</m> is <m>-2</m>.</p>
+
+            <p>Now consider the instantaneous rate of change of <m>f</m> in the direction of the positive <m>y</m>-axis. As shown in the diagram below, if we hold <m>x</m> constant at <m>x=2</m> and vary <m>y</m> we are actually moving along the curve <me>z=3-\frac{1}{2}y^2</me>.</p>
+
+            <p>Along this curve <m>\dfrac{dz}{dy}=-y</m> and at <m>y=1</m> we have <m>\dfrac{dz}{dy}=-1</m>. Thus, the instantaneous rate of change of <m>f</m> in the direction of the positive <m>y</m>-axis at the point <m>(2,1)</m> is <m>-1</m>.</p>
+
+            <figure xml:id="Fig-Example_2_y_axis">
+                <caption></caption>
+                <image source="./Calculus/Images/4/Ex2_y_axis_rate_of_change.png" width="70%"/>
+            </figure>
+        </example>
+
+
+        <p>The above example provided an illustration of calculating what are called partial derivatives. Formally partial derivatives are defined as follows.</p>
+
+
+        <definition>
+            <title>Partial Derivative</title>
+            <statement>
+                <p>Consider the function of two variables, <m>f(x,y)</m></p>
+                <p>The <term>partial derivative of <m>f</m> with respect to <m>x</m></term> at the point <m>(x_0,y_0)</m> is given by the limit (if it exists)
+                    <me>\frac{\partial f}{\partial x} (x_0,y_0) = \lim_{h \to 0} \left[ \frac{f(x_0+h,y_0)-f(x_0,y_0)}{h} \right]</me>.
+                </p>
+                <p>The <term>partial derivative of <m>f</m> with respect to <m>y</m></term> at the point <m>(x_0,y_0)</m> is given by the limit (if it exists)
+                    <me>\frac{\partial f}{\partial y} (x_0,y_0) = \lim_{h \to 0} \left[ \frac{f(x_0,y_0+h)-f(x_0,y_0)}{h} \right]</me>.
+                </p>
+            </statement>
+        </definition>
+
+
+        <example xml:id="Ex-Calculating_partial_derivatives_at_particular_point">
+            <!-- <title>Calculating Partial Derivatives at a Particular Point</title> -->
+                <statement>
+                    <p>Using the definition, calculate the partial derivatives of <m>f(x,y) = 5 - \dfrac{x^2+y^2}{2}</m> at the point <m>(2,1)</m>.</p>
+                </statement>
+
+                <answer>
+                    <p><m>\dfrac{\partial f}{\partial x}(2,1) = -2</m> and <m>\dfrac{\partial f}{\partial y}(2,1) = -1</m></p>
+                </answer>
+
+                <solution>
+                    <p>Firstly, calculate the partial derivative of <m>f</m> with respect to <m>x</m> at <m>(2,1)</m>.</p>
+                    <p><md>
+                        <mrow>\frac{\partial f}{\partial x}(2,1) \amp = \lim_{h \to 0} \left[ \frac{f(2+h,1)-f(2,1)}{h} \right]</mrow>
+                        <mrow>\amp = \lim_{h \to 0} \left[\frac{1}{h} \left( \left( 5 - \frac{(2+h)^2 + 1^2}{2} \right) - \left( 5 - \frac{2^2+1^2}{2} \right) \right) \right]</mrow>
+                        <mrow>\amp = \lim_{h \to 0} \left[\frac{1}{h} \left( -\frac{1}{2}(4+4h+h^2+1) +\frac{1}{2}(4+1) \right) \right]</mrow>
+                        <mrow>\amp = \lim_{h \to 0} \left[ \frac{1}{h} \left(-2h-\frac{1}{2}h^2 \right) \right]</mrow>
+                        <mrow>\amp = -2</mrow>
+                    </md></p>
+                    <p>Next, calculate the partial derivative of <m>f</m> with respect to <m>y</m> at <m>(2,1)</m>.</p>
+                    <p><md>
+                        <mrow>\frac{\partial f}{\partial x}(2,1) \amp = \lim_{h \to 0} \left[ \frac{f(2,1+h)-f(2,1)}{h} \right]</mrow>
+                        <mrow>\amp = \lim_{h \to 0} \left[\frac{1}{h} \left( \left( 5 - \frac{2^2 + (1+h)^2}{2} \right) - \left( 5 - \frac{2^2+1^2}{2} \right) \right) \right]</mrow>
+                        <mrow>\amp = \lim_{h \to 0} \left[\frac{1}{h} \left( -\frac{1}{2}(4+1+2h+h^2) +\frac{1}{2}(4+1) \right) \right]</mrow>
+                        <mrow>\amp = \lim_{h \to 0} \left[ \frac{1}{h} \left(-h-\frac{1}{2}h^2 \right) \right]</mrow>
+                        <mrow>\amp = -1</mrow>
+                    </md></p>
+                </solution>
+        </example>
+
+
+        <p>If we calculate the partial derivatives of a function at the general point <m>(x,y)</m> (as opposed to some specific point <m>(x_0,y_0)</m>) we will obtain (instead of two specific values) two new functions of two variables.</p>
+
+
+        <example xml:id="Ex-Calculating_partial_derivatives_at_general_point">
+            <!-- <title>Calculating Partial Derivatives at a General Point</title> -->
+                <statement>
+                    <p>Using the definition, calculate the partial derivatives of <m>f(x,y) = xy-1</m>.</p>
+                </statement>
+
+                <answer>
+                    <p><m>\dfrac{\partial f}{\partial x}(x,y) = y</m> and <m>\dfrac{\partial f}{\partial y}(x,y) = x</m></p>
+                </answer>
+
+                <solution>
+                    <p>Calculating the partial derivative with respect to <m>x</m>:</p>
+                    <p><md>
+                        <mrow>\frac{\partial f}{\partial x}(x,y) \amp = \lim_{h \to 0} \left[ \frac{f(x+h,y)-f(x,y)}{h} \right]</mrow>
+                        <mrow>\amp = \lim_{h \to 0} \left[ \frac{\left( (x+h)y-1 \right)-(xy-1)}{h} \right]</mrow>
+                        <mrow>\amp = \lim_{h \to 0} \left[ \frac{hy}{h} \right]</mrow>
+                        <mrow>\amp = y</mrow>
+                    </md></p>
+                    <p>Now, calculating the partial derivative with respect to <m>y</m>:</p>
+                    <p><md>
+                        <mrow>\frac{\partial f}{\partial y}(x,y) \amp = \lim_{h \to 0} \left[ \frac{f(x,y+h)-f(x,y)}{h} \right]</mrow>
+                        <mrow>\amp = \lim_{h \to 0} \left[ \frac{\left( x(y+h)-1 \right)-(xy-1)}{h} \right]</mrow>
+                        <mrow>\amp = \lim_{h \to 0} \left[ \frac{hx}{h} \right]</mrow>
+                        <mrow>\amp = x</mrow>
+                    </md></p>
+                </solution>
+        </example>
+
+
+        <p>As can be seen in the above example, to calculate the partial derivative of <m>f</m> with respect to <m>x</m> at the general point <m>(x,y)</m> all we have to do is treat <m>y</m> as a constant and differentiate <m>f(x,y)</m> with respect to <m>x</m> (using all of the familiar rules of differentiation for functions of one variable). Similarly, to calculate the partial derivative of <m>f</m> with respect to <m>y</m> at the general point <m>(x,y)</m> treat <m>x</m> as a constant and differentiate <m>f(x,y)</m> with respect to <m>y</m>.</p>
+
+
+        <example xml:id="Ex-Calculating_partial_derivatives_at_particular_point_shorter">
+            <!-- <title>Calculating Partial Derivatives at a Particular Point</title> -->
+                <statement>
+                    <p>Find the partial derivatives of the function <m>f(x,y) = 5 - \frac{x^2+y^2}{2}</m> at the point <m>(2,1)</m> using the above method.</p>
+                </statement>
+
+                <answer>
+                    <p><m>\dfrac{\partial f}{\partial x}(2,1) = -2</m> and <m>\dfrac{\partial f}{\partial y}(2,1) = -1</m></p>
+                </answer>
+
+                <solution>
+                    <p>This function can be written as:</p>
+                    <p><me>
+                        f(x,y) = 5 - \frac{1}{2}x^2 - \frac{1}{2}y^2.
+                    </me></p>
+                    <p>Now, thinking of <m>y</m> as a constant (so that <m>\frac{1}{2}y^2</m> is also constant) and treating the function as a function of <m>x</m> only, </p>
+                    <p><me>
+                        \dfrac{\partial f}{\partial x}(x,y) = 0 - 2 \times \frac{1}{2}x - 0 = -x.
+                    </me></p>
+                    <p>Thus,</p>
+                    <p><me>
+                        \dfrac{\partial f}{\partial x}(2,1) = -2.
+                    </me></p>
+
+                    <p>Next, think of <m>x</m> as a constant (so that <m>\frac{1}{2}x^2</m> is also constant) and treating the function as a function of <m>y</m> only,</p>
+                    <p><me>
+                        \dfrac{\partial f}{\partial y}(x,y) = 0-0-2\times \frac{1}{2} y = -y.
+                    </me></p>
+                    <p>Thus,</p>
+                    <p><me>
+                        \dfrac{\partial f}{\partial y}(2,1) = -1.
+                    </me></p>
+                </solution>
+        </example>
+
+
+        <p>A shorter notation for the partial derivative of <m>f</m> with respect to <m>x</m> is <m>f_x</m>. Similarly the partial derivative with respect to <m>y</m> is written as <m>f_y</m>.</p>
+
+
+        <example xml:id="Ex-shorthand_computation_example-1">
+                <statement>
+                    <p>Find <m>f_x</m> and <m>f_y</m> when <m>f(x,y) = x^2y</m>.</p>
+                </statement>
+
+                <solution>
+                    <p>To find <m>f_x (x,y)</m>, think of <m>y</m> as a constant. Thus, <me>f_x(x,y) = 2xy</me>.</p>
+                    <p>To find <m>f_y (x,y)</m>, think of <m>x</m> as a constant. So, <me>f_y(x,y) = x^2</me>.</p>
+                </solution>
+        </example>
+
+
+        <example xml:id="Ex-shorthand_computation_example_arcsin">
+                <statement>
+                    <p>Find <m>f_x</m> and <m>f_y</m> when <m>f(x,y) = \sin^{-1}\left(\frac{x}{y}\right) - 5x^2</m>.</p>
+                </statement>
+
+                <solution>
+                    <p>To find <m>f_x (x,y)</m>, think of <m>y</m> as a constant. Thus, using the chain rule:
+                        <md>
+                            <mrow>f_x(x,y) \amp = \frac{1}{\sqrt{1 - \left(\dfrac{x}{y}\right)^2 }} \cdot \frac{1}{y} - 10x</mrow>
+                            <mrow>\amp = \frac{1}{\sqrt{y^2 - x^2}} - 10x</mrow>
+                        </md>.
+                    </p>
+                    <p>To find <m>f_y (x,y)</m>, think of <m>x</m> as a constant. Again, using the chain rule:
+                        <md>
+                            <mrow>f_y(x,y) \amp = \frac{1}{\sqrt{1 - \left(\dfrac{x}{y}\right)^2 }} \cdot \left( \frac{-x}{y^2} \right) - 0</mrow>
+                            <mrow>\amp = \frac{-x}{y\sqrt{y^2-x^2}}.</mrow>
+                        </md>
+                    </p>
+                </solution>
+        </example>
+
+
+        <example xml:id="Ex-shorthand_computation_example-3_variables_implicit">
+                <statement>
+                    <p>The equation <m>xz + y^2z^3 = 2</m> can be thought of as implicitly defining <m>z</m> as a function of <m>x</m> and <m>y</m>. Find <m>z_x</m> and <m>z_y</m>.</p>
+                </statement>
+
+                <solution>
+                    <p>To find <m>z_x</m> differentiate both sides of the defining equation with respect to <m>x</m>, remembering that <m>z</m> is some unknown function of <m>x</m>. Also, remember to treat <m>y</m> as a constant. Then, using the product rule and the chain rule,</p>
+                    <p><md>
+                        <mrow>\frac{\partial}{\partial x} \left(xz + y^2z^3 \right) \amp = \frac{\partial}{\partial x} (2)</mrow>
+                        <mrow>xz_x + z + 3y^2 z^2 z_x \amp = 0</mrow>
+                        <mrow>z_x (x+3y^2 z^2) \amp = -z</mrow>
+                        <mrow>z_x \amp = \frac{-z}{x+3y^2 z^2}</mrow>
+                    </md></p>
+                    <p>Similarly, differentiating both sides of the defining equation with respect to <m>y</m>,</p>
+                    <p><md>
+                        <mrow>\frac{\partial}{\partial y} \left(xz + y^2z^3 \right) \amp = \frac{\partial}{\partial y} (2)</mrow>
+                        <mrow>xz_y + 2yz^3 + 3y^2 z^2 z_y \amp = 0</mrow>
+                        <mrow>z_y (x+3y^2 z^2) \amp = -2yz^3</mrow>
+                        <mrow>z_y \amp = \frac{-2yz^3}{x+3y^2 z^2}</mrow>
+                    </md></p>
+                </solution>
+        </example>
+
+
+        <p>Partial derivatives can be found for functions of more than two variables.</p>
+
+
+        <example xml:id="Ex-shorthand_computation_example_3_variables">
+                <statement>
+                    <p>Find the partial derivatives for the function of three variables <me>f(x,y,z) = (2x+3y-z^2)e^{xz}</me>.</p>
+                </statement>
+
+                <solution>
+                    <p>Write the function as <me>f(x,y,z) = 2xe^{xz} + 3ye^{xz} - z^2 e^{xz}</me>.</p>
+                    <p>To find <m>f_x</m> treat <m>y</m> and <m>z</m> as constants and think of <m>f</m> as a function of <m>x</m> only. Thus,</p>
+                    <p><md>
+                        <mrow>f_x(x,y,z) \amp = (2xz e^{xz} + 2e^{xz} ) + 3yze^{xz} - z^3 e^{xz}</mrow>
+                        <mrow>\amp = e^{xz} (2xz + 3yz - z^3 + 2)</mrow>
+                    </md></p>
+                    <p>To find <m>f_y</m> treat <m>x</m> and <m>z</m> as constants and think of <m>f</m> as a function of <m>y</m> only. Thus,</p>
+                    <p><md>
+                        <mrow>f_y(x,y,z) \amp = 0 + 3e^{xz} - 0</mrow>
+                        <mrow>\amp = 3e^{xz}</mrow>
+                    </md></p>
+                    <p>Finally, to find <m>f_z</m> treat <m>x</m> and <m>y</m> as constants and think of <m>f</m> as a function of <m>z</m> only. Thus,</p>
+                    <p><md>
+                        <mrow>f_z(x,y,z) \amp = 2x^2 e^{xz} + 3xye^{xz} - (xz^2e^{xz} + 2ze^{xz} )</mrow>
+                        <mrow>\amp = e^{xz} (2x^2 + 3xy - xz^2 - 2z)</mrow>
+                    </md></p>
+                </solution>
+        </example>
+
+
+        <exercises>
+            <title>Example Tasks</title>
+
+            <exercise>
+                <statement>
+                    <p>Find both partial derivatives of the function <m>f(x,y)=4-xy-y^2</m> at the point <m>(3,2)</m>.</p>
+                </statement>
+            </exercise>
+
+            <exercise>
+                <statement>
+                    <p>Find <m>\dfrac{\partial f}{\partial x}</m> and <m>\dfrac{\partial f}{\partial y}</m> when <m>f(x,y) = \ln(x^2-4xy^3)</m>.</p>
+                </statement>
+            </exercise>
+
+            <exercise>
+                <statement>
+                    <p>If <m>L(x,y) = \dfrac{e^{xy}}{(1-x)(1-y)}</m>, find <m>L_x(2,3)</m>.</p>
+                </statement>
+            </exercise>
+
+            <exercise>
+                <statement>
+                    <p>Find <m>f_x(x,y)</m> and <m>f_y(x,y)</m> when <m>f(x,y) = x^y</m>.</p>
+                </statement>
+            </exercise>
+
+            <exercise>
+                <statement>
+                    <p>In the following contour plot the contours are for evenly spaced values of <m>k</m> from <m>-2</m> at the point <m>X</m> to <m>2</m> at the point <m>Y</m>. Find the sign of <m>f_x(x,y)</m> and <m>f_y(x,y)</m> at the points <m>A</m>, <m>B</m> and <m>C</m> given the following contour plot for the function <m>f(x,y)</m>. Explain your thinking.</p>
+                    <figure xml:id="Fig-Contour_plot">
+                        <caption></caption>
+                        <image source="./Calculus/Images/4/Contour_plot.png" width="70%"/>
+                    </figure>
+                </statement>
+            </exercise>
+
+        </exercises>
+
+    </section>
+<!-- =================================================================================================== -->
+
+
+
+
+<!-- =================================================================================================== -->
+<!-- Section 2: Higher Partial Derivatives -->
+<!-- =================================================================================================== -->
+    <section xml:id="Sec-Higher_Partial_Derivatives">
+        <title>Higher Partial Derivatives</title>
+
+        <p>The partial derivatives of the function <m>z=f(x,y)</m> are themselves functions of two variables. Thus they can be differentiated further, giving the second partial derivatives, the third partial derivatives etc. Common notations for the second partial derivatives include:</p>
+        <p><md alignment="alignat">
+            <mrow>\dfrac{\partial}{\partial x} \left( \dfrac{\partial f}{\partial x} \right) \amp = \dfrac{\partial^2 f}{\partial x^2} \amp = (f_x)_x \amp = f_{xx}</mrow>
+            <mrow>\dfrac{\partial}{\partial y} \left( \dfrac{\partial f}{\partial x} \right) \amp = \dfrac{\partial^2 f}{\partial y \partial x} \amp = (f_x)_y \amp = f_{xy}</mrow>
+            <mrow>\dfrac{\partial}{\partial x} \left( \dfrac{\partial f}{\partial y} \right) \amp = \dfrac{\partial^2 f}{\partial x \partial y} \amp = (f_y)_x \amp = f_{yx}</mrow>
+            <mrow>\dfrac{\partial}{\partial y} \left( \dfrac{\partial f}{\partial y} \right) \amp = \dfrac{\partial^2 f}{\partial y^2} \amp = (f_y)_y \amp = f_{yy}</mrow>
+        </md></p>
+
+
+        <example xml:id="Ex-second_partial_derivatives">
+                <statement>
+                    <p>Find the second partial derivatives for the function <me>f(x,y) = \sin(x) \cos(y)</me>.</p>
+                </statement>
+
+                <solution>
+                    <p>Begin by finding the first partial derivatives. Here
+                        <md>
+                            <mrow>\amp f_x(x,y) = \cos(x)\cos(y) \amp \text{and} \amp \amp f_y(x,y) = - \sin(x) \sin(y)</mrow>
+                        </md>.
+                    </p>
+                    <p>Now differentiate <m>f_x(x,y)</m> firstly with respect to <m>x</m> to find <m>f_{xx}(x,y)</m> and then with respect to <m>y</m> to find <m>f_{xy}(x,y)</m>. Thus,
+                        <md>
+                            <mrow>f_{xx}(x,y) \amp = -\sin(x) \cos(y), \, \, \text{and}</mrow>
+                            <mrow>f_{xy}(x,y) \amp = -\cos(x) \sin(y).</mrow>
+                        </md>
+                    </p>
+                    <p>Next differentiate <m>f_y(x,y)</m> with respect to <m>x</m> to find <m>f_{yx}(x,y)</m> and then with respect to <m>y</m> to find <m>f_{yy}(x,y)</m>. Thus,
+                        <md>
+                            <mrow>f_{yx}(x,y) \amp = -\cos(x) \sin(y), \, \, \text{and}</mrow>
+                            <mrow>f_{yy}(x,y) \amp = -\sin(x) \cos(y).</mrow>
+                        </md>
+                    </p>
+                    <p>Notice that for this function <m>f_{xy}(x,y) = f_{yx}(x,y)</m>.
+                    </p>
+                </solution>
+        </example>
+
+
+        <example xml:id="Ex-third_partial_derivatives">
+                <statement>
+                    <p>Calculate <m>g_{xxy}</m>, <m>g_{xyx}</m> and <m>g_{yxx}</m> when <m>g(x)=xy^2 + \dfrac{y}{x^2}</m>.</p>
+                </statement>
+
+                <solution>
+                    <p>Begin by writing the function in the form <me>g(x,y) = xy^2 + yx^{-2}</me>.
+                    </p>
+                    <p>Then the first partial derivatives are
+                        <md>
+                            <mrow>\amp g_x = y^2 - 2yx^{-3} \amp \text{and} \amp \amp g_y = 2xy+x^{-2}</mrow>
+                        </md>
+                        and hence the second partial derivatives are
+                        <me>
+                            g_{xx}=6yx^{-4}, \;  g_{xy} = 2y-2x^{-3}, \;  g_{yx} = 2y-2x^{-3}, \; g_{yy} = 2x
+                        </me>.
+                    </p>
+                    <p>Differentiating <m>g_{xx}</m> with respect to <m>y</m>, <m>g_{xy}</m> with respect to <m>x</m> and <m>g_{yx}</m> with respect to <m>x</m> gives
+                        <me>
+                            g_{xxy} = 6x^{-4}, \; g_{xyx} = 6x^{-4}, \; g_{yxx} = 6x^{-4}
+                        </me>.
+                    </p>
+                </solution>
+        </example>
+
+
+        <p>The above instances have provided examples of the following general result.</p>
+
+        <theorem>
+            <title>Clairaut's Theorem</title>
+                <statement>
+                    <p>
+                      If for the function <m>f(x,y)</m> both <m>f_{xy}</m> and <m>f_{yx}</m> are continuous on some domain <m>D</m>, then on that domain <me>f_{xy}(x,y) = f_{yx}(x,y)</me>.
+                    </p>
+                </statement>
+        </theorem>
+
+        <p>Clairaut’s Theorem can be extended to higher partial derivatives and to functions of more than two variables.</p>
+
+        <example xml:id="Ex-first_and_second_partials_of_3_variable_function">
+                <statement>
+                    <p>Calculate all first and second order partial derivatives for the function
+                        <me>
+                            g(x,y,z) = \dfrac{x^2 + 3y^2}{1+2z}
+                        </me>.
+                    </p>
+                </statement>
+
+                <solution>
+                    <p>Even though <m>g</m> is a function of <m>3</m> variables, Clairaut's Theorem still holds. Thus there will be only 6 distinct second partial derivatives, i.e. <m>g_{xx}</m>, <m>g_{xy}</m>, <m>g_{xz}</m>, <m>g_{yy}</m>, <m>g_{yz}</m>, <m>g_{zz}</m>.</p>
+                    <p>Now
+                        <me>
+                            g_x = \dfrac{2x}{1+2z}, \,\, g_y = \dfrac{6y}{1+2z}, \,\, g_z = \dfrac{-2(x^2+3y^2)}{(1+2z)^2}
+                        </me>
+                        and so
+                        <me>
+                            g_{xx} = \dfrac{2}{1+2z}, \,\, g_{xy} = 0, \,\, g_{xz} = \dfrac{-4x}{(1+2z)^2},
+                        </me>
+                        <me>
+                            g_{yz} = \dfrac{-12y}{(1+2z)^2}, \,\, g_{yy} = \dfrac{6}{1+2z}, \,\, g_{zz} = \dfrac{8(x^2+3y^2)}{(1+2z)^3}.
+                        </me>
+                    </p>
+                </solution>
+        </example>
+
+
+        <exercises>
+            <title>Example Tasks</title>
+
+            <exercise>
+                <statement>
+                    <p>Find the second partial derivatives for the function <m>z=xye^y</m>.</p>
+                </statement>
+            </exercise>
+
+            <exercise>
+                <statement>
+                    <p>Calculate <m>g_{xx},\,</m> <m>g_{xy}</m> and <m>g_{xyy}</m> for <m>g(x,y) = \dfrac{y}{1+x^2}</m>.</p>
+                </statement>
+            </exercise>
+
+            <exercise>
+                <statement>
+                    <p>Let <m>u(x,t) = e^{-t} \sin \left(\frac{x}{c}\right)</m> where <m>c</m> is a constant and <m>c>0</m>. Determine if <m>u</m> satisfies <me>\dfrac{\partial u}{\partial t} = c^2 \dfrac{\partial^2 u}{\partial x^2}</me></p>
+                </statement>
+            </exercise>
+
+        </exercises>
+
+        <remark>
+            <title>A little remark</title>
+                <p>
+                    Computer algebra systems can find partial derivatives. For example, here are some examples of a queries to Wolfram Alpha that will work.
+                </p>
+                <figure xml:id="Fig-WA_1">
+                    <image source="./Calculus/Images/4/WA_1.png" width="90%"/>
+                </figure>
+                <figure xml:id="Fig-WA_2">
+                        <image source="./Calculus/Images/4/WA_2.png" width="90%"/>
+                </figure>
+                <figure xml:id="Fig-WA_3">
+                    <image source="./Calculus/Images/4/WA_3.png" width="90%"/>
+                </figure>
+        </remark>
+
+    </section>
+<!-- =================================================================================================== -->
+</chapter>

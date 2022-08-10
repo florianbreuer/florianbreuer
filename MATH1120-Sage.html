@@ -40,19 +40,30 @@
   Sage <a href="https://doc.sagemath.org/html/en/tutorial/index.html">Tutorials</a> and documentation are
   <a href="https://doc.sagemath.org/">here</a>.<br>
 
-<!--
-  <h2>Factorial</h2>
-  Click the &ldquo;Activate&rdquo; button below to calculate factorials.
+<hr>
+<h1>Contents</h1>
+<ul>
+  <li><a href="#CA1">Calculus I : Maclaurin series</a></li>
+  <li><a href="#CA2">Calculus II: Taylor series</a></li>
+  <li><a href="#CA3">Calculus III : Functions of Several Variables</a></li>
+  <li><a href="#CA4">Calculus IV : Partial Derivatives</a></li>
+  <li><a href="#CA5">Calculus V : Tangent Planes </a></li>
+  <li><a href="#CA6">Calculus VI : Directional derivative and gradient vectors </a></li>
+  <li><a href="#CA7">Calculus VII: Global Minima and Maxima </a></li>
+  <li><a href="#CA8">Calculus VIII: Chain Rules </a></li>
+  <li><a href="#DE1">Differential Equations I: Direction Fields and Euler's Method </a></li>
+  <li><a href="#DE2">Differential Equations II: Separable DEs</a></li>
+  <li><a href="#SIR">The SIR model of epidemics</a></li>
+  <li><a href="#DE6">Differential Equations VI: Applications</a></li>
+  <li><a href="#LA1">Linear Algebra I: Systems of Linear Equations</a></li>
+  <li><a href="#LA3">Linear Algebra III: Matrices and Linear Transformations</a></li>
+  <li><a href="#LA4">Linear Algebra IV: Square matrices</a></li>
+  <li><a href="#LA5">Linear Algebra V: Eigenvectors and Eigenvalues</a></li>
+  <li><a href="#LA6">Linear Algebra VI: Applications of Eigenvalues and Eigenvectors</a></li>
+</ul>
+<hr>
 
-<div id="mycell"><script type="text/x-sage">
-@interact
-def _(a=(1, 10)):
-    print(factorial(a))
- </script>
-</div>
--->
-
-<h2>Calculus I : Maclaurin series</h2>
+<h2 id="CA1">Calculus I : Maclaurin series</h2>
 
 Compute partial sums for the infinite series
 \[
@@ -63,7 +74,7 @@ Compute partial sums for the infinite series
 s = 1
 for i in range(1,20):
     s = s+2^(-i)
-    t=latex('1 + ')+'+'.join([r'\frac{1}{2^{'+str(j)+r'}}' for j in range(1,i+1)])+'= '+latex(s)+' = '+latex(n(s))
+    t='1 + '+'+'.join([r'\frac{1}{2^{'+str(j)+r'}}' for j in range(1,i+1)])+'= '+latex(s)+' = '+latex(n(s))
     show(t)
 </script></div>
 
@@ -91,7 +102,7 @@ def _(order=slider([1 .. 12])):
 </script></div>
 <br>
 
-<h2>Calculus II: Taylor series</h2>
+<h2 id="CA2">Calculus II: Taylor series</h2>
 
 Plot Taylor polynomials for various functions:
 
@@ -146,21 +157,32 @@ show(plot([log(x), ft], (x,0,10), ymax=10, ymin=-5, legend_label = ['ln(x)','T_'
 </script></div>
 
 
-<h2>Calculus III : Functions of Several Variables</h2>
+<h2 id="CA3">Calculus III : Functions of Several Variables</h2>
 
 
 <b>3D plots of functions we saw in class:</b><br><br>
 
 \(f(x,y)=xy\):<br>
 <div class="compute"><script type="text/x-sage">
-x,y=var('x','y')
-f=x*y
-Mx=1
-My=1
-plot3d(f,(x,-Mx,Mx),(y,-My,My),axes=true)
+x, y = var('x','y')
+f = x*y
+Mx = 1
+My = 1
+plot3d(f, (x,-Mx,Mx), (y,-My,My), axes=true)
 </script></div>
 
+<br><br>
+
+Here are the level curves (contours) for the same function:
+<div class="compute"><script type="text/x-sage">
+x, y = var('x','y')
+f = x*y
+Mx = 2
+My = 2
+show(contour_plot(f, (x,-Mx,Mx), (y,-My,My), fill=False, labels=True, contours=[-2,-1,0,1,2], cmap='rainbow'))
+</script></div>
 <br>
+
 The sombrero:
 \(f(x,y)=1-\sqrt{x^2+y^2}e^{-(x^2+y^2)}\):<br>
 <div class="compute"><script type="text/x-sage">
@@ -172,15 +194,32 @@ plot3d(f,(x,-Mx,Mx),(y,-My,My))
 </script></div>
 
 <br>
-Now we plot both the 3D graph and a contour plot:<br>
+Now we plot both the 3D graph and a contour plot:
+<br>
 \( f(x,y)=\sin(y)e^{x/5}\)<br>
 <div class="compute"><script type="text/x-sage">
-x,y=var('x','y')
-f=sin(y)*exp(x/5)
-Mx=10
-My=10
-show(plot3d(f,(x,-Mx,Mx),(y,-My,My)),plot_points=500,adaptive=true)
-show(contour_plot(f,(x,-Mx,Mx),(y,-My,My),colorbar=True,labels=True,contours=30,plot_points=500))
+x, y = var('x','y')
+f = sin(y)*exp(x/5)
+Mx = 10
+My = 10
+colormaps = sage.plot.colors.colormaps.keys()
+
+show(plot3d(f, (x,-Mx,Mx), (y,-My,My),
+            plot_points=100)
+           )
+
+@interact
+def _(colours=selector(colormaps, default='jet'),
+     fill=True,
+     labels=False,
+     contours=slider([1..100], default=50)):
+    show(contour_plot(f,(x,-Mx,Mx),(y,-My,My),
+                      colorbar=True,
+                      labels=labels,
+                      contours=contours,
+                      plot_points=500,
+                      cmap=colours,
+                      fill=fill))
 </script></div>
 <br>
 
@@ -195,13 +234,26 @@ x,y = var('x y')
 f = sin(x)
 M=4
 
-F = f(sqrt(x^2+y^2))
+F = f(x=sqrt(x^2+y^2))
 show(plot(f,(x,0,M),title='z='+str(f)))
 show('z='+latex(F))
 show(plot3d(F,(x,-M,M),(y,-M,M)))
 </script></div>
+<br>
 
-<h2>Calculus IV : Partial Derivatives</h2>
+Here we plot some level surfaces of a function of 3 variables:
+$$f(x,y,z) = x^2 + 3y^2 + 5z^3 = k$$
+for \(k=-5,0,5\):
+<div class="compute"><script type="text/x-sage">
+x,y,z = var('x y z')
+f = x^2 + 3*y^2 + 5*z^3
+M = 2
+Ks = [0, 5, -5]
+sum([implicit_plot3d(f == k, (x,-M,M), (y,-M,M), (z,-M,M), plot_points=100, opacity=0.6) for k in Ks])
+</script></div>
+<br>
+
+<h2 id="CA4">Calculus IV : Partial Derivatives</h2>
 
 Consider the a function of two variables, for example
 \[
@@ -238,12 +290,12 @@ def _(
     p = plot3d(f,(x,-M,M),(y,-M,M))+sphere((x0,y0,z0),0.05,color='black')
     if show_x_arrow:
         p = p+arrow3d((x0,y0,z0),(x0+h,y0,z0+fx(x=x0,y=y0)*h),color='black')
-        show(r'f_x(x,y) = '+latex(fx)+r';\qquad f_x('+str(n(x0,3))+','+str(n(y0,3))+') = '+latex(n(fx(x=x0,y=y0))) )
+        show(r'f_x(x,y) = '+latex(fx)+r';\qquad f_x('+str(n(x0,3))+','+str(n(y0,3))+') = '+latex(n(fx(x=x0,y=y0))))
     if show_x_plane:
         p = p+implicit_plot3d(y==y0, (x,-M,M), (y,-M,M), (z,-M,M), color='orange', opacity=0.9)
     if show_y_arrow:
         p = p+arrow3d((x0,y0,z0),(x0,y0+h,z0+fy(x=x0,y=y0)*h),color='gray')
-        show(r'f_y(x,y) = '+latex(fy)+r';\qquad f_y('+str(n(x0,3))+','+str(n(y0,3))+') = '+latex(n(fy(x=x0,y=y0))) )
+        show(r'f_y(x,y) = '+latex(fy)+r';\qquad f_y('+str(n(x0,3))+','+str(n(y0,3))+') = '+latex(n(fy(x=x0,y=y0))))
     if show_y_plane:
         p = p+implicit_plot3d(x==x0, (x,-M,M), (y,-M,M), (z,-M,M), color='red', opacity=0.9)
     if show_tangent_plane:
@@ -253,7 +305,7 @@ def _(
 <br>
 
 
-<h2>Calculus V : Tangent Planes</h2>
+<h2 id="CA5">Calculus V : Tangent Planes</h2>
 
 You may have noticed that the 3d plot above has an option for showing the tangent plane...<br><br>
 
@@ -292,7 +344,7 @@ implicit_plot3d(z-y*z^3==x+2,(x,-4,4),(y,-4,4),(z,-4,4),color='blue')+\
 implicit_plot3d(z==x+27*y+2,(x,-4,4),(y,-4,4),(z,-4,4),color='red')
 </script></div>
 
-<h2>Calculus VI : Directional derivative and gradient vectors</h2>
+<h2 id="CA6">Calculus VI : Directional derivative and gradient vectors</h2>
 
 In the following plot, we have the function
 \[
@@ -338,7 +390,7 @@ def myfun(location=input_grid(1, 2, default=[0,0], label = "Location (x,y)", wid
     plane = parametric_plot((cos_angle*x+location[0],sin_angle*x+location[1],t), (x, -3,3), (t,-3,3),opacity=0.8, color=plane_color)
     pt = point3d(location3d.list(),color='green', size=10)
 
-    tangent_line = parametric_plot((location[0]+t*cos_angle, location[1]+t*sin_angle, f(*location)+t*df(*location)*(direction)), (t, -3,3), thickness=20, color=tangent_color)
+    tangent_line = parametric_plot((location[0]+t*cos_angle, location[1]+t*sin_angle, f(*location)+t*df(*location)*(direction)), (t, -3,3), thickness=5, color=tangent_color)
     picture3d = direction_vector+curve+pt+tangent_line
     if show_plane:
         picture3d += plane
@@ -446,7 +498,7 @@ show(
 </script></div>
 
 
-<h2>Calculus VII: Global Minima and Maxima</h2>
+<h2 id="CA7">Calculus VII: Global Minima and Maxima</h2>
 
 The critical points of the function \( f(x,y) = 2x^3+(x+1)y^2+5x^2 \):
 <div class="compute"><script type="text/x-sage">
@@ -493,11 +545,12 @@ Global maximum and minimum of \( f(x,y) = 2x^2+x+y^2-2 \) on the disc
 <div class="compute"><script type="text/x-sage">
 r,t=var('r t')
 parametric_plot3d((r*cos(t),r*sin(t),2*(r*cos(t))^2+r*cos(t)+(r*sin(t))^2-2),(t,0,2*pi),(r,0,2),
-opacity=0.9,aspect_ratio=[1,1,0.3])+sphere((-1/4,0,-17/8),0.1,color='red')+sphere((2,0,8),0.1,color='red')
-</script></div>
+opacity=1,aspect_ratio=[1,1,0.3])+sphere((-1/4,0,-17/8),0.1,color='red')+sphere((2,0,8),0.1,color='red')+\
+parametric_plot3d((r*cos(t),r*sin(t),0),(t,0,2*pi),(r,0,2),
+opacity=0.6,color='green')</script></div>
 
 
-<h2>Calculus VIII: Chain Rules</h2>
+<h2 ID="CA8">Calculus VIII: Chain Rules</h2>
 
 The magic formula for implicit differentiation:
 If \( f(x,y) = c \) defines \( y(x) \) implicitly as a function of \(x\), then
@@ -548,7 +601,7 @@ def _(c=slider(-5,5,step_size=0.1,default=0),
         show(plot3d(f,(x,-M,M),(y,-M,M),aspect_ratio=[1,1,0.5], color='green')+plot3d(c,(x,-M,M),(y,-M,M),opacity=0.5,color='blue'))
 </script></div>
 
-<h2>Differential Equations I: Direction Fields and Euler's Method</h2>
+<h2 id="DE1">Differential Equations I: Direction Fields and Euler's Method</h2>
 
 Plot the firection field of \(\frac{dy}{dx} = f(x,y)\), as well as a particular solution:
 <div class="compute"><script type="text/x-sage">
@@ -580,7 +633,7 @@ def _(f=input_box(default=x-y),
 
     result = slope_field + starting_point + solution
 
-    pretty_print(html(r"$ \displaystyle\frac{dy}{dt} = %s$" %latex(f)))
+    pretty_print(html(r"$\displaystyle\frac{dy}{dt} = %s$" %latex(f)))
     result.show(xmin=xmin,xmax=xmax,ymin=ymin,ymax=ymax)
 </script></div>
 
@@ -608,7 +661,7 @@ def _(f = input_box(x*(1-y),label='f'),
     (P1+P2+S).show()
 </script></div>
 
-<h2>Differential Equations II: Separable DEs</h2>
+<h2 id="DE2">Differential Equations II: Separable DEs</h2>
 
 Direction field and solutions for<br>
 \[ \frac{dy}{dx} = -4xy^2: \]
@@ -653,7 +706,7 @@ def _(A = slider(-10,10,default=0,step_size=0.1), auto_update=false):
 <br><br>
 
 Something extra (not for exam purposes):
-<h3> The SIR model of epidemics </h3>
+<h3 ID="SIR"> The SIR model of epidemics </h3>
 
 We model the spread of a disease by dividing the population into three groups:
 <li>S : those <it>Susceptible<it> to the disease, can get sick</li>
@@ -689,18 +742,29 @@ I_{n+1} = I_n + h\cdot \frac{dI}{dt}(R_n,I_n)
 \]
 This is essentially simulating the course of the epidemic in time steps of size \(h\).<br><br>
 
-One can also compute the base reproductive number \(\mathcal{R}_0\) (not to be confused with \(R(0)\) ),
+One can also compute the base reproductive number \(\mathcal{R}_0\),
 which estimates how many people one infected individual would infect in a completely susceptible population.
 It's given by \( \mathcal{R}_0 = \beta/\gamma \). <br><br>
-For comparison: Flu has \( \mathcal{R}_0 \approx 1.5 \), SARS-CoV-19 has \( \mathcal{R}_0 \approx 2.5-3.5\),
+For comparison: Flu has \( \mathcal{R}_0 \approx 1.5 \), the original SARS-CoV-2 has
+\( \mathcal{R}_0 \approx 2.5-3.5\), the new Delta variant has
+\( \mathcal{R}_0 \approx 5-8\)
 and Measles has \( \mathcal{R}_0 \approx 12-18. \) That's why Measles vaccinations are so important!
 
 <br><br>
 
 Below, I also plot a "herd immunity threshold". For me, that's the value of \(S\) at which \(\frac{dI}{dt}=0\),
 i.e. \( S = \gamma/\beta \). When this many people are susceptible, then the rate of new infections stops increasing.
-If \(1 - \gamma/\beta\) of the people are immune, this means that the disease won't start a new epidemic.
-One can achieve herd immunity by vaccinating (\(1-\gamma/\beta\) ) of the population.
+If \(1 - \gamma/\beta = 1 - 1/\mathcal{R}_0\) of the people are immune, this means that the disease won't start a new epidemic.
+One can achieve herd immunity by vaccinating (\(1-\gamma/\beta = 1 - 1/\mathcal{R}_0\) ) of the population.
+<br><br>
+In the interactive model below, you can set the base reproductive number \(\mathcal{R}_0\),
+the parameter \(\gamma\), which you can think of as changing the unit of time
+(it just scales the time variable \(t\) and doesn't change any other outcomes),
+and also the optional parameter \(\delta\), which is the rate at which immunity wears
+off over time.
+
+You can also set the proportion of the population initially infected and recovered.
+These are proportions, so 0.01 means 1% of the population.
 
 
 <div class="compute"><script type="text/x-sage">
@@ -711,15 +775,16 @@ show(r'\frac{dI}{dt} = \beta I\cdot S - \gamma I, \quad S + I + R = 1'+latex('')
 show(r'\frac{dR}{dt} = \gamma I - \delta R'+latex(''))
 
 @interact
-def _(beta = slider(0,1,default=0.15,step_size=0.01,label=r'\( \beta \)'),
+def _(Rnought = slider(0,20,default=2.5,step_size=0.01,label=r'\( \mathcal{R}_0 \)'),
      gamma = slider(0,1,default=0.05, step_size=0.01,label=r'\( \gamma \)'),
       delta = slider(0,1,default=0.0, step_size=0.01,label=r'\(\delta \)'),
-     I_0 = input_box(0.05,label=r'\( \mathrm{Infected}_0 \)'),
+     I_0 = input_box(0.01,label=r'\( \mathrm{Infected}_0 \)'),
      R_0 = input_box(0,label=r'\( \mathrm{Recovered}_0 \)'),
      h = input_box(1,label='step size'),
      steps = input_box(200),
      auto_update=false):
-    show(r'\mathcal{R}_0 = '+latex(beta/gamma))
+    beta = Rnought*gamma
+#     show(r'\mathcal{R}_0 = '+latex(beta/gamma))
     VF = plot_vector_field((gamma*y-delta*x, beta*y*(1-x-y)-gamma*y), (x,0,1), (y,0,1),
                            color='black',aspect_ratio=1,axes_labels=['Recovered','Infected'])
     SL = streamline_plot((gamma*y-delta*x, beta*y*(1-x-y)-gamma*y), (x,0,1), (y,0,1),
@@ -743,7 +808,7 @@ def _(beta = slider(0,1,default=0.15,step_size=0.01,label=r'\( \beta \)'),
     show(S_plot+I_plot+R_plot+H_plot,ymax=1)
 </script></div>
 
-<h1>Differential Equations VI: Applications</h1>
+<h1 ID="DE6">Differential Equations VI: Applications</h1>
 
 The second-order linear homogeneous differential equation
 \[
@@ -817,8 +882,8 @@ t = var('t')
 x = function('x')(t)
 alpha = var('alpha')
 
-show(r'\frac{d^2x}{dt^2} + \frac{D}{m}\frac{dx}{dt} + \frac{k}{m}x = a\cos(w t)'+latex(''))
-
+show(r'\[\frac{d^2 x}{dt^2} + \frac{D}{m}\frac{dx}{dt} + \frac{k}{m}x = a\cos(w t)\]')
+# '
 @interact
 def _(D = ('damping D = ', slider(0, 5, default=1, step_size=0.1)),
       m = ('mass m = ', slider(0.1, 5, default=1, step_size=0.1)),
@@ -862,7 +927,7 @@ def _(D = ('damping D = ', slider(0, 5, default=1, step_size=0.1)),
              legend_label = ['amplitude', 'w = '+str(w)[0:3]])
 </script></div>
 
-<h1>Linear Algebra I: Systems of Linear Equations</h1>
+<h1 ID="LA1">Linear Algebra I: Systems of Linear Equations</h1>
 
 Solving equations via row reductions (Gauss-Jordan elimination):
 <div class="compute"><script type="text/x-sage">
@@ -907,7 +972,7 @@ def SEL(A_text='[(0,0,-1,2),(-1,0,2,4), (0,0,1,-2)]',
     var_names = ', '.join('x_%d'%j for j in [1..nvars])
     variables = var(var_names)
     pretty_print('Variables: %s'% var_names)
-#    pretty_print(HtmlFragment('Variables: $'+',\\;'.join([latex(v) for v in variables])+'$'))
+#    pretty_print(HtmlFragment('Variables: '+',\\;'.join([latex(v) for v in variables])))
 #     for row,y in zip(A,b):
 #         pretty_print(latex(sum(c*v for c,v in zip(row, variables))==y))
 
@@ -1028,7 +1093,7 @@ def SEL(A_text='[(0,0,-1,2),(-1,0,2,4), (0,0,1,-2)]',
 #     pretty_print( HtmlFragment('Dimension is %d'%len(free_variables)))
 </script></div>
 
-<h1>Linear Algebra III: Matrices and Linear Transformations</h1>
+<h1 ID="LA3">Linear Algebra III: Matrices and Linear Transformations</h1>
 
 <br><br>
 Linear transformation in 2 dimensions:
@@ -1059,7 +1124,7 @@ L=[(1,1),(1,0),(0,0),(0,1),(1,1),(0.5,1.5),(0,1),(0,1.4),(0.25,1.4),(0.25,1.25)]
 example = [[1,0],[0,1]]
 
 @interact
-def _(theta=slider(-3.14,3.14,step_size=0.01,default=pi/3),
+def _(theta=slider(-3.14,3.14,step_size=0.01,default=pi/3,label=r'\(\theta =\)'),
       auto_update=false):
     A = matrix(2,2,[cos(theta), -sin(theta), sin(theta), cos(theta)])
     show('A = '+latex(A))
@@ -1105,7 +1170,7 @@ def _(A=input_grid(3,3, default = example,
 
 </script></div>
 
-<h1>Linear Algebra IV: Square matrices</h1>
+<h1 ID="LA4">Linear Algebra IV: Square matrices</h1>
 
 <br><br>
 Inverting a matrix using row reduction:<br><br>
@@ -1163,13 +1228,11 @@ def _(M=input_grid(D,D, default = example,
     M=M.submatrix(0,D,D)
     pretty_print('We keep the right submatrix, which contains the inverse')
     show('M^{-1} = '+latex(M))
-#     html('$$M^{-1}=%s$$'%latex(M))
     pretty_print('We check it actually is the inverse')
     show('M^{-1}\\cdot M = '+latex(M)+'\\cdot'+latex(N)+' = '+latex(M*N))
-#     show('M^{-1}*M=%s*%s=%s'%(latex(M),latex(N),latex(M*N)))
 </script></div>
 
-<h1>Linear Algebra V: Eigenvectors and Eigenvalues</h1>
+<h1 ID="LA5">Linear Algebra V: Eigenvectors and Eigenvalues</h1>
 
 For a square matrix \(A\), we say that \({\bf v}\) is an <i>eigevector</i>
 of \(A\) with <i>eigenvalue</i> \(\lambda\), if
@@ -1200,7 +1263,71 @@ def _(A=input_grid(2,2, default = example,
     )
 </script></div>
 
-<h1>Linear Algebra VI: Applications of Eigenvalues and Eigenvectors</h1>
+<br>
+Here is a better visualisation of eigenvectors: Since the property of being an eigenvector of a given matrix
+depends only on the direction (not magnitude) of the vector, we draw a bunch of (blue) unit vectors
+\({\bf v}\), as well as the output vectors \(A{\bf v}\) in red. Where the red vector is parallel to the blue
+one pointing to it, that blue vector is an eigenvector. The factor by which its red vecctor is longer or shorter
+is the corresponding eigenvalue. <br>
+<div class="compute"><script type="text/x-sage">
+example = [[1,1], [0,2]]
+
+def point(w):
+    return tuple((w[0][0], w[1][0]))
+
+
+@interact
+def _(A = input_grid(2, 2, default = example, label='A=', to_value=matrix),
+      N = slider(1, 50, step_size=1, default=20),
+      auto_update = False
+     ):
+
+    pretty_print('A = ', A)
+    unitvectors = [Matrix(RR, [[cos(t*2*pi/N)],[sin(t*2*pi/N)]]) for t in range(N)]
+    p = circle((0,0), 1, color='blue', figsize=8)
+    for v in unitvectors:
+        p = p + arrow((0,0), point(v), color='blue', arrowsize=2)
+        p = p + arrow(point(v), point(v + A*v), color='red', arrowsize=2)
+    display(p)
+</script></div>
+
+<br><br>
+
+Here is the same idea, but in three dimensions:<br>
+<div class="compute"><script type="text/x-sage">
+example = [[1,1,1],
+           [0,1,0],
+           [0,0,3]]
+
+def point3d(w):
+    return tuple((w[0][0], w[1][0], w[2][0]))
+
+
+@interact
+def _(A = input_grid(3, 3, default = example, label='A = ', to_value=matrix),
+      N = slider(1, 50, step_size=1, default=20),
+      auto_update = False,
+      scale = slider(0.1, 1, step_size=0.1, default=1, label='scale output: ')
+     ):
+
+    pretty_print('A = ', A)
+    unitvectors3d = [
+        Matrix(RR, [[cos(s*2*pi/N)*cos(t*2*pi/N)],
+                    [cos(s*2*pi/N)*sin(t*2*pi/N)],
+                    [sin(s*2*pi/N)]
+                   ])
+        for t in range(N)
+        for s in range(N)
+    ]
+    p = sphere((0,0,0), 1, opacity=0.2, color='blue')
+    for v in unitvectors3d:
+        p = p + arrow((0,0,0), point3d(v), color='blue', arrowsize=1)
+        p = p + arrow(point3d(v), point3d(v + scale*A*v), color='red', arrowsize=1)
+    display(p)
+</script></div>
+<br><br>
+
+<h1 ID="LA6">Linear Algebra VI: Applications of Eigenvalues and Eigenvectors</h1>
 
 For a square matrix \(A\), let \(P\) be the matrix whose columns are the
 eigenvectors of \(A\), and \(D\) the diagonal matrix whose diagonal entries
@@ -1217,7 +1344,7 @@ We demonstrate this with the Fibonacci matrix:
 
 <div class="compute"><script type="text/x-sage">
 K.<a>=QuadraticField(5)
-# We'll do our calculations in K so that Sagemath works with sqrt(5) exactly rather
+# We do our calculations in K so that Sagemath works with sqrt(5) exactly rather
 # than approximating it with digits...
 A = matrix(K,2,2,[0,1,1,1])
 pretty_print('The Fibonacci matrix: ')
@@ -1230,12 +1357,13 @@ pretty_print("Its eigenvalues are:")
 pretty_print(r'\lambda_1 = '+latex(l1)+r',\qquad \lambda_2 = '+latex(l2))
 pretty_print('With corresponding eigenvectors:')
 pretty_print(r'{\bf v}_1 = '+latex(v1)+r',\qquad {\bf v}_2 = '+latex(v2))
-pretty_print('We should have ',r'\; A = PDP^{-1}\;'+latex(''),'with')
+pretty_print('We should have A = PDP^{-1} with')
+# pretty_print(r'A = PDP^{-1}\;'+latex(''),'with')
 pretty_print('P = '+latex(P)+r',\qquad D = '+latex(D))
 pretty_print("Let's check it:")
 pretty_print(r'PDP^{-1}\; =\; '+latex(P)+r'\cdot'+latex(D)+r'\cdot'+\
              latex(P.inverse())+r'\; = \;'+latex(P*D*P.inverse())+r'\; = \; A.')
-pretty_print('Now powers of A are easy to compute:',r'\; A^n = PD^nP^{-1}'+latex(''))
+pretty_print('Now powers of A are easy to compute: A^n = PD^nP^{-1}.')
 
 @interact
 def _(n = slider(0, 200, step_size=1, default=0)):

@@ -1,0 +1,460 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- =================================================================================================== -->
+<!-- To process this file with xsltproc do                                                        -->
+<!--                                                                                              -->
+<!-- (1) LaTeX/PDF:                                                                               -->
+<!--     xsltproc -o minimal.tex PATH_TO/mathbook/xsl/pretext-latex.xsl source/main.ptx           -->
+<!--     pdflatex minimal.tex                                                                     -->
+<!--     xelatex minimal.tex                                                                      -->
+<!--                                                                                              -->
+<!-- (2) HTML:                                                                                    -->
+<!--     xsltproc PATH_TO/mathbook/xsl/pretext-html.xsl source/main.ptx                           -->
+<!--     <browser>  minimal.html                                                                  -->
+<!--        ~/xsltproc/xsltproc.exe ~/mathbook/xsl/mathbook-html.xsl test.xml                     -->
+<!--                                                                                              -->
+<!-- (3) CoCalc worksheet (parameter causes a single file for output)                             -->
+<!--     REMOVE the "X" in the double dash (which is not legal in an XML comment)                 -->
+<!--     xsltproc -X-stringparam chunk.level 0 PATH_TO/mathbook/xsl/pretext-smc.xsl source/main.ptx   -->
+<!--     <CoCalc> minimal.sagews                                                                  -->
+<!--                                                                                              -->
+<!-- (4) Sage doctesting                                                                          -->
+<!--     REMOVE the "X" in the double dash (which is not legal in an XML comment)                 -->
+<!--     xsltproc -X-stringparam chunk.level 0 PATH_TO/mathbook/xsl/pretext-sage-doctest.xsl source/main.ptx  -->
+<!--     <read further instructions in> minimal.py                                                -->
+<!-- =================================================================================================== -->
+
+<chapter xml:id="Chap-Calculus_1">
+
+
+
+<!-- =================================================================================================== -->
+<!-- Title and Other Preliminaries -->
+<!-- =================================================================================================== -->
+        <title>CA1: Maclaurin Series</title>
+
+        <!-- <frontmatter> -->
+
+<!--             <titlepage>
+                <author>
+                    <institution>University of Newcastle</institution>
+                </author>
+                <date><today /></date>
+            </titlepage> -->
+
+            <!-- <abstract>
+                <p>This is a very short article, but it still exercises some advanced features of MathBook XML.</p>
+            </abstract> -->
+
+        <!-- </frontmatter> -->
+
+        <!-- <introduction>
+            <p>This is a short paragraph to introduce the article (but it is not the abstract).  It is optional, in case it would be preferable to have the first section be titled an <q>Introduction.</q></p>
+        </introduction> -->
+<!-- =================================================================================================== -->
+
+
+
+
+<!-- =================================================================================================== -->
+<!-- Section 1: Introduction-->
+<!-- =================================================================================================== -->
+    <section xml:id="Sec-Introduction">
+        <title>Introduction</title>
+
+        <p>Have you ever wondered how your calculator actually calculates <m>e^x</m> or <m>\sin(x)</m> (or other non-polynomial functions) for particular values of <m>x</m>? Essentially, the way it is done is to write the function as an infinite series and then use as many terms of this series as necessary to obtain a value accurate to the number of digits in the calculator's display. For example, (as we will learn later on) the function <m>e^x</m> can be represented by the infinite series <me>1 + x + \frac{x^2}{2!} + \frac{x^3}{3!} + \frac{x^4}{4!} + \cdots</me>.</p>
+
+        <p>Thus, to calculate <m>e^{0.3}</m> say, we could put <m>x=0.3</m> into the series. As the table below shows, as we use more and more terms from the series it seems that the sum isn't changing in the first few decimal places. Thus we might claim that to four decimal digits <m>e^{0.3}=1.350</m>.</p>
+
+        <tabular top="minor">
+            <row header="yes" bottom="minor" left="minor">
+                <cell halign="center" right="minor">Number of Terms</cell>
+                <cell halign="center" right="minor">Sum</cell>
+                <cell halign="center" right="minor">Value</cell>
+            </row>
+            <row bottom="minor" left="minor">
+                <cell halign="center" right="minor"><m>1</m></cell>
+                <cell right="minor"><m>1</m></cell>
+                <cell right="minor"><m>1</m></cell>
+            </row>
+            <row bottom="minor" left="minor">
+                <cell halign="center" right="minor"><m>2</m></cell>
+                <cell right="minor"><m>1+0.3</m></cell>
+                <cell right="minor"><m>1.3</m></cell>
+            </row>
+            <row bottom="minor" left="minor">
+                <cell halign="center" right="minor"><m>3</m></cell>
+                <cell right="minor"><m>1+0.3+\dfrac{0.3^2}{2!}</m></cell>
+                <cell right="minor"><m>1.345</m></cell>
+            </row>
+            <row bottom="minor" left="minor">
+                <cell halign="center" right="minor"><m>4</m></cell>
+                <cell right="minor"><m>1+0.3+\dfrac{0.3^2}{2!}+\dfrac{0.3^3}{3!}</m></cell>
+                <cell right="minor"><m>1.3495</m></cell>
+            </row>
+            <row bottom="minor" left="minor">
+                <cell halign="center" right="minor"><m>5</m></cell>
+                <cell right="minor"><m>1+0.3+\dfrac{0.3^2}{2!}+\dfrac{0.3^3}{3!}+\dfrac{0.3^4}{4!}</m></cell>
+                <cell right="minor"><m>1.3498375</m></cell>
+            </row>
+            <row bottom="minor" left="minor">
+                <cell halign="center" right="minor"><m>6</m></cell>
+                <cell right="minor"><m>1+0.3+\dfrac{0.3^2}{2!}+\dfrac{0.3^3}{3!}+\dfrac{0.3^4}{4!}+\dfrac{0.3^5}{5!}</m></cell>
+                <cell right="minor"><m>1.3498775</m></cell>
+            </row>
+        </tabular>
+
+        <p>We call <m>1, 1.3, 1.345, 1.3495, 1.3498375,  1.3498775, \ldots</m> the <term>sequence</term> of partial sums for <m>e^{0.3}</m>.</p>
+
+        <p>Of course there are some really big questions here. Is it possible to find an infinite series representation for a given function? If so, how do we know that for any particular value of the independent variable the sum of more and more terms of the infinite series representation gets closer to the function value (or indeed any value at all)? These are the topics that we will address in this chapter.</p>
+
+        <p>As a natural part of the discussion of the above questions we will also deal with the idea of approximating a function by a polynomial. We have seen previously (in Math1110) that near a given <m>x</m>-value a function can be approximated by its tangent. (We called such an approximation the linear approximation). For example, for values of <m>x</m> near <m>0</m> the function <m>e^x</m> can be approximated by the function <m>L(x)=x+1</m> which, as shown in <xref ref="Fig-Linear_approximation_of_exponential"/>, is the tangent to the function at <m>x=0</m>.</p>
+
+        <sidebyside width="45%">
+            <figure xml:id="Fig-Linear_approximation_of_exponential">
+                <caption></caption>
+                <image source="./Calculus/Images/1/Linear_approximation_of_exponential.png"/>
+            </figure>
+                <figure xml:id="Fig-Quadratic_approximation_of_exponential">
+                <caption></caption>
+                <image source="./Calculus/Images/1/Quadratic_approximation_of_exponential.png"/>
+            </figure>
+        </sidebyside>
+
+        <p>Notice that the linear approximation, <m>L(x)</m>, is the function obtained by truncating the infinite series representation for <m>e^x</m> (given above) after two terms. If we were to take the first three terms of the series we would have a quadratic approximation for <m>e^x</m>, i.e. <me>Q(x) = 1 + x + \frac{x^2}{2}.</me></p>
+        <p>(See <xref ref="Fig-Quadratic_approximation_of_exponential"/>.) By using more terms from the infinite expansion we can obtain higher order polynomial approximations which we hope will be more accurate over a greater interval around the point of tangency. The idea of approximating a function by a polynomial has many uses in mathematics besides that of being used in calculators.</p>
+    </section>
+
+<!-- =================================================================================================== -->
+<!-- Section 2: Infinite Series-->
+<!-- =================================================================================================== -->
+    <section xml:id="Sec-Infinite_Series">
+        <title>Infinite Series</title>
+
+        <p>In this section we will discuss the concepts and terminology associated with infinite series that we will need in order to discuss representing functions by infinite series. </p>
+
+        <p>An <term>infinite series</term> is a sum of the form <me>\sum_{k=1}^{\infty}t_k = t_1 + t_2 +t_3 + \cdots</me> where <m>t_k</m> are (real) numbers.</p>
+
+        <p>We call <m>t_1, t_1+t_2, t_1+t_2+t_3, \ldots</m> the <term>sequence</term> of partial sums for the series.</p>
+
+        <example xml:id="Ex-Sample_infinite_series">
+        <p>Both of the following are infinite series:
+            <me>\sum_{k=1}^{\infty}\frac{1}{2^k} = \frac{1}{2^1}+\frac{1}{2^2}+\frac{1}{2^3} + \cdots = \frac{1}{2} + \frac{1}{4} + \frac{1}{8} + \cdots </me>
+            <me>\sum_{k=1}^{\infty}(3k+1) = (3\times 0+1)+(3\times 1+1)+(3\times 2+1) + \cdots = 1 + 4 +7 + \cdots.</me>
+        </p>
+        </example>
+
+        <p>The sum of a finite number of real <m>x</m> numbers is always finite. However, for an infinite sum, as we add more and more terms in the series the sum:
+            <ul>
+                <li>Might get closer and closer to some number. This is called <term>convergence</term>. For example <me>\sum_{k=1}^{\infty}\frac{1}{2^k}=\frac{1}{2^1}+\frac{1}{2^2}+\frac{1}{2^3}+\cdots = \frac{1}{2}+\frac{1}{4}+\frac{1}{8}+\cdots.</me> Sometimes a sum reaches a value and does not change (i.e. the terms become zero). We also call this convergence, e.g. <me>\sum_{k=1}^{\infty}0 = 0+0+0+\cdots = 0.</me></li>
+                <li>Any other behaviour is called <term>divergence</term>. For example <me>\sum_{k=1}^{\infty}k = 1+2+3+\cdots</me> and <me>\sum_{k=1}^{\infty}(-1)^{k-1}=(-1)^0+(-1)^1+(-1)^2+\cdots = 1-1+1-1+1-\cdots</me> (this last example is actually tricky to define properly).</li>
+            </ul>
+        </p>
+
+        <p>On adding the first <m>10</m> terms of the series <m>\displaystyle \sum_{k=1}^{\infty}\frac{1}{2^k}</m> we get <m>0.99902344\cdots</m>, on adding the first <m>20</m> terms we get <m>0.99999905\cdots</m>. So even though as we add more terms the sum is getting larger it is getting closer and closer to some fixed number. Adding lots of terms of the series (as we did above) suggests that for this case the sum is converging to <m>1</m>. If this is the case (and we will show below that it is) then we would say:
+            <ul>
+                <li>The series <term>converges</term> to <m>1</m></li>
+                <li>The <term>sum</term> of the series is <m>1</m></li>
+                <li>The <term>limit</term> of the series is <m>1</m></li>
+            </ul>
+        </p>
+
+        <p>There is a lot of mathematics devoted to determining the nature of an infinite series. We will mention just three useful results.</p>
+        <theorem>
+            <title>The Divergence Test</title>
+                <statement>
+                    <p>
+                      If the terms <m>t_k</m> of the series <m>\displaystyle \sum_{k=1}^{\infty}t_k</m> do not approach <m>0</m> as <m>k\to\infty</m> then the series diverges.
+                    </p>
+                </statement>
+        </theorem>
+        <theorem>
+            <title>Geometric Progressions</title>
+                <statement>
+                    <p>
+                      If the infinite series is a geometric progression (GP), i.e., of the form <me>\sum_{k=1}^{\infty}ar^k = a +ar +ar^2+ar^3 +\cdots</me> then it converges if and only if <m>|r|&lt; 1</m>, in which case it converges to <me>S=\frac{a}{1-r}.</me>
+                    </p>
+                </statement>
+        </theorem>
+
+        <theorem>
+            <title>The Ratio Test</title>
+                <statement>
+                    <p>
+                    For the series <m>\displaystyle \sum_{k=1}^{\infty}t_k</m>, let <m>\displaystyle L=\lim_{k\to \infty}\left|\dfrac{t_{k+1}}{t_k}\right|</m>. If
+                    <ul>
+                        <li><m>L&lt;1</m> then the series converges</li>
+                        <li><m>L&gt;1</m> then the series diverges</li>
+                        <li><m>L=1</m> then the test is inconclusive</li>
+                    </ul>
+                    </p>
+                </statement>
+        </theorem>
+
+        <example xml:id="Ex-Divergence_test">
+            <statement><p>Determine the nature of the series  <m>\displaystyle\sum_{k=1}^{\infty}k = 1+2+3+\cdots.</m></p></statement>
+            <answer><p>Divergent.</p></answer>
+            <solution>
+                <p>
+                    Since the terms of the series do not approach 0 as we go along the series, by the Divergence Test, this series diverges.
+                </p>
+            </solution>
+        </example>
+
+        <example xml:id="Ex-Geometric_progression">
+            <statement><p>Determine the nature of the series  <me>\sum_{k=1}^{\infty}\frac{1}{2^k} = \dfrac{1}{2}+\dfrac{1}{4}+\dfrac{1}{8}+\cdots.</me></p></statement>
+            <answer><p>Convergent.</p></answer>
+            <solution>
+                <p>
+                    This infinite series is a GP with <m>a=\dfrac{1}{2}</m> and <m>r=\dfrac{1}{2}</m>. Since <m>|r|&lt;1</m> the series converges and converges to <me>S=\dfrac{1/2}{1-1/2} =1.</me>
+                </p>
+            </solution>
+        </example>
+
+        <example xml:id="Ex-Ratio_test">
+            <statement><p>Determine the nature of the series  <me>\sum_{k=1}^{\infty}\frac{k+1}{2^k} = 1+\dfrac{3}{4}+\dfrac{1}{2}+\dfrac{5}{16}+\cdots.</me></p></statement>
+            <answer><p>Convergent.</p></answer>
+            <solution>
+                <p>To use the ratio test consider <me>\dfrac{t_{k+1}}{t_k} = \dfrac{k+2}{2^{k+1}}\cdot\dfrac{2^k}{k+1} = \dfrac{1}{2}\left(\dfrac{k+2}{k+1}\right).</me></p>
+                <p>Thus <me>L=\lim_{k\to\infty}\left|\dfrac{1}{2}\left(\dfrac{k+2}{k+1}\right)\right|=\dfrac{1}{2}.</me></p>
+                <p>Since <m>L&lt;1</m>, by the ratio test this series converges. (Notice that the ratio test doesn't tell us to what number the series converges to. In this case it is 3.)</p>
+            </solution>
+        </example>
+
+        <p>We eventually want to represent a function via an infinite series. To do so the infinite series will have to involve a variable (the independent variable of the function). Clearly for an infinite series involving a variable the behaviour of the series will depend upon the value of the variable.</p>
+
+        <example xml:id="Ex-Power_series_motivation">
+            <statement><p>For which values of <m>x</m> will the following series converge?<me>\sum_{k=0}^{\infty}\left(\dfrac{-2x}{3}\right)^k = 1-\dfrac{2}{3}x + \dfrac{4}{9}x^2 -\dfrac{8}{27}x^3 + \cdots.</me></p></statement>
+            <answer><p><m>-\dfrac{3}{2} &lt; x &lt; \dfrac{3}{2}</m>.</p></answer>
+            <solution>
+                <p>Note that this is a GP with <m>a=1</m> and <m>r=\dfrac{-2x}{3}</m>. Thus the series will only converge for those values of <m>x</m> that satisfy <m>\left|\dfrac{-2x}{3}\right| &lt; 1 </m>, that is, <m>-\dfrac{3}{2} &lt; x &lt; \dfrac{3}{2}</m>.</p>
+                <p>Just to check this, let <m>x=1</m>. Then the series becomes <me>\sum_{k=0}^{\infty}\left(\dfrac{-2}{3}\right)^k = 1-\dfrac{2}{3} + \dfrac{4}{9} -\dfrac{8}{27} + \cdots</me> which converges to <m>S=\dfrac{1}{1+2/3}=\dfrac{3}{5}</m>. Note that, on adding the first <m>20</m> terms of the series we get <m>0.59981956\cdots</m> and on adding the first <m>50</m> terms we get <m>0.59999991\cdots</m>, and so it does indeed seem that the sum is <m>3/5</m>.</p>
+            </solution>
+        </example>
+
+        <definition>
+            <title>Power Series</title>
+            <statement>
+                <p>A <term>power series</term> about <m>a</m> is an infinite series of the form <me>\sum_{k=0}^{\infty}c_k(x-a)^k = c_0 + c_1(x-a) + c_2(x-a)^2 + c_3(x-a)^3 + \cdots</me> where the <m>c_k</m> are real numbers.</p>
+            </statement>
+        </definition>
+
+        <example xml:id="Ex-Power_series_geometric">
+            <p> The series <me>\sum_{k=0}^{\infty}x^k = 1+x+x^2+x^3+\cdots</me> is a power series about <m>0</m> (with <m>c_k=1</m> for all <m>k</m>). There are several points worth noting about this power series.
+                <ul>
+                    <li>The series definitely converges when <m>x = 0</m>.</li>
+                    <li>The series is a GP with <m>a=1</m> and <m>r=x</m> and so converges for <m>|x|&lt;1</m>.</li>
+                    <li>When the series converges it converges to <m>S=\dfrac{1}{1-x}</m>.</li>
+                </ul>
+                This last point is interesting because it is telling us that for <m>f(x)=\dfrac{1}{1-x}</m> if <m>|x|&lt;1</m> we have <me>f(x)=\sum_{k=0}^{\infty}x^k.</me>
+            </p>
+        </example>
+
+        <example xml:id="Ex-Power_series_ratio_test">
+            <p> The series <me>\sum_{k=0}^{\infty}\dfrac{(x-1)^k}{k+1} = 1+\dfrac{x-1}{2}+\dfrac{(x-1)^2}{3}+\cdots</me> is a power series about <m>1</m>. For this series
+                <ul>
+                    <li>It definitely converges for <m>x = 1</m>.</li>
+                    <li><p>It can be shown, via the ratio test, that the series converges for <m>0 &lt; x &lt;2</m>. Firstly, <me>L =\lim_{k\to\infty}\left|\dfrac{(x-1)^{k+1}}{k+2}\cdot\dfrac{k+1}{(x-1)^k}\right| = |x-1|.</me> Thus <m>L&lt;1</m> when <m>|x-1|&lt;1</m>, i.e., <m>0 &lt; x &lt;2</m>.</p>
+                        <p>For example, with <m>x=3/2</m> adding the first <m>20</m> terms gives <m>1.3862947\cdots</m> while adding the first <m>50</m> terms gives <m>1.3862943\cdots</m>.</p>
+                    </li>
+                    <li>For <m>0 &lt; x &lt;2</m> we can think of this infinite series as defining a function, i.e. <me>f(x) = \sum_{k=0}^{\infty}\dfrac{(x-1)^k}{k+1}.</me> In which case, as we saw above, <m>f(3/2)=1.3863</m> to <m>4</m> d.p.</li>
+                </ul>
+            </p>
+        </example>
+
+        <remark>
+            <p>Note that it can be shown that a power series about <m>x=a</m> either
+                <ul>
+                    <li>Converges only for <m>x=a</m></li>
+                    <li>Converges for <m>|x-a|&lt;R</m> and diverges for <m>|x-a|&gt;R</m> (note what happens when <m>|x-a|=R</m> depends on the particular power series)</li>
+                    <li>Converges for all <m>x</m></li>
+                </ul>
+                The value of <m>R</m> is called the <term>radius of convergence</term>. In the first case we say <m>R=0</m> and in the third case we say <m>R=\infty</m>. The collection of those <m>x</m> for which the series converges is called the <term>interval of convergence</term> <m>I</m> of the power series.
+            </p>
+        </remark>
+
+        <exercises>
+            <title>Example Tasks</title>
+            <exercise>
+                <statement>
+                    <p>Determine whether the following series converge or diverge. If the series is a convergent GP then find its sum.
+                        <ol label="a" cols="2">
+                            <li><m>\displaystyle \sum_{k=0}^{\infty}\dfrac{1}{3+2^{-k}}</m></li>
+                            <li><m>\displaystyle \sum_{k=1}^{\infty}\dfrac{3}{10^{k}}</m></li>
+                            <li><m>\displaystyle \sum_{k=1}^{\infty}\dfrac{k^3}{3^k}</m></li>
+                            <li><m>\displaystyle \sum_{k=1}^{\infty}\dfrac{k}{k^2+4}</m></li>
+                        </ol>
+                    </p>
+                </statement>
+            </exercise>
+
+            <exercise>
+                <statement>
+                    <p>Determine the interval of convergence for the following series.
+                        <ol label="a" cols="2">
+                            <li><m>\displaystyle \sum_{k=1}^{\infty}\dfrac{(3x-2)^k}{k\,3^k}</m></li>
+                            <li><m>\displaystyle \sum_{k=1}^{\infty}(-1)^k\dfrac{x^{2k}}{(2k)!}</m></li>
+                        </ol>
+                    </p>
+                </statement>
+            </exercise>
+        </exercises>
+
+        <remark>
+            <title>Aside</title>
+                <p>
+                    Computer algebra systems usually have commands for summing infinite series. For example, with Wolfram Alpha you can just type in the first few terms as shown.
+                </p>
+                <figure xml:id="Fig-C1_WA_1">
+                    <image source="./Calculus/Images/1/C1_WA_1.png" width="90%"/>
+                </figure>
+                <p>
+                   The following example shows another query to Wolfram Alpha and the associated output.
+                </p>
+                <figure xml:id="Fig-C1_WA_2">
+                        <image source="./Calculus/Images/1/C1_WA_2.png" width="90%"/>
+                </figure>
+        </remark>
+    </section>
+
+
+
+
+<!-- =================================================================================================== -->
+<!-- Section 3: Maclaurin Series-->
+<!-- =================================================================================================== -->
+    <section xml:id="Sec-Maclaurin_Series">
+        <title>Maclaurin Series</title>
+
+        <p>In this section we will discuss the task of finding an infinite series representation for a given function of one variable, <m>f</m>. We begin by assuming that the given function <m>f(x)</m> does indeed have a power series representation, at least initially about <m>x=0</m>. Thus we assume that on some interval <m>|x| &lt; R</m> <men xml:id="Eq-Maclaurin_of_f">f(x) = \sum_{k=0}^{\infty}c_kx^k = c_0 + c_1x +c_2x^2 +c_3x^3 + \cdots.</men></p>
+
+        <p>We know that the power series reduces to <m>c_0</m> when <m>x=0</m> and so for the power series to match the function when <m>x=0</m> we must have <m>c_0 = f(0)</m>. On differentiating <xref ref="Eq-Maclaurin_of_f"/> we get <men xml:id="Eq-First_derivative_Maclaurin">f'(x) = \sum_{k=1}^{\infty}kc_kx^{k-1} = c_1 +2c_2x +3c_3x^2 + 4c_4x^3 + \cdots</men>
+        and putting on <m>x=0</m> into this gives <m>c_1=f'(0)</m>. Similarly, differentiating <xref ref="Eq-First_derivative_Maclaurin"/> <men>f''(x) = \sum_{k=2}^{\infty}k(k-1)c_kx^{k-2} = 2c_2 +6c_3x + 12c_4x^2 + \cdots</men>
+        and substituting <m>x=0</m> gives <m>c_2=\dfrac{1}{2}f''(0)</m>. By continuing this process, we can see that in general <men>f^{(n)}(x) = \sum_{k=n}^{\infty}k(k-1)(k-2)\cdots(k-(n-1))c_kx^{k-n}</men>
+        and hence (by substituting <m>x=0</m>) that <m>c_n = \dfrac{1}{n!}f^{(n)}(0)</m>.
+        </p>
+
+        <definition>
+            <title>Maclaurin Series</title>
+            <statement>
+                <p>The series <me>\sum_{k=0}^{\infty}\dfrac{f^{(k)}(0)}{k!}x^k = f(0) + f'(0)x +\dfrac{f^{''}(0)}{2!}x^2 +\dfrac{f^{'''}(0)}{3!}x^3 + \cdots</me> is called the <term>Maclaurin series</term> for <m>f(x)</m>.</p>
+            </statement>
+        </definition>
+
+
+        <p>We know that the Maclaurin series for <m>f</m> converges when <m>x=0</m> (since all power series converge for <m>f(x)</m>) and we also know that the series converges to <m>f(0)</m> (because we constructed it that way). However for other values of <m>x</m> we cannot be sure that the infinite series will converge and if it does, does it converge to the function value.</p>
+
+        <example xml:id="Ex-Maclaurin_series_geometric">
+            <statement><p>Find the Maclaurin series for <m>f(x)=\dfrac{1}{1-x}</m>.</p></statement>
+            <answer><p><m>\displaystyle \sum_{k=0}^{\infty}x^k = 1+x+x^2+x^3+x^4+ \cdots</m></p></answer>
+            <solution>
+                <p>Firstly find the derivatives of <m>f</m> and evaluate them at <m>x=0</m>.
+                <md alignment="alignat">
+                    <mrow>f(x) \amp = (1-x)^{-1} \text{ and hence } f(0)=1</mrow>
+                    <mrow>f'(x) \amp = (1-x)^{-2} \text{ and hence } f'(0)=1</mrow>
+                    <mrow>f''(x) \amp = 2(1-x)^{-3} \text{ and hence } f''(0)=2</mrow>
+                    <mrow>\quad\amp \vdots \quad </mrow>
+                    <mrow>f^{(k)}(x) \amp = k!(1-x)^{-k-1} \text{ and hence } f^{(k)}(0) = k!</mrow>
+                </md>
+                Substituting these results into the formula derived above gives the Maclaurin series for <m>f</m> as
+                <me>\sum_{k=0}^{\infty}\dfrac{k!}{k!}x^k = 1+x+x^2+x^3+x^4+ \cdots.</me>
+                This agrees with the result that we found in an earlier example. As we saw in that example, however, the Maclaurin series only converges for <m>|x| &lt;1 </m> and that for those values it converges to the function value.
+                </p>
+            </solution>
+        </example>
+
+
+        <definition>
+            <title>Maclaurin Polynomial</title>
+            <statement>
+                <p>The <m>n</m>th partial sum of the Maclaurin series for <m>f(x)</m>, i.e., <me>\sum_{k=0}^{n}\dfrac{f^{(k)}(0)}{k!}x^k = f(0) + f'(0)x +\dfrac{f^{''}(0)}{2!}x^2 +\cdots + \dfrac{f^{(n)}(0)}{n!}x^n </me> is called the <term>Maclaurin polynomial of degree <m>n</m></term> for <m>f(x)</m>.</p>
+            </statement>
+        </definition>
+
+
+        <example xml:id="Ex-Maclaurin_polynomial_cosine">
+            <statement><p>Find the Maclaurin polynomials of degree <m>0,1,2,3</m> and <m>4</m> for the function <m>f(x)=\cos(x)</m>.</p></statement>
+            <answer>
+                <p><m>M_0(x)=1</m></p>
+                <p><m>M_1(x)=1</m></p>
+                <p><m>M_2(x)=1-\dfrac{x^2}{2}</m></p>
+                <p><m>M_3(x)=1-\dfrac{x^2}{2}</m></p>
+                <p><m>M_4(x)=1-\dfrac{x^2}{2}+\dfrac{x^4}{24}</m></p>
+            </answer>
+            <solution>
+                <p>For <m>f(x)=\cos(x)</m>,
+                <md alignment="alignat">
+                    <mrow>f(x) \amp = \cos(x) \text{ and hence } f(0)=1</mrow>
+                    <mrow>f'(x) \amp = -\sin(x) \text{ and hence } f'(0)=0</mrow>
+                    <mrow>f''(x) \amp = -\cos(x) \text{ and hence } f''(0)=-1</mrow>
+                    <mrow>f'''(x) \amp = \sin(x) \text{ and hence } f'''(0)=0</mrow>
+                    <mrow>f^{(iv)}(x) \amp = \cos(x) \text{ and hence } f^{(iv)}(0)=1</mrow>
+                </md>
+                and so the <m>0</m>th degree Maclaurin polynomial is <me>M_0(x)=f(0)=1.</me>
+                Notice that the <m>0</m>th degree Maclaurin polynomial is the horizontal line passing through the point <m>(0,f(0))</m>.
+                </p>
+                <p>The <m>1</m>st degree Maclaurin polynomial is
+                    <md alignment="alignat">
+                        <mrow>M_1(x) \amp = f(0) + f'(0)x</mrow>
+                        <mrow>        \amp = 1+0</mrow>
+                        <mrow>        \amp = 1</mrow>
+                    </md>
+                Notice that the <m>1</m>st degree Maclaurin polynomial is the tangent to the function at the point  <m>(0,f(0))</m>. Notice also, that in this case, the <m>0</m>th degree and the <m>1</m>st  degree Maclaurin polynomials are the same.
+                </p>
+                <p>
+                The <m>2</m>nd degree Maclaurin polynomial is
+                    <md alignment="alignat">
+                        <mrow>M_2(x) \amp = f(0) + f'(0)x + \dfrac{f''(0)}{2}x^2</mrow>
+                        <mrow>        \amp = 1+0x + \dfrac{(-1)}{2}x^2</mrow>
+                        <mrow>        \amp = 1-\dfrac{x^2}{2}</mrow>
+                    </md>
+                </p>
+                <p>
+                The <m>3</m>rd degree Maclaurin polynomial is
+                    <md alignment="alignat">
+                        <mrow>M_3(x)  \amp = f(0) + f'(0)x + \dfrac{f''(0)}{2}x^2 + \dfrac{f'''(0)}{3!}x^3</mrow>
+                        <mrow>        \amp = 1+0x + \dfrac{(-1)}{2}x^2 + \dfrac{0}{3!}x^3</mrow>
+                        <mrow>        \amp = 1-\dfrac{x^2}{2}</mrow>
+                    </md>
+                </p>
+                <p>
+                The <m>4</m>th degree Maclaurin polynomial is
+                    <md alignment="alignat">
+                        <mrow>M_4(x)  \amp = f(0) + f'(0)x + \dfrac{f''(0)}{2}x^2 + \dfrac{f'''(0)}{3!}x^3 + \dfrac{f^{(iv)}(0)}{4!}x^4</mrow>
+                        <mrow>        \amp = 1+0x + \dfrac{(-1)}{2}x^2 + \dfrac{0}{3!}x^3 + \dfrac{1}{4!}x^4</mrow>
+                        <mrow>        \amp = 1-\dfrac{x^2}{2} + \dfrac{x^4}{24}</mrow>
+                    </md>
+                As can be seen in <xref ref="Fig-Maclaurin_polynomial_cosine"/>, in this case as the degree of the Maclaurin polynomial increases so the polynomial provides a good approximation to the function for a larger interval surrounding <m>x=0</m>. In fact, using the Ratio test we can show that the Maclaurin series for <m>\cos(x)</m> converges for all values of <m>x</m> and by using some more advanced mathematics we can show that the series converges to <m>\cos(x)</m> for all values of <m>x</m>.
+                </p>
+                <figure xml:id="Fig-Maclaurin_polynomial_cosine">
+                    <image source="./Calculus/Images/1/Fig-Maclaurin_polynomial_cosine.png" width="90%"/>
+                </figure>
+            </solution>
+        </example>
+
+        <exercises>
+            <title>Example Tasks</title>
+            <exercise>
+                <statement>
+                Let <m>f(x)=e^x</m>. Find the Maclaurin series for <m>f</m> and find its interval of convergence.
+                </statement>
+            </exercise>
+            <exercise>
+                <statement>
+                Find the Maclaurin polynomial of degree <m>3</m> for <m>g(x) = \tan^{-1}(x)</m>.
+                </statement>
+            </exercise>
+        </exercises>
+
+        <remark>
+            <title>Aside</title>
+                <p>
+                    Computer Algebra Systems usually have a command for calculating Maclaurin series. For example, the following shows part of the output from a Wolfram Alpha query.
+                </p>
+                <figure xml:id="Fig-C1_WA_3">
+                    <image source="./Calculus/Images/1/C1_WA_3.png" width="90%"/>
+                </figure>
+        </remark>
+
+    </section>
+<!-- =================================================================================================== -->
+</chapter>
