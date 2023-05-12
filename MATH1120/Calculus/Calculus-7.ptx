@@ -1,0 +1,467 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- =================================================================================================== -->
+<!-- To process this file with xsltproc do                                                        -->
+<!--                                                                                              -->
+<!-- (1) LaTeX/PDF:                                                                               -->
+<!--     xsltproc -o minimal.tex PATH_TO/mathbook/xsl/pretext-latex.xsl source/main.ptx           -->
+<!--     pdflatex minimal.tex                                                                     -->
+<!--     xelatex minimal.tex                                                                      -->
+<!--                                                                                              -->
+<!-- (2) HTML:                                                                                    -->
+<!--     xsltproc PATH_TO/mathbook/xsl/pretext-html.xsl source/main.ptx                           -->
+<!--     <browser>  minimal.html                                                                  -->
+<!--        ~/xsltproc/xsltproc.exe ~/mathbook/xsl/mathbook-html.xsl test.xml                     -->
+<!--                                                                                              -->
+<!-- (3) CoCalc worksheet (parameter causes a single file for output)                             -->
+<!--     REMOVE the "X" in the double dash (which is not legal in an XML comment)                 -->
+<!--     xsltproc -X-stringparam chunk.level 0 PATH_TO/mathbook/xsl/pretext-smc.xsl source/main.ptx   -->
+<!--     <CoCalc> minimal.sagews                                                                  -->
+<!--                                                                                              -->
+<!-- (4) Sage doctesting                                                                          -->
+<!--     REMOVE the "X" in the double dash (which is not legal in an XML comment)                 -->
+<!--     xsltproc -X-stringparam chunk.level 0 PATH_TO/mathbook/xsl/pretext-sage-doctest.xsl source/main.ptx  -->
+<!--     <read further instructions in> minimal.py                                                -->
+<!-- =================================================================================================== -->
+
+<chapter xml:id="Calculus_7">
+
+
+
+<!-- =================================================================================================== -->
+<!-- Title and Other Preliminaries -->
+<!-- =================================================================================================== -->
+        <title>CA7: Local and Global Extrema</title>
+
+        <!-- <frontmatter> -->
+
+<!--             <titlepage>
+                <author>
+                    <institution>University of Newcastle</institution>
+                </author>
+                <date><today /></date>
+            </titlepage> -->
+
+            <!-- <abstract>
+                <p>This is a very short article, but it still exercises some advanced features of MathBook XML.</p>
+            </abstract> -->
+
+        <!-- </frontmatter> -->
+
+        <!-- <introduction>
+            <p>This is a short paragraph to introduce the article (but it is not the abstract).  It is optional, in case it would be preferable to have the first section be titled an <q>Introduction.</q></p>
+        </introduction> -->
+<!-- =================================================================================================== -->
+
+
+
+
+<!-- =================================================================================================== -->
+<!-- Section 1: Partial Differentiation -->
+<!-- =================================================================================================== -->
+        <section xml:id="Critical-Points">
+            <title>Critical Points</title>
+
+            <p>Recall  that  a  function  of  one  variable, <m>f(x)</m>  has  a  <q>critical  point</q> at <m>x=x_0</m> if  the tangent line to the curve at <m>x=x_0</m> is horizontal or if the derivative does not exist at that point. This critical point can be either a (local) maximum, minimum or horizontal point of inflection or vertical point of inflection.  (The first three possibilities are shown in Figure <xref ref="Fig_max_min_inflection"/> below.)</p>
+
+            <figure xml:id="Fig_max_min_inflection">
+                <caption></caption>
+                <image source="./Calculus/Images/7/Fig1_max_min_inflection.png" width="70%"/>
+            </figure>
+
+            <p>The idea of critical points can be applied to functions of two variables.</p>
+
+            <definition>
+                <title>Critical Point</title>
+
+                <statement>
+                    <p>The function <m>z=f(x,y)</m> has a <em>critical point</em> at <m>(x_0,y_0)</m> if the tangent plane to the surface at the point <m>(x_0,y_0,z_0)</m> is horizontal or if one of the directional derivatives does not exist.</p>
+                </statement>
+
+            </definition>
+
+            <p>As with functions of one variable, critical points of functions of two variables will be one of three types.</p>
+
+            <p><ol label="1">
+                <li>If at a critical point <m>f(x,y) \leq f(x_0,y_0)</m> for all points in some open disk centred on <m>(x_0,y_0)</m> then the critical point is a <alert>local maximum</alert>.</li>
+                <li>If at a critical point <m>f(x,y) \geq f(x_0,y_0)</m> for all points in some open disk centred on <m>(x_0,y_0)</m> then the critical point is a <alert>local minimum</alert>.</li>
+                <li>For a smooth function (i.e. a function for which all derivatives exist) if a critical point is not a local maximum or a local minimum then it is a <alert>saddle point</alert>.</li>
+            </ol></p>
+
+
+            <example xml:id="Ex-Local_max_and_min">
+                <statement>
+                    <p>The graph of the function <me>f(x,y) = x(5x+2)(3y-2)e^{-\left( \frac{x^2+y^2}{5} \right)}</me> is given below with local maxima and local minima labelled.</p>
+
+                    <figure xml:id="Fig_Local_max_min">
+                        <caption></caption>
+                        <image source="./Calculus/Images/7/Fig2_Local_max_and_min.png" width="90%"/>
+                    </figure>
+                </statement>
+            </example>
+
+
+            <example xml:id="Ex-Saddle_point">
+                <statement>
+                    <p>The graph of the function <m>f(x,y) = x^2-y^2</m> is given below with a saddle point labelled.</p>
+
+                    <figure xml:id="Fig_Saddle_point">
+                        <caption></caption>
+                        <image source="./Calculus/Images/7/Fig3_Saddle_point.png" width="90%"/>
+                    </figure>
+                </statement>
+            </example>
+
+
+            <p>For smooth functions we can find the critical points by looking for those points where the tangent plane is horizontal. If the function <m>z=f(x,y)</m> has a tangent plane at the point <m>(x_0,y_0,z_0)</m> we can determine algebraically that it is horizontal by checking that:</p>
+
+            <p><ul>
+                <li>The normal vector for the plane is parallel to the vector <m>\langle 0,0,1 \rangle</m>, or</li>
+                <li>The directional derivative at <m>(x_0,y_0)</m> is zero in every direction, or</li>
+                <li>The gradient vector at <m>(x_0,y_0)</m> is <m>\langle 0,0 \rangle</m>.</li>
+            </ul></p>
+
+            <p>These conditions are all equivalent and they lead us to the following theorem.</p>
+
+            <theorem>
+                <title>Critical Point</title>
+                <statement>
+                    <p>The point <m>(x_0,y_0)</m> is a critical point of the function <m>z = f(x,y)</m> if <me>f_x(x_0,y_0) = f_y (x_0,y_0) = 0</me>, or, if at least one of these derivatives does not exist.</p>
+                </statement>
+            </theorem>
+
+            <p><alert>Note:</alert> For the most part, we will assume that the function is smooth, i.e. has derivatives of all orders.  In particular a smooth function does not have any discontinuities or cusps. Such critical points will occur for functions of two variables when at least one of the partial derivatives does not exist at the critical point.</p>
+
+
+            <example xml:id="Ex-Locate_critical_points">
+                <statement>
+                    <p>Locate, and determine the nature of, the critical points of the function <me>z = 2x^3 + (x+1)y^2 + 5x^2</me>.</p>
+                </statement>
+
+                <solution>
+                    <p>To locate the critical points we solve the equations <m>z_x = z_y = 0</m>, and check for any points where they do not exist. Since this function is given by a polynomial, the partial derivatives exist.  We set them to zero below.
+                        <mdn>
+                            <mrow xml:id="Eq-Partial_eq1">6x^2 + y^2 + 10x \amp = 0</mrow>
+                            <mrow xml:id="Eq-Partial_eq2">2(x+1)y \amp = 0</mrow>
+                        </mdn>
+                    From <xref ref="Eq-Partial_eq2"/> <me>x=-1 \: \text{ or } \: y=0</me>. Putting <m>y=0</m> into <xref ref="Eq-Partial_eq1"/> gives <me>x=0 \: \text{ or } \: x=-\dfrac{5}{3}</me>.
+                    Putting <m>x=-1</m> into <xref ref="Eq-Partial_eq1"/> gives <me>y=2 \: \text{ or } \: y=-2</me>. Thus there are 4 critical points at <me>\left( 0, 0 \right), \left( -\dfrac{5}{3}, 0 \right), \left( -1, 2 \right) \: \text{ and } \left( -1, -2 \right)</me>.
+                    </p>
+
+                    <p>If we have the graph of the function then we can usually determine the nature of these critical points by inspection. From the (computer generated) graph shown below we can see with very careful inspection that the critical point at <m>(0,0)</m> is a local minimum, the critical point at <m>\left( -\dfrac{5}{3}, 0 \right)</m> is a local maximum and the critical points at <m>(-1,2)</m> and <m>(-1,-2)</m> are saddle points.</p>
+
+                    <figure xml:id="Fig-Locate_critical_points">
+                        <caption></caption>
+                        <image source="./Calculus/Images/7/Fig4-Locate_critical_points.png" width="80%"/>
+                    </figure>
+
+                    <p>Sometimes the nature of the critical points is not clear on such graphs or we don’t have access to the graph. Another approach to determining the nature of the critical points is to sketch the level curves for the function.</p>
+
+                    <figure xml:id="Fig-Locate_critical_points2">
+                        <caption></caption>
+                        <image source="./Calculus/Images/7/Fig5-Locate_critical_points.png" width="80%"/>
+                    </figure>
+
+                    <p>From this diagram we can see that as we move away from the critical points at <m>\left(0,0\right)</m> in any direction the function value is increasing and hence <m>\left(0,0\right)</m> is local minimum. Similarly as we move away from the critical point at <m>\left(-\dfrac{5}{3},0\right)</m> in any direction the function value is decreasing is hence <m>\left(-\dfrac{5}{3},0\right)</m> is a local maximum. For the critical points at <m>\left(-1,2\right)</m> and <m>\left(-1,-2\right)</m> we can move away in some directions and have the function value increase while in other directions the function value will decrease. Hence these critical points are saddle points.</p>
+                </solution>
+            </example>
+
+            <exercises>
+            <title>Example Tasks</title>
+
+                <exercise>
+                    <statement>
+                        <p>Find the critical points of the function <m>f(x,y) = 3x-x^3-2y^2+y^4</m> and use the plot of level curves given below to determine the nature of each critical point.</p>
+
+                        <figure xml:id="Fig-Ex_task_section_1">
+                            <caption></caption>
+                            <image source="./Calculus/Images/7/Ex_task_section_1.png" width="80%"/>
+                        </figure>
+
+                    </statement>
+                </exercise>
+
+            </exercises>
+
+
+
+        </section>
+<!-- =================================================================================================== -->
+
+
+
+<!-- =================================================================================================== -->
+<!-- Section 2: Second Derivative Test -->
+<!-- =================================================================================================== -->
+        <section xml:id="Second-Derivative-Test">
+            <title>Second Derivative Test</title>
+
+
+            <p>An algebraic method for determining what type of critical points a function has is given by the following theorem.</p>
+
+            <theorem>
+                <title>The Second Derivative Test</title>
+                <statement>
+                    <p>Let the function <m>z=f(x,y)</m> have continuous 2nd partial derivatives and let <m>(x_0,y_0)</m> be a critical point of the function. Let <me>D = f_{xx} (x_0,y_0) f_{yy} (x_0,y_0) - \left[ f_{xy} (x_0,y_0) \right]^2</me>.</p>
+
+                    <p><ul>
+                        <li>If <m>D>0</m> and <m>f_{xx} (x_0,y_0) >0</m> then <m>f</m> has a local minimum at <m>(x_0,y_0)</m>.</li>
+                        <li>If <m>D>0</m> and <m>f_{xx} (x_0,y_0) &lt; 0</m> then <m>f</m> has a local maximum at <m>(x_0,y_0)</m>.</li>
+                        <li>If <m>D &lt; 0</m> then <m>f</m> has a saddle point at <m>(x_0,y_0)</m>.</li>
+                        <li>If <m>D=0</m> then the 2nd derivative test is inconclusive. </li>
+                    </ul></p>
+                </statement>
+            </theorem>
+
+            <p><alert>Outline of Proof:</alert> For the sake of simplicity assume that the critical point is at the point <m>(x_0,y_0)=(0,0)</m>. Now using a Taylor expansion for functions of two variables about <m>(a,b) = (0,0)</m> we have (up to the quadratic terms)
+            <me>
+                f(x,y); f(0,0) + f_x (0,0)x + f_y (0,0) y + \dfrac{f_{xx}(0,0)}{2} x^2 + f_{xy} (0,0) xy + \dfrac{f_{yy}(0,0)}{2} y^2
+            </me>.
+            Since <m>(x_0,y_0) = (0,0)</m> is a critical point of the function <m>f_x (0,0) = f_y (0,0) = 0</m>. Thus
+            <me>
+                f(x,y); f(0,0) + \dfrac{f_{xx}(0,0)}{2}x^2 + f_{xy} (0,0) xy + \dfrac{f_{yy} (0,0)}{2}y^2
+            </me>.
+            </p>
+
+            <p>On completing the square (and dropping the evaluation at <m>(0,0)</m> for brevity)
+            <md>
+                <mrow>f(x,y) \amp \simeq f + \dfrac{f_{xx}}{2} \left \{x^2 + \dfrac{2f_{xy}}{f_{xx}} + \left( \dfrac{f_{xy}}{f_{xx}} \right)^2 y^2 \right \} - \dfrac{f_{xx}}{2} \left( \dfrac{f_{xy}}{f_{xx}} \right)^2 y^2 + \dfrac{f_{yy}}{2}y^2</mrow>
+                <mrow>\amp = f + \dfrac{f_{xx}}{2} \left( x + \dfrac{f_{xy}}{f_{xx}} y \right)^2 + \dfrac{1}{2 f_{xx}} y^2 \left( f_{xx} f_{yy} - f_{xy}^2 \right)</mrow>
+            </md>.
+            </p>
+
+            <p>From this we can see that if <m>f_{xx} > 0</m> and <m>D = f_{xx} f_{yy} - f_{xy}^2 > 0</m> then when <m>x</m> and <m>y</m> are varied from <m>(0,0)</m>, <m>f(x,y)</m> increases and so <m>(x_0,y_0) = (0,0)</m> will be a local minimum.</p>
+
+
+            <example xml:id="Ex-Locate_critical_points_2">
+                <statement>
+                    <p>Locate and identify the critical points of the function <m>f(x,y) = 2x^3 + (x+1)y^2 + 5x^2</m>.</p>
+                </statement>
+
+                <solution>
+                    <p>We located the critical points of this function in an earlier example. We found that there are 4 critical points at <me>\left( 0, 0 \right), \left( -\dfrac{5}{3}, 0 \right), \left( -1, 2 \right) \: \text{ and } \left( -1, -2 \right)</me>.</p>
+
+                    <p>To determine the nature of these critical points, in this example we will use the second derivative test. To this end, note that <me>f_{xx} = 12x+10, \: f_{xy} = 2y, \: \text{ and } f_{yy} = 2x+2</me>. Thus
+                    <md>
+                        <mrow>D \amp = f_{xx} f_{yy} - f_{xy}^2 = (12x+10)(2x+2) - (2y)^2</mrow>
+                        <mrow>\amp = 24x^2 + 44x -4y^2+20</mrow>
+                    </md>.
+                    Now, applying the second derivative test:
+                    </p>
+
+                    <p><ul>
+                        <li>At <m>(0,0)</m>, <m>D=20>0</m>, <m>f_{xx}=10>0</m> and so <m>(0,0)</m> is a local minimum.</li>
+                        <li>At <m>(-\dfrac{5}{3},0)</m>, <m>D=\dfrac{40}{3}>0</m>, <m>f_{xx}=-10 &lt; 0</m> and so <m>(-\dfrac{5}{3},0)</m> is a local maximum.</li>
+                        <li>At <m>(-1,2)</m>, <m>D=-16 &lt; 0</m> and so <m>(-1,2)</m> is a saddle point.</li>
+                        <li>At <m>(-1,-2)</m>, <m>D=-16 &lt; 0</m> and so <m>(-1,-2)</m> is also a saddle point.</li>
+                    </ul></p>
+
+                    <p>This is in agreement with the conclusions we made on the nature of these critical pointson the basis of the level curves of the function.</p>
+                </solution>
+            </example>
+
+
+            <example xml:id="Ex-Locate_critical_points_3">
+                <statement>
+                    <p>Locate and identify the critical points of the function <me>g(x,y) = 2 - \sqrt{x^2+y^2}</me>.</p>
+                </statement>
+
+                <solution>
+                    <p>Here
+                        <me>
+                            g_x = \dfrac{-x}{\sqrt{x^2+y^2}} \: \text{ and } \: g_y = \dfrac{-y}{\sqrt{x^2+y^2}}
+                        </me>.
+                    </p>
+
+                    <p>For this function both partial derivatives are undefined at <m>(x, y) = (0,0)</m> and so this point will be a critical point. However we cannot use the second derivative test to determine the nature of this critical point. In this case we can see from the graph of the function that the critical point at <m>(x, y) = (0,0)</m> is a local maximum.</p>
+
+                    <figure xml:id="Fig-Loc_and_identify_critical_points">
+                        <caption></caption>
+                        <image source="./Calculus/Images/7/Fig6_Loc_and_identify_critical_points.png" width="70%"/>
+                    </figure>
+
+                </solution>
+            </example>
+
+
+             <exercises>
+            <title>Example Tasks</title>
+
+                <exercise>
+                    <statement>
+                        <p>Locate and identify the critical points of the function <m>z=3x-x^3-2y^2+y^4</m>.</p>
+                    </statement>
+                </exercise>
+
+                <exercise>
+                    <statement>
+                        <p>Locate and identify the critical points of the function <m>z=\exp \left(xy-\frac{2}{3}x^2 - \frac{2}{3}y^3 \right)</m>.</p>
+
+                        <figure xml:id="Ex2_crit_points">
+                            <caption></caption>
+                            <image source="./Calculus/Images/7/Ex2_crit_points.png" width="70%"/>
+                        </figure>
+
+                    </statement>
+                </exercise>
+
+            </exercises>
+
+        </section>
+<!-- =================================================================================================== -->
+
+
+
+<!-- =================================================================================================== -->
+<!-- Section 3: Global Extrema -->
+<!-- =================================================================================================== -->
+
+        <section xml:id="Global-Extrema">
+            <title>Global Extrema</title>
+
+            <definition>
+                <title>Global Extrema</title>
+
+                <statement>
+                    <p>Consider the function of two variables <m>f(x,y)</m> on the domain D.</p>
+                    <p><ul>
+                        <li>If there exists some point <m>(x_0,y_0)</m> in <m>D</m> such that <m>f(x,y) \leq f(x_0,y_0)</m> for all points <m>(x,y)</m> in <m>D</m> then the function has a <em>global maximum</em> at <m>(x_0,y_0)</m>.</li>
+                        <li>Similarly, if there exists some point <m>(x_0,y_0)</m> in <m>D</m> such that <m>f(x,y) \geq f(x_0,y_0)</m> for all points <m>(x,y)</m> in <m>D</m> then the function has a <em>global minimum</em> at <m>(x_0,y_0)</m>.</li>
+                    </ul></p>
+                </statement>
+            </definition>
+
+
+            <example>
+                <statement>
+                    <p>The graph of the function <me>f(x,y) = x(5x+2)(3y-2)e^{-\left( \dfrac{x^2+y^2}{5} \right)}</me> over the domain <m>D = \left \{ (x,y): -5 \leq x \leq 5, \, -5 \leq y \leq 5 \right \}</m> is shown below.</p>
+
+                    <figure xml:id="Fig7_Global_Extrema">
+                        <caption></caption>
+                        <image source="./Calculus/Images/7/Fig7_Global_Extrema.png" width="80%"/>
+                    </figure>
+                </statement>
+            </example>
+
+
+            <p>Before discussing global extrema for functions of two variables, recall the situation for a function of one variable <m>y=f(x)</m>. If <m>f(x)</m> is continuous on the closed interval <m>I=[a,b]</m> then <m>f(x)</m> is guaranteed to have both a global maximum and a global minimum on <m>I</m>.</p>
+
+            <figure xml:id="Fig8_Global_Extrema_1D">
+                <caption></caption>
+                <image source="./Calculus/Images/7/Fig8_Global_Extrema_1D.png" width="80%"/>
+            </figure>
+
+            <p>These global extrema can be found by evaluating <m>f(x)</m> at</p>
+            <p><ul>
+                <li>All of the critical points of <m>f(x)</m> in <m>I</m>, and</li>
+                <li>The endpoints of <m>L</m>.</li>
+            </ul></p>
+            <p>The procedure for finding the global extrema of functions of two variables is very similar and is based on the following theorem.</p>
+
+
+            <theorem>
+                <title>Extreme Value Theorem</title>
+
+                <statement>
+                    <p>
+                        If <m>f(x,y)</m> is a continuous function on the closed and bounded domain <m>D \subset \mathbb{R}^2</m> then <m>f(x,y)</m> has both a global maximum and a global minimum on <m>D</m>.
+                    </p>
+                </statement>
+            </theorem>
+
+
+            <p>Note that a <em>closed</em> region, <m>D \subset \mathbb{R}^2</m>, is a region in the plane that contains its boundary. For example in the diagram below Region <m>D_1</m> would be a closed region whereas Region <m>D_2</m> is not closed.</p>
+
+            <figure xml:id="Fig9_closed_region">
+                <caption></caption>
+                <image source="./Calculus/Images/7/Fig9_closed_region.png" width="45%"/>
+            </figure>
+
+            <p>A <em>bounded</em> region, <m>D \subset \mathbb{R}^2</m>, is a region in the plane that doesn’t extend to infinity in any direction. For example in the diagram below Region <m>D_1</m> would be a bounded region whereas Region <m>D_2</m> is not bounded.</p>
+
+            <figure xml:id="Fig10_bounded_region">
+                <caption></caption>
+                <image source="./Calculus/Images/7/Fig10_bounded_region.png" width="45%"/>
+            </figure>
+
+
+            <remark>
+                <title>Locating Global Extrema</title>
+                <statement>
+                    <p>To locate the global extrema of the continuous function <m>f(x,y)</m> on the closed and bounded domain <m>D \subset \mathbb{R}^2</m>:</p>
+                    <p><ul>
+                        <li>Find all of the critical points in the interior of <m>D</m>;</li>
+                        <li>Find the maximum and minimum values of <m>f(x,y)</m> on the boundary of <m>D</m>;</li>
+                        <li>Evaluate <m>f(x,y)</m> at each of the above points and compare.</li>
+                    </ul></p>
+                </statement>
+            </remark>
+
+
+            <example>
+                <statement>
+                    <p>Find the global extrema of the function <m>z(x,y) = x^2 + 2xy + 3y^2</m> on the closed triangular region <m>D</m> with vertices <m>(-1,1)</m>, <m>(2,1)</m> and <m>(-1,-2)</m>.</p>
+                </statement>
+
+                <solution>
+                    <figure xml:id="Fig11_Example7">
+                        <caption></caption>
+                        <image source="./Calculus/Images/7/Fig11_Example7.png" width="60%"/>
+                    </figure>
+
+                    <p>Firstly note that <m>D</m> is a closed and bounded region in the plane and so we can use the method outlined above. So begin by finding the critical points of <m>z</m>. Here <me>z_x = 2x+2y \: \text{ and } \: z_y = 2x+6y</me>.</p>
+
+                    <p>Critical points occur when z_x = z_y = 0 and so this function has only one critical point at <m>(x,y) = (0,0)</m>. This is inside <m>D</m> and so we evaluate the function at this point, i.e. <me>z(0,0) = 0</me>.</p>
+
+                    <p>To find the maximum and minimum values of the function on the boundary we will have to consider the 3 sides of the triangle separately. Firstly, consider the side of the triangle defined by <me>y=1, \: -1 \leq x \leq 2</me>.</p>
+
+                    <p>On this interval we think of <m>z</m> as a function of <m>x</m> only, i.e. <me>z(x) = x^2 + 2x + 3</me>.</p>
+
+                    <figure xml:id="Fig12_Example7_z_function">
+                        <caption></caption>
+                        <image source="./Calculus/Images/7/Fig12_Example7_z_function.png" width="60%"/>
+                    </figure>
+
+                    <p>This has a maximum value <m>11</m> at <m>x=2</m> and minimum value <m>2</m> at <m>x=1</m>.</p>
+
+                    <p>Next consider the side of the triangle defined by <me>x=-1, \: -2 \leq y \leq 1</me>. On this interval we think of <m>z</m> as a function of <m>y</m> only, i.e. <me>z(y) = 1-2y+3y^2</me>.</p>
+
+                    <figure xml:id="Fig13_Example7_z_function_2">
+                        <caption></caption>
+                        <image source="./Calculus/Images/7/Fig13_Example7_z_function_2.png" width="60%"/>
+                    </figure>
+
+                    <p>Again, using the technique given above for locating the global extrema for a function of one variable (or by looking at the graph) we find that the largest value of <m>z</m> occurs at <m>y=-2</m> (giving <m>z=17</m>) and the smallest value of <m>z</m> occurs at <m>y=1/3</m>, (giving <m>z=2/3</m>).</p>
+
+                    <p>Finally on the interval defined by <me>y=x-1, \: -1 \leq x \leq 2</me>, we can think of <m>z</m> as a function of <m>x</m> only, i.e. <me>z(x) = 6x^2-8x+3</me>.</p>
+
+                    <figure xml:id="Fig14_Example7_z_function_3">
+                        <caption></caption>
+                        <image source="./Calculus/Images/7/Fig14_Example7_z_function_3.png" width="60%"/>
+                    </figure>
+
+                    <p>For this function the global maximum is <m>17</m> at <m>x=-1</m> and the global minimum is <m>1/3</m> at <m>x=2/3</m>.</p>
+
+                    <p>On comparing the value of the function <m>z(x,y) = x^2 + 2xy + 3y^2</m> at each of the global extrema on the sides of the triangle and at the critical point inside the region we conclude that the function has a global maximum of <m>17</m> at <m>(x,y) = (-1,2)</m> and a global minimum of <m>0</m> at <m>(x,y)=(0,0)</m>.</p>
+                </solution>
+            </example>
+
+
+            <exercises>
+            <title>Example Tasks</title>
+
+                <exercise>
+                    <statement>
+                        <p>Find the global extrema of <m>z=2x^2 + x +y^2 - 2</m> on <m>D = \left \{ (x,y): x^2+y^2 \leq 4 \right \}</m>.</p>
+                    </statement>
+                </exercise>
+
+                <exercise>
+                    <statement>
+                        <p>Find the global extrema of <m>R(x,y) = x \sqrt{8-x^2-y^2}</m> on <m>D = \left \{ (x,y): x^2+y^2 \leq 8 \right \}</m>.</p>
+                    </statement>
+                </exercise>
+
+            </exercises>
+
+        </section>
+</chapter>

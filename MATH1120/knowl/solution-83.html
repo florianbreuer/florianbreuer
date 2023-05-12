@@ -1,0 +1,75 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-01-07T17:22:17+11:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<div class="solution solution-like">
+<h3 class="heading">
+<span class="type">Solution</span><span xmlns:svg="http://www.w3.org/2000/svg" class="space"> </span><span class="codenumber">10.1.4.1</span><span xmlns:svg="http://www.w3.org/2000/svg" class="period">.</span>
+</h3>
+<p>This is a first order separable DE so begin by separating the variables, i.e.</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\frac{1}{y^2}\frac{dy}{dx}=-4x
+\end{equation*}
+</div>
+<p class="continuation">Now integrate both sides with respect to <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(x\text{,}\)</span></p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\int \frac{1}{y^2}\frac{dy}{dx}\hspace{2mm} dx=\int -4x\hspace{2mm} dx
+\end{equation*}
+</div>
+<p class="continuation">Using the integration by substitution formula this becomes</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\int \frac{1}{y^2}\hspace{2mm} dy=\int -4x\hspace{2mm} dx
+\end{equation*}
+</div>
+<p class="continuation">Evaluating the integrals on both sides (and combining the two constants of integration) gives</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+-\frac{1}{y}=-2x^2+C
+\end{equation*}
+</div>
+<p class="continuation">Here we can make <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(y\)</span> the subject of the resulting equation and hence</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+y(x)=\frac{1}{2x^2+C}
+\end{equation*}
+</div>
+<p class="continuation">Note that we can check whether this function is a solution to the DE by substituting back into the original DE. On the left hand side, using the chain rule to differentiate <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(y\)</span> we obtain</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\frac{dy}{dx}=-\frac{1}{(2x^2+C)^2}\times (4x)=\frac{-4x}{(2x^2+C)^2}
+\end{equation*}
+</div>
+<p class="continuation">On the right hand side</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+-4xy^2=(-4x)\left(\frac{1}{2x^2+C}\right)^2=\frac{-4x}{(2x^2+C)^2}
+\end{equation*}
+</div>
+<p class="continuation">and so <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(y\)</span> does indeed satisfy the DE.</p>
+<p>The working so far has assumed that <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(y^2\neq 0\)</span> and hence that <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(y\neq 0\text{.}\)</span> Thus to check that we have found all of the solutions to the DE we must check whether the function <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(y(x)=0\)</span> is also a solution. Clearly it is. Thus the set of all solutions to the DE is</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+y(x)=\frac{1}{2x^2+C}, \hspace{5mm} y(x)=0 \hspace{5mm} \textrm{ for } C\in\mathbb{R}
+\end{equation*}
+</div>
+<p class="continuation">See Figure 10.1.5. for a sketch of these solutions for various values of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(C\text{.}\)</span> <figure class="figure figure-like"><div xmlns:svg="http://www.w3.org/2000/svg" class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="./DifferentialEquations/Images/2/1_example3.png" class="contained"></div>
+<figcaption xmlns:svg="http://www.w3.org/2000/svg"><span class="type">Figure</span><span class="space"> </span><span class="codenumber">10.1.5<span class="period">.</span></span><span class="space"> </span></figcaption></figure></p>
+</div>
+<span class="incontext"><a href="Sec-First_Order_Separable_DEs.html#solution-83">in-context</a></span>
+</body>
+</html>

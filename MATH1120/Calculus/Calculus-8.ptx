@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- =================================================================================================== -->
+<!-- To process this file with xsltproc do                                                        -->
+<!--                                                                                              -->
+<!-- (1) LaTeX/PDF:                                                                               -->
+<!--     xsltproc -o minimal.tex PATH_TO/mathbook/xsl/pretext-latex.xsl source/main.ptx           -->
+<!--     pdflatex minimal.tex                                                                     -->
+<!--     xelatex minimal.tex                                                                      -->
+<!--                                                                                              -->
+<!-- (2) HTML:                                                                                    -->
+<!--     xsltproc PATH_TO/mathbook/xsl/pretext-html.xsl source/main.ptx                           -->
+<!--     <browser>  minimal.html                                                                  -->
+<!--        ~/xsltproc/xsltproc.exe ~/mathbook/xsl/mathbook-html.xsl test.xml                     -->
+<!--                                                                                              -->
+<!-- (3) CoCalc worksheet (parameter causes a single file for output)                             -->
+<!--     REMOVE the "X" in the double dash (which is not legal in an XML comment)                 -->
+<!--     xsltproc -X-stringparam chunk.level 0 PATH_TO/mathbook/xsl/pretext-smc.xsl source/main.ptx   -->
+<!--     <CoCalc> minimal.sagews                                                                  -->
+<!--                                                                                              -->
+<!-- (4) Sage doctesting                                                                          -->
+<!--     REMOVE the "X" in the double dash (which is not legal in an XML comment)                 -->
+<!--     xsltproc -X-stringparam chunk.level 0 PATH_TO/mathbook/xsl/pretext-sage-doctest.xsl source/main.ptx  -->
+<!--     <read further instructions in> minimal.py                                                -->
+<!-- =================================================================================================== -->
+
+<chapter xml:id="Chap-Calculus_8">
+
+
+
+<!-- =================================================================================================== -->
+<!-- Title and Other Preliminaries -->
+<!-- =================================================================================================== -->
+    <title>CA8: Chain Rules</title>
+
+        <!-- <frontmatter> -->
+
+<!--             <titlepage>
+                <author>
+                    <institution>University of Newcastle</institution>
+                </author>
+                <date><today /></date>
+            </titlepage> -->
+
+            <!-- <abstract>
+                <p>This is a very short article, but it still exercises some advanced features of MathBook XML.</p>
+            </abstract> -->
+
+        <!-- </frontmatter> -->
+
+        <!-- <introduction>
+            <p>This is a short paragraph to introduce the article (but it is not the abstract).  It is optional, in case it would be preferable to have the first section be titled an <q>Introduction.</q></p>
+        </introduction> -->
+<!-- =================================================================================================== -->
+
+
+
+
+<!-- =================================================================================================== -->
+<!-- Section 1: the Single Variable Chain Rule-->
+    <!-- =================================================================================================== -->
+    <section xml:id="Sec-The_single_variable_chain_rule">
+        <title>The Single Variable Chain Rule</title>
+        <p>Recall that the chain rule for functions of one variable says: <me>\text{If } y=y(x) \text{ and } x=x(t) \text{ then } \dfrac{dy}{dt} = \dfrac{dy}{dx}\cdot \dfrac{dx}{dt}.</me></p>
+
+
+        <example xml:id="Ex-Single_variable_chain_rule">
+            <statement><p>Use the chain rule to find <m>\dfrac{df}{dx}</m> if <m>f(u) = \sin(u)</m> and <m>u(x)=x^2+1</m>.</p></statement>
+            <answer><p><m>\dfrac{df}{dx} = 2x\cos(x^2+1)</m></p></answer>
+            <solution>
+                <p>Via the chain rule:
+                    <md alignment="alignat">
+                        <mrow>\dfrac{df}{dx} \amp = \dfrac{df}{du}\dfrac{du}{dx}</mrow>
+                        <mrow>\quad \amp = \cos(u)(2x)</mrow>
+                        <mrow>\quad \amp = 2x\cos(x^2+1).</mrow>
+                    </md>
+                </p>
+            </solution>
+        </example>
+
+        <p>With multivariable functions there are many ways in which to form composite functions but there will be a chain rule for each possibility. In the following sections we will look at some of these.</p>
+    </section>
+
+
+
+    <section xml:id="Sec-Multivariable-chain-rules">
+        <!-- =================================================================================================== -->
+        <!-- Section 1: Multivariable Chain Rules-->
+        <!-- =================================================================================================== -->
+        <title>Multivariable Chain Rules</title>
+        <p>Begin by considering the case where <m>z=z(x,y)</m> and <m>x=x(t)</m>, <m>y=y(t)</m>. In this case we can think of <m>z</m> as defining a real valued function <m>z=z(t)</m>.</p>
+
+        <example xml:id="Ex-Multivariate_chain_rule_substitution">
+            <statement><p>If <m>z=x^2+2xy+3y^2</m> and <m>x=t+1</m>, <m>y=t-1</m> then find <m>z'(t)</m> by substituting the expressions for <m>x</m> and <m>y</m> into <m>z</m> and then differentiating.</p></statement>
+            <answer><p><m>\dfrac{dz}{dt} = 12t-4</m></p></answer>
+            <solution>
+                <p>On substituting <m>x</m> and <m>x</m> into <m>z</m>
+                    <md alignment="alignat">
+                        <mrow>z(t) \amp = (t+1)^2 + 2(t+1)(t-1)+3(t-1)^2</mrow>
+                        <mrow>\quad \amp = 6t^2-4t+2</mrow>
+                    </md>
+                    Thus <me>\dfrac{dz}{dt} = 12-4.</me>
+                </p>
+            </solution>
+        </example>
+
+        <p>
+        Now for a function <m>f</m> of two variables the linear approximation (or ''small change'') formula says: <me>\Delta f \approx \dfrac{\partial f}{\partial x}\Delta x + \dfrac{\partial f}{\partial y}\Delta y.</me>
+        Thus <me>\dfrac{\Delta f}{\Delta t} \approx \dfrac{\partial f}{\partial x}\frac{\Delta x}{\Delta t} + \dfrac{\partial f}{\partial y}\frac{\Delta y}{\Delta t}.</me>
+        </p>
+
+        <p>This formula becomes more accurate as <m>\Delta t \to 0</m> and from the limit we obtain the following chain rule.</p>
+
+        <theorem>
+            <title>Chain Rule 1</title>
+                <statement>
+                    <p>
+                    If <m>z=z(x,y)</m> and <m>x=x(t)</m>, <m>y=y(t)</m> are differentiable functions then <me>\dfrac{dz}{dt} = \dfrac{\partial z}{\partial x}\cdot \dfrac{dx}{dt} + \dfrac{\partial z}{\partial y}\cdot \dfrac{dy}{dt}.</me>
+                    </p>
+                </statement>
+        </theorem>
+
+
+        <example xml:id="Ex-Chain_rule_1_sample_1">
+            <statement><p>If <m>z=x^2+2xy+3y^2</m> and <m>x=t+1</m>, <m>y=t-1</m> then find <m>z'(t)</m> by using the chain rule.</p></statement>
+            <answer><p><m>\dfrac{dz}{dt} = 12t-4</m></p></answer>
+            <solution>
+                <p>Here <me>\dfrac{\partial z}{\partial x} = 2x + 2y, \ \dfrac{\partial z}{\partial y} = 2x + 6y, \ \dfrac{dx}{dt} = 1 = \dfrac{dy}{dt}.</me>
+                   So, via the chain rule
+                    <md alignment="alignat">
+                        <mrow>\dfrac{dz}{dt} \amp = (2x+2y)\times 1 + (2x+6y)\times 1</mrow>
+                        <mrow>\quad \amp = 4x+8y</mrow>
+                        <mrow>\quad \amp = 4(t+1)+8(t-1)</mrow>
+                        <mrow>\quad \amp = 12t-4.</mrow>
+                    </md>
+                </p>
+            </solution>
+        </example>
+
+
+        <example xml:id="Ex-Chain_rule_1_sample_2">
+            <statement><p>Use the chain rule to find <m>z'(t)</m> when <m>z(x,y) = \sqrt{x^2+y^2}</m> and <m>x(t) = e^{2t}, \ y(t)=e^{-2t}</m>.</p></statement>
+            <answer><p><m>\dfrac{dz}{dt} = \dfrac{2(e^{6t} - e^{-2t})}{\sqrt{e^{8t}+1}}</m></p></answer>
+            <solution>
+                <p>Here <me>\dfrac{\partial z}{\partial x} = \dfrac{x}{\sqrt{x^2+y^2}}, \ \dfrac{\partial z}{\partial y} = \dfrac{y}{\sqrt{x^2+y^2}}, \ \dfrac{dx}{dt} = 2e^{2t}, \ \dfrac{dy}{dt} = -2e^{-2t}.</me>
+                   So, via the chain rule
+                    <md alignment="alignat">
+                        <mrow>\dfrac{dz}{dt} \amp = \dfrac{x}{\sqrt{x^2+y^2}}\times 2e^{2t} + \dfrac{y}{\sqrt{x^2+y^2}}\times (-2e^{-2t})</mrow>
+                        <mrow>\quad \amp = \dfrac{e^{2t}2e^{2t}}{\sqrt{e^{4t} + e^{-4t}}} -\dfrac{e^{-2t}2e^{-2t}}{\sqrt{e^{4t} + e^{-4t}}}</mrow>
+                        <mrow>\quad \amp = \dfrac{2(e^{6t} - e^{-2t})}{\sqrt{e^{8t}+1}}.</mrow>
+                    </md>
+                </p>
+            </solution>
+        </example>
+
+
+        <example xml:id="Ex-Related_rate_chain_rule_1">
+            <statement><p>The radius of a right circular cone is increasing at a rate of <m>1.8</m> cm/s while its height is decreasing at a rate of <m>2.5</m> cm/s. At what rate is the volume of the cone changing when the radius is <m>120</m> cm and the height is <m>140</m> cm?</p></statement>
+            <answer><p><m>\dfrac{dV}{dt} = 8160\pi \  (\text{cm}^3\text{/s})</m></p></answer>
+            <solution>
+                <p>The volume <m>V</m> of right circular cone of radius <m>r</m> and height <m>h</m> is <me>V(r,h) = \dfrac{1}{3}\pi r^2h.</me></p>
+                <p>Since both radius and the height are functions of time <m>t</m>, i.e. <m>r=r(t)</m> and <m>h=h(t)</m>, we can think of the volume as a function of time as well, i.e. <m>V=V(t)</m>, and the problem is asking us to find <m>\dfrac{dV}{dt}</m> when <m>r=120</m> and <m>h=140</m>. Now, by the chain rule: <me>\dfrac{dV}{dt} = \dfrac{\partial V}{\partial r}\cdot \dfrac{dr}{dt} + \dfrac{\partial V}{\partial h}\cdot \dfrac{dh}{dt}.</me></p>
+                <p>Here <me>\dfrac{\partial V}{\partial r}  = \dfrac{2}{3}\pi rh \text{ and } \dfrac{\partial V}{\partial h} =\dfrac{1}{3}\pi r^2</me> and we are given that <m>\dfrac{dr}{dt} = 1.8</m> and <m>\dfrac{dh}{dt} = -2.5</m>. (Note that <m>\dfrac{dh}{dt}</m> is negative because the height is decreasing.) Thus, at <m>r=120</m> and <m>h=140</m>
+                    <md alignment="alignat">
+                        <mrow>\dfrac{dV}{dt} \amp = \dfrac{2\pi}{3} \times 120 \times 140 \times 1.8  - \dfrac{\pi}{3}\times 120^2 \times 2.5</mrow>
+                        <mrow>\amp =  8160\pi \  (\text{cm}^3\text{/s})</mrow>
+                    </md>
+                </p>
+            </solution>
+        </example>
+
+
+        <p>Consider the case now where <m>z=z(u)</m> and <m>u=u(x,y)</m>. In this case we can think of <m>z</m> as defining a function of two variables <m>z=z(x,y)</m> and hence has partial derivatives with respect to these variables. The relevant chain rules for this case are:</p>
+
+
+
+        <theorem>
+            <title>Chain Rule 2</title>
+                <statement>
+                    <p>
+                    If <m>z=z(u)</m> and <m>u=u(x,y)</m> are differentiable functions then <me>\dfrac{\partial z}{\partial x} =  \dfrac{dz}{du}\cdot\dfrac{\partial u}{\partial x} \quad \text{and} \quad  \dfrac{\partial z}{\partial y} = \dfrac{dz}{du}\cdot\dfrac{\partial u}{\partial y}.</me>
+                    </p>
+                </statement>
+        </theorem>
+
+
+    <example xml:id="Ex-Related_rate_chain_rule_2">
+        <statement><p>A spherical balloon holds a fixed amount of gas but its volume is dependent on the pressure <m>P</m> and temperature <m>T</m> of the gas according to <me>V=k\dfrac{T}{P}, \quad k \ \text{ a constant}.</me> Determine expressions for the rate of change of the radius <m>r</m> of the balloon with respect to the pressure and temperature of the gas.</p></statement>
+        <answer>
+            <p><m>\dfrac{\partial r}{\partial P} = -\dfrac{1}{3}Ck^{\frac{1}{3}}T^{\frac{1}{3}}P^{-\frac{4}{3}}</m></p>
+            <p><m>\dfrac{\partial r}{\partial T} =  \dfrac{1}{3}Ck^{\frac{1}{3}}T^{-\frac{2}{3}}P^{-\frac{1}{3}}</m></p>
+        </answer>
+        <solution>
+            <p>The volume <m>V</m> of a sphere of radius <m>r</m> is <me>V = \dfrac{4}{3}\pi r^3.</me></p>
+            <p>Thus we can think of the radius of the balloon as a function of its volume, i.e. <me>r(V) = CV^{\frac{1}{3}} \text{ where } C=\left(\dfrac{3}{4\pi}\right)^{\frac{1}{3}}</me> where the volume is, in turn, a function of the pressure and temperature of the gas, i.e. <me>V(P,T) = kP^{-1}T.</me></p>
+            <p>Using Chain Rule 2:
+                <md alignment="alignat">
+                    <mrow>\dfrac{\partial r}{\partial P} \amp = \dfrac{dr}{dV}\dfrac{\partial V}{\partial P}</mrow>
+                    <mrow>\amp =  \left(\dfrac{1}{3}CV^{-\frac{2}{3}}\right)(-kTP^{-2})</mrow>
+                    <mrow>\amp = -\dfrac{1}{3}Ck^{\frac{1}{3}}T^{\frac{1}{3}}P^{-\frac{4}{3}}.</mrow>
+                </md>
+            </p>
+            <p>Similarly
+                <md alignment="alignat">
+                    <mrow>\dfrac{\partial r}{\partial T} \amp = \dfrac{dr}{dV}\dfrac{\partial V}{\partial T}</mrow>
+                    <mrow>\amp =  \left(\dfrac{1}{3}CV^{-\frac{2}{3}}\right)(kP^{-1})</mrow>
+                    <mrow>\amp =  \dfrac{1}{3}Ck^{\frac{1}{3}}T^{-\frac{2}{3}}P^{-\frac{1}{3}}.</mrow>
+                </md>
+            </p>
+        </solution>
+    </example>
+
+
+    <example xml:id="Ex-Chain_rule_2_sample">
+        <statement><p>Use the appropriate chain rules to calculate <m>\dfrac{\partial z}{\partial x}</m> and <m>\dfrac{\partial z}{\partial y}</m> when <me>z = \dfrac{u}{u+1} \text{ and } u = 3x^5-5xy^2.</me></p></statement>
+        <answer><p><m>\dfrac{\partial z}{\partial x} = \dfrac{15x^4-5y^2}{(3x^5-5xy^2+1)^2}</m></p>
+                <p><m>\dfrac{\partial z}{\partial y} = \dfrac{-10xy}{(3x^5-5xy^2+1)^2}</m></p>
+        </answer>
+        <solution>
+            <p>Using Chain Rule 2: <me>\dfrac{\partial z}{\partial x} =  \dfrac{dz}{du}\dfrac{\partial u}{\partial x} \text{ and } \dfrac{\partial z}{\partial y} = \dfrac{dz}{du}\dfrac{\partial u}{\partial y}.</me></p>
+            <p>Now, (via the quotient rule) <me>\dfrac{dz}{du} = \dfrac{(u+1)(1) - u(1)}{(u+1)^2} = \dfrac{1}{(u+1)^2}</me> and <me>\dfrac{\partial u}{\partial x} = 15x^4-5y^2 \text{ and } \dfrac{\partial u}{\partial y} = -10xy.</me></p>
+            <p>Thus <me>\dfrac{\partial z}{\partial x} = \dfrac{15x^4-5y^2}{(3x^5-5xy^2+1)^2} \text{ and } \dfrac{\partial z}{\partial y} = \dfrac{-10xy}{(3x^5-5xy^2+1)^2}.</me></p>
+        </solution>
+    </example>
+
+    <p>Next consider the case where <m>z=z(x,y)</m> and <m>x=x(s,t)</m>, <m>y=y(s,t)</m>. In this case we can think of <m>z</m> as defining a function of two variables <m>z=z(s,t)</m>. The relevant chain rules for this case are:</p>
+
+    <theorem>
+        <title>Chain Rule 3</title>
+            <statement>
+                <p>
+                If <m>z=z(x,y)</m> and <m>x=x(s,t)</m>, <m>y=y(s,t)</m> are differentiable functions then
+                <me>\dfrac{\partial z}{\partial s} = \dfrac{\partial z}{\partial x} \cdot \dfrac{\partial x}{\partial s} + \dfrac{\partial z}{\partial y} \cdot \dfrac{\partial y}{\partial s}</me>
+                <me>\dfrac{\partial z}{\partial t} = \dfrac{\partial z}{\partial x} \cdot \dfrac{\partial x}{\partial t} + \dfrac{\partial z}{\partial y} \cdot \dfrac{\partial y}{\partial t}</me>
+                </p>
+            </statement>
+    </theorem>
+
+    <example xml:id="Ex-Chain_rule_3_sample">
+        <statement><p>Use the appropriate chain rules to find <m>\dfrac{\partial z}{\partial s}</m> and <m>\dfrac{\partial z}{\partial t}</m> when <me>z = \dfrac{x}{y} \text{ and } x = se^t, \quad y = 1+se^{-t}.</me></p></statement>
+        <answer><p><m>\dfrac{\partial z}{\partial s} = \dfrac{e^t}{(1+se^{-t})^2}</m></p>
+                <p><m>\dfrac{\partial z}{\partial y} = \dfrac{se^t+2s^2}{(1+se^{-t})^2}</m></p>
+        </answer>
+        <solution>
+            <p>Here
+                <me>\dfrac{\partial z}{\partial x} = \dfrac{1}{y}, \quad \dfrac{\partial z}{\partial y} = -\dfrac{x}{y^2}</me>
+                and
+                <me>\dfrac{\partial x}{\partial s} = e^t, \quad \dfrac{\partial x}{\partial t} = se^t, \quad \dfrac{\partial y}{\partial s}=e^{-t}, \quad \dfrac{\partial y}{\partial t}=-se^{-t}.</me>
+            </p>
+            <p>Thus, by Chain Rule 3
+                <md alignment="alignat">
+                    <mrow>\dfrac{\partial z}{\partial s} \amp = \dfrac{\partial z}{\partial x} \cdot \dfrac{\partial x}{\partial s} + \dfrac{\partial z}{\partial y} \cdot \dfrac{\partial y}{\partial s}</mrow>
+                    <mrow>\amp =  \left(\dfrac{1}{1+se^{-t}}\right)(e^t) + \left(\dfrac{-se^t}{(1+se^{-t})^2}\right)(e^{-t})</mrow>
+                    <mrow>\amp =  \dfrac{e^t}{(1+se^{-t})^2}</mrow>
+                </md>
+                and
+                <md alignment="alignat">
+                    <mrow>\dfrac{\partial z}{\partial t} \amp = \dfrac{\partial z}{\partial x} \cdot \dfrac{\partial x}{\partial t} + \dfrac{\partial z}{\partial y} \cdot \dfrac{\partial y}{\partial t}</mrow>
+                    <mrow>\amp =  \left(\dfrac{1}{1+se^{-t}}\right)(se^t) + \left(\dfrac{-se^t}{(1+se^{-t})^2}\right)(-se^{-t})</mrow>
+                    <mrow>\amp =  \dfrac{se^t + 2s^2}{(1+se^{-t})^2}</mrow>
+                </md>
+            </p>
+        </solution>
+    </example>
+
+
+    <p>The chain rules given above are just special cases of the general chain rule.</p>
+
+    <theorem>
+        <title>The General Chain Rule</title>
+            <statement>
+                <p>
+                If <m>z=z(x_1,x_2,\ldots,x_n)</m> is a differentiable function of <m>n</m> variables <m>x_1,x_2,\ldots,x_n</m> and each <m>x_i = x_i(t_1,t_2,\ldots,t_m)</m> is a differentiable function of the <m>m</m> variables <m>t_1,t_2,\ldots,t_m</m> then
+                <me>\dfrac{\partial z}{\partial t_i} = \dfrac{\partial z}{\partial x_1} \cdot \dfrac{\partial x_1}{\partial t_i} + \dfrac{\partial z}{\partial x_2} \cdot \dfrac{\partial x_2}{\partial t_i} + \cdots + \dfrac{\partial z}{\partial x_n} \cdot \dfrac{\partial x_n}{\partial t_i}</me>
+                for each <m> i = 1,2,\ldots, m.</m>
+                </p>
+            </statement>
+    </theorem>
+
+
+    <example xml:id="Ex-General_chain_rule_sample">
+        <statement><p>Find <m>\dfrac{\partial w}{\partial u}</m> if <m>w(x,y,z) = 2x^2+5y^2+z^3</m> and <me>x(r,s,t,u) = r+s+t+u, \quad y(r,s,t,u)=r^2,\quad z(r,s,t,u) = \sqrt{r-s+t-u}</me></p></statement>
+        <answer>
+            <p><m>\dfrac{\partial w}{\partial u} = 4(r+s+t+u) - \dfrac{3\sqrt{r-s+t-u}}{2}</m></p>
+        </answer>
+        <solution>
+            <p>By the general Chain Rule
+                <md alignment="alignat">
+                    <mrow>\dfrac{\partial w}{\partial u} \amp = \dfrac{\partial w}{\partial x}\dfrac{\partial x}{\partial u} + \dfrac{\partial w}{\partial y}\dfrac{\partial y}{\partial u} + \dfrac{\partial w}{\partial z}\dfrac{\partial z}{\partial u}</mrow>
+                    <mrow>\amp =  (4x)(1) + (10y)(0) + (3z^2)\left(\dfrac{1}{2}(r-s+t-u)^{-\frac{1}{2}}(-1)\right)</mrow>
+                    <mrow>\amp =  4(r+s+t+u) - \dfrac{3\sqrt{r-s+t-u}}{2}</mrow>
+                </md>
+            </p>
+        </solution>
+    </example>
+
+    <exercises>
+        <title>Example Tasks</title>
+        <exercise>
+            <statement>
+            Use the appropriate chain rules to find <m>\dfrac{\partial z}{\partial x}</m> and <m>\dfrac{\partial z}{\partial y}</m> when <me>z(u,v)=u^2v+e^v  \quad \text{and} \quad u(x,y) = \ln(y-x), \quad v(x,y) = x+xy.</me>
+           </statement>
+        </exercise>
+        <exercise>
+            <statement>
+            Two straight roads intersect at right angles. Car A is moving on one road approaches the intersection at <m>25</m> km/h while Car B moving on the other road approaches the intersection at <m>30</m> km/h. At what rate is the distance between the cars changing when A is <m>0.3</m> km from the intersection and B is <m>0.4</m> km from the intersection?
+            </statement>
+        </exercise>
+        <exercise>
+            <statement>
+            Show that any function of the form <me>z = f(x+at) + g(x-at)</me> is a solution of the wave equation <me>\dfrac{\partial^2 z}{\partial t^2} = a^2\dfrac{\partial^2 z}{\partial x^2}.</me>
+            </statement>
+        </exercise>
+        <exercise>
+            <statement>
+                <ol label="a">
+                    <li>If <m>z=z(x,y)</m> and <m>x=x(\theta)</m> and <m>y=y(\theta)</m> find an appropriate chain rule for <m>\dfrac{d^2z}{d\theta^2}</m>.</li>
+                    <li>Using the result of part (a) find <m>\dfrac{d^2z}{d\theta^2}</m> when <m>z(x,y)=x^2+2y</m> and <m>x(\theta) = 5\cos(\theta)</m> and <m>y(\theta) = 5\sin(\theta)</m>.</li>
+                </ol>
+            </statement>
+        </exercise>
+    </exercises>
+    </section>
+
+
+
+<!-- =================================================================================================== -->
+<!-- Section 3:Implicit Differentiation-->
+<!-- =================================================================================================== -->
+    <section>
+    <title>Implicit Differentiation</title>
+
+    <p>We can use our chain rules to produce another way looking at implicit differentiation. Assuming that the equation <me>F(x,y) = 0</me> implicitly defines the function <m>y=y(x)</m>, recall that implicit differentiation gives us a way of finding a formula for  <m>\dfrac{dy}{dx}</m>.</p>
+
+    <example xml:id="Ex-Implicit_differentiation_recall">
+        <statement><p>Use implicit differentiation to find a formula for <m>\dfrac{dy}{dx}</m> for the function <m>y=y(x)</m> implicitly defined by the equation <me>x\cos(y) + y\cos(x) =x</me>.</p></statement>
+        <answer>
+            <p><m>\dfrac{dy}{dx} = \dfrac{1-\cos(y)+y\sin(x)}{\cos(x)-x\sin(y)}</m></p>
+        </answer>
+        <solution>
+            <p>Differentiating both sides of the equation with respect to <m>x</m>
+                <md alignment="alignat">
+                    <mrow>\dfrac{d}{dx}\left(x\cos(y) + y\cos(x)\right) \amp = \dfrac{d}{dx}(x)</mrow>
+                    <mrow>\left(-x\sin(y)\dfrac{dy}{dx} + \cos(y)\right) + \left(-y\sin(x)+\cos(x)\dfrac{dy}{dx}\right) \amp =  1</mrow>
+                    <mrow>\dfrac{dy}{dx}\left(\cos(x)-x\sin(y)\right) \amp = 1-\cos(y) +y\sin(x)</mrow>
+                    <mrow>\dfrac{dy}{dx} \amp = \dfrac{1-\cos(y)+y\sin(x)}{\cos(x)-x\sin(y)}</mrow>
+                </md>
+            </p>
+        </solution>
+    </example>
+
+    <p>To use the chain rules to find a formula for <m>\dfrac{dy}{dx}</m> for the function implicitly defined by the equation <men xml:id="Eqn-Implicit_function"> F(x,y)=0</men> let <me>z=F(x,y) \text{ and }  x=x(t), \quad y=y(t).</me> Thus we can think of <m>F</m> as being a function of the one variable <m>t</m>, and so, by Chain Rule 1, <me>\dfrac{dz}{dt} = \dfrac{\partial F}{\partial x}\dfrac{dx}{dt} + \dfrac{\partial F}{\partial y}\dfrac{dy}{dt}.</me> Now we are thinking of equation <xref ref="Eqn-Implicit_function"/> as defining a function of one variable <m>y=y(x)</m>, so let <m>x=t</m> and <m>y=y(t)</m> and hence <men>\dfrac{dz}{dt} = \dfrac{\partial F}{\partial x}\times (1) + \dfrac{\partial F}{\partial y}\dfrac{dy}{dt} = F_x + F_y \dfrac{dy}{dt}.</men>
+    </p>
+    <p>
+        Returning to equation <xref ref="Eqn-Implicit_function"/>, on differentiating both sides with respect to <m>t</m>, we obtain
+        <md alignment="alignat">
+            <mrow>\dfrac{dz}{dt} \amp= \dfrac{d}{dt}(0)</mrow>
+            <mrow>F_x + F_y \dfrac{dy}{dt} \amp = 0.</mrow>
+        </md>
+        Of course <m>x=t</m> so <m>\dfrac{dy}{dx} = \dfrac{dy}{dt}</m> from which we obtain, provided <m>F_y \neq 0</m>, <me>\dfrac{dy}{dx} = -\dfrac{F_x}{F_y}.</me>
+    </p>
+
+    <p>Thus we can find a formula for <m>\dfrac{dy}{dx}</m> via partial differentiation as opposed to implicit differentiation. In summary:</p>
+
+    <theorem>
+        <statement>
+            <p>
+            If the equation <m>F(x,y) = 0</m> implicitly defines the function <m>y=y(x)</m> then <me>\dfrac{dy}{dx} = -\dfrac{F_x}{F_y}  \text{ provided } F_y \neq 0.\</me>
+            </p>
+        </statement>
+    </theorem>
+
+
+    <example xml:id="Ex-Implicit_differentiation_via_partial_differentiation">
+        <statement><p>Use partial differentiation to find a formula for <m>\dfrac{dy}{dx}</m> for the function <m>y=y(x)</m> implicitly defined by the equation <me>x\cos(y) + y\cos(x) =x</me>.</p></statement>
+        <answer>
+            <p><m>\dfrac{dy}{dx} = \dfrac{1-\cos(y)+y\sin(x)}{\cos(x)-x\sin(y)}</m></p>
+        </answer>
+        <solution>
+            <p>Let <me>F(x,y) = x\cos(y) + y\cos(x) - x</me>. Then <me>\dfrac{\partial F}{\partial x} = \cos(y)-y\sin(x)-1 \text{ and } \dfrac{\partial F}{\partial y} = -x\sin(y)+\cos(x).</me> Thus
+                <md alignment="alignat">
+                    <mrow>\dfrac{dy}{dx} \amp = -\dfrac{F_x}{F_y}</mrow>
+                    <mrow>\amp = \dfrac{1-\cos(y)+y\sin(x)}{\cos(x)-x\sin(y)}.</mrow>
+                </md>
+            </p>
+        </solution>
+    </example>
+
+
+    <p>A similar argument can extend this result to functions of more than one variable. For example:</p>
+
+    <theorem>
+        <statement>
+            <p>
+            If <m>F(x,y,z) = 0</m> implicitly defines the function <m>z=f(x,y)</m> then <me>\dfrac{\partial z}{\partial x} = -\dfrac{F_x}{F_z} \text{ and } \dfrac{\partial z}{\partial y} = -\dfrac{F_y}{F_z}, \text{ provided } F_z \neq 0. \</me>
+            </p>
+        </statement>
+    </theorem>
+
+
+    <example xml:id="Ex-Implicit_differentiation_via_partial_differentiation_general">
+        <statement><p>Use partial differentiation to find formulas for <m>\dfrac{\partial z}{\partial s} \text{ and } \dfrac{\partial z}{\partial t}</m> for the function <m>z=z(s,t)</m> implicitly defined by the equation <me>z^2 +\cos(s) + \ln(st) = 3.</me></p></statement>
+        <answer>
+            <p><m>\dfrac{\partial z}{\partial s} = \dfrac{\sin(s)-\frac{1}{s}}{2z}</m></p>
+            <p><m>\dfrac{\partial z}{\partial t} = -\dfrac{1}{2zt}</m></p>
+        </answer>
+        <solution>
+            <p>Let <me>F(s,t,z) = z^2 + \cos(s) + \ln(st)-3</me>. Then <me>F_s = -\sin(s)+\dfrac{1}{s}, \quad F_t=\dfrac{1}{t}, F_z=2z.</me> Thus
+            <me>\dfrac{\partial z}{\partial s} = -\dfrac{F_s}{F_z} = \dfrac{\sin(s)-\frac{1}{s}}{2z}</me>
+            <me>\dfrac{\partial z}{\partial t} = -\dfrac{F_t}{F_z}=-\dfrac{1}{2zt}.</me>
+            </p>
+        </solution>
+    </example>
+
+
+
+    <exercises>
+        <title>Example Tasks</title>
+        <exercise>
+            <statement>
+                Using partial differentiation (as opposed to implicit differentiation) find <m>\dfrac{\partial z}{\partial x}</m> at <m>(x,y,z) = (1,2,1)</m> when the function <m>z(x,y)</m> is defined by the equation <me>(x-y)e^z + (y-z)e^x + (z-x)e^y = 0.</me>
+            </statement>
+        </exercise>
+    </exercises>
+
+
+    </section>
+</chapter>

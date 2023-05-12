@@ -1,0 +1,315 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-01-07T17:20:05+11:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Taylor Series</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    useLabelIds: true,
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext.js"></script><script xmlns:svg="http://www.w3.org/2000/svg">miniversion=0.6</script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script xmlns:svg="http://www.w3.org/2000/svg">sagecellEvalName='Evaluate (Sage)';
+</script><link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/colors_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link xmlns:svg="http://www.w3.org/2000/svg" href="developer.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div xmlns:svg="http://www.w3.org/2000/svg" id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\bm}[1]{\boldsymbol{#1}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="MATH1120-Course-Notes.html"><span class="title">MATH1120:</span> <span class="subtitle">Mathematics for Engineering, Science and Technology 2</span></a></h1>
+<p class="byline"></p>
+</div>
+</div></div>
+<nav xmlns:svg="http://www.w3.org/2000/svg" id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="Generating-New-Series-from-Known-Series.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="Calculus_2.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="Calculus_3.html" title="Next">Next</a></span></div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="Generating-New-Series-from-Known-Series.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="Calculus_2.html" title="Up">Up</a><a class="next-button button toolbar-item" href="Calculus_3.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div xmlns:svg="http://www.w3.org/2000/svg" id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link part"><a href="Part-Calculus.html" data-scroll="Part-Calculus"><span class="codenumber">I</span> <span class="title">Calculus</span></a></li>
+<li class="link">
+<a href="Chap-Calculus_1.html" data-scroll="Chap-Calculus_1"><span class="codenumber">1</span> <span class="title">CA1: Maclaurin Series</span></a><ul>
+<li><a href="Sec-Introduction.html" data-scroll="Sec-Introduction">Introduction</a></li>
+<li><a href="Sec-Infinite_Series.html" data-scroll="Sec-Infinite_Series">Infinite Series</a></li>
+<li><a href="Sec-Maclaurin_Series.html" data-scroll="Sec-Maclaurin_Series">Maclaurin Series</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Calculus_2.html" data-scroll="Calculus_2"><span class="codenumber">2</span> <span class="title">CA2: Taylor Series</span></a><ul>
+<li><a href="Generating-New-Series-from-Known-Series.html" data-scroll="Generating-New-Series-from-Known-Series">Generating New Series from Known Series</a></li>
+<li><a href="Taylor_Series.html" data-scroll="Taylor_Series" class="active">Taylor Series</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Calculus_3.html" data-scroll="Calculus_3"><span class="codenumber">3</span> <span class="title">CA3: Functions of Several Variables</span></a><ul>
+<li><a href="Functions-of-Two-Variables.html" data-scroll="Functions-of-Two-Variables">Functions of Two Variables</a></li>
+<li><a href="level-curves.html" data-scroll="level-curves">Level Curves</a></li>
+<li><a href="surfaces-of-revolution.html" data-scroll="surfaces-of-revolution">Surfaces of Revolution</a></li>
+<li><a href="functions-of-3-or-more-variables.html" data-scroll="functions-of-3-or-more-variables">Functions of 3 (or more) Variables</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Chap-Calculus_4.html" data-scroll="Chap-Calculus_4"><span class="codenumber">4</span> <span class="title">CA4: Partial Differentiation</span></a><ul>
+<li><a href="Sec-Partial_Differentiation.html" data-scroll="Sec-Partial_Differentiation">Partial Differentiation</a></li>
+<li><a href="Sec-Higher_Partial_Derivatives.html" data-scroll="Sec-Higher_Partial_Derivatives">Higher Partial Derivatives</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Chap-Calculus_5.html" data-scroll="Chap-Calculus_5"><span class="codenumber">5</span> <span class="title">CA5: Linear Approximations</span></a><ul>
+<li><a href="Sec-Tangent_Planes.html" data-scroll="Sec-Tangent_Planes">Tangent Planes</a></li>
+<li><a href="Sec-Linear_Approximations.html" data-scroll="Sec-Linear_Approximations">Linear Approximations</a></li>
+<li><a href="Quadratic-Approximations.html" data-scroll="Quadratic-Approximations">Quadratic Approximations</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Calculus_6.html" data-scroll="Calculus_6"><span class="codenumber">6</span> <span class="title">CA6: The Directional Derivative</span></a><ul>
+<li><a href="Directional-Derivatives.html" data-scroll="Directional-Derivatives">Directional Derivatives</a></li>
+<li><a href="In_Three_Variables.html" data-scroll="In_Three_Variables">In Three Variables</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Calculus_7.html" data-scroll="Calculus_7"><span class="codenumber">7</span> <span class="title">CA7: Local and Global Extrema</span></a><ul>
+<li><a href="Critical-Points.html" data-scroll="Critical-Points">Critical Points</a></li>
+<li><a href="Second-Derivative-Test.html" data-scroll="Second-Derivative-Test">Second Derivative Test</a></li>
+<li><a href="Global-Extrema.html" data-scroll="Global-Extrema">Global Extrema</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Chap-Calculus_8.html" data-scroll="Chap-Calculus_8"><span class="codenumber">8</span> <span class="title">CA8: Chain Rules</span></a><ul>
+<li><a href="Sec-The_single_variable_chain_rule.html" data-scroll="Sec-The_single_variable_chain_rule">The Single Variable Chain Rule</a></li>
+<li><a href="Sec-Multivariable-chain-rules.html" data-scroll="Sec-Multivariable-chain-rules">Multivariable Chain Rules</a></li>
+<li><a href="section-22.html" data-scroll="section-22">Implicit Differentiation</a></li>
+</ul>
+</li>
+<li class="link part"><a href="Part-Differenial_Equations.html" data-scroll="Part-Differenial_Equations"><span class="codenumber">II</span> <span class="title">Differential Equations</span></a></li>
+<li class="link">
+<a href="Differential_Equations_1.html" data-scroll="Differential_Equations_1"><span class="codenumber">9</span> <span class="title">DE1: Introduction</span></a><ul>
+<li><a href="introduction.html" data-scroll="introduction">Introduction</a></li>
+<li><a href="direction-fields-and-eulers-method.html" data-scroll="direction-fields-and-eulers-method">Direction Fields and Euler's Method</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Differential_Equations_2.html" data-scroll="Differential_Equations_2"><span class="codenumber">10</span> <span class="title">DE2: First Order Separable DEs</span></a><ul>
+<li><a href="Sec-First_Order_Separable_DEs.html" data-scroll="Sec-First_Order_Separable_DEs">First Order Separable DEs</a></li>
+<li><a href="Sec-Some-Simple-Applications-of-First-Order-Separable-DEs.html" data-scroll="Sec-Some-Simple-Applications-of-First-Order-Separable-DEs">Some Simple Applications of First Order Separable DEs</a></li>
+<li><a href="appendix-1.html" data-scroll="appendix-1">Partial Fraction Decomposition</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Differential_Equations_3.html" data-scroll="Differential_Equations_3"><span class="codenumber">11</span> <span class="title">DE3: First Order Linear DEs</span></a><ul>
+<li><a href="Exact_First_Order_DEs.html" data-scroll="Exact_First_Order_DEs">Exact First Order DEs</a></li>
+<li><a href="First_Order_Linear_DEs.html" data-scroll="First_Order_Linear_DEs">First Order Linear DEs</a></li>
+<li><a href="Simple_Applications_of_First_Order_Linear_DEs.html" data-scroll="Simple_Applications_of_First_Order_Linear_DEs">Some Simple Applications of First Order Linear DEs</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Differential_Equations_4.html" data-scroll="Differential_Equations_4"><span class="codenumber">12</span> <span class="title">DE4: Homogeneous Second Order Linear DEs</span></a><ul><li><a href="Homogeneous_Second_Order_Linear_DEs_With_Constant_Coefficients.html" data-scroll="Homogeneous_Second_Order_Linear_DEs_With_Constant_Coefficients">Homogeneous Second Order Linear DEs With Constant Coefficients</a></li></ul>
+</li>
+<li class="link">
+<a href="Differential_Equations_5.html" data-scroll="Differential_Equations_5"><span class="codenumber">13</span> <span class="title">DE5: Non-Homogeneous Second Order Linear DEs</span></a><ul>
+<li><a href="Non-Homogeneous_First_Order_Linear_DEs.html" data-scroll="Non-Homogeneous_First_Order_Linear_DEs">Non-Homogeneous First Order Linear DEs</a></li>
+<li><a href="The_Method_of_Undetermined_Coefficients.html" data-scroll="The_Method_of_Undetermined_Coefficients">The Method of Undetermined Coefficients</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Differential_Equations_6.html" data-scroll="Differential_Equations_6"><span class="codenumber">14</span> <span class="title">DE6: An Application of Second Order Linear DEs with Constant Coefficients</span></a><ul>
+<li><a href="A_Simple_Model.html" data-scroll="A_Simple_Model">A Simple Model</a></li>
+<li><a href="Adding_Damping.html" data-scroll="Adding_Damping">Adding Damping</a></li>
+<li><a href="Adding_an_External_Force.html" data-scroll="Adding_an_External_Force">Adding an External Force</a></li>
+</ul>
+</li>
+<li class="link part"><a href="Part-Linear_Algebra.html" data-scroll="Part-Linear_Algebra"><span class="codenumber">III</span> <span class="title">Linear Algebra</span></a></li>
+<li class="link">
+<a href="Linear_Algebra_1.html" data-scroll="Linear_Algebra_1"><span class="codenumber">15</span> <span class="title">LA1: Systems of Linear Equations</span></a><ul>
+<li><a href="Sec-LA_Introduction.html" data-scroll="Sec-LA_Introduction">Introduction</a></li>
+<li><a href="Sec-LA_Matrices_and_Systems_of_Linear_Equations.html" data-scroll="Sec-LA_Matrices_and_Systems_of_Linear_Equations">Matrices and Systems of Linear Equations</a></li>
+<li><a href="Sec-LA_Solving_Systems_of_Linear_Equations.html" data-scroll="Sec-LA_Solving_Systems_of_Linear_Equations">Solving Systems of Linear Equations</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Linear_Algebra__2.html" data-scroll="Linear_Algebra__2"><span class="codenumber">16</span> <span class="title">LA2: Geometric Interpretations of Linear Equations</span></a><ul>
+<li><a href="Interpretation_Via_Rows.html" data-scroll="Interpretation_Via_Rows">Interpretation Via Rows</a></li>
+<li><a href="Interpretation_Via_Columns.html" data-scroll="Interpretation_Via_Columns">Interpretation Via Columns</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Chap-Linear_Algebra_3.html" data-scroll="Chap-Linear_Algebra_3"><span class="codenumber">17</span> <span class="title">LA3: Matrix Algebra</span></a><ul>
+<li><a href="Sec-Linear_Algebra_Intro.html" data-scroll="Sec-Linear_Algebra_Intro">Introduction</a></li>
+<li><a href="Sec-Addition_and_Scalar_Multiplication.html" data-scroll="Sec-Addition_and_Scalar_Multiplication">Addition and Scalar Multiplication</a></li>
+<li><a href="Sec-Matrix_multiplication.html" data-scroll="Sec-Matrix_multiplication">Matrix Multiplication</a></li>
+<li><a href="Sec-Matrices_and_Systems_of_Linear_Equations.html" data-scroll="Sec-Matrices_and_Systems_of_Linear_Equations">Matrices and Systems of Linear Equations</a></li>
+<li><a href="Sec-Linear_transformations.html" data-scroll="Sec-Linear_transformations">Linear Transformations</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Linear_Algebra_4.html" data-scroll="Linear_Algebra_4"><span class="codenumber">18</span> <span class="title">LA4: Square Matrices</span></a><ul>
+<li><a href="Inverse_Matrices.html" data-scroll="Inverse_Matrices">Inverse Matrices</a></li>
+<li><a href="Determinants.html" data-scroll="Determinants">Determinants</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Linear_Algebra_5.html" data-scroll="Linear_Algebra_5"><span class="codenumber">19</span> <span class="title">LA5: Eigenvalues and Eigenvectors</span></a><ul>
+<li><a href="Sec-LA_5_Introduction.html" data-scroll="Sec-LA_5_Introduction">Introduction</a></li>
+<li><a href="Sec-LA_5_Finding_Eigenvalues_and_Eigenvectors.html" data-scroll="Sec-LA_5_Finding_Eigenvalues_and_Eigenvectors">Finding Eigenvalues and Eigenvectors</a></li>
+<li><a href="Sec-LA_5_A_Simple_Application.html" data-scroll="Sec-LA_5_A_Simple_Application">A Simple Application</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Linear_Algebra_6.html" data-scroll="Linear_Algebra_6"><span class="codenumber">20</span> <span class="title">LA6: Some Applications of Eigenvalues and Eigenvectors</span></a><ul>
+<li><a href="Powers_of_Matrices.html" data-scroll="Powers_of_Matrices">Powers of Matrices</a></li>
+<li><a href="Coupled_Linear_Differential_Equations.html" data-scroll="Coupled_Linear_Differential_Equations">Coupled Linear Differential Equations</a></li>
+</ul>
+</li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="Taylor_Series"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">2.2</span> <span class="title">Taylor Series</span>
+</h2>
+<p id="p-107">Maclaurin series are power series about <span class="process-math">\(x=0. \)</span>  However we can follow exactly the same process to find a power series expansion for a function   <span class="process-math">\(f(x) \)</span> about any point   <span class="process-math">\(x=a. \)</span>  We call these power series Taylor Series.</p>
+<article class="definition definition-like" id="definition-4"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.2.1</span><span class="period">.</span><span class="space"> </span><span class="title">Taylor Series.</span>
+</h3>
+<p id="p-108">The series,</p>
+<div class="displaymath process-math" id="p-109">
+\begin{equation*}
+\sum_{k=0}^{\infty}\dfrac{f^{(k)}(a)}{k!}=f(a)+f'(a)(x-a)+\dfrac{f''(a)}{2!}(x-a)^{2}+\dfrac{f'''(a)}{3!}(x-a)^3+ \dots \text{.}
+\end{equation*}
+</div>
+<p id="p-110">is called the Taylor series for <span class="process-math">\(f(x) \)</span> about   <span class="process-math">\(x=a. \)</span></p></article><p id="p-111">Note that:</p>
+<ol id="p-112" class="decimal">
+<li id="li-36"><p id="p-derived-li-36">We can construct the Taylor series about  <span class="process-math">\(x=a.  \)</span>  for any function that is infinitely differentiable at  <span class="process-math">\(x=a.  \)</span></p></li>
+<li id="li-37"><p id="p-113">The Taylor series for <span class="process-math">\(f \)</span> about  <span class="process-math">\(x=a \)</span>    always converges to  at  <span class="process-math">\(x=a. \)</span></p></li>
+<li id="li-38"><p id="p-114">If the Taylor series converges for other values of <span class="process-math">\(x \)</span> these will be in an interval centred on <span class="process-math">\(x=a. \)</span></p></li>
+<li id="li-39"><p id="p-115">It is possible that a Taylor series may converge to a value other than the function value.</p></li>
+<li id="li-40"><p id="p-116">A Maclaurin series is just a Taylor series about  <span class="process-math">\(x=0.  \)</span></p></li>
+<li id="li-41"><p id="p-117">The <span class="process-math">\(n^{\text{th}} \)</span>  partial sum of the Taylor series for <span class="process-math">\(f \)</span> about <span class="process-math">\(x=a \)</span>  is called the <span class="process-math">\(n^{\text{th}} \)</span> degree Taylor polynomial for<span class="process-math">\(f \)</span> about  <span class="process-math">\(x=a. \)</span></p></li>
+</ol>
+<article class="example example-like" id="Taylor_series_cos"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-Taylor_series_cos"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.2</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Taylor_series_cos"><article class="example example-like"><p id="p-118">Find the Taylor series for   <span class="process-math">\(f(x)=\cos(x) \)</span> about <span class="process-math">\(x=\frac{\pi}{2} \)</span></p>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-12" id="solution-12"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-12"><div class="solution solution-like">
+<p id="p-119">In order to find the Taylor series for   <span class="process-math">\(f(x)=\cos(x) \)</span> about <span class="process-math">\(x=\frac{\pi}{2} \)</span>   we need to evaluate <span class="process-math">\(f \)</span> and its derivatives at  <span class="process-math">\(x=\frac{\pi}{2}. \)</span>  So,</p>
+<div class="displaymath process-math" id="p-120">
+\begin{align*}
+f(x) \amp =\cos(x)  \,\, \text{and hence}\,\,   f(\frac{\pi}{2})=0  \\
+f'(x) \amp =\sin(x)  \,\, \text{and hence}\,\,   f'(\frac{\pi}{2})=-1 \\
+f''(x) \amp =-\cos(x)  \,\, \text{and hence}\,\,   f''(\frac{\pi}{2})=0  \\
+f'(x) \amp =-\sin(x)  \,\, \text{and hence}\,\,   f'''(\frac{\pi}{2})=1 \\
+\amp \hspace{5.5cm}  \vdots \\
+\amp \hspace{4.6cm}  f^{(k)}(\frac{\pi}{2})=\begin{cases} 0 \amp k\;\, \text{even} \\
+(-1)^{\frac{k+1}{2}} \amp  k \;\, \text{odd} \end{cases} 
+\end{align*}
+</div>
+<p id="p-121">Thus the Taylor series for  <span class="process-math">\(f(x)=\cos(x) \)</span> about <span class="process-math">\(x=\frac{\pi}{2} \)</span>  is</p>
+<div class="displaymath process-math" id="p-122">
+\begin{align*}
+\amp = 0-(x-\frac{\pi}{2})+0+\frac{1}{3!}(x-\frac{\pi}{2})^{3}-\frac{1}{5!}(x-\frac{\pi}{2})^{5}+\dots\\
+\amp =-(x-\frac{\pi}{2})+\frac{(x-\frac{\pi}{2})^{3}}{3!}-\frac{(x-\frac{\pi}{2})^{5}}{5!}+\dots\\
+\amp = \sum_{k=1}^{\infty}(-1)^{k}\dfrac{(x-\frac{\pi}{2})^{2k-1}}{(2k-1)!}.
+\end{align*}
+</div>
+<p id="p-123">It turns out that this series converges to  <span class="process-math">\(f(x)=\cos(x) \)</span> for all values of <span class="process-math">\(x. \)</span>  <a href="" class="xref" data-knowl="./knowl/Fig-Taylor_series_cos.html" title="Figure 2.2.3">Figure 2.2.3</a> shows the graph of <span class="process-math">\(f(x)=\cos(x) \)</span> and the Taylor polynomials of degree <span class="process-math">\(1 \)</span>  and degree <span class="process-math">\(3    \)</span> about <span class="process-math">\(x=\frac{\pi}{2} .\)</span></p>
+<figure class="figure figure-like" id="Fig-Taylor_series_cos"><div class="image-box" style="width: 85%; margin-left: 7.5%; margin-right: 7.5%;"><img src="./Calculus/Images/2/Taylor_series_cos.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.2.3<span class="period">.</span></span><span class="space"> </span></figcaption></figure>
+</div></div></article></div>
+<article class="example example-like" id="Second_order_approximation_e_power_minus_x_on_3"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-Second_order_approximation_e_power_minus_x_on_3"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.4</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Second_order_approximation_e_power_minus_x_on_3"><article class="example example-like"><p id="p-124">Find the second order approximation to   <span class="process-math">\(f(x)=e^{-\frac{x}{3}} \)</span> about <span class="process-math">\(x=2. \)</span></p>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-13" id="solution-13"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-13"><div class="solution solution-like">
+<p id="p-125">In order to find the second order approximation for <span class="process-math">\(f(x)=e^{-\frac{x}{3}} \)</span> about <span class="process-math">\(x=2 \)</span> we need to evaluate <span class="process-math">\(f \)</span> and its first two derivatives at <span class="process-math">\(x=2. \)</span> .  So,</p>
+<div class="displaymath process-math" id="p-126">
+\begin{align*}
+f(x) \amp =e^{-\frac{x}{3}}  \,\, \text{and hence}\,\,   f(2)=e^{-\frac{2}{3}}  \\
+f'(x) \amp =-\frac{1}{3}e^{-\frac{x}{3}}  \,\, \text{and hence}\,\,   f'(2)=-\frac{1}{3}e^{-\frac{2}{3}} \\
+f''(x) \amp =\frac{1}{9}e^{-\frac{x}{3}}  \,\, \text{and hence}\,\,   f''(2)=\frac{1}{9}e^{-\frac{2}{3}}   
+\end{align*}
+</div>
+<p id="p-127">Thus the second order approximation for <span class="process-math">\(f(x)=e^{-\frac{x}{3}} \)</span> about <span class="process-math">\(x=2, \)</span> (or the Taylor polynomial of degree <span class="process-math">\(2, \)</span> for <span class="process-math">\(f(x)=e^{-\frac{x}{3}} \)</span> about <span class="process-math">\(x=2, \)</span>), is</p>
+<div class="displaymath process-math" id="p-128">
+\begin{align*}
+T_{2}(x) \amp =e^{-\frac{2}{3}}-\frac{1}{3}e^{-\frac{2}{3}}(x-2)+\frac{1}{9}e^{-\frac{2}{3}}\dfrac{(x-2)^{2}}{2}  \\
+\amp =e^{-\frac{2}{3}}-\frac{1}{3}e^{-\frac{2}{3}}(x-2)+\frac{1}{18}e^{-\frac{2}{3}}(x-2)^{2} 
+\end{align*}
+</div>
+</div></div></article></div>
+<article class="example example-like" id="Fourth_order_approximation_e_power_minus_x_on_3"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-Fourth_order_approximation_e_power_minus_x_on_3"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.2.5</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Fourth_order_approximation_e_power_minus_x_on_3"><article class="example example-like"><p id="p-129">Find the Taylor polynomial of degree <span class="process-math">\(4 \)</span> for <span class="process-math">\(f(x)=x\cos(x) \)</span>  about <span class="process-math">\(x=\frac{\pi}{2}. \)</span></p>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-14" id="solution-14"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-14"><div class="solution solution-like">
+<p id="p-130">Since we already know the Taylor series for  <span class="process-math">\(\cos(x) \)</span>  about  <span class="process-math">\(x=\frac{\pi}{2}  \)</span>   we can obtain the <span class="process-math">\(4^{\text{th}} \)</span> degree Taylor polynomial for <span class="process-math">\(f(x)=x\cos(x) \)</span> about <span class="process-math">\(x=\frac{\pi}{2}. \)</span> as follows</p>
+<div class="displaymath process-math" id="p-131">
+\begin{align*}
+f(x) \amp = x\cos(x)  \\
+\amp = (x-\frac{\pi}{2})\cos(x)+\frac{\pi}{2}\cos(x) \\
+\amp = (x-\frac{\pi}{2})  \big[-(x-\frac{\pi}{2}) + \frac{(x-\frac{\pi}{2})^3}{3!} -  \frac{(x-\frac{\pi}{2})^5}{5!} + \dots   \big] + \frac{\pi}{2}\big[ -(x-\frac{\pi}{2}) +  \frac{(x-\frac{\pi}{2})^3}{3!} -  \frac{(x-\frac{\pi}{2})^5}{5!} + \dots   \big] \\
+\amp = \big[-(x-\frac{\pi}{2})^2 + \frac{(x-\frac{\pi}{2})^4}{3!} - \dots   \big] + \big[ -\frac{\pi}{2}(x-\frac{\pi}{2}) + \frac{\pi}{2}\frac{(x-\frac{\pi}{2})^3}{3!} - \dots   \big]. 
+\end{align*}
+</div>
+<p id="p-132">Thus the <span class="process-math">\(4^{\text{th}} \)</span> degree Taylor polynomial is</p>
+<div class="displaymath process-math" id="p-133">
+\begin{equation*}
+T_{4}(x) = -\frac{\pi}{2}  (x-\frac{\pi}{2}) -  (x-\frac{\pi}{2})^2 +  \frac{\pi}{2} \frac{(x-\frac{\pi}{2})^3}{3!}  + \frac{(x-\frac{\pi}{2})^4}{3!}.
+\end{equation*}
+</div>
+</div></div></article></div>
+<section class="exercises" id="exercises-4"><h3 class="heading hide-type">
+<span class="type">Exercises</span> <span class="codenumber"></span> <span class="title">Example Tasks</span>
+</h3>
+<article class="exercise exercise-like" id="exercise-10"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<p id="p-134">Find the Taylor series for  <span class="process-math">\(f(x)=\ln(x). \)</span> about <span class="process-math">\(x=e. \)</span></p></article><article class="exercise exercise-like" id="exercise-11"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<p id="p-135">Find the Taylor polynomial of degree  <span class="process-math">\(3 \)</span> for   <span class="process-math">\(f(x)=\frac{1}{1-x} \)</span> about <span class="process-math">\(x=2. \)</span></p></article><article class="exercise exercise-like" id="exercise-12"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
+<p id="p-136">Find the Taylor polynomial of degree  <span class="process-math">\(4 \)</span> for   <span class="process-math">\(f(x)=x\ln(x) \)</span> about <span class="process-math">\(x=e. \)</span></p></article><article class="exercise exercise-like" id="exercise-13"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
+<p id="p-137">Find the Taylor polynomial of degree  <span class="process-math">\(3  \)</span> for   <span class="process-math">\(f(x)=x^2 e^{x} \)</span> about <span class="process-math">\(x=1. \)</span></p></article></section><article class="remark remark-like" id="remark-4"><h3 class="heading">
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">2.2.6</span><span class="period">.</span><span class="space"> </span><span class="title">A little remark.</span>
+</h3>
+<p id="p-138">Computer algebra systems usually have commands for Taylor series. For example, here in <a href="" class="xref" data-knowl="./knowl/Fig-Taylor_series_cos_Mathematica.html" title="Figure 2.2.7">Figure 2.2.7</a> is an example of a query to Wolfram Alpha that will work.</p>
+<figure class="figure figure-like" id="Fig-Taylor_series_cos_Mathematica"><div class="image-box" style="width: 90%; margin-left: 5%; margin-right: 5%;"><img src="./Calculus/Images/2/Taylor_series_cos_Mathematica.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">2.2.7<span class="period">.</span></span><span class="space"> </span></figcaption></figure></article></section></div></main>
+</div>
+</body>
+</html>

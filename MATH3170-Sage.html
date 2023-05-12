@@ -1,0 +1,130 @@
+<!DOCTYPE HTML>
+<div>
+<script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</div>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>MATH1120 Sage Playground</title>
+    <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
+    <script>
+    // Make the div with id 'mycell' a Sage cell
+    sagecell.makeSagecell({inputLocation:  '#mycell',
+                           template:       sagecell.templates.minimal,
+                           evalButtonText: 'Activate'});
+     // Make *any* div with class 'compute' a Sage cell
+     sagecell.makeSagecell({inputLocation: 'div.compute',
+                            linked: 'true',
+                            evalButtonText: 'Run'});
+    </script>
+  </head>
+  <body>
+
+
+  <h1>Sage Playground for MATH3170 Number Theory</h1>
+
+  SageMath is a powerful open source mathematics package used by actual researchers.<br><br>
+
+  <b>
+  Note: You don't need to know anything about Sage to play with the examples on this page:
+  just click "evaluate" underneath a cell and see what happens. Enjoy!
+  </b>
+  <br><br>
+
+  You can download SageMath <a href="https://www.sagemath.org/">here</a>.<br>
+
+  You can also just run Sage commands online, on this page or on the
+  <a href="https://sagecell.sagemath.org/">Sage Cell Server</a>.<br>
+
+  Sage <a href="https://doc.sagemath.org/html/en/tutorial/index.html">Tutorials</a> and documentation are
+  <a href="https://doc.sagemath.org/">here</a>.<br>
+
+<hr>
+<h1>Contents</h1>
+<ul>
+  <li><a href="#RSA">RSA Cryptosystem</a></li>
+</ul>
+<hr>
+
+<h2 id="RSA">The RSA Cryptosystem</h2>
+
+The <a href="https://en.wikipedia.org/wiki/RSA_(cryptosystem)">RSA public key cryptosystem</a> is based on Euler's theorem.
+<br><br>
+
+We set it up by choosing two big prime numbers \(p\) and \(q\) as well as a number \(e\), typically \(e = 2^{16} + 1 = 65537\).
+Then we compute \(n = pq\), \(\phi(n)=(p-1)(q-1)\) and \(d = \) the multiplicative inverse of \(e\) mod \(\phi(n)\).
+
+For this to work we need \(e\) and \(\phi(n)\) to be relatively prime.
+
+<br><br>
+Now we publish our <b>public key:</b> \(n\) and \(e\)<br><br>
+
+We keep secret our <b>secret key:</b> \(d\)
+
+<br><br>
+
+Anybody can use the public key to encrypt a message, in this case an integer
+\( a \in \{1,2,3,\ldots,n-1\} \), by computing
+\[
+m \equiv a^e \bmod n.
+\]
+
+Only I can decrypt this cyphertext \(m\) as follows:
+\[
+a \equiv m^d \bmod n.
+\]
+
+This works because \(de \equiv 1 \bmod \phi(n)\), so
+\[
+m^d = (a^e)^d = a^{ed} = a^{1 + k\phi(n)} \equiv a \bmod n.
+\]
+
+<div class="compute"><script type="text/x-sage">
+p = random_prime(10^50, lbound=10^49)
+q = random_prime(10^50, lbound=10^49)
+n = p*q
+phi_n = (p-1)*(q-1)
+e = 65537
+d = Integer(e).inverse_mod(phi_n)
+
+def encrypt(a):
+    return power_mod(a,e,n)
+
+def decrypt(m):
+    return power_mod(m,d,n)
+
+print(f'p = {p}')
+print(f'q = {q}')
+print(fr'phi(n) = {phi_n}')
+print()
+print('Public key:')
+print(f'  n = {n}')
+print(f'  e = {e}')
+print()
+print('Secret key:')
+print(f'  d = {d}')
+</script></div>
+
+<br><br>
+
+Now try this yourself:
+<div class="compute"><script type="text/x-sage">
+a = 12345453  # type in your own value here
+m = encrypt(a)
+print(f'plaintext: a = {a}')
+print(f'cyphertext: m = {m}')
+
+</script></div>
+
+<br><br>
+Decrypt it:<br>
+<div class="compute"><script type="text/x-sage">
+decrypt(m)
+</script></div>
+<br>
+<br>
+
+  </body>
+</html>

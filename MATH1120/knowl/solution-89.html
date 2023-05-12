@@ -1,0 +1,72 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-01-07T17:22:19+11:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<div class="solution solution-like">
+<h3 class="heading">
+<span class="type">Solution</span><span xmlns:svg="http://www.w3.org/2000/svg" class="space"> </span><span class="codenumber">10.2.3.1</span><span xmlns:svg="http://www.w3.org/2000/svg" class="period">.</span>
+</h3>
+<p>Let <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(A(t)\)</span> be the amount of salt in the tank (in grams) at time <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(t\text{.}\)</span> Then, since there is <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(100\)</span>L of water in the tank</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation}
+A(t)=100\times C(t)\tag{10.2.1}
+\end{equation}
+</div>
+<p class="continuation">Now, since the water in the tank is initially pure, we have the initial condition <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(A(0)=0\)</span> or equivalently <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(C(0)=0\text{.}\)</span> Finally, the rate at which the amount of salt in the tank is changing is given by the difference of the rate at which the amount of salt is increasing (due to the salt water entering the tank) and the rate at which the amount is decreasing (due to the mixed water flowing out). Since salt water is entering the tank at a rate of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(2\)</span>L/min and each litre contains <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(35\)</span>g of salt, the rate at which the amount of salt is increasing is <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(70\)</span>g/min. Since the mixed water is flowing out of the tank at the rate of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(2\)</span>L/min and each litre contains <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(C(t)\)</span>g the rate at which the amount of salt is decreasing is <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(2C\)</span>g/min. Thus</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation}
+\frac{dA}{dt}=70-2C\tag{10.2.2}
+\end{equation}
+</div>
+<p class="continuation">From (10.2.1.)</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation}
+\frac{dA}{dt}=100\frac{dC}{dt}\tag{10.2.3}
+\end{equation}
+</div>
+<p class="continuation">Putting (10.2.3.) into (10.2.2.)</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+100\frac{dC}{dt}=70-2C
+\end{equation*}
+</div>
+<p class="continuation">which is a first order separable DE. Separating the variables and integrating both sides with respect <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(t\)</span> gives</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\int \frac{1}{70-2C}\hspace{2mm} dC=\int \frac{1}{100}\hspace{2mm}dt
+\end{equation*}
+</div>
+<p class="continuation">Evaluating the integrals gives</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+-\frac{1}{2}\ln(70-2C)=\frac{1}{100}t+K
+\end{equation*}
+</div>
+<p class="continuation">and hence</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+C(t)=35-ke^{-t/50}
+\end{equation*}
+</div>
+<p class="continuation">Using the initial condition <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(C(0)=0\)</span> gives <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(k=35\)</span> and hence</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+C(t)=35-35e^{-t/50}
+\end{equation*}
+</div>
+</div>
+<span class="incontext"><a href="Sec-Some-Simple-Applications-of-First-Order-Separable-DEs.html#solution-89">in-context</a></span>
+</body>
+</html>

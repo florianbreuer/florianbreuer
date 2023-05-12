@@ -1,0 +1,85 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-01-07T17:23:02+11:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h3 class="heading"><span class="type">Paragraph</span></h3>
+<p>One approach to this problem is to look at the links between the sites. For the sake of discussion, let the links between the sites be as shown in Figure 19.3.1. <figure class="figure figure-like"><div xmlns:svg="http://www.w3.org/2000/svg" class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="./LinearAlgebra/Images/5/figure3.png" class="contained"></div>
+<figcaption xmlns:svg="http://www.w3.org/2000/svg"><span class="type">Figure</span><span class="space"> </span><span class="codenumber">19.3.1<span class="period">.</span></span><span class="space"> </span></figcaption></figure> We can represent the information in this diagram via a matrix <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(A\)</span> where the entries <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(a_{ij}\)</span> satisfy</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+a_{ij}=\begin{cases} 1 \amp \textrm{ if website } i \textrm{ has a link to  it from website } j \\ 0 \amp \textrm{ otherwise } \end{cases}
+\end{equation*}
+</div>
+<p class="continuation">Thus</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+A=\begin{pmatrix} 0 \amp 0 \amp 1 \amp 0 \amp 0 \\ 1 \amp 0 \amp 0 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \amp 0 \amp 1 \\ 1 \amp 1 \amp 1 \amp 0 \amp 0 \\ 1 \amp 1 \amp 0 \amp 1 \amp 0 \end{pmatrix}
+\end{equation*}
+</div>
+<p class="continuation">Now let <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(r_i\)</span> be the ranking of website <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(i\text{.}\)</span> Then we require</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+0\leq r_i\leq 1
+\end{equation*}
+</div>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\sum_{i=1}^{5} r_i =1
+\end{equation*}
+</div>
+<p class="continuation">and</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+r_i \propto \textrm{ sum of the rankings of the sites which have links to it.}
+\end{equation*}
+</div>
+<p class="continuation">The idea here is that if a site has links to it from an important site (i.e. one with a high ranking) then that is better than having a link to it from an obscure site (i.e. one with a low ranking). So, letting the constant of proportionality be <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(k\text{,}\)</span> for the websites linked according to Figure 19.3.1. we have</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{align*}
+r_1 \amp =kr_3\\
+r_2 \amp =kr_1\\
+r_3 \amp =k(r_2+r_5)\\
+r_4 \amp =k(r_1+r_2+r_3)\\
+r_5 \amp =k(r_1+r_2+r_4)
+\end{align*}
+</div>
+<p class="continuation">or, in matrix form</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\begin{pmatrix} r_1 \\ r_2 \\ r_3 \\ r_4 \\ r_5 \end{pmatrix} =k\begin{pmatrix} 0 \amp 0 \amp 1 \amp 0 \amp 0 \\ 1 \amp 0 \amp 0 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \amp 0 \amp 1 \\ 1 \amp 1 \amp 1 \amp 0 \amp 0 \\ 1 \amp 1 \amp 0 \amp 1 \amp 0 \end{pmatrix}\begin{pmatrix} r_1 \\ r_2 \\ r_3 \\ r_4 \\ r_5 \end{pmatrix}
+\end{equation*}
+</div>
+<p class="continuation">Thus the rankings satisfy the equation</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\mathbf{r}=kA\mathbf{r}
+\end{equation*}
+</div>
+<p class="continuation">or</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+A\mathbf{r}=\frac{1}{k}\mathbf{r}=\lambda\mathbf{r}
+\end{equation*}
+</div>
+<p class="continuation">i.e. an eigenvalue problem. For the matrix <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(A\)</span> as given above it turns out that the ranking vector is</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\mathbf{r}=\begin{pmatrix} 0.14 \amp 0.08 \amp 0.22 \amp 0.27 \amp 0.29\end{pmatrix}^T
+\end{equation*}
+</div>
+<p class="continuation">and so the sites would be listed in the order <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(5, 4, 3, 1, 2\text{.}\)</span></p>
+<span class="incontext"><a href="Sec-LA_5_A_Simple_Application.html#p-1163">in-context</a></span>
+</body>
+</html>

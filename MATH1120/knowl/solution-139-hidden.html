@@ -1,0 +1,62 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-01-07T17:22:54+11:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math"><div class="solution solution-like">Form the augmented matrix and row reduce to reduced row echelon form:<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{align*}
+\begin{pmatrix}
+2 \amp -1 \amp 6 \amp \bigm |  \amp  1 \amp 0 \amp 0 \\
+-4 \amp 5 \amp -3 \amp \bigm |  \amp  0 \amp 1 \amp 0 \\
+2 \amp -1 \amp  3 \amp \bigm |  \amp  0 \amp 0 \amp 1
+\end{pmatrix} \amp \sim
+\begin{pmatrix}
+1 \amp \frac{1}{2} \amp 3 \amp \bigm |  \amp  \frac{1}{2} \amp 0 \amp 0 \\
+0 \amp 7 \amp 9 \amp \bigm |  \amp  2 \amp 1 \amp 0 \\
+0 \amp -2 \amp  -3 \amp \bigm |  \amp  -1 \amp 0 \amp 1
+\end{pmatrix}   \;\;\;
+\begin{matrix}
+R'_{1}  = \amp \dfrac{R_{1}}{2}\;\;\;\qquad\\
+R'_{2}  = \amp R_{2}+4R'_{1}\\
+R'_{3}  = \amp R_{3}-R_{1}
+\end{matrix}  \\
+\amp \sim
+\begin{pmatrix}
+1 \amp 0 \amp \frac{33}{14} \amp \bigm |  \amp  \frac{5}{14} \amp  -\frac{1}{14} \amp 0 \\
+0 \amp 1 \amp \frac{9}{7} \amp \bigm |  \amp   \frac{2}{7} \amp  \frac{1}{7} \amp 0 \\
+0 \amp 0 \amp  -\frac{3}{7} \amp \bigm |  \amp   -\frac{3}{7} \amp 0 \amp 1
+\end{pmatrix} \;\;\;
+\begin{matrix}
+R'_{1}  = \amp R_{1}-\dfrac{R'_{2}}{2} \\
+R'_{2}  = \amp \dfrac{R_{2}}{7}\;\;\;\qquad\\
+R'_{3}  = \amp R_{3}+2R'_{2}
+\end{matrix}  \\
+\amp \sim
+\begin{pmatrix}
+1 \amp 0 \amp 0 \amp \bigm |  \amp  -2  \amp  \frac{3}{2} \amp \frac{11}{2} \\
+0 \amp 1 \amp 0 \amp \bigm |  \amp   -1 \amp  1 \amp 3 \\
+0 \amp 0 \amp  1 \amp \bigm |  \amp   1 \amp -\frac{2}{3} \amp -\frac{7}{3}
+\end{pmatrix} \;\;\;
+\begin{matrix}
+R'_{1}  = \amp R_{1}-\dfrac{33R'_{3}}{14} \\
+R'_{2}  = \amp R_{2}-\dfrac{9R'_{3}}{7} \\
+R'_{3}  = \amp -\dfrac{7R'_{3}}{3} \;\;\; \qquad
+\end{matrix}  
+\end{align*}
+</div>Thus<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+A^{-1}=\begin{pmatrix} -2 \amp \frac{3}{2} \amp \frac{11}{2} \\ -1 \amp 1 \amp 3 \\ 1 \amp -\frac{2}{3} \amp  -\frac{7}{3} \end{pmatrix}.  
+\end{equation*}
+</div>Of course we can always check our answer by confirming that  <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(AA^{-1}=I \text{.}\)</span>
+</div></body>
+</html>
