@@ -1,0 +1,57 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-11-10T14:15:16+11:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="hiddenproof"><h4 class="heading"><span class="type">Proof</span></h4>
+<p>We know from the previous lemma that there is a primitive root <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(r\)</span> of p that is also a primitive root of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(p^2\)</span> such that</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+r^{p-1}\not\equiv 1\pmod{p^2}.
+\end{equation*}
+</div>
+<p class="continuation">We show by induction that for this primitive root and for <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(k\geq 2\)</span> that</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+r^{p^{k-2}(p-1)}\not\equiv 1\pmod{p^k}.
+\end{equation*}
+</div>
+<p class="continuation">The base case follows from the previous lemma. Now suppose there is some <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(k\geq 2\)</span> such that</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+r^{p^{k-2}k(p-1)}\not\equiv 1\pmod{p^k}.
+\end{equation*}
+</div>
+<p class="continuation">Since <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\gcd(r, p) = 1,\)</span> we have that <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\gcd(r, p^{k-1}) = 1\)</span> and so using Euler's generalisation of Fermat's little theorem, we have that</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+r^{p^{k-2}(p-1)}\equiv r^{\phi(p^{k-1})} \equiv 1\pmod{p^{k-1}}.
+\end{equation*}
+</div>
+<p class="continuation">Thus there is a <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(d\)</span> such that <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(r^{p^{k-2}(p-1)}=1+dp^{k-1},\)</span> where <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(p\)</span> does not divide <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(d\)</span> due to the induction hypothesis. As before we use the binomial theorem to give</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+r^{p^{k-1}(p-1)}=(1+dp^{k-1})^p\equiv 1+dp^k \pmod{p^{k+1}}.
+\end{equation*}
+</div>
+<p class="continuation">Since <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(p\)</span> does not divide <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(d,\)</span> this gives the desired non-congruence.</p>
+<p>With this result in hand, the result is quite straightforward. Given a primitive root <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(r\)</span> of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(p^2\)</span> as above, let <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(n\)</span> be the order of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(r\)</span> modulo <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(p^k.\)</span> So <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(n\vert \phi(p^k),\)</span> which means that <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(n\vert p^{k-1}(p-1).\)</span> But also, since <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(r^n\equiv 1\pmod{p^k}\)</span> also <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(r^n\equiv 1\pmod{p},\)</span> so, like before, <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(p-1\vert n.\)</span> Thus <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(n = p^t(p-1)\)</span> for some <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(t\)</span> in <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\{0,...,k-1\}.\)</span> If <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(t\leq k-2,\)</span> then</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+r^{p^{k-2}(p-1)}=(r^{p^{t}(p-1)})^{p^{k-2-t}}\equiv 1\pmod{p^{k}},
+\end{equation*}
+</div>
+<p class="continuation">which contradicts our non-congruence proved above. Thus <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(t = k-1\)</span> and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(r\)</span> is a primitive root of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(p^k.\)</span></p></article><span class="incontext"><a href="Sec-Applications_of_Primitive_Roots.html#proof-84">in-context</a></span>
+</body>
+</html>

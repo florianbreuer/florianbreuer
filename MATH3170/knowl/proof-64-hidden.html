@@ -1,0 +1,39 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-11-10T14:15:13+11:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math"><article class="hiddenproof"><p>Let <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(n\in\mathbb{N}.\)</span> We know that there are <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(d(n)\)</span> divisors of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(n\)</span> and for each divisor <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(d_i\)</span> there is a <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(d_i'\)</span> such that <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(n = d_id_i'.\)</span> So if we take the equations</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{align*}
+n\amp =d_1d_1'\\
+n\amp =d_2d_2'\\
+n\amp =d_3d_3'\\
+\amp\vdots \\
+n\amp =d_{d(n)}d_{d(n)}'
+\end{align*}
+</div>
+<p class="continuation">and multiply the left-hand sides together, and the right-hand sides together, we get</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+n^{d(n)}=\prod_{d\vert n} d\cdot\prod_{d'\vert n} d'.
+\end{equation*}
+</div>
+<p class="continuation">But <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\prod_{d\vert n} d=\prod_{d'\vert n} d',\)</span> so that</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+n^{d(n)}=\left(\prod_{d\vert n} d\right)^2.
+\end{equation*}
+</div>
+<p class="continuation">which when we take the square root yields the desired result.</p></article></body>
+</html>

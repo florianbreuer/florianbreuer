@@ -1,0 +1,45 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-11-10T14:15:23+11:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="hiddenproof"><h3 class="heading"><span class="type">Proof</span></h3>
+<p>The above example motivates us to start with computing the first few convergents based on the definitions. We have</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{align*}
+C_0 \amp= a_0\\
+C_1 \amp= a_0 +\frac{1}{a_1}=\frac{a_1a_0+1}{a_1}=\frac{p_1}{q_1}\\
+C_2 \amp= a_0 +\frac{1}{a_1+\frac{1}{a_2}}=\frac{a_2(a_1a_0+1)+a_0}{a_2a_1+1}=\frac{p_2}{q_2}.
+\end{align*}
+</div>
+<p class="continuation">Now suppose that the theorem is true for <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(k = m\)</span> where <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(2\leq m \lt n.\)</span> So we have</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+C_m = [a_0; a_1,..., a_m] = \frac{p_m}{q_m}=\frac{a_mp_{m-1}+p_{m-2}}{a_mq_{m-1}+q_{m-2}}.
+\end{equation*}
+</div>
+<p class="continuation">Note that the integers <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(p_{m-1}, q_{m-1}, p_{m-2},\)</span> and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(q_{m-2}\)</span> depend on the first <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(m-1\)</span> partial denominators <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(a_1, a_2,..., a_{m-1}\)</span> and hence, are independent of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(a_m.\)</span> Thus in the above equation for <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(C_m\)</span> we can replace <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(a_m\)</span> by <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(a_m + \frac{1}{a_{m+1}}\)</span> to get</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{align*}
+C_{m+1} \amp = [a_0; a_1,..., a_m, a_{m+1}]\\
+\amp =\left[a_0; a_1,..., a_{m-1}, a_m +\frac{1}{a_{m+1}}\right]\\
+\amp =\frac{\left(a_m +\frac{1}{a_{m+1}}\right)p_{m-1}+p_{m-2}}{\left(a_m +\frac{1}{a_{m+1}}\right)q_{m-1}+q_{m-2}}\\
+\amp =\frac{a_{m+1}(a_mp_{m-1}+p_{m-2})+p_{m-1}}{a_{m+1}(a_mq_{m-1}+q_{m-2})+q_{m-1}}\\
+\amp =\frac{a_{m+1}p_{m}+p_{m-1}}{a_{m+1}q_{m}+q_{m-1}}\\
+\amp =\frac{p_{m+1}}{q_{m+1}}. 
+\end{align*}
+</div>
+<p class="continuation">This proves the theorem.</p></article><span class="incontext"><a href="Sec-Convergents.html#proof-117">in-context</a></span>
+</body>
+</html>

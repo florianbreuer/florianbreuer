@@ -1,0 +1,72 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-11-10T14:15:09+11:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math"><article class="example example-like"><p>Using the Chinese Remainder Theorem we can solve the congruence</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+17x \equiv 9 \pmod{276}.
+\end{equation*}
+</div>
+<p class="continuation">Since <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(276 = 3\cdot 4\cdot 23,\)</span> we turn our one congruence into the system</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{align*}
+17x \amp \equiv 9 \pmod{3}\\
+17x \amp \equiv 9 \pmod{4}\\
+17x \amp \equiv 9 \pmod{23}
+\end{align*}
+</div>
+<p class="continuation">which reduced is</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{align*}
+x \amp \equiv 0 \pmod{3}\\
+x \amp \equiv 1 \pmod{4}\\
+17x \amp \equiv 9 \pmod{23}
+\end{align*}
+</div>
+<p class="continuation">Since <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(x\equiv 0 \pmod{3}\)</span> we know that <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(x = 3k\)</span> for some <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(k.\)</span> So we substitute this in the next congruence to see that</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+3k \equiv 1\pmod{4}
+\end{equation*}
+</div>
+<p class="continuation">and so</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+k \equiv 3\pmod{4},
+\end{equation*}
+</div>
+<p class="continuation">so that <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(k = 3 + 4j\)</span> for some <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(j,\)</span> so that <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(x = 3(3 + 4j) = 9 + 12j.\)</span> Now we substitute this into the last congruence so that we need only solve</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+17(9 + 12j) \equiv 9 \pmod{23}.
+\end{equation*}
+</div>
+<p class="continuation">This reduces to</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{align*}
+17(9 + 12j) \amp \equiv 9 \pmod{23}\\
+153+204j \amp \equiv 9 \pmod{23}\\
+15+20j \amp \equiv 9 \pmod{23}\\
+20j \amp \equiv 17 \pmod{23}
+\end{align*}
+</div>
+<p class="continuation">so that <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(j \equiv 2 \pmod{23}.\)</span> So <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(j = 2 + 23t\)</span> for <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(t \in\mathbb{Z}.\)</span> Hence</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+x = 9 + 12(2 + 23t) = 33 + 276t,
+\end{equation*}
+</div>
+<p class="continuation">so <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(x \equiv 33 \pmod{276}\)</span> is the unique solution modulo <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(276.\)</span> It is unique since <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\gcd(17, 276) = 1.\)</span></p></article></body>
+</html>

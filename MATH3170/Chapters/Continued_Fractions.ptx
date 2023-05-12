@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- =================================================================================================== -->
+<!-- To process this file with xsltproc do                                                        -->
+<!--                                                                                              -->
+<!-- (1) LaTeX/PDF:                                                                               -->
+<!--     xsltproc -o minimal.tex PATH_TO/mathbook/xsl/pretext-latex.xsl source/main.ptx           -->
+<!--     pdflatex minimal.tex                                                                     -->
+<!--     xelatex minimal.tex                                                                      -->
+<!--                                                                                              -->
+<!-- (2) HTML:                                                                                    -->
+<!--     xsltproc PATH_TO/mathbook/xsl/pretext-html.xsl source/main.ptx                           -->
+<!--     <browser>  minimal.html                                                                  -->
+<!--        ~/xsltproc/xsltproc.exe ~/mathbook/xsl/mathbook-html.xsl test.xml                     -->
+<!--                                                                                              -->
+<!-- (3) CoCalc worksheet (parameter causes a single file for output)                             -->
+<!--     REMOVE the "X" in the double dash (which is not legal in an XML comment)                 -->
+<!--     xsltproc -X-stringparam chunk.level 0 PATH_TO/mathbook/xsl/pretext-smc.xsl source/main.ptx   -->
+<!--     <CoCalc> minimal.sagews                                                                  -->
+<!--                                                                                              -->
+<!-- (4) Sage doctesting                                                                          -->
+<!--     REMOVE the "X" in the double dash (which is not legal in an XML comment)                 -->
+<!--     xsltproc -X-stringparam chunk.level 0 PATH_TO/mathbook/xsl/pretext-sage-doctest.xsl source/main.ptx  -->
+<!--     <read further instructions in> minimal.py                                                -->
+<!-- =================================================================================================== -->
+
+<chapter xml:id="Chap-Continued_Fractions">
+
+
+
+<!-- =================================================================================================== -->
+<!-- Title and Other Preliminaries -->
+<!-- =================================================================================================== -->
+        <title>Continued Fractions</title>
+
+        <!-- <frontmatter> -->
+
+<!--             <titlepage>
+                <author>
+                    <institution>University of Newcastle</institution>
+                </author>
+                <date><today /></date>
+            </titlepage> -->
+
+            <!-- <abstract>
+                <p>This is a very short article, but it still exercises some advanced features of MathBook XML.</p>
+            </abstract> -->
+
+        <!-- </frontmatter> -->
+
+        <!-- <introduction>
+            
+        </introduction> -->
+
+
+<!-- =================================================================================================== -->
+
+<!-- =================================================================================================== -->
+<!-- Section 1: Finite Continued Fractions-->
+<!-- =================================================================================================== -->
+    <section xml:id="Sec-Finite_Continued_Fractions">
+        <title>Finite Continued Fractions</title>
+
+        <p>
+        We return to the example of the last chapter. Note that <m>\gcd(21, 13) = 1</m> since they are consecutive Fibonacci numbers. We have from the last chapter that
+        <md>
+            <mrow>21 \amp= 1\cdot 13+8</mrow>
+            <mrow>13 \amp= 1\cdot 8+5</mrow>
+            <mrow>8 \amp= 1\cdot 5+3</mrow>
+            <mrow>5 \amp= 1\cdot 3+2</mrow>
+            <mrow>3 \amp= 1\cdot 2+1</mrow>
+            <mrow>2 \amp= 2\cdot 1.</mrow>
+        </md>
+        We can change this to be in terms of fractions. Note that we have
+        <md>
+            <mrow>\frac{21}{13} \amp= 1+\frac{1}{\frac{13}{8}}</mrow>
+            <mrow>\frac{13}{8} \amp= 1+\frac{1}{\frac{8}{5}}</mrow>
+            <mrow>\frac{8}{5} \amp= 1+\frac{1}{\frac{5}{3}}</mrow>
+            <mrow>\frac{5}{3} \amp= 1+\frac{1}{\frac{3}{2}}</mrow>
+            <mrow>\frac{3}{2} \amp= 1+\frac{1}{\frac{1}{2}}</mrow>
+            <mrow>\frac{2}{1} \amp= 2.</mrow>
+        </md>
+        Substituting up we have that
+        <me>\dfrac{21}{13}=1+\dfrac{1}
+        {1+\dfrac{1}
+        {1+\dfrac{1}
+        {1+\dfrac{1}
+        {1+\dfrac{1}{2}
+        }}}}</me>
+        The above is called a <em>finite continued fraction.</em>
+        </p>
+
+        <definition>
+            <p>
+            A <term>finite continued fraction</term> is a fraction of the form 
+            <me>a_0+\dfrac{1}
+            {a_1+\dfrac{1}
+            {a_2+\dfrac{1}
+            {a_3+\dfrac{1}
+            {a_4+\dfrac{1}{\ddots +\dfrac{1}
+            {a_{n-1}+\dfrac{1}{a_n}
+            }}}}}}</me>
+            where <m>a_0, a_1,..., a_n</m> are real numbers, all of which except possibly <m>a_0</m> are positive. The numbers <m>a_1, a_2,..., a_n</m> are the <term>partial quotients</term> of this fraction. Such a fraction is called <term>simple</term> if all the <m>a_i</m> are integers.
+            </p>
+        </definition>
+
+        <p>
+        We note that we have
+        </p>
+
+        <theorem>
+            <statement>
+                <p>
+                Any rational number can be written as a finite simple continued fraction.
+                </p>
+            </statement>
+            <proof>
+                <p>
+                Let <m>a/b</m> with <m>b \neq 0</m> be a rational number. Using Euclid's algorithm for finding the greatest common divisor we have a system of equations
+                <md>
+                    <mrow>a \amp = ba_0 + r_1 \hspace{20mm} 0 \lt r_1 \lt b</mrow>
+                    <mrow>b \amp = r_1a_1 + r_2 \hspace{18mm} 0 \lt r_2 \lt r_1</mrow>
+                    <mrow>r_1 \amp = r_2a_2 + r_3 \hspace{18mm} 0 \lt r_3 \lt r_2</mrow>
+                    <mrow>\amp \vdots </mrow>
+                    <mrow>r_{n-2} \amp = r_{n-1}a_{n-1} + r_n \hspace{8.5mm} 0 \lt r_n \lt r_{n-1}</mrow>
+                    <mrow>r_{n-1} \amp = r_na_n + 0.</mrow>
+                </md>
+                where <m>r_n = \gcd(a, b).</m> Writing the system a little differently we have
+                <md>
+                    <mrow>\frac{a}{b} \amp= a_0+\frac{1}{\frac{b}{r_1}}</mrow>
+                    <mrow>\frac{b}{r_1} \amp= a_1+\frac{1}{\frac{r_1}{r_2}}</mrow>
+                    <mrow>\frac{r_1}{r_2} \amp= 1+\frac{1}{\frac{r_2}{r_3}}</mrow>
+                    <mrow>\amp \vdots </mrow>
+                    <mrow>\frac{r_{n-1}}{r_n} \amp= a_n.</mrow>
+                </md>
+                Substituting up (or down if we wish) we have
+                <me>\frac{a}{b}=a_0+\dfrac{1}
+                {a_1+\dfrac{1}
+                {a_2+\dfrac{1}
+                {a_3+\dfrac{1}
+                {a_4+\dfrac{1}{\ddots +\dfrac{1}
+                {a_{n-1}+\dfrac{1}{a_n}
+                }}}}}}</me>
+                </p>
+            </proof>
+        </theorem>
+
+        <p>
+        This proof also gives us a way to find the simple continued fraction for a rational number.
+        </p>
+
+        <example>
+            <p>
+            Try <m>67/24.</m> Just use Euclidean algorithm and the above method.
+            </p>
+            <p>
+            As you may have noticed, writing out a continued fraction takes a lot of space, so we will opt for a more condensed form; that is, write <m>[a_0; a_1, a_2,..., a_n]</m> for the continued fraction. For example, we have
+            <me>\frac{21}{13}= [1; 1, 1, 1, 1, 2] = [1; 1, 1, 1, 1, 1, 1].</me>
+            As a consequence of the last chapter we have that the ratios of consecutive Fibonacci numbers all have the form
+            <me>\frac{f_{n+1}}{f_n}= [1; 1, 1, . . . , 1, 1]</me>
+            where the integer <m>1</m> appears <m>n</m> times.
+            </p>
+        </example>
+
+    
+    </section>
+
+<!-- =================================================================================================== -->
+
+<!-- =================================================================================================== -->
+<!-- Section 2: Convergents-->
+<!-- =================================================================================================== -->
+    <section xml:id="Sec-Convergents">
+        <title>Convergents</title>
+
+        <definition>
+            <p>
+            The continued fraction made by cutting off <m>[a_0; a_1,..., a_n]</m> after the <m>k</m>th partial quotient <m>a_k</m> is called the <m>k</m>th <term>convergent</term> of the continued fraction and denoted by <m>C_k.</m> By convention, we denote the zeroth convergent by <m>C_0 = a_0.</m>
+            </p>
+        </definition>
+
+        <example>
+            <p>
+            Note that we have <m>19/51 = [0; 2, 1, 2, 6].</m> The convergents are
+            <md>
+                <mrow>C_0 \amp = 0</mrow>
+                <mrow>C_1 \amp= [0; 2] = 0 + \frac{1}{2}=\frac{1}{2} </mrow>
+                <mrow>C_2 \amp= [0; 2, 1] = 0 + \frac{1}{2+\frac{1}{1}}=\frac{1}{3}</mrow>
+                <mrow>C_3 \amp= [0; 2, 1, 2] = 0 + \frac{1}{2+\frac{1}{1+\frac{1}{2}}}=\frac{3}{8}</mrow>
+                <mrow>C_4 \amp= [0; 2, 1, 2, 6] = 19/51</mrow>
+            </md>
+            Note that until we get to <m>C_4</m> the convergents are alternatively greater than and less than <m>19/51.</m>
+            </p>
+        </example>
+
+        <p>
+            We can make things a little easier by creating a recurrence for the numerators and denominators of the convergents. We have the following theorem.
+        </p>
+
+        <definition>
+            <p>
+            Define the numbers <m>p_k</m> and <m>q_k \hspace{2mm} (k = 0, 1,..., n)</m> by <m>p_0 = a_0, q_0 = 1, p_1 = a_1a_0 + 1, q_1 = a_1,</m> and for <m>k = 2, 3,..., n</m> we have
+            <me>p_k = a_kp_{k-1} + p_{k-2} \hspace{5mm} \text{ and } \hspace{5mm} q_k = a_kq_{k-1} + q_{k-2}.</me>
+            </p>
+        </definition>
+
+        <theorem>
+            <statement>
+                <p>
+                If <m>C_k</m> is the <m>k</m>th convergent of the simple continued fraction <m>[a_0; a_1, a_2,..., a_n],</m> then for <m>0\leq k\leq n</m> we have
+                <me>C_k =\frac{p_k}{q_k}.</me>
+                </p>
+            </statement>
+            <proof>
+                <p>
+                The above example motivates us to start with computing the first few convergents based on the definitions. We have
+                <md>
+                    <mrow>C_0 \amp= a_0</mrow>
+                    <mrow>C_1 \amp= a_0 +\frac{1}{a_1}=\frac{a_1a_0+1}{a_1}=\frac{p_1}{q_1}</mrow>
+                    <mrow>C_2 \amp= a_0 +\frac{1}{a_1+\frac{1}{a_2}}=\frac{a_2(a_1a_0+1)+a_0}{a_2a_1+1}=\frac{p_2}{q_2}.</mrow>
+                </md>
+                Now suppose that the theorem is true for <m>k = m</m> where <m>2\leq m \lt n.</m> So we have
+                <me>C_m = [a_0; a_1,..., a_m] = \frac{p_m}{q_m}=\frac{a_mp_{m-1}+p_{m-2}}{a_mq_{m-1}+q_{m-2}}.</me>
+                Note that the integers <m>p_{m-1}, q_{m-1}, p_{m-2},</m> and <m>q_{m-2}</m> depend on the first <m>m-1</m> partial denominators <m>a_1, a_2,..., a_{m-1}</m> and hence, are independent of <m>a_m.</m> Thus in the above equation for <m>C_m</m> we can replace <m>a_m</m> by <m>a_m + \frac{1}{a_{m+1}}</m> to get
+                <md>
+                    <mrow>C_{m+1} \amp = [a_0; a_1,..., a_m, a_{m+1}]</mrow>
+                    <mrow>\amp =\left[a_0; a_1,..., a_{m-1}, a_m +\frac{1}{a_{m+1}}\right]</mrow>
+                    <mrow>\amp =\frac{\left(a_m +\frac{1}{a_{m+1}}\right)p_{m-1}+p_{m-2}}{\left(a_m +\frac{1}{a_{m+1}}\right)q_{m-1}+q_{m-2}}</mrow>
+                    <mrow>\amp =\frac{a_{m+1}(a_mp_{m-1}+p_{m-2})+p_{m-1}}{a_{m+1}(a_mq_{m-1}+q_{m-2})+q_{m-1}}</mrow>
+                    <mrow>\amp =\frac{a_{m+1}p_{m}+p_{m-1}}{a_{m+1}q_{m}+q_{m-1}}</mrow>
+                    <mrow>\amp =\frac{p_{m+1}}{q_{m+1}}. </mrow>
+                </md>
+                This proves the theorem.
+                </p>
+            </proof>
+        </theorem>
+
+        <theorem>
+            <statement>
+                <p>
+                If <m>C_k = p_k/q_k</m> is the <m>k</m>th convergent of the finite simple continued fraction <m>[a_0; a_1,..., a_n],</m> then 
+                <me>p_kq_{k-1}-q_kp_{k-1} = (-1)^{k-1} \hspace{10mm} 1\leq k\leq n.</me>
+                </p>
+            </statement>
+            <proof>
+                <p>
+                Again we use induction. When <m>k = 1,</m> we have 
+                <me>p_1q_0-q_1p_0 = (a_1a_0 + 1)\cdot 1-a_1a_0 = 1 = (-1)^{1-1}.</me>
+                Now suppose that the theorem holds for <m>k = m</m> where <m>1\leq m\lt n.</m> Then
+                <md>
+                    <mrow>p_{m+1}q_m -q_{m+1}p_m \amp= (a_{m+1}p_m + p_{m-1})q_m -(a_{m+1}q_m + q_{m-1})p_m</mrow>
+                    <mrow>\amp = -(p_mq_{m-1}-q_mp_{m-1})</mrow>
+                    <mrow>\amp = -(-1)^{m-1}</mrow>
+                    <mrow>\amp = (-1)^m.</mrow>
+                </md>
+                Thus by induction the theorem is valid for all <m>k</m> with <m>1\leq k \leq n.</m>
+                </p>
+            </proof>
+        </theorem>
+
+        <p>
+        We have the following corollary.
+        </p>
+
+        <corollary>
+            <statement>
+                <p>
+                For <m>1 \leq k \leq n,</m> we have <m>\gcd(p_k, q_k) = 1.</m>
+                </p>
+            </statement>
+            <proof>
+                <p>
+                We use the previous theorem. If <m>d = \gcd(p_k, q_k)</m> then <m>d\vert (-1)^{k-1}.</m> Since <m>d \gt 0</m> we have that <m>d = 1.</m>
+                </p>
+            </proof>
+        </corollary>
+    
+    </section>
+
+<!-- =================================================================================================== -->
+
+<!-- =================================================================================================== -->
+<!-- Section 3: Linear Diophantine equations-->
+<!-- =================================================================================================== -->
+    <section xml:id="Sec-Linear_Diophantine_equations_2">
+        <title>Linear Diophantine equations</title>
+
+        <p>
+        Let us consider again the linear Diophantine equation
+        <me>ax + by = c.</me>
+        We will use some properties about continued fractions to find a solution <m>(x, y)</m> to this equation provided one exists. Since we must have <m>\gcd(a, b)\vert c</m> to have a solution we will assume this to be the case. Also, if <m>d = \gcd(a, b)\gt 1,</m> we can consider the related equation 
+        <me>\frac{a}{d}x+\frac{b}{d}y=\frac{c}{d},</me>
+        where <m>\gcd(a/d, b/d) = 1.</m> We continue to reduce this system to only looking at the equation
+        <me>ax + by = 1,</me>
+        where <m>\gcd(a, b) = 1;</m> we can then find a solution to the general equation. 
+        </p>
+        <p>
+        To get a solution to
+        <me>ax + by = 1,</me>
+        where <m>\gcd(a, b) = 1,</m> we will consider the simple continued fraction of <m>a/b.</m> Doing this we gain the following theorem.
+        </p>
+
+        <theorem>
+            <statement>
+                <p>
+                Let <m>a, b \in\mathbb{N}</m> with <m>\gcd(a, b) = 1.</m> Write <m>a/b =[a_0; a_1,..., a_n], C_k = p_k/q_k</m> the convergents of <m>a/b,</m> and consider the equation 
+                <men xml:id="Eqn_11_1">ax + by = 1.</men>
+                If <m>n</m> is odd then the equation in <xref ref="Eqn_11_1"/> has the solution <m>(x_0, y_0) =(q_{n-1}, -p_{n-1}),</m> whereas for even <m>n,</m> then <xref ref="Eqn_11_1"/> has the solution <m>(x_0, y_0) =(-q_{n-1}, p_{n-1}).</m>
+                </p>
+            </statement>
+            <proof>
+                <p>
+                We expand 
+                <me>\frac{a}{b}= [a_0; a_1,..., a_n].</me>
+                The last two convergents of this continued fraction are
+                <me>C_{n-1} =\frac{p_{n-1}}{q_{n-1}} \hspace{5mm} \text{ and } \hspace{5mm} C_{n} =\frac{p_{n}}{q_{n}}.</me>
+                Since <m>\gcd(p_n, q_n) = 1</m> we have that <m>p_n = a</m> and <m>q_n = b.</m> By the last theorem of the previous section we have that
+                <me>a(q_{n-1})-b(p_{n-1}) = p_nq_{n-1}-q_np_{n-1} = (-1)^{n-1}.</me>
+                Considering the cases of <m>n</m> for even and odd, we will have our result.
+                </p>
+                <p>
+                If <m>n</m> is even, write <m>n = 2k</m> for some <m>k,</m> then
+                <me>a(q_{n-1})+b(-p_{n-1}) = (-1)^{2k-1}=-1,</me>
+                and so 
+                <me>a(-q_{n-1})+b(p_{n-1}) = 1.</me>
+                If <m>n</m> is odd, write <m>n=2k+1</m> for some <m>k,</m> then 
+                <me>a(q_{n-1})+b(-p_{n-1}) = (-1)^{2k+1}= 1.</me>
+                </p>
+            </proof>
+        </theorem>
+
+        <example>
+            <p>
+            We solve the Diophantine equation <m>6x + 32y = 2.</m> Since <m>\gcd(6, 32) = 2,</m> we divide by <m>2</m> and consider the equation
+            <me>3x + 16y = 1.</me>
+            Using the Euclidean algorithm for <m>3</m> and <m>16</m> gives 
+            <md>
+                <mrow>3 \amp = 0 \cdot 16 + 3</mrow>
+                <mrow>16 \amp = 5\cdot 3 + 1</mrow>
+                <mrow>3 \amp = 3 \cdot 1.</mrow>
+            </md>
+            So
+            <me>\frac{3}{16}=0+\frac{1}{5+\frac{1}{3}}= [0; 5, 3].</me>
+            The convergents of <m>3/16</m> are <m>C_0 = 0, C_1 = 1/5,</m> and <m>C_2 = 3/16.</m> Since <m>n</m> is even we have that <m>(x_0, y_0) = (-5, 1)</m> is a solution to <m>3x + 16y = 1.</m> Thus multiplying the equation by <m>2,</m> we have that <m>(x_0, y_0) = (-5, 1)</m> is a solution to <m>6x + 32y = 2.</m>
+            </p>
+        </example>
+    
+    </section>
+
+<!-- =================================================================================================== -->
+
+<!-- =================================================================================================== -->
+<!-- Section 4: More properties of convergents-->
+<!-- =================================================================================================== -->
+    <section xml:id="Sec-More_properties_of_convergents">
+        <title>More properties of convergents</title>
+
+        <lemma>
+            <statement>
+                <p>
+                If <m>q_k</m> is the denominator of the <m>k</m>th convergent <m>C_k</m> of the simple continued fraction <m>[a_0; a_1,..., a_n],</m> then <m>q_{k-1} \leq q_k</m> for <m>1\leq k\leq n,</m> with strict inequality when <m>k \gt 1.</m>
+                </p>
+            </statement>
+            <proof>
+                <p>
+                By induction. Note that
+                <me>q_0 = 1\leq a_1 = q_1.</me>
+                Now assume that the lemma holds for <m>k = m,</m> where <m>1\leq m \lt n.</m> Then 
+                <me>q_{m+1} = a_{m+1}q_m + q_{m-1} \gt a_{m+1}q_m \geq q_m.</me> 
+                This proves the lemma.
+                </p>
+            </proof>
+        </lemma>
+
+        <theorem>
+            <statement>
+                <p>
+                Let <m>C_0, C_1,...</m> be a sequence of convergents for a continued fraction. Then 
+                <me>C_0 \lt C_2 \lt C_4 \lt \cdots,</me>
+                and
+                <me>C_1 \gt C_3 \gt C_5 \gt \cdots.</me>
+                Moreover, <m>C_{2k} \lt C_{2j+1}</m> for all <m>k, j \geq 0.</m>
+                </p>
+            </statement>
+            <proof>
+                <p>
+                We compute the difference <m>C_{k+2}-C_k</m> to give 
+                <md>
+                    <mrow>C_{k+2}-C_k \amp = (C_{k+2}-C_{k+1}) + (C_{k+1}-C_k)</mrow>
+                    <mrow>\amp =\left(\frac{p_{k+2}}{q_{k+2}}-\frac{p_{k+1}}{q_{k+1}}\right)+\left(\frac{p_{k+1}}{q_{k+1}}-\frac{p_{k}}{q_{k}}\right)</mrow>
+                    <mrow>\amp =\frac{p_{k+2}q_{k+1}-p_{k+1}q_{k+2}}{q_{k+2}q_{k+1}}+\frac{p_{k+1}q_{k}-p_kq_{k+1}}{q_{k+1}q_k}</mrow>
+                    <mrow>\amp =\frac{(-1)^{k+1}}{q_{k+2}q_{k+1}}+\frac{(-1)^k}{q_{k+1}q_k}</mrow>
+                    <mrow>\amp =\frac{(-1)^{k}(q_{k+2}-q_{k})}{q_kq_{k+1}q_{k+2}}.</mrow>
+                </md>
+                Recall that <m>q_i\gt 0</m> for all <m>i\geq 0</m> and that <m>q_{k+2}-q_k\gt 0</m> by the previous lemma, we have that <m>C_{k+2}-C_k</m> has the same sign as <m>(-1)^k.</m> Considering the even and odd cases proves the first part of the theorem.
+                </p>
+                <p>
+                For the second part of the theorem, we note that since
+                <me>p_kq_{k-1}-q_kp_{k-1} = (-1)^{k-1},</me>
+                when we divide by <m>q_kq_{k-1}</m> we have
+                <me>\frac{p_k}{q_k}-\frac{p_{k-1}}{q_{k-1}}=\frac{(-1)^{k-1}}{q_kq_{k-1}};</me>
+                that is
+                <me>C_k-C_{k-1} = \frac{(-1)^{k-1}}{q_kq_{k-1}}.</me>
+                Note that <m>q_kq_{k-1}\gt 0.</m> So if <m>k = 2j</m> then we have
+                <me>C_{2j}-C_{2j-1} =\frac{(-1)}{q_{2j}q_{2j-1}}\lt 0.</me>
+                That is <m>C_{2j}\lt C_{2j-1}.</m> Now if <m>2u</m> and <m>2v-1</m> are arbitrary even and odd integers, then using the first part of the theorem we have
+                <me>C_{2u} \lt C_{2u+2v} \lt C_{2u+2v-1} \lt C_{2v-1}.</me>
+                This proves the theorem. 
+                </p>
+            </proof>
+        </theorem>
+    
+    
+    </section>
+
+<!-- =================================================================================================== -->
+
+
+</chapter>

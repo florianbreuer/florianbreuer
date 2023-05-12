@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- =================================================================================================== -->
+<!-- To process this file with xsltproc do                                                        -->
+<!--                                                                                              -->
+<!-- (1) LaTeX/PDF:                                                                               -->
+<!--     xsltproc -o minimal.tex PATH_TO/mathbook/xsl/pretext-latex.xsl source/main.ptx           -->
+<!--     pdflatex minimal.tex                                                                     -->
+<!--     xelatex minimal.tex                                                                      -->
+<!--                                                                                              -->
+<!-- (2) HTML:                                                                                    -->
+<!--     xsltproc PATH_TO/mathbook/xsl/pretext-html.xsl source/main.ptx                           -->
+<!--     <browser>  minimal.html                                                                  -->
+<!--        ~/xsltproc/xsltproc.exe ~/mathbook/xsl/mathbook-html.xsl test.xml                     -->
+<!--                                                                                              -->
+<!-- (3) CoCalc worksheet (parameter causes a single file for output)                             -->
+<!--     REMOVE the "X" in the double dash (which is not legal in an XML comment)                 -->
+<!--     xsltproc -X-stringparam chunk.level 0 PATH_TO/mathbook/xsl/pretext-smc.xsl source/main.ptx   -->
+<!--     <CoCalc> minimal.sagews                                                                  -->
+<!--                                                                                              -->
+<!-- (4) Sage doctesting                                                                          -->
+<!--     REMOVE the "X" in the double dash (which is not legal in an XML comment)                 -->
+<!--     xsltproc -X-stringparam chunk.level 0 PATH_TO/mathbook/xsl/pretext-sage-doctest.xsl source/main.ptx  -->
+<!--     <read further instructions in> minimal.py                                                -->
+<!-- =================================================================================================== -->
+
+<chapter xml:id="Chap-The_Fibonacci_Sequence">
+
+
+
+<!-- =================================================================================================== -->
+<!-- Title and Other Preliminaries -->
+<!-- =================================================================================================== -->
+        <title>The Fibonacci Sequence</title>
+
+        <!-- <frontmatter> -->
+
+<!--             <titlepage>
+                <author>
+                    <institution>University of Newcastle</institution>
+                </author>
+                <date><today /></date>
+            </titlepage> -->
+
+            <!-- <abstract>
+                <p>This is a very short article, but it still exercises some advanced features of MathBook XML.</p>
+            </abstract> -->
+
+        <!-- </frontmatter> -->
+
+        <introduction>
+
+            <p>
+            In <em>Liber Abaci</em> (around 1202), Fibonacci asked the following question.
+            </p>
+            <p>
+            <em>A man put one pair of rabbits in a certain place entirely surrounded by a wall. How many pairs of rabbits can be produced from that pair in a year, if the nature of these rabbits is such that every month each pair bears a new pair which from the second month on becomes productive?</em>
+            </p>
+            <p>
+            In the first month we have <m>1</m> adult pair bearing <m>1</m> new pair for a total of <m>2</m> pairs. In the second month we have <m>2</m> adult pairs, only one of which can bear a new pair, for a total of <m>3</m> pairs. In the third month we have <m>3</m> adult pairs only <m>2</m> of which can bear a new pair, for a total of <m>5</m> pairs. Continuing in this manner we concern ourselves with the sequence 
+            <me>1, 1, 2, 3, 5, 8, 13, 21,...</me>
+            We can define this sequence recursively, denoting <m>f_n</m> the <m>n</m>th Fibonacci number, by <m>f_1 = 1, f_2 = 1,</m> and for <m>n\geq 3</m> we have
+            <me>f_n = f_{n-1} + f_{n-2}.</me>
+            The <em>Fibonacci sequence</em> is our first instance of a <em>recursive sequence,</em> and in this sense it is interesting apart from its connection to the breading habits of hypothetical rabbits. For this reason we make a more abstract investigation of the sequence <m>\{f_n\}_n.</m>
+            </p>
+            
+        </introduction>
+
+
+<!-- =================================================================================================== -->
+
+<!-- =================================================================================================== -->
+<!-- Section 1: Divisibility properties-->
+<!-- =================================================================================================== -->
+    <section xml:id="Sec-Divisibility_properties">
+        <title>Divisibility properties</title>
+
+        <theorem>
+            <statement>
+                <p>
+                For <m>f_n</m> the <m>n</m>th Fibonacci sequence, we have <m>\gcd(f_n, f_{n+1}) = 1</m> for all <m>n \geq 1.</m>
+                </p>
+            </statement>
+            <proof>
+                <p>
+                For <m>n = 1</m> and <m>n = 2</m> we have that <m>\gcd(1, 1) = 1</m> and <m>\gcd(1, 2) =1.</m> For <m>n\geq 3</m> we use the Euclidean algorithm and the definition of the Fibonacci numbers to give 
+                <md>
+                    <mrow>f_{n+1} \amp = 1 \cdot f_n + f_{n-1}</mrow>
+                    <mrow>f_{n} \amp = 1 \cdot f_{n-1} + f_{n-2}</mrow>
+                    <mrow>\amp \vdots </mrow>
+                    <mrow>f_{4} \amp = 1 \cdot f_{3} + f_{2}</mrow>
+                    <mrow>f_{3} \amp = 2 \cdot f_{2}</mrow>
+                </md>
+                Thus <m>\gcd(f_{n+1}, f_n) = f_2 = 1.</m>
+                </p>
+            </proof>
+        </theorem>
+
+        <p>
+        Note that as an example we can show that <m>\gcd(21, 13) = 1.</m> We have 
+        <md>
+            <mrow>21 \amp = 1 \cdot 13 + 8</mrow>
+            <mrow>13 \amp = 1 \cdot 8 + 5</mrow>
+            <mrow>8 \amp = 1 \cdot 5 + 3</mrow>
+            <mrow>5 \amp = 1 \cdot 3 + 2</mrow>
+            <mrow>3 \amp = 1 \cdot 2 + 1</mrow>
+            <mrow>2 \amp = 2 \cdot 1</mrow>
+        </md>
+        We will return to this example when we come to the next chapter on continued fractions.
+        </p>
+        <p>
+        The above theorem generalizes in the following way. 
+        </p>
+
+        <theorem xml:id="Thm_10_2">
+            <statement>
+                <p>
+                The greatest common divisor of two Fibonacci numbers is itself a Fibonacci number, and we have that 
+                <me>\gcd(f_m, f_n) = f_{\gcd(m,n)}</me>
+                </p>
+            </statement>
+        </theorem>
+
+        <p>
+        To prove this theorem we will need first a few of lemmas.
+        </p>
+
+        <lemma>
+            <statement>
+                <p>
+                Let <m>m\geq 2</m> and <m>n\geq 1.</m> Then we have that 
+                <me>f_{m+n} = f_{m-1}f_n + f_mf_{n+1}.</me>
+                </p>
+            </statement>
+            <proof>
+                <p>
+                We proceed by induction. When <m>n = 1</m> we have 
+                <me>f_{m+1} = f_{m-1}+f_m =f_{m-1}f_{1}+f_{m}f_{2},</me>
+                so the result holds. Suppose that the result holds for all <m>n\leq k.</m> By the induction hypothesis, we have both
+                <me>f_{m+k} = f_{m-1}f_k +f_{m}f_{k+1}</me>
+                and
+                <me>f_{m+(k-1)} = f_{m-1}f_{k-1} +f_{m}f_{k}.</me>
+                Adding these two equations gives
+                <me>f_{m+k}+f_{m+(k+1)} = f_{m-1}(f_k+f_{k-1}) +f_{m}(f_{k+1}+f_k).</me>
+                Using the recurrence relation, we have
+                <me>f_{m+k+1} = f_{m-1}f_{k+1} +f_{m}f_{k+2},</me>
+                which is exactly what we wanted to show. Thus by induction the result holds for all <m>n,</m> and since <m>m</m> was arbitrary, for all <m>m\geq 2</m> and <m>n\geq 1.</m>
+                </p>
+            </proof>
+        </lemma>
+
+        <lemma>
+            <statement>
+                <p>
+                For <m>m, n\geq 1</m> we have that <m>f_m</m> divides <m>f_{mn}.</m>
+                </p>
+            </statement>
+            <proof>
+                <p>
+                Again, we prove this by induction. For <m>n = 1</m> this holds trivially. So suppose that the result holds for <m>n\leq k,</m> and note then that <m>f_m\vert f_{mk}.</m> Using the previous lemma, we have that 
+                <me>f_{m(k+1)} = f_{mk-1}f_m + f_{mk}f_{m+1}.</me>
+                Since <m>f_m\vert f_m</m> and <m>f_m\vert f_{mk},</m> we have that <m>f_m</m> divides the linear combination <m>f_{mk-1}f_m + f_{mk}f_{m+1}</m> which is exactly <m>f_m\vert f_{m(k+1)}.</m> This proves the lemma.
+                </p>
+            </proof>
+        </lemma>
+
+        <lemma>
+            <statement>
+                <p>
+                If <m>m = qn + r,</m> then <m>\gcd(f_m, f_n) = \gcd(f_n, f_r).</m>
+                </p>
+            </statement>
+            <proof>
+                <p>
+                Write <m>m = qn + r.</m> Then we have by one of the above lemmas that 
+                <me>\gcd(f_m, f_n) = \gcd(f_{qn+r}, f_n) = \gcd(f_{qn-1}f_r + f_{qn}f_{r+1}, f_n).</me>
+                We recall a fact from the divisibility chapter. Note that if we write <m>a = qb+r</m> and <m>b\vert c</m> then we have that <m>a + c = q'b + r</m> and so
+                <me>\gcd(a, b) = \gcd(b, r) = \gcd(a + c, b).</me>
+                Using this and the fact that <m>f_n\vert f_{qn},</m> we have 
+                <me>\gcd(f_m, f_n) = \gcd(f_{qn-1}f_r + f_{qn}f_{r+1}, f_n) = \gcd(f_{qn-1}f_r, f_n).</me>
+                If we can show that <m>\gcd(f_{qn-1}, f_n) = 1</m> then we would be done. 
+                </p>
+                <p>
+                To this end, set <m>d = \gcd(f_{qn-1}, f_n).</m> Then since <m>d\vert f_n</m> and <m>f_n\vert f_{qn},</m> we have that <m>d\vert f_{qn}.</m> But we have also that <m>d\vert f_{qn-1}</m> so that <m>\gcd(f_{qn}, f_{qn-1})\geq d.</m> Since consecutive Fibonacci numbers are coprime we have that <m>d = 1,</m> and the desired result follows.
+                </p>
+            </proof>
+        </lemma>
+
+        <proof>
+            <title>Proof of <xref ref="Thm_10_2"/></title>
+            <p>
+            Without loss of generality assume that <m>m\geq n.</m> We apply the Euclidean algorithm to give the system
+            <md>
+                <mrow>m \amp = q_1n + r_1 \hspace{15mm} 0 \lt r_1 \lt n</mrow>
+                <mrow>n \amp = q_2r_1 + r_2 \hspace{14mm} 0 \lt r_2 \lt r_1</mrow>
+                <mrow>r_1 \amp = q_3r_2 + r_3 \hspace{14mm} 0 \lt r_3 \lt r_2</mrow>
+                <mrow>\amp \vdots </mrow>
+                <mrow>r_{n-2} \amp = q_nr_{n-1} + r_n \hspace{8.5mm} 0 \lt r_n \lt r_{n-1}</mrow>
+                <mrow>r_{n-1} \amp = q_{n+1}r_n + 0.</mrow>
+            </md>
+            By the previous lemma we have
+            <me>\gcd(f_m, f_n) = \gcd(f_n, f_{r_1}) = \gcd(f_{r_1}, f_{r_2}) = \cdots = \gcd(f_{r_{n-1}}, f_{r_n}).</me>
+            Because <m>r_n\vert r_{n-1},</m> we have that <m>f_{r_n}\vert f_{r_{n-1}},</m> so that <m>\gcd(f_{r_{n-1}}, f_{r_n}) = f_{r_n}.</m> Since <m>r_n = \gcd(m, n),</m> we have that <m>\gcd(f_m, f_n) = f_{\gcd(m,n)}.</m>
+            </p>
+        </proof>
+
+        <p>
+        As an immediate corollary of this theorem we have
+        </p>
+
+        <corollary>
+            <p>
+            Let <m>n\geq m \geq 3.</m> We have that <m>f_m\vert f_n</m> if and only if <m>m\vert n.</m>
+            </p>
+        </corollary>
+    
+    </section>
+
+<!-- =================================================================================================== -->
+
+<!-- =================================================================================================== -->
+<!-- Section 2: Some identities-->
+<!-- =================================================================================================== -->
+    <section xml:id="Sec-Some_identities">
+        <title>Some identities</title>
+
+        <theorem>
+            <title>Zeckendorf representation</title>
+            <statement>
+                <p>
+                Any positive integer <m>n</m> can be expressed as a sum of distinct Fibonacci numbers, no two of which are consecutive.
+                </p>
+            </statement>
+        </theorem>
+
+        <theorem>
+            <statement>
+                <p>
+                Let <m>n\geq 3.</m> Then 
+                <me>f_n^2=f_{n+1}f_{n-1}+(-1)^{n-1}. </me>
+                </p>
+            </statement>
+            <proof>
+                <p>
+                We start by noting that
+                <me>f_n^2- f_{n+1}f_{n-1} = f_n(f_{n-1} +f_{n-2})-f_{n+1}f_{n-1} = (f_n -f_{n+1})f_{n-1} +f_nf_{n-2}.</me>
+                Since <m>f_{n+1} = f_n + f_{n-1}</m> we have that <m>f_n-f_{n+1} = -f_{n-1}</m> and we get
+                <me>f_n^2- f_{n+1}f_{n-1} = -f_{n-1}^2 +f_nf_{n-2} = (-1)(f_{n-1}^2 -f_nf_{n-2}).</me>
+                We continue in this fashion <m>n-3</m> more times to get
+                <me>f_n^2- f_{n+1}f_{n-1} = (-1)^{n-2}(f_{2}^2 -f_3f_1)=(-1)^{n-2}(1-2\cdot 1)=(-1)^{n-1}.</me>
+                </p>
+            </proof>
+        </theorem>
+
+        <theorem>
+            <title>Binet's formula</title>
+            <statement>
+                <p>
+                Let <m>\alpha</m> and <m>\beta</m> be the two real roots of the equation <m>x^2-x-1 = 0.</m> Then for <m>n\geq 1,</m> we have
+                <me>f_n=\frac{\alpha^n-\beta^n}{\alpha-\beta}.</me>
+                </p>
+            </statement>
+            <proof>
+                <p>
+                Note that we have
+                <me>\alpha =\frac{1 + \sqrt{5}}{2} \hspace{5mm} \text{ and } \hspace{5mm} \beta=\frac{1-\sqrt{5}}{2}.</me>
+                And also since they satisfy <m>x^2-x-1 = 0</m> we have that both 
+                <me>\alpha^2 =\alpha+1 \hspace{5mm} \text{ and } \hspace{5mm} \beta^2=\beta+1.</me>
+                Thus when we multiply by <m>\alpha^n</m> and by <m>\beta^n</m> we have
+                <me>\alpha^{n+2} =\alpha^{n+1}+\alpha^n \hspace{5mm} \text{ and } \hspace{5mm} \beta^{n+2}=\beta^{n+1}+\beta^n.</me>
+                Subtracting the second equation from the first and dividing by <m>\alpha-\beta,</m> we have that
+                <me>\frac{\alpha^{n+2}-\beta^{n+2}}{\alpha-\beta} =\frac{\alpha^{n+1}-\beta^{n+1}}{\alpha-\beta}+\frac{\alpha^{n}-\beta^{n}}{\alpha-\beta}.</me>
+                Thus setting <m>H_n =\frac{\alpha^n-\beta^n}{\alpha-\beta},</m> the above becomes
+                <me>H_{n+2}=H_{n+1}+H_n \hspace{5mm} (n\geq 1).</me>
+                We will show that <m>H_n = f_n.</m> Note that for <m>\alpha</m> and <m>\beta</m> as above, we have that
+                <me>\alpha+\beta=1 \hspace{5mm} \alpha-\beta=\sqrt{5} \hspace{5mm} \alpha\beta=-1.</me>
+                We also have
+                <me>H_1 =\frac{\alpha-\beta}{\alpha-\beta}=1</me>
+                and
+                <me>H_2 =\frac{\alpha^2-\beta^2}{\alpha-\beta}=\alpha+\beta=1.</me>
+                Since the recurrence and starting points are the same, we have that <m>H_n = f_n</m> and the theorem is proved.
+                </p>
+            </proof>
+        </theorem>
+
+        <p>
+        Using Binet's formula we can partially classify what kind of primes divide some Fibonacci numbers. In fact each prime divides some Fibonacci number. Note that <m>2\vert f_3, 3\vert f_4,</m> and <m>5\vert f_5.</m> And for the rest we have the following theorem.
+        </p>
+
+        <theorem>
+            <statement>
+                <p>
+                For a prime <m>p\gt 5,</m> we have that either <m>p\vert f_{p-1}</m> or <m>p\vert f_{p+1}</m> but not both.
+                </p>
+            </statement>
+            <proof>
+                <p>
+                By Binet's formula we have that <m>f_p = \frac{1}{\sqrt{5}}(\alpha^p-\beta^p).</m> We use the binomial theorem to get
+                <md>
+                    <mrow>f_p \amp=\frac{1}{2^p\sqrt{5}}\left(1+\binom{p}{1}\sqrt{5}+\binom{p}{2} 5+\binom{p}{3}5\sqrt{5}+\cdots +\binom{p}{p}5^{(p-1)/2}\sqrt{5}\right) - \frac{1}{2^p\sqrt{5}}\left(1-\binom{p}{1}\sqrt{5}+\binom{p}{2} 5-\binom{p}{3}5\sqrt{5}+\cdots - \binom{p}{p}5^{(p-1)/2}\sqrt{5}\right)</mrow>
+                    <mrow>\amp=\frac{1}{2^{p-1}}\left(\binom{p}{1}+\binom{p}{3} 5+\cdots +\binom{p}{p}5^{(p-1)/2}\right).</mrow>
+                </md>
+                Now since <m>\binom{p}{k}\equiv 0\pmod{p}</m> for <m>1\leq k\leq p-1</m> and <m>2^{p-1}\equiv 1\pmod{p},</m> we have that 
+                <me>f_p\equiv 2^{p-1}f_p\equiv \binom{p}{p}5^{(p-1)/2}\equiv 5^{(p-1)/2}\pmod{p}.</me>
+                Now by Euler's criterion, we have that
+                <me>(5/p)\equiv 5^{(p-1)/2}\pmod{p},</me>
+                so that 
+                <me>f_p\equiv \pm 1\pmod{p},</me>
+                and moreover we have that 
+                <me>f_p^2\equiv 1\pmod{p}.</me>
+                With this in hand, we take the identity from the second theorem of this section, <m>f^2p = f_{p-1}f_{p+1} + (-1)^{p-1},</m> and note that modulo <m>p</m> this gives
+                <me>f_{p-1}f_{p+1} \equiv 0 \pmod{p}.</me>
+                Thus <m>p</m> divides one of <m>f_{p-1}</m> or <m>f_{p+1}.</m>
+                </p>
+                <p>
+                Recall that from a previous theorem we have that
+                <me>\gcd(f_{p-1}, f_{p+1}) = f_{\gcd(p-1,p+1)} = f_2 = 1.</me>
+                Thus <m>p</m> cannot divide both <m>f_{p-1}</m> and <m>f_{p+1}.</m>
+                </p>
+            </proof>
+        </theorem>
+
+
+    </section>
+
+<!-- =================================================================================================== -->
+
+
+</chapter>

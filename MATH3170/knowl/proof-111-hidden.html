@@ -1,0 +1,36 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-11-10T14:15:22+11:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math"><article class="hiddenproof"><p>Write <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(m = qn + r.\)</span> Then we have by one of the above lemmas that</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\gcd(f_m, f_n) = \gcd(f_{qn+r}, f_n) = \gcd(f_{qn-1}f_r + f_{qn}f_{r+1}, f_n).
+\end{equation*}
+</div>
+<p class="continuation">We recall a fact from the divisibility chapter. Note that if we write <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(a = qb+r\)</span> and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(b\vert c\)</span> then we have that <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(a + c = q'b + r\)</span> and so</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\gcd(a, b) = \gcd(b, r) = \gcd(a + c, b).
+\end{equation*}
+</div>
+<p class="continuation">Using this and the fact that <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(f_n\vert f_{qn},\)</span> we have</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\gcd(f_m, f_n) = \gcd(f_{qn-1}f_r + f_{qn}f_{r+1}, f_n) = \gcd(f_{qn-1}f_r, f_n).
+\end{equation*}
+</div>
+<p class="continuation">If we can show that <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\gcd(f_{qn-1}, f_n) = 1\)</span> then we would be done.</p>
+<p>To this end, set <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(d = \gcd(f_{qn-1}, f_n).\)</span> Then since <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(d\vert f_n\)</span> and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(f_n\vert f_{qn},\)</span> we have that <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(d\vert f_{qn}.\)</span> But we have also that <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(d\vert f_{qn-1}\)</span> so that <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\gcd(f_{qn}, f_{qn-1})\geq d.\)</span> Since consecutive Fibonacci numbers are coprime we have that <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(d = 1,\)</span> and the desired result follows.</p></article></body>
+</html>

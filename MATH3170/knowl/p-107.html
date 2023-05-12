@@ -1,0 +1,57 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-11-10T14:15:07+11:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h3 class="heading"><span class="type">Paragraph</span></h3>
+<p>In this proof, we consider the sum</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\sum_{p_1^{k_1}...p_n^{k_n}\leq x} 1,
+\end{equation*}
+</div>
+<p class="continuation">where the sum is taken over all possible choices of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(k_1, k_2,..., k_n\)</span> that satisfy the inequality <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(p_1^{k_1}...p_n^{k_n}\leq x.\)</span> By induction one has that</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\sum_{p_1^{k_1}...p_n^{k_n}\leq x} 1 \leq \left(\sum_{p_1^{k_1}\leq x} 1\right)\left(\sum_{p_2^{k_2}\leq x} 1\right)...\left(\sum_{p_n^{k_n}\leq x} 1\right) = \prod_{i=1}^{n} \left(\sum_{p_i^{k_i}\leq x} 1\right).
+\end{equation*}
+</div>
+<p class="continuation">Now <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(p_1 = 2,\)</span> and we have</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\sum_{p_1^{k_1}\leq x} 1 = \sum_{2^{k_1}\leq x} 1 = \left\lfloor \frac{\log(x)}{\log(2)}\right\rfloor +1\leq \frac{\log(x)}{\log(2)}+\frac{1}{\log(2)}=\frac{1}{\log(2)}(\log(x)+1).
+\end{equation*}
+</div>
+<p class="continuation">For <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(i \geq 2,\)</span> we have that <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\log(p_i)\geq \log(3)\geq 1,\)</span> so that</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\sum_{p_i^{k_i}\leq x} 1 = \left\lfloor \frac{\log(x)}{\log(p_i)}\right\rfloor +1\leq \frac{\log(x)}{\log(p_i)}+1\leq \log(x)+1.
+\end{equation*}
+</div>
+<p class="continuation">Putting this together gives (for <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(x\geq e\)</span>)</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\sum_{p_1^{k_1}...p_n^{k_n}\leq x} 1 \leq \prod_{i=1}^{n}\left(\sum_{p_i^{k_i}\leq x} 1\right)\leq \frac{1}{\log(2)}(\log(x)+1)^n\leq \frac{2}{\log(2)}\log^n(x)=O(\log^n(x)).
+\end{equation*}
+</div>
+<p class="continuation">If there were finitely many primes, say <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(n,\)</span> then since there are about <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(x\)</span> numbers less than <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(x,\)</span> we would have to have</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\sum_{p_1^{k_1}...p_n^{k_n}\leq x} 1 =\lfloor x\rfloor \geq x-1.
+\end{equation*}
+</div>
+<p class="continuation">But <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(x\neq O(\log^n(x))\)</span> for any fixed <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(n.\)</span> Hence there are infinitely many primes.</p>
+<span class="incontext"><a href="Sec-The_Fundamental_Theorem_of_Arithmetic.html#p-107">in-context</a></span>
+</body>
+</html>

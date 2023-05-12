@@ -1,0 +1,392 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-11-10T14:14:48+11:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>The Fundamental Theorem of Arithmetic</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    useLabelIds: true,
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext.js"></script><script xmlns:svg="http://www.w3.org/2000/svg">miniversion=0.6</script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script xmlns:svg="http://www.w3.org/2000/svg">sagecellEvalName='Evaluate (Sage)';
+</script><link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/colors_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link xmlns:svg="http://www.w3.org/2000/svg" href="developer.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div xmlns:svg="http://www.w3.org/2000/svg" id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\bm}[1]{\boldsymbol{#1}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="MATH3170-Course-Notes.html"><span class="title">MATH3170:</span> <span class="subtitle">Number Theory</span></a></h1>
+<p class="byline"></p>
+</div>
+</div></div>
+<nav xmlns:svg="http://www.w3.org/2000/svg" id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="Chap-Primes.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="Chap-Primes.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="Sec-Number_of_Primes.html" title="Next">Next</a></span></div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="Chap-Primes.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="Chap-Primes.html" title="Up">Up</a><a class="next-button button toolbar-item" href="Sec-Number_of_Primes.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div xmlns:svg="http://www.w3.org/2000/svg" id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link">
+<a href="Chap-Introduction.html" data-scroll="Chap-Introduction"><span class="codenumber">1</span> <span class="title">Introduction</span></a><ul>
+<li><a href="Sec-Sets_of_Numbers.html" data-scroll="Sec-Sets_of_Numbers">Sets of Numbers</a></li>
+<li><a href="Sec-The_Diophantine_Equation.html" data-scroll="Sec-The_Diophantine_Equation">The Diophantine equation <span class="process-math">\(a^2+b^2=c^2\)</span></a></li>
+<li><a href="Sec-Induction.html" data-scroll="Sec-Induction">Induction</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Chap-Divisibility.html" data-scroll="Chap-Divisibility"><span class="codenumber">2</span> <span class="title">Divisibility</span></a><ul>
+<li><a href="Sec-Division_Algorithm.html" data-scroll="Sec-Division_Algorithm">Division Algorithm</a></li>
+<li><a href="Sec-Euclidean_Algorithm.html" data-scroll="Sec-Euclidean_Algorithm">Euclidean Algorithm</a></li>
+<li><a href="Sec-Linear_Diophantine_equations.html" data-scroll="Sec-Linear_Diophantine_equations">Linear Diophantine equations</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Chap-Primes.html" data-scroll="Chap-Primes"><span class="codenumber">3</span> <span class="title">Primes</span></a><ul>
+<li><a href="Sec-The_Fundamental_Theorem_of_Arithmetic.html" data-scroll="Sec-The_Fundamental_Theorem_of_Arithmetic" class="active">The Fundamental Theorem of Arithmetic</a></li>
+<li><a href="Sec-Number_of_Primes.html" data-scroll="Sec-Number_of_Primes">Number of Primes</a></li>
+<li><a href="Sec-Chebychevs_Functions.html" data-scroll="Sec-Chebychevs_Functions">Chebychev's Functions</a></li>
+<li><a href="Sec-Chebychevs_Theorem.html" data-scroll="Sec-Chebychevs_Theorem">Chebychev's Theorem</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Chap-Congruences.html" data-scroll="Chap-Congruences"><span class="codenumber">4</span> <span class="title">Congruences</span></a><ul>
+<li><a href="Sec-Solving_Linear_Congruences.html" data-scroll="Sec-Solving_Linear_Congruences">Solving Linear Congruences</a></li>
+<li><a href="Sec-Chinese_Remainder_Theorem.html" data-scroll="Sec-Chinese_Remainder_Theorem">Chinese Remainder Theorem</a></li>
+<li><a href="Sec-Polynomial_Congruences.html" data-scroll="Sec-Polynomial_Congruences">Polynomial Congruences</a></li>
+<li><a href="Sec-Polynomials.html" data-scroll="Sec-Polynomials">Polynomials</a></li>
+<li><a href="Sec-Fermat_Numbers.html" data-scroll="Sec-Fermat_Numbers">Fermat Numbers</a></li>
+<li><a href="Sec-Mersenne_Primes.html" data-scroll="Sec-Mersenne_Primes">Mersenne Primes</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Chap-Primality.html" data-scroll="Chap-Primality"><span class="codenumber">5</span> <span class="title">Primality</span></a><ul>
+<li><a href="Sec-Sieve_of_Eratosthenes.html" data-scroll="Sec-Sieve_of_Eratosthenes">Sieve of Eratosthenes</a></li>
+<li><a href="Sec-Factoring_Integers.html" data-scroll="Sec-Factoring_Integers">Factoring Integers</a></li>
+<li><a href="Sec-A_more_general_Sieve.html" data-scroll="Sec-A_more_general_Sieve">A more general Sieve</a></li>
+<li><a href="Sec-Some_Contributions_of_Fermat.html" data-scroll="Sec-Some_Contributions_of_Fermat">Some Contributions of Fermat</a></li>
+<li><a href="Sec-Pseudoprimes_and_Carmichael_Numbers.html" data-scroll="Sec-Pseudoprimes_and_Carmichael_Numbers">Pseudoprimes and Carmichael Numbers</a></li>
+<li><a href="Sec-Wilsons_Theorem.html" data-scroll="Sec-Wilsons_Theorem">Wilson's Theorem</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Chap-Number_Theoretic_Functions.html" data-scroll="Chap-Number_Theoretic_Functions"><span class="codenumber">6</span> <span class="title">Number Theoretic Functions</span></a><ul>
+<li><a href="Sec-Eulers_phi-function.html" data-scroll="Sec-Eulers_phi-function">Euler's <span class="process-math">\(\varphi\)</span>-function</a></li>
+<li><a href="Sec-The_d_and_sigma_functions.html" data-scroll="Sec-The_d_and_sigma_functions">The <span class="process-math">\(d\)</span>- and <span class="process-math">\(\sigma\)</span>-functions</a></li>
+<li><a href="Sec-Sums_over_divisors.html" data-scroll="Sec-Sums_over_divisors">Sums over divisors</a></li>
+<li><a href="Sec-The_Mobius_Function.html" data-scroll="Sec-The_Mobius_Function">The Möbius Function</a></li>
+<li><a href="Sec-A_Completely_Multiplicative_Function.html" data-scroll="Sec-A_Completely_Multiplicative_Function">A Completely Multiplicative Function</a></li>
+<li><a href="Sec-Mobius_Inversion.html" data-scroll="Sec-Mobius_Inversion">Möbius Inversion</a></li>
+<li><a href="Sec-Patterns_in_mu.html" data-scroll="Sec-Patterns_in_mu">Patterns in <span class="process-math">\(\{\mu(n)\}_n\)</span></a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Chap-Order_of_Elements_of_Zn.html" data-scroll="Chap-Order_of_Elements_of_Zn"><span class="codenumber">7</span> <span class="title">Order of Elements of <span class="process-math">\(\mathbb{Z}_n\)</span></span></a><ul>
+<li><a href="Sec-Primitive_Roots.html" data-scroll="Sec-Primitive_Roots">Primitive Roots</a></li>
+<li><a href="Sec-Applications_of_Primitive_Roots.html" data-scroll="Sec-Applications_of_Primitive_Roots">Applications of Primitive Roots</a></li>
+</ul>
+</li>
+<li class="link"><a href="Chap-Some_Base_Results.html" data-scroll="Chap-Some_Base_Results"><span class="codenumber">8</span> <span class="title">Some Base Results</span></a></li>
+<li class="link">
+<a href="Chap-Quadratic_Residues.html" data-scroll="Chap-Quadratic_Residues"><span class="codenumber">9</span> <span class="title">Quadratic Residues</span></a><ul>
+<li><a href="Sec-Legendres_Symbol.html" data-scroll="Sec-Legendres_Symbol">Legendre's Symbol</a></li>
+<li><a href="Sec-Gauss_Lemma.html" data-scroll="Sec-Gauss_Lemma">Gauss' Lemma</a></li>
+<li><a href="Sec-The_Floor_Function.html" data-scroll="Sec-The_Floor_Function">The Floor Function</a></li>
+<li><a href="Sec-An_Important_Lemma.html" data-scroll="Sec-An_Important_Lemma">An Important Lemma</a></li>
+<li><a href="Sec-Quadratic_Reciprocity.html" data-scroll="Sec-Quadratic_Reciprocity">Quadratic Reciprocity</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Chap-The_Fibonacci_Sequence.html" data-scroll="Chap-The_Fibonacci_Sequence"><span class="codenumber">10</span> <span class="title">The Fibonacci Sequence</span></a><ul>
+<li><a href="Sec-Divisibility_properties.html" data-scroll="Sec-Divisibility_properties">Divisibility properties</a></li>
+<li><a href="Sec-Some_identities.html" data-scroll="Sec-Some_identities">Some identities</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Chap-Continued_Fractions.html" data-scroll="Chap-Continued_Fractions"><span class="codenumber">11</span> <span class="title">Continued Fractions</span></a><ul>
+<li><a href="Sec-Finite_Continued_Fractions.html" data-scroll="Sec-Finite_Continued_Fractions">Finite Continued Fractions</a></li>
+<li><a href="Sec-Convergents.html" data-scroll="Sec-Convergents">Convergents</a></li>
+<li><a href="Sec-Linear_Diophantine_equations_2.html" data-scroll="Sec-Linear_Diophantine_equations_2">Linear Diophantine equations</a></li>
+<li><a href="Sec-More_properties_of_convergents.html" data-scroll="Sec-More_properties_of_convergents">More properties of convergents</a></li>
+</ul>
+</li>
+<li class="link"><a href="Appendix-Special_Divisibility_Tests.html" data-scroll="Appendix-Special_Divisibility_Tests"><span class="codenumber">A</span> <span class="title">Special Divisibility Tests</span></a></li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="Sec-The_Fundamental_Theorem_of_Arithmetic"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">3.1</span> <span class="title">The Fundamental Theorem of Arithmetic</span>
+</h2>
+<article class="theorem theorem-like" id="theorem-21"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">3.1.1</span><span class="period">.</span>
+</h3>
+<p id="p-89">If <span class="process-math">\(p\)</span> is a prime and <span class="process-math">\(p\vert ab,\)</span> then <span class="process-math">\(p\vert a\)</span> or <span class="process-math">\(p\vert b.\)</span></p></article><article class="hiddenproof" id="proof-16"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-16"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-16"><article class="hiddenproof"><p id="p-90">Let <span class="process-math">\(p\)</span> be a prime and <span class="process-math">\(p\vert ab,\)</span> and suppose that <span class="process-math">\(p \nmid a.\)</span> Since <span class="process-math">\(p\)</span> is prime and <span class="process-math">\(p \nmid a\)</span> we have that <span class="process-math">\(\gcd(p,a)=1,\)</span> so that by Euclid's Lemma <span class="process-math">\(p\vert b.\)</span></p></article></div>
+<article class="corollary theorem-like" id="corollary-3"><h3 class="heading">
+<span class="type">Corollary</span><span class="space"> </span><span class="codenumber">3.1.2</span><span class="period">.</span>
+</h3>
+<p id="p-91">If <span class="process-math">\(p\)</span> is a prime and <span class="process-math">\(p\vert a_1 a_2...a_n,\)</span> then <span class="process-math">\(p\vert a_k\)</span> for some <span class="process-math">\(k\in\{1,2,...,n\}.\)</span></p></article><article class="hiddenproof" id="proof-17"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-17"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-17"><article class="hiddenproof"><p id="p-92">We induct on the number of factors. Let <span class="process-math">\(p\)</span> be a prime. If <span class="process-math">\(n=1\)</span> this is clear. When <span class="process-math">\(n=2,\)</span> the result is the preceding theorem. Suppose that <span class="process-math">\(n\gt 2\)</span> and that whenever <span class="process-math">\(p\)</span> divides a product of less than <span class="process-math">\(n\)</span> factors, then <span class="process-math">\(p\)</span> divides at least one of the factors.</p>
+<p id="p-93">Now let <span class="process-math">\(p\vert a_1 a_2...a_n.\)</span> By the previous theorem, we have that</p>
+<div class="displaymath process-math">
+\begin{equation*}
+p\vert a_1 a_2...a_{n-1} \hspace{5mm} \mathrm{or} \hspace{5mm} p\vert a_n.
+\end{equation*}
+</div>
+<p class="continuation">If <span class="process-math">\(p\vert a_n\)</span> we are done. If <span class="process-math">\(p\vert a_1 a_2...a_{n-1},\)</span> then by hypothesis, <span class="process-math">\(p\vert a_k\)</span> for some <span class="process-math">\(k\)</span> where <span class="process-math">\(1\leq k\leq n-1.\)</span> In any case, <span class="process-math">\(p\)</span> divides at least one of <span class="process-math">\(a_1,a_2,...a_n.\)</span></p></article></div>
+<article class="corollary theorem-like" id="corollary-4"><h3 class="heading">
+<span class="type">Corollary</span><span class="space"> </span><span class="codenumber">3.1.3</span><span class="period">.</span>
+</h3>
+<p id="p-94">If <span class="process-math">\(p,q_1,q_2,...,q_n\)</span> are all primes and <span class="process-math">\(p\vert q_1 q_2...q_n,\)</span> then <span class="process-math">\(p=q_k\)</span> for some <span class="process-math">\(k\in\{1,2,...,n\}.\)</span></p></article><article class="hiddenproof" id="proof-18"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-18"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-18"><article class="hiddenproof"><p id="p-95">Apply the preceding corollary and the fact that if <span class="process-math">\(p,q\)</span> are primes and <span class="process-math">\(p\vert q,\)</span> then <span class="process-math">\(p=q.\)</span></p></article></div>
+<article class="theorem theorem-like" id="theorem-22"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">3.1.4</span><span class="space"> </span><span class="creator">(Fundamental Theorem of Arithmetic)</span><span class="period">.</span>
+</h3>
+<p id="p-96">Every integer <span class="process-math">\(n\gt 1\)</span> can be expressed uniquely as a product of primes; this representation is unique, apart from the order in which the factors occur.</p></article><article class="hiddenproof" id="proof-19"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-19"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-19"><article class="hiddenproof"><p id="p-97">By induction on <span class="process-math">\(n.\)</span> The case <span class="process-math">\(n=2\)</span> is clear. Suppose that any integer <span class="process-math">\(k\)</span> with <span class="process-math">\(2\leq k \lt n\)</span> can be written uniquely as a product of primes.</p>
+<p id="p-98">If <span class="process-math">\(n\)</span> is a prime, then <span class="process-math">\(n = p\)</span> is the product of primes.</p>
+<p id="p-99">If <span class="process-math">\(n\)</span> is not a prime, then <span class="process-math">\(n\)</span> has a proper divisor, say <span class="process-math">\(d_1,\)</span> with</p>
+<div class="displaymath process-math">
+\begin{equation*}
+1\lt d_1\lt n d_1\vert n.
+\end{equation*}
+</div>
+<p class="continuation">Write <span class="process-math">\(n = d_1d_2.\)</span> It is clear here that <span class="process-math">\(1\lt d_2\lt n.\)</span> By the induction hypothesis</p>
+<div class="displaymath process-math">
+\begin{equation*}
+d_1 = p_1p_2...p_r \hspace{5mm} d_2 = q_1q_2...q_s
+\end{equation*}
+</div>
+<p class="continuation">can be written uniquely as a product of primes. Thus</p>
+<div class="displaymath process-math">
+\begin{equation*}
+n = d_1d_2 = p_1p_2...p_rq_1q_2...q_s,
+\end{equation*}
+</div>
+<p class="continuation">and <span class="process-math">\(n\)</span> is the product of primes.</p>
+<p id="p-100">For uniqueness, we again use induction. For <span class="process-math">\(n = 2\)</span> this is clear. Now suppose that for any integer <span class="process-math">\(k\)</span> with <span class="process-math">\(2\leq k \lt n\)</span> has a unique representation as a product of primes.</p>
+<p id="p-101">Again the case <span class="process-math">\(n = p\)</span> is clear. If <span class="process-math">\(n\)</span> is not a prime, then suppose that <span class="process-math">\(p_i\)</span>'s and <span class="process-math">\(q_i\)</span>'s are prime, and</p>
+<div class="displaymath process-math">
+\begin{equation*}
+n = p_1p_2...p_r = q_1q_2...q_s.
+\end{equation*}
+</div>
+<p class="continuation">Note that <span class="process-math">\(p_1\vert q_1q_2...q_s\)</span> so that by the above Corollary <span class="process-math">\(p_1 = q_j\)</span> for some <span class="process-math">\(j.\)</span> Without loss of generality let <span class="process-math">\(j = 1.\)</span> Now</p>
+<div class="displaymath process-math">
+\begin{equation*}
+p_2p_3...p_r = q_2q_3...q_s =\frac{n}{p_1}\lt n,
+\end{equation*}
+</div>
+<p class="continuation">so that by the induction hypothesis, <span class="process-math">\(\frac{n}{p_1}\)</span> has a unique factorization. Thus <span class="process-math">\(r = s,\)</span> and <span class="process-math">\(p_i = q_i\)</span> for all <span class="process-math">\(i\leq r.\)</span></p>
+<p id="p-102">Thus by induction every integer <span class="process-math">\(n\gt 1\)</span> can be expressed uniquely as a product of primes.</p></article></div>
+<article class="corollary theorem-like" id="corollary-5"><h3 class="heading">
+<span class="type">Corollary</span><span class="space"> </span><span class="codenumber">3.1.5</span><span class="period">.</span>
+</h3>
+<p id="p-103">Any positive integer <span class="process-math">\(n\gt 1\)</span> can be written uniquely in a canonical form</p>
+<div class="displaymath process-math">
+\begin{equation*}
+p_1^{k_1}p_2^{k_2}\cdots p_r^{k_r}
+\end{equation*}
+</div>
+<p class="continuation">where, for <span class="process-math">\(i = 1, 2,..., r,\)</span> each <span class="process-math">\(k_i\)</span> is a positive integer and each <span class="process-math">\(p_i\)</span> is a prime, with <span class="process-math">\(p_1\lt p_2\lt \cdots \lt p_r.\)</span></p></article><article class="theorem theorem-like" id="Thm_3_4"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">3.1.6</span><span class="period">.</span>
+</h3>
+<p id="p-104">There are infinitely many primes.</p></article><article class="hiddenproof" id="proof-20"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-20"><h3 class="heading"><span class="title">First proof of Theorem 3.1.6.</span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-20"><article class="hiddenproof"><p id="p-105">Toward a contradiction, suppose that there are only finitely many primes, say <span class="process-math">\(p_1, p_2,..., p_n.\)</span> Consider the number <span class="process-math">\(n,\)</span> where</p>
+<div class="displaymath process-math">
+\begin{equation*}
+m = p_1p_2...p_n + 1.
+\end{equation*}
+</div>
+<p class="continuation">From a previous lecture we know that</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\gcd(p_1p_2...p_n, m) = 1.
+\end{equation*}
+</div>
+<p class="continuation">Also <span class="process-math">\(m\gt 1,\)</span> since <span class="process-math">\(2\)</span> is a prime, so that <span class="process-math">\(m\)</span> is prime or a product of primes, and <span class="process-math">\(m\gt p_i\)</span> for any <span class="process-math">\(i\leq n.\)</span> If <span class="process-math">\(n\)</span> is prime, we are done. If <span class="process-math">\(m\)</span> is not prime, then it has a prime divisor which is not one of <span class="process-math">\(p_1, p_2,..., p_n.\)</span> In any case the list <span class="process-math">\(p_1, p_2,..., p_n\)</span> is incomplete, and so there are infinitely many primes.</p></article></div>
+<article class="definition definition-like" id="definition-8"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.1.7</span><span class="period">.</span>
+</h3>
+<p id="p-106">We define the integer part of <span class="process-math">\(x,\)</span> written <span class="process-math">\(\lfloor x\rfloor,\)</span> as the greatest integer less than or equal to <span class="process-math">\(x.\)</span> This is sometimes called the <dfn class="terminology">floor function</dfn>.</p></article><article class="hiddenproof" id="proof-21"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-21"><h3 class="heading"><span class="title">Second proof of Theorem 3.1.6.</span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-21"><article class="hiddenproof"><p id="p-107">In this proof, we consider the sum</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\sum_{p_1^{k_1}...p_n^{k_n}\leq x} 1,
+\end{equation*}
+</div>
+<p class="continuation">where the sum is taken over all possible choices of <span class="process-math">\(k_1, k_2,..., k_n\)</span> that satisfy the inequality <span class="process-math">\(p_1^{k_1}...p_n^{k_n}\leq x.\)</span> By induction one has that</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\sum_{p_1^{k_1}...p_n^{k_n}\leq x} 1 \leq \left(\sum_{p_1^{k_1}\leq x} 1\right)\left(\sum_{p_2^{k_2}\leq x} 1\right)...\left(\sum_{p_n^{k_n}\leq x} 1\right) = \prod_{i=1}^{n} \left(\sum_{p_i^{k_i}\leq x} 1\right).
+\end{equation*}
+</div>
+<p class="continuation">Now <span class="process-math">\(p_1 = 2,\)</span> and we have</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\sum_{p_1^{k_1}\leq x} 1 = \sum_{2^{k_1}\leq x} 1 = \left\lfloor \frac{\log(x)}{\log(2)}\right\rfloor +1\leq \frac{\log(x)}{\log(2)}+\frac{1}{\log(2)}=\frac{1}{\log(2)}(\log(x)+1).
+\end{equation*}
+</div>
+<p class="continuation">For <span class="process-math">\(i \geq 2,\)</span> we have that <span class="process-math">\(\log(p_i)\geq \log(3)\geq 1,\)</span> so that</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\sum_{p_i^{k_i}\leq x} 1 = \left\lfloor \frac{\log(x)}{\log(p_i)}\right\rfloor +1\leq \frac{\log(x)}{\log(p_i)}+1\leq \log(x)+1.
+\end{equation*}
+</div>
+<p class="continuation">Putting this together gives (for <span class="process-math">\(x\geq e\)</span>)</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\sum_{p_1^{k_1}...p_n^{k_n}\leq x} 1 \leq \prod_{i=1}^{n}\left(\sum_{p_i^{k_i}\leq x} 1\right)\leq \frac{1}{\log(2)}(\log(x)+1)^n\leq \frac{2}{\log(2)}\log^n(x)=O(\log^n(x)).
+\end{equation*}
+</div>
+<p class="continuation">If there were finitely many primes, say <span class="process-math">\(n,\)</span> then since there are about <span class="process-math">\(x\)</span> numbers less than <span class="process-math">\(x,\)</span> we would have to have</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\sum_{p_1^{k_1}...p_n^{k_n}\leq x} 1 =\lfloor x\rfloor \geq x-1.
+\end{equation*}
+</div>
+<p class="continuation">But <span class="process-math">\(x\neq O(\log^n(x))\)</span> for any fixed <span class="process-math">\(n.\)</span> Hence there are infinitely many primes.</p></article></div>
+<p id="p-108">We now make more explicit a lemma used above.</p>
+<article class="lemma theorem-like" id="lemma-2"><h3 class="heading">
+<span class="type">Lemma</span><span class="space"> </span><span class="codenumber">3.1.8</span><span class="period">.</span>
+</h3>
+<p id="p-109">Let <span class="process-math">\(a_1, a_2,..., a_n\)</span> be positive integers. Then for any real <span class="process-math">\(x\)</span> we have</p>
+<div class="displaymath process-math">
+\begin{equation}
+\sum_{a_1^{k_1}...a_n^{k_n}\leq x} 1 \leq \left(\sum_{a_n^{k_n}\leq x} 1\right)\left(\sum_{a_1^{k_1}...a_{n-1}^{k_{n-1}}\leq x} 1\right)\text{.}\label{Eqn_3_1}\tag{3.1.1}
+\end{equation}
+</div></article><article class="hiddenproof" id="proof-22"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-22"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-22"><article class="hiddenproof"><p id="p-110">Note that the sums in <a href="" class="xref" data-knowl="./knowl/Eqn_3_1.html" title="Equation 3.1.1">(3.1.1)</a> are just counting the number of elements of a certain form. The sum on the left-hand side of <a href="" class="xref" data-knowl="./knowl/Eqn_3_1.html" title="Equation 3.1.1">(3.1.1)</a> is equal to the size of the set</p>
+<div class="displaymath process-math">
+\begin{equation*}
+A := \{m \leq x: m = a_1^{k_1}...a_n^{k_n} \hspace{2mm} \mathrm{for} \hspace{2mm} \mathrm{some} \hspace{2mm} k_1,...,k_n\geq 0\},
+\end{equation*}
+</div>
+<p class="continuation">and the product of sums on the right-hand side of <a href="" class="xref" data-knowl="./knowl/Eqn_3_1.html" title="Equation 3.1.1">(3.1.1)</a> is equal to the size</p>
+<div class="displaymath process-math">
+\begin{equation*}
+B := \{m: m = a_1^{k_1}...a_n^{k_n} \hspace{2mm} \mathrm{for} \hspace{2mm} \mathrm{some} \hspace{2mm} k_1,...,k_n\geq 0 \hspace{2mm} \mathrm{where} \hspace{2mm} \mathrm{both} \hspace{2mm} a_1^{k_1}...a_{n-1}^{k_{n-1}}\leq x \hspace{2mm} \mathrm{and} \hspace{2mm} a_n^{k_n}\leq x\}.
+\end{equation*}
+</div>
+<p class="continuation">Thus to prove the lemma, we need to show that the number of elements in <span class="process-math">\(A\)</span> is at most the number of elements in <span class="process-math">\(B.\)</span> Since both <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> are finite sets, it is enough to show that <span class="process-math">\(A\subseteq B.\)</span></p>
+<p id="p-111">To this end, let <span class="process-math">\(m\in A.\)</span> Then there exist <span class="process-math">\(k_1,..., k_n\geq 0\)</span> for which</p>
+<div class="displaymath process-math">
+\begin{equation*}
+m = a_1^{k_1}...a_n^{k_n}\leq x.
+\end{equation*}
+</div>
+<p class="continuation">Note that also <span class="process-math">\(m = a_1^{k_1}...a_{n-1}^{k_{n-1}}\cdot a_n^{k_n},\)</span> and that since <span class="process-math">\(m\leq x,\)</span> we have both</p>
+<div class="displaymath process-math">
+\begin{equation*}
+m = a_{n-1}^{k_{n-1}}\leq \frac{x}{a_n^{k_n}}\leq x
+\end{equation*}
+</div>
+<p class="continuation">and</p>
+<div class="displaymath process-math">
+\begin{equation*}
+a_n^{k_n}\leq \frac{x}{a_1^{k_1}...a_{n-1}^{k_{n-1}}}\leq x.
+\end{equation*}
+</div>
+<p class="continuation">Thus <span class="process-math">\(m\in B,\)</span> so that <span class="process-math">\(A\subseteq B\)</span> and the lemma is proved.</p></article></div>
+<p id="p-112">Going on to Euler's proof, we need a small result relating infinite products to infinite sums.</p>
+<article class="lemma theorem-like" id="lemma-3"><h3 class="heading">
+<span class="type">Lemma</span><span class="space"> </span><span class="codenumber">3.1.9</span><span class="period">.</span>
+</h3>
+<p id="p-113">Let <span class="process-math">\(a_n\in\mathbb{R}\)</span> be positive for each <span class="process-math">\(n\)</span> and suppose that <span class="process-math">\(a_n\rightarrow 0\)</span> as <span class="process-math">\(n\rightarrow\infty.\)</span> Then the product</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\prod_{n=1}^{\infty}(1+a_n)
+\end{equation*}
+</div>
+<p class="continuation">converges if, and only if, the series</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\sum_{n=1}^{\infty}a_n
+\end{equation*}
+</div>
+<p class="continuation">converges.</p></article><article class="hiddenproof" id="proof-23"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-23"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-23"><article class="hiddenproof"><p id="p-114">Taking the logarithm of the product does not change the convergence properties. Hence the product converges if and only if the sum</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\sum_{n=1}^{\infty} \log(1+a_n)
+\end{equation*}
+</div>
+<p class="continuation">converges. Recall that</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\lim_{x\rightarrow 0}\frac{\log(1+x)}{x}=1.
+\end{equation*}
+</div>
+<p class="continuation">Since <span class="process-math">\(a_n\rightarrow 0\)</span> as <span class="process-math">\(x\rightarrow\infty,\)</span> applying the above limit, we have</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\lim_{n\rightarrow \infty}\frac{\log(1+a_n)}{a_n}=1.
+\end{equation*}
+</div>
+<p class="continuation">We can now just apply the limit comparison test to give the result.</p></article></div>
+<article class="hiddenproof" id="proof-24"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-24"><h3 class="heading"><span class="title">Third proof of Theorem 3.1.6.</span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-24"><article class="hiddenproof"><p id="p-115">Note that by the fundamental theorem of arithmetic we have that</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\sum_{n\leq x}\frac{1}{n}\leq \prod_{p\leq x}\left(1+\frac{1}{p}+\frac{1}{p^2}+\frac{1}{p^3}+...\right).
+\end{equation*}
+</div>
+<p class="continuation">This product converges if and only if the sum</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\sum_{p\leq x}\left(\frac{1}{p}+\frac{1}{p^2}+...\right).
+\end{equation*}
+</div>
+<p class="continuation">Well we have, again using geometric series, that</p>
+<div class="displaymath process-math">
+\begin{align*}
+\sum_{p\leq x}\left(\frac{1}{p}+\frac{1}{p^2}+...\right) \amp = \sum_{p\leq x} \frac{1}{p}+\sum_{p\leq x}\left(\frac{1}{p^2}+...\right)\\
+\amp = \sum_{p\leq x} \frac{1}{p}+\sum_{p\leq x}\frac{1}{p}\cdot\frac{1}{p-1}\\
+\amp \leq \sum_{p\leq x} \frac{1}{p}+\sum_{n=1}^{\infty}\frac{1}{n^2}\\
+\amp = \sum_{p\leq x} \frac{1}{p}+C
+\end{align*}
+</div>
+<p class="continuation">for some real number <span class="process-math">\(C\gt 0.\)</span> Thus the product converges if and only if the sum</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\sum_{p\leq x}\frac{1}{p}
+\end{equation*}
+</div>
+<p class="continuation">converges. Since the harmonic series diverges, we thus have that the sum of the reciprocals of the primes diverges. Since a sum of finitely many terms would be finite, there are infinitely many primes.</p></article></div></section></div></main>
+</div>
+</body>
+</html>

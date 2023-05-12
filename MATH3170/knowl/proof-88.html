@@ -1,0 +1,94 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-11-10T14:15:17+11:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="hiddenproof"><h2 class="heading"><span class="type">Proof</span></h2>
+<p>For the first part of the theorem, suppose that <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\xi\)</span> has an eventually periodic base-<span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(b\)</span> expansion, so that</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{align*}
+\xi \amp= (.c_1c_2...c_N \overline{c_{N+1}c_{N+2}...c_{N+k}})_b\\
+\amp=\frac{c_1}{b}+ \frac{c_2}{b^2}+\cdots +\frac{c_N}{b^N}+\left(\sum_{j\geq 0}\frac{1}{b^{jk}}\right)\left(\frac{c_{N+1}}{b^{N+1}}+ \frac{c_{N+2}}{b^{N+2}}+\cdots +\frac{c_{N+k}}{b^{N+k}} \right) \\
+\amp=\frac{c_1}{b}+ \frac{c_2}{b^2}+\cdots +\frac{c_N}{b^N}+\left(\frac{b^k}{b^k-1}\right)\left(\frac{c_{N+1}}{b^{N+1}}+ \frac{c_{N+2}}{b^{N+2}}+\cdots +\frac{c_{N+k}}{b^{N+k}} \right).
+\end{align*}
+</div>
+<p class="continuation">Since <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\xi\)</span> is a sum of rational numbers it is rational.</p>
+<p>Now suppose that <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\xi\in (0, 1), \xi = r/s\)</span> where <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\gcd(r, s) = 1, s = TU\)</span> where every prime dividing <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(T\)</span> divides <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(b\)</span> and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\gcd(U, b) = 1.\)</span> Let <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(N\)</span> be the smallest integer such that <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(T\vert b^N.\)</span></p>
+<p>Because <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(T\vert b^N,\)</span> there is a positive integer <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(a\)</span> such that <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(aT = b^N.\)</span> Thus</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+b^N\xi = b^N\frac{r}{TU}=\frac{ar}{U}=A+\frac{C}{U}
+\end{equation*}
+</div>
+<p class="continuation">where <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(A\)</span> and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(C\)</span> are integers with</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+0\leq A\lt b^N \hspace{5mm} \mathrm{and} \hspace{5mm} 0\lt C\lt U
+\end{equation*}
+</div>
+<p class="continuation">and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\gcd(C, U) = 1.\)</span> Now since <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(A\)</span> is a positive integer, it has a base-<span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(b\)</span> expansion, say <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(A = (a_na_{n-1}...a_1a_0)_b.\)</span></p>
+<p>If <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(U = 1,\)</span> then the base-<span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(b\)</span> expansion of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\xi\)</span> terminates as shown previously. Otherwise, since <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\gcd(U, b) = 1,\)</span> we let <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(v\geq 1\)</span> be the order of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(b\)</span> modulo <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(U.\)</span> Then</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation}
+b^v\frac{C}{U}=(tU+1)\frac{C}{U}=tC+\frac{C}{U},\tag{8.0.1}
+\end{equation}
+</div>
+<p class="continuation">for some integer <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(t,\)</span> since <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(b^v\equiv 1\pmod{U}.\)</span> But also, we have</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation}
+b^v\frac{C}{U}=b^v\left(\frac{c_1}{b}+\frac{c_2}{b^2}+\cdots +\frac{c_v}{b^v}+\frac{\gamma_v}{b^v}\right),\tag{8.0.2}
+\end{equation}
+</div>
+<p class="continuation">where <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\((.c_1c_2...)_b\)</span> is the base-<span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(b\)</span> expansion of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\dfrac{C}{U},\)</span> so that for <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(k\geq 1,\)</span></p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+c_k=\lfloor b\gamma_{k-1}\rfloor \hspace{5mm} \mathrm{and} \hspace{5mm} \gamma_k=b\gamma_{k-1}-\lfloor b\gamma_{k-1}\rfloor,
+\end{equation*}
+</div>
+<p class="continuation">and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\gamma_0 =\dfrac{C}{U}.\)</span> From <a href="" class="xref" data-knowl="./knowl/Eq_8_2.html" title="Equation 8.0.2">(8.0.2)</a> we see that</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation}
+b^v\frac{C}{U}=(c_1b^{v-1}+c_2b^{v-2}+\cdots +c_v)+\gamma_v.\tag{8.0.3}
+\end{equation}
+</div>
+<p class="continuation">Equating the fractional parts of <a href="" class="xref" data-knowl="./knowl/Eq_8_1.html" title="Equation 8.0.1">(8.0.1)</a> and <a href="" class="xref" data-knowl="./knowl/Eq_8_3.html" title="Equation 8.0.3">(8.0.3)</a>, since <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\gamma_v\in [0, 1),\)</span> we have</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\gamma_v =\frac{C}{U}=\gamma_0,
+\end{equation*}
+</div>
+<p class="continuation">and so conclude that <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(c_{k+v} = c_k\)</span> for <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(k\geq 1.\)</span> Hence <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(C/U = (.\overline{c_1c_2...c_v})_b\)</span> has a periodic base-<span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(b\)</span> expansion. Thus</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+b^N \xi = A +\frac{C}{U}= (a_na_{n-1}...a_1a_0.\overline{c_1c_2...c_v})_b,
+\end{equation*}
+</div>
+<p class="continuation">so that dividing both sides by <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(b^N\)</span> gives</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\xi = A +\frac{C}{U}= (.\underbrace{00...0a_na_{n-1}...a_1a_0}_{N \hspace{1.5mm} \mathrm{base}-b \hspace{1.5mm} \mathrm{digits}} \overline{c_1c_2...c_v})_b.
+\end{equation*}
+</div>
+<p class="continuation">So in this case, the preperiod length is <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(N\)</span> and the period length is <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(v.\)</span></p>
+<p>To finish the proof we must show that one cannot regroup the base-<span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(b\)</span> expansion of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\xi\)</span> so that either the preperiod or the period are shorter. To do this, suppose that</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{align*}
+\xi \amp= (.c_1...c_{M}\overline{c_{M+1}...c_{M+k}})_b\\
+\amp = \frac{c_1}{b}+\frac{c_2}{b^2}+\cdots +\frac{c_M}{b^M}+\left(\frac{b^k}{b^k-1}\right)\left(\frac{c_{M+1}}{b^{M+1}}+ \frac{c_{M+2}}{b^{M+2}}+\cdots +\frac{c_{M+k}}{b^{M+k}}\right)\\
+\amp = \frac{(c_1b^{M-1}+c_2b^{M-2}+\cdots +c_M)(b^k-1)+(c_{M+1}b^{k-1}+\cdots +c_{M+k})}{b^M(b^k-1)}.
+\end{align*}
+</div>
+<p class="continuation">Because <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\xi = r/s\)</span> with <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\gcd(r, s) = 1,\)</span> we see that <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(s\vert b^M(b^k-1).\)</span> So <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(T\vert b^M\)</span> and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(U\vert b^k-1.\)</span> Since <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(N\)</span> was minimal, <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(M\geq N,\)</span> and since <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(v\)</span> is the order of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(b\)</span> modulo <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(U, v\vert k\)</span> (so <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(v\leq k\)</span>). This proves the theorem.</p></article><span class="incontext"><a href="Chap-Some_Base_Results.html#proof-88">in-context</a></span>
+</body>
+</html>

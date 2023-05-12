@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- =================================================================================================== -->
+<!-- To process this file with xsltproc do                                                        -->
+<!--                                                                                              -->
+<!-- (1) LaTeX/PDF:                                                                               -->
+<!--     xsltproc -o minimal.tex PATH_TO/mathbook/xsl/pretext-latex.xsl source/main.ptx           -->
+<!--     pdflatex minimal.tex                                                                     -->
+<!--     xelatex minimal.tex                                                                      -->
+<!--                                                                                              -->
+<!-- (2) HTML:                                                                                    -->
+<!--     xsltproc PATH_TO/mathbook/xsl/pretext-html.xsl source/main.ptx                           -->
+<!--     <browser>  minimal.html                                                                  -->
+<!--        ~/xsltproc/xsltproc.exe ~/mathbook/xsl/mathbook-html.xsl test.xml                     -->
+<!--                                                                                              -->
+<!-- (3) CoCalc worksheet (parameter causes a single file for output)                             -->
+<!--     REMOVE the "X" in the double dash (which is not legal in an XML comment)                 -->
+<!--     xsltproc -X-stringparam chunk.level 0 PATH_TO/mathbook/xsl/pretext-smc.xsl source/main.ptx   -->
+<!--     <CoCalc> minimal.sagews                                                                  -->
+<!--                                                                                              -->
+<!-- (4) Sage doctesting                                                                          -->
+<!--     REMOVE the "X" in the double dash (which is not legal in an XML comment)                 -->
+<!--     xsltproc -X-stringparam chunk.level 0 PATH_TO/mathbook/xsl/pretext-sage-doctest.xsl source/main.ptx  -->
+<!--     <read further instructions in> minimal.py                                                -->
+<!-- =================================================================================================== -->
+
+<chapter xml:id="Chap-Order_of_Elements_of_Zn">
+
+
+
+<!-- =================================================================================================== -->
+<!-- Title and Other Preliminaries -->
+<!-- =================================================================================================== -->
+        <title>Order of Elements of <m>\mathbb{Z}_n</m></title>
+
+        <!-- <frontmatter> -->
+
+<!--             <titlepage>
+                <author>
+                    <institution>University of Newcastle</institution>
+                </author>
+                <date><today /></date>
+            </titlepage> -->
+            <!-- <abstract>
+                <p>This is a very short article, but it still exercises some advanced features of MathBook XML.</p>
+            </abstract> -->
+
+        <!-- </frontmatter> -->
+
+        <introduction>
+
+            <definition>
+                <p>
+                Let <m>n\gt 1</m> and <m>\gcd(a, n) = 1.</m> The <term>order of <m>a</m> modulo <m>n</m></term> is the smallest positive integer <m>k</m> such that <m>a^k\equiv 1\pmod{n}.</m>
+                </p>
+            </definition>
+
+            <example>
+                <p>
+                Consider the elements in <m>\mathbb{Z}_8.</m> The only elements with <m>\gcd(a, 8) = 1</m> are those in <m>U_8;</m> that is 
+                <me>U_8 = \{1, 3, 5, 7\}.</me>
+                Now trivially <m>1</m> has order <m>1</m>. Note that <m>3^2 = 9\equiv 1\pmod{8}, 5^2 = 25\equiv 1\pmod{8},</m> and <m>7^2 = 49\equiv 1\pmod{8},</m> so <m>3,5,7</m> all have order <m>2</m> modulo <m>8.</m>
+                </p>
+            </example>
+
+            <example>
+                <p>
+                Let <m>p</m> be a prime. Then <m>p-1</m> has order <m>2</m> modulo <m>p,</m> since 
+                <me>(p-1)^2 = p^2-2p + 1\equiv 1\pmod{p}.</me>
+                </p>
+            </example>
+
+            <p>
+            The condition that <m>\gcd(a, n) = 1</m> is paramount. For if <m>\gcd(a, n)\gt 1,</m> then the congruence 
+            <me>ax\equiv 1\pmod{n}</me>
+            has no solution so then for every <m>k\in\mathbb{N},</m>
+            <me>a^k\not\equiv 1\pmod{n}.</me>
+            </p>
+
+            <theorem>
+                <statement>
+                    <p>
+                    If <m>a\equiv b\pmod{n},</m> then <m>a</m> and <m>b</m> have the same order modulo <m>n.</m>
+                    </p>
+                </statement>
+                <proof>
+                    <p>
+                    If <m>a\equiv b\pmod{n},</m> then <m>a^i \equiv b^i \pmod{n}</m> for every <m>i</m>. The result follows.
+                    </p>
+                </proof>
+            </theorem>
+
+            <theorem>
+                <statement>
+                    <p>
+                    Let <m>a</m> have order <m>k</m> modulo <m>n.</m> Then <m>a^h\equiv 1\pmod{n}</m> if and only if <m>k\vert h;</m> in particular, <m>k\vert \varphi(n).</m>
+                    </p>
+                </statement>
+                <proof>
+                    <p>
+                    Let <m>a</m> have order <m>k</m> modulo <m>n.</m>
+                    </p>
+                    <p>
+                    Suppose that <m>k\vert h,</m> then <m>h = kj</m> for some <m>j.</m> Since <m>a^k\equiv 1\pmod{n},</m> we have
+                    <me>a^h=(a^k)^j\equiv 1^j=1 \pmod{n}.</me>
+                    </p>
+                    <p>
+                    Conversely, let <m>h\geq 1</m> be such that <m>a^h\equiv 1\pmod{n}.</m> By the division algorithm, there exist <m>q, r</m> with <m>h = qk + r,</m> where <m>0\leq r \lt k.</m> So 
+                    <me>a^h=a^{qk+r}=(a^k)^qa^r.</me>
+                    Since <m>a^h\equiv 1 \pmod{n}</m> and <m>a^k\equiv 1 \pmod{n},</m> we have that <m>a^r\equiv 1 \pmod{n}.</m> But <m>k</m> is the smallest positive integer such that <m>a^k\equiv 1 \pmod{n},</m> thus <m>r = 0,</m> and hence <m>k\vert h.</m>
+                    </p>
+                </proof>
+            </theorem>
+
+            <example>
+                <p>
+                Consider <m>2\in\mathbb{Z}_{13}.</m> We know from the above theorem that <m>2</m> has order dividing <m>\varphi(13) = 12;</m> so the possible orders of <m>2</m> modulo <m>13,</m> are <m>1,2,3,4,6,</m> and <m>12.</m> Now 
+                <me>2^1\equiv 2 \hspace{5mm} 2^2\equiv 4 \hspace{5mm} 2^3\equiv 8 \hspace{5mm} 2^4\equiv 3 \hspace{5mm} 2^6\equiv 12 \hspace{5mm} 2^{12}\equiv 1 \pmod{13},</me>
+                so <m>2</m> has order <m>12</m> modulo <m>13.</m>
+                </p>
+            </example>
+
+            <theorem>
+                <statement>
+                    <p>
+                    If <m>a</m> has order <m>k</m> modulo <m>n,</m> then <m>a^i\equiv a^j \pmod{n}</m> if and only if <m>i\equiv j \pmod{k}.</m>
+                    </p>
+                </statement>
+                <proof>
+                    <p>
+                    Let <m>a</m> have order <m>k</m> modulo <m>n.</m> If <m>a^i\equiv a^j \pmod{n},</m> then <m>a^{i-j}\equiv 1\pmod{n},</m> so that by theorem <m>k\vert i-j</m> and so <m>i\equiv j \pmod{k}.</m>
+                    </p>
+                    <p>
+                    If <m>i\equiv j \pmod{k},</m> then <m>i = j + qk</m> for some <m>q.</m> So
+                    <me>a^i=a^{j+qk}=a^j(a^k)^q\equiv a^j \pmod{n}</me>
+                    since <m>a^k\equiv 1 \pmod{n}.</m>
+                    </p>
+                </proof>
+            </theorem>
+
+            <corollary>
+                <statement>
+                    <p>
+                    If <m>a</m> has order <m>k</m> modulo <m>n,</m> then the integers <m>a, a^2, a^3,..., a^k</m> are incongruent modulo <m>n.</m> 
+                    </p>
+                </statement>
+                <proof>
+                    <p>
+                    If <m>a^j\equiv a^i \pmod{n},</m> for <m>1\leq i\lt j\leq k,</m> then we know by the previous theorem that <m>i\equiv j \pmod{k},</m> which is impossible under the conditions on <m>i</m> and <m>j.</m>
+                    </p>
+                </proof>
+            </corollary>
+
+            <p>
+            The order of an element, and of powers of an element are related in the following way.
+            </p>
+
+            <theorem>
+                <statement>
+                    <p>
+                    If <m>a</m> has order <m>k</m> modulo <m>n</m> and <m>h\gt 0,</m> then <m>a^h</m> has order <m>\dfrac{k}{\gcd(h,k)}</m> modulo <m>n.</m>
+                    </p>
+                </statement>
+                <proof>
+                    <p>
+                    Let <m>d = \gcd(h, k).</m> Then we may write <m>h = h_1d</m> and <m>k = k_1d,</m> with <m>\gcd(h_1, k_1) = 1.</m> Now
+                    <me>(a^h)^{k_1}=(a^{h_1d})^{k/d}=(a^k)^{h_1}\equiv 1\pmod{n}.</me>
+                    If we assume that <m>a^h</m> has order <m>r</m> modulo <m>n,</m> then we know that <m>r\vert k_1.</m> On the other hand, because <m>a</m> has order <m>k</m> modulo <m>n,</m> 
+                    <me>a^{hr}=(a^h)^r\equiv 1\pmod{n}</me>
+                    gives <m>k\vert hr,</m> so <m>k_1d\vert h_1dr</m> so <m>k_1\vert h_1r.</m> But <m>\gcd(k_1, h_1) = 1,</m> so <m>k_1\vert r</m> by Euclid's Lemma. Thus <m>r = k_1,</m> and 
+                    <me>r = k_1 =\frac{k}{d}=\frac{k}{\gcd(k,h)}.</me>
+                    </p>
+                </proof>
+            </theorem>
+
+            <corollary>
+                <p>
+                Let <m>a</m> have order <m>k</m> modulo <m>n.</m> Then <m>a^h</m> also has order <m>k</m> if and only if <m>\gcd(h, k) = 1.</m>
+                </p>
+            </corollary>
+
+        </introduction>
+
+
+<!-- =================================================================================================== -->
+
+<!-- =================================================================================================== -->
+<!-- Section 1: Primitive Roots-->
+<!-- =================================================================================================== -->
+    <section xml:id="Sec-Primitive_Roots">
+        <title>Primitive Roots</title>
+
+        <definition>
+            <p>
+            If <m>\gcd(a, n) = 1</m> and <m>a</m> has order <m>\varphi(n)</m> modulo <m>n,</m> then <m>a</m> is a <term>primitive root</term> of the integer <m>n.</m>
+            </p>
+        </definition>
+
+        <example>
+            <p>
+            <m>2</m> is a primitive root of <m>13.</m>
+            </p>
+        </example>
+
+        <example>
+            <p>
+            If <m>n\gt 1</m> and <m>F_n = 2^{2^{n}}+1</m> is a prime, then <m>2</m> is not a primitive root of <m>F_n.</m> (Clearly <m>2</m> is a primitive root of <m>F_1 = 5.</m>) Note that
+            <me>2^{2^{n+1}}-1=(2^{2^n}+1)(2^{2^n}-1),</me>
+            so that
+            <me>2^{2^{n+1}}\equiv 1\pmod{F_n}</me>
+            which implies that the order of <m>2</m> modulo <m>F_n</m> does not exceed <m>2^{n+1}.</m> But if <m>F_n</m> is assumed to be prime, then 
+            <me>\varphi(F_n) = F_n-1 = 2^{2^n}.</me>
+            Since <m>n\gt 1,</m> it is clear that <m>2^{2^n}\gt 2^{n+1},</m> so that <m>2</m> cannot be a primitive root of <m>F_n.</m>
+            </p>
+        </example>
+
+        <theorem xml:id="Theorem_primitive_root">
+            <statement>
+                <p>
+                Let <m>\gcd(a, n) = 1.</m> If <m>a</m> is a primitive root of <m>n,</m> then 
+                <me>U_n = \{a, a^2, a^3,..., a^{\varphi(n)}\}</me>
+                where <m>U_n</m> is the set of units to the modulus <m>n.</m>
+                </p>
+            </statement>
+            <proof>
+                <p>
+                Let <m>\gcd(a, n) = 1</m> and suppose <m>a</m> is a primitive root of <m>n.</m> Clearly <m>\gcd(a^i,n)=1</m> for all <m>i,</m> so that <m>a_i\in U_n</m> for all <m>i = 1, 2,..., \varphi(n).</m> Also the set
+                <me>\{a, a^2, a^3,..., a^{\varphi(n)}\}</me>
+                consists of <m>\varphi(n)</m> incongruent elements. Thus <m>U_n = \{a, a^2, a^3,..., a^{\varphi(n)}\}.</m>
+                </p>
+            </proof>
+        </theorem>
+
+        <corollary>
+            <statement>
+                <p>
+                If <m>n</m> has a primitive root, then it has exactly <m>\varphi(\varphi(n))</m> of them.
+                </p>
+            </statement>
+            <proof>
+                <p>
+                Suppose that <m>n</m> has a primitive root <m>a.</m> Then there are <m>\varphi(\varphi(n))</m> elements <m>a^h</m> with 
+                <me>a^h\in Un = \{a, a^2, a^3,..., a^{\varphi(n)}\}</me>
+                where <m>\gcd(h, \varphi(n)) = 1.</m> By <xref ref="Theorem_primitive_root"/>, these are all of the primitive roots of <m>n.</m>
+                </p>
+            </proof>
+        </corollary>
+
+        <theorem>
+            <statement>
+                <p>
+                If <m>p</m> is a prime and <m>d\vert p-1,</m> then the congruence 
+                <me>x^d-1 \equiv 0 \pmod{p}</me>
+                has exactly <m>d</m> solutions. 
+                </p>
+            </statement>
+            <proof>
+                <p>
+                Since <m>d\vert p-1</m> we have <m>p-1 = dk</m> for some <m>k.</m> Thus
+                <me>x^{p-1}- 1 = (x^d-1)(x^{d(k-1)} + x^{d(k-2)}+\cdots +x^{d}+1)=(x^d-1)f(x).</me>
+                Now <m>f(x)</m> has degree <m>d(k-1) = p-1-d,</m> so by a previous theorem, we have that
+                <me>f(x) \equiv 0\pmod{p}</me>
+                has at most <m>p-1-d</m> solutions. Now by Fermat's Little Theorem we know that
+                <me>x^{p-1}\equiv 1\pmod{p}</me>
+                has exactly <m>\varphi(p) = p-1</m> solutions, precisely <m>x = 1, 2, 3,..., p-1.</m>
+                </p>
+                <p>
+                Any solution of <m>x^{p-1}\equiv 1\pmod{p}</m> is that is not a solution of <m>f(x)\equiv 0\pmod{p},</m> must satisfy <m>x^d-1 \equiv 0\pmod{p}.</m> Since <m>x^{p-1}-1 \equiv 0\pmod{p}</m> has <m>p-1</m> solutions and <m>f(x)\equiv 0\pmod{p}</m> has at most <m>p-1-d</m> solutions, there are at least 
+                <me>p-1-(p-1-d) = d</me>
+                solutions to <m>x^d-1\equiv 0\pmod{p}.</m> Again since <m>x^d-1 \equiv 0\pmod{p}</m> has at most <m>d</m> solutions, we have that the congruence <m>x^d-1 \equiv 0\pmod{p}</m> has exactly <m>d</m> solutions.
+                </p>
+            </proof>
+        </theorem>
+
+        <theorem>
+            <statement>
+                <p>
+                If <m>p</m> is a prime and <m>d\vert p-1,</m> then there are exactly <m>\varphi(d)</m> incongruent integers having order <m>d</m> modulo <m>p.</m>
+                </p>
+            </statement>
+            <proof>
+                <p>
+                Let <m>d\vert p-1</m> and <m>f(d)</m> denote the number of integers <m>k, 1\leq k\leq p-1,</m> that have order <m>d</m> modulo <m>p.</m> Because each integer between <m>1</m> and <m>p-1</m> has order <m>d</m> for some <m>d\vert p- 1,</m> 
+                <me>p-1 = \sum_{d\vert p-1} f(d).</me>
+                Recall that also we have
+                <me>p-1 = \sum_{d\vert p-1} \varphi(d),</me>
+                so that 
+                <me>\sum_{d\vert p-1}\varphi(d)=\sum_{d\vert p-1}f(d).</me>
+                To show that <m>f(d) = \varphi(d)</m> for each divisor <m>d</m> of <m>p -1,</m> it is enough to show that <m>f(d)\geq \varphi(d).</m>
+                </p>
+                <p>
+                To this end, let <m>d</m> be a divisor of <m>p-1.</m> If <m>f(d) = 0,</m> then we are done, so suppose that <m>f(d)\gt 0;</m> that is, there is an integer <m>a</m> with order <m>d</m> modulo <m>p.</m> Then the <m>d</m> integers 
+                <me>a, a^2,..., a^d</me>
+                are incongruent modulo <m>p</m> and each of them satisfies the polynomial congruence
+                <me>x^d-1\equiv 0 \pmod{p}.</me>
+                Since there can be only <m>d</m> solutions, we have found all of them. It follows that any integer <m>a</m> having order <m>d</m> modulo <m>p</m> is congruent to one of <m>a, a^2,..., a^d.</m> But only <m>\varphi(d)</m> of these powers have order <m>d</m> modulo <m>p,</m> namely those <m>a^k</m> where <m>\gcd(k, d) = 1.</m> Thus <m>f(d) = \varphi(d).</m>
+                </p>
+            </proof>
+        </theorem>
+
+        <corollary>
+            <p>
+            For every prime <m>p</m> there are exactly <m>\varphi(p-1)</m> incongruent primitive roots of <m>p.</m>
+            </p>
+        </corollary>
+
+        <corollary>
+            <p>
+            Every <m>a\in\mathbb{Z},</m> where <m>a</m> is not square and <m>a\neq -1,</m> is a primitive root modulo <m>p</m> for infinitely many primes <m>p.</m>
+            </p>
+        </corollary>
+    
+    </section>
+
+<!-- =================================================================================================== -->
+
+<!-- =================================================================================================== -->
+<!-- Section 2: Applications of Primitive Roots-->
+<!-- =================================================================================================== -->
+    <section xml:id="Sec-Applications_of_Primitive_Roots">
+        <title>Applications of Primitive Roots</title>
+
+        <remark>
+            <statement>
+                <p>
+                If <m>p</m> is a prime of the form <m>4k + 1,</m> then <m>x^2 \equiv -1\pmod{p}</m> has a solution.
+                </p>
+            </statement>
+            <proof>
+                <p>
+                Because <m>4\vert p-1,</m> there is an <m>a</m> having order <m>4</m> modulo <m>p,</m> so that 
+                <me>a^4\equiv 1\pmod{p}.</me>
+                So
+                <me>a^4-1\equiv (a^2-1)(a^2 + 1) \equiv 0\pmod{p}.</me>
+                This means that either
+                <me>a^2-1\equiv 0\pmod{p} \hspace{5mm} \mathrm{or} \hspace{5mm} a^2 + 1\equiv 0\pmod{p}.</me>
+                If <m>a^2-1\equiv 0\pmod{p},</m> then <m>a</m> has order <m>2</m> modulo <m>p,</m> a contradiction. Thus <m>a^2+1\equiv 0\pmod{p},</m> and so for this <m>a,</m> we have <m>a^2\equiv -1\pmod{p}.</m>
+                </p>
+            </proof>
+        </remark>
+        
+        <p>
+        As an application of this (along with one of your homework problems), we can prove a nice result of Fermat.
+        </p>
+
+
+        <!-- Subsection: Fermat's Christmas Theorem-->
+        <section xml:id="Sec-Fermats_Christmas_Theorem">
+            <title>Fermat's Christmas Theorem</title>
+
+            <p>
+            As seen above, Fermat was very interested in squares, and powers in general (as in Fermat's Last Theorem). In 1640, Fermat made a very interesting observation. But first a definiton.
+            </p>
+
+            <definition>
+                <title>Gaussian integers</title>
+                <p>
+                The <term>Gaussian Integers</term> is the set <m>\mathbb{Z}[i].</m>
+                </p>
+            </definition>
+
+            <theorem>
+                <statement>
+                    <p>
+                    Suppose <m>p</m> is a prime with <m>p\equiv 1\pmod{4}.</m> Then there are <m>x, y\in\mathbb{Z}</m> such that <m>p = x^2 + y^2.</m>
+                    </p>
+                </statement>
+                <proof>
+                    <p>
+                    If <m>p</m> is of the form <m>4m + 1,</m> then there is an integer <m>x</m> such that <m>x^2\equiv -1\pmod{p}.</m> Since <m>p\vert x^2+1</m> we have that
+                    <me>p\vert (x-i)(x+i).</me>
+                    Since <m>p</m> does not divide either factor, there exist two complex factors <m>a + ib</m> and <m>c + id</m> of <m>p</m> different from both <m>\pm 1</m> and <m>\pm i</m> such that <m>a + ib\vert x + i</m> and <m>c + id\vert x-i</m> in <m>\mathbb{Z}[i].</m> So we have that <m>p = (a + ib)(c + id).</m> Note that since <m>p</m> is real we have that <m>\overline{p} = p</m> and so
+                    <me>p = \overline{p} = \overline{(a + ib)(c + id)} = \overline{(a + ib)}\hspace{2mm}\overline{(c + id)} = (a-ib)(c-id).</me>
+                    Thus
+                    <me>p^2 = p\cdot \overline{p} = (a + ib)(c + id)(a - ib)(c - id) = (a^2 + b^2)(c^2 + d^2).</me>
+                    Since both <m>a^2 + b^2, c^2 + d^2\gt 1</m> and are integers we have that
+                    <me>p = a^2 + b^2 = c^2 + d^2.</me>
+                    </p>
+                </proof>
+            </theorem>
+
+            <p>
+            This theorem is known as Fermat's Christmas Theorem since it was announced in a letter to Mersenne dated December 25, 1640. It was not proven by Fermat; it was proven first by Euler many years later. 
+            </p>
+            <p>
+            This proof was taken from the notes of Jànos Bolyai, one of Hungary's most famous mathematicians. Though Bolyai made many investigations in number theory, he known for his discovery of non-Euclidean geometry (specifically, absolute geometry) and his contribution to the theory of complex integers <m>\mathbb{Z}[i],</m> where
+            <me>\mathbb{Z}[i]=\{x+yi:x,y\in\mathbb{Z}, i^2=-1\}.</me>
+            </p>
+
+        </section>
+
+        <!-- Subsection: Primitive roots of composite numbers-->
+        <section xml:id="Sec-Primitive_roots_of_composite_numbers">
+            <title>Primitive roots of composite numbers</title>
+
+            <p>
+            We now consider composite numbers for a moment.
+            </p>
+
+            <theorem>
+                <statement>
+                    <p>
+                    If <m>\gcd(m, n) = 1,</m> where <m>m, n\gt 2,</m> then the integer <m>mn</m> has no primitive roots.
+                    </p>
+                </statement>
+                <proof>
+                    <p>
+                    Consider an integer <m>a</m> for which <m>\gcd(a, mn) = 1.</m> Then <m>\gcd(a, m) = 1</m> and <m>\gcd(a, n) = 1.</m> Set <m>h = \mathrm{lcm}(\varphi(n), \varphi(m))</m> and <m>d = \gcd(\varphi(n), \varphi(m)).</m> Since <m>\varphi(n)</m> and <m>\varphi(m)</m> are both even, we have <m>d\geq 2.</m> So 
+                    <me>h =\frac{\varphi(n)\varphi(m)}{d}\leq\frac{\varphi(mn)}{2}.</me>
+                    Now
+                    <me>a^h = (a^{\varphi(m)})^{\varphi(n)/d} \equiv 1^{\varphi(n)/d}\equiv 1\pmod{m}</me>
+                    and similarly <m>a^h \equiv 1\pmod{n}.</m> Since <m>\gcd(m, n) = 1</m> we have 
+                    <me>a^h\equiv 1\pmod{mn}</me>
+                    so that since <m>h\lt \varphi(mn), a</m> is not a primitive root of <m>mn.</m>
+                    </p>
+                </proof>
+            </theorem>
+
+            <p>
+            Admittedly, results for prime powers are more interesting. 
+            </p>
+
+            <lemma>
+                <statement>
+                    <p>
+                    If <m>p</m> is an odd prime with primitive root <m>r,</m> then either <m>r</m> or <m>r + p</m> is a primitive root of <m>p^2.</m>
+                    </p>
+                </statement>
+                <proof>
+                    <p>
+                    Since <m>r</m> is a primitive root of <m>p,</m> we know that the order of <m>r</m> modulo <m>p</m> is <m>\varphi(p) = p-1.</m> Now let <m>n</m> be the order of <m>r</m> modulo <m>p^2.</m> Since any congruence modulo <m>p^2</m> certainly holds modulo <m>p,</m> we have that also,
+                    <me>r^n\equiv 1\pmod{p}.</me>
+                    Since <m>p-1</m> is the order of <m>r</m> modulo <m>p,</m> we have that <m>p-1\vert n.</m> But also, we have <m>n\vert \phi(p^2),</m> so <m>n\vert p(p-1).</m> Thus either <m>n = p-1</m> or <m>n = p(p-1).</m> 
+                    </p>
+                    <p>
+                    If <m>n = p(p-1)</m> we are done, so suppose that <m>n = p-1</m> and consider <m>r + p.</m> Since <m>r\equiv r + p \pmod{p}, r + p</m> is also a primitive root of <m>p.</m> So as above we have that the order <m>m</m> of <m>r + p</m> modulo <m>p^2</m> is either <m>p-1</m> or <m>p(p-1).</m> Again, if <m>m = p(p-1)</m> we are done, so suppose that <m>m = p-1.</m> Then, using the binomial theorem, we have 
+                    <md>
+                        <mrow>(r + p)^{p-1} \amp = r^{p-1} + (p-1)r^{p-2}p +\binom{p-1}{2}r^{p-3}p^2+\cdots p^{p-1}</mrow>
+                        <mrow>\amp = r^{p-1} + (p-1)pr^{p-2} \pmod{p^2}</mrow>
+                        <mrow>\amp = 1+(p-1)pr^{p-2} \pmod{p^2}</mrow>
+                        <mrow>\amp = 1-pr^{p-2} \pmod{p^2}.</mrow>
+                    </md>
+                    Now if <m>(r + p)^{p-1}</m> is <m>1</m> modulo <m>p^2,</m> then <m>p^2\vert pr^{p-2}</m> and so <m>p\vert r^{p-2},</m> which is impossible since <m>p</m> does not divide <m>r.</m> This contradiction proves the theorem.
+                    </p>
+                </proof>
+            </lemma>
+
+            <theorem xml:id="Theorem_7_10">
+                <statement>
+                    <p>
+                    A primitive root of <m>p^2</m> is a primitive root of <m>p^k</m> for any integer <m>k\geq 2.</m>
+                    </p>
+                </statement>
+                <proof>
+                    <p>
+                    We know from the previous lemma that there is a primitive root <m>r</m> of p that is also a primitive root of <m>p^2</m> such that
+                    <me>r^{p-1}\not\equiv 1\pmod{p^2}.</me>
+                    We show by induction that for this primitive root and for <m>k\geq 2</m> that
+                    <me>r^{p^{k-2}(p-1)}\not\equiv 1\pmod{p^k}.</me>
+                    The base case follows from the previous lemma. Now suppose there is some <m>k\geq 2</m> such that
+                    <me>r^{p^{k-2}k(p-1)}\not\equiv 1\pmod{p^k}.</me>
+                    Since <m>\gcd(r, p) = 1,</m> we have that <m>\gcd(r, p^{k-1}) = 1</m> and so using Euler's generalisation of Fermat's little theorem, we have that
+                    <me>r^{p^{k-2}(p-1)}\equiv r^{\phi(p^{k-1})} \equiv 1\pmod{p^{k-1}}.</me>
+                    Thus there is a <m>d</m> such that <m>r^{p^{k-2}(p-1)}=1+dp^{k-1},</m> where <m>p</m> does not divide <m>d</m> due to the induction hypothesis. As before we use the binomial theorem to give
+                    <me>r^{p^{k-1}(p-1)}=(1+dp^{k-1})^p\equiv 1+dp^k \pmod{p^{k+1}}.</me>
+                    Since <m>p</m> does not divide <m>d,</m> this gives the desired non-congruence.
+                    </p>
+                    <p>
+                    With this result in hand, the result is quite straightforward. Given a primitive root <m>r</m> of <m>p^2</m> as above, let <m>n</m> be the order of <m>r</m> modulo <m>p^k.</m> So <m>n\vert \phi(p^k),</m> which means that <m>n\vert p^{k-1}(p-1).</m> But also, since <m>r^n\equiv 1\pmod{p^k}</m> also <m>r^n\equiv 1\pmod{p},</m> so, like before, <m>p-1\vert n.</m> Thus <m>n = p^t(p-1)</m> for some <m>t</m> in <m>\{0,...,k-1\}.</m> If <m>t\leq k-2,</m> then 
+                    <me>r^{p^{k-2}(p-1)}=(r^{p^{t}(p-1)})^{p^{k-2-t}}\equiv 1\pmod{p^{k}},</me>
+                    which contradicts our non-congruence proved above. Thus <m>t = k-1</m> and <m>r</m> is a primitive root of <m>p^k.</m>
+                    </p>
+                </proof>
+            </theorem>
+
+            
+        </section>
+
+    
+    </section>
+
+<!-- =================================================================================================== -->
+
+
+</chapter>

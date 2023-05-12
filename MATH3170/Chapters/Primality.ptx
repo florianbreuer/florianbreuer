@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- =================================================================================================== -->
+<!-- To process this file with xsltproc do                                                        -->
+<!--                                                                                              -->
+<!-- (1) LaTeX/PDF:                                                                               -->
+<!--     xsltproc -o minimal.tex PATH_TO/mathbook/xsl/pretext-latex.xsl source/main.ptx           -->
+<!--     pdflatex minimal.tex                                                                     -->
+<!--     xelatex minimal.tex                                                                      -->
+<!--                                                                                              -->
+<!-- (2) HTML:                                                                                    -->
+<!--     xsltproc PATH_TO/mathbook/xsl/pretext-html.xsl source/main.ptx                           -->
+<!--     <browser>  minimal.html                                                                  -->
+<!--        ~/xsltproc/xsltproc.exe ~/mathbook/xsl/mathbook-html.xsl test.xml                     -->
+<!--                                                                                              -->
+<!-- (3) CoCalc worksheet (parameter causes a single file for output)                             -->
+<!--     REMOVE the "X" in the double dash (which is not legal in an XML comment)                 -->
+<!--     xsltproc -X-stringparam chunk.level 0 PATH_TO/mathbook/xsl/pretext-smc.xsl source/main.ptx   -->
+<!--     <CoCalc> minimal.sagews                                                                  -->
+<!--                                                                                              -->
+<!-- (4) Sage doctesting                                                                          -->
+<!--     REMOVE the "X" in the double dash (which is not legal in an XML comment)                 -->
+<!--     xsltproc -X-stringparam chunk.level 0 PATH_TO/mathbook/xsl/pretext-sage-doctest.xsl source/main.ptx  -->
+<!--     <read further instructions in> minimal.py                                                -->
+<!-- =================================================================================================== -->
+
+<chapter xml:id="Chap-Primality">
+
+
+
+<!-- =================================================================================================== -->
+<!-- Title and Other Preliminaries -->
+<!-- =================================================================================================== -->
+        <title>Primality</title>
+
+        <!-- <frontmatter> -->
+
+<!--             <titlepage>
+                <author>
+                    <institution>University of Newcastle</institution>
+                </author>
+                <date><today /></date>
+            </titlepage> -->
+
+            <!-- <abstract>
+                <p>This is a very short article, but it still exercises some advanced features of MathBook XML.</p>
+            </abstract> -->
+
+        <!-- </frontmatter> -->
+
+        <!-- <introduction>
+            
+        </introduction> -->
+
+
+<!-- =================================================================================================== -->
+
+<!-- =================================================================================================== -->
+<!-- Section 1: Sieve of Eratosthenes-->
+<!-- =================================================================================================== -->
+    <section xml:id="Sec-Sieve_of_Eratosthenes">
+        <title>Sieve of Eratosthenes</title>
+
+        <p>
+        At a very basic level a mathematical sieve is very much like a real sieve that one would find in their kitchen. It is a tool that keeps what you want, and filters everything you don't out. 
+        </p>
+        <p>
+        The easiest example is the sieve of Eratosthenes. This sieve is used to find out the integers below a given integer which are prime. As an example, take <m>n = 100.</m> We enumerate in rows of <m>10</m> for convenience, and start with <m>2.</m> Now every second number we cross out. The next number not crossed out is <m>3,</m> so we cross out every third number, and so on. The numbers that are left are prime. 
+        </p>
+        <p>
+        Another way to visualize the sieve of Eratosthenes is to draw the parabola <m>x = y^2</m> and connect with a line all integer points in the image. Then the only integer points left on the <m>x</m>-axis are the primes. <xref ref="Fig_Sieve_of_Eratosthenes"/> illustrates this.
+        <figure xml:id="Fig_Sieve_of_Eratosthenes">
+            <caption>A prime sieve</caption>
+            <image source="./Images/Fig_Sieve_of_Eratosthenes.png" width="85%"/>
+        </figure>
+        </p>
+    
+    </section>
+
+<!-- =================================================================================================== -->
+
+<!-- =================================================================================================== -->
+<!-- Section 2: Factoring Integers-->
+<!-- =================================================================================================== -->
+    <section xml:id="Sec-Factoring_Integers">
+        <title>Factoring Integers</title>
+
+        <p>
+        There are two very important questions that arise when dealing with prime numbers and factorizations.
+        <ol label="1.">
+            <li>How do we determine whether a given integer <m>n</m> is prime?</li>
+            <li>How do we find the prime factorization of a given integer <m>n?</m></li>
+        </ol>
+        The following theorem is a good starting point. 
+        </p>
+
+        <theorem>
+            <statement>
+                <p>
+                A number <m>n \in\mathbb{N}</m> is composite if and only if it is divisible by some prime <m>p \leq \sqrt{n}.</m> 
+                </p>
+            </statement>
+            <proof>
+                <p>
+                If <m>n</m> is divisible by some prime <m>p\leq \sqrt{n},</m> then it follows that <m>n</m> is composite. Conversely, if <m>n\in\mathbb{N}</m> is composite, then <m>n = ab</m> where <m>1\lt a\lt n;</m> at least one of <m>a</m> and <m>b</m> is less than or equal to <m>\sqrt{n}</m> (if not, <m>ab\gt n</m>), and this factor will be divisible by a prime <m>p\leq\sqrt{n},</m> which then divides <m>n.</m> 
+                </p>
+            </proof>
+        </theorem>
+
+        <application>
+            <p>
+            If we want to factor an integer <m>n,</m> the above theorem says all that we have to do is divide it by every prime less than <m>\sqrt{n},</m> and if one of the primes divides evenly (with remainder <m>0</m>), then the number is composite, and we have a factorization.
+            </p>
+        </application>
+
+        
+    </section>
+
+<!-- =================================================================================================== -->
+
+<!-- =================================================================================================== -->
+<!-- Section 3: A more general Sieve-->
+<!-- =================================================================================================== -->
+    <section xml:id="Sec-A_more_general_Sieve">
+        <title>A more general Sieve</title>
+
+        <theorem>
+            <title>Partial Summation</title>
+            <statement>
+                <p>
+                Let <m>f: \mathbb{N}\rightarrow\mathbb{R}</m> and suppose that <m>g: \mathbb{R}\rightarrow [1, \infty)</m> is a continuous differentiable function. Then
+                <me>\sum_{n\leq x}f(n)g(n)=g(x)\sum_{n\leq x}f(n)-\int_{1}^{x}\left(\sum_{n\leq x}f(n)\right)g'(t)dt. </me>
+                </p>
+            </statement>
+            <proof>
+                <p>
+                For convenience suppose <m>x</m> is an integer and write
+                <me>S(y):=\sum_{n\leq y}f(n),</me>
+                for <m>1\leq y\leq x.</m> If <m>y\lt 1,</m> we use the convention that <m>S(y)=0.</m> Then
+                <md>
+                    <mrow>\sum_{n\leq x}f(n)g(n) \amp=\sum_{n\leq x}g(n)(S(n)-S(n-1))</mrow>
+                    <mrow>\amp =g(x)S(x)-\sum_{n\leq x-1}S(n)(g(n+1)-g(n))</mrow>
+                    <mrow>\amp =g(x)S(x)-\sum_{n\leq x-1}S(n)\int_{n}^{n+1}g'(t)dt</mrow>
+                    <mrow>\amp =g(x)S(x)-\int_{1}^{x}S(t)g'(t)dt</mrow>
+                </md>
+                which is the desired result.
+                </p>
+            </proof>
+        </theorem>
+        
+        <p>
+        It is common for us to apply partial summation to partial sums of reciprocal sums. In fact, if we use the prime number theorem in the-form 
+        <me>\pi(x)=\frac{x}{\log(x)}+O\left(\frac{x}{\log^2(x)}\right),</me>
+        we can show the following result. 
+        </p>
+
+        <theorem>
+            <statement>
+                <p>
+                We have
+                <me>\sum_{p\leq x}\frac{1}{p} \asymp \log(\log(x)). </me>
+                </p>
+            </statement>
+            <proof>
+                <p>
+                Set <m>g(x)=\dfrac{1}{x},</m> and 
+                <me>f(n)=
+                    \begin{cases} 
+                    1 \amp \hspace{2mm} if \hspace{2mm} n \hspace{2mm} is \hspace{2mm} prime \\
+                    0 \amp \hspace{2mm} if \hspace{2mm} n \hspace{2mm} is \hspace{2mm} not \hspace{2mm} prime
+                    \end{cases}
+                </me>
+                Applying partial summation, we have that
+                <me>\sum_{p\leq x}\frac{1}{p}=\frac{\pi(x)}{x}+\int_2^x\frac{\pi(t)}{t^2}dt. </me>
+                Since all of the functions are non-negative in the above, we can substitute with Chebyshev's estimates the asymptotic order relation
+                <me>\pi(x)\asymp\frac{x}{\log(x)}, </me>
+                to give
+                <me>\sum_{p\leq x}\frac{1}{p}\asymp \frac{1}{\log(x)}+\int_2^x\frac{1}{t\log(t)}dt.</me>
+                Using integration by parts we set <m>u = \log(t)</m> so that <m>du =\dfrac{1}{t}dt,</m> and so
+                <md>
+                    <mrow>\sum_{p\leq x}\frac{1}{p} \amp\asymp \int_2^x \frac{1}{t\log(t)}dt+O\left(\frac{1}{\log(x)}\right)</mrow>
+                    <mrow>\amp\asymp \int_{\log(2)}^{\log(x)} \frac{1}{u}du+O\left(\frac{1}{\log(x)}\right)</mrow>
+                    <mrow>\amp\asymp \log(\log(x))+O\left(\frac{1}{\log(x)}\right),</mrow>
+                </md>
+                which gives the result. 
+                </p>
+            </proof>
+        </theorem>
+
+        <p>
+        Note that using a stronger version of the prime number theorem one can show that there is a real constant <m>C</m> so that
+        <me>\sum_{p\leq x}\frac{1}{p}=\log(\log(x))+C+O\left(\frac{1}{\log(x)}\right).</me>
+        We will use this stronger version in what follows.
+        </p>
+        <p>
+        The following discussion of <m>B</m>-smooth numbers is taken from the paper <em>Smooth numbers</em> and the <em>quadratic sieve (2008)</em> by Carl Pomerance.
+        </p>
+
+        <definition>
+            <p>
+            Denote by <m>\varphi(x, B)</m> the counting function of the <m>B</m>-smooth numbers in the interval <m>[1, x].</m> That is,
+            <me>\varphi(x,B)=\# \{m\in[1,X]: \hspace{2mm} \mathrm{if} \hspace{2mm} p\vert m \hspace{2mm} \mathrm{then} \hspace{2mm} p\leq B\}.</me>
+            </p>
+        </definition>
+
+        <p>
+        We will use a very simple sieve to estimate <m>\varphi(x, x^{1/2}).</m> The sieve will be the principle of inclusion-exclusion, with a single exclusion, since no number up to <m>x</m> is divisible by two primes that are larger than <m>x^{1/2}.</m> Thus
+        <me>\varphi(x,x^{1/2})=\lfloor x\rfloor-\sum_{\sqrt{x}\lt p\leq x}\left\lfloor\frac{x}{p}\right\rfloor. </me>
+        This identity uses the fact that there are exactly <m>\lfloor\frac{x}{p}\rfloor</m> multiples of <m>p</m> in the interval <m>[1, x],</m> and since the multiples of <m>p</m> are not <m>x^{1/2}</m>-smooth they must be excluded. We can use the identity
+        <me>\lfloor x \rfloor=x-\{x\},</me> 
+        where <m>\{x\}</m> is the fractional part, to give
+        <md>
+            <mrow>\varphi(x,x^{1/2})\amp =\lfloor x\rfloor-\sum_{\sqrt{x}\lt p\leq x}\left\lfloor\frac{x}{p}\right\rfloor</mrow>
+            <mrow>\amp =x-\{x\}-\sum_{\sqrt{x}\lt p\leq x}\left(\frac{x}{p}-\left\{\frac{x}{p}\right\}\right)</mrow>
+            <mrow>\amp =x-\sum_{\sqrt{x}\lt p\leq x}\frac{x}{p}+O(\pi(x)-\pi(x^{1/2}))</mrow>
+            <mrow>\amp =x\left(1-\sum_{\sqrt{x}\lt p\leq x}\frac{1}{p}\right)+O\left(\frac{x}{\log(x)}\right)</mrow>
+        </md>
+        Now using the previous theorem, we have
+        <md>
+            <mrow>\sum_{\sqrt{x}\lt p\leq x}\frac{1}{p}\amp =\sum_{p\leq x}\frac{1}{p}-\sum_{p\leq x^{1/2}}\frac{1}{p}</mrow>
+            <mrow>\amp =\log(\log(x))-\log(\log(\sqrt{x}))+O\left(\frac{1}{\log(\sqrt(x))}\right)</mrow>
+            <mrow>\amp =\log(2)+O\left(\frac{1}{\log(\sqrt(x))}\right).</mrow> 
+        </md>
+        Thus we finally gain
+        <me>\varphi(x,x^{1/2})=(1-\log(2))x+O\left(\frac{x}{\log(x)}\right),</me>
+        so that
+        <me>\frac{\varphi(x,x^{1/2})}{x}\approx 1-\log(2)</me>
+        as <m>x\rightarrow\infty.</m> Since <m>1-\log(2) \cong .3069</m> we have shown that about <m>30\%</m> of all numbers have no prime factors above their square root.
+        </p>
+    
+    </section>
+
+<!-- =================================================================================================== -->
+
+<!-- =================================================================================================== -->
+<!-- Section 4: Some Contributions of Fermat-->
+<!-- =================================================================================================== -->
+    <section xml:id="Sec-Some_Contributions_of_Fermat">
+        <title>Some Contributions of Fermat</title>
+
+        <p>
+        Though we all seem to remember Pierre de Fermat for his "Last" theorem, he did much more than just scribble notes in the margins of books. In fact, Fermat was one of the last great mathematicians to pursue mathematics as an aside to his normal life; he was a lawyer and magistrate. Due to this he is known as the "Prince of Amateurs." In this lecture we will discuss some of the mathematics behind the man.
+        </p>
+
+        <!-- Subsection: Factoring Integers-->
+        <section xml:id="Sec-Factoring_Integers_2">
+            <title>Factoring Integers</title>
+
+            <p>
+            With this theorem in mind Fermat figured out a way to factor an integer, that is usually quicker than the method in the application above.
+            </p>
+            <p>
+            Since powers of two are easy to factor, let us assume that <m>n</m> is odd. Fermat noticed that finding a factor of an odd integer <m>n</m> is equivalent to finding an integer solution to 
+            <me>n=x^2-y^2</me>
+            If this is the case, then 
+            <me>n=x^2-y^2=(x-y)(x+y),</me> 
+            and conversely if <m>n=ab</m> where <m>a\geq b\geq 1,</m> then
+            <me>n=ab=\left(\frac{a+b}{2}\right)^2-\left(\frac{a-b}{2}\right)^2.</me>
+            To start the search for factors of <m>n,</m> we notice that the equation <m>n =x^2-y^2</m> is equivalent to
+            <me>x^2-n=y^2.</me> 
+            So we find the smallest <m>k</m> for which <m>k^2\geq n,</m> and look at the numbers
+            <me>k^2-n,(k + 1)^2-n,(k + 2)^2-n,(k + 3)^2-n,(k + 4)^2-n,...</me>
+            until a value <m>m\geq\sqrt{n}</m> is found making <m>m^2-n</m> a square. We know the process ends since
+            <me>n=\left(\frac{n+1}{2}\right)^2-\left(\frac{n-1}{2}\right)^2,</me> 
+            which corresponds to the factorization <m>n = n\cdot 1.</m>
+            </p>
+
+            <remark>
+                <p>
+                Fermat used this method to factor
+                <me>2027651281 = 44021\cdot 46061</me>
+                in <m>11</m> steps, compared to doing <m>4580</m> divisions by odd primes up to <m>44021.</m>
+                </p>
+                <p>
+                This method gets more effective if there are two factors close to <m>\sqrt{n}.</m> 
+                </p>
+            </remark>
+
+            <example>
+                <p>
+                Let <m>n = 23449.</m> The smallest square exceeding <m>n</m> is <m>154^2,</m> so we have
+                <md>
+                    <mrow>154^2-23449 \amp= 23716-23449 = 267</mrow>
+                    <mrow>155^2-23449 \amp= 24075-23449 = 576 = 24^2,</mrow>
+                </md>
+                so that
+                <me>23449 = 155^2-24^2 = (155+24)(155-24) = 179\cdot 131.</me>
+                If we used the odd prime division way to find a factorization, it would have taken, <m>\pi(131) = 32</m> divisions.
+                </p>
+            </example>
+
+        </section>
+
+        <!-- Subsection: Fermat's Little Theorem-->
+        <section xml:id="Sec-Fermats_Little_Theorem">
+            <title>Fermat's Little Theorem</title>
+
+            <p>
+            This is another of Fermat's many contributions, which again he did not prove (to our knowledge). He wrote in a letter to Frénicle dated October 18, 1640, "I would send you a demonstration, if I did not fear its being too long." Again, it would be almost 100 years before Euler, in 1736, would give the first proof of Fermat's Little Theorem.
+            </p>
+
+            <theorem>
+                <creator>Fermat's Little Theorem</creator>
+                <statement>
+                    <p>
+                    Let <m>p</m> be a prime and suppose that <m>p\nmid a.</m> Then
+                    <me>a^{p-1}\equiv 1\pmod{p}.</me> 
+                    </p>
+                </statement>
+                <proof>
+                    <p>
+                    To show this, let <m>p</m> be a prime, <m>a\in\mathbb{N},</m> and <m>p\nmid a.</m> Consider the multiples of <m>a,</m> 
+                    <me>a, 2a, 3a,..., (p-1)a.</me>
+                    None of these are congruent modulo <m>p,</m> since if <m>ra\equiv sa \pmod{p}</m> with <m>0\leq r\lt s\lt p-1,</m> then <m>r\equiv s\pmod{p}</m> so that <m>p\vert r-s,</m> which is impossible.
+                    </p>
+                    <p>
+                    Thus the set of integers in the above list is congruent modulo <m>p</m> to the set <m>1, 2,..., p-1,</m> so that
+                    <me>a\cdot 2a\cdot 3a...(p-1)a\equiv 1\cdot 2\cdot 3...(p-1) \pmod{p}.</me> 
+                    Since <m>\gcd((p-1)!, p) = 1</m> we may cancel <m>(p-1)!</m> from each side to give <m>a^{p-1}\equiv 1\pmod{p}.</m>
+                    </p>
+                </proof>
+            </theorem>
+
+            <corollary>
+                <statement>
+                    <p>
+                    Let <m>p</m> be a prime. Then
+                    <me>a^p\equiv a \pmod{p}.</me>
+                    </p>
+                </statement>
+                <proof>
+                    <p>
+                     If <m>p\vert a</m> the statement holds trivially. If <m>p \nmid a,</m> then Fermat's Little Theorem gives <m>a^{p-1} \equiv 1 \pmod{p},</m> so that multiplication on each side by <m>a</m> gives the desired result.
+                     </p>
+                </proof>
+            </corollary>
+
+            <corollary>
+                <statement>
+                    <p>
+                    If <m>p\neq q</m> are primes with <m>a^p\equiv a\pmod{q}</m> and <m>a^q \equiv a\pmod{p},</m> then <m>a^{pq} \equiv a\pmod{pq}.</m> 
+                    </p>
+                </statement>
+                <proof>
+                    <p>
+                    By the previous corollary <m>(a^q)^p \equiv a^q \pmod{p}.</m> Since, by hypothesis, <m>a^q \equiv a\pmod{p},</m> we have <m>a^{pq} \equiv a\pmod{p}</m> so that <m>p\vert a^{pq}-a.</m> Similarly <m>q\vert a^{pq}-a</m> so that since <m>\gcd(p, q) = 1</m> we have <m>pq\vert a^{pq}-a</m> and so <m>a^{pq} \equiv a\pmod{p}.</m>
+                    </p>
+                </proof>
+            </corollary>
+
+            <remark>
+                <p>
+                Fermat's Little Theorem can be used as a test for non-primality. Suppose you have a number <m>n,</m> and you wish to know if <m>n</m> is not prime. If
+                <me>2^n\not\equiv 2\pmod{n},</me> 
+                then <m>n</m> is not prime. 
+                </p>
+            </remark>
+
+            <example>
+                <p>
+                Consider <m>n = 117,</m> then
+                <me>2^{117} = 2^{7\cdot 16+5} = (2^7)^{16}2^5</me>
+                and <m>2^7 = 128 \equiv 11 \pmod{117}.</m> So
+                <md>
+                    <mrow>2^{117} \amp \equiv 11^{16}2^5</mrow>
+                    <mrow>\amp\equiv 121^82^5 </mrow>
+                    <mrow>\amp\equiv 4^82^5 </mrow>
+                    <mrow>\amp\equiv 2^21 </mrow>
+                    <mrow>\amp\equiv (2^7)^3 </mrow>
+                    <mrow>\amp\equiv 11^3 </mrow>
+                    <mrow>\amp\equiv 121\cdot 11 </mrow>
+                    <mrow>\amp\equiv 4\cdot 11 </mrow>
+                    <mrow>\amp\equiv 44 </mrow>
+                    <mrow>\amp\not\equiv 2\pmod{117},</mrow>
+                </md>
+                so <m>117</m> is not prime. 
+                </p>
+            </example>
+
+            <p>
+            Unfortunately this test cannot be used to show a number is prime. In fact, there are composite numbers <m>n</m> for which <m>2^n\equiv 2 \pmod{n}.</m> These are special.
+            </p>
+            
+        </section>
+    
+    
+    </section>
+
+<!-- =================================================================================================== -->
+
+<!-- =================================================================================================== -->
+<!-- Section 5: Pseudoprimes and Carmichael Numbers-->
+<!-- =================================================================================================== -->
+    <section xml:id="Sec-Pseudoprimes_and_Carmichael_Numbers">
+        <title>Pseudoprimes and Carmichael Numbers</title>
+
+        <definition>
+            <p>
+            The number <m>n</m> is called a <term>pseudoprime</term>, provided <m>n</m> is composite and satisfies <m>2^n\equiv 2\pmod{n}.</m> The number <m>n</m> is called an <term>absolute pseudoprime</term> (or <term>Carmichael Number</term>), provided <m>n</m> is composite and satisfies <m>a^n \equiv a\pmod{n}</m> for all <m>a\in\mathbb{Z}.</m>
+            </p>
+        </definition>
+
+        <example>
+            <p>
+            The composite number <m>341 = 11\cdot 31</m> is a pseudoprime. Note that <m>2^{10} = 1024 = 31\cdot 33 + 1.</m> So
+            <me>2^{11} = 2(2^{10})\equiv 2\pmod{31},</me>
+            and
+            <me>2^{31} = 2(2^{10})^3\equiv 2\pmod{11},</me> 
+            so by the above corollary,
+            <me>2^{341} = 2\cdot 2^{11\cdot 31} \equiv 2 \pmod{31\cdot 11}.</me> 
+            </p>
+        </example>
+
+        <definition>
+            <p>
+            An integer <m>n</m> is square-free provided that for any <m>p\vert n, </m> <m>p^2\vert n.</m>
+            </p>
+        </definition>
+
+        <theorem>
+            <statement>
+                <p>
+                Let <m>n</m> be a composite square-free integer, say, <m>n = p_1p_2...p_r, </m> where <m>p_i</m> are distinct primes. If <m>p_i-1\vert n-1, </m> for <m>i = 1,..., r, </m> then <m>n</m> is a Carmichael number.
+                </p>
+            </statement>
+            <proof>
+                <p>
+                Suppose that <m>a\in\mathbb{Z}</m> with <m>\gcd(a, n) = 1.</m> So <m>\gcd(a, p_i) = 1</m> for each <m>i.</m> Then Fermat's Little Theorem gives <m>p_i\vert a^{n-1}-1.</m> Since <m>p_i-1\vert n-1,</m> we have that <m>p_i\vert a^{n-1}-1,</m> and so <m>p_i\vert a^n-a</m> for all <m>a,</m> and each <m>i.</m> Since the <m>p_i</m> are prime, we have that <m>n\vert a^n-a</m> for all <m>a</m> and so <m>n</m> is a Carmichael number.
+                </p>
+            </proof>
+        </theorem>
+
+    
+    </section>
+
+<!-- =================================================================================================== -->
+
+<!-- =================================================================================================== -->
+<!-- Section 6: Wilson's Theorem-->
+<!-- =================================================================================================== -->
+    <section xml:id="Sec-Wilsons_Theorem">
+        <title>Wilson's Theorem</title>
+
+        <p>
+        Wilson's theorem is one of the few "if and only if" statements about primes. 
+        </p>
+
+        <theorem>
+            <creator>Wilson, proved by Lagrange in 1771</creator>
+            <statement>
+                <p>
+                The integer <m>n</m> is prime if and only if <m>(n-1)! \equiv -1 \pmod{n}.</m> 
+                </p>
+            </statement>
+            <proof>
+                <p>
+                <m>(\Rightarrow)</m> For <m>p = 2, 3</m> the theorem is clear. Now suppose that <m>p\gt 3,</m> and that
+                <me>a\in \{1, 2, 3,..., p-1\}.</me>
+                Note that <m>\gcd(p, a) = 1</m> for such <m>a.</m> By a previous theorem the inverse of <m>a</m> is unique. Also if <m>a</m> is its own inverse, we know that <m>a^2\equiv 1\pmod{p}</m> so that
+                <me>(a + 1)(a-1) \equiv 0\pmod{p},</me>
+                and so <m>a = 1</m> or <m>a = p-1.</m> Thus the set
+                <me>A = \{2, 3, 4,..., p-2\}</me>
+                is a set of even numbers such that if <m>a\in A,</m> then <m>a^{-1}\in A,</m> and <m>a\neq a^{-1}.</m> This gives
+                <me>2\cdot 3...(p-2)\equiv 1 \pmod{p},</me>
+                which is the same as
+                <me>(p-2)! \equiv 1\pmod{p},</me>
+                so that multiplying by <m>p-1</m> on both sides gives
+                <me>(p-1)! \equiv -1\pmod{p}.</me>
+                </p>
+                <p>
+                <m>(\Leftarrow)</m> Suppose <m>(n-1)!\equiv -1\pmod{n},</m> and <m>n</m> is not prime. Then there is a divisor <m>d\gt 1</m> of <m>n.</m> Now if <m>n\vert (n-1)! + 1,</m> then <m>d\vert (n-1)! + 1,</m> so that since <m>d\vert (n-1)!</m> we have that <m>d\vert 1,</m> which is absurd. Thus <m>n</m> is prime.
+                </p>
+            </proof>
+        </theorem>
+
+    </section>
+
+<!-- =================================================================================================== -->
+
+
+</chapter>

@@ -1,0 +1,52 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-11-10T14:15:06+11:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math"><article class="hiddenproof"><p>By induction on <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(n.\)</span> The case <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(n=2\)</span> is clear. Suppose that any integer <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(k\)</span> with <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(2\leq k \lt n\)</span> can be written uniquely as a product of primes.</p>
+<p>If <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(n\)</span> is a prime, then <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(n = p\)</span> is the product of primes.</p>
+<p>If <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(n\)</span> is not a prime, then <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(n\)</span> has a proper divisor, say <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(d_1,\)</span> with</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+1\lt d_1\lt n d_1\vert n.
+\end{equation*}
+</div>
+<p class="continuation">Write <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(n = d_1d_2.\)</span> It is clear here that <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(1\lt d_2\lt n.\)</span> By the induction hypothesis</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+d_1 = p_1p_2...p_r \hspace{5mm} d_2 = q_1q_2...q_s
+\end{equation*}
+</div>
+<p class="continuation">can be written uniquely as a product of primes. Thus</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+n = d_1d_2 = p_1p_2...p_rq_1q_2...q_s,
+\end{equation*}
+</div>
+<p class="continuation">and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(n\)</span> is the product of primes.</p>
+<p>For uniqueness, we again use induction. For <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(n = 2\)</span> this is clear. Now suppose that for any integer <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(k\)</span> with <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(2\leq k \lt n\)</span> has a unique representation as a product of primes.</p>
+<p>Again the case <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(n = p\)</span> is clear. If <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(n\)</span> is not a prime, then suppose that <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(p_i\)</span>'s and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(q_i\)</span>'s are prime, and</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+n = p_1p_2...p_r = q_1q_2...q_s.
+\end{equation*}
+</div>
+<p class="continuation">Note that <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(p_1\vert q_1q_2...q_s\)</span> so that by the above Corollary <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(p_1 = q_j\)</span> for some <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(j.\)</span> Without loss of generality let <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(j = 1.\)</span> Now</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+p_2p_3...p_r = q_2q_3...q_s =\frac{n}{p_1}\lt n,
+\end{equation*}
+</div>
+<p class="continuation">so that by the induction hypothesis, <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\frac{n}{p_1}\)</span> has a unique factorization. Thus <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(r = s,\)</span> and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(p_i = q_i\)</span> for all <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(i\leq r.\)</span></p>
+<p>Thus by induction every integer <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(n\gt 1\)</span> can be expressed uniquely as a product of primes.</p></article></body>
+</html>

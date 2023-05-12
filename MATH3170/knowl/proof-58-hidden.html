@@ -1,0 +1,35 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-11-10T14:15:12+11:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math"><article class="hiddenproof"><p>Let <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(m, n\in\mathbb{N}\)</span> with <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\gcd(m, n) = 1.\)</span> The result is trivial if <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(m\)</span> or <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(n\)</span> is <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(1\)</span> since <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\varphi(1) = 1,\)</span> so suppose that <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(m, n\gt 1.\)</span> Let us arrange the <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(mn\)</span> integers <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(1, 2,..., mn\)</span> into an array with <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(n\)</span> rows and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(m\)</span> columns, as such:</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\begin{matrix}
+1 \amp 2 \amp 3 \amp \cdots \amp m \\
+m+1 \amp m+2 \amp m+3 \amp \cdots \amp 2m \\
+\vdots \amp \vdots \amp \vdots \amp \ddots \amp \vdots \\
+(n-1)m+1 \amp (n-1)m+2 \amp (n-1)m+3 \amp \cdots \amp mn
+\end{matrix}
+\end{equation*}
+</div>
+<p class="continuation">These integers <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(i\)</span> form a complete set of residues <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\mod{mn},\)</span> so <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\varphi(mn)\)</span> of them are relatively prime to <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(mn,\)</span> or equivalently, <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\gcd(i, m) = \gcd(i, n) = 1.\)</span> If we look that the columns we can see that all of the integers in a given column are equivalent <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\mod{m},\)</span> thus exactly <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\varphi(m)\)</span> of the columns consist of integers that are relatively prime to <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(m,\)</span> and the other columns consist of integers for which <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\gcd(i, m) \gt 1.\)</span></p>
+<p>Now each column of integers that are relatively prime to <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(m\)</span> has the form</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+b, m + b, 2m + b,...,(n-1)m + b
+\end{equation*}
+</div>
+<p class="continuation">for some <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(b.\)</span> By the previous lemma this is a complete set of residues <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\mod{n},\)</span> since <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\{0, 1, 2,..., n-1\}\)</span> is and since <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\gcd(m, n) = 1.\)</span> Therefore such a column contains <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\varphi(n)\)</span> integers relatively prime to <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(n,\)</span> and so each of the <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\varphi(m)\)</span> columns contains <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\varphi(n)\)</span> integers relatively prime to <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(n,\)</span> so that the array contains <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\varphi(m)\varphi(n)\)</span> integers <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(i\)</span> such that <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\gcd(i, m) = 1\)</span> and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\gcd(i, n) = 1.\)</span> Thus <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\varphi(mn) = \varphi(m)\varphi(n).\)</span></p></article></body>
+</html>

@@ -1,0 +1,438 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- =================================================================================================== -->
+<!-- To process this file with xsltproc do                                                        -->
+<!--                                                                                              -->
+<!-- (1) LaTeX/PDF:                                                                               -->
+<!--     xsltproc -o minimal.tex PATH_TO/mathbook/xsl/pretext-latex.xsl source/main.ptx           -->
+<!--     pdflatex minimal.tex                                                                     -->
+<!--     xelatex minimal.tex                                                                      -->
+<!--                                                                                              -->
+<!-- (2) HTML:                                                                                    -->
+<!--     xsltproc PATH_TO/mathbook/xsl/pretext-html.xsl source/main.ptx                           -->
+<!--     <browser>  minimal.html                                                                  -->
+<!--        ~/xsltproc/xsltproc.exe ~/mathbook/xsl/mathbook-html.xsl test.xml                     -->
+<!--                                                                                              -->
+<!-- (3) CoCalc worksheet (parameter causes a single file for output)                             -->
+<!--     REMOVE the "X" in the double dash (which is not legal in an XML comment)                 -->
+<!--     xsltproc -X-stringparam chunk.level 0 PATH_TO/mathbook/xsl/pretext-smc.xsl source/main.ptx   -->
+<!--     <CoCalc> minimal.sagews                                                                  -->
+<!--                                                                                              -->
+<!-- (4) Sage doctesting                                                                          -->
+<!--     REMOVE the "X" in the double dash (which is not legal in an XML comment)                 -->
+<!--     xsltproc -X-stringparam chunk.level 0 PATH_TO/mathbook/xsl/pretext-sage-doctest.xsl source/main.ptx  -->
+<!--     <read further instructions in> minimal.py                                                -->
+<!-- =================================================================================================== -->
+
+<chapter xml:id="Chap-Divisibility">
+
+
+
+<!-- =================================================================================================== -->
+<!-- Title and Other Preliminaries -->
+<!-- =================================================================================================== -->
+        <title>Divisibility</title>
+
+        <!-- <frontmatter> -->
+
+<!--             <titlepage>
+                <author>
+                    <institution>University of Newcastle</institution>
+                </author>
+                <date><today /></date>
+            </titlepage> -->
+
+            <!-- <abstract>
+                <p>This is a very short article, but it still exercises some advanced features of MathBook XML.</p>
+            </abstract> -->
+
+        <!-- </frontmatter> -->
+
+        <!-- <introduction>
+            <p>This is a short paragraph to introduce the article (but it is not the abstract).  It is optional, in case it would be preferable to have the first section be titled an <q>Introduction.</q></p>
+        </introduction> -->
+<!-- =================================================================================================== -->
+
+
+
+
+<!-- =================================================================================================== -->
+<!-- Section 1: Division Algorithm -->
+<!-- =================================================================================================== -->
+    <section xml:id="Sec-Division_Algorithm">
+        <title>Division Algorithm</title>
+
+        <theorem>
+            <creator>Division Algorithm</creator>
+            <statement>
+                <p>
+                Given <m>a,b\in\mathbb{Z}</m> with <m>b\gt 0,</m> there are unique <m>q,r\in\mathbb{Z}</m> satisfying
+                <me>a=qb+r \hspace{10mm} 0\leq r\lt b.</me>
+                </p>
+            </statement>
+            <proof>
+                <p>
+                If <m>a</m> is a multiple of <m>b,</m> then we are done, since <m>a=qb</m> and <m>r=0.</m>
+                </p>
+                <p>
+                If <m>a</m> is not a multiple of <m>b,</m> by the combination of the Archimedean Property and the Well-Ordering Principle, there is a maximum (hence unique) <m>q</m> such that 
+                <men xml:id="Eqn-2_1">qb\lt\vert a\vert \lt (q+1)b</men>
+                Set <m>r=\vert a\vert-qb.</m> Note that <m>r</m> is unique since <m>q</m> is unique. By subtracting <m>qb</m> from each part of <xref ref="Eqn-2_1"/>, we get the needed condition <m>0\lt r\lt b.</m>
+                </p>
+            </proof>
+        </theorem>
+
+        <remark>
+            <p>
+            If <m>n</m> is a square, then when divided by <m>4,</m> <m>n</m> leaves a remainder of <m>0</m> or <m>1.</m> 
+            </p>
+        </remark>
+
+        <p>
+        To prove this let <m>n=a^2.</m> The Division Algorithm gives <m>a=4q+r</m> where <m>r=0,1,2,3,</m> so that
+        <me>n=(4q+r)^2=16q^2+8qr+r^2.</me>
+        Now if <m>r=0,</m> then <m>n=4(4q^2+2qr)+0;</m> if <m>r=1,</m> then <m>n=4(4q^2+2qr)+1;</m> if <m>r=2,</m> then <m>n=4(4q^2+2qr+1)+0;</m> if <m>r=3,</m> then <m>n=4(4q^2+2qr+2)+1.</m> In each case, the remainder is <m>0</m> or <m>1.</m>
+        </p>
+
+        <remark>
+            <p>
+            The Division Algorithm is just grade school division in disguise.
+            </p>
+        </remark>
+
+        <definition>
+            <p>
+            We say that a non-zero integer <m>a</m> divides <m>b,</m> and write <m>a\vert b,</m> if there is some integer <m>c</m> such that <m>b=ac.</m>
+            </p>
+        </definition>
+
+        <theorem>
+            <creator>Properties of "<m>\vert</m>"</creator>
+            <statement>
+                <p>
+                Let <m>a,b,c\in\mathbb{Z}.</m> Then
+                <ol label="(a)">
+                    <li><m>a\vert 0,</m> <m>1\vert a,</m> <m>a\vert a</m></li>
+                    <li><m>a\vert 1</m> if and only if <m>a=\pm 1</m></li>
+                    <li>if <m>a\vert b</m> and <m>c\vert d,</m> then <m>ac\vert bd</m></li>
+                    <li>if <m>a\vert b</m> and <m>b\vert c,</m> then <m>a\vert c</m></li>
+                    <li><m>a\vert b</m> and <m>b\vert a</m> if and only if <m>a=\pm b</m></li>
+                    <li>if <m>a\vert b</m> and <m>b\neq 0,</m> then <m>\vert a\vert \leq \vert b\vert</m></li>
+                    <li>if <m>a\vert b</m> and <m>a\vert c,</m> then <m>a\vert (bx+cy)</m> for any <m>x,y\in\mathbb{Z}.</m></li>
+                </ol>
+                </p>
+            </statement>
+            <proof>
+                <p>
+                We will prove just <m>(f)</m> and <m>(g),</m> the rest are left to the reader. 
+                </p>
+                <p>
+                For <m>(f),</m> note that if <m>a\vert b</m> and <m>b\neq 0,</m> then there is a <m>c\in\mathbb{Z}</m> with <m>c\neq 0</m> such that <m>b=ac.</m> Thus <m>\vert b\vert =\vert a\vert \vert c\vert.</m> Now <m>\vert c\vert \geq 1</m> so multiplying on each side by <m>\vert a\vert</m> gives 
+                <me>\vert a\vert \leq \vert a\vert \vert c\vert =\vert b\vert.</me>
+                </p>
+                <p>
+                For <m>(g),</m> we have that <m>a\vert b</m> and <m>a\vert c</m> give the existence of <m>n,m\in\mathbb{Z}</m> such that <m>b=an</m> and <m>c=am.</m> Now for any <m>x,y\in\mathbb{Z}</m> we have
+                <me>bx+cy=anx+amy=a(nx+my),</me>
+                so that <m>a\vert (bx+cy)</m> for any integers <m>x</m> and <m>y.</m>
+                </p>
+            </proof>
+        </theorem>
+
+        <definition>
+            <p>
+            The greatest common divisor of <m>a,b\in\mathbb{Z}</m> is the number <m>d\gt 0</m> such that
+            <ol label="(i)">
+                <li><m>d\vert a</m> and <m>d\vert b</m></li>
+                <li>if <m>c\vert a</m> and <m>c\vert b,</m> then <m>c\leq d.</m></li>
+            </ol>
+            </p>
+        </definition>
+
+        <definition>
+            <p>
+            Two integers <m>a,b</m> are said to be <term>relatively prime</term> or <term>coprime</term>, provided <m>\gcd(a,b)=1.</m>
+            </p>
+        </definition>
+
+        <theorem>
+            <statement>
+                <p>
+                Given <m>a,b\in\mathbb{N},</m> there exist integers <m>x</m> and <m>y</m> such that
+                <me>\gcd(a,b)=ax+by.</me>            
+                </p>
+            </statement>
+            <proof>
+                <p>
+                Consider the set <m>S</m> of all linear combinations of <m>a,b</m>:
+                <me>S=\{au+bv: au+bv\gt 0, u,v\in\mathbb{Z}\}</me>
+                The set <m>S</m> is non-empty since if <m>u=1, v=0</m> we have <m>a\in S.</m> By the Well Ordering Principle, <m>S</m> must contain a smallest element <m>d.</m> Thus by the definition of <m>S,</m> there are <m>x,y\in\mathbb{Z}</m> such that <m>d=ax+by.</m> (We claim <m>\gcd(a,b)=d.</m>)
+                </p>
+                <p>
+                Using the division algorithm, we can obtain integers <m>q,r</m> such that <m>a=qd+r,</m> where <m>0\leq r\lt d.</m> So <m>r</m> can be written
+                <me>r = a-qd = a-q(ax + by) = a(1-qx) + b(-qy).</me>
+                Now if <m>r\gt 0,</m> than this implies <m>r\in S,</m> but <m>r\lt d,</m> the smallest element. Thus <m>r = 0,</m> so <m>a = qd</m> and so <m>d\vert a.</m> Likewise <m>d\vert b,</m> and so <m>d</m> is a common divisor of a and b. Now if c is another common divisor of <m>a</m> and <m>b,</m> then <m>c\vert (ax + by)=d,</m> so that <m>c\leq d.</m> Thus <m>d</m> is the greatest common divisor of <m>a</m> and <m>b,</m> and there exist <m>x,y\in\mathbb{Z}</m> such that <m>ax+by=\gcd(a,b).</m>
+                </p>
+            </proof>
+        </theorem>
+
+        <corollary>
+            <statement>
+                <p>
+                Let <m>a,b\in\mathbb{N}.</m> Then the <m>\gcd(a,b)</m> is unique.
+                </p>
+            </statement>
+        </corollary>
+
+        <example>
+            <p>
+            For <m>n\in\mathbb{N},</m> we have <m>\gcd(n,n+1)=1.</m> This is easy to see using the previous theorem. Note that for <m>x=-1</m> and <m>y=1</m> we have
+            <me>1=ax+by=n\cdot(-1)+(n+1)\cdot 1.</me>
+            </p>
+        </example>
+
+    </section>
+    
+<!-- =================================================================================================== -->
+
+
+<!-- =================================================================================================== -->
+<!-- Section 2: Euclidean Algorithm-->
+<!-- =================================================================================================== -->
+    <section xml:id="Sec-Euclidean_Algorithm">
+        <title>Euclidean Algorithm</title>
+
+        <definition>
+            <p>
+            The <term>least common multiple</term> of <m>a,b\in\mathbb{Z}</m> is the number <m>l\gt 0</m> such that
+            <ol label="(i)">
+                <li><m>a\vert l</m> and <m>b\vert l</m></li>
+                <li>if <m>a\vert c</m> and <m>b\vert c,</m> then <m>l\leq c.</m></li>
+            </ol>
+            </p>
+        </definition>
+
+        <example>
+            <p>
+            If <m>a=25</m> and <m>b=10,</m> then <m>\gcd(25,10)=5</m> and <m>\mathrm{lcm}(25,10)=50.</m> As we expect we also see that
+            <me>\gcd(25,10)\cdot \mathrm{lcm}(25,10)=5\cdot 50=250=25\cdot 10.</me>
+            </p>
+        </example>
+
+        <theorem>
+            <statement>
+                <p>
+                For <m>a,b\in\mathbb{N}, \gcd(a,b)\vert \mathrm{lcm}(a,b).</m>
+                </p>
+            </statement>
+        </theorem>
+
+        <theorem>
+            <statement>
+                <p>
+                Let <m>a,b\in\mathbb{N}.</m> Then <m>\mathrm{lcm}(a,b)\cdot \gcd(a,b)=ab.</m>
+                </p>
+            </statement>
+        </theorem>
+
+        <p>
+        What if we actually want to find the <m>\gcd(a,b)?</m> First a lemma.
+        </p>
+
+        <lemma>
+            <statement>
+                <p>
+                If <m>a=qb+r,</m> then <m>\gcd(a,b)=\gcd(b,r).</m>
+                </p>
+            </statement>
+            <proof>
+                <p>
+                If <m>d=\gcd(a,b),</m> then since <m>d\vert a</m> and <m>d\vert b,</m> we have <m>d\vert (a-qb),</m> or rather, <m>d\vert r.</m> Thus, <m>d</m> is a common divisor of <m>b</m> and <m>r,</m> hence <m>d\leq \gcd(b,r).</m> Now since <m>c:=\gcd(b,r)</m> is a common divisor of <m>b</m> and <m>r,</m> then <m>c\vert (qb + r),</m> so that <m>c\vert a.</m> This makes <m>c</m> a common divisor of <m>a</m> and <m>b,</m> so <m>c\leq d.</m> Thus <m>d=\gcd(b,r).</m>
+                </p>
+            </proof>
+        </lemma>
+
+        <theorem>
+            <creator>Euclidean Algorithm</creator>
+            <statement>
+                <p>
+                Let <m>a,b\in\mathbb{N}</m> with <m>b\lt a.</m> Then there exist <m>q_1, q_2, q_3,..., q_n, q_{n+1}\in\mathbb{Z}</m> and <m>r_1, r_2, r_3,..., r_n\in\mathbb{N}</m> satisfying <m>0\lt r_n\lt r_{n-1}\lt ...\lt r_2\lt r_1\lt b</m> and
+                <md>
+                    <mrow>a \amp =bq_1+r_1</mrow>
+                    <mrow>b \amp =r_1q_2+r_2</mrow>
+                    <mrow>\amp \vdots</mrow>
+                    <mrow>r_{n-2} \amp =r_{n-1}q_{n}+r_n</mrow>
+                    <mrow>r_{n-1} \amp =r_{n}q_{n+1}.</mrow>
+                </md>
+                Furthermore, <m>r_n=\gcd(a,b).</m>
+                </p>
+            </statement>
+            <proof>
+                <p>
+                All existence statements follow from the Division Algorithm and the Well Ordering Principle. From the last equation we have that <m>r_n\vert r_{n-1}.</m> From the second to last equation we have that <m>r_n\vert r_{n-2},</m> and so on until we eventually have <m>r_n\vert a</m> and <m>r_n\vert b.</m> Thus <m>r_n</m> is a common divisor of <m>a</m> and <m>b,</m> and also <m>r_n \geq 1.</m>
+                </p>
+                <p>
+                Now let <m>c\in\mathbb{Z}</m> with <m>c\vert a</m> and <m>c\vert b.</m> Reversing the argument of the preceding paragraph gives from the first equation <m>c\vert r_1.</m> From the second equation we have <m>c\vert r_2,</m> and so on and so forth until we have <m>c\vert r_n,</m> so that we have that <m>r_n=\gcd(a,b).</m>
+                </p>
+            </proof>
+        </theorem>
+
+        <example>
+            <statement>
+                <p>
+                What is the <m>\gcd(1492,1066)?</m> 
+                </p>
+            </statement>
+            <solution>
+                <p>
+                To find this we use the Euclidean Algorithm. We write
+                <md>
+                    <mrow>1492 \amp = 1\cdot 1066 + 426</mrow>
+                    <mrow>1066 \amp = 2\cdot 426 + 214</mrow>
+                    <mrow>426 \amp = 1\cdot 214 + 212</mrow>
+                    <mrow>214 \amp = 1\cdot 212 + 2</mrow>
+                    <mrow>212 \amp= 2\cdot 106 + 0.</mrow>
+                </md>
+                Thus <m>\gcd(1492,1066)=2.</m>
+                </p>
+            </solution>
+        </example>
+
+        <p>
+        As previously demonstrated, the <m>\gcd(a,b)</m> can be written as a linear combination of <m>a,b</m> with some integers <m>x,y;</m> that is,
+        <me>\gcd(a,b)=ax+by.</me>
+        But how do we find <m>x</m> and <m>y?</m>
+        </p>
+        <p>
+        For this we use the Euclidean Algorithm as well, just backwards. Starting with the next to last equation write
+        <me>r_n=r_{n-2}-q_nr_{n-1}.</me>
+        Now solve the preceding equation in the algorithm for <m>r_{n-1}</m> and substitute to obtain
+        <md>
+            <mrow>r_n \amp =r_{n-2}-q_n(r_{n-3}-q_{n-1}r_{n-2})</mrow>
+            <mrow>\amp =(1+q_nq_{n-1})r_{n-2}+(-q_n)r_{n-3},</mrow>
+        </md>
+        and so we have <m>r_n</m> as a linear combination of <m>r_{n-2}</m> and <m>r_{n-3}.</m> Continuing backwards we keep eliminating remainders until we reach are left with <m>r_n=\gcd(a,b)</m> as a linear combination of <m>a</m> and <m>b.</m>
+        </p>
+
+        <example>
+            <p>
+            In the example above <m>d=\gcd(1492,1066)=2.</m> To write this as a linear combination, we have
+            <md>
+                <mrow>d \amp = 2</mrow>
+                <mrow>\amp = 214-1\cdot 212</mrow>
+                <mrow>\amp = 214-1\cdot (426-1\cdot 214)</mrow>
+                <mrow>\amp = -1\cdot 426+2\cdot 214</mrow>
+                <mrow>\amp = -1\cdot 426+2\cdot (1066-2\cdot 426)</mrow>
+                <mrow>\amp = 2\cdot 1066-5\cdot 426</mrow>
+                <mrow>\amp = 2\cdot 1066-5\cdot (1492-1\cdot 1066)</mrow>
+                <mrow>\amp = -5\cdot 1492+7\cdot 1066.</mrow>
+            </md>
+            </p>
+        </example>
+
+    </section>
+
+<!-- =================================================================================================== -->
+
+<!-- =================================================================================================== -->
+<!-- Section 3: Linear Diophantine equations-->
+<!-- =================================================================================================== -->
+    <section xml:id="Sec-Linear_Diophantine_equations">
+        <title>Linear Diophantine equations</title>
+
+        <p>
+        In <xref ref="Chap-Introduction"/>, we went through a proof of the Pythagorean Theorem, a version of which tells us that there are infinitely many solutions to the Diophantine equation
+        <me>x^2+y^2=z^2.</me>
+        We also noted the following very interesting result.
+        </p>
+
+        <theorem>
+            <creator>Fermat's Last Theorem</creator>
+            <statement>
+                <p>
+                For <m>n\gt 2</m> the equation <m>x^n+y^n=z^n</m> has no non-trivial solutions in integers <m>x,y,</m> and <m>z.</m>
+                </p>
+            </statement>
+        </theorem>
+
+        <p>
+        But what about a linear Diophantine equation? What if we are interested in a solution <m>(x,y)</m> to the equation <m>ax+by=c</m> with <m>a,b,c\in\mathbb{N}?</m> 
+        </p>
+        <p>
+        These questions are answered by the following theorem.
+        </p>
+
+        <theorem>
+            <statement>
+                <p>
+                Let <m>a,b,c\in\mathbb{N},</m> and <m>d=\gcd(a,b).</m> Then the equation <m>ax+by=c</m> has an integer solution <m>x,y</m> if and only if <m>d\vert c.</m>
+                </p>
+            </statement>
+            <proof>
+                <p>
+                Let <m>d=\gcd(a,b).</m> Suppose <m>ax+by=c</m> has an integer solution. Now we have <m>d\vert a</m> and <m>d\vert b</m> so that <m>d\vert c.</m> 
+                </p>
+                <p>
+                Now suppose that <m>d\vert c.</m> Then <m>d=au+bv</m> for some <m>u,v\in\mathbb{Z}</m> and <m>c=dk</m> for some <m>k\in\mathbb{Z}.</m> Now 
+                <me>c=kd=k(au+bv)=a(ku)+b(kv),</me>
+                and <m>x=ku, y=kv</m> is a solution to <m>ax+by=c.</m>
+                </p>
+            </proof>
+        </theorem>
+
+        <theorem>
+            <creator>Euclid's Lemma</creator>
+            <statement>
+                <p>
+                If <m>a\vert bc,</m> with <m>d=\gcd(a,b)=1,</m> then <m>a\vert c.</m> 
+                </p>
+            </statement>
+            <proof>
+                <p>
+                Since <m>\gcd(a,b)=1</m> there are <m>x,y\in\mathbb{Z}</m> such that <m>1=ax+by.</m> Multiplication by <m>c</m> gives 
+                <me>c = 1\cdot c = (ax + by)c = acx + bcy.</me>
+                Since <m>a\vert ac</m> and <m>a\vert bc,</m> we have that <m>a\vert (acx + bcy),</m> so that <m>a\vert c.</m>                
+                </p>
+            </proof>
+        </theorem>
+
+        <theorem xml:id="Thm-2_10">
+            <statement>
+                <p>
+                Let <m>a,b,c\in\mathbb{N},</m> and <m>d = \gcd(a, b).</m> If the equation <m>ax + by = c</m> has one solution, then it has infinitely many. Moreover, all solutions <m>x, y</m> are of the form
+                <me>x = x_0 +\frac{b}{d}n, \hspace{10mm} y=y_0-\frac{a}{d}n \hspace{10mm} n\in\mathbb{Z}</me>
+                where <m>x_0, y_0</m> is any particular solution.
+                </p>
+            </statement>
+            <proof>
+                <p>
+                To see that indeed <m>x, y</m> is a solution if <m>x_0, y_0</m> is a solution, we may just plug in <m>x, y.</m> To see that these are all possible solutions suppose that <m>x_0, y_0</m> and <m>x, y</m> are solutions. Then
+                <me>ax + by = c = ax_0 + by_0.</me>
+                With some rearrangement we have
+                <me>a(x-x_0) + b(y-y_0) = 0.</me>
+                Dividing by <m>d = \gcd(a, b)</m> gives
+                <me>\frac{a}{d}(x-x_0)=-\frac{b}{d}(y-y_0).</me>
+                Since<fn>This is left to the reader.</fn>
+                <me>\gcd\left(\frac{a}{d},\frac{b}{d}\right)=1,</me>
+                an application of Euclid's Lemma gives <m>\frac{b}{d}\vert(x-x_0).</m> Thus there is some <m>n\in\mathbb{Z}</m> such that <m>x-x_0=\frac{b}{d}n,</m> so
+                <me>x=x_0+\frac{b}{d}n</me>
+                Substituting back we get that
+                <me>y=y_0-\frac{a}{d}n.</me>
+                </p>
+            </proof>
+        </theorem>
+
+        <p>
+        These results are particularly nice because they give an algorithm for finding all solutions to a linear Diophantine equation <m>ax + by = c.</m> We just
+        <ol label="1.">
+        <li> Calculate <m>d = \gcd(a, b),</m> either directly or by Euclidean Algorithm.</li>
+        <li> Check to see if <m>d\vert c.</m> If not, there are no solutions. If so, write <m>c = dk.</m></li>
+        <li> If <m>d\vert c,</m> then use Euclidean Algorithm backwards to find integers <m>u</m> and <m>v</m> such that <m>au + bv = d.</m> Then <m>x_0 = uk,</m> <m>y_0 = vk</m> is a particular solution of <m>ax + by = c.</m></li>
+        <li> Now use the results of <xref ref="Thm-2_10"/> to find the general solution <m>x, y</m> of the equation.</li>
+        </ol>
+        </p>
+
+    </section>
+
+<!-- =================================================================================================== -->
+
+
+</chapter>

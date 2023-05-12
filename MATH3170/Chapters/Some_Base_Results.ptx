@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- =================================================================================================== -->
+<!-- To process this file with xsltproc do                                                        -->
+<!--                                                                                              -->
+<!-- (1) LaTeX/PDF:                                                                               -->
+<!--     xsltproc -o minimal.tex PATH_TO/mathbook/xsl/pretext-latex.xsl source/main.ptx           -->
+<!--     pdflatex minimal.tex                                                                     -->
+<!--     xelatex minimal.tex                                                                      -->
+<!--                                                                                              -->
+<!-- (2) HTML:                                                                                    -->
+<!--     xsltproc PATH_TO/mathbook/xsl/pretext-html.xsl source/main.ptx                           -->
+<!--     <browser>  minimal.html                                                                  -->
+<!--        ~/xsltproc/xsltproc.exe ~/mathbook/xsl/mathbook-html.xsl test.xml                     -->
+<!--                                                                                              -->
+<!-- (3) CoCalc worksheet (parameter causes a single file for output)                             -->
+<!--     REMOVE the "X" in the double dash (which is not legal in an XML comment)                 -->
+<!--     xsltproc -X-stringparam chunk.level 0 PATH_TO/mathbook/xsl/pretext-smc.xsl source/main.ptx   -->
+<!--     <CoCalc> minimal.sagews                                                                  -->
+<!--                                                                                              -->
+<!-- (4) Sage doctesting                                                                          -->
+<!--     REMOVE the "X" in the double dash (which is not legal in an XML comment)                 -->
+<!--     xsltproc -X-stringparam chunk.level 0 PATH_TO/mathbook/xsl/pretext-sage-doctest.xsl source/main.ptx  -->
+<!--     <read further instructions in> minimal.py                                                -->
+<!-- =================================================================================================== -->
+
+<chapter xml:id="Chap-Some_Base_Results">
+
+
+
+<!-- =================================================================================================== -->
+<!-- Title and Other Preliminaries -->
+<!-- =================================================================================================== -->
+        <title>Some Base Results</title>
+
+        <!-- <frontmatter> -->
+
+<!--             <titlepage>
+                <author>
+                    <institution>University of Newcastle</institution>
+                </author>
+                <date><today /></date>
+            </titlepage> -->
+
+            <!-- <abstract>
+                <p>This is a very short article, but it still exercises some advanced features of MathBook XML.</p>
+            </abstract> -->
+
+        <!-- </frontmatter> -->
+
+        <introduction>
+
+            <theorem>   
+                <statement>
+                    <p>
+                    Let <m>b\gt 1</m> be a positive integer. Then each <m>n\in\mathbb{N}</m> can be written uniquely in the form
+                    <me>n = a_mb^m + a_{m-1}b^{m-1} +\cdots + a_1b + a_0,</me>
+                    where <m>m</m> is a nonnegative integer and <m>a_i \in \{0,..., b-1\}</m> for each <m>i =0,..., m</m> with <m>a_m \neq 0.</m>
+                    </p>
+                </statement>
+                <proof>
+                    <p>
+                    We successively apply the division algorithm, first dividing <m>n</m> by <m>b</m> to obtain
+                    <me>n = bq_0 + a_0, \hspace{5mm} (0\leq a_0 \leq b-1).</me>
+                    If <m>q_0</m> is zero, we are done and <m>n = a_0.</m> Otherwise continue this process, ending if every <m>q_i = 0,</m> to give a sequence of equalities,
+                    <md>
+                        <mrow>q_0 \amp= bq_1 + a_1</mrow>
+                        <mrow>q_1 \amp= bq_2 + a_2</mrow>
+                        <mrow>\amp\vdots</mrow>
+                        <mrow>q_{m-2} \amp= bq_{m-1} + a_{m-1}</mrow>
+                        <mrow>q_{m-1} \amp= b\cdot 0 + a_m,</mrow>
+                    </md>
+                    where for each <m>i, 0\leq a_i\leq b-1,</m> and the quotient <m>0</m> is eventually obtained since
+                    <me>n\gt q_0\gt q_1\gt \cdots \geq 0.</me>
+                    Substituting the equations back starting with the first and going to the last gives such a representation.
+                    </p>
+                    <p>
+                    For uniqueness, suppose that we have two representations
+                    <md>
+                        <mrow>n \amp= a_mb^m + a_{m-1}b^{m-1} +\cdots + a_1b + a_0</mrow>
+                        <mrow>\amp= c_mb^m + c_{m-1}b^{m-1} +\cdots + c_1b + c_0,</mrow>
+                    </md>
+                    where <m>0\leq a_i, c_i\leq b-1</m> and if where if needed we have padded the higher indices of one of the expansions with zeros. Now subtracting the expansions from each other, we have
+                    <me>(a_m-c_m)b^m + (a_{m-1}-c_{m-1})b^{m-1} +\cdots + (a_1-c_1)b + (a_0-c_0)=0.</me>
+                    If the two expansions are different, then there is a minimal integer <m>j \hspace{2mm} (0\leq j\leq m)</m> such that <m>a_j-c_j\neq 0.</m> Thus
+                    <me>b^j((a_m-c_m)b^{m-j} + (a_{m-1}-c_{m-1})b^{m-j-1} +\cdots + (a_j-c_j))=0,</me>
+                    so that
+                    <me>(a_m-c_m)b^{m-j} + (a_{m-1}-c_{m-1})b^{m-j-1} +\cdots + (a_{j+1}-c_{j+1})b=-(a_j-c_j),</me>
+                    and <m>b\vert (a_j-c_j).</m> But this is possible only if <m>a_j = c_j,</m> a contradiction, so the expansion is unique.
+                    </p>
+                </proof>
+            </theorem>
+
+            <p>
+            We write the base-<m>b</m> expansion of an integer <m>n</m> (as in the above theorem) as
+            <me>n = (a_ma_{m-1}\cdots a_1a_0)_b = a_mb^m+a_{m-1}b^{m-1}+\cdots +a_1b+a_0.</me>
+            </p>
+
+            <theorem>
+                <statement>
+                    <p>
+                    Let <m>\xi\in [0, 1)</m> be a real number, and let <m>b\gt 1</m> be a positive integer. Then <m>\xi</m> can be uniquely written as 
+                    <me>\xi=\sum_{i\geq 1}\frac{c_i}{b^i},</me>
+                    where the integers <m>c_i\in \{0,..., b-1\}</m> for <m>i\geq 1,</m> with the restriction that for every positive integer <m>N</m> there is an integer <m>n\geq N</m> such that <m>c_n\neq b-1.</m>
+                    </p>
+                </statement>
+                <proof>
+                    <p>
+                    Let <m>c_1:= \lfloor b\xi\rfloor,</m> so that <m>0\leq c_1\leq b-1</m> and set
+                    <me>\xi_1 := b\xi-c_1 = \{b\xi\},</me>
+                    so <m>\xi_1\in [0, 1)</m> and
+                    <me>\xi = \frac{c_1}{b}+\frac{\xi_1}{b}.</me>
+                    We recursively define for <m>k\geq 2</m>
+                    <me>c_k := \lfloor b\xi_{k-1}\rfloor \hspace{5mm} \mathrm{and} \hspace{5mm} \xi_k = b\xi_{k-1}- c_k = \{b\xi_k\}</me>
+                    so that <m>0\leq c_k\leq b-1</m> and <m>\xi_k\in [0, 1).</m> Then we have
+                    <me>\xi = \frac{c_1}{b}+\frac{c_2}{b^2}+\cdots +\frac{c_n}{b^n}+\frac{\xi_n}{b^n}.</me>
+                    Since <m>\xi_n\in [0, 1),</m> we have
+                    <me>\lim_{n\rightarrow\infty}\frac{\xi_n}{b^n}=0,</me>
+                    and so
+                    <me>\xi=\lim_{n\rightarrow\infty}\left(\frac{c_1}{b}+\frac{c_2}{b^2}+\cdots +\frac{c_n}{b^n}\right)=\sum_{i\geq 1}\frac{c_i}{b^i}.</me>
+                    </p>
+                    <p>
+                    For uniqueness, assume that there are two different expansions
+                    <me>\xi=\sum_{i\geq 1}\frac{c_i}{b^i}=\sum_{i\geq 1}\frac{d_i}{b^i},</me>
+                    where <m>0\leq c_i\leq b-1</m> and <m>0\leq d_i\leq b-1</m> and for each integer <m>N,</m> there are <m>n</m> and <m>m</m> larger than <m>N</m> such that <m>c_n \neq b-1</m> and <m>d_m \neq b-1.</m> Suppose that <m>k</m> is the smallest index for which <m>c_k \neq d_k.</m> Without loss of generality we assume that <m>c_k\gt d_k.</m> Then
+                    <me>0 = \sum_{i\geq 1}\frac{c_i-d_i}{b^i}=\frac{c_k-d_k}{b^k}+\sum_{i\geq k+1}\frac{c_i-d_i}{b^i},</me>
+                    so that 
+                    <me>\frac{c_k-d_k}{b^k}=\sum_{i\geq k+1}\frac{d_i-c_i}{b^i}.</me>
+                    But one easily sees that
+                    <me>\frac{1}{b^k}\leq \frac{c_k-d_k}{b^k}=\sum_{i\geq k+1}\frac{d_i-c_i}{b^i}\lt \sum_{i\geq k+1}\frac{b-1}{b^i}=(b-1)\frac{1/b^{k+1}}{1-1/b}=\frac{1}{b^k}.</me>
+                    This contradiction proves uniqueness and the theorem. 
+                    </p>
+                </proof>
+            </theorem>
+
+            <p>
+            We write the base-<m>b</m> expansion of a real number <m>\xi\in [0, 1)</m> (as in the above theorem) as 
+            <me>\xi = (0.c_1c_2c_3...)_b =\sum_{i\geq 1}\frac{c_i}{b^i}.</me>
+            </p>
+
+            <definition>
+                <p>
+                The base-<m>b</m> expansion <m>(0.c_1c_2c_3...)_b</m> is said to <term>terminate</term> if there is a positive integer <m>N</m> such that <m>c_n = 0</m> for all <m>n\geq N.</m>
+                </p>
+            </definition>
+
+            <theorem>   
+                <statement>
+                    <p>
+                    There real number <m>\xi\in [0, 1)</m> has a terminating base-<m>b</m> expansion if and only if <m>\xi\in \mathbb{Q}</m> and <m>\xi = r/s,</m> where <m>0\leq r\lt s</m> are integers and every prime factor of <m>s</m> divides <m>b.</m>
+                    </p>
+                </statement>
+                <proof>
+                    <p>
+                    Suppose that <m>\xi</m> has a terminating base-<m>b</m> expansion. Then
+                    <me>\xi = (.c_1c_2...c_n)_b =\frac{c_1}{b}+\frac{c_2}{b^2}+\cdots +\frac{c_n}{b^n}=\frac{c_1b^{n-1}+c_2b^{n-2}+\cdots +c_n}{b^n},</me>
+                    so that <m>\xi</m> is rational and can be written with a denominator only divisible by primes dividing <m>b.</m>
+                    </p>
+                    <p>Now suppose that <m>\xi\in [0, 1)</m> and <m>\xi = r/s</m> where each prime dividing <m>s</m> divides <m>b.</m> Then there is an <m>N</m> such that <m>s\vert b^N,</m> so there is an integer <m>a</m> such that <m>sa = b^N.</m> Then
+                    <me>b^N\xi=b^Nr/s=ar\in\mathbb{N}.</me>
+                    Now let <m>(a_ma_{m-1}\cdots a_1a_0)_b</m> be the base-<m>b</m> expansion of <m>ar.</m> Then
+                    <md>
+                        <mrow>\xi =\frac{ar}{b^N}=\frac{a_mb^{m}+\cdots +a_1b+a_0}{b^N} \amp=a_mb^{m-N}+\cdots +a_1b^{1-N}+a_0b^{-N}</mrow>
+                        <mrow>\amp=(.00...0a_ma_{m-1}...a_1a_0)_b,</mrow>
+                    </md>
+                    which is a terminating base-<m>b</m> expansion.
+                    </p>
+                </proof>
+            </theorem>
+
+            <definition>
+                <p>
+                A base-<m>b</m> expansion <m>(.c_1c_2c_3...)_b</m> is called <term>periodic</term> if there are <m>N, k\in\mathbb{N}</m> such that <m>c_{n+k} = c_n</m> for all <m>n\geq \mathbb{N}.</m> If <m>N\gt 1,</m> we call the part <m>c_1c_2...c_{N-1}</m> the <term>pre-period</term> and the part <m>c_Nc_{N+1}c_{N+k-1}</m> the <term>period</term> where here <m>k</m> is minimal with respect to this property.
+                </p>
+            </definition>
+
+            <theorem xml:id="Theorem_8_4">
+                <statement>
+                    <p>
+                    Let <m>b\gt 1</m> be a positive integer. Then a periodic base-<m>b</m> expansion represents a rational number, and conversely, the base-<m>b</m> expansion of a rational number either terminates or is eventually periodic. Moreover, if <m>\xi\in (0, 1)\cap \mathbb{Q}</m> with <m>\xi = r/s</m> with <m>\gcd(r, s) = 1,</m> and <m>s = TU</m> where every prime factor of <m>T</m> divides <m>b</m> and <m>\gcd(U, b) = 1,</m> then the period length of the base-<m>b</m> expansion of <m>\xi</m> is the order of <m>b</m> modulo <m>U,</m> and the pre-period length is <m>N,</m> where <m>N</m> is the smallest positive integer such that <m>T \vert b^N.</m>
+                    </p>
+                </statement>
+                <proof>
+                    <p>
+                    For the first part of the theorem, suppose that <m>\xi</m> has an eventually periodic base-<m>b</m> expansion, so that
+                    <md>
+                        <mrow>\xi \amp= (.c_1c_2...c_N \overline{c_{N+1}c_{N+2}...c_{N+k}})_b</mrow>
+                        <mrow>\amp=\frac{c_1}{b}+ \frac{c_2}{b^2}+\cdots +\frac{c_N}{b^N}+\left(\sum_{j\geq 0}\frac{1}{b^{jk}}\right)\left(\frac{c_{N+1}}{b^{N+1}}+ \frac{c_{N+2}}{b^{N+2}}+\cdots +\frac{c_{N+k}}{b^{N+k}} \right) </mrow>
+                        <mrow>\amp=\frac{c_1}{b}+ \frac{c_2}{b^2}+\cdots +\frac{c_N}{b^N}+\left(\frac{b^k}{b^k-1}\right)\left(\frac{c_{N+1}}{b^{N+1}}+ \frac{c_{N+2}}{b^{N+2}}+\cdots +\frac{c_{N+k}}{b^{N+k}} \right).</mrow>
+                    </md>
+                    Since <m>\xi</m> is a sum of rational numbers it is rational. 
+                    </p>
+                    <p>
+                    Now suppose that <m>\xi\in (0, 1), \xi = r/s</m> where <m>\gcd(r, s) = 1, s = TU</m> where every prime dividing <m>T</m> divides <m>b</m> and <m>\gcd(U, b) = 1.</m> Let <m>N</m> be the smallest integer such that <m>T\vert b^N.</m>
+                    </p>
+                    <p>Because <m>T\vert b^N,</m> there is a positive integer <m>a</m> such that <m>aT = b^N.</m> Thus
+                    <me>b^N\xi = b^N\frac{r}{TU}=\frac{ar}{U}=A+\frac{C}{U}</me>
+                    where <m>A</m> and <m>C</m> are integers with 
+                    <me>0\leq A\lt b^N \hspace{5mm} \mathrm{and} \hspace{5mm} 0\lt C\lt U</me>
+                    and <m>\gcd(C, U) = 1.</m> Now since <m>A</m> is a positive integer, it has a base-<m>b</m> expansion, say <m>A = (a_na_{n-1}...a_1a_0)_b.</m>
+                    </p>
+                    <p>
+                    If <m>U = 1,</m> then the base-<m>b</m> expansion of <m>\xi</m> terminates as shown previously. Otherwise, since <m>\gcd(U, b) = 1,</m> we let <m>v\geq 1</m> be the order of <m>b</m> modulo <m>U.</m> Then
+                    <men xml:id="Eq_8_1">b^v\frac{C}{U}=(tU+1)\frac{C}{U}=tC+\frac{C}{U},</men>
+                    for some integer <m>t,</m> since <m>b^v\equiv 1\pmod{U}.</m> But also, we have
+                    <men xml:id="Eq_8_2">b^v\frac{C}{U}=b^v\left(\frac{c_1}{b}+\frac{c_2}{b^2}+\cdots +\frac{c_v}{b^v}+\frac{\gamma_v}{b^v}\right),</men>
+                    where <m>(.c_1c_2...)_b</m> is the base-<m>b</m> expansion of <m>\dfrac{C}{U},</m> so that for <m>k\geq 1,</m>
+                    <me>c_k=\lfloor b\gamma_{k-1}\rfloor \hspace{5mm} \mathrm{and} \hspace{5mm} \gamma_k=b\gamma_{k-1}-\lfloor b\gamma_{k-1}\rfloor,</me>
+                    and <m>\gamma_0 =\dfrac{C}{U}.</m> From <xref ref="Eq_8_2"/> we see that
+                    <men xml:id="Eq_8_3">b^v\frac{C}{U}=(c_1b^{v-1}+c_2b^{v-2}+\cdots +c_v)+\gamma_v.</men>
+                    Equating the fractional parts of <xref ref="Eq_8_1"/> and <xref ref="Eq_8_3"/>, since <m>\gamma_v\in [0, 1),</m> we have
+                    <me>\gamma_v =\frac{C}{U}=\gamma_0,</me>
+                    and so conclude that <m>c_{k+v} = c_k</m> for <m>k\geq 1.</m> Hence <m>C/U = (.\overline{c_1c_2...c_v})_b</m> has a periodic base-<m>b</m> expansion. Thus
+                    <me>b^N \xi = A +\frac{C}{U}= (a_na_{n-1}...a_1a_0.\overline{c_1c_2...c_v})_b,</me>
+                    so that dividing both sides by <m>b^N</m> gives
+                    <me>\xi = A +\frac{C}{U}= (.\underbrace{00...0a_na_{n-1}...a_1a_0}_{N \hspace{1.5mm} \mathrm{base}-b \hspace{1.5mm} \mathrm{digits}} \overline{c_1c_2...c_v})_b.</me>
+                    So in this case, the preperiod length is <m>N</m> and the period length is <m>v.</m>
+                    </p>
+                    <p>
+                    To finish the proof we must show that one cannot regroup the base-<m>b</m> expansion of <m>\xi</m> so that either the preperiod or the period are shorter. To do this, suppose that
+                    <md>
+                        <mrow>\xi \amp= (.c_1...c_{M}\overline{c_{M+1}...c_{M+k}})_b</mrow>
+                        <mrow>\amp = \frac{c_1}{b}+\frac{c_2}{b^2}+\cdots +\frac{c_M}{b^M}+\left(\frac{b^k}{b^k-1}\right)\left(\frac{c_{M+1}}{b^{M+1}}+ \frac{c_{M+2}}{b^{M+2}}+\cdots +\frac{c_{M+k}}{b^{M+k}}\right)</mrow>
+                        <mrow>\amp = \frac{(c_1b^{M-1}+c_2b^{M-2}+\cdots +c_M)(b^k-1)+(c_{M+1}b^{k-1}+\cdots +c_{M+k})}{b^M(b^k-1)}.</mrow>
+                    </md>
+                    Because <m>\xi = r/s</m> with <m>\gcd(r, s) = 1,</m> we see that <m>s\vert b^M(b^k-1).</m> So <m>T\vert b^M</m> and <m>U\vert b^k-1.</m> Since <m>N</m> was minimal, <m>M\geq N,</m> and since <m>v</m> is the order of <m>b</m> modulo <m>U, v\vert k</m> (so <m>v\leq k</m>). This proves the theorem.
+                    </p>
+                </proof>
+            </theorem>
+
+            <p>
+            To write <m>a/k</m> in the base <m>b,</m> we use a sort of modified division algorithm; see <xref ref="Figure_8_1"/>. We record here facts about the base-<m>b</m> algorithm, which we will need for our final results. 
+            </p>
+
+            <figure xml:id="Figure_8_1">
+                <caption>The base-<m>b</m> algorithm for the reduced rational <m>a/k\lt 1.</m></caption>
+                <image source="./Images/Figure_8_1.png" width="80%"/>
+            </figure>
+
+            <lemma xml:id="Lemma_8_1">
+                <statement>
+                    <p>
+                    Suppose <m>b, k\geq 2</m> are coprime, and that <m>r_j</m> and <m>q_j</m> are defined by the base-<m>b</m> algorithm for <m>a/k.</m> Then <m>\gcd(r_i, k) = 1.</m>
+                    </p>
+                </statement>
+                <proof>
+                    <p>
+                    Suppose that <m>p\vert k,</m> and proceed by induction on <m>i.</m> Firstly, <m>r_0 = a</m> and by assumption <m>\gcd(r_0, k) = \gcd(a, k) = 1.</m> Now suppose that <m>\gcd(r_i, k) = 1,</m> so that also <m>\gcd(r_ib, k) = 1.</m> Then 
+                    <me>r_{i+1} = r_ib-q_{i+1}k\equiv r_ib \not\equiv 0 \pmod{p},</me>
+                    since <m>\gcd(b, k) = 1.</m> Thus <m>\gcd(r_{i+1}, k) = 1.</m>
+                    </p>
+                </proof>
+            </lemma>
+
+            <p>
+            Also, we have that equivalent <m>r_j</m> give equal <m>q_j.</m>
+            </p>
+
+            <lemma xml:id="Lemma_8_2">
+                <statement>
+                    <p>
+                    Suppose <m>b, k\geq 2</m> are coprime, and that <m>r_j</m> and <m>q_j</m> are defined by the base-<m>b</m> algorithm for the reduced fraction <m>a/k.</m> We have <m>r_i\equiv r_j\pmod{b}</m> if and only if <m>q_i=q_j.</m>
+                    </p>
+                </statement>
+                <proof>
+                    <p>
+                    Suppose that <m>r_i \equiv r_j \pmod{b}.</m> By considering the difference between <m>r_{i-1}b = q_ik + r_i</m> and <m>r_{j-1}b = q_jk + r_j</m> modulo <m>b,</m> we see that <m>b\vert (q_i-q_j)k,</m> so that since <m>\gcd(b, k) = 1,</m> we have that <m>b\vert (q_i-q_j).</m> Since <m>q_i, q_j \in \{0, 1,..., b-1\},</m> we thus have that <m>q_i = q_j.</m> 
+                    </p>
+                    <p>
+                    Conversely, suppose that <m>q_i = q_j.</m> Here, again, we can consider the difference between the defining equations for <m>q_i</m> and <m>q_j</m> modulo <m>b;</m> this gives the desired result.
+                    </p>
+                </proof>
+            </lemma>
+
+            <p>
+            Indeed, the value of <m>q_j</m> is determined by the residue class of <m>r_j</m> modulo <m>b</m> and the value of <m>k^{-1}</m> modulo <m>b.</m>
+            </p>
+            
+            <lemma xml:id="Lemma_8_3">
+                <statement>
+                    <p>
+                    Suppose <m>b, k\geq 2</m> are coprime, and that <m>r_j</m> and <m>q_j</m> are defined by the base-<m>b</m> algorithm for the reduced fraction <m>a/k.</m> We have <m>r_i\equiv r_j\pmod{b}</m> if and only if <m>q_i\equiv -jk^{-1}\pmod{b},</m> where <m>q_i\in\{0,1,...,b-1\}.</m>
+                    </p>
+                </statement>
+                <proof>
+                    <p>
+                    If <m>r_i \equiv j\pmod{b},</m> then the equation <m>r_{i-1}b = q_ik + r_i</m> gives <m>q_ik \equiv -j \pmod{b},</m> which in turn gives that <m>q_i \equiv -jk^{-1}\pmod{b}.</m> Since <m>q_i\in [0, b-1]</m> we are done with this direction of proof.
+                    </p>
+                    <p>
+                    Conversely, suppose that <m>q_i = -jk^{-1}\pmod{b}.</m> Then surely, <m>q_i\equiv -jk^{-1}\pmod{b}</m> and so <m>q_ik \equiv -j\pmod{b}.</m> Thus, again using <m>r_{i-1}b = q_ik + r_i,</m> we have that <m>r_i \equiv j \pmod{b}.</m>
+                    </p>
+                </proof>
+            </lemma>
+
+            <p>
+            The following Lemma is a direct corollary of <xref ref="Lemma_8_3"/>. 
+            </p>
+
+            <lemma xml:id="Lemma_8_4">
+                <statement>
+                    <p>
+                    Suppose <m>b, k\geq 2</m> are coprime, and that <m>r_j</m> and <m>q_j</m> are defined by the base-<m>b</m> algorithm for the reduced fraction <m>a/k.</m> We have <m>r_i\equiv 0\pmod{b}</m> if and only if <m>q_i=0.</m>
+                    </p>
+                </statement>
+                <proof>
+                    <p>
+                    Apply <xref ref="Lemma_8_3"/> with <m>j=0.</m>
+                    </p>
+                </proof>
+            </lemma>
+
+            <p>
+            <xref ref="Theorem_8_4"/> tells us that the base <m>b</m> expansion of <m>a/k</m> is purely periodic (recall for us <m>\gcd(b, k) = 1),</m> and that the minimal period is <m>\mathrm{ord}_kb,</m> which divides <m>\varphi(k),</m> so that this also is a period. This result can be exploited using a result on primitive roots. Indeed, applying <xref ref="Theorem_7_10"/> gives the following result.
+            </p>
+
+            <theorem>
+                <statement>
+                    <p>
+                    Let <m>0\lt a/p^m \lt 1</m> be a rational number in lowest terms and let <m>b\geq 2</m> be an integer that is a primitive root of <m>p^2.</m> Suppose that <m>(1/p^m)_b = .q_1q_2...q_n</m> is given by the base <m>b</m> algorithm. Then
+                    <me>\left(\frac{a}{p^m}\right)_b=.\overline{q_{\sigma(1)}q_{\sigma(2)}...q_{\sigma(n)}}</me>
+                    where <m>\sigma</m> is a cyclic shift on <m>n</m> letters.
+                    </p>
+                </statement>
+                <proof>
+                    <p>
+                    This is a direct consequence of the base-<m>b</m> algorithm.
+                    </p>
+                </proof>
+            </theorem>
+
+            <p>
+            As a consequence of the above lemmas we are able to provide the following characterisation of certain base-<m>b</m> expansions.
+            </p>
+
+            <theorem>
+                <statement>
+                    <p>
+                    Let <m>m\geq 1</m> be an integer, <m>p</m> be an odd prime, <m>b\geq 2</m> be an integer coprime to <m>p,</m> and <m>q_j</m> and <m>r_j</m> be given by the base-<m>b</m> algorithm for the reduced fraction <m>a/p^m.</m> If <m>b</m> is a primitive root of <m>p</m> and <m>p^2,</m> then <m>\mathrm{period}(a/p^m) = \varphi(p)</m> and
+                    <me>\# \{j\leq \varphi(p^m):q_j=0\}=\left\lfloor\frac{p^m}{b}\right\rfloor-\left\lfloor\frac{p^{m-1}}{b}\right\rfloor.</me>
+                    </p>
+                </statement>
+                <proof>
+                    <p>
+                    The fact that <m>\mathrm{period}(a/p^m)_b = \varphi(p^m)</m> follows directly from <m>b</m> being a primitive root of <m>p</m> and <m>p^2,</m> <xref ref="Theorem_7_10"/> and <xref ref="Theorem_8_4"/>. This further implies that the <m>\varphi(p^m)</m> values of <m>r_i</m> given by the base-<m>b</m> algorithm for <m>a/p^m</m> are distinct. Applying <xref ref="Lemma_8_1"/> gives that
+                    <men xml:id="Eq_8_4">\{r_1, r_2,..., r_{\varphi(p^m)}\} = \{i \leq p^m:\gcd(i, p) = 1\}.</men> 
+                    Also recall that 
+                    <me>\left(\frac{a}{p^m}\right)_b=.\overline{q_1q_1\cdots q_{\varphi(p^m)}},</me>
+                    and that by <xref ref="Lemma_8_4"/>, <m>q_i = 0</m> if and only if <m>r_i \equiv 0\pmod{b}.</m> Note that there are exactly
+                    <me>\left\lfloor\frac{p^m}{b}\right\rfloor-\left\lfloor\frac{p^m}{bp}\right\rfloor=\left\lfloor\frac{p^m}{b}\right\rfloor-\left\lfloor\frac{p^{m-1}}{b}\right\rfloor</me>
+                    elements of <m>\{i \leq p^m: \gcd(i, p) = 1\}</m> which are divisible by <m>b.</m> Thus using the set equality <xref ref="Eq_8_4"/>, we have that there are exactly <m>\lfloor p^m/b\rfloor-\lfloor p^{m-1}/b\rfloor</m> elements of <m>\{r_1, r_2,..., r_{\varphi(p^m)}\}</m> divisible by <m>b.</m> Appealing to <xref ref="Lemma_8_4"/> we then have that there are <m>\lfloor p^m/b\rfloor-\lfloor p^{m-1}/b\rfloor</m> of <m>q_1, q_2,..., q_{\varphi(p^m)}</m> such that <m>q_j=0.</m>
+                    </p>
+                </proof>
+            </theorem>
+
+            <p>
+            Note that while we record the <m>q_i = 0</m> case because of its simplicity, the method can be applied to count any value of <m>q_i</m> that is desired by using the appropriate case of <xref ref="Lemma_8_3"/>. 
+            </p>
+            
+
+        </introduction>
+
+
+<!-- =================================================================================================== -->
+
+
+</chapter>

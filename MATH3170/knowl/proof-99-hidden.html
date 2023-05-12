@@ -1,0 +1,35 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-11-10T14:15:20+11:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math"><article class="hiddenproof"><p>Let <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(r\)</span> be a primitive root of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(p.\)</span> Note that the powers <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(r, r^2, r^3,...,r^{p-1}\)</span> are just a permutation of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(1, 2, 3,..., p-1,\)</span> since they are incongruent modulo <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(p.\)</span> So for any a between <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(1\)</span> and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(p-1,\)</span> inclusive, we have that there is a unique <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(k\)</span> with <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(1\leq k\leq p- 1,\)</span> such that</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+a \equiv r^k\pmod{p}.
+\end{equation*}
+</div>
+<p class="continuation">Now by Euler's Criterion, we have</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+(a/p) = (r^k/p) \equiv (r^k)^{(p-1)/2} = (r^{(p-1)/2})^k \equiv (-1)^k\pmod{p}
+\end{equation*}
+</div>
+<p class="continuation">where <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(r^{(p-1)/2} \equiv -1\pmod{p}\)</span> by Euler's Criterion since <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(r\)</span> is a primitive root modulo <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(p.\)</span> Hence <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\((a/p) = (-1)^k\)</span> since <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\((a/p)\)</span> is either <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(1\)</span> or <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(-1.\)</span> Thus</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\sum_{a=1}^{p-1}(a/p)=\sum_{k=1}^{p-1}(-1)^k=0
+\end{equation*}
+</div>
+<p class="continuation">since <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(p-1\)</span> is even.</p></article></body>
+</html>

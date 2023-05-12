@@ -1,0 +1,610 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- =================================================================================================== -->
+<!-- To process this file with xsltproc do                                                        -->
+<!--                                                                                              -->
+<!-- (1) LaTeX/PDF:                                                                               -->
+<!--     xsltproc -o minimal.tex PATH_TO/mathbook/xsl/pretext-latex.xsl source/main.ptx           -->
+<!--     pdflatex minimal.tex                                                                     -->
+<!--     xelatex minimal.tex                                                                      -->
+<!--                                                                                              -->
+<!-- (2) HTML:                                                                                    -->
+<!--     xsltproc PATH_TO/mathbook/xsl/pretext-html.xsl source/main.ptx                           -->
+<!--     <browser>  minimal.html                                                                  -->
+<!--        ~/xsltproc/xsltproc.exe ~/mathbook/xsl/mathbook-html.xsl test.xml                     -->
+<!--                                                                                              -->
+<!-- (3) CoCalc worksheet (parameter causes a single file for output)                             -->
+<!--     REMOVE the "X" in the double dash (which is not legal in an XML comment)                 -->
+<!--     xsltproc -X-stringparam chunk.level 0 PATH_TO/mathbook/xsl/pretext-smc.xsl source/main.ptx   -->
+<!--     <CoCalc> minimal.sagews                                                                  -->
+<!--                                                                                              -->
+<!-- (4) Sage doctesting                                                                          -->
+<!--     REMOVE the "X" in the double dash (which is not legal in an XML comment)                 -->
+<!--     xsltproc -X-stringparam chunk.level 0 PATH_TO/mathbook/xsl/pretext-sage-doctest.xsl source/main.ptx  -->
+<!--     <read further instructions in> minimal.py                                                -->
+<!-- =================================================================================================== -->
+
+<chapter xml:id="Chap-Quadratic_Residues">
+
+
+
+<!-- =================================================================================================== -->
+<!-- Title and Other Preliminaries -->
+<!-- =================================================================================================== -->
+        <title>Quadratic Residues</title>
+
+        <!-- <frontmatter> -->
+
+<!--             <titlepage>
+                <author>
+                    <institution>University of Newcastle</institution>
+                </author>
+                <date><today /></date>
+            </titlepage> -->
+
+            <!-- <abstract>
+                <p>This is a very short article, but it still exercises some advanced features of MathBook XML.</p>
+            </abstract> -->
+
+        <!-- </frontmatter> -->
+
+        <introduction>
+
+            <p>
+            Consider the quadratic congruence
+            <me>ax^2 + bx + c \equiv 0\pmod{p}</me>
+            where <m>p</m> is an odd prime, and <m>a \not\equiv 0\pmod{p},</m> so <m>\gcd(a, p) = 1.</m> Since <m>p</m> is an odd prime, <m>\gcd(4a, p) = 1,</m> so we can multiply each side by <m>4a</m> to get
+            <me>4a(ax^2 + bx + c) \equiv 0\pmod{p}.</me>
+            Now
+            <me>4a(ax^2 + bx + c) = (2ax + b)^2-(b^2-4ac)\equiv 0 \pmod{p}</me>
+            so that our congruence can be written
+            <me>(2ax + b)^2 \equiv (b^2-4ac) \pmod{p}.</me>
+            So we are interested in congruences of the form
+            <me>x^2 \equiv a\pmod{p}.</me>
+            If <m>y</m> is a solution, then <m>p-y</m> is also a solution, so the congruence has two solutions or no solutions.
+            </p>
+
+            <definition>
+                <p>
+                Let <m>p</m> be an odd prime, and <m>\gcd(a, p) = 1.</m> If the quadratic congruence <m>x^2\equiv a\pmod{p}</m> has a solution, then <m>a</m> is called a <term>quadratic residue of <m>p.</m></term> If not, then <m>a</m> is called a <term>quadratic nonresidue of <m>p.</m></term>
+                </p>
+            </definition>
+
+            <example>
+                <p>
+                Consider <m>p = 7.</m> Then
+                <md>
+                    <mrow> 1^2 \amp \equiv 1 \pmod{7} \hspace{10mm} 2^2 \equiv 4 \pmod{7}</mrow>
+                    <mrow>3^2 \amp \equiv 2 \pmod{7} \hspace{10mm} 4^2 \equiv 2 \pmod{7}</mrow>
+                    <mrow>5^2 \amp \equiv 4 \pmod{7} \hspace{10mm} 6^2 \equiv 1 \pmod{7}</mrow>
+                </md>
+                so that <m>1,2,4</m> are quadratic residues of <m>7,</m> and <m>3,5,6</m> are quadratic nonresidues of <m>7.</m>
+                </p>
+            </example>
+
+            <theorem>
+                <title>Euler's Criterion</title>
+                <statement>
+                    <p>
+                    Let <m>p</m> be an odd prime and <m>\gcd(a, p) =1.</m> Then <m>a</m> is a quadratic residue of <m>p</m> if and only if <m>a^{\frac{(p-1)}{2}} \equiv 1 \pmod{p}.</m>
+                    </p>
+                </statement>
+                <proof>
+                    <p>
+                    Suppose that <m>a</m> is a quadratic residue of <m>p,</m> so that <m>x^2 \equiv a\pmod{p}</m> has a solution, say <m>y.</m> Since <m>\gcd(a, p) = 1,</m> we have <m>\gcd(y, p) = 1,</m> and so using Fermat's Little Theorem we have 
+                    <me>a^{(p-1)/2}\equiv (y^2)^{(p-1)/2} = y^{p-1} \equiv 1\pmod{p}.</me>
+                    Conversely suppose that <m>a^{(p-1)/2} \equiv 1\pmod{p}</m> and let <m>r</m> be a primitive root of <m>p.</m> Then <m>a \equiv r^k\pmod{p}</m> for some <m>k</m> with <m>1\leq k\leq p-1.</m> So
+                    <me>r^{k(p-1)/2} \equiv a^{(p-1)/2} \equiv 1\pmod{p}.</me>
+                    But the order of <m>r</m> must divide <m>k(p-1)/2;</m> that is, <m>p-1\vert k(p- 1)/2,</m> so that <m>k</m> must be even, say <m>k = 2n</m> for some <m>n.</m> Thus
+                    <me>(r^n)^2 \equiv r^{2n} \equiv r^k \equiv a\pmod{p}</me>
+                    so that <m>r^n</m> is a solution to <m>x^2 \equiv a\pmod{p}</m> and <m>a</m> is a quadratic residue of <m>p.</m>
+                    </p>
+                </proof>
+            </theorem>
+
+            <corollary>
+                <statement>
+                    <p>
+                    Let <m>p</m> be an odd prime and <m>\gcd(a, p) = 1.</m> Then <m>a</m> is a quadratic residue or nonresidue of <m>p</m> according to whether 
+                    <me>a^{\frac{(p-1)}{2}} \equiv 1 \pmod{p} \hspace{5mm} \mathrm{or} \hspace{5mm} a^{\frac{(p-1)}{2}} \equiv -1 \pmod{p}.</me>
+                    </p>
+                </statement>
+                <proof>
+                    <p>
+                    Let <m>\gcd(a, p) = 1.</m> Then by Fermat's Little Theorem we have that 
+                    <me>a^{p-1}-1 = (a^{(p-1)/2}-1)(a^{(p-1)/2} + 1) \equiv 0\pmod{p},</me> 
+                    so that either 
+                    <me>a^{\frac{(p-1)}{2}} \equiv 1 \pmod{p} \hspace{5mm} \mathrm{or} \hspace{5mm} a^{\frac{(p-1)}{2}} \equiv -1 \pmod{p}.</me>
+                    If the first congruence holds, then <m>a</m> is a quadratic residue of <m>p.</m> If the first does not hold, then the second must, and <m>a</m> is a quadratic nonresidue of <m>p.</m>
+                    </p>
+                </proof>
+            </corollary>
+
+            <example>
+                <p>
+                Consider <m>p = 13.</m> Now 
+                <me>2^{(13-1)/2} = 2^6 = 64 \equiv 12 \equiv -1\pmod{13},</me>
+                and
+                <me>3^{(13-1)/2} = 3^6 = (27)^2 \equiv 1\pmod{13},</me>
+                so that <m>2</m> is a quadratic nonresidue of <m>13</m> and <m>3</m> is a quadratic residue of <m>13.</m>
+                </p>
+            </example>
+
+        
+        </introduction>
+
+
+<!-- =================================================================================================== -->
+
+<!-- =================================================================================================== -->
+<!-- Section 1: Legendre's Symbol-->
+<!-- =================================================================================================== -->
+    <section xml:id="Sec-Legendres_Symbol">
+        <title>Legendre's Symbol</title>
+
+        <definition>
+            <p>
+            Let <m>p</m> be an odd prime and let <m>\gcd(a, p) = 1.</m> The <term>Legendre symbol</term> <m>(a/p)</m> is defined by
+            <me>
+            (a/p) =
+            \begin{cases} 
+            1 \amp \hspace{5mm} if \hspace{2mm} a \hspace{2mm} is \hspace{2mm} a \hspace{2mm} quadratic \hspace{2mm} residue \hspace{2mm} of \hspace{2mm} p\\
+            -1 \amp \hspace{5mm} if \hspace{2mm} a \hspace{2mm} is \hspace{2mm} a \hspace{2mm} quadratic \hspace{2mm} nonresidue \hspace{2mm} of \hspace{2mm} p.
+            \end{cases}
+            </me>
+            </p>
+        </definition>
+
+        <example>
+            <p>
+            Again for <m>n = 7,</m> we have
+            <me>(1/7) = (2/7) = (4/7) = 1</me>
+            and
+            <me>(3/7) = (5/7) = (6/7) =-1.</me>
+            </p>
+        </example>
+
+        <theorem>
+            <statement>
+                <p>
+                Let <m>p</m> be an odd prime and let <m>a</m> and <m>b</m> be coprime to <m>p.</m> Then following properties hold:
+                <ol label="(a)">
+                    <li>If <m>a\equiv b\pmod{p},</m> then <m>(a/p) = (b/p).</m></li>
+                    <li><m>(a^2/p) = 1.</m></li>
+                    <li><m>(a/p)\equiv a^{(p-1)/2}\pmod{p}.</m></li>
+                    <li><m>(ab/p)=(a/p)(b/p).</m></li>
+                    <li><m>(1/p)\equiv 1 \hspace{2mm} \mathrm{and} \hspace{2mm} (-1/p)=(-1)^{(p-1)/2}.</m></li>
+                </ol>
+                </p>
+            </statement>
+            <proof>
+                <p>
+                For <m>(a):</m> If <m>a \equiv b\pmod{p},</m> then <m>x^2\equiv a\pmod{p}</m> and <m>x^2\equiv b\pmod{p}</m> have the same solution or both have no solution. In either case <m>(a/p) =(b/p).</m>
+                </p>
+                <p>
+                For <m>(b):</m> There is clearly a solution to <m>x^2\equiv a^2\pmod{p};</m> in fact, the integer <m>a</m> satisfies it. Thus <m>a^2</m> is a quadratic residue of <m>p,</m> and so <m>(a^2/p) = 1.</m>
+                </p>
+                <p>
+                For <m>(c):</m> This is just a restatement of the previous corollary.
+                </p>
+                <p>
+                For <m>(d):</m> Using <m>(c),</m> we have 
+                <me>(ab/p)\equiv (ab)^{(p-1)/2} = a^{(p-1)/2}b^{(p-1)/2}\equiv (a/p)(b/p)\pmod{p}.</me>
+                If <m>(ab/p) \neq (a/p)(b/p),</m> then since the Legendre symbol takes the values only <m>\pm 1,</m> we would have <m>1\equiv -1\pmod{p},</m> which implies that <m>p = 2,</m> a contradiction. Thus <m>(ab/p) = (a/p)(b/p).</m>
+                </p>
+                <p>
+                For <m>(e):</m> Note that <m>(1/p) = 1</m> since <m>1^2\equiv 1\pmod{p}</m> and <m>1</m> is a quadratic residue of <m>p.</m> If we let <m>a = -1</m> in part <m>(c),</m> then we have <m>(-1/p) =(-1)^{(p-1)/2)}</m> which is the desired result.
+                </p>
+            </proof>
+        </theorem>
+
+        <corollary>
+            <p>
+            If <m>p</m> is an odd prime, then 
+            <me>
+            (-1/p)=
+            \begin{cases} 
+            1 \amp \hspace{5mm} if \hspace{2mm} p\equiv 1\pmod{4}\\
+            -1 \amp \hspace{5mm} if \hspace{2mm}  p\equiv 3\pmod{4}. 
+            \end{cases}
+            </me>
+            </p>
+        </corollary>
+
+        <example>
+            <statement>
+                <p>
+                Is there a solution of the congruence <m>x^2\equiv -46\pmod{17}?</m> 
+                </p>
+            </statement>
+
+            <solution>
+                <p>
+                We need only evaluate <m>(-46/17).</m> Well 
+                <me>(-46/17) = (-1/17)(46/17) = (46/17).</me>
+                Since <m>46\equiv 12\pmod{17}</m> we have
+                <me>(46/17) = (12/17) = (3\cdot 2^2/17) = (3/17).</me>
+                Now
+                <me>(3/17) \equiv 3^{(17-1)/2} = 3^8 ≡ (81)^2 \equiv (-4)^2 \equiv -1\pmod{17}</me>
+                and so
+                <me>(46/17) = -1</me>
+                so <m>-46</m> is not a quadratic residue of <m>17,</m> and so the congruence <m>x^2\equiv -46\pmod{17}</m> has no solution.
+                </p>
+            </solution>
+        </example>
+
+        <theorem>
+            <statement>
+                <p>
+                There are infinitely many primes of the form <m>4k + 1.</m>
+                </p>
+            </statement>
+            <proof>
+                <p>
+                As is always the case, we suppose that there are only finitely many primes of the form <m>4k + 1,</m> say <m>p_1, p_2,..., p_n</m> and consider
+                <me>N = (2p_1p_2\cdots p_n)^2+1.</me>
+                Since <m>N</m> is odd, there is an odd prime <m>p</m> that divides <m>N.</m> So
+                <me>(2p_1p_2\cdots p_n)^2\equiv -1\pmod{p},</me>
+                which says that <m>(-1/p) = 1.</m> Since
+                <me>(-1/p) = (-1)^{(p-1)/2} = 1</me>
+                it must be the case, that <m>p \equiv 1\pmod{4},</m> or rather, <m>p</m> is of the form <m>4k + 1</m> and so <m>p = p_i</m> for some <m>i.</m> But
+                <me>p = p_i\vert N -(2p_1p_2\cdots p_n)^2 = 1 \Rightarrow p_i\vert 1,</me>
+                a contradiction. Thus there are infinitely many primes of the form <m>4k +1.</m>
+                </p>
+            </proof>
+        </theorem>
+
+        <theorem>
+            <statement>
+                <p>
+                If <m>p</m> is an odd prime, then
+                <me>\sum_{a=1}^{p-1}(a/p)=0.</me>
+                </p>
+            </statement>
+            <proof>
+                <p>
+                Let <m>r</m> be a primitive root of <m>p.</m> Note that the powers <m>r, r^2, r^3,...,r^{p-1}</m> are just a permutation of <m>1, 2, 3,..., p-1,</m> since they are incongruent modulo <m>p.</m> So for any a between <m>1</m> and <m>p-1,</m> inclusive, we have that there is a unique <m>k</m> with <m>1\leq k\leq p- 1,</m> such that 
+                <me>a \equiv r^k\pmod{p}.</me>
+                Now by Euler's Criterion, we have
+                <me>(a/p) = (r^k/p) \equiv (r^k)^{(p-1)/2} = (r^{(p-1)/2})^k \equiv (-1)^k\pmod{p}</me>
+                where <m>r^{(p-1)/2} \equiv -1\pmod{p}</m> by Euler's Criterion since <m>r</m> is a primitive root modulo <m>p.</m> Hence <m>(a/p) = (-1)^k</m> since <m>(a/p)</m> is either <m>1</m> or <m>-1.</m> Thus
+                <me>\sum_{a=1}^{p-1}(a/p)=\sum_{k=1}^{p-1}(-1)^k=0</me>
+                since <m>p-1</m> is even. 
+                </p>
+            </proof>
+        </theorem>
+
+        <corollary>
+            <p>
+            Let <m>p</m> be an odd prime. Then the number of quadratic residues of <m>p</m> is equal to the number of quadratic nonresidues of <m>p.</m>
+            </p>
+        </corollary>
+
+        <corollary>
+            <statement>
+                <p>
+                Let <m>r</m> be a primitive root of <m>p,</m> an odd prime. Then the quadratic residues of <m>p</m> are the even powers of <m>r</m> and the quadratic non-residues of <m>p</m> are the odd powers of <m>r.</m>
+                </p>
+            </statement>
+            <proof>
+                <p>
+                Since <m>(a/p) \equiv (-1)^k</m> in the above proof of the Theorem.
+                </p>
+            </proof>
+        </corollary>
+
+        <example>
+            <p>
+            Recall that <m>2</m> is a primitive root of <m>13.</m> Thus the quadratic residues of <m>13</m> are 
+            <me>2^2 ≡ 4, \hspace{2mm} 2^4 ≡ 3,\hspace{2mm} 2^6 ≡ 12,\hspace{2mm} 2^8 ≡ 9,\hspace{2mm} 2^10 ≡ 10,\hspace{2mm} 2^{12} \equiv 1\pmod{13}</me>
+            and the quadratic nonresidues are
+            <me>2^1 ≡ 2,\hspace{2mm} 2^3 ≡ 8,\hspace{2mm} 2^5 ≡ 6,\hspace{2mm} 2^7 ≡ 11,\hspace{2mm} 2^9 ≡ 5,\hspace{2mm} 2^{11}\equiv 7 \pmod{13}.</me>
+            </p>
+        </example>
+
+    </section>
+
+<!-- =================================================================================================== -->
+
+<!-- =================================================================================================== -->
+<!-- Section 2: Gauss' Lemma-->
+<!-- =================================================================================================== -->
+    <section xml:id="Sec-Gauss_Lemma">
+        <title>Gauss' Lemma</title>
+
+        <theorem>
+            <title>Gauss' Lemma</title>
+            <statement>
+                <p>
+                Let <m>p</m> be an odd prime and let <m>\gcd(a, p) =1.</m> If <m>n</m> denotes the number of integers in the set
+                <me>S =\left\{a, 2a, 3a,..., \frac{p-1}{2}a\right\}</me>
+                whose remainders upon division by <m>p</m> exceed <m>p/2,</m> then
+                <me>(a/p) = (-1)^n.</me>
+                </p>
+            </statement>
+            <proof>
+                <p>
+                Since <m>\gcd(a, p) = 1,</m> all of the <m>(p-1)/2</m> integers of <m>S</m> are incongruent modulo <m>p</m> and none are zero. Let <m>r_1,..., r_m</m> be those remainders upon division by <m>p</m> that are between <m>0</m> and <m>p/2 \hspace{2mm} (0\lt r_i \lt p/2)</m> and <m>s_1,..., s_n</m> be those remainders upon division by <m>p</m> that are between <m>p/2</m> and <m>p \hspace{2mm} (p/2 \lt s_i \lt p).</m> Then <m>m + n = (p-1)/2</m> and the integers
+                <me>r_1,..., r_m, p-s_1,..., p-s_n</me>
+                are all positive and less that <m>p/2.</m>
+                </p>
+                <p>
+                To show these integers are all distinct, we only need to show that <m>p-s_i</m> is not equal to any <m>r_j.</m> So assume to the contrary that
+                <me>p-s_i = r_j</me>
+                for some <m>i</m> and <m>j.</m> Then there exists <m>u, v \hspace{2mm} (1 \leq u, v\leq (p-1)/2)</m> such that <m>s_i \equiv ua\pmod{p}</m> and <m>r_j \equiv va\pmod{p}.</m> So
+                <me>(u + v)a \equiv s_i + r_j = p \equiv 0\pmod{p} \hspace{2mm}\Rightarrow \hspace{2mm} u + v \equiv 0\pmod{p},</me>
+                which is impossible since <m>1\leq u, v \leq (p- 1)/2.</m> 
+                </p>
+                <p>
+                So
+                <me>\{r_1,..., r_m, p-s_1,..., p-s_n\} = \{1, 2,..., (p-1)/2\},</me>
+                and so the product of them is <m>\left(\dfrac{p-1}{2}\right)!.</m> Now since the product of the remainders is also congruent modulo <m>p</m> to the product of the elements of <m>S,</m> we have
+                <md>
+                    <mrow>\left(\frac{p-1}{2}\right)! \amp = r_1\cdots r_m(p-s_1)\cdots (p-s_n)</mrow>
+                    <mrow>\amp = r_1\cdots r_m(-s_1)\cdots (-s_n)\pmod{p}</mrow>
+                    <mrow>\amp = (-1)^n r_1\cdots r_m(s_1)\cdots (s_n)\pmod{p}</mrow>
+                    <mrow>\amp = (-1)^n a\cdot 2a\cdots \left(\frac{p-1}{2}\right)a\pmod{p}</mrow>
+                    <mrow>\amp = (-1)^n a^{(p-1)/2}\left(\frac{p-1}{2}\right)! \pmod{p}</mrow>
+                </md>
+                so that since <m>\gcd\left(\left[\dfrac{(p-1)}{2}\right]!, p\right) = 1</m> we have
+                <me>1 \equiv (-1)^n a^{(p-1)/2}\pmod{p}.</me>
+                Some rearrangement and Euler's Criterion gives 
+                <me>(a/p) \equiv a^{(p-1)/2} \equiv (-1)^n \pmod{p}</me>
+                so that we have
+                <me>(a/p) = (-1)^n.</me>
+                </p>
+            </proof>
+        </theorem>
+                
+    </section>
+
+<!-- =================================================================================================== -->
+
+<!-- =================================================================================================== -->
+<!-- Section 3: The Floor Function-->
+<!-- =================================================================================================== -->
+    <section xml:id="Sec-The_Floor_Function">
+        <title>The Floor Function</title>
+
+        <definition>
+            <p>
+            Let <m>x\in\mathbb{R}.</m> Then <m>\lfloor x\rfloor</m> denotes the greatest integer less than or equal to <m>x.</m> This is sometimes called the integer part of <m>x.</m>
+            </p>
+        </definition>
+
+        <example>
+            <p>
+            We have
+            <me>\lfloor \pi\rfloor = 3</me>
+            and
+            <me>\lfloor 2 \rfloor = 2.</me>
+            </p>
+        </example>
+
+        <theorem>
+            <statement>
+                <p>
+                If <m>p</m> is an odd prime, then
+                <me>
+                (2/p)=
+                \begin{cases} 
+                1 \amp \hspace{5mm} if \hspace{2mm} p\equiv 1\pmod{8} \hspace{2mm} or \hspace{2mm} p\equiv 7\pmod{8}\\
+                -1 \amp \hspace{5mm} if \hspace{2mm}  p\equiv 3\pmod{8} \hspace{2mm} or \hspace{2mm} p\equiv 7\pmod{8}. 
+                \end{cases}
+                </me>
+                </p>
+            </statement>
+            <proof>
+                <p>
+                According to Gauss' Lemma <m>(2/p) = (-1)^n,</m> where <m>n</m> is the number of integers in the set
+                <me>S =\left\{2, 2(2), 3(2),..., \frac{p-1}{2}(2)\right\}</me>
+                whose remainders upon division by <m>p</m> are greater than <m>p/2.</m> Since every member of <m>S</m> is less than <m>p,</m> we may just count them. Now for <m>k</m> with <m>1 \leq k\leq (p-1)/2,</m> we have <m>2k\lt p/2</m> precisely when <m>k \lt p/4;</m> that is, there are <m>\lfloor p/4\rfloor</m> integers in <m>S</m> less than <m>p/2,</m> so there are
+                <me>n=\frac{p-1}{2}-\left\lfloor\frac{p}{4}\right\rfloor</me>
+                integers that are greater than <m>p/2.</m>
+                </p>
+                <p>
+                Now if <m>p</m> is an odd prime, then <m>p</m> is of the form <m>8k + 1, 8k + 3, 8k + 5,</m> or <m>8k + 7.</m>
+                </p>
+                <p>
+                If <m>p = 8k + 1,</m> then
+                <me>n = 4k-\left\lfloor 2k+\frac{1}{4}\right\rfloor = 4k-2k = 2k.</me>
+                If <m>p = 8k + 3,</m> then
+                <me>n = 4k+1-\left\lfloor 2k+\frac{3}{4}\right\rfloor = 4k+1-2k = 2k+1.</me>
+                If <m>p = 8k + 5,</m> then
+                <me>n = 4k+2-\left\lfloor 2k+1+\frac{1}{4}\right\rfloor = 4k+2-(2k+1) = 2k+1.</me>
+                If <m>p = 8k + 7,</m> then
+                <me>n = 4k+3-\left\lfloor 2k+1+\frac{3}{4}\right\rfloor = 4k+3-(2k+1) = 2k+2.</me>
+                Thus if <m>p = 8k+1</m> or <m>8k+7, n</m> is even and so <m>(2/p) = 1,</m> and if <m>p = 8k+3</m> or <m>8k + 5, n</m> is odd and so <m>(2/p) =-1.</m>
+                </p>
+            </proof>
+        </theorem>
+
+        <corollary>
+            <p>
+            If <m>p</m> is an odd prime, then
+            <me>(2/p)=(-1)^{\frac{p^2-1}{8}}.</me>
+            </p>
+        </corollary>
+
+        <theorem>
+            <statement>
+                <p>
+                There are infinitely many primes of the form <m>8k-1.</m>
+                </p>
+            </statement>
+            <proof>
+                <p>
+                Suppose there are finitely many primes of the form <m>8k-1,</m> say <m>p_1, p_2,..., p_n</m> and consider 
+                <me>N = (4p_1p_2\cdots p_n)^2-2.</me>
+                Note that since <m>N\gt 2</m> and <m>N = 2(2k-1)</m> for some <m>k,</m> there is at least one odd prime divisor of <m>N,</m> say <m>p.</m> So
+                <me>(4p_1p_2\cdots p_n)^2\equiv 2\pmod{p}</me>
+                or rather, <m>(2/p) = 1.</m> From a previous result, we have that <m>p \equiv \pm 1\pmod{8}.</m> If all of the odd prime divisors of <m>N</m> were of the form <m>8k + 1,</m> then <m>N</m> would be of the form <m>16a + 2</m> for some <m>a.</m> But <m>N</m> is of the form <m>16a- 2</m> for some <m>a.</m> So <m>N</m> must have a prime divisor <m>q</m> of the form <m>8k-1.</m> As before, <m>q\vert N</m> and <m>q\vert (4p_1p_2\cdots p_n)^2,</m> so that <m>q\vert 2,</m> which is impossible. Hence, there are infinitely many primes of the form <m>8k-1.</m>
+                </p>
+            </proof>
+        </theorem>
+
+    
+    </section>
+
+<!-- =================================================================================================== -->
+
+<!-- =================================================================================================== -->
+<!-- Section 4: An Important Lemma-->
+<!-- =================================================================================================== -->
+    <section xml:id="Sec-An_Important_Lemma">
+        <title>An Important Lemma</title>
+
+        <lemma>
+            <statement>
+                <p>
+                If <m>p</m> is an odd prime and <m>a</m> an odd integer, with <m>\gcd(a, p) = 1,</m> then
+                <me>(a/p)=(-1)^{\sum_{k=1}^{(p-1)/2}\lfloor ka/p\rfloor}.</me>
+                </p>
+            </statement>
+            <proof>
+                <p>
+                We use the same notation as in the proof of Gauss' Lemma. Consider the set of integers
+                <me>S = \left\{a, 2a, 3a, ..., \frac{p-1}{2}a\right\}.</me>
+                Divide each of these multiples of <m>a</m> by <m>p,</m> to get
+                <me>ka = \left\lfloor\frac{ka}{p}\right\rfloor p+t_k,</me>
+                where <m>0\leq t_k \lt p-1.</m> If <m>t_k\lt p/2,</m> then it is one of the integers <m>r_1,..., r_m;</m> if <m>t_k \gt p/2,</m> then it is one of the integers <m>s_1,..., s_n.</m>
+                </p>
+                <p>
+                Summing the elements of <m>S,</m> we have
+                <me>\sum_{k=1}^{(p-1)/2} ka =\sum_{k=1}^{(p-1)/2}\left\lfloor\frac{ka}{p}\right\rfloor p+t_k =\sum_{k=1}^{(p-1)/2}\left\lfloor\frac{ka}{p}\right\rfloor p+\sum_{k=1}^{m}r_k+\sum_{k=1}^{n}s_k.</me>
+                As in Gauss' Lemma we have that the <m>(p-1)/2</m> numbers
+                <me>r_1,..., r_m, p-s_1,..., p-s_n</me>
+                are just a rearrangement of <m>1, 2,...,(p-1)/2.</m> So
+                <me>\sum_{k=1}^{(p-1)/2} k =\sum_{k=1}^{m}r_k+\sum_{k=1}^{n}(p-s_k)=pn+\sum_{k=1}^{m}r_k-\sum_{k=1}^{n}s_k.</me>
+                Subtracting this equation from the last gives
+                <me>(a-1)\sum_{k=1}^{(p-1)/2} k =p\left(\sum_{k=1}^{(p-1)/2}\left\lfloor\frac{ka}{p}\right\rfloor -n\right) +2\sum_{k=1}^{n}s_k.</me>
+                Since <m>a</m> is an odd integer, we have that <m>p \equiv a \equiv 1\pmod{2},</m> so that modulo <m>2</m> we have,
+                <me>(0) \cdot \sum_{k=1}^{(p-1)/2}k \equiv 1\cdot \left(\sum_{k=1}^{(p-1)/2} \left\lfloor\frac{ka}{p}\right\rfloor-n\right)\pmod{2}.</me> 
+                This means that the sum and <m>n</m> have the same parity, so that
+                <me>(-1)^n=(-1)^{\sum_{k=1}^{(p-1)/2}\lfloor ka/p\rfloor},</me>
+                thus, by Gauss' Lemma
+                <me>(a/p)=(-1)^{\sum_{k=1}^{(p-1)/2}\lfloor ka/p\rfloor}.</me>
+                </p>
+            </proof>
+        </lemma>
+    
+    </section>
+
+<!-- =================================================================================================== -->
+
+<!-- =================================================================================================== -->
+<!-- Section 5: Quadratic Reciprocity-->
+<!-- =================================================================================================== -->
+    <section xml:id="Sec-Quadratic_Reciprocity">
+        <title>Quadratic Reciprocity</title>
+
+        <theorem>
+            <title>Quadratic Reciprocity Law</title>
+            <statement>
+                <p>
+                If <m>p</m> and <m>q</m> are distinct odd primes, then
+                <me>(p/q)(q/p)=(-1)^{\frac{p-1}{2}\frac{q-1}{2}}.</me>
+                </p>
+            </statement>
+            <proof>
+                <p>
+                To establish this theorem we just count the integer points in the rectangle in the following figure.
+                </p>
+
+                <figure xml:id="Fig_rectangle">
+                    <image source="./Images/Fig_rectangle.png" width="70%"/>
+                </figure>
+
+                <p>
+                Note that there are
+                <me>\frac{p-1}{2}\cdot \frac{q-1}{2}</me>
+                integer points in the whole square. Now the equation of the diagonal line is <m>y =\frac{q}{p}x.</m> To find the number of integer points in <m>\mathcal{R}_1</m> we first note that the number of integers in the interval <m>0 \lt y \lt kq/p</m> is <m>\lfloor kq/p\rfloor.</m> So for <m>1\leq k \leq (p- 1)/2</m> we have <m>\lfloor kq/p\rfloor</m> in <m>\mathcal{R}_1</m> over the point <m>(k, 0).</m> Thus the number of points in <m>\mathcal{R}_1</m> is 
+                <me>\sum_{k=1}^{(p-1)/2}\left\lfloor\frac{kq}{p}\right\rfloor.</me>
+                Similarly, the number of points in <m>\mathcal{R}_2</m> is 
+                <me>\sum_{j=1}^{(q-1)/2}\left\lfloor\frac{jp}{q}\right\rfloor,</me>
+                and so
+                <me>\frac{p-1}{2}\cdot \frac{q-1}{2}=\sum_{k=1}^{(p-1)/2}\left\lfloor\frac{kq}{p}\right\rfloor+\sum_{j=1}^{(q-1)/2}\left\lfloor\frac{jp}{q}\right\rfloor.</me>
+                Applying Gauss' Lemma we have
+                <md>
+                    <mrow>(p/q)(q/p) \amp=(-1)^{\sum_{k=1}^{(p-1)/2}\lfloor \frac{kq}{p}\rfloor}(-1)^{\sum_{j=1}^{(q-1)/2}\lfloor \frac{jp}{q}\rfloor}</mrow>
+                    <mrow>\amp=(-1)^{\sum_{k=1}^{(p-1)/2}\lfloor \frac{kq}{p}\rfloor +\sum_{j=1}^{(q-1)/2}\lfloor \frac{jp}{q}\rfloor}</mrow>
+                    <mrow>\amp=(-1)^{\frac{p-1}{2}\cdot\frac{q-1}{2}}.</mrow>
+                </md>
+                </p>
+            </proof>
+        </theorem>
+
+        <corollary>
+            <statement>
+                <p>
+                If <m>p</m> and <m>q</m> are odd primes, then
+                <me>
+                (p/q)(q/p)=
+                \begin{cases} 
+                1 \amp \hspace{5mm} if \hspace{2mm} p\equiv 1\pmod{4} \hspace{2mm} or \hspace{2mm} q\equiv 1\pmod{4}\\
+                -1 \amp \hspace{5mm} if \hspace{2mm}  p\equiv q\equiv 3\pmod{4}. 
+                \end{cases}
+                </me>
+                </p>
+            </statement>
+            <proof>
+                <p>
+                Another way to think about this, and probably the most helpful, is that if <m>p</m> or <m>q</m> is congruent to <m>1</m> modulo <m>4,</m> then
+                <me>(p/q) = (q/p),</me>
+                and if <m>p</m> and <m>q</m> are both congruent to <m>3</m> modulo <m>4,</m> then
+                <me>(p/q) = -(q/p).</me>
+                </p>
+            </proof>
+        </corollary>
+
+        <example>
+            <p>
+            Consider the congruence
+            <me>x^2\equiv 15\pmod{89}.</me>
+            Note that
+            <me>(15/89) = (3/89)(5/89) = (89/3)(89/5) = (2/3)(4/5) = (-1)(1) = -1,</me>
+            so there is no solution to the congruence; that is, <m>15</m> is not a quadratic of <m>89.</m>
+            </p>
+        </example>
+
+        <theorem>
+            <statement>
+                <p>
+                If <m>p\neq 3</m> is an odd prime, then
+                <me>
+                (3/p)=
+                \begin{cases} 
+                1 \amp \hspace{5mm} if \hspace{2mm} p\equiv \pm 1\pmod{12}\\
+                -1 \amp \hspace{5mm} if \hspace{2mm}  p\equiv \pm 5\pmod{12}. 
+                \end{cases}
+                </me>
+                </p>
+            </statement>
+            <proof>
+                <p>
+                Consider <m>(3/p).</m> Note <m>3 \equiv 3\pmod{4},</m> and also that either <m>p \equiv 3\pmod{4}</m> or <m>p \equiv 1\pmod{4}.</m> Also either <m>p \equiv 1\pmod{3}</m> or <m>p \equiv 2\pmod{3}.</m> 
+                </p>
+                <p>
+                Suppose <m>p \equiv 1\pmod{4},</m> then
+                <me>(3/p) = (p/3).</me>
+                If <m>p \equiv 1\pmod{3};</m> that is, <m>p \equiv 1\pmod{12}.</m> Then
+                <me>(3/p) = (p/3) = (1/3) = 1.</me>
+                If <m>p \equiv 2\pmod{3};</m> that is, <m>p \equiv 5\pmod{12}.</m> Then
+                <me>(3/p) = (p/3) = (2/3) = -1.</me>
+                Now suppose <m>p \equiv 3\pmod{4},</m> then
+                <me>(3/p) = -(p/3).</me>
+                If <m>p \equiv 1\pmod{3};</m> that is, <m>p \equiv 7\equiv -5\pmod{12}.</m> Then
+                <me>(3/p) = -(p/3) = (1/3) = -1.</me>
+                If <m>p \equiv 2\pmod{3};</m> that is, <m>p \equiv 11\equiv -1\pmod{12}.</m> Then
+                <me>(3/p) = -(p/3) = (2/3) = 1.</me>
+                </p>
+            </proof>
+        </theorem>
+
+    
+    </section>
+
+<!-- =================================================================================================== -->
+
+
+
+</chapter>

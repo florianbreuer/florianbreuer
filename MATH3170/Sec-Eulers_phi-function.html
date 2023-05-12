@@ -1,0 +1,362 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-11-10T14:14:55+11:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Euler's <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\varphi\)</span>-function</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    useLabelIds: true,
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext.js"></script><script xmlns:svg="http://www.w3.org/2000/svg">miniversion=0.6</script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script xmlns:svg="http://www.w3.org/2000/svg">sagecellEvalName='Evaluate (Sage)';
+</script><link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/colors_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link xmlns:svg="http://www.w3.org/2000/svg" href="developer.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div xmlns:svg="http://www.w3.org/2000/svg" id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\bm}[1]{\boldsymbol{#1}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="MATH3170-Course-Notes.html"><span class="title">MATH3170:</span> <span class="subtitle">Number Theory</span></a></h1>
+<p class="byline"></p>
+</div>
+</div></div>
+<nav xmlns:svg="http://www.w3.org/2000/svg" id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="Chap-Number_Theoretic_Functions.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="Chap-Number_Theoretic_Functions.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="Sec-The_d_and_sigma_functions.html" title="Next">Next</a></span></div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="Chap-Number_Theoretic_Functions.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="Chap-Number_Theoretic_Functions.html" title="Up">Up</a><a class="next-button button toolbar-item" href="Sec-The_d_and_sigma_functions.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div xmlns:svg="http://www.w3.org/2000/svg" id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link">
+<a href="Chap-Introduction.html" data-scroll="Chap-Introduction"><span class="codenumber">1</span> <span class="title">Introduction</span></a><ul>
+<li><a href="Sec-Sets_of_Numbers.html" data-scroll="Sec-Sets_of_Numbers">Sets of Numbers</a></li>
+<li><a href="Sec-The_Diophantine_Equation.html" data-scroll="Sec-The_Diophantine_Equation">The Diophantine equation <span class="process-math">\(a^2+b^2=c^2\)</span></a></li>
+<li><a href="Sec-Induction.html" data-scroll="Sec-Induction">Induction</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Chap-Divisibility.html" data-scroll="Chap-Divisibility"><span class="codenumber">2</span> <span class="title">Divisibility</span></a><ul>
+<li><a href="Sec-Division_Algorithm.html" data-scroll="Sec-Division_Algorithm">Division Algorithm</a></li>
+<li><a href="Sec-Euclidean_Algorithm.html" data-scroll="Sec-Euclidean_Algorithm">Euclidean Algorithm</a></li>
+<li><a href="Sec-Linear_Diophantine_equations.html" data-scroll="Sec-Linear_Diophantine_equations">Linear Diophantine equations</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Chap-Primes.html" data-scroll="Chap-Primes"><span class="codenumber">3</span> <span class="title">Primes</span></a><ul>
+<li><a href="Sec-The_Fundamental_Theorem_of_Arithmetic.html" data-scroll="Sec-The_Fundamental_Theorem_of_Arithmetic">The Fundamental Theorem of Arithmetic</a></li>
+<li><a href="Sec-Number_of_Primes.html" data-scroll="Sec-Number_of_Primes">Number of Primes</a></li>
+<li><a href="Sec-Chebychevs_Functions.html" data-scroll="Sec-Chebychevs_Functions">Chebychev's Functions</a></li>
+<li><a href="Sec-Chebychevs_Theorem.html" data-scroll="Sec-Chebychevs_Theorem">Chebychev's Theorem</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Chap-Congruences.html" data-scroll="Chap-Congruences"><span class="codenumber">4</span> <span class="title">Congruences</span></a><ul>
+<li><a href="Sec-Solving_Linear_Congruences.html" data-scroll="Sec-Solving_Linear_Congruences">Solving Linear Congruences</a></li>
+<li><a href="Sec-Chinese_Remainder_Theorem.html" data-scroll="Sec-Chinese_Remainder_Theorem">Chinese Remainder Theorem</a></li>
+<li><a href="Sec-Polynomial_Congruences.html" data-scroll="Sec-Polynomial_Congruences">Polynomial Congruences</a></li>
+<li><a href="Sec-Polynomials.html" data-scroll="Sec-Polynomials">Polynomials</a></li>
+<li><a href="Sec-Fermat_Numbers.html" data-scroll="Sec-Fermat_Numbers">Fermat Numbers</a></li>
+<li><a href="Sec-Mersenne_Primes.html" data-scroll="Sec-Mersenne_Primes">Mersenne Primes</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Chap-Primality.html" data-scroll="Chap-Primality"><span class="codenumber">5</span> <span class="title">Primality</span></a><ul>
+<li><a href="Sec-Sieve_of_Eratosthenes.html" data-scroll="Sec-Sieve_of_Eratosthenes">Sieve of Eratosthenes</a></li>
+<li><a href="Sec-Factoring_Integers.html" data-scroll="Sec-Factoring_Integers">Factoring Integers</a></li>
+<li><a href="Sec-A_more_general_Sieve.html" data-scroll="Sec-A_more_general_Sieve">A more general Sieve</a></li>
+<li><a href="Sec-Some_Contributions_of_Fermat.html" data-scroll="Sec-Some_Contributions_of_Fermat">Some Contributions of Fermat</a></li>
+<li><a href="Sec-Pseudoprimes_and_Carmichael_Numbers.html" data-scroll="Sec-Pseudoprimes_and_Carmichael_Numbers">Pseudoprimes and Carmichael Numbers</a></li>
+<li><a href="Sec-Wilsons_Theorem.html" data-scroll="Sec-Wilsons_Theorem">Wilson's Theorem</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Chap-Number_Theoretic_Functions.html" data-scroll="Chap-Number_Theoretic_Functions"><span class="codenumber">6</span> <span class="title">Number Theoretic Functions</span></a><ul>
+<li><a href="Sec-Eulers_phi-function.html" data-scroll="Sec-Eulers_phi-function" class="active">Euler's <span class="process-math">\(\varphi\)</span>-function</a></li>
+<li><a href="Sec-The_d_and_sigma_functions.html" data-scroll="Sec-The_d_and_sigma_functions">The <span class="process-math">\(d\)</span>- and <span class="process-math">\(\sigma\)</span>-functions</a></li>
+<li><a href="Sec-Sums_over_divisors.html" data-scroll="Sec-Sums_over_divisors">Sums over divisors</a></li>
+<li><a href="Sec-The_Mobius_Function.html" data-scroll="Sec-The_Mobius_Function">The Möbius Function</a></li>
+<li><a href="Sec-A_Completely_Multiplicative_Function.html" data-scroll="Sec-A_Completely_Multiplicative_Function">A Completely Multiplicative Function</a></li>
+<li><a href="Sec-Mobius_Inversion.html" data-scroll="Sec-Mobius_Inversion">Möbius Inversion</a></li>
+<li><a href="Sec-Patterns_in_mu.html" data-scroll="Sec-Patterns_in_mu">Patterns in <span class="process-math">\(\{\mu(n)\}_n\)</span></a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Chap-Order_of_Elements_of_Zn.html" data-scroll="Chap-Order_of_Elements_of_Zn"><span class="codenumber">7</span> <span class="title">Order of Elements of <span class="process-math">\(\mathbb{Z}_n\)</span></span></a><ul>
+<li><a href="Sec-Primitive_Roots.html" data-scroll="Sec-Primitive_Roots">Primitive Roots</a></li>
+<li><a href="Sec-Applications_of_Primitive_Roots.html" data-scroll="Sec-Applications_of_Primitive_Roots">Applications of Primitive Roots</a></li>
+</ul>
+</li>
+<li class="link"><a href="Chap-Some_Base_Results.html" data-scroll="Chap-Some_Base_Results"><span class="codenumber">8</span> <span class="title">Some Base Results</span></a></li>
+<li class="link">
+<a href="Chap-Quadratic_Residues.html" data-scroll="Chap-Quadratic_Residues"><span class="codenumber">9</span> <span class="title">Quadratic Residues</span></a><ul>
+<li><a href="Sec-Legendres_Symbol.html" data-scroll="Sec-Legendres_Symbol">Legendre's Symbol</a></li>
+<li><a href="Sec-Gauss_Lemma.html" data-scroll="Sec-Gauss_Lemma">Gauss' Lemma</a></li>
+<li><a href="Sec-The_Floor_Function.html" data-scroll="Sec-The_Floor_Function">The Floor Function</a></li>
+<li><a href="Sec-An_Important_Lemma.html" data-scroll="Sec-An_Important_Lemma">An Important Lemma</a></li>
+<li><a href="Sec-Quadratic_Reciprocity.html" data-scroll="Sec-Quadratic_Reciprocity">Quadratic Reciprocity</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Chap-The_Fibonacci_Sequence.html" data-scroll="Chap-The_Fibonacci_Sequence"><span class="codenumber">10</span> <span class="title">The Fibonacci Sequence</span></a><ul>
+<li><a href="Sec-Divisibility_properties.html" data-scroll="Sec-Divisibility_properties">Divisibility properties</a></li>
+<li><a href="Sec-Some_identities.html" data-scroll="Sec-Some_identities">Some identities</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Chap-Continued_Fractions.html" data-scroll="Chap-Continued_Fractions"><span class="codenumber">11</span> <span class="title">Continued Fractions</span></a><ul>
+<li><a href="Sec-Finite_Continued_Fractions.html" data-scroll="Sec-Finite_Continued_Fractions">Finite Continued Fractions</a></li>
+<li><a href="Sec-Convergents.html" data-scroll="Sec-Convergents">Convergents</a></li>
+<li><a href="Sec-Linear_Diophantine_equations_2.html" data-scroll="Sec-Linear_Diophantine_equations_2">Linear Diophantine equations</a></li>
+<li><a href="Sec-More_properties_of_convergents.html" data-scroll="Sec-More_properties_of_convergents">More properties of convergents</a></li>
+</ul>
+</li>
+<li class="link"><a href="Appendix-Special_Divisibility_Tests.html" data-scroll="Appendix-Special_Divisibility_Tests"><span class="codenumber">A</span> <span class="title">Special Divisibility Tests</span></a></li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="Sec-Eulers_phi-function"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">6.1</span> <span class="title">Euler's <span class="process-math">\(\varphi\)</span>-function</span>
+</h2>
+<p id="p-276">Note that if <span class="process-math">\(p\)</span> is a prime then, all nonzero elements in <span class="process-math">\(\mathbb{Z}_p\)</span> have an inverse, since for <span class="process-math">\(0\neq a\in \mathbb{Z}_p, \gcd(a, p) = 1.\)</span> Also if <span class="process-math">\(n\)</span> is not a prime, then there is a divisor <span class="process-math">\(d\)</span> of <span class="process-math">\(n,\)</span> with <span class="process-math">\(1\lt d\lt n,\)</span> so that <span class="process-math">\(\varphi(n)\leq n-2,\)</span> thus we have proven our first result.</p>
+<article class="theorem theorem-like" id="theorem-49"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">6.1.1</span><span class="period">.</span>
+</h3>
+<p id="p-277">The number <span class="process-math">\(n\)</span> is prime if and only if <span class="process-math">\(\varphi(n) = n-1.\)</span></p></article><p id="p-278">A stronger statement, which has yet to be proved, is a conjecture of D.H. Lehmer.</p>
+<article class="conjecture theorem-like" id="conjecture-7"><h3 class="heading">
+<span class="type">Conjecture</span><span class="space"> </span><span class="codenumber">6.1.2</span><span class="space"> </span><span class="creator">(Lehmer)</span><span class="period">.</span>
+</h3>
+<p id="p-279">The number <span class="process-math">\(n\)</span> is prime if and only if <span class="process-math">\(\varphi(n)\vert n-1.\)</span></p></article><p id="p-280">One of the implications is a consequence of the previous theorem, but the other is still wide open.</p>
+<article class="theorem theorem-like" id="theorem-50"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">6.1.3</span><span class="period">.</span>
+</h3>
+<p id="p-281">If <span class="process-math">\(n = p^k\)</span> where <span class="process-math">\(p\)</span> is prime, then</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\varphi(n) = p^k-p^{k-1} = p^{k-1}(p-1)=n\left(1-\frac{1}{p}\right).
+\end{equation*}
+</div></article><article class="hiddenproof" id="proof-56"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-56"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-56"><article class="hiddenproof"><p id="p-282">The number <span class="process-math">\(\varphi(p^k)\)</span> is the number of integers in the set</p>
+<div class="displaymath process-math">
+\begin{equation*}
+A = \{1, 2,..., p^k\}
+\end{equation*}
+</div>
+<p class="continuation">which are relatively prime to <span class="process-math">\(p^k;\)</span> that is, divisible by <span class="process-math">\(p.\)</span> Since every <span class="process-math">\(p\)</span>th number is divisible by <span class="process-math">\(p,\)</span> there are <span class="process-math">\(\dfrac{p^k}{p}=p^{k-1}\)</span> numbers in <span class="process-math">\(A\)</span> that are divisible by <span class="process-math">\(p.\)</span> Thus the number of integers in <span class="process-math">\(A\)</span> that are relatively prime to <span class="process-math">\(p^k,\)</span> are</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\varphi(p^k)=p^k-p^{k-1}=p^{k-1}(p-1)=n\left(1-\dfrac{1}{p}\right).
+\end{equation*}
+</div></article></div>
+<article class="theorem theorem-like" id="theorem-51"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">6.1.4</span><span class="period">.</span>
+</h3>
+<p id="p-283">If <span class="process-math">\(A\)</span> is a complete set of residues <span class="process-math">\(\mod{n},\)</span> and <span class="process-math">\(x, b\in\mathbb{Z}\)</span> with <span class="process-math">\(\gcd(x, n) = 1,\)</span> then the set <span class="process-math">\(Ax + b = \{ax + b: a\in A\}\)</span> is also a complete set of residues <span class="process-math">\(\mod{n}.\)</span></p></article><article class="hiddenproof" id="proof-57"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-57"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-57"><article class="hiddenproof"><p id="p-284">If <span class="process-math">\(ax + b \equiv a'x + b\pmod{n}\)</span> where <span class="process-math">\(a, a' \in A,\)</span> then we have that <span class="process-math">\(ax\equiv a'x\pmod{n}.\)</span> Since <span class="process-math">\(\gcd(x, n) = 1,\)</span> we may cancel <span class="process-math">\(x\)</span> so that <span class="process-math">\(a \equiv a'\pmod{n}.\)</span> Thus since <span class="process-math">\(A\)</span> is a complete set of residues, <span class="process-math">\(Ax + b\)</span> is a complete set of residues, provided <span class="process-math">\(\gcd(x, n) = 1.\)</span></p></article></div>
+<article class="theorem theorem-like" id="theorem-52"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">6.1.5</span><span class="period">.</span>
+</h3>
+<p id="p-285">If <span class="process-math">\(\gcd(m, n) = 1,\)</span> then <span class="process-math">\(\varphi(mn) = \varphi(m)\varphi(n).\)</span></p></article><article class="hiddenproof" id="proof-58"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-58"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-58"><article class="hiddenproof"><p id="p-286">Let <span class="process-math">\(m, n\in\mathbb{N}\)</span> with <span class="process-math">\(\gcd(m, n) = 1.\)</span> The result is trivial if <span class="process-math">\(m\)</span> or <span class="process-math">\(n\)</span> is <span class="process-math">\(1\)</span> since <span class="process-math">\(\varphi(1) = 1,\)</span> so suppose that <span class="process-math">\(m, n\gt 1.\)</span> Let us arrange the <span class="process-math">\(mn\)</span> integers <span class="process-math">\(1, 2,..., mn\)</span> into an array with <span class="process-math">\(n\)</span> rows and <span class="process-math">\(m\)</span> columns, as such:</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{matrix}
+1 \amp 2 \amp 3 \amp \cdots \amp m \\
+m+1 \amp m+2 \amp m+3 \amp \cdots \amp 2m \\
+\vdots \amp \vdots \amp \vdots \amp \ddots \amp \vdots \\
+(n-1)m+1 \amp (n-1)m+2 \amp (n-1)m+3 \amp \cdots \amp mn
+\end{matrix}
+\end{equation*}
+</div>
+<p class="continuation">These integers <span class="process-math">\(i\)</span> form a complete set of residues <span class="process-math">\(\mod{mn},\)</span> so <span class="process-math">\(\varphi(mn)\)</span> of them are relatively prime to <span class="process-math">\(mn,\)</span> or equivalently, <span class="process-math">\(\gcd(i, m) = \gcd(i, n) = 1.\)</span> If we look that the columns we can see that all of the integers in a given column are equivalent <span class="process-math">\(\mod{m},\)</span> thus exactly <span class="process-math">\(\varphi(m)\)</span> of the columns consist of integers that are relatively prime to <span class="process-math">\(m,\)</span> and the other columns consist of integers for which <span class="process-math">\(\gcd(i, m) \gt 1.\)</span></p>
+<p id="p-287">Now each column of integers that are relatively prime to <span class="process-math">\(m\)</span> has the form</p>
+<div class="displaymath process-math">
+\begin{equation*}
+b, m + b, 2m + b,...,(n-1)m + b
+\end{equation*}
+</div>
+<p class="continuation">for some <span class="process-math">\(b.\)</span> By the previous lemma this is a complete set of residues <span class="process-math">\(\mod{n},\)</span> since <span class="process-math">\(\{0, 1, 2,..., n-1\}\)</span> is and since <span class="process-math">\(\gcd(m, n) = 1.\)</span> Therefore such a column contains <span class="process-math">\(\varphi(n)\)</span> integers relatively prime to <span class="process-math">\(n,\)</span> and so each of the <span class="process-math">\(\varphi(m)\)</span> columns contains <span class="process-math">\(\varphi(n)\)</span> integers relatively prime to <span class="process-math">\(n,\)</span> so that the array contains <span class="process-math">\(\varphi(m)\varphi(n)\)</span> integers <span class="process-math">\(i\)</span> such that <span class="process-math">\(\gcd(i, m) = 1\)</span> and <span class="process-math">\(\gcd(i, n) = 1.\)</span> Thus <span class="process-math">\(\varphi(mn) = \varphi(m)\varphi(n).\)</span></p></article></div>
+<article class="definition definition-like" id="definition-27"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">6.1.6</span><span class="period">.</span>
+</h3>
+<p id="p-288">An arithmetic function <span class="process-math">\(f\)</span> is said to be <dfn class="terminology">multiplicative</dfn> if</p>
+<div class="displaymath process-math">
+\begin{equation*}
+f(mn) = f(m)f(n)
+\end{equation*}
+</div>
+<p class="continuation">whenever <span class="process-math">\(\gcd(m, n) = 1.\)</span></p></article><article class="example example-like" id="example-16"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-16"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.1.7</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-16"><article class="example example-like"><p id="p-289">The Euler phi-function is multiplicative.</p></article></div>
+<article class="corollary theorem-like" id="corollary-13"><h3 class="heading">
+<span class="type">Corollary</span><span class="space"> </span><span class="codenumber">6.1.8</span><span class="period">.</span>
+</h3>
+<p id="p-290">If <span class="process-math">\(n\)</span> has the prime factorization <span class="process-math">\(n = p_1^{k_1}p_2^{k_2}\cdots p_r^{k_r},\)</span> then</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\varphi(n) = \prod_{i=1}^r(p_i^{k_1}-p_i^{k_i-1})=\prod_{i=1}^rp_i^{k_i-1}(p_i-1)=n\prod_{i=1}^r\left(1-\frac{1}{p_i}\right). 
+\end{equation*}
+</div></article><article class="hiddenproof" id="proof-59"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-59"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-59"><article class="hiddenproof"><p id="p-291">This all rests on the fact that <span class="process-math">\(\gcd(p_i^{k_i}, p_j^{k_j})=1\)</span> for <span class="process-math">\(i\neq j.\)</span> Because of this we have</p>
+<div class="displaymath process-math">
+\begin{align*}
+\varphi(n) \amp= \varphi(p_1^{k_1}p_2^{k_2}\cdots p_r^{k_r})\\
+\amp= \varphi(p_1^{k_1})\varphi(p_2^{k_2}\cdots p_r^{k_r})\\
+\amp= \varphi(p_1^{k_1})\varphi(p_2^{k_2})\varphi(p_3^{k_3}\cdots p_r^{k_r})\\
+\amp \vdots\\
+\amp= \varphi(p_1^{k_1})\varphi(p_2^{k_2})\cdots \varphi(p_r^{k_r})\\
+\amp= p_1^{k_1}\left(1-\frac{1}{p_1}\right)p_2^{k_2}\left(1-\frac{1}{p_2}\right)\cdots p_r^{k_r}\left(1-\frac{1}{p_r}\right)\\
+\amp= n\prod_{i=1}^{r}\left(1-\frac{1}{p_i}\right), 
+\end{align*}
+</div>
+<p class="continuation">which is the desired result.</p></article></div>
+<article class="example example-like" id="example-17"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-17"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.1.9</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-17"><article class="example example-like"><p id="p-292">For <span class="process-math">\(n = 60 = 2^2\cdot 3\cdot 5,\)</span> we have</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\varphi(60) = 60\left(1-\frac{1}{2}\right)\left(1-\frac{1}{3}\right)\left(1-\frac{1}{5}\right)=60\cdot\frac{1}{2}\frac{2}{3}\frac{4}{5}=16
+\end{equation*}
+</div>
+<p class="continuation">One can also think of this example in terms of probabilities. Since the probability of a number being divisible by a prime <span class="process-math">\(p\)</span> is <span class="process-math">\(\frac{1}{p},\)</span> the probability of a number being coprime to <span class="process-math">\(p\)</span> is <span class="process-math">\(1-\frac{1}{p}.\)</span> So that relating this to each one of it's prime divisors, the above equation for <span class="process-math">\(\varphi(60)\)</span> says that the probability that a number <span class="process-math">\(n\leq 60\)</span> is coprime to <span class="process-math">\(60\)</span> is <span class="process-math">\(\frac{16}{60}.\)</span></p></article></div>
+<article class="remark remark-like" id="remark-10"><h3 class="heading">
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">6.1.10</span><span class="period">.</span>
+</h3>
+<p id="p-293">The symbol</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\sum_{d\vert n}f(n)
+\end{equation*}
+</div>
+<p class="continuation">is interpreted to mean, "Sum the values <span class="process-math">\(f(d)\)</span> as <span class="process-math">\(d\)</span> runs over all the positive divisors of the positive integer <span class="process-math">\(n.\)</span>"</p></article><article class="example example-like" id="example-18"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-18"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">6.1.11</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-18"><article class="example example-like"><p id="p-294">If <span class="process-math">\(n = 10,\)</span> then</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\sum_{d\vert 10}f(d) = f(1) + f(2) + f(5) + f(10).
+\end{equation*}
+</div></article></div>
+<article class="theorem theorem-like" id="theorem-53"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">6.1.12</span><span class="period">.</span>
+</h3>
+<p id="p-295">If <span class="process-math">\(n\geq 1,\)</span> then</p>
+<div class="displaymath process-math">
+\begin{equation*}
+n =\sum_{d\vert n}\varphi(d).
+\end{equation*}
+</div></article><article class="hiddenproof" id="proof-60"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-60"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-60"><article class="hiddenproof"><p id="p-296">Let <span class="process-math">\(S = \{1, 2, 3,..., n\},\)</span> and for each divisor <span class="process-math">\(d\)</span> of <span class="process-math">\(n\)</span> let</p>
+<div class="displaymath process-math">
+\begin{equation*}
+S_d = \{a\in S : \gcd(a, n) = n/d\}.
+\end{equation*}
+</div>
+<p class="continuation">Now if <span class="process-math">\(d \neq d'\)</span> then <span class="process-math">\(S_d\cap S_{d'}= \emptyset,\)</span> so that since each <span class="process-math">\(a\in S\)</span> is in <span class="process-math">\(S_d\)</span> for some <span class="process-math">\(d\vert n,\)</span> we have</p>
+<div class="displaymath process-math">
+\begin{equation*}
+S =\bigcup_{d\vert n}S_d.
+\end{equation*}
+</div>
+<p class="continuation">Thus</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\sum_{d\vert n}\#S_d = \#S = n.
+\end{equation*}
+</div>
+<p class="continuation">So it is enough to show that <span class="process-math">\(\#S_d = \varphi(d).\)</span> Now</p>
+<div class="displaymath process-math">
+\begin{equation*}
+a\in S_d \hspace{2mm} \mathrm{if} \hspace{2mm} \mathrm{and} \hspace{2mm} \mathrm{only} \hspace{2mm} \mathrm{if} \hspace{2mm} a\in S \hspace{2mm} \mathrm{and} \hspace{2mm} \gcd(a, n) = n/d.
+\end{equation*}
+</div>
+<p class="continuation">If we define a <span class="process-math">\(a' = ad/n\)</span> for each <span class="process-math">\(a,\)</span> then <span class="process-math">\(a'\)</span> is an integer since <span class="process-math">\(n/d = \gcd(a, n)\vert a.\)</span> So dividing on the right-hand side by <span class="process-math">\(n/d\)</span> we can rewrite the condition as</p>
+<div class="displaymath process-math">
+\begin{equation*}
+a\in S_d \hspace{2mm} \mathrm{if} \hspace{2mm} \mathrm{and} \hspace{2mm} \mathrm{only} \hspace{2mm} \mathrm{if} \hspace{2mm} a =\frac{n}{d}a' \hspace{2mm} \mathrm{where} \hspace{2mm} a'\in S, 1\leq a'\leq d, \gcd(a',d)=1.
+\end{equation*}
+</div>
+<p class="continuation">Thus <span class="process-math">\(\#S_d\)</span> is the number of integers, between <span class="process-math">\(1\)</span> and <span class="process-math">\(d,\)</span> inclusive, which are relatively prime to <span class="process-math">\(d.\)</span> This is the definition of <span class="process-math">\(\varphi(d),\)</span> so <span class="process-math">\(\#S_d = \varphi(d),\)</span> and we have <span class="process-math">\(n =\sum_{d\vert n}\varphi(d).\)</span></p></article></div>
+<section class="section" id="Sec-Eulers_Theorem"><h3 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">6.1.1</span> <span class="title">Euler's Theorem</span>
+</h3>
+<article class="definition definition-like" id="definition-28"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">6.1.1</span><span class="period">.</span>
+</h4>
+<p id="p-297">Let <span class="process-math">\(a \in\mathbb{Z}_n\)</span> be an invertible element, then <span class="process-math">\(a\)</span> is called a <dfn class="terminology">unit</dfn> to the modulus <span class="process-math">\(n.\)</span> The subset set <span class="process-math">\(U_n\)</span> of <span class="process-math">\(\mathbb{Z}_n\)</span> is called the set of <dfn class="terminology">units</dfn> to the modulus <span class="process-math">\(n.\)</span></p></article><article class="theorem theorem-like" id="theorem-54"><h4 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">6.1.2</span><span class="period">.</span>
+</h4>
+<p id="p-298">If <span class="process-math">\(\gcd(a, n) = 1,\)</span> then <span class="process-math">\(aU_n = U_n,\)</span> where <span class="process-math">\(aUn = \{au: u\in U_n\}.\)</span></p></article><p id="p-299">This theorem aids us in proving Euler's generalization of Fermat's Little Theorem.</p>
+<article class="theorem theorem-like" id="theorem-55"><h4 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">6.1.3</span><span class="space"> </span><span class="creator">(Euler's Theorem)</span><span class="period">.</span>
+</h4>
+<p id="p-300">If <span class="process-math">\(\gcd(a, n) = 1,\)</span> then <span class="process-math">\(a^{\varphi(n)}\equiv 1 \pmod{n}.\)</span></p></article><article class="hiddenproof" id="proof-61"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-61"><h4 class="heading"><span class="type">Proof<span class="period">.</span></span></h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-61"><article class="hiddenproof"><p id="p-301">Let <span class="process-math">\(a\in \mathbb{N}\)</span> and <span class="process-math">\(\gcd(a, n) = 1.\)</span> Consider</p>
+<div class="displaymath process-math">
+\begin{equation*}
+U_n = \{u_1, u_2,..., u_{\varphi(n)}\}.
+\end{equation*}
+</div>
+<p class="continuation">Since <span class="process-math">\(\gcd(a, n) = 1, a \in U_n.\)</span> So <span class="process-math">\(aU_n = U_n.\)</span> Since the sets are equal, we know that the product of the elements are congruent mod <span class="process-math">\(n;\)</span> that is,</p>
+<div class="displaymath process-math">
+\begin{equation*}
+au_1\cdot au_2 \cdots au_{\varphi(n)}\equiv u_1\cdot u_2\cdots u_{\varphi(n)}\pmod{n},
+\end{equation*}
+</div>
+<p class="continuation">so that</p>
+<div class="displaymath process-math">
+\begin{equation*}
+a^{\varphi(n)}(u_1\cdot u_2\cdots u_{\varphi(n)}) ≡ u_1\cdot u_2 \cdots u_{\varphi(n)} \pmod{n}.
+\end{equation*}
+</div>
+<p class="continuation">Since we have <span class="process-math">\(\gcd(u_i,n)=1\)</span> for each <span class="process-math">\(i,\)</span> we know that</p>
+<div class="displaymath process-math">
+\begin{equation*}
+\gcd(u_1 \cdot u_2 \cdots u_{\varphi(n)},n)=1,
+\end{equation*}
+</div>
+<p class="continuation">and so we may cancel it from the congruence. So we have</p>
+<div class="displaymath process-math">
+\begin{equation*}
+a^{\varphi(n)}\equiv 1\pmod{n},
+\end{equation*}
+</div>
+<p class="continuation">which is Euler's Theorem.</p></article></div></section></section></div></main>
+</div>
+</body>
+</html>

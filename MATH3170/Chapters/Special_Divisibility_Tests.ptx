@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- =================================================================================================== -->
+<!-- To process this file with xsltproc do                                                        -->
+<!--                                                                                              -->
+<!-- (1) LaTeX/PDF:                                                                               -->
+<!--     xsltproc -o minimal.tex PATH_TO/mathbook/xsl/pretext-latex.xsl source/main.ptx           -->
+<!--     pdflatex minimal.tex                                                                     -->
+<!--     xelatex minimal.tex                                                                      -->
+<!--                                                                                              -->
+<!-- (2) HTML:                                                                                    -->
+<!--     xsltproc PATH_TO/mathbook/xsl/pretext-html.xsl source/main.ptx                           -->
+<!--     <browser>  minimal.html                                                                  -->
+<!--        ~/xsltproc/xsltproc.exe ~/mathbook/xsl/mathbook-html.xsl test.xml                     -->
+<!--                                                                                              -->
+<!-- (3) CoCalc worksheet (parameter causes a single file for output)                             -->
+<!--     REMOVE the "X" in the double dash (which is not legal in an XML comment)                 -->
+<!--     xsltproc -X-stringparam chunk.level 0 PATH_TO/mathbook/xsl/pretext-smc.xsl source/main.ptx   -->
+<!--     <CoCalc> minimal.sagews                                                                  -->
+<!--                                                                                              -->
+<!-- (4) Sage doctesting                                                                          -->
+<!--     REMOVE the "X" in the double dash (which is not legal in an XML comment)                 -->
+<!--     xsltproc -X-stringparam chunk.level 0 PATH_TO/mathbook/xsl/pretext-sage-doctest.xsl source/main.ptx  -->
+<!--     <read further instructions in> minimal.py                                                -->
+<!-- =================================================================================================== -->
+
+<appendix xml:id="Appendix-Special_Divisibility_Tests">
+
+
+
+<!-- =================================================================================================== -->
+<!-- Title and Other Preliminaries -->
+<!-- =================================================================================================== -->
+        <title>Special Divisibility Tests</title>
+
+        <!-- <frontmatter> -->
+
+<!--             <titlepage>
+                <author>
+                    <institution>University of Newcastle</institution>
+                </author>
+                <date><today /></date>
+            </titlepage> -->
+
+            <!-- <abstract>
+                <p>This is a very short article, but it still exercises some advanced features of MathBook XML.</p>
+            </abstract> -->
+
+        <!-- </frontmatter> -->
+
+        <introduction>
+
+            <example>
+                <p>
+                In the decimal system, we have
+                <me>209 = 2\cdot 10^2 + 0\cdot 10 + 9\cdot 10^0.</me>
+                In binary notation we represent the same quantity as <m>11010001;</m> that is,
+                <me>1 \cdot 2^7 + 1 \cdot 2^6 + 0 \cdot 2^5 + 1 \cdot 2^4 + 0 \cdot 2^3 + 0 \cdot 2^2 + 0 \cdot 2^1 + 1 \cdot 2^0.</me>
+                Here we have written an integer in base <m>10</m> notation and then in base <m>2</m> notation. We can indeed do this in any base.
+                </p>
+            </example>
+
+            <theorem>
+                <statement>
+                    <p>
+                    Let <m>k\gt 1</m> be an integer. Then, for each <m>n \in\mathbb{N},</m> there exists a representation 
+                    <me>n = a_sk^s + a_{s-1}k^{s-1} + \cdots + a_1k + a_0,</me>
+                    where <m>a_s\neq 0,</m> and where each <m>a_i</m> is nonnegative and less than <m>k.</m> Furthermore, this representation is unique; it is called the representation of <m>n</m> to the base <m>k.</m>
+                    </p>
+                </statement>
+                <proof>
+                    <p>
+                    By the Division Algorithm there exist <m>q_1, a_0 \in\mathbb{Z}</m> such that 
+                    <me>n = q_1k + a_0 \hspace{10mm} 0 \leq a_0 \lt k.</me>
+                    If <m>q_1\lt k</m> we are done. If <m>q_1 \geq k,</m> we can divide again and get for some <m>q_2, a_1 \in\mathbb{Z}</m>
+                    <me>q_1 = q_2k + a_1 \hspace{10mm} 0 \leq a_1 \lt k.</me>
+                    Substituting this into the previous equality gives
+                    <me>n = (q_2k + a_1)k + a_0 = q_2k^2 + a_1k + a_0.</me>
+                    As long as <m>q_i \geq k</m> we can continue this process. As a consequence of the Division Algorithm, we have 
+                    <me>n \gt q_1 \gt q_2 \gt \cdots \geq 0</me>
+                    so that in at most <m>n-1</m> steps the process will stop, say at the <m>(s-1)</m>st stage. We then set <m>a_s = q_s</m> and we get 
+                    <me>n = a_sk^s + a_{s-1}k^{s-1} + \cdots + a_1k + a_0,</me>
+                    where <m>a_s \neq 0,</m> and where each <m>a_i</m> is nonnegative and less than <m>k.</m>
+                    </p>
+                    <p>
+                    To see the uniqueness we just assume that there are two different representations of <m>n</m> say
+                    <me>n = a_sk^s + a_{s-1}k^{s-1} + \cdots + a_1k + a_0= b_sk^s + b_{s-1}k^{s-1} + \cdots + b_1k + b_0.</me>
+                    Subtracting the one representation from the other we get
+                    <me>0 = c_sk^s + c_{s-1}k^{s-1} + \cdots + c_1k + c_0,</me>
+                    where <m>c_i = a_i-b_i</m> for each <m>i.</m> Since the two representations are different there is a minimum <m>i</m> so that <m>c_i \neq 0,</m> say <m>c_j.</m> Then
+                    <me>0 = c_sk^s + c_{s-1}k^{s-1} + \cdots + c_jk^j,</me>
+                    so that dividing out <m>k^j</m> gives
+                    <me>c_j = -k(c_sk^s + c_{s-1}k^{s-1} + \cdots + c_{j+1}).</me>
+                    This tells us that <m>k\vert d_j,</m> and so <m>k \leq \vert d_j \vert,</m> which is a contradiction. Thus the representation is unique.
+                    </p>
+                </proof>
+            </theorem>
+
+            <definition>
+                <p>
+                For <m>n = a_sk^s + a_{s-1}k^{s-1} + \cdots + a_1k + a_0</m> a representation of <m>n</m> to the base <m>k,</m> we abbreviate as 
+                <me>n = (a_sa_{s-1} \cdots a_2a_1a_0)_k.</me>
+                This is called the <term>base <m>k</m> place-value notation for <m>n.</m></term>
+                </p>
+            </definition>
+
+            <example>
+                <p>
+                The first example can be rewritten as
+                <me>209 = (209)_{10}</me>
+                and
+                <me>209 = (11010001)_2.</me>
+                We wish to give some quick divisibility test to see whether an integer <m>n</m> is divisible by <m>9</m> or <m>11.</m> But for this we first go back to polynomials.
+                </p>
+            </example>
+
+            <theorem>
+                <statement>
+                    <p>
+                    Let <m>p(x) = \sum_{k=0}^{m}c_kx^k</m> be a polynomial function of <m>x</m> with integer coefficients. If <m>a \equiv b\pmod{n},</m> then <m>p(a) \equiv p(b)\pmod{n}.</m>
+                    </p>
+                </statement>
+                <proof>
+                    <p>
+                    This is a direct application of the properties of modular arithmetic. 
+                    </p>
+                </proof>
+            </theorem>
+
+            <corollary>
+                <statement>
+                    <p>
+                    If <m>a \equiv b\pmod{n}</m> and <m>a</m> is a solution to <m>p(a) \equiv 0\pmod{n},</m> then <m>b</m> is also a solution. 
+                    </p>
+                </statement>
+                <proof>
+                    <p>
+                    From the theorem above <m>p(a) \equiv p(b)\pmod{n}</m> and so by transitivity <m>p(b) \equiv 0\pmod{n}.</m>
+                    </p>
+                </proof>
+            </corollary>
+
+            <theorem>
+                <statement>
+                    <p>
+                    Let <m>n = (a_ma_{m-1} \cdots a_1a_0)_{10}</m> and <m>S = n = a_m + a_{m-1} +\cdots + a_1 + a_0.</m> Then <m>9\vert n</m> if and only if <m>9\vert S.</m>
+                    </p>
+                </statement>
+                <proof>
+                    <p>
+                    Consider <m>p(x) = \sum_{k=0}^{m}a_kx^k.</m> Since <m>10 \equiv 1\pmod{9},</m> we have <m>p(10) \equiv p(1)\pmod{9}.</m> Now <m>p(10) = n</m> and <m>p(1) = S.</m> So <m>n \equiv S\pmod{9}.</m> So <m>n \equiv 0\pmod{9}</m> if and only if <m>S \equiv 0\pmod{9}.</m>
+                    </p>
+                </proof>
+            </theorem>
+
+            <theorem>
+                <statement>
+                    <p>
+                    Let <m>n = (a_ma_{m-1} \cdots a_1a_0)_{10}</m> and <m>T = n = a_0 -a_{1} +a_2-\cdots + (-1)^ma_m.</m> Then <m>11\vert n</m> if and only if <m>11\vert T.</m>
+                    </p>
+                </statement>
+                <proof>
+                    <p>
+                    Consider <m>p(x) = \sum_{k=0}^{m}a_kx^k.</m> Since <m>10 \equiv -1\pmod{11},</m> we have <m>p(10) \equiv p(-1)\pmod{11}.</m> Now <m>p(10) = n</m> and <m>p(-1) = T.</m> So <m>n \equiv T\pmod{11}.</m> So <m>n \equiv 0\pmod{11}</m> if and only if <m>T \equiv 0\pmod{11}.</m>
+                    </p>
+                </proof>
+            </theorem>
+
+            <example>
+                <p>
+                Consider the integer <m>n = 1, 571, 724.</m> Since
+                <me>1 + 5 + 7 + 1 + 7 + 2 + 4 = 27</me>
+                and <m>9\vert 27,</m> we have that <m>9\vert 1, 571, 724.</m> Also
+                <me>4 -2 + 7 - 1 + 7 - 5 + 1 = 11</me>
+                and <m>11\vert 11,</m> we have that <m>11\vert 1, 571, 724.</m>
+                </p>
+            </example>
+            
+        </introduction>
+
+
+<!-- =================================================================================================== -->
+
+</appendix>

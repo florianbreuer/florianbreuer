@@ -1,0 +1,682 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- =================================================================================================== -->
+<!-- To process this file with xsltproc do                                                        -->
+<!--                                                                                              -->
+<!-- (1) LaTeX/PDF:                                                                               -->
+<!--     xsltproc -o minimal.tex PATH_TO/mathbook/xsl/pretext-latex.xsl source/main.ptx           -->
+<!--     pdflatex minimal.tex                                                                     -->
+<!--     xelatex minimal.tex                                                                      -->
+<!--                                                                                              -->
+<!-- (2) HTML:                                                                                    -->
+<!--     xsltproc PATH_TO/mathbook/xsl/pretext-html.xsl source/main.ptx                           -->
+<!--     <browser>  minimal.html                                                                  -->
+<!--        ~/xsltproc/xsltproc.exe ~/mathbook/xsl/mathbook-html.xsl test.xml                     -->
+<!--                                                                                              -->
+<!-- (3) CoCalc worksheet (parameter causes a single file for output)                             -->
+<!--     REMOVE the "X" in the double dash (which is not legal in an XML comment)                 -->
+<!--     xsltproc -X-stringparam chunk.level 0 PATH_TO/mathbook/xsl/pretext-smc.xsl source/main.ptx   -->
+<!--     <CoCalc> minimal.sagews                                                                  -->
+<!--                                                                                              -->
+<!-- (4) Sage doctesting                                                                          -->
+<!--     REMOVE the "X" in the double dash (which is not legal in an XML comment)                 -->
+<!--     xsltproc -X-stringparam chunk.level 0 PATH_TO/mathbook/xsl/pretext-sage-doctest.xsl source/main.ptx  -->
+<!--     <read further instructions in> minimal.py                                                -->
+<!-- =================================================================================================== -->
+
+<chapter xml:id="Chap-Primes">
+
+
+
+<!-- =================================================================================================== -->
+<!-- Title and Other Preliminaries -->
+<!-- =================================================================================================== -->
+        <title>Primes</title>
+
+        <!-- <frontmatter> -->
+
+<!--             <titlepage>
+                <author>
+                    <institution>University of Newcastle</institution>
+                </author>
+                <date><today /></date>
+            </titlepage> -->
+
+            <!-- <abstract>
+                <p>This is a very short article, but it still exercises some advanced features of MathBook XML.</p>
+            </abstract> -->
+
+        <!-- </frontmatter> -->
+
+        <introduction>
+            <definition>
+                <p>
+                A natural number <m>k</m> is a <term>proper divisor</term> of an integer <m>n\gt 1</m> provided <m>k\vert n</m> and <m>1\lt k\lt n.</m>
+                </p>
+            </definition>
+
+            <definition>
+                <p>
+                A <term>prime</term> is a natural number <m>p\gt 1</m> which has no proper divisors.
+                </p>
+            </definition>
+            
+            <figure xml:id="Fig_3_1">
+                <caption>The first <m>100</m> prime numbers.</caption>
+                <image source="./Images/Fig_3_1.png" width="70%"/>
+            </figure>
+
+            <p>
+            Notice that there are many pairs of primes <m>(p,p+2),</m> like
+            <me>(3, 5),(5, 7),(11, 13),(17, 19),(41, 43),...,(521, 523).</me>
+            We call these primes <term>twin primes</term>, and note one of the most famous open conjectures in number theory.
+            </p>
+
+            <conjecture>
+                <creator>Twin Prime Conjecture</creator>
+                <p>
+                There are infinitely many primes <m>p</m> such that <m>p+2</m> is also prime.
+                </p>
+            </conjecture>
+
+            <p>
+            This conjecture was first proposed by Euclid sometime around 300 B.C.
+            </p>
+            <p>
+            Two other very famous conjectures in number theory concern the sum of two primes. In a letter to Euler in 1742, Christian Goldbach suggested the following conjectures.
+            </p>
+
+            <conjecture>
+                <creator>Binary Goldbach Conjecture</creator>
+                <p>
+                Every even positive integer is either prime, or the sum of two primes.
+                </p>
+            </conjecture>
+
+            <conjecture xml:id="Ternary_Goldbach_Conjecture">
+                <creator>Ternary Goldbach Conjecture</creator>
+                <p>
+                Every odd positive integer is either prime, or the sum of three primes.
+                </p>
+            </conjecture>
+
+            <p>
+            In 1937, I.M. Vinogradov produced a proof of the Ternary Goldbach Conjecture for large integers<fn>Vinogradov's original bound was <m>N\geq 3^{3^{15}}\approx 3.25\cdot 10^{6846168}.</m></fn>. Thus the question is settled for integers <m>N,</m>
+            <me>N\gtrsim 3.33\cdot 10^{43000}.</me>
+            Unfortunately, this number is not quite small enough for computers to tackle the "small" integers that are left to check. But in 2013, Harald Helfgott proved that the result is true for <m>N \gt 10^{27},</m> a small enough bound so that the remaining cases could be checked. Thus <xref ref="Ternary_Goldbach_Conjecture"/> is now a theorem due to Helfgott. 
+            </p>
+            <p>
+            The most famous proven result in prime number theory is called the Prime Number Theorem. To state this we fist need some notation and a definition.
+            </p>
+
+            <convention>
+                <p>
+                Let <m>f(x)</m> and <m>g(x)</m> be two real valued positive functions. We write <m>f(x) = O(g(x))</m> and say "<m>f(x)</m> is <term>big-oh</term> of <m>g(x)</m>" provided there is a real number <m>c_1 \gt 0</m> such that for <m>x</m> large enough 
+                <me>f(x)\leq c_1g(x).</me>
+                We write <m>f(x) = o(g(x))</m> and say "<m>f(x)</m> is <term>little-oh</term> of <m>g(x)</m>" provided that
+                <me>\lim_{x\rightarrow \infty}\frac{f(x)}{g(x)}=0.</me>
+                We say that <m>f</m> and <m>g</m> are <term>asymptotic</term>, written
+                <me>f(x)\sim g(x)</me>
+                provided
+                <me>\lim_{x\rightarrow\infty}\frac{f(x)}{g(x)}=1.</me>
+                Finally we say that <m>f</m> is of <term>order</term> <m>g,</m> written 
+                <me>f(x)\asymp g(x)</me>
+                provided there exist real numbers <m>c_1,c_2\gt 0</m> such that for <m>x</m> large enough we have
+                <me>c_1g(x)\leq f(x)\leq c_2g(x).</me>
+                </p>
+            </convention>
+
+            <definition>
+                <p>
+                Let <m>x\geq 0</m> be a real number. Denote by <m>\pi(x)</m> the number of primes less than <m>x;</m> we call <m>\pi(x)</m> the prime counting function.
+                </p>
+            </definition>
+
+            <theorem>
+                <creator>Prime Number Theorem</creator>
+                <statement>
+                    <p>
+                    For <m>\pi(x)</m> the prime counting function, we have
+                    <me>\pi(x)\sim\frac{x}{\log(x)}</me>
+                    where <m>\log(x)</m> denotes the natural logarithm of <m>x.</m>
+                    </p>
+                </statement>
+            </theorem>
+
+            <p>
+            This theorem was conjectured by Legendre and Gauss in the 1790's, but was not proven until well after that in 1896. In that year, the Prime Number Theorem was proven independently by both Hadamard and de la Vallée Poussin.
+            </p>
+
+        </introduction>
+
+
+<!-- =================================================================================================== -->
+
+<!-- =================================================================================================== -->
+<!-- Section 1: The Fundamental Theorem of Arithmetic-->
+<!-- =================================================================================================== -->
+    <section xml:id="Sec-The_Fundamental_Theorem_of_Arithmetic">
+        <title>The Fundamental Theorem of Arithmetic</title>
+
+        <theorem>
+            <statement>
+                <p>
+                If <m>p</m> is a prime and <m>p\vert ab,</m> then <m>p\vert a</m> or <m>p\vert b.</m>
+                </p>
+            </statement>
+            <proof>
+                <p>
+                Let <m>p</m> be a prime and <m>p\vert ab,</m> and suppose that <m>p \nmid a.</m> Since <m>p</m> is prime and <m>p \nmid a</m> we have that <m>\gcd(p,a)=1,</m> so that by Euclid's Lemma <m>p\vert b.</m>
+                </p>
+            </proof>
+        </theorem>
+
+        <corollary>
+            <statement>
+                <p>
+                If <m>p</m> is a prime and <m>p\vert a_1 a_2...a_n,</m> then <m>p\vert a_k</m> for some <m>k\in\{1,2,...,n\}.</m>
+                </p>
+            </statement>
+            <proof>
+                <p>
+                We induct on the number of factors. Let <m>p</m> be a prime. If <m>n=1</m> this is clear. When <m>n=2,</m> the result is the preceding theorem. Suppose that <m>n\gt 2</m> and that whenever <m>p</m> divides a product of less than <m>n</m> factors, then <m>p</m> divides at least one of the factors.
+                </p>
+                <p>
+                Now let <m>p\vert a_1 a_2...a_n.</m> By the previous theorem, we have that
+                <me>p\vert a_1 a_2...a_{n-1} \hspace{5mm} \mathrm{or} \hspace{5mm} p\vert a_n.</me>
+                If <m>p\vert a_n</m> we are done. If <m>p\vert a_1 a_2...a_{n-1},</m> then by hypothesis, <m>p\vert a_k</m> for some <m>k</m> where <m>1\leq k\leq n-1.</m> In any case, <m>p</m> divides at least one of <m>a_1,a_2,...a_n.</m>
+                </p>
+            </proof>
+        </corollary>
+
+        <corollary>
+            <statement>
+                <p>
+                If <m>p,q_1,q_2,...,q_n</m> are all primes and <m>p\vert q_1 q_2...q_n,</m> then <m>p=q_k</m> for some <m>k\in\{1,2,...,n\}.</m>
+                </p>
+            </statement>
+            <proof>
+                <p>
+                Apply the preceding corollary and the fact that if <m>p,q</m> are primes and <m>p\vert q,</m> then <m>p=q.</m>
+                </p>
+            </proof>
+        </corollary>
+
+        <theorem>
+            <creator>Fundamental Theorem of Arithmetic</creator>
+            <statement>
+                <p>
+                Every integer <m>n\gt 1</m> can be expressed uniquely as a product of primes; this representation is unique, apart from the order in which the factors occur.
+                </p>
+            </statement>
+            <proof>
+                <p>
+                By induction on <m>n.</m> The case <m>n=2</m> is clear. Suppose that any integer <m>k</m> with <m>2\leq k \lt n</m> can be written uniquely as a product of primes. 
+                </p>
+                <p>
+                If <m>n</m> is a prime, then <m>n = p</m> is the product of primes. 
+                </p>
+                <p>
+                If <m>n</m> is not a prime, then <m>n</m> has a proper divisor, say <m>d_1,</m> with
+                <me>1\lt d_1\lt n d_1\vert n.</me>
+                Write <m>n = d_1d_2.</m> It is clear here that <m>1\lt d_2\lt n.</m> By the induction hypothesis 
+                <me>d_1 = p_1p_2...p_r \hspace{5mm} d_2 = q_1q_2...q_s</me>
+                can be written uniquely as a product of primes. Thus
+                <me>n = d_1d_2 = p_1p_2...p_rq_1q_2...q_s,</me>
+                and <m>n</m> is the product of primes.
+                </p>
+                <p>
+                For uniqueness, we again use induction. For <m>n = 2</m> this is clear. Now suppose that for any integer <m>k</m> with <m>2\leq k \lt n</m> has a unique representation as a product of primes.
+                </p>
+                <p>
+                Again the case <m>n = p</m> is clear. If <m>n</m> is not a prime, then suppose that <m>p_i</m>'s and <m>q_i</m>'s are prime, and
+                <me>n = p_1p_2...p_r = q_1q_2...q_s.</me>
+                Note that <m>p_1\vert q_1q_2...q_s</m> so that by the above Corollary <m>p_1 = q_j</m> for some <m>j.</m> Without loss of generality let <m>j = 1.</m> Now
+                <me>p_2p_3...p_r = q_2q_3...q_s =\frac{n}{p_1}\lt n,</me>
+                so that by the induction hypothesis, <m>\frac{n}{p_1}</m> has a unique factorization. Thus <m>r = s,</m> and <m>p_i = q_i</m> for all <m>i\leq r.</m>
+                </p>
+                <p>
+                Thus by induction every integer <m>n\gt 1</m> can be expressed uniquely as a product of primes.
+                </p>
+            </proof>
+        </theorem>
+
+        <corollary>
+            <p>
+            Any positive integer <m>n\gt 1</m> can be written uniquely in a canonical form
+            <me>p_1^{k_1}p_2^{k_2}\cdots p_r^{k_r}</me>
+            where, for <m>i = 1, 2,..., r,</m> each <m>k_i</m> is a positive integer and each <m>p_i</m> is a prime, with <m>p_1\lt p_2\lt \cdots \lt p_r.</m>
+            </p>
+        </corollary>
+
+        <theorem xml:id="Thm_3_4">
+            <statement>
+                <p>
+                There are infinitely many primes.
+                </p>
+            </statement>
+            <proof>
+                <title>First proof of <xref ref="Thm_3_4"/></title>
+                <p>
+                Toward a contradiction, suppose that there are only finitely many primes, say <m>p_1, p_2,..., p_n.</m> Consider the number <m>n,</m> where
+                <me>m = p_1p_2...p_n + 1.</me>
+                From a previous lecture we know that
+                <me>\gcd(p_1p_2...p_n, m) = 1.</me>
+                Also <m>m\gt 1,</m> since <m>2</m> is a prime, so that <m>m</m> is prime or a product of primes, and <m>m\gt p_i</m> for any <m>i\leq n.</m> If <m>n</m> is prime, we are done. If <m>m</m> is not prime, then it has a prime divisor which is not one of <m>p_1, p_2,..., p_n.</m> In any case the list <m>p_1, p_2,..., p_n</m> is incomplete, and so there are infinitely many primes.
+                </p>
+            </proof>
+        </theorem>
+
+        <definition>
+            <p>
+            We define the integer part of <m>x,</m> written <m>\lfloor x\rfloor,</m> as the greatest integer less than or equal to <m>x.</m> This is sometimes called the <term>floor function</term>.
+            </p>
+        </definition>
+
+        <proof>
+            <title>Second proof of <xref ref="Thm_3_4"/></title>
+            <p>
+            In this proof, we consider the sum
+            <me>\sum_{p_1^{k_1}...p_n^{k_n}\leq x} 1,</me>
+            where the sum is taken over all possible choices of <m>k_1, k_2,..., k_n</m> that satisfy the inequality <m>p_1^{k_1}...p_n^{k_n}\leq x.</m> By induction one has that
+            <me>\sum_{p_1^{k_1}...p_n^{k_n}\leq x} 1 \leq \left(\sum_{p_1^{k_1}\leq x} 1\right)\left(\sum_{p_2^{k_2}\leq x} 1\right)...\left(\sum_{p_n^{k_n}\leq x} 1\right) = \prod_{i=1}^{n} \left(\sum_{p_i^{k_i}\leq x} 1\right).</me>
+            Now <m>p_1 = 2,</m> and we have
+            <me>\sum_{p_1^{k_1}\leq x} 1 = \sum_{2^{k_1}\leq x} 1 = \left\lfloor \frac{\log(x)}{\log(2)}\right\rfloor +1\leq \frac{\log(x)}{\log(2)}+\frac{1}{\log(2)}=\frac{1}{\log(2)}(\log(x)+1).</me>
+            For <m>i \geq 2,</m> we have that <m>\log(p_i)\geq \log(3)\geq 1,</m> so that
+            <me>\sum_{p_i^{k_i}\leq x} 1 = \left\lfloor \frac{\log(x)}{\log(p_i)}\right\rfloor +1\leq \frac{\log(x)}{\log(p_i)}+1\leq \log(x)+1.</me>
+            Putting this together gives (for <m>x\geq e</m>)
+            <me>\sum_{p_1^{k_1}...p_n^{k_n}\leq x} 1 \leq \prod_{i=1}^{n}\left(\sum_{p_i^{k_i}\leq x} 1\right)\leq \frac{1}{\log(2)}(\log(x)+1)^n\leq \frac{2}{\log(2)}\log^n(x)=O(\log^n(x)).</me>
+            If there were finitely many primes, say <m>n,</m> then since there are about <m>x</m> numbers less than <m>x,</m> we would have to have
+            <me>\sum_{p_1^{k_1}...p_n^{k_n}\leq x} 1 =\lfloor x\rfloor \geq x-1.</me>
+            But <m>x\neq O(\log^n(x))</m> for any fixed <m>n.</m> Hence there are infinitely many primes.
+            </p>
+        </proof>
+
+        <p>
+        We now make more explicit a lemma used above.
+        </p>
+
+        <lemma>
+            <statement>
+                <p>
+                Let <m>a_1, a_2,..., a_n</m> be positive integers. Then for any real <m>x</m> we have
+                <men xml:id="Eqn_3_1">\sum_{a_1^{k_1}...a_n^{k_n}\leq x} 1 \leq \left(\sum_{a_n^{k_n}\leq x} 1\right)\left(\sum_{a_1^{k_1}...a_{n-1}^{k_{n-1}}\leq x} 1\right)</men>.
+                </p>
+            </statement>
+            <proof>
+                <p>
+                Note that the sums in <xref ref="Eqn_3_1"/> are just counting the number of elements of a certain form. The sum on the left-hand side of <xref ref="Eqn_3_1"/> is equal to the size of the set
+                <me>A := \{m \leq x: m = a_1^{k_1}...a_n^{k_n} \hspace{2mm} \mathrm{for} \hspace{2mm} \mathrm{some} \hspace{2mm} k_1,...,k_n\geq 0\},</me>
+                and the product of sums on the right-hand side of <xref ref="Eqn_3_1"/> is equal to the size
+                <me>B := \{m: m = a_1^{k_1}...a_n^{k_n} \hspace{2mm} \mathrm{for} \hspace{2mm} \mathrm{some} \hspace{2mm} k_1,...,k_n\geq 0 \hspace{2mm} \mathrm{where} \hspace{2mm} \mathrm{both} \hspace{2mm} a_1^{k_1}...a_{n-1}^{k_{n-1}}\leq x \hspace{2mm} \mathrm{and} \hspace{2mm} a_n^{k_n}\leq x\}.</me>
+                Thus to prove the lemma, we need to show that the number of elements in <m>A</m> is at most the number of elements in <m>B.</m> Since both <m>A</m> and <m>B</m> are finite sets, it is enough to show that <m>A\subseteq B.</m>
+                </p>
+                <p>
+                To this end, let <m>m\in A.</m> Then there exist <m>k_1,..., k_n\geq 0</m> for which
+                <me>m = a_1^{k_1}...a_n^{k_n}\leq x.</me>
+                Note that also <m>m = a_1^{k_1}...a_{n-1}^{k_{n-1}}\cdot a_n^{k_n},</m> and that since <m>m\leq x,</m> we have both
+                <me>m = a_{n-1}^{k_{n-1}}\leq \frac{x}{a_n^{k_n}}\leq x</me>
+                and
+                <me>a_n^{k_n}\leq \frac{x}{a_1^{k_1}...a_{n-1}^{k_{n-1}}}\leq x.</me>
+                Thus <m>m\in B,</m> so that <m>A\subseteq B</m> and the lemma is proved.
+                </p>
+            </proof>
+        </lemma>
+
+        <p>
+        Going on to Euler's proof, we need a small result relating infinite products to infinite sums.
+        </p>
+
+        <lemma>
+            <statement>
+                <p>
+                Let <m>a_n\in\mathbb{R}</m> be positive for each <m>n</m> and suppose that <m>a_n\rightarrow 0</m> as <m>n\rightarrow\infty.</m> Then the product
+                <me>\prod_{n=1}^{\infty}(1+a_n)</me>
+                converges if, and only if, the series
+                <me>\sum_{n=1}^{\infty}a_n</me>
+                converges.
+                </p>
+            </statement>
+            <proof>
+                <p>
+                Taking the logarithm of the product does not change the convergence properties. Hence the product converges if and only if the sum
+                <me>\sum_{n=1}^{\infty} \log(1+a_n)</me>
+                converges. Recall that
+                <me>\lim_{x\rightarrow 0}\frac{\log(1+x)}{x}=1.</me>
+                Since <m>a_n\rightarrow 0</m> as <m>x\rightarrow\infty,</m> applying the above limit, we have
+                <me>\lim_{n\rightarrow \infty}\frac{\log(1+a_n)}{a_n}=1.</me>
+                We can now just apply the limit comparison test to give the result.
+                </p>
+            </proof>
+        </lemma>
+
+        <proof>
+            <title>Third proof of <xref ref="Thm_3_4"/></title>
+            <p>
+            Note that by the fundamental theorem of arithmetic we have that
+            <me>\sum_{n\leq x}\frac{1}{n}\leq \prod_{p\leq x}\left(1+\frac{1}{p}+\frac{1}{p^2}+\frac{1}{p^3}+...\right).</me>
+            This product converges if and only if the sum
+            <me>\sum_{p\leq x}\left(\frac{1}{p}+\frac{1}{p^2}+...\right).</me>
+            Well we have, again using geometric series, that
+            <md>
+                <mrow>\sum_{p\leq x}\left(\frac{1}{p}+\frac{1}{p^2}+...\right) \amp = \sum_{p\leq x} \frac{1}{p}+\sum_{p\leq x}\left(\frac{1}{p^2}+...\right)</mrow>
+                <mrow>\amp = \sum_{p\leq x} \frac{1}{p}+\sum_{p\leq x}\frac{1}{p}\cdot\frac{1}{p-1}</mrow>
+                <mrow>\amp \leq \sum_{p\leq x} \frac{1}{p}+\sum_{n=1}^{\infty}\frac{1}{n^2}</mrow>
+                <mrow>\amp = \sum_{p\leq x} \frac{1}{p}+C</mrow>
+            </md>
+            for some real number <m>C\gt 0.</m> Thus the product converges if and only if the sum
+            <me>\sum_{p\leq x}\frac{1}{p}</me>
+            converges. Since the harmonic series diverges, we thus have that the sum of the reciprocals of the primes diverges. Since a sum of finitely many terms would be finite, there are infinitely many primes.
+            </p>
+        </proof>
+
+    </section>
+    
+<!-- =================================================================================================== -->
+
+<!-- =================================================================================================== -->
+<!-- Section 2: Number of Primes-->
+<!-- =================================================================================================== -->
+    <section xml:id="Sec-Number_of_Primes">
+        <title>Number of Primes</title>
+
+        <definition>
+            <p>
+            An integer <m>\vert n\vert \gt 1</m> is <term>composite</term> provided it is not prime.
+            </p>
+        </definition>
+
+        <theorem>
+            <statement>
+                <p>
+                If <m>p_n</m> is the <m>n</m>th prime number, then <m>p_n\leq 2^{2^{n-1}}.</m>
+                </p>
+            </statement>
+            <proof>
+                <p>
+                By induction. If <m>n = 1,</m> then 
+                <me>p_1 = 2\leq 2^{2^{0}}=2.</me>
+                Now assume that the theorem is true for all natural numbers less than <m>n.</m> Then, by the proof above,
+                <me>p_{n+1}\leq p_1p_2...p_n+1\leq 2\cdot 2^2...2^{2^{n-1}}+1=2^{1+2+2^2+...+2^{n-1}}+1.</me>
+                Let us remember the identity that <m>1+2+2^2+...+2^{n-1}=2^n-1.</m> This gives
+                <me>p_{n+1}\leq 2^{2^n-1}+2^{2^n-1}=2\cdot 2^{2^n-1}=2^{2^{n}},</me>
+                so that by induction we have the desired result.
+                </p>
+            </proof>
+        </theorem>
+
+        <corollary>
+            <p>
+            There are at least <m>n + 1</m> primes less than <m>2^{2^{n}}</m>
+            </p>
+        </corollary>
+        
+    </section>
+    
+<!-- =================================================================================================== -->
+
+<!-- =================================================================================================== -->
+<!-- Section 3: Chebychev’s Functions-->
+<!-- =================================================================================================== -->
+    <section xml:id="Sec-Chebychevs_Functions">
+        <title>Chebychev's Functions</title>
+
+        <definition>
+            <p>
+            Let <m>x\in\mathbb{R}</m>>. Then <m>\lfloor x\rfloor</m> denotes the greatest integer less than or equal to x. This is sometimes called the integer part of <m>x,</m> or the <term>floor function</term>.
+            </p>
+        </definition>
+
+        <lemma>
+            <statement>
+                <p>
+                For all <m>x,</m> <m>\lfloor 2x\rfloor-2\lfloor x\rfloor= 0</m> or <m>1.</m>
+                </p>
+            </statement>
+            <proof>
+                <p>
+                Note that for all <m>x</m> we have 
+                <me>2x- 1 \lt \lfloor 2x\rfloor \leq 2x</me>
+                and 
+                <me>2x- 2 \lt 2\lfloor x\rfloor \leq 2x.</me>
+                Thus
+                <me>- 1 \lt \lfloor 2x\rfloor-2\lfloor x\rfloor \leq 2,</me>
+                but since <m>\lfloor 2x\rfloor-2\lfloor x\rfloor</m> must be an integer, and the only integers in <m>(-1, 2)</m> are <m>0</m> and <m>1,</m> only these values can be attained.
+                </p>
+            </proof>
+        </lemma>
+
+        <theorem>
+            <statement>
+                <p>
+                If <m>p</m> is a prime, then <m>\sum_{j=1}^{\infty}\left\lfloor\frac{n}{p^j}\right\rfloor</m> is the exponent of <m>p</m> appearing in the prime factorization of <m>n!.</m>
+                </p>
+            </statement>
+            <proof>
+                <p>
+                Note that if <m>p\gt n</m> then <m>p</m> does not appear in the prime factorization of <m>n!</m> and every term in <m>\sum_{j=1}^{\infty}\left\lfloor\frac{n}{p^j}\right\rfloor</m> is zero as desired.
+                </p>
+                <p>
+                If <m>p\leq n,</m> then <m>\left\lfloor\frac{n}{p^j}\right\rfloor</m> integers in <m>\{1, 2,...,n\}</m> are divisible by <m>p,</m> namely
+                <me>p, 2p, 3p,...,\left\lfloor\frac{n}{p}\right\rfloor p.</me>
+                Of these integers, <m>\left\lfloor\frac{n}{p^2}\right\rfloor</m> are again divisible by <m>p</m>:
+                <me>p^2, 2p^2, 3p^2,...,\left\lfloor\frac{n}{p^2}\right\rfloor p^2.</me>
+                By the same logic, <m>\left\lfloor\frac{n}{p^3}\right\rfloor</m> of these are divisible by <m>p</m> a third time:
+                <me>p^3, 2p^3, 3p^3,...,\left\lfloor\frac{n}{p^3}\right\rfloor p^3.</me>
+                After finitely many repetitions of this argument, we see that the total number of times <m>p</m> divides numbers in <m>\{1, 2, 3,...,n\}</m> is precisely <m>\sum_{j=1}^{\infty}\left\lfloor\frac{n}{p^j}\right\rfloor;</m> consequently, this sum is the exponent of <m>p</m> appearing in the prime factorization of <m>n!.</m>
+                </p>
+            </proof>
+        </theorem>
+
+        <definition>
+            <p>
+            We define <term>Chebyshev's functions</term> as
+            <me>\theta(x)=\sum_{p\leq x}\log(p)</me>
+            and
+            <me>\varphi(x)=\sum_{p^m\leq x}\log(p)</me>
+            where the sum is over all combinations of a prime <m>p</m> and a positive integer <m>m</m> for which <m>p^m \leq x.</m>
+            </p>
+        </definition>
+
+        <p>
+        Note that if we gather together terms with equal <m>m</m> we have
+        <me>\varphi(x)=\theta(x)+\theta(x^{\frac{1}{2}})+\theta(x^{\frac{1}{3}})+...,</me>
+        where the series on the right contains only a finite number of nonzero terms, since <m>\theta(y)=0</m> when <m>y \lt 2.</m>
+        </p>
+        <p>
+        If we gather terms with equal <m>p</m> (<m>p \leq x</m>), then
+        <me>\varphi(x)=\sum_{p\leq x}\left\lfloor\frac{\log(x)}{\log(p)}\right\rfloor \log(p),</me>
+        since the number of values of <m>m</m> associated with a given <m>p</m> is the number of positive <m>m</m> satisfying <m>m \log(p)\leq \log(x),</m> which is
+        <me>m\leq \left\lfloor\frac{\log(x)}{\log(p)}\right\rfloor.</me>
+        Using these definitions we show in the following theorem, that for large values of <m>x,</m> the behavior of any one of the functions <m>\pi(x),</m> <m>\theta(x),</m> and <m>\varphi(x)</m> can be inferred from that of any other.
+        </p>
+
+        <theorem>
+            <statement>
+                <p>
+                The quotients
+                <me>\frac{\pi(x)}{x(\log(x))^{-1}}, \frac{\theta(x)}{x}, \frac{\varphi(x)}{x}</me>
+                have the same limits of indetermination when <m>x\rightarrow\infty.</m>
+                </p>
+            </statement>
+            <proof>
+                <p>
+                Let the upper limits (possibly <m>+\infty</m>) be <m>L_1, L_2, L_3,</m> and the lower limits be <m>l_1, l_2, l_3,</m> respectively. From the equalities in the previous paragraph we have
+                <me>\theta(x)\leq \varphi(x)\leq \sum_{p\leq x}\frac{\log(x)}{\log(p)}\log(p)=\pi(x)\log(x),</me>
+                so dividing by <m>x</m> and taking upper limits we have <m>L_2 \lt L_3 \lt L_1.</m>
+                </p>
+                <p>
+                Now if <m>0 \lt\alpha\lt 1</m> and <m>x\gt 1,</m> then
+                <me>\theta(x)\geq \sum_{x^{\alpha}\lt p\leq x}\log(p)\geq [\pi(x)-\pi(x^{\alpha})]\log(x^{\alpha}),</me>
+                so that since <m>\pi(x^{\alpha})\lt x^{\alpha},</m> we have
+                <me>\frac{\theta(x)}{x}\gt \alpha\left(\frac{\pi(x)\log(x)}{x}-\frac{\log(x)}{x^{1-\alpha}}\right).</me>
+                If we keep <m>\alpha</m> fixed and let <m>x\rightarrow\infty,</m> then
+                <me>\frac{\log(x)}{x^{1-\alpha}}\rightarrow 0,</me>
+                so that <m>L_2 \geq \alpha L_1,</m> so that since <m>\alpha</m> can be as close to <m>1</m> as we want,
+                <me>L_2\geq L_1.</me>
+                This combined with the previous inequality gives
+                <me>L_1 = L_2 = L_3.</me>
+                If we just replace <m>L_i</m> with <m>l_i,</m> then the exact argument above yields <m>l_1 =l_2 = l_3.</m>
+                </p>
+            </proof>
+        </theorem>
+
+    </section>
+    
+<!-- =================================================================================================== -->
+
+<!-- =================================================================================================== -->
+<!-- Section 4: Chebychev’s Theorem-->
+<!-- =================================================================================================== -->
+    <section xml:id="Sec-Chebychevs_Theorem">
+        <title> Chebychev's Theorem</title>
+
+        <theorem>
+            <creator>Chebyshev's Theorem</creator>
+            <statement>
+                <p>
+                There exist real numbers <m>a</m> and <m>A</m> such that for all <m>x,</m> large enough,
+                <me>l\frac{x}{\log(x)}\lt \pi(x) \lt L\frac{x}{\log(x)}.</me>
+                </p>
+            </statement>
+            <proof>
+                <p>
+                Let <m>L, l</m> be the common upper and lower limits of the three quotients <m>\frac{\pi(x)\log(x)}{x},</m> <m>\frac{\theta(x)}{x}</m> and <m>\frac{\varphi(x)}{x}.</m> Consider
+                <me>N =\binom{2n}{n}.</me>
+                <m>N</m> is the greatest coefficient of the binomial expansion of <m>(1 + 1)^{2n},</m> so that
+                <men xml:id="Eqn_3_2"> N\lt 2^{2n}\lt (2n + 1)N</men>.
+                Now also <m>N</m> is divisible by all primes <m>p</m> in the interval <m>n \lt p \leq 2n,</m> and so by their product, thus
+                <me>N\geq \prod_{n\lt p\leq 2n} p.</me>
+                This combined with <xref ref="Eqn_3_2"/> gives
+                <me>2n\log(2)\gt \log(N)\gt \sum_{n\lt p\leq 2n} \log(p)=\theta(2n)-\theta(n).</me>
+                Putting <m>n=2^{r-1}</m> and summing from <m>r = 1</m> to <m>r = m</m> gives
+                <me>\sum_{r=1}^{m}2^r\log(2)\gt\sum_{r=1}^{m}\theta(2^r)-\theta(2^{r-1})</me>
+                which in turn gives
+                <me>\theta(2^m)\lt \sum_{r=1}^{m}2^r\log(2)\lt 2^{m+1}\log(2).</me>
+                If <m>x\gt 1</m> and <m>m</m> is an integer defined by <m>2^{m-1}\leq x\lt 2^m,</m> then 
+                <me>\theta(x)\lt \theta(2^m)\lt 2^{m+1}\log(2)\leq 4x\log(2).</me>
+                Division by <m>x</m> gives
+                <me>\frac{\theta(x)}{x}\leq 4\log(2),</me>
+                so that <m>L\leq 4\log(2).</m>
+                </p>
+                <p>
+                For the other inequality, note that <m>p\vert m!</m> exactly <m>\sum_{r=1}^{\infty}\left\lfloor\frac{m}{p^r}\right\rfloor</m> times. Since
+                <me>N=\binom{2n}{n}=\frac{(2n)!}{(n!)^2},</me>
+                we have
+                <me>N=\prod_{p\leq 2n} p^{\sum_{r=1}^{\infty}\left\lfloor\frac{2n}{p^r}\right\rfloor-2\sum_{r=1}^{\infty}\left\lfloor\frac{n}{p^r}\right\rfloor}.</me>
+                Each of the sums can be terminated at the <m>M_p</m>th term, where <m>M_p=\left\lfloor\frac{\log(2n)}{\log(p)}\right\rfloor</m> since for <m>0\lt x\lt 1,</m> <m>\lfloor x\rfloor =0.</m> This gives
+                <me>\sum_{r=1}^{\infty} \left(\left\lfloor\frac{2n}{p^r}\right\rfloor-2\left\lfloor\frac{n}{p^r}\right\rfloor\right)\leq M_p</me>
+                since <m>\lfloor 2x\rfloor-2\lfloor x\rfloor =0</m> or <m>1.</m> Now
+                <me>\prod_{p\leq 2n}p^{M_p}=\prod_{p\leq 2n}e^{M_p\log(p)}=\prod_{p\leq 2n}e^{\left\lfloor\frac{\log(2n)}{\log(p)}\right\rfloor\log(p)}=e^{\varphi(2n)},</me>
+                so <m>N\vert e^{\varphi(2n)}</m> and the right inequality of <xref ref="Eqn_3_2"/> gives
+                <me>2n\log(2)-\log(2n+1)\lt \log(N)\lt \varphi(2n).</me>
+                Now if <m>x\gt 2</m> and <m>n =\left\lfloor\frac{x}{2}\right\rfloor,</m> then
+                <me>\varphi(x)\geq\varphi(2n)\gt (x-2)\log(2)-\log(x-1).</me>
+                Dividing by <m>x</m> yields
+                <me>\frac{\varphi(x)}{x}\gt \frac{x-2}{x}\log(2)-\frac{1}{x}\log(x-1).</me>
+                Since <m>\frac{x-2}{x}\rightarrow 1</m> and <m>\frac{1}{x}\log(x-1)\rightarrow </m> as <m>x\rightarrow \infty,</m> we have <m>\log(2)\leq l.</m> So there exists constants <m>L,l,</m> such that
+                <me>l\frac{x}{\log(x)}\lt \pi(x)\lt L\frac{x}{\log(x)}.</me>
+                </p>
+            </proof>
+        </theorem>
+
+        <theorem>
+            <statement>
+                <p>
+                The sum of the reciprocals of the primes diverges.
+                </p>
+            </statement>
+        </theorem>
+
+        <proof>
+            <title>Proof using <m>\pi(x)</m></title>
+            <p>
+            Let <m>p_n</m> be the <m>n</m>th prime. Chebychev's estimate for the Prime Number Theorem gives, for some <m>a\lt 1,</m>
+            <me>\pi(x)\gt a\frac{x}{\log(x)},</me>
+            for <m>x</m> sufficiently large. It follows that 
+            <me>n = \pi(p_n) \gt a\frac{p_n}{\log(p_n)}\gt \sqrt{p_n}</me>
+            for <m>n</m> sufficiently large. Now <m>n^2\gt p_n</m> gives <m>\log(p_n)\lt 2\log(n),</m> so
+            <me>ap_n\lt n\log(p_n)\lt 2n\log(n)</me>
+            when <m>n</m> is large. Inverting and summing gives
+            <me>2\sum_{n=1}^{\infty}\frac{1}{p_n}\gt a\sum_{n=2}^{\infty}\frac{1}{n\log(n)},</me>
+            and since the series on the right is divergent, by comparison, the sum of the reciprocals of the primes diverges.
+            </p>
+        </proof>
+
+        <proof>
+            <title>Proof using <m>\zeta</m></title>
+            <p>
+            Note that for <m>\sigma\gt 1</m> we have
+            <me>\zeta(\sigma)=\prod_{p}\frac{1}{1-p^{-\sigma}},</me>
+            so
+            <md>
+                <mrow>\log(\zeta(\sigma)) \amp =-\sum_{p}\log(1-p^{-\sigma})</mrow>
+                <mrow>\amp =\sum_{p}\sum_{n=1}^{\infty}\frac{1}{np^{n\sigma}}</mrow>
+                <mrow>\amp =\sum_{p}\frac{1}{p^{\sigma}}+\sum_{p}\sum_{n=2}^{\infty}\frac{1}{np^{n\sigma}}.</mrow>
+            </md>
+            Since the series converge absolutely the rearrangement is permissible. Now for any prime <m>p</m> and <m>\sigma\geq 1,</m> <m>1-1/p^{\sigma}\geq 1/2,</m> so
+            <md>
+                <mrow>\sum_{p}\sum_{n=2}^{\infty}\frac{1}{np^{n\sigma}}\amp \lt \sum_{p}\sum_{n=2}^{\infty}\frac{1}{p^{n\sigma}}</mrow>
+                <mrow>\amp = \sum_{p}\frac{1}{p^{2\sigma}}\frac{1}{1-p^{-\sigma}}</mrow>
+                <mrow>\amp \leq 2\sum_{p}\frac{1}{p^{2\sigma}}</mrow>
+                <mrow>\amp \leq 2\zeta(2\sigma)</mrow>
+                <mrow>\amp \lt 2\zeta(2)</mrow>
+            </md>
+            which shows that the double sum is bounded for any <m>\sigma\geq 1.</m> Thus
+            <me>\log(\zeta(\sigma))=\sum_{p} \frac{1}{p^{\sigma}}+O(1).</me>
+            But <m>\log(\zeta(\sigma))\rightarrow\infty</m> as <m>\sigma\rightarrow 1^{+},</m> so that <m>\sum_{p}\frac{1}{p^{\sigma}}\rightarrow\infty,</m> and so
+            <me>\sum_{p}\frac{1}{p}</me>
+            is divergent.
+            </p>
+        </proof>
+
+        <lemma>
+            <statement>
+                <p>
+                The product of two or more integers of the form <m>4n + 1</m> is of the same form.
+                </p>
+            </statement>
+            <proof>
+                <p>
+                It is sufficient to show this for just two integers of this form. So let <m>4n + 1, 4m + 1\in\mathbb{Z}.</m> Then
+                <me>(4n + 1)(4m + 1) = 16mn + 4m + 4n + 1 = 4(4mn + m + n) + 1,</me>
+                which is what we were trying to show.
+                </p>
+            </proof>
+        </lemma>
+
+        <p>
+        Here we note that all odd numbers fall into two classes. They are either of the type <m>4n + 1</m> or <m>4n + 3</m> for integers <m>n.</m> It is interesting question to ask whether there are infinitely many primes of either type. The <m>4n + 3</m> case is easy enough for us, so we proceed thence.
+        </p>
+
+        <theorem>
+            <statement>
+                <p>
+                There are infinitely many primes of the form <m>4k + 3.</m>
+                </p>
+            </statement>
+            <proof>
+                <p>
+                This is similar to our previous theorem on the infinitude of primes. Toward a contradiction, suppose that are finitely many primes of the form <m>4k + 3,</m> say <m>q_1, q_2,...,q_s.</m> Consider the positive integer
+                <me>n = 4q_1q_2...q_s-1 = 4(q_1q_2...q_s-1) + 3</me>
+                with prime factorization <m>n = d_1d_2...d_r.</m> Because <m>n</m> is odd it has no even factors, thus <m>d_i</m> is odd for each <m>i.</m> Also, by the lemma if all of the prime factors of <m>n</m> where of the form <m>4k + 1</m> then n would be also. Thus there must exist a prime factor of <m>n</m> with the form <m>4k + 3.</m> This factor is not one of <m>q_1, q_2,...,q_s,</m> a contradiction. Thus there are infinitely many primes of the form <m>4k + 3.</m>
+                </p>
+            </proof>
+        </theorem>
+
+        <theorem>
+            <creator>Dirichlet's Theorem</creator>
+            <statement>
+                <p>
+                Let <m>a, b\in\mathbb{N}</m> with <m>\gcd(a, b) = 1.</m> Then there are infinitely many primes of the form
+                <me>an + b,</me>
+                where <m>n\in\mathbb{N}.</m>
+                </p>
+            </statement>
+        </theorem>
+
+    </section>
+    
+<!-- =================================================================================================== -->
+
+
+</chapter>

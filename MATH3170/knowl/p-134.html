@@ -1,0 +1,68 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-11-10T14:15:08+11:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h4 class="heading"><span class="type">Paragraph</span></h4>
+<p>For the other inequality, note that <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(p\vert m!\)</span> exactly <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\sum_{r=1}^{\infty}\left\lfloor\frac{m}{p^r}\right\rfloor\)</span> times. Since</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+N=\binom{2n}{n}=\frac{(2n)!}{(n!)^2},
+\end{equation*}
+</div>
+<p class="continuation">we have</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+N=\prod_{p\leq 2n} p^{\sum_{r=1}^{\infty}\left\lfloor\frac{2n}{p^r}\right\rfloor-2\sum_{r=1}^{\infty}\left\lfloor\frac{n}{p^r}\right\rfloor}.
+\end{equation*}
+</div>
+<p class="continuation">Each of the sums can be terminated at the <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(M_p\)</span>th term, where <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(M_p=\left\lfloor\frac{\log(2n)}{\log(p)}\right\rfloor\)</span> since for <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(0\lt x\lt 1,\)</span> <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\lfloor x\rfloor =0.\)</span> This gives</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\sum_{r=1}^{\infty} \left(\left\lfloor\frac{2n}{p^r}\right\rfloor-2\left\lfloor\frac{n}{p^r}\right\rfloor\right)\leq M_p
+\end{equation*}
+</div>
+<p class="continuation">since <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\lfloor 2x\rfloor-2\lfloor x\rfloor =0\)</span> or <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(1.\)</span> Now</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\prod_{p\leq 2n}p^{M_p}=\prod_{p\leq 2n}e^{M_p\log(p)}=\prod_{p\leq 2n}e^{\left\lfloor\frac{\log(2n)}{\log(p)}\right\rfloor\log(p)}=e^{\varphi(2n)},
+\end{equation*}
+</div>
+<p class="continuation">so <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(N\vert e^{\varphi(2n)}\)</span> and the right inequality of <a href="" class="xref" data-knowl="./knowl/Eqn_3_2.html" title="Equation 3.4.1">(3.4.1)</a> gives</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+2n\log(2)-\log(2n+1)\lt \log(N)\lt \varphi(2n).
+\end{equation*}
+</div>
+<p class="continuation">Now if <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(x\gt 2\)</span> and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(n =\left\lfloor\frac{x}{2}\right\rfloor,\)</span> then</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\varphi(x)\geq\varphi(2n)\gt (x-2)\log(2)-\log(x-1).
+\end{equation*}
+</div>
+<p class="continuation">Dividing by <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(x\)</span> yields</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\frac{\varphi(x)}{x}\gt \frac{x-2}{x}\log(2)-\frac{1}{x}\log(x-1).
+\end{equation*}
+</div>
+<p class="continuation">Since <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\frac{x-2}{x}\rightarrow 1\)</span> and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\frac{1}{x}\log(x-1)\rightarrow \)</span> as <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(x\rightarrow \infty,\)</span> we have <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\log(2)\leq l.\)</span> So there exists constants <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(L,l,\)</span> such that</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+l\frac{x}{\log(x)}\lt \pi(x)\lt L\frac{x}{\log(x)}.
+\end{equation*}
+</div>
+<span class="incontext"><a href="Sec-Chebychevs_Theorem.html#p-134">in-context</a></span>
+</body>
+</html>

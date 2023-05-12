@@ -1,0 +1,48 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-11-10T14:15:07+11:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h3 class="heading"><span class="type">Paragraph</span></h3>
+<p>Note that by the fundamental theorem of arithmetic we have that</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\sum_{n\leq x}\frac{1}{n}\leq \prod_{p\leq x}\left(1+\frac{1}{p}+\frac{1}{p^2}+\frac{1}{p^3}+...\right).
+\end{equation*}
+</div>
+<p class="continuation">This product converges if and only if the sum</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\sum_{p\leq x}\left(\frac{1}{p}+\frac{1}{p^2}+...\right).
+\end{equation*}
+</div>
+<p class="continuation">Well we have, again using geometric series, that</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{align*}
+\sum_{p\leq x}\left(\frac{1}{p}+\frac{1}{p^2}+...\right) \amp = \sum_{p\leq x} \frac{1}{p}+\sum_{p\leq x}\left(\frac{1}{p^2}+...\right)\\
+\amp = \sum_{p\leq x} \frac{1}{p}+\sum_{p\leq x}\frac{1}{p}\cdot\frac{1}{p-1}\\
+\amp \leq \sum_{p\leq x} \frac{1}{p}+\sum_{n=1}^{\infty}\frac{1}{n^2}\\
+\amp = \sum_{p\leq x} \frac{1}{p}+C
+\end{align*}
+</div>
+<p class="continuation">for some real number <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(C\gt 0.\)</span> Thus the product converges if and only if the sum</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\sum_{p\leq x}\frac{1}{p}
+\end{equation*}
+</div>
+<p class="continuation">converges. Since the harmonic series diverges, we thus have that the sum of the reciprocals of the primes diverges. Since a sum of finitely many terms would be finite, there are infinitely many primes.</p>
+<span class="incontext"><a href="Sec-The_Fundamental_Theorem_of_Arithmetic.html#p-115">in-context</a></span>
+</body>
+</html>

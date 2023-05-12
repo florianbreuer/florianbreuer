@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- =================================================================================================== -->
+<!-- To process this file with xsltproc do                                                        -->
+<!--                                                                                              -->
+<!-- (1) LaTeX/PDF:                                                                               -->
+<!--     xsltproc -o minimal.tex PATH_TO/mathbook/xsl/pretext-latex.xsl source/main.ptx           -->
+<!--     pdflatex minimal.tex                                                                     -->
+<!--     xelatex minimal.tex                                                                      -->
+<!--                                                                                              -->
+<!-- (2) HTML:                                                                                    -->
+<!--     xsltproc PATH_TO/mathbook/xsl/pretext-html.xsl source/main.ptx                           -->
+<!--     <browser>  minimal.html                                                                  -->
+<!--        ~/xsltproc/xsltproc.exe ~/mathbook/xsl/mathbook-html.xsl test.xml                     -->
+<!--                                                                                              -->
+<!-- (3) CoCalc worksheet (parameter causes a single file for output)                             -->
+<!--     REMOVE the "X" in the double dash (which is not legal in an XML comment)                 -->
+<!--     xsltproc -X-stringparam chunk.level 0 PATH_TO/mathbook/xsl/pretext-smc.xsl source/main.ptx   -->
+<!--     <CoCalc> minimal.sagews                                                                  -->
+<!--                                                                                              -->
+<!-- (4) Sage doctesting                                                                          -->
+<!--     REMOVE the "X" in the double dash (which is not legal in an XML comment)                 -->
+<!--     xsltproc -X-stringparam chunk.level 0 PATH_TO/mathbook/xsl/pretext-sage-doctest.xsl source/main.ptx  -->
+<!--     <read further instructions in> minimal.py                                                -->
+<!-- =================================================================================================== -->
+
+<chapter xml:id="Chap-Introduction">
+
+
+
+<!-- =================================================================================================== -->
+<!-- Title and Other Preliminaries -->
+<!-- =================================================================================================== -->
+        <title>Introduction</title>
+
+        <!-- <frontmatter> -->
+
+<!--             <titlepage>
+                <author>
+                    <institution>University of Newcastle</institution>
+                </author>
+                <date><today /></date>
+            </titlepage> -->
+
+            <!-- <abstract>
+                <p>This is a very short article, but it still exercises some advanced features of MathBook XML.</p>
+            </abstract> -->
+
+        <!-- </frontmatter> -->
+
+        <!-- <introduction>
+            <p>This is a short paragraph to introduce the article (but it is not the abstract).  It is optional, in case it would be preferable to have the first section be titled an <q>Introduction.</q></p>
+        </introduction> -->
+<!-- =================================================================================================== -->
+
+
+
+
+<!-- =================================================================================================== -->
+<!-- Section 1: Sets of Numbers-->
+<!-- =================================================================================================== -->
+    <section xml:id="Sec-Sets_of_Numbers">
+        <title>Sets of Numbers</title>
+
+        <p>
+        In this course we are mainly interested in the counting numbers, which we will call the natural numbers, <m>\mathbb{N};</m> more specifically, 
+        <me>\mathbb{N}=\{1,2,3,4,5,6,7,8,9,10,...\}.</me>
+        If we add <m>0</m> to the naturals we will denote the set by <m>\mathbb{N}_0;</m> that is, 
+        <me>\mathbb{N}_0=\mathbb{N}\cup\{0\}.</me>
+        If we then add the negatives, we come up with the integers<fn><m>\mathbb{Z}</m> comes from the German word for numbers, <term>Zahlen</term></fn>, 
+        <me>\mathbb{Z}=\{..., -3, -2, -1, 0, 1, 2, 3,...\}.</me>
+        If we divide integers by non-zero integers, we get the rational numbers, or quotients, 
+        <me>\mathbb{Q}=\left\{\frac{a}{b}:a,b\in\mathbb{Z}, b\neq 0\right\}.</me>
+        It is easily seen from the definitions above that 
+        <me>\mathbb{N}\subset\mathbb{N}_0\subset\mathbb{Z}\subset\mathbb{Q},</me>
+        where "<m>\subset</m>" is used to mean "is a subset of"; symbolically
+        <me>A\subset B \Leftrightarrow (\forall x\in A, a\in B).</me>
+        Unfortunately, not all numbers are rational. For example, in number theory we are sometimes interested in solutions to polynomial equations, such as
+        <men xml:id="Eq-1_1">x^2-2=0</men>.
+        The solution to <xref ref="Eq-1_1"/> is <m>x=\sqrt{2},</m> which most of us know is an irrational number. But to be sure we must prove it. First we introduce some notation.
+        </p>
+
+        <convention>
+            <statement>
+                <p>
+                We say that <m>a</m> divides <m>b,</m> and write <m>a\vert b,</m> if there is some integer <m>c</m> such that <m>b=ac.</m> 
+                </p>
+            </statement>
+        </convention>
+
+        <theorem>
+            <statement>
+                <p>
+                <m>\sqrt{2}</m> is irrational.
+                </p>
+            </statement>
+            <proof>
+                <p>
+                By contradiction. Suppose that <m>\sqrt{2}\in\mathbb{Q}.</m> Then we may write <m>\sqrt{2}=\frac{m}{n},</m> where <m>\frac{m}{n}</m> is a completely reduced fraction (in lowest terms). Since <m>\sqrt{2}=\frac{m}{n}</m> we have
+                <me>2n^2=m^2</me>
+                and so <m>2\vert m^2,</m> which implies that <m>2\vert m.</m> That there is an integer <m>k</m> such that <m>m=2k.</m> Now we have
+                <me>2n^2=m^2=(2k)^2=4k^2,</me>
+                which reduces to
+                <me>n^2=2k^2.</me>
+                This is similar to the earlier case, and so it must be the case that <m>2\vert n.</m> Since <m>2\vert m</m> and <m>2\vert n,</m> the rational number <m>\frac{m}{n}</m> is not in lowest terms, a contradiction. Thus <m>\sqrt{2}</m> is irrational.
+                </p>
+            </proof>
+        </theorem>
+
+        <p>
+        Similar to a calculus class, we denote the set of rationals and irrationals as <m>\mathbb{R},</m> and call this the real numbers.
+        </p>
+
+    </section>
+    
+<!-- =================================================================================================== -->
+
+
+<!-- =================================================================================================== -->
+<!-- Section 2: The Diophantine equation a^2+b^2=c^2-->
+<!-- =================================================================================================== -->
+    <section xml:id="Sec-The_Diophantine_Equation">
+        <title>The Diophantine equation <m>a^2+b^2=c^2</m></title>
+
+        <p>
+        In calculus classes the world over we use blindly that in a right triangle, that the square of the hypotenuse is equal to the sums of the square of the other two sides. Indeed by just looking at the first few integer solutions<fn>A Diophantine equation is a polynomial in which we only consider variables to be integers.</fn> to
+        <men>a^2+b^2=c^2</men>
+        we can see a pattern.
+        <md>
+            <mrow>3^2+4^2 \amp= 5^2</mrow>
+            <mrow>8^2+6^2 \amp= 10^2</mrow>
+            <mrow>15^2+8^2 \amp= 17^2</mrow>
+            <mrow>24^2+10^2 \amp= 26^2</mrow>
+            <mrow>35^2+12^2 \amp= 37^2</mrow>
+            <mrow>\vdots</mrow>
+            <mrow>(n^2-1)^2+(2n)^2 \amp= (n^2+1)^2.</mrow>
+        </md>
+        If we consider <m>n=\frac{p}{q}</m> to be a rational number and clear denominators we get the general solution
+        <me>(p^2-q^2)^2+(2pq)^2=(p^2+q^2)^2.</me> 
+        There is a wonderful proof of Pythagoras' theorem which we will consider now.
+        </p> 
+
+        <theorem>
+            <creator>Pythagorean Theorem</creator>
+            <statement>
+                <p>
+                In a right triangle, the square of the hypotenuse is equal to the sums of the square of the other two sides.
+                </p>
+            </statement>
+            <proof>
+                <p>
+                Without loss of generality, consider <xref ref="Fig_1_1"/> below. The area of the outside square is <m>c^2.</m> This is equal to the area of the inside square plus that of the four triangles inside the large square. Thus
+                <md>
+                    <mrow>c^2 \amp=(b-a)^2+4\left(\frac{ab}{2}\right)</mrow>
+                    <mrow>\amp=b^2-2ab+a^2+2ab</mrow>
+                    <mrow>\amp=a^2+b^2</mrow>
+                </md>
+                which is the desired result, proving Pythagoras' theorem.
+                </p>
+            </proof>
+        </theorem>
+
+        <figure xml:id="Fig_1_1">
+            <caption>This picture is due to Khan Amore.</caption>
+            <image source="./Images/Fig_1_1.png" width="70%"/>
+        </figure>
+
+        <p>
+        After considering the diophantine equation <m>a^2+b^2=c^2,</m> it is almost immediate to inquire about solutions to <m>a^3+b^3=c^3,</m> <m>a^4+b^4=c^4,</m> or in general <m>a^k+b^k=c^k</m> for <m>k\gt 2.</m> Unfortunately this is a very hard thing to consider. The question was posed by Pierre de Fermat in 1637, and remained unproven until 357 years later in 1995, Andrew Wiles succeeded in proving it. Wiles proved the following theorem.
+        </p>
+
+        <theorem>
+            <statement>
+                <p>
+                For <m>k\in\mathbb{N}</m> with <m>k\gt 2,</m> the equation <m>x^k+y^k=z^k</m> has no solutions for <m>x,y,z\in\mathbb{N}.</m>
+                </p>
+            </statement>
+        </theorem>
+
+        <p>
+        This proof takes up around 200 pages, and so we will not reproduce it.
+        </p>
+
+    </section>
+    
+<!-- =================================================================================================== -->
+
+
+<!-- =================================================================================================== -->
+<!-- Section 3: Induction-->
+<!-- =================================================================================================== -->
+    <section xml:id="Sec-Induction">
+        <title>Induction</title>
+
+        <theorem>
+            <creator>Well-Ordering Principle</creator>
+            <statement>
+                <p>
+                Every non-empty subset <m>A</m> of <m>N</m> contains a least element; that is, for <m>A \subset \mathbb{N},</m> there is an <m>a\in A</m> such that <m>a\leq b</m> for all <m>b\in A.</m>
+                </p>
+            </statement>
+        </theorem>
+
+        <p>
+        This follows immediately from the fact that <m>\mathbb{N}</m> has a least element.
+        </p>
+
+        <corollary>
+            <statement>
+                <p>
+                Every finite subset <m>A</m> of <m>\mathbb{N}</m> has a greatest element.
+                </p>
+            </statement>
+        </corollary>
+
+        <theorem>
+            <creator>Archimedean Property</creator>
+            <statement>
+                <p>
+                If <m>a,b\in\mathbb{N},</m> then there is an <m>n\in\mathbb{N}</m> such that <m>na\geq b.</m>
+                </p>
+            </statement>
+            <proof>
+                <p>
+                Suppose that the theorem is not true. Thus there exist <m>a,b\in\mathbb{N}</m> for which <m>na\lt b</m> for all <m>n\in\mathbb{N}.</m> Consider the set
+                <me>S = \{b-na:n\in\mathbb{N}\}.</me>
+                Clearly <m>S\subset \mathbb{N},</m> so by the Well-Ordering Principle, <m>S</m> contains a least element, say <m>b-ka.</m> Since <m>k+1\in\mathbb{N},</m> we have also <m>b-(k+1)a\in S.</m> But
+                <me>b-(k+1)a=(b-ka)-a\lt b-ka,</me>
+                a contradiction. Hence the theorem is true.
+                </p>
+            </proof>
+        </theorem>
+
+        <theorem xml:id="Thm-Principle_of_Finite_Induction">
+            <creator>Principle of Finite Induction</creator>
+            <statement>
+                <p>
+                Let <m>S\subset\mathbb{N}</m> such that
+                <ol label="(i)">
+                    <li><m>1\in S</m></li>
+                    <li>if <m>k\in S,</m> then <m>k+1\in S</m></li>
+                </ol>
+                Then <m>S=\mathbb{N}.</m>
+                </p>
+            </statement>
+            <proof>
+                <p>
+                Let <m>S\subset\mathbb{N}</m> with <m>1\in S</m> and with the property that if <m>k\in S,</m> then <m>k+1\in S.</m> Toward a contradiction, write <m>T=\mathbb{N}\backslash S,</m> and assume <m>T\neq \emptyset.</m> Note that <m>T\subset\mathbb{N},</m> so that by the Well-Ordering Principle, <m>T</m> contains a least element, say <m>t</m> (this also means <m>t\notin S</m>). Since <m>1\in S,</m> <m>t\gt 1,</m> and so <m>0 \lt t-1 \lt t.</m> Since <m>t\in T</m> is the smallest element and <m>t-1\in\mathbb{N},</m> it must be the case that <m>t-1\in S.</m> But by the definition of <m>S</m> since <m>t-1\in S,</m> we have <m>t\in S,</m> a contradiction. Thus <m>T=\emptyset,</m> and <m>S=\mathbb{N}.</m>
+                </p>
+            </proof>
+        </theorem>
+
+        <remark>
+            <statement>
+                <p>
+                Note that here the set <m>S</m> may be a solution set to a certain equality or inequality. The only condition is that <m>S\subset\mathbb{N}.</m> The following theorem demonstrates this.
+                </p>
+            </statement>
+        </remark>
+
+        <theorem>
+            <creator>Gauss' Sum</creator>
+            <statement>
+                <p>
+                For all <m>n\in\mathbb{N}</m> we have
+                <me>\sum_{i=1}^{n} i=\frac{n(n+1)}{2}.</me>
+                </p>
+            </statement>
+        </theorem>
+
+        <proof>
+            <title>Inductive Proof</title>
+            <p>
+            To show that this is true for all <m>n\in\mathbb{N}</m> we need only show that conditions <m>(i)</m> and <m>(ii)</m> of <xref ref="Thm-Principle_of_Finite_Induction"/> hold. To this end, note that
+            <me>1=\sum_{i=1}^{1}i=\frac{1(1+1)}{2}=1</me>
+            so condition <m>(i)</m> is satisfied. To see condition <m>(ii)</m> holds, let us suppose that
+            <me>\sum_{i=1}^{n}i=\frac{n(n+1)}{2}.</me>
+            Now consider the <m>n+1</m> case. We have
+            <md>
+                <mrow>\sum_{i=1}^{n+1}i \amp=\left(\sum_{i=1}^{n}i\right)+(n+1)</mrow>
+                <mrow>\amp =\frac{n(n+1)}{2}+(n+1)</mrow>
+                <mrow>\amp =\frac{n(n+1)+2(n+1)}{2}</mrow>
+                <mrow>\amp =\frac{n^2+2n+2}{2}</mrow>
+                <mrow>\amp =\frac{(n+1)(n+2)}{2}</mrow>
+                <mrow>\amp =\frac{(n+1)((n+1)+1)}{2}</mrow>
+            </md>
+            and so by induction for all <m>n\in\mathbb{N}</m> we have
+            <me>\sum_{i=1}^{n}i=\frac{n(n+1)}{2}.</me>
+            </p>
+        </proof>
+        
+        <p>
+        Induction is not always needed. Indeed, we may prove the above theorem without using induction.
+        </p>
+
+        <proof>
+            <title>Non-inductive Proof</title>
+            <p>
+            Let <m>n\in\mathbb{N}.</m> Since addition is commutative we have that
+            <md>
+                <mrow>\sum_{i=1}^{n}i \amp=1+2+3+...+(n-1)+n</mrow>
+                <mrow> \amp + </mrow>
+                <mrow>\sum_{i=1}^{n}i \amp=n+(n-1)+...+3+2+1</mrow>
+                <mrow>\Rightarrow 2\sum_{i=1}^{n}i \amp=n(n+1)</mrow>
+            </md>
+            So we have that for an arbitrary <m>n\in\mathbb{N}</m>
+            <me>\sum_{i=1}^{n}i=\frac{n(n+1)}{2}.</me>
+            </p>
+        </proof>
+
+        <theorem>
+            <statement>
+                <p>
+                For <m>m\gt 1</m> and all <m>k\in\mathbb{N}</m> we have
+                <me>1+m+m^2+...+m^{k-1}=\frac{m^k-1}{m-1}.</me>
+                </p>
+            </statement>
+            <proof>
+                <p>
+                As before, we must show that conditions <m>(i)</m> and <m>(ii)</m> of  <xref ref="Thm-Principle_of_Finite_Induction"/> hold.
+                </p>
+                <p>
+                For <m>(i),</m> it is quite straightforward to see that
+                <me>1=\frac{m-1}{m-1},</me>
+                and so the result holds for <m>k=1.</m>
+                </p>
+                <p>
+                For <m>(ii)</m> suppose the result holds for <m>k\gt 1.</m> Then
+                <md>
+                    <mrow>1+m+m^2+...+m^{k-1}+m^k \amp=\frac{m^k-1}{m-1}+m^k</mrow>
+                    <mrow>\amp=\frac{m^k-1}{m-1}+\frac{m^k(m-1)}{m-1}</mrow>
+                    <mrow>\amp=\frac{m^k-1+m^{k+1}-m^k}{m-1}</mrow>
+                    <mrow>\amp=\frac{m^k-1}{m-1},</mrow>
+                </md>
+                so the result holds for <m>k+1.</m> Thus for <m>m\gt 1</m> and all <m>k\in\mathbb{N}</m> we have
+                <me>1+m+m^2+...+m^{k-1}=\frac{m^k-1}{m-1}.</me>
+                </p>
+            </proof>
+        </theorem>
+
+        <p>
+        As we will use induction in a different (and equivalent form) in the coming lectures, we put it down for the record now.
+        </p>
+
+        <theorem xml:id="Thm-Principle_of_Finite_Induction_restated">
+            <creator>Principle of Finite Induction, restated</creator>
+            <statement>
+                <p>
+                Let <m>S\subset\mathbb{N}</m> such that
+                <ol label="(i)">
+                    <li><m>1\in S</m></li>
+                    <li>if <m>1,2,...,k\in S,</m> then <m>k+1\in S</m></li>
+                </ol>
+                Then <m>S=\mathbb{N}.</m>
+                </p>
+            </statement>
+        </theorem>
+
+    </section>
+
+<!-- =================================================================================================== -->
+
+</chapter>

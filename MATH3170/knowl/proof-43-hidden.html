@@ -1,0 +1,51 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-11-10T14:15:09+11:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math"><article class="hiddenproof"><p>We proceed by induction on the degree of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(f(x).\)</span> If <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(n = 0,\)</span> then <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(f(x) = a_0.\)</span> Since <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(a_0 \not\equiv 0\pmod{p},\)</span> there are no solutions. If <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(n = 1,\)</span> then <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(f(x) = a_1x+a_0;\)</span> and we know from a previous theorem that the congruence</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+a_1x \equiv -a_0 \pmod{p}
+\end{equation*}
+</div>
+<p class="continuation">has exactly one solution modulo <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(p,\)</span> since <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\gcd(a_1, p) = 1.\)</span></p>
+<p>Assume now that the theorem is true for all polynomials of degree <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(n\)</span> less than <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(k,\)</span> where <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(k \geq 2.\)</span> Suppose that <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(f(x) = a_kx^k+...+a_0\)</span> is a polynomial of degree <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(k\)</span> with <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(k + 1\)</span> mutually incongruent solutions modulo <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(p,\)</span> say <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(w_1, w_2,..., w_{k+1}.\)</span> We define the polynomial <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(g(x)\)</span> by</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+g(x) := f(x)-a_k(x-w_1)(x-w_2)...(x-w_k).
+\end{equation*}
+</div>
+<p class="continuation">Now <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(g(x) \equiv f(x) \equiv 0 \pmod{p}\)</span> if <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(x = w_1, w_2,..., w_k.\)</span> Furthermore, <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(g(x)\)</span> is a polynomial of degree less than <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(k\)</span> because the leading term of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(f(x)\)</span> is cancelled by the <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(a_kx^k\)</span> term of the product on the right. Thus since the number of solutions of the congruence <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(g(x) \equiv 0 \pmod{p}\)</span> is larger than the degree of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(g(x),\)</span> it follows from the induction hypothesis that</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+g(x) \equiv 0 \pmod{p}
+\end{equation*}
+</div>
+<p class="continuation">for each integer <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(x.\)</span> In particular,</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+g(w_{k+1}) \equiv 0 \pmod{p}.
+\end{equation*}
+</div>
+<p class="continuation">This gives</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{align*}
+0 \amp \equiv g(w_{k+1}) \pmod{p}\\
+\amp \equiv f(w_{k+1})-a_k(w_{k+1}-w_1)(w_{k+1}-w_2)...(w_{k+1}-w_k)\pmod{p} \\
+\amp \equiv -a_k(w_{k+1}-w_1)(w_{k+1}-w_2)...(w_{k+1}-w_k)\pmod{p} 
+\end{align*}
+</div>
+<p class="continuation">Thus <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(p\vert a_k(w_{k+1}-w_1)(w_{k+1}-w_2)...(w_{k+1}-w_k).\)</span> If <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(p\vert a_k\)</span> then the problem reduces to the assumed case. If <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(p \nmid a_k\)</span> then since the <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(w_i\)</span> are mutually incongruent, the difference between any two <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(w_i\)</span>'s is not divisible by <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(p,\)</span> a contradiction.</p>
+<p>Thus the congruence <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(f(x) \equiv 0 \pmod{p}\)</span> has at most <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(k\)</span> mutually incongruent solutions, and the theorem is proved.</p></article></body>
+</html>

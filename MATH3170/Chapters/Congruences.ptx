@@ -1,0 +1,792 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- =================================================================================================== -->
+<!-- To process this file with xsltproc do                                                        -->
+<!--                                                                                              -->
+<!-- (1) LaTeX/PDF:                                                                               -->
+<!--     xsltproc -o minimal.tex PATH_TO/mathbook/xsl/pretext-latex.xsl source/main.ptx           -->
+<!--     pdflatex minimal.tex                                                                     -->
+<!--     xelatex minimal.tex                                                                      -->
+<!--                                                                                              -->
+<!-- (2) HTML:                                                                                    -->
+<!--     xsltproc PATH_TO/mathbook/xsl/pretext-html.xsl source/main.ptx                           -->
+<!--     <browser>  minimal.html                                                                  -->
+<!--        ~/xsltproc/xsltproc.exe ~/mathbook/xsl/mathbook-html.xsl test.xml                     -->
+<!--                                                                                              -->
+<!-- (3) CoCalc worksheet (parameter causes a single file for output)                             -->
+<!--     REMOVE the "X" in the double dash (which is not legal in an XML comment)                 -->
+<!--     xsltproc -X-stringparam chunk.level 0 PATH_TO/mathbook/xsl/pretext-smc.xsl source/main.ptx   -->
+<!--     <CoCalc> minimal.sagews                                                                  -->
+<!--                                                                                              -->
+<!-- (4) Sage doctesting                                                                          -->
+<!--     REMOVE the "X" in the double dash (which is not legal in an XML comment)                 -->
+<!--     xsltproc -X-stringparam chunk.level 0 PATH_TO/mathbook/xsl/pretext-sage-doctest.xsl source/main.ptx  -->
+<!--     <read further instructions in> minimal.py                                                -->
+<!-- =================================================================================================== -->
+
+<chapter xml:id="Chap-Congruences">
+
+
+
+<!-- =================================================================================================== -->
+<!-- Title and Other Preliminaries -->
+<!-- =================================================================================================== -->
+        <title>Congruences</title>
+
+        <!-- <frontmatter> -->
+
+<!--             <titlepage>
+                <author>
+                    <institution>University of Newcastle</institution>
+                </author>
+                <date><today /></date>
+            </titlepage> -->
+
+            <!-- <abstract>
+                <p>This is a very short article, but it still exercises some advanced features of MathBook XML.</p>
+            </abstract> -->
+
+        <!-- </frontmatter> -->
+
+        <introduction>
+            <p>
+            For this section, it is helpful if you keep "clock arithmetic" in mind. That is <m>14:00</m> hours is <m>2</m> o'clock. This will be considered doing arithmetic modulo <m>12.</m> We will just consider an <m>n</m> hour clock.
+            </p>
+
+            <definition>
+                <p>
+                Let <m>n\in\mathbb{N}.</m> Two integers <m>a</m> and <m>b</m> are said to be congruent modulo <m>n,</m> written
+                <me>a \equiv b\pmod{n},</me>
+                provided <m>n\vert (a-b).</m>
+                </p>
+            </definition>
+
+            <p>
+            The canonical example of a congruence comes from the division algorithm.
+            </p>
+
+            <example>
+                <p>
+                Let <m>a\in\mathbb{Z}</m> and <m>n\in\mathbb{N}.</m> Given the division algorithm we know that there exists unique <m>q, r\in\mathbb{Z}</m> with <m>0\leq r\lt n,</m> such that
+                <me>a = qn + r.</me>
+                The definition of congruence gives
+                <me>a \equiv r\pmod{n}.</me>
+                </p>
+            </example>
+
+            <definition>
+                <p>
+                If <m>a, b\in\mathbb{Z}</m> and <m>a\equiv b\pmod{n}</m> we say that <m>a</m> is a residue of <m>b</m> modulo <m>n.</m>
+                </p>
+            </definition>
+
+            <remark>
+                <p>
+                The above examples tells us that modulo <m>n</m> any integer <m>a</m> is congruent to one of
+                <me>0, 1, 2,...,n-1.</me>
+                These integers are called the <term>least nonnegative residues modulo <m>n</m></term>.
+                </p>
+            </remark>
+
+            <definition>
+                <p>
+                The set of integers <m>\{a_0, a_1,..., a_n-1\}</m> is called a <term>complete residue system</term> modulo <m>n</m> provided
+                <ol label="(i)">
+                    <li><m>a_i \not\equiv a_j\pmod{n},</m> whenever <m>i\neq j</m></li>
+                    <li>for each integer <m>k</m> there corresponds an <m>a_i</m> such that <m>k\equiv a_i\pmod{n}.</m></li>
+                </ol>
+                </p>
+            </definition>
+
+            <theorem>   
+                <statement>
+                    <p>
+                    The set <m>\{0, 1, 2,...,n-1\}</m> is a complete residue system modulo <m>n.</m>
+                    </p>
+                </statement>
+                <proof>
+                    <p>
+                    This is a direct consequence of the Division Algorithm.
+                    </p>
+                </proof>
+            </theorem>
+
+            <theorem>   
+                <statement>
+                    <p>
+                    Let <m>a, b\in\mathbb{Z},</m> then <m>a \equiv b\pmod{n}</m> if and only if <m>a</m> and <m>b</m> have the same nonnegative remainder when divided by <m>n.</m>
+                    </p>
+                </statement>
+                <proof>
+                    <p>
+                    Let <m>a, b\in\mathbb{Z}.</m> Suppose <m>a \equiv b\pmod{n}.</m> Then by definition <m>n\vert (a-b).</m> Now by the Division Algorithm there are <m>q, q', r, r'\in\mathbb{Z}</m> with <m>>0\leq r, r' \lt n</m> so that <m>a = qn + r</m> and <m>b = q'n + r'.</m> Now <m>n\vert (n(q-q')+(r-r')),</m> which says that <m>n\vert (r-r').</m> Since both <m>r, r'\lt n</m> this gives <m>r-r'=0,</m> so that <m>r=r'.</m> 
+                    </p>
+                    <p>
+                    Suppose that <m>a</m> and <m>b</m> have the same nonnegative remainder when divided by <m>n,</m> say <m>r.</m> So
+                    <me>a-b = qn + r-(q'n + r) = (q-q')n,</me>
+                    which gives <m>n\vert(a-b)</m> and so <m>a\equiv b\pmod{n}.</m>
+                    </p>
+                </proof>
+            </theorem>
+
+            <theorem>   
+                <statement>
+                    <p>
+                    Let <m>n\in\mathbb{N}</m> and <m>a, b\in\mathbb{Z}.</m> Then
+                    <ol label="(i)">
+                        <li><m>a \equiv a\pmod{n} \hspace{5mm}</m> (reflexive)</li>
+                        <li>if <m>a \equiv b\pmod{n},</m> then <m>b \equiv a\pmod{n} \hspace{5mm} </m> (symmetric)</li>
+                        <li>if <m>a \equiv b\pmod{n}</m> and <m>b \equiv c\pmod{n},</m> then <m>a \equiv c\pmod{n} \hspace{5mm} </m> (transitive)</li>
+                    </ol>
+                    </p>
+                </statement>
+                <proof>
+                    <p>
+                    Let <m>n\in\mathbb{N}</m> and <m>a, b\in\mathbb{Z}.</m> Now for <m>(i)</m> we simply note that <m>n\vert 0</m> so that <m>n\vert (a-a)</m> and <m>a \equiv a\pmod{n}.</m> For <m>(ii),</m> if <m>a \equiv b\pmod{n},</m> then <m>n\vert (a-b)</m> so that there is a <m>k\in\mathbb{Z}</m> such that <m>kn = (a-b).</m> Thus <m>(-k)n = (b-a),</m> so <m>n\vert (b-a)</m> and we have that <m>b \equiv a\pmod{n}.</m> For <m>(iii),</m> if <m>a \equiv b\pmod{n}</m> and <m>b \equiv c\pmod{n},</m> we have that <m>n\vert (a-b)</m> and <m>n\vert (b-c)</m> so that <m>n\vert[(a-b)+(b-c)]</m> which gives <m>n\vert (a-c).</m> Thus <m>a \equiv c\pmod{n}.</m>
+                    </p>
+                </proof>
+            </theorem>
+
+            <definition>
+                <p>
+                If a relation has the properties that it is reflexive, symmetric, and transitive, then we call it an <term>equivalence relation</term>.
+                </p>
+            </definition>
+
+            <p>
+            Thus "<m>\equiv</m>" to the modulus <m>n</m> is an equivalence relation, as seen in the previous theorem.
+            </p>
+
+            <theorem>   
+                <statement>
+                    <p>
+                    Let <m>n\in\mathbb{N}</m> and <m>a, b\in\mathbb{Z}.</m> 
+                    <ol label="(i)">
+                        <li>if <m>a \equiv b\pmod{n}</m> and <m>c \equiv d\pmod{n},</m> then <m>a+c \equiv b+d\pmod{n}</m> and <m>ac \equiv bd\pmod{n}</m></li>
+                        <li>if <m>a \equiv b\pmod{n},</m> <m>a+c \equiv b+c\pmod{n}</m> and <m>ac \equiv bc\pmod{n}</m></li>
+                        <li>if <m>a \equiv b\pmod{n},</m> then <m>a^k \equiv b^k\pmod{n}</m> for any <m>k\in\mathbb{N}</m></li>
+                    </ol>
+                    </p>
+                </statement>
+                <proof>
+                    <p>
+                    Note that <m>(ii)</m> and <m>(iii)</m> are special cases of <m>(i),</m> so that we will only prove <m>(i).</m> Thus let <m>n\in\mathbb{N}</m> and <m>a, b, c, d \in\mathbb{Z}.</m> By a previous theorem we know that both <m>a</m> and <m>b</m> have the same remainder when divided by <m>n,</m> say <m>r,</m> and <m>c</m> and <m>d</m> have the same remainder when divided by <m>n,</m> say <m>r'.</m> So there exist <m>q, s, q', s'\in\mathbb{Z}</m> so that
+                    <md>
+                        <mrow>a \amp =qn+r</mrow>
+                        <mrow>b \amp =sn+r</mrow>
+                        <mrow>c \amp =q'n+r'</mrow>
+                        <mrow>d \amp =s'n+r'</mrow>
+                    </md>
+                    Using this we have that
+                    <md>
+                        <mrow>a+c \amp =qn+r+q'n+r'</mrow>
+                        <mrow>\amp =(q+q')n+(r+r')</mrow>
+                        <mrow>\amp \equiv(r+r')\pmod{n}</mrow>
+                        <mrow>\amp \equiv(s+s')n+(r+r')\pmod{n}</mrow>
+                        <mrow>\amp \equiv(sn+r)+(s'n+r')\pmod{n}</mrow>
+                    </md>
+                    so that <m>a + c \equiv b + d\pmod{n}.</m> Also we have
+                    <md>
+                        <mrow>ac \amp =(qn+r)(q'n+r')</mrow>
+                        <mrow>\amp =qq'n^2+(rq'+r'q)n+rr'</mrow>
+                        <mrow>\amp \equiv rr'\pmod{n}</mrow>
+                        <mrow>\amp \equiv ss'n^2+(rs'+r's)n+rr'\pmod{n}</mrow>
+                        <mrow>\amp \equiv(sn+r)(s'n+r')\pmod{n}</mrow>
+                        <mrow>\amp \equiv bd \pmod{n}</mrow>
+                    </md>
+                    so that <m>ac \equiv bd\pmod{n}.</m>
+                    </p>
+                </proof>
+            </theorem>
+
+            <remark>
+                <p>
+                The arithmetic, "<m>+, -, \cdot</m>" with congruences is the same as the arithmetic "<m>+, -, \cdot</m>" in integers. But here we are only interested in remainders.
+                </p>
+            </remark>
+
+            <example>
+                <p>
+                We have
+                <md>
+                    <mrow>19 \amp \equiv 11\pmod{4}</mrow>
+                    <mrow>6 \amp \equiv 2\pmod{4}</mrow>
+                    <mrow>13\amp\equiv 19-6\equiv 11-2\equiv 9\pmod{4}</mrow>
+                    <mrow>114\amp\equiv 19\cdot 6\equiv 11\cdot 2\equiv 22 \equiv 2\pmod{4}.</mrow> 
+                </md>
+                </p>
+            </example>
+
+            <definition>
+                <p>
+                The set <m>\mathbb{Z}_n := \{0, 1, 2,..., n-1\}</m> equipped with addition and multiplication modulo <m>n</m> is called the ring of integers modulo <m>n.</m>
+                </p>
+            </definition>
+
+            <p>
+            Note that every element in <m>a\in\mathbb{Z}_n</m> has an additive inverse (there is an element <m>b</m> such that <m>a + b \equiv 0\pmod{n}),</m> but not every element has a multiplicative inverse (an element <m>b</m> such that <m>ab\equiv 1\pmod{n}</m>). As an example let <m>n = 10</m> and <m>a = 2.</m> Then the additive inverse of <m>5</m> is <m>5</m> since 
+            <me>5 + 5 \equiv 0\pmod{10}.</me>
+            But <m>5</m> does not have a multiplicative inverse. This can be seen just by exhausting the possibilities.
+            <md>
+                <mrow>5(0) \amp\equiv 0\pmod{10}</mrow>
+                <mrow>5(1) \amp\equiv 5\pmod{10}</mrow>
+                <mrow>5(2) \amp\equiv 0\pmod{10}</mrow>
+                <mrow>5(3) \amp\equiv 5\pmod{10}</mrow>
+                <mrow>5(4) \amp\equiv 0\pmod{10}</mrow>
+                <mrow>5(5) \amp\equiv 5\pmod{10}</mrow>
+                <mrow>5(6) \amp\equiv 0\pmod{10}</mrow>
+                <mrow>5(7) \amp\equiv 5\pmod{10}</mrow>
+                <mrow>5(8) \amp\equiv 0\pmod{10}</mrow>
+                <mrow>5(9) \amp\equiv 5\pmod{10}</mrow>
+            </md>
+            A consequence of this is that part <m>(ii)</m> of the preceding theorem is not an "if and only if" statement. The first part of the statement does have a true converse. We see this in the following theorem.
+            </p>
+
+            <theorem>
+                <statement>
+                    <p>
+                    Let <m>n\in\mathbb{N}</m> and <m>a, b, c\in\mathbb{Z}.</m> If <m>a + c \equiv b + c\pmod{n},</m> then <m>a \equiv b \pmod{n}.</m>
+                    </p>
+                </statement>
+                <proof>
+                    <p>
+                    Let <m>n\in\mathbb{N}</m> and <m>a, b, c\in\mathbb{Z}.</m> Suppose <m>a + c \equiv b + c\pmod{n}.</m> Now we know that <m>-c \equiv -c\pmod{n}</m> by the reflexive property. Thus we have 
+                    <me>(a + c) + (-c) \equiv (b + c) + (-c) \pmod{n},</me>
+                    and so <m>a \equiv b \pmod{n}.</m>
+                    </p>
+                </proof>
+            </theorem>
+
+            <p>
+            There is a kind of limited converse for the second part of the statement. First we need to see when <m>a</m> has an inverse in <m>\mathbb{Z}_n.</m> This is the same as asking if the linear equivalence 
+            <me>ax \equiv 1 \pmod{n}</me>
+            has a solution. This is the same as asking if there are <m>x</m> and <m>y</m> such that 
+            <me>ax + ny = 1</me>
+            has a solution <m>x, y,</m> and this is true if and only if <m>\gcd(a, n) = 1.</m> This yields the following theorem.
+            </p>
+
+            <theorem>
+                <statement>
+                    <p>
+                    If <m>\gcd(a, n) = 1,</m> then a has a multiplicative inverse in <m>\mathbb{Z}_n.</m>
+                    </p>
+                </statement>
+            </theorem>
+
+            <corollary>
+                <statement>
+                    <p>
+                    Let <m>n\in\mathbb{N},</m> <m>a,b,c\in\mathbb{Z}</m> and <m>\gcd(c,n)=1.</m> If <m>ac\equiv bc\pmod{n},</m> then <m>a\equiv b\pmod{n}.</m>
+                    </p>
+                </statement>
+                <proof>
+                    <p>
+                    Let <m>n\in\mathbb{N},</m> <m>a,b,c\in\mathbb{Z}</m> and <m>\gcd(c,n)=1.</m> Suppose <m>ac\equiv bc\pmod{n},</m> then
+                    <md>
+                        <mrow>n\vert(ac-bc)</mrow>
+                        <mrow>n\vert c(a-b)</mrow>
+                        <mrow>n\vert(a-b),</mrow>
+                    </md>
+                    where the last line comes by Euclid's lemma. Thus <m>a \equiv b\pmod{n}.</m>
+                    </p>
+                </proof>
+            </corollary>
+
+            <corollary>
+                <p>
+                Let <m>p</m> be a prime. If <m>ac\equiv bc\pmod{p}</m> and <m>p\nmid c,</m> then <m>a\equiv b\pmod{p}.</m>
+                </p>
+            </corollary>
+
+        </introduction>
+
+
+<!-- =================================================================================================== -->
+
+<!-- =================================================================================================== -->
+<!-- Section 1: Solving Linear Congruences-->
+<!-- =================================================================================================== -->
+    <section xml:id="Sec-Solving_Linear_Congruences">
+        <title>Solving Linear Congruences</title>
+
+        <p>
+        As we saw in a previous lecture, finding a solution to the linear Diophantine equation
+        <me>ax + ny = b</me>
+        is equivalent to solving the congruence
+        <me>ax \equiv b \pmod{n}.</me>
+        In all of the previous examples (from homework and class) we had <m>a</m> and <m>n</m> coprime. This is nice, because as previously seen, this is sufficient to give a solution to any linear Diophantine equation of the form <m>ax-ny = b,</m> since surely <m>1\vert b.</m> But what if <m>\gcd(a,n) = d \gt 1?</m> Does the equivalence <m>ax\equiv b\pmod{n}</m> have a solution? Is it unique? Before we answer these questions we give some definitions to formalise our discussion.
+        </p>
+
+        <definition>
+            <p>
+            An equation of the form <m>ax \equiv b \pmod{n}</m> is called a <term>linear congruence</term>.
+            </p>
+        </definition>
+
+        <p>
+        It is also convenient to think of two congruent solutions as "equal", and two that are not congruent as "different". Thus, when we refer to the number of solutions to a linear congruence, we mean the number of <em>incongruent solutions</em> satisfying the congruence.
+        </p>
+
+        <theorem>
+            <statement>
+                <p>
+                The linear congruence <m>ax \equiv b \pmod{n}</m> has a solution if and only if <m>d\vert b,</m> where <m>d = \gcd(a, n).</m> If <m>d\vert b,</m> then it has <m>d</m> mutually incongruent solutions modulo <m>n.</m>
+                </p>
+            </statement>
+            <proof>
+                <p>
+                Since we know that solving <m>ax \equiv b \pmod{n}</m> is equivalent to solving <m>ax-ny = b,</m> we have by comparison that <m>ax \equiv b \pmod{n}</m> has a solution if and only if <m>d\vert b,</m> where <m>d = \gcd(a, n).</m> Also we know that if the linear Diophantine is solvable and <m>x_0, y_0</m> is a solution, then all other solutions are given by
+                <me>x = x_0 +\frac{n}{d}t \hspace{10mm} y=y_0=\frac{a}{d}t</me>
+                where <m>t\in\mathbb{Z}.</m> 
+                </p>
+                <p>
+                Since we are only interested in the solution of the congruence and not the equation, we consider only the solution for <m>x.</m> We shall show that of all of the solutions <m>x = x_0 +\frac{n}{d}t</m> for <m>t\in\mathbb{Z},</m> the only incongruent ones are
+                <me>x_0, x_0+\frac{n}{d}, x_0+\frac{n}{d}2, x_0+\frac{n}{d}3, ...,x_0+\frac{n}{d}(d-1)</me>
+                Suppose it happened that two solutions were congruent; that is,
+                <me>x_0=\frac{n}{d}t_1\equiv x_0+\frac{n}{d}t_2 \pmod{n}</me>
+                where <m>0 \leq t_1 \lt t_2 \leq d-1.</m> Then we would have
+                <me>\frac{n}{d}t_1\equiv \frac{n}{d}t_2 \pmod{n}.</me> 
+                But since <m>\gcd(\frac{n}{d}, n) = \frac{n}{d},</m> so that
+                <me>t_1 \equiv t_2 \pmod{d}</me>
+                which is impossible since <m>0 \leq t_1 \lt t_2 \leq d-1</m> shows that <m>n \nmid t_1-t_2.</m> Thus our list of solutions are pairwise incongruent.
+                </p>
+                <p>
+                To see that any solution is congruent to one on our list, suppose that <m>x_0+\frac{n}{d}t</m> is some solution. Using the Division Algorithm, we may we may write <m>t = qd + r,</m> where <m>0 \leq r \lt d.</m> Now
+                <md>
+                    <mrow>x_0 +\frac{n}{d}t \amp =x_0+\frac{n}{d}(qd+r)</mrow>
+                    <mrow>\amp =x_0+nq+\frac{n}{d}r</mrow>
+                    <mrow>\amp \equiv x_0+\frac{n}{d}r\pmod{n}</mrow>
+                </md>
+                where <m>x_0 +\frac{n}{d}r</m> is one of the solutions on our list.
+                </p>
+            </proof>
+        </theorem>
+
+        <corollary>
+            <p>
+            If <m>\gcd(a, n) = 1,</m> then the linear congruence <m>ax \equiv b\pmod{n}</m> has a unique solution modulo <m>n.</m>
+            </p>
+        </corollary>
+
+        <example>
+            <p>
+            Consider the equivalence <m>2x = 2 \pmod{4}.</m> Since 
+            <me>\gcd(2, 4) = 2\vert 2,</me>
+            there are <m>2</m> incongruent solutions modulo <m>4.</m> We easily see that <m>x = 1</m> is a solution. All solutions are of the form <m>x = 1 + 2t</m> for <m>t = 0, 1.</m> Thus the other solution is <m>x = 3.</m> So the two incongruent solutions modulo <m>4</m> are 
+            <me>x \equiv 1, 3\pmod{4}.</me>
+            </p>
+        </example>
+
+        <p>
+        To consider a more complicated example we use the following lemma.
+        </p>
+
+        <lemma>
+            <statement>
+                <p>
+                If <m>ca \equiv cb \pmod{n},</m> then <m>a \equiv b \pmod{\frac{n}{d}},</m> where <m>d =\gcd(c, n).</m>
+                </p>
+            </statement>
+            <proof>
+                <p>
+                Homework problem.
+                </p>
+            </proof>
+        </lemma>
+
+        <example>
+            <p>
+            Consider the equivalence <m>9x = 21 \pmod{30}.</m> Since 
+            <me>\gcd(9, 30) = 3\vert 21,</me> 
+            there are <m>3</m> incongruent solutions modulo <m>30.</m> Finding a first solution to this congruence is a little more tricky than the earlier example.
+            </p>
+            <p>
+            Using the preceding lemma we know that we may solve <m>3x \equiv 7 \pmod{10}</m> instead. Now multiplying by <m>7</m> gives this congruence as <m>21x \equiv 49\pmod{10}</m> so that <m>x \equiv 9 \pmod{10}</m> is a solution. So the solution to our original congruence are those integers of the form
+            <me>x = 9 + 10t,</me>
+            where <m>t = 0, 1, 2.</m> Thus we have the solutions
+            <me>x \equiv 9, 19, 29\pmod{30}.</me>
+            </p>
+        </example>
+
+    </section>
+    
+<!-- =================================================================================================== -->
+
+<!-- =================================================================================================== -->
+<!-- Section 2: Chinese Remainder Theorem-->
+<!-- =================================================================================================== -->
+    <section xml:id="Sec-Chinese_Remainder_Theorem">number
+        <title>Chinese Remainder Theorem</title>
+
+        <p>
+        Now we add yet another twist to solving congruences.
+        </p>
+        <p>
+        In the first century A.D. Sun-Tsu asked what number yields remainders of <m>2,3,</m> and <m>2</m> when divided by <m>3,5,</m> and <m>7,</m> respectively? This is equivalent to solving the system
+        <md>
+            <mrow>x \amp \equiv 2\pmod{3}</mrow>
+            <mrow>x \amp \equiv 3\pmod{5}</mrow>
+            <mrow>x \amp \equiv 2\pmod{7}</mrow>
+        </md>
+        </p>
+
+        <theorem>
+            <creator>Chinese Remainder Theorem</creator>
+            <statement>
+                <p>
+                Let <m>n_1, n_2,..., n_r \in\mathbb{N}</m> such that <m>\gcd(n_i, n_j) = 1</m> for <m>i \neq j.</m> Then the system of linear congruences
+                <md>
+                    <mrow>x \amp \equiv a_1\pmod{n_1}</mrow>
+                    <mrow>x \amp \equiv a_2\pmod{n_2}</mrow>
+                    <mrow>\amp \vdots</mrow>
+                    <mrow>x \amp \equiv a_r\pmod{n_3}</mrow>
+                </md>
+                has a simultaneous solution, which is unique modulo <m>n_1n_2...n_r.</m>
+                </p>
+            </statement>
+            <proof>
+                <p>
+                Let <m>n = n_1n_2...n_r,</m> and for each <m>k = 1, 2,..., r</m> let
+                <me>N_k=\frac{n}{n_k}.</me>
+                Note that this gives <m>\gcd(N_k, n_k) = 1.</m> So the congruence <m>N_kx \equiv 1\pmod{n_k}</m> has a unique solution modulo <m>n_k,</m> say <m>x_k.</m> We will show that the integer 
+                <me> \overline{x} = a_1N_1x_1 + a_2N_2x_2 +...+ a_rN_rx_r</me>
+                is a simultaneous solution to the given system.
+                </p>
+                <p>
+                Since <m>n_i\vert N_k</m> for <m>i \neq k, N_i \equiv 0 \pmod{n_k}</m> if <m>i\neq k.</m> Thus
+                <me> \overline{x} = a_1N_1x_1 + a_2N_2x_2 +...+ a_rN_rx_r \equiv a_kN_kx_k\pmod{n_k}.</me>
+                But since <m>N_kx_k \equiv 1 \pmod{n_k},</m> we have that
+                <me> \overline{x} \equiv a_k\cdot 1 \equiv a_k\pmod{n_k}.</me>
+                Thus <m>\overline{x}</m> is a simultaneous solution.
+                </p>
+                <p>
+                To see that it is unique modulo <m>n,</m> suppose that <m>\overline{x}'</m> is any other solution that satisfies the given system. Then
+                <me> \overline{x} \equiv a_k \equiv \overline{x}'\pmod{n_k}</me>
+                and so <m>n_k\vert (\overline{x}-\overline{x}')</m> for each <m>k.</m> But since <m>\gcd(n_i, n_j)=1</m> for <m>i\neq j,</m> we have that <m>n_1n_2...n_r = n\vert (\overline{x}-\overline{x}').</m> Thus <m>\overline{x}\equiv\overline{x}'\pmod{n}.</m> This proves the theorem.
+                </p>
+            </proof>
+        </theorem>
+
+        <example>
+            <p>
+            To solve Sun-Tsu's problem, we have
+            <md>
+                <mrow>x \amp \equiv 2\pmod{3}</mrow>
+                <mrow>x \amp \equiv 3\pmod{5}</mrow>
+                <mrow>x \amp \equiv 2\pmod{7}</mrow>
+            </md>
+            Using the notation of the Chinese Remainder Theorem, we have <m>n = 3\cdot 5\cdot 7 =105</m> and
+            <me>N_1=\frac{n}{3}=35 \hspace{10mm} N_2=\frac{n}{5}=21 \hspace{10mm} N_3=\frac{n}{7}=15.</me> 
+            To find the <m>x_i</m>'s we solve each of the congruences
+            <md>
+                <mrow>x \amp \equiv 35x \pmod{3}</mrow>
+                <mrow>x \amp \equiv 21x \pmod{5}</mrow>
+                <mrow>x \amp \equiv 15x \pmod{7}</mrow>
+            </md>
+            so that we have <m>x_1 = 2, x_2 = 1, x_3 = 1.</m> So a solution of the given system is 
+            <me>x = 2\cdot 35\cdot 2 + 3\cdot 21\cdot 1 + 2\cdot 15\cdot 1 = 233 \equiv 23\pmod{105}.</me>
+            </p>
+        </example>
+
+        <p>
+        Now we can finally solve some more general congruences. Consider the next example. As a different way to solve some congruences. 
+        </p>
+
+        <example>
+            <p>
+            Using the Chinese Remainder Theorem we can solve the congruence
+            <me>17x \equiv 9 \pmod{276}.</me>
+            Since <m>276 = 3\cdot 4\cdot 23,</m> we turn our one congruence into the system
+            <md>
+                <mrow>17x \amp \equiv 9 \pmod{3}</mrow>
+                <mrow>17x \amp \equiv 9 \pmod{4}</mrow>
+                <mrow>17x \amp \equiv 9 \pmod{23}</mrow>
+            </md>
+            which reduced is
+            <md>
+                <mrow>x \amp \equiv 0 \pmod{3}</mrow>
+                <mrow>x \amp \equiv 1 \pmod{4}</mrow>
+                <mrow>17x \amp \equiv 9 \pmod{23}</mrow>
+            </md>
+            Since <m>x\equiv 0 \pmod{3}</m> we know that <m>x = 3k</m> for some <m>k.</m> So we substitute this in the next congruence to see that
+            <me>3k \equiv 1\pmod{4}</me>
+            and so
+            <me>k \equiv 3\pmod{4},</me> 
+            so that <m>k = 3 + 4j</m> for some <m>j,</m> so that <m>x = 3(3 + 4j) = 9 + 12j.</m> Now we substitute this into the last congruence so that we need only solve
+            <me>17(9 + 12j) \equiv 9 \pmod{23}.</me>
+            This reduces to
+            <md>
+                <mrow>17(9 + 12j) \amp \equiv 9 \pmod{23}</mrow>
+                <mrow>153+204j \amp \equiv 9 \pmod{23}</mrow>
+                <mrow>15+20j \amp \equiv 9 \pmod{23}</mrow>
+                <mrow>20j \amp \equiv 17 \pmod{23}</mrow>
+            </md>
+            so that <m>j \equiv 2 \pmod{23}.</m> So <m>j = 2 + 23t</m> for <m>t \in\mathbb{Z}.</m> Hence
+            <me>x = 9 + 12(2 + 23t) = 33 + 276t,</me>
+            so <m>x \equiv 33 \pmod{276}</m> is the unique solution modulo <m>276.</m> It is unique since <m>\gcd(17, 276) = 1.</m>
+            </p>
+        </example>
+
+        <application>
+            <title>Taken from The Little Book of Bigger Primes, Paulo Ribenboim, 2004, p.27</title>
+            <p>
+            The Chinese Remainder Theorem has numerous applications. It is conceivable that one of these might have been how the Chinese generals counted their troops:
+            </p>
+            <p>
+            <m>\hspace{10mm}</m> Line up <m>7</m> by <m>7</m>! <m>\hspace{5mm}</m> (Not factorial, but a SCREAMED military command.)
+            </p>
+            <p>
+            <m>\hspace{10mm}</m> Line up <m>11</m> by <m>11</m>!
+            </p>
+            <p>
+            <m>\hspace{10mm}</m> Line up <m>13</m> by <m>13</m>!
+            </p>
+            <p>
+            <m>\hspace{10mm}</m> Line up <m>17</m> by <m>17</m>!
+            </p>
+        </application>
+
+        <p>
+        Counting only the remainders in the incomplete rows, the intelligent generals could know the exact number of their soldiers<fn>In between us, this may never have been practiced. The existence of intelligent generals remains a wide open question.</fn>.
+        </p>
+
+
+
+    </section>
+
+
+<!-- =================================================================================================== -->
+
+<!-- =================================================================================================== -->
+<!-- Section 3: Polynomial Congruences-->
+<!-- =================================================================================================== -->
+    <section xml:id="Sec-Polynomial_Congruences">
+        <title>Polynomial Congruences</title>
+
+        <p>
+        What about polynomial congruences? Certainly we must know something about those. We now consider the congruence
+        <me>f(x) \equiv 0 \pmod{n}</me>
+        for <m>f(x)</m> a polynomial of degree <m>n</m> with integer coefficients.
+        </p>
+
+        <theorem>
+            <statement>
+                <p>
+                If <m>f(x) = a_nx^n +...+ a_0</m> is a polynomial of degree <m>n</m> with integer coefficients, and <m>p</m> is a prime such that <m>p\nmid a_0,</m> then the congruence
+                <me>f(x) \equiv 0\pmod{p}</me>
+                has at most <m>n</m> mutually incongruent solutions modulo <m>p.</m>
+                </p>
+            </statement>
+            <proof>
+                <p>
+                We proceed by induction on the degree of <m>f(x).</m> If <m>n = 0,</m> then <m>f(x) = a_0.</m> Since <m>a_0 \not\equiv 0\pmod{p},</m> there are no solutions. If <m>n = 1,</m> then <m>f(x) = a_1x+a_0;</m> and we know from a previous theorem that the congruence 
+                <me>a_1x \equiv -a_0 \pmod{p}</me>
+                has exactly one solution modulo <m>p,</m> since <m>\gcd(a_1, p) = 1.</m>
+                </p>
+                <p>
+                Assume now that the theorem is true for all polynomials of degree <m>n</m> less than <m>k,</m> where <m>k \geq 2.</m> Suppose that <m>f(x) = a_kx^k+...+a_0</m> is a polynomial of degree <m>k</m> with <m>k + 1</m> mutually incongruent solutions modulo <m>p,</m> say <m>w_1, w_2,..., w_{k+1}.</m> We define the polynomial <m>g(x)</m> by
+                <me>g(x) := f(x)-a_k(x-w_1)(x-w_2)...(x-w_k).</me>
+                Now <m>g(x) \equiv f(x) \equiv 0 \pmod{p}</m> if <m>x = w_1, w_2,..., w_k.</m> Furthermore, <m>g(x)</m> is a polynomial of degree less than <m>k</m> because the leading term of <m>f(x)</m> is cancelled by the <m>a_kx^k</m> term of the product on the right. Thus since the number of solutions of the congruence <m>g(x) \equiv 0 \pmod{p}</m> is larger than the degree of <m>g(x),</m> it follows from the induction hypothesis that 
+                <me>g(x) \equiv 0 \pmod{p}</me>
+                for each integer <m>x.</m> In particular,
+                <me>g(w_{k+1}) \equiv 0 \pmod{p}.</me>
+                This gives
+                <md>
+                    <mrow>0 \amp \equiv g(w_{k+1}) \pmod{p}</mrow>
+                    <mrow>\amp \equiv f(w_{k+1})-a_k(w_{k+1}-w_1)(w_{k+1}-w_2)...(w_{k+1}-w_k)\pmod{p} </mrow>
+                    <mrow>\amp \equiv -a_k(w_{k+1}-w_1)(w_{k+1}-w_2)...(w_{k+1}-w_k)\pmod{p} </mrow>
+                </md>
+                Thus <m>p\vert a_k(w_{k+1}-w_1)(w_{k+1}-w_2)...(w_{k+1}-w_k).</m> If <m>p\vert a_k</m> then the problem reduces to the assumed case. If <m>p \nmid a_k</m> then since the <m>w_i</m> are mutually incongruent, the difference between any two <m>w_i</m>'s is not divisible by <m>p,</m> a contradiction.
+                </p>
+                <p>
+                Thus the congruence <m>f(x) \equiv 0 \pmod{p}</m> has at most <m>k</m> mutually incongruent solutions, and the theorem is proved.
+                </p>
+            </proof>
+        </theorem>
+
+    
+    </section>
+
+<!-- =================================================================================================== -->
+
+<!-- =================================================================================================== -->
+<!-- Section 4: Polynomials-->
+<!-- =================================================================================================== -->
+    <section xml:id="Sec-Polynomials">
+        <title>Polynomials</title>
+
+        <definition>
+            <p>
+            A polynomial <m>f(x)</m> with integer coefficients is <term>reducible</term> provided there are non-constant polynomials <m>h(x)</m> and <m>g(x)</m> with integer coefficients such that
+            <me>f(x) = h(x)g(x).</me>
+            </p>
+        </definition>
+
+        <definition>
+            <p>
+            A polynomial <m>f(x)</m> with integer coefficients is <term>irreducible</term> if it is not reducible.
+            </p>
+        </definition>
+
+        <theorem>
+            <creator>Eisenstein's Irreducibility Criterion</creator>
+            <statement>
+                <p>
+                Let 
+                <me>f(x) = a_0 + a_1x +...+ a_nx^n</me>
+                be a non-constant polynomial with integer coefficients. If there is a prime <m>p</m> such that <m>p\vert a_i</m> for <m>i = 0, 1,..., n-1,</m> and <m>p\nmid a_n,</m> and <m>p^2 \nmid a_0,</m> then <m>f(x)</m> is irreducible.
+                </p>
+            </statement>
+            <proof>
+                <p>
+                Let
+                <me>f(x) = a_0 + a_1x +...+ a_nx^n</me>
+                be a non-constant polynomial with integer coefficients and suppose there is a prime <m>p</m> such that <m>p\vert a_i</m> for <m>i = 0, 1,..., n-1,</m> and <m>p\nmid a_n,</m> and <m>p^2 \nmid a_0.</m> For the purpose of a contradiction, suppose that <m>f(x)</m> is reducible, say <m>f(x) = g(x)h(x)</m> with 
+                <me>g(x) = \sum_{i=0}^{s}b_ix^i \hspace{5mm}\mathrm{and}\hspace{5mm} h(x) = \sum_{i=0}^{t}c_ix^i,</me>
+                and <m>s, t \geq 1.</m> Since <m>a_0 = b_0c_0</m> is divisible by <m>p</m> but not <m>p^2,</m> precisely one of <m>b_0,</m> <m>c_0</m> is divisible by <m>p;</m> without loss of generality, say <m>p\vert b_0.</m> Now <m>p\nmid b_s,</m> otherwise it would divide <m>a_n = b_sc_t.</m> Thus there is some <m>i \leq s</m> such that <m>p</m> divides <m>b_0, b_1,..., b_{i-1}</m> but not <m>b_i.</m> Now
+                <me>a_i = \sum_{k=0}^{i}b_kc_{i-k},</me> 
+                with <m>p</m> dividing both <m>a_i</m> (since <m>i \leq s = n-t \lt n</m>) and <m>\sum_{k=0}^{i-1}b_kc_{i-k},</m> so <m>p\vert b_ic_0.</m> This means, by a previous theorem, that <m>p\vert b_i</m> or <m>p\vert c_0,</m> a contradiction. Thus <m>f(x)</m> is irreducible.
+                </p>
+            </proof>
+        </theorem>
+
+        <theorem>
+            <statement>
+                <p>
+                The polynomial 
+                <me>\Phi_p(x) = 1 + x + x^2+...+x^{p-1}</me>
+                where <m>p</m> is a prime, is irreducible.
+                </p>
+            </statement>
+            <proof>
+                <p>
+                To show that <m>\Phi_p(x)</m> is irreducible, we cannot apply Eisenstein's criterion directly; however, it is sufficient to show that the polynomial
+                <me>f(x)=\Phi_p(x+1)</me>
+                is irreducible. Now from an earlier lecture we know that
+                <me>\Phi_p(x)=\frac{x^p-1}{x-1},</me>
+                so we have
+                <me>f(x) =\frac{(x+1)^p-1}{x}=\sum_{i=0}^{p-1}\binom{p}{i}x^i=x^{p-1}+\binom{p}{p-1}x^{p-2}+...+\binom{p}{2}x^1+\binom{p}{1}.</me>
+                Since <m>p</m> is a prime <m>p</m> divides <m>\binom{p}{i}</m> for <m>i=1,2,...,p-1.</m> Also, <m>p</m> does not divide the leading coefficient (<m>= 1</m>) of <m>f(x),</m> and <m>p^2</m> does not divide the constant term, <m>\binom{p}{1}=p.</m>  Thus, by Eisenstein's criterion, <m>f(x)</m> is irreducible, and hence <m>\Phi_p(x)</m> is irreducible.
+                </p>
+            </proof>
+        </theorem>
+
+        <corollary>
+            <statement>
+                <p>
+                If <m>2^m + 1</m> is prime, then <m>m = 2^n</m> for some integer <m>n \geq 0.</m>
+                </p>
+            </statement>
+            <proof>
+                <p>
+                By contrapositive. Suppose that <m>m</m> is not a power of <m>2.</m> Then <m>m = 2^nq</m> for some odd <m>q \gt 1.</m> Now the polynomial <m>f(x) = x^q+1</m> has a root at <m>x =-1,</m> so it is divisible by <m>x + 1.</m> Since <m>q \gt 1, x + 1</m> is a proper factor of <m>f(x);</m> thus, setting <m>x = y^{2^{n}}</m> we see that the polynomial
+                <me>g(y) = f(y^{2^{n}})=y^m+1,</me> 
+                which has a proper factor <m>y^{2^{n}}+1.</m> Setting <m>y = 2</m> this says that <m>2^{2^{n}}+1</m> is a proper factor of the integer <m>g(2) = 2^m + 1,</m> which is, by means of having a proper factor, not prime.
+                </p>
+            </proof>
+        </corollary>
+
+    
+    </section>
+
+
+<!-- =================================================================================================== -->
+
+<!-- =================================================================================================== -->
+<!-- Section 5: Fermat Numbers-->
+<!-- =================================================================================================== -->
+    <section xml:id="Sec-Fermat_Numbers">
+        <title>Fermat Numbers</title>
+
+        <definition>
+            <p>
+            For <m>n \in\mathbb{N}_0</m> we call the number <m>F_n = 2^{2^{n}}+1</m> the <m>n</m>th <term>Fermat numbers</term>. Those which are prime are called <term>Fermat primes</term>.
+            </p>
+        </definition>
+
+        <conjecture>
+            <creator>Fermat</creator>
+            <p>
+            <m>F_n</m> is prime for all <m>n\geq 0.</m> 
+            </p>
+        </conjecture>
+
+        <p>
+        This conjecture is <term>FALSE</term>. In 1732, Euler showed that 
+        <me>F_5 = 2^{2^{5}}+1=4294967297 = 641\cdot 6700417.</me>
+        </p>
+
+        <conjecture>
+            <p>
+            The numbers <m>F_0, F_1, F_2, F_3,</m> and <m>F_4</m> (<m>3,5,17,257,65537</m>) are the only Fermat primes.
+            </p>
+        </conjecture>
+
+        <p>
+        A lot of computation has been done regarding this conjecture, though there is not yet much hope for a definitive answer. There is a heuristic argument for the finiteness of Fermat primes.
+        </p>
+        <p>
+        Using the Prime Number Theorem we know that the probability that a number <m>x</m> is prime is about <m>C/\log(x),</m> where <m>C</m> is some constant. Thus the expected number of Fermat primes is at most
+        <me>C\sum_{n=0}^{\infty}\frac{1}{\log(F_n)}=C\sum_{n=0}^{\infty}\frac{1}{\log(2^{2^{n}}+1)}\lt C\sum_{n=0}^{\infty}\frac{1}{\log(2^{2^n})}=\frac{C}{\log(2)}\sum_{n=0}^{\infty}2^{-n}=\frac{2C}{\log(2)}.</me> 
+        </p>
+
+        <application>
+            <p>
+            If is also interesting to note the importance to geometry. In 1801, Gauss showed that a regular polygon with <m>k</m> sides can be constructed a with straight edge and compass if and only if <m>k = 2^ep_1...p_r</m> where <m>p_1,..., p_r</m> are Fermat primes.
+            </p>
+        </application>
+
+    
+    </section>
+
+<!-- =================================================================================================== -->
+
+<!-- =================================================================================================== -->
+<!-- Section 6: Mersenne Primes-->
+<!-- =================================================================================================== -->
+    <section xml:id="Sec-Mersenne_Primes">
+        <title>Mersenne Primes</title>
+
+        <theorem>
+            <statement>
+                <p>
+                If <m>m \gt 1</m> and <m>a^m- 1</m> is prime, then <m>a = 2</m> and <m>m</m> is prime.
+                </p>
+            </statement>
+            <proof>
+                <p>
+                If <m>a \gt 2</m> then <m>a^m-1 = (a-1)(1 + a +... + a^{m-1})</m> is composite. Hence <m>a = 2.</m> If <m>m = rs</m> with <m>r, s \gt 1</m> then
+                <me>a^m-1 = (a^r)^s-1=(a^r-1)(1 + (a^r)+(a^r)^2+...+(a^r)^{s-1})</me>
+                is composite. Hence <m>m</m> is prime. 
+                </p>
+            </proof>
+        </theorem>
+
+        <definition>
+            <p>
+            For <m>n\in\mathbb{N}_0</m> we call the number <m>M_n = 2^n-1</m> the <m>n</m>th <term>Mersenne numbers</term>. Those which are prime are called <term>Mersenne prime</term>. 
+            </p>
+        </definition>
+
+        <conjecture>
+            <p>
+            There are infinitely many Mersenne primes.
+            </p>
+        </conjecture>
+
+        <p>
+        There is not yet a good approach to this conjecture. There are large computer searches going on and if you have a computer you can join in, see the site <url href="https://www.mersenne.org"/>.
+        </p>
+
+        <remark>
+            <p>
+            The <m>43</m>rd Mersenne prime is <m>9,152,052</m> digits long.
+            </p>
+        </remark>
+        
+    
+    </section>
+
+<!-- =================================================================================================== -->
+
+
+</chapter>

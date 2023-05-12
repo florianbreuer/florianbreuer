@@ -1,0 +1,194 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-11-10T14:14:48+11:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<html lang="en-US">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Number of Primes</title>
+<meta name="Keywords" content="Authored in PreTeXt">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>window.MathJax = {
+  tex: {
+    inlineMath: [['\\(','\\)']],
+    tags: "none",
+    useLabelIds: true,
+    tagSide: "right",
+    tagIndent: ".8em",
+    packages: {'[+]': ['base', 'extpfeil', 'ams', 'amscd', 'newcommand', 'knowl']}
+  },
+  options: {
+    ignoreHtmlClass: "tex2jax_ignore|ignore-math",
+    processHtmlClass: "process-math",
+  },
+  chtml: {
+    scale: 0.88,
+    mtextInheritFont: true
+  },
+  loader: {
+    load: ['input/asciimath', '[tex]/extpfeil', '[tex]/amscd', '[tex]/newcommand', '[pretext]/mathjaxknowl3.js'],
+    paths: {pretext: "https://pretextbook.org/js/lib"},
+  },
+};
+</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.sticky.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/jquery.espy.min.js"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext.js"></script><script xmlns:svg="http://www.w3.org/2000/svg">miniversion=0.6</script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/0.13/pretext_add_on.js?x=1"></script><script xmlns:svg="http://www.w3.org/2000/svg" src="https://pretextbook.org/js/lib/knowl.js"></script><!--knowl.js code controls Sage Cells within knowls--><script xmlns:svg="http://www.w3.org/2000/svg">sagecellEvalName='Evaluate (Sage)';
+</script><link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Open+Sans:400,400italic,600,600italic" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://fonts.googleapis.com/css?family=Inconsolata:400,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/pretext.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/pretext_add_on.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/banner_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/toc_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/knowls_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/style_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/colors_default.css" rel="stylesheet" type="text/css">
+<link xmlns:svg="http://www.w3.org/2000/svg" href="https://pretextbook.org/css/0.4/setcolors.css" rel="stylesheet" type="text/css">
+<!-- 2019-10-12: Temporary - CSS file for experiments with styling --><link xmlns:svg="http://www.w3.org/2000/svg" href="developer.css" rel="stylesheet" type="text/css">
+</head>
+<body class="pretext-book ignore-math has-toc has-sidebar-left">
+<a class="assistive" href="#content">Skip to main content</a><div xmlns:svg="http://www.w3.org/2000/svg" id="latex-macros" class="hidden-content process-math" style="display:none"><span class="process-math">\(\newcommand{\bm}[1]{\boldsymbol{#1}}
+\newcommand{\lt}{&lt;}
+\newcommand{\gt}{&gt;}
+\newcommand{\amp}{&amp;}
+\)</span></div>
+<header id="masthead" class="smallbuttons"><div class="banner"><div class="container">
+<a id="logo-link" href=""></a><div class="title-container">
+<h1 class="heading"><a href="MATH3170-Course-Notes.html"><span class="title">MATH3170:</span> <span class="subtitle">Number Theory</span></a></h1>
+<p class="byline"></p>
+</div>
+</div></div>
+<nav xmlns:svg="http://www.w3.org/2000/svg" id="primary-navbar" class="navbar"><div class="container">
+<div class="navbar-top-buttons">
+<button class="sidebar-left-toggle-button button active" aria-label="Show or hide table of contents sidebar">Contents</button><div class="tree-nav toolbar toolbar-divisor-3"><span class="threebuttons"><a id="previousbutton" class="previous-button toolbar-item button" href="Sec-The_Fundamental_Theorem_of_Arithmetic.html" title="Previous">Prev</a><a id="upbutton" class="up-button button toolbar-item" href="Chap-Primes.html" title="Up">Up</a><a id="nextbutton" class="next-button button toolbar-item" href="Sec-Chebychevs_Functions.html" title="Next">Next</a></span></div>
+</div>
+<div class="navbar-bottom-buttons toolbar toolbar-divisor-4">
+<button class="sidebar-left-toggle-button button toolbar-item active">Contents</button><a class="previous-button toolbar-item button" href="Sec-The_Fundamental_Theorem_of_Arithmetic.html" title="Previous">Prev</a><a class="up-button button toolbar-item" href="Chap-Primes.html" title="Up">Up</a><a class="next-button button toolbar-item" href="Sec-Chebychevs_Functions.html" title="Next">Next</a>
+</div>
+</div></nav></header><div class="page">
+<div xmlns:svg="http://www.w3.org/2000/svg" id="sidebar-left" class="sidebar" role="navigation"><div class="sidebar-content">
+<nav id="toc"><ul>
+<li class="link">
+<a href="Chap-Introduction.html" data-scroll="Chap-Introduction"><span class="codenumber">1</span> <span class="title">Introduction</span></a><ul>
+<li><a href="Sec-Sets_of_Numbers.html" data-scroll="Sec-Sets_of_Numbers">Sets of Numbers</a></li>
+<li><a href="Sec-The_Diophantine_Equation.html" data-scroll="Sec-The_Diophantine_Equation">The Diophantine equation <span class="process-math">\(a^2+b^2=c^2\)</span></a></li>
+<li><a href="Sec-Induction.html" data-scroll="Sec-Induction">Induction</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Chap-Divisibility.html" data-scroll="Chap-Divisibility"><span class="codenumber">2</span> <span class="title">Divisibility</span></a><ul>
+<li><a href="Sec-Division_Algorithm.html" data-scroll="Sec-Division_Algorithm">Division Algorithm</a></li>
+<li><a href="Sec-Euclidean_Algorithm.html" data-scroll="Sec-Euclidean_Algorithm">Euclidean Algorithm</a></li>
+<li><a href="Sec-Linear_Diophantine_equations.html" data-scroll="Sec-Linear_Diophantine_equations">Linear Diophantine equations</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Chap-Primes.html" data-scroll="Chap-Primes"><span class="codenumber">3</span> <span class="title">Primes</span></a><ul>
+<li><a href="Sec-The_Fundamental_Theorem_of_Arithmetic.html" data-scroll="Sec-The_Fundamental_Theorem_of_Arithmetic">The Fundamental Theorem of Arithmetic</a></li>
+<li><a href="Sec-Number_of_Primes.html" data-scroll="Sec-Number_of_Primes" class="active">Number of Primes</a></li>
+<li><a href="Sec-Chebychevs_Functions.html" data-scroll="Sec-Chebychevs_Functions">Chebychev's Functions</a></li>
+<li><a href="Sec-Chebychevs_Theorem.html" data-scroll="Sec-Chebychevs_Theorem">Chebychev's Theorem</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Chap-Congruences.html" data-scroll="Chap-Congruences"><span class="codenumber">4</span> <span class="title">Congruences</span></a><ul>
+<li><a href="Sec-Solving_Linear_Congruences.html" data-scroll="Sec-Solving_Linear_Congruences">Solving Linear Congruences</a></li>
+<li><a href="Sec-Chinese_Remainder_Theorem.html" data-scroll="Sec-Chinese_Remainder_Theorem">Chinese Remainder Theorem</a></li>
+<li><a href="Sec-Polynomial_Congruences.html" data-scroll="Sec-Polynomial_Congruences">Polynomial Congruences</a></li>
+<li><a href="Sec-Polynomials.html" data-scroll="Sec-Polynomials">Polynomials</a></li>
+<li><a href="Sec-Fermat_Numbers.html" data-scroll="Sec-Fermat_Numbers">Fermat Numbers</a></li>
+<li><a href="Sec-Mersenne_Primes.html" data-scroll="Sec-Mersenne_Primes">Mersenne Primes</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Chap-Primality.html" data-scroll="Chap-Primality"><span class="codenumber">5</span> <span class="title">Primality</span></a><ul>
+<li><a href="Sec-Sieve_of_Eratosthenes.html" data-scroll="Sec-Sieve_of_Eratosthenes">Sieve of Eratosthenes</a></li>
+<li><a href="Sec-Factoring_Integers.html" data-scroll="Sec-Factoring_Integers">Factoring Integers</a></li>
+<li><a href="Sec-A_more_general_Sieve.html" data-scroll="Sec-A_more_general_Sieve">A more general Sieve</a></li>
+<li><a href="Sec-Some_Contributions_of_Fermat.html" data-scroll="Sec-Some_Contributions_of_Fermat">Some Contributions of Fermat</a></li>
+<li><a href="Sec-Pseudoprimes_and_Carmichael_Numbers.html" data-scroll="Sec-Pseudoprimes_and_Carmichael_Numbers">Pseudoprimes and Carmichael Numbers</a></li>
+<li><a href="Sec-Wilsons_Theorem.html" data-scroll="Sec-Wilsons_Theorem">Wilson's Theorem</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Chap-Number_Theoretic_Functions.html" data-scroll="Chap-Number_Theoretic_Functions"><span class="codenumber">6</span> <span class="title">Number Theoretic Functions</span></a><ul>
+<li><a href="Sec-Eulers_phi-function.html" data-scroll="Sec-Eulers_phi-function">Euler's <span class="process-math">\(\varphi\)</span>-function</a></li>
+<li><a href="Sec-The_d_and_sigma_functions.html" data-scroll="Sec-The_d_and_sigma_functions">The <span class="process-math">\(d\)</span>- and <span class="process-math">\(\sigma\)</span>-functions</a></li>
+<li><a href="Sec-Sums_over_divisors.html" data-scroll="Sec-Sums_over_divisors">Sums over divisors</a></li>
+<li><a href="Sec-The_Mobius_Function.html" data-scroll="Sec-The_Mobius_Function">The Möbius Function</a></li>
+<li><a href="Sec-A_Completely_Multiplicative_Function.html" data-scroll="Sec-A_Completely_Multiplicative_Function">A Completely Multiplicative Function</a></li>
+<li><a href="Sec-Mobius_Inversion.html" data-scroll="Sec-Mobius_Inversion">Möbius Inversion</a></li>
+<li><a href="Sec-Patterns_in_mu.html" data-scroll="Sec-Patterns_in_mu">Patterns in <span class="process-math">\(\{\mu(n)\}_n\)</span></a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Chap-Order_of_Elements_of_Zn.html" data-scroll="Chap-Order_of_Elements_of_Zn"><span class="codenumber">7</span> <span class="title">Order of Elements of <span class="process-math">\(\mathbb{Z}_n\)</span></span></a><ul>
+<li><a href="Sec-Primitive_Roots.html" data-scroll="Sec-Primitive_Roots">Primitive Roots</a></li>
+<li><a href="Sec-Applications_of_Primitive_Roots.html" data-scroll="Sec-Applications_of_Primitive_Roots">Applications of Primitive Roots</a></li>
+</ul>
+</li>
+<li class="link"><a href="Chap-Some_Base_Results.html" data-scroll="Chap-Some_Base_Results"><span class="codenumber">8</span> <span class="title">Some Base Results</span></a></li>
+<li class="link">
+<a href="Chap-Quadratic_Residues.html" data-scroll="Chap-Quadratic_Residues"><span class="codenumber">9</span> <span class="title">Quadratic Residues</span></a><ul>
+<li><a href="Sec-Legendres_Symbol.html" data-scroll="Sec-Legendres_Symbol">Legendre's Symbol</a></li>
+<li><a href="Sec-Gauss_Lemma.html" data-scroll="Sec-Gauss_Lemma">Gauss' Lemma</a></li>
+<li><a href="Sec-The_Floor_Function.html" data-scroll="Sec-The_Floor_Function">The Floor Function</a></li>
+<li><a href="Sec-An_Important_Lemma.html" data-scroll="Sec-An_Important_Lemma">An Important Lemma</a></li>
+<li><a href="Sec-Quadratic_Reciprocity.html" data-scroll="Sec-Quadratic_Reciprocity">Quadratic Reciprocity</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Chap-The_Fibonacci_Sequence.html" data-scroll="Chap-The_Fibonacci_Sequence"><span class="codenumber">10</span> <span class="title">The Fibonacci Sequence</span></a><ul>
+<li><a href="Sec-Divisibility_properties.html" data-scroll="Sec-Divisibility_properties">Divisibility properties</a></li>
+<li><a href="Sec-Some_identities.html" data-scroll="Sec-Some_identities">Some identities</a></li>
+</ul>
+</li>
+<li class="link">
+<a href="Chap-Continued_Fractions.html" data-scroll="Chap-Continued_Fractions"><span class="codenumber">11</span> <span class="title">Continued Fractions</span></a><ul>
+<li><a href="Sec-Finite_Continued_Fractions.html" data-scroll="Sec-Finite_Continued_Fractions">Finite Continued Fractions</a></li>
+<li><a href="Sec-Convergents.html" data-scroll="Sec-Convergents">Convergents</a></li>
+<li><a href="Sec-Linear_Diophantine_equations_2.html" data-scroll="Sec-Linear_Diophantine_equations_2">Linear Diophantine equations</a></li>
+<li><a href="Sec-More_properties_of_convergents.html" data-scroll="Sec-More_properties_of_convergents">More properties of convergents</a></li>
+</ul>
+</li>
+<li class="link"><a href="Appendix-Special_Divisibility_Tests.html" data-scroll="Appendix-Special_Divisibility_Tests"><span class="codenumber">A</span> <span class="title">Special Divisibility Tests</span></a></li>
+</ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
+</div></div>
+<main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="Sec-Number_of_Primes"><h2 class="heading hide-type">
+<span class="type">Section</span> <span class="codenumber">3.2</span> <span class="title">Number of Primes</span>
+</h2>
+<article class="definition definition-like" id="definition-9"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">3.2.1</span><span class="period">.</span>
+</h3>
+<p id="p-116">An integer <span class="process-math">\(\vert n\vert \gt 1\)</span> is <dfn class="terminology">composite</dfn> provided it is not prime.</p></article><article class="theorem theorem-like" id="theorem-24"><h3 class="heading">
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">3.2.2</span><span class="period">.</span>
+</h3>
+<p id="p-117">If <span class="process-math">\(p_n\)</span> is the <span class="process-math">\(n\)</span>th prime number, then <span class="process-math">\(p_n\leq 2^{2^{n-1}}.\)</span></p></article><article class="hiddenproof" id="proof-25"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-25"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-25"><article class="hiddenproof"><p id="p-118">By induction. If <span class="process-math">\(n = 1,\)</span> then</p>
+<div class="displaymath process-math">
+\begin{equation*}
+p_1 = 2\leq 2^{2^{0}}=2.
+\end{equation*}
+</div>
+<p class="continuation">Now assume that the theorem is true for all natural numbers less than <span class="process-math">\(n.\)</span> Then, by the proof above,</p>
+<div class="displaymath process-math">
+\begin{equation*}
+p_{n+1}\leq p_1p_2...p_n+1\leq 2\cdot 2^2...2^{2^{n-1}}+1=2^{1+2+2^2+...+2^{n-1}}+1.
+\end{equation*}
+</div>
+<p class="continuation">Let us remember the identity that <span class="process-math">\(1+2+2^2+...+2^{n-1}=2^n-1.\)</span> This gives</p>
+<div class="displaymath process-math">
+\begin{equation*}
+p_{n+1}\leq 2^{2^n-1}+2^{2^n-1}=2\cdot 2^{2^n-1}=2^{2^{n}},
+\end{equation*}
+</div>
+<p class="continuation">so that by induction we have the desired result.</p></article></div>
+<article class="corollary theorem-like" id="corollary-6"><h3 class="heading">
+<span class="type">Corollary</span><span class="space"> </span><span class="codenumber">3.2.3</span><span class="period">.</span>
+</h3>
+<p id="p-119">There are at least <span class="process-math">\(n + 1\)</span> primes less than <span class="process-math">\(2^{2^{n}}\)</span></p></article></section></div></main>
+</div>
+</body>
+</html>

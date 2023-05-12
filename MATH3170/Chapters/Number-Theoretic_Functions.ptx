@@ -1,0 +1,831 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- =================================================================================================== -->
+<!-- To process this file with xsltproc do                                                        -->
+<!--                                                                                              -->
+<!-- (1) LaTeX/PDF:                                                                               -->
+<!--     xsltproc -o minimal.tex PATH_TO/mathbook/xsl/pretext-latex.xsl source/main.ptx           -->
+<!--     pdflatex minimal.tex                                                                     -->
+<!--     xelatex minimal.tex                                                                      -->
+<!--                                                                                              -->
+<!-- (2) HTML:                                                                                    -->
+<!--     xsltproc PATH_TO/mathbook/xsl/pretext-html.xsl source/main.ptx                           -->
+<!--     <browser>  minimal.html                                                                  -->
+<!--        ~/xsltproc/xsltproc.exe ~/mathbook/xsl/mathbook-html.xsl test.xml                     -->
+<!--                                                                                              -->
+<!-- (3) CoCalc worksheet (parameter causes a single file for output)                             -->
+<!--     REMOVE the "X" in the double dash (which is not legal in an XML comment)                 -->
+<!--     xsltproc -X-stringparam chunk.level 0 PATH_TO/mathbook/xsl/pretext-smc.xsl source/main.ptx   -->
+<!--     <CoCalc> minimal.sagews                                                                  -->
+<!--                                                                                              -->
+<!-- (4) Sage doctesting                                                                          -->
+<!--     REMOVE the "X" in the double dash (which is not legal in an XML comment)                 -->
+<!--     xsltproc -X-stringparam chunk.level 0 PATH_TO/mathbook/xsl/pretext-sage-doctest.xsl source/main.ptx  -->
+<!--     <read further instructions in> minimal.py                                                -->
+<!-- =================================================================================================== -->
+
+<chapter xml:id="Chap-Number_Theoretic_Functions">
+
+
+
+<!-- =================================================================================================== -->
+<!-- Title and Other Preliminaries -->
+<!-- =================================================================================================== -->
+        <title>Number Theoretic Functions</title>
+
+        <!-- <frontmatter> -->
+
+<!--             <titlepage>
+                <author>
+                    <institution>University of Newcastle</institution>
+                </author>
+                <date><today /></date>
+            </titlepage> -->
+
+            <!-- <abstract>
+                <p>This is a very short article, but it still exercises some advanced features of MathBook XML.</p>
+            </abstract> -->
+
+        <!-- </frontmatter> -->
+
+        <introduction>
+            <definition>
+                <p>
+                Any function <m>f:\mathbb{N}\rightarrow\mathbb{C}</m> is said to be an <term>arithmetic function</term> (or a <term>number-theoretic function</term>).
+                </p>
+            </definition>
+
+            <example>
+                <p>
+                Consider the function <m>\Omega:\mathbb{N}\rightarrow\mathbb{N}\cup\{0\}, </m> defined by <m>\Omega(n) =k_1 + k_2 +\cdots+ k_r,</m> where <m>n = p_1^{k_1}p_2^{k_2}\cdots p_r^{k_r}</m> is the prime factorization of <m>n.</m> <m>\Omega(n)</m> is the number of prime factors of <m>n</m> with multiplicity. This is an arithmetic function, since <m>\mathbb{N}\cup\{0\} \subset \mathbb{C}.</m>
+                </p>
+                <p>
+                A similar function is the function <m>\omega:\mathbb{N}\rightarrow\mathbb{N}\cup\{0\},</m> defined by <m>\omega(n) = r,</m> where <m>n = p_1^{k_1}p_2^{k_2}\cdots p_r^{k_r}</m> is the prime factorization of <m>n.</m> <m>\omega(n)</m> is the number of distinct prime factors of <m>n.</m>
+                </p>
+            </example>
+
+            <definition>
+                <p>
+                Denote by <m>\varphi(n),</m> the number of positive integers <m>k</m> less than or equal to <m>n</m> such that <m>\gcd(k, n) = 1;</m> that is, the number of relatively prime integers between <m>1</m> and <m>n.</m> By convention, we define <m>\omega(1) = 1.</m> This function is called the <term>Euler phi-function</term> (or <term>totient function</term>).
+                </p>
+            </definition>
+
+            <example>
+                <p>
+                Consider the first few natural numbers.
+                <me>\varphi(1)=1, \varphi(2)=1, \varphi(3)=2, \varphi(4)=2, \varphi(5)=4, \varphi(6)=2, \varphi(7)=6, ...</me>
+                </p>
+            </example>
+
+            <remark>
+                <p>
+                It is easy to see by the definitions that <m>\varphi(n)</m> is the number of invertible elements in <m>\mathbb{Z}_n.</m>
+                </p>
+            </remark>
+            
+        </introduction>
+
+
+<!-- =================================================================================================== -->
+
+<!-- =================================================================================================== -->
+<!-- Section 1: Euler's phi-function-->
+<!-- =================================================================================================== -->
+    <section xml:id="Sec-Eulers_phi-function">
+        <title>Euler's <m>\varphi</m>-function</title>
+
+        <p>
+        Note that if <m>p</m> is a prime then, all nonzero elements in <m>\mathbb{Z}_p</m> have an inverse, since for <m>0\neq a\in \mathbb{Z}_p, \gcd(a, p) = 1.</m> Also if <m>n</m> is not a prime, then there is a divisor <m>d</m> of <m>n,</m> with <m>1\lt d\lt n,</m> so that <m>\varphi(n)\leq n-2,</m> thus we have proven our first result. 
+        </p>
+
+        <theorem>
+            <statement>
+                <p>
+                The number <m>n</m> is prime if and only if <m>\varphi(n) = n-1.</m>
+                </p>
+            </statement>
+        </theorem>
+        
+        <p>
+        A stronger statement, which has yet to be proved, is a conjecture of D.H. Lehmer.
+        </p>
+
+        <conjecture>
+            <creator>Lehmer</creator>
+            <p>
+            The number <m>n</m> is prime if and only if <m>\varphi(n)\vert n-1.</m>
+            </p>
+        </conjecture>
+
+        <p>
+        One of the implications is a consequence of the previous theorem, but the other is still wide open.
+        </p>
+
+        <theorem>
+            <statement>
+                <p>
+                If <m>n = p^k</m> where <m>p</m> is prime, then
+                <me>\varphi(n) = p^k-p^{k-1} = p^{k-1}(p-1)=n\left(1-\frac{1}{p}\right).</me> 
+                </p>
+            </statement>
+            <proof>
+                <p>
+                The number <m>\varphi(p^k)</m> is the number of integers in the set 
+                <me>A = \{1, 2,..., p^k\}</me>
+                which are relatively prime to <m>p^k;</m> that is, divisible by <m>p.</m> Since every <m>p</m>th number is divisible by <m>p,</m> there are <m>\dfrac{p^k}{p}=p^{k-1}</m> numbers in <m>A</m> that are divisible by <m>p.</m> Thus the number of integers in <m>A</m> that are relatively prime to <m>p^k,</m> are
+                <me>\varphi(p^k)=p^k-p^{k-1}=p^{k-1}(p-1)=n\left(1-\dfrac{1}{p}\right).</me>
+                </p>
+            </proof>
+        </theorem>
+
+        <theorem>
+            <statement>
+                <p>
+                If <m>A</m> is a complete set of residues <m>\mod{n},</m> and <m>x, b\in\mathbb{Z}</m> with <m>\gcd(x, n) = 1,</m> then the set <m>Ax + b = \{ax + b: a\in A\}</m> is also a complete set of residues <m>\mod{n}.</m>
+                </p>
+            </statement>
+            <proof>
+                <p>
+                If <m>ax + b \equiv a'x + b\pmod{n}</m> where <m>a, a' \in A,</m> then we have that <m>ax\equiv a'x\pmod{n}.</m> Since <m>\gcd(x, n) = 1,</m> we may cancel <m>x</m> so that <m>a \equiv a'\pmod{n}.</m> Thus since <m>A</m> is a complete set of residues, <m>Ax + b</m> is a complete set of residues, provided <m>\gcd(x, n) = 1.</m>
+                </p>
+            </proof>
+        </theorem>
+
+        <theorem>
+            <statement>
+                <p>
+                If <m>\gcd(m, n) = 1,</m> then <m>\varphi(mn) = \varphi(m)\varphi(n).</m>
+                </p>
+            </statement>
+            <proof>
+                <p>
+                Let <m>m, n\in\mathbb{N}</m> with <m>\gcd(m, n) = 1.</m> The result is trivial if <m>m</m> or <m>n</m> is <m>1</m> since <m>\varphi(1) = 1,</m> so suppose that <m>m, n\gt 1.</m> Let us arrange the <m>mn</m> integers <m>1, 2,..., mn</m> into an array with <m>n</m> rows and <m>m</m> columns, as such:
+                <me>\begin{matrix}
+                1 \amp 2 \amp 3 \amp \cdots \amp m \\
+                m+1 \amp m+2 \amp m+3 \amp \cdots \amp 2m \\
+                \vdots \amp \vdots \amp \vdots \amp \ddots \amp \vdots \\
+                (n-1)m+1 \amp (n-1)m+2 \amp (n-1)m+3 \amp \cdots \amp mn
+                \end{matrix}
+                </me>
+                These integers <m>i</m> form a complete set of residues <m>\mod{mn},</m> so <m>\varphi(mn)</m> of them are relatively prime to <m>mn,</m> or equivalently, <m>\gcd(i, m) = \gcd(i, n) = 1.</m> If we look that the columns we can see that all of the integers in a given column are equivalent <m>\mod{m},</m> thus exactly <m>\varphi(m)</m> of the columns consist of integers that are relatively prime to <m>m,</m> and the other columns consist of integers for which <m>\gcd(i, m) \gt 1.</m>
+                </p>
+                <p>
+                Now each column of integers that are relatively prime to <m>m</m> has the form 
+                <me>b, m + b, 2m + b,...,(n-1)m + b</me>
+                for some <m>b.</m> By the previous lemma this is a complete set of residues <m>\mod{n},</m> since <m>\{0, 1, 2,..., n-1\}</m> is and since <m>\gcd(m, n) = 1.</m> Therefore such a column contains <m>\varphi(n)</m> integers relatively prime to <m>n,</m> and so each of the <m>\varphi(m)</m> columns contains <m>\varphi(n)</m> integers relatively prime to <m>n,</m> so that the array contains <m>\varphi(m)\varphi(n)</m> integers <m>i</m> such that <m>\gcd(i, m) = 1</m> and <m>\gcd(i, n) = 1.</m> Thus <m>\varphi(mn) = \varphi(m)\varphi(n).</m>
+                </p>
+            </proof>
+        </theorem>
+
+        <definition>
+            <p>
+            An arithmetic function <m>f</m> is said to be <term>multiplicative</term> if 
+            <me>f(mn) = f(m)f(n)</me>
+            whenever <m>\gcd(m, n) = 1.</m> 
+            </p>
+        </definition>
+
+        <example>
+            <p>
+            The Euler phi-function is multiplicative.
+            </p>
+        </example>
+
+        <corollary>
+            <statement>
+                <p>
+                If <m>n</m> has the prime factorization <m>n = p_1^{k_1}p_2^{k_2}\cdots p_r^{k_r},</m> then 
+                <me>\varphi(n) = \prod_{i=1}^r(p_i^{k_1}-p_i^{k_i-1})=\prod_{i=1}^rp_i^{k_i-1}(p_i-1)=n\prod_{i=1}^r\left(1-\frac{1}{p_i}\right). </me>
+                </p>
+            </statement>
+            <proof>
+                <p>
+                This all rests on the fact that <m>\gcd(p_i^{k_i}, p_j^{k_j})=1</m> for <m>i\neq j.</m> Because of this we have
+                <md>
+                    <mrow>\varphi(n) \amp= \varphi(p_1^{k_1}p_2^{k_2}\cdots p_r^{k_r})</mrow>
+                    <mrow>\amp= \varphi(p_1^{k_1})\varphi(p_2^{k_2}\cdots p_r^{k_r})</mrow>
+                    <mrow>\amp= \varphi(p_1^{k_1})\varphi(p_2^{k_2})\varphi(p_3^{k_3}\cdots p_r^{k_r})</mrow>
+                    <mrow>\amp \vdots</mrow>
+                    <mrow>\amp= \varphi(p_1^{k_1})\varphi(p_2^{k_2})\cdots \varphi(p_r^{k_r})</mrow>
+                    <mrow>\amp= p_1^{k_1}\left(1-\frac{1}{p_1}\right)p_2^{k_2}\left(1-\frac{1}{p_2}\right)\cdots p_r^{k_r}\left(1-\frac{1}{p_r}\right)</mrow>
+                    <mrow>\amp= n\prod_{i=1}^{r}\left(1-\frac{1}{p_i}\right), </mrow>
+                </md>
+                which is the desired result.
+                </p>
+            </proof>
+        </corollary>
+
+        <example>
+            <p>
+            For <m>n = 60 = 2^2\cdot 3\cdot 5,</m> we have 
+            <me>\varphi(60) = 60\left(1-\frac{1}{2}\right)\left(1-\frac{1}{3}\right)\left(1-\frac{1}{5}\right)=60\cdot\frac{1}{2}\frac{2}{3}\frac{4}{5}=16</me>
+            One can also think of this example in terms of probabilities. Since the probability of a number being divisible by a prime <m>p</m> is <m>\frac{1}{p},</m> the probability of a number being coprime to <m>p</m> is <m>1-\frac{1}{p}.</m> So that relating this to each one of it's prime divisors, the above equation for <m>\varphi(60)</m> says that the probability that a number <m>n\leq 60</m> is coprime to <m>60</m> is <m>\frac{16}{60}.</m>
+            </p>
+        </example>
+
+        <remark>
+            <p>
+            The symbol
+            <me>\sum_{d\vert n}f(n)</me>
+            is interpreted to mean, "Sum the values <m>f(d)</m> as <m>d</m> runs over all the positive divisors of the positive integer <m>n.</m>"
+            </p>
+        </remark>
+
+        <example>
+            <p>
+            If <m>n = 10,</m> then
+            <me>\sum_{d\vert 10}f(d) = f(1) + f(2) + f(5) + f(10).</me>
+            </p>
+        </example>
+
+        <theorem>
+            <statement>
+                <p>
+                If <m>n\geq 1,</m> then
+                <me>n =\sum_{d\vert n}\varphi(d).</me>
+                </p>
+            </statement>
+            <proof>
+                <p>
+                Let <m>S = \{1, 2, 3,..., n\},</m> and for each divisor <m>d</m> of <m>n</m> let
+                <me>S_d = \{a\in S : \gcd(a, n) = n/d\}.</me>
+                Now if <m>d \neq d'</m> then <m>S_d\cap S_{d'}= \emptyset,</m> so that since each <m>a\in S</m> is in <m>S_d</m> for some <m>d\vert n,</m> we have 
+                <me>S =\bigcup_{d\vert n}S_d.</me>
+                Thus
+                <me>\sum_{d\vert n}\#S_d = \#S = n.</me>
+                So it is enough to show that <m>\#S_d = \varphi(d).</m> Now 
+                <me>a\in S_d \hspace{2mm} \mathrm{if} \hspace{2mm} \mathrm{and} \hspace{2mm} \mathrm{only} \hspace{2mm} \mathrm{if} \hspace{2mm} a\in S \hspace{2mm} \mathrm{and} \hspace{2mm} \gcd(a, n) = n/d.</me> 
+                If we define a <m>a' = ad/n</m> for each <m>a,</m> then <m>a'</m> is an integer since <m>n/d = \gcd(a, n)\vert a.</m> So dividing on the right-hand side by <m>n/d</m> we can rewrite the condition as 
+                <me>a\in S_d \hspace{2mm} \mathrm{if} \hspace{2mm} \mathrm{and} \hspace{2mm} \mathrm{only} \hspace{2mm} \mathrm{if} \hspace{2mm} a =\frac{n}{d}a' \hspace{2mm} \mathrm{where} \hspace{2mm} a'\in S, 1\leq a'\leq d, \gcd(a',d)=1.</me> 
+                Thus <m>\#S_d</m> is the number of integers, between <m>1</m> and <m>d,</m> inclusive, which are relatively prime to <m>d.</m> This is the definition of <m>\varphi(d),</m> so <m>\#S_d = \varphi(d),</m> and we have <m>n =\sum_{d\vert n}\varphi(d).</m>
+                </p>
+            </proof>
+        </theorem>
+    
+        
+        <!-- Subsection: Euler's Theorem-->
+        <section xml:id="Sec-Eulers_Theorem">
+            <title>Euler's Theorem</title>
+
+            <definition>
+                <p>
+                Let <m>a \in\mathbb{Z}_n</m> be an invertible element, then <m>a</m> is called a <term>unit</term> to the modulus <m>n.</m> The subset set <m>U_n</m> of <m>\mathbb{Z}_n</m> is called the set of <term>units</term> to the modulus <m>n.</m>
+                </p>
+            </definition>
+
+            <theorem>
+                <statement>
+                    <p>
+                    If <m>\gcd(a, n) = 1,</m> then <m>aU_n = U_n,</m> where <m>aUn = \{au: u\in U_n\}.</m>
+                    </p>
+                </statement>
+            </theorem>
+
+            <p>
+            This theorem aids us in proving Euler's generalization of Fermat's Little Theorem.
+            </p>
+
+            <theorem>
+                <creator>Euler's Theorem</creator>
+                <statement>
+                    <p>
+                    If <m>\gcd(a, n) = 1,</m> then <m>a^{\varphi(n)}\equiv 1 \pmod{n}.</m>
+                    </p>
+                </statement>
+                <proof>
+                    <p>
+                    Let <m>a\in \mathbb{N}</m> and <m>\gcd(a, n) = 1.</m> Consider
+                    <me>U_n = \{u_1, u_2,..., u_{\varphi(n)}\}.</me>
+                    Since <m>\gcd(a, n) = 1, a \in U_n.</m> So <m>aU_n = U_n.</m> Since the sets are equal, we know that the product of the elements are congruent mod <m>n;</m> that is, 
+                    <me>au_1\cdot au_2 \cdots au_{\varphi(n)}\equiv u_1\cdot u_2\cdots u_{\varphi(n)}\pmod{n},</me>
+                    so that
+                    <me>a^{\varphi(n)}(u_1\cdot u_2\cdots u_{\varphi(n)}) ≡ u_1\cdot u_2 \cdots u_{\varphi(n)} \pmod{n}.</me>
+                    Since we have <m>\gcd(u_i,n)=1</m> for each <m>i,</m> we know that
+                    <me>\gcd(u_1 \cdot u_2 \cdots u_{\varphi(n)},n)=1,</me>
+                    and so we may cancel it from the congruence. So we have
+                    <me>a^{\varphi(n)}\equiv 1\pmod{n},</me>
+                    which is Euler's Theorem.
+                    </p>
+                </proof>
+            </theorem>
+
+
+        </section>
+
+    
+    </section>
+
+<!-- =================================================================================================== -->
+
+<!-- =================================================================================================== -->
+<!-- Section 2: The d- and sigma-functions-->
+<!-- =================================================================================================== -->
+    <section xml:id="Sec-The_d_and_sigma_functions">
+        <title>The <m>d</m>- and <m>\sigma</m>-functions</title>
+
+        <definition>
+            <p>
+            Given <m>n\in \mathbb{N},</m> let <m>d(n)</m> denote the number of positive divisors of <m>n</m> and <m>\sigma(n)</m> the sum of these divisors; that is,
+            <me>d(n)=\sum_{d\vert n} 1 \hspace{5mm} \mathrm{and} \hspace{5mm} \sigma(n)=\sum_{d\vert n} d.</me> 
+            </p>
+        </definition>
+
+        <example>
+            <p>
+            For the first <m>n \in\mathbb{N}</m> we have 
+            <me>d(1) = 1, d(2) = 2, d(3) = 2, d(4) = 3, d(5) = 2, d(6) = 4, d(7) = 2,...,</me>
+            and
+            <me>\sigma(1) = 1, \sigma(2) = 3, \sigma(3) = 4, \sigma(4) = 7, \sigma(5) = 6, \sigma(6) = 12, \sigma(7) = 8,....</me> 
+            This example lets us see a patterns that gives the following theorems.
+            </p>
+        </example>
+
+        <theorem>
+            <statement>
+                <p>
+                An integer <m>n</m> is prime if and only if <m>d(n) = 2.</m> 
+                </p>
+            </statement>
+        </theorem>
+
+        
+        <theorem>
+            <statement>
+                <p>
+                An integer <m>n</m> is prime if and only if <m>\sigma(n) = n + 1.</m>
+                </p>
+            </statement>
+        </theorem>
+
+        
+        <theorem>
+            <statement>
+                <p>
+                If <m>n = p_1^{k_1}p_2^{k_2}\cdots p_r^{k_r}</m> is the prime factorization of <m>n\gt 1,</m> then the positive divisors of <m>n</m> are precisely those integers <m>d</m> of the form 
+                <me>d = p_1^{a_1}p_2^{a_2}\cdots p_r^{a_r}</me>
+                where <m>0 \leq a_i\leq k_i</m> for <m>i = 1, 2,..., r.</m>
+                </p>
+            </statement>
+        </theorem>
+
+        <theorem>
+            <statement>
+                <p>
+                If <m>n = p_1^{k_1}p_2^{k_2}\cdots p_r^{k_r}</m> is the prime factorization of <m>n\gt 1,</m> then 
+                <me>d(n)=(k_1+1)(k_2+1)\cdots(k_r+1)=\prod_{i=1}^{r}(k_i+1).</me> 
+                </p>
+            </statement>
+            <proof>
+                <p>
+                According to the previous theorem all divisors of <m>n</m> are precisely those integers <m>d</m> of the form
+                <me>d = p_1^{a_1}p_2^{a_2}\cdots p_r^{a_r}</me>
+                where <m>0 \leq a_i\leq k_i.</m> There are <m>k_1 + 1</m> choices for <m>a_1, k_2 + 1</m> choices for <m>a_2,...,</m> and <m>k_r + 1</m> choices for <m>a_r.</m> Hence, there are 
+                <me>(k_1 + 1)(k_2 + 1)\cdots (k_r + 1)</me>
+                possible divisors of <m>n,</m> thus
+                <me>d(n) = (k_1 + 1)(k_2 + 1)\cdots (k_r + 1) = \prod_{i=1}^{r}(k_i+1).</me>
+                </p>
+            </proof>
+        </theorem>
+
+        <theorem>
+            <statement>
+                <p>
+                If <m>n = p_1^{k_1}p_2^{k_2}\cdots p_r^{k_r}</m> is the prime factorization of <m>n\gt 1,</m> then 
+                <me>\sigma(n)=\frac{p_1^{k_1+1}-1}{p_1-1}\frac{p_2^{k_2+1}-1}{p_2-1}\cdots \frac{p_r^{k_r+1}-1}{p_r-1}=\prod_{i=1}^{r}\frac{p_i^{k_i+1}-1}{p_i-1}.</me> 
+                </p>
+            </statement>
+            <proof>
+                <p>
+                To find <m>\sigma(n),</m> consider the product 
+                <me>(1 + p_1 + p_1^2+\cdots p_1^{k_1})(1 + p_2 + p_2^2+\cdots p_2^{k_2})\cdots (1 + p_r + p_r^2+\cdots p_r^{k_r}).</me> 
+                Each positive divisor of <m>n</m> occurs once and only once as a term of the expansion of the product. Thus
+                <me>\sigma(n) = \prod_{i=1}^{r}(1+p_i+p_i^2+\cdots p_i^{k_i})=\prod_{i=1}^r \frac{p_i^{k_i+1}-1}{p_i-1},</me> 
+                since
+                <me>1 + p_i + p_i^2+\cdots p_i^{k_i}=\frac{p_i^{k_i+1}-1}{p_i-1}</me>
+                by a previous theorem.
+                </p>
+            </proof>
+        </theorem>
+
+        <example>
+            <p>
+            For the number <m>60 = 2^2\cdot 3\cdot 5,</m> we have <m>k_1 = 2, k_2 = k_3 = 1,</m> so that
+            <me>d(60) = (2 + 1)(1 + 1)(1 + 1) = 12.</me> 
+            These are the divisors
+            <me>1, 2, 3, 4, 5, 6, 10, 12, 15, 20, 30, 60.</me>
+            The sum of these integers is
+            <me>\sigma(60) = \frac{2^3-1}{2-1}\cdot\frac{3^2-1}{3-1}\cdot\frac{5^2-1}{5-1}=7\cdot 4\cdot 6=168.</me> 
+            </p>
+        </example>
+
+        <theorem>
+            <statement>
+                <p>
+                For <m>n\in\mathbb{N},</m> 
+                <me>n^{\frac{d(n)}{2}}=\prod_{d\vert n} d.</me> 
+                </p>
+            </statement>
+            <proof>
+                <p>
+                Let <m>n\in\mathbb{N}.</m> We know that there are <m>d(n)</m> divisors of <m>n</m> and for each divisor <m>d_i</m> there is a <m>d_i'</m> such that <m>n = d_id_i'.</m> So if we take the equations
+                <md>
+                    <mrow>n\amp =d_1d_1'</mrow>
+                    <mrow>n\amp =d_2d_2'</mrow>
+                    <mrow>n\amp =d_3d_3'</mrow>
+                    <mrow>\amp\vdots </mrow>
+                    <mrow>n\amp =d_{d(n)}d_{d(n)}'</mrow>
+                </md>
+                and multiply the left-hand sides together, and the right-hand sides together, we get
+                <me>n^{d(n)}=\prod_{d\vert n} d\cdot\prod_{d'\vert n} d'.</me> 
+                But <m>\prod_{d\vert n} d=\prod_{d'\vert n} d',</m> so that
+                <me>n^{d(n)}=\left(\prod_{d\vert n} d\right)^2.</me> 
+                which when we take the square root yields the desired result.
+                </p>
+            </proof>
+        </theorem>
+    
+    </section>
+
+<!-- =================================================================================================== -->
+
+<!-- =================================================================================================== -->
+<!-- Section 3: Sums over divisors-->
+<!-- =================================================================================================== -->
+    <section xml:id="Sec-Sums_over_divisors">
+        <title>Sums over divisors</title>
+
+        <lemma>
+            <statement>
+                <p>
+                If <m>\gcd(m, n) = 1,</m> then the set of positive divisors of <m>mn</m> consists of all products <m>d_1d_2,</m> where <m>d_1|m, d_2|n,</m> and <m>\gcd(d_1, d_2) = 1;</m> furthermore, these products are all distinct.
+                </p>
+            </statement>
+            <proof>
+                <p>
+                If <m>m</m> or <m>n</m> is <m>1</m> then the theorem is trivially true, so suppose that <m>m, n\gt 1, \gcd(m, n) = 1,</m> and let <m>m = p_1^{k_1}p_2^{k_2}\cdots p_r^{k_r}</m> and <m>n = q_1^{j_1}q_2^{j_2}\cdots q_s^{j_s}</m> be their prime factorizations. Since <m>\gcd(m, n) = 1,</m> the primes <m>p_1,..., p_r, q_1,...,q_s</m> are all distinct, and so the prime factorization of <m>mn</m> is
+                <me>mn = p_1^{k_1}p_2^{k_2}\cdots p_r^{k_r}q_1^{j_1}q_2^{j_2}\cdots q_s^{j_s}.</me> 
+                So any divisor <m>d</m> of <m>mn</m> is uniquely representable in the form 
+                <me>d = p_1^{a_1}p_2^{a_2}\cdots p_r^{a_r}q_1^{b_1}q_2^{b_2}\cdots q_s^{b_s} \hspace{5mm} 0\leq a_i\leq k_i, 0\leq b_i\leq j_i.</me> 
+                So we may write <m>d = d_1d_2,</m> where <m>d_1 = p_1^{a_1}p_2^{a_2}\cdots p_r^{a_r}</m> divides <m>m</m> and <m>d_2 = q_1^{b_1}q_2^{b_2}\cdots q_s^{b_s}</m> divides <m>n.</m> Since <m>p_i\neq q_j</m> for any <m>i, j,</m> we have <m>\gcd(d_1, d_2) =1.</m>
+                </p>
+            </proof>
+        </lemma>
+
+        <theorem>
+            <statement>
+                <p>
+                If <m>f</m> is a multiplicative function and <m>F</m> is defined by
+                <me>F(n) = \sum_{d\vert n}f(d),</me>
+                then <m>F</m> is also multiplicative. 
+                </p>
+            </statement>
+            <proof>
+                <p>
+                Let <m>m, n</m> be relatively prime positive integers. Then, by the proceeding lemma,
+                <me>F(mn)= \sum_{d\vert mn}f(d)= \sum_{\substack{d_1\vert m \\ d_2\vert n}}f(d_1d_2)</me>
+                where <m>\gcd(d_1,d_2)=1.</m> Since <m>f</m> is multiplicative <m>f(d_1d_2)=f(d_1)f(d_2).</m> So 
+                <md>
+                    <mrow>F(mn) \amp= \sum_{\substack{d_1\vert m \\ d_2\vert n}}f(d_1)f(d_2)</mrow>
+                    <mrow>\amp= \left(\sum_{d_1\vert m}f(d_1)\right)\left(\sum_{d_2\vert n}f(d_2)\right)</mrow>
+                    <mrow>\amp= F(m)F(n).</mrow> 
+                </md>
+                </p>
+            </proof>
+        </theorem>
+
+    </section>
+
+<!-- =================================================================================================== -->
+
+<!-- =================================================================================================== -->
+<!-- Section 4: The Möbius Function-->
+<!-- =================================================================================================== -->
+    <section xml:id="Sec-The_Mobius_Function">
+        <title>The Möbius Function</title>
+
+        <definition>
+            <p>
+            For <m>n \in\mathbb{N},</m> the Möbius function, <m>\mu</m> is defined by
+            <me>
+            \begin{cases} 
+            1 \amp \hspace{5mm} if \hspace{2mm} n=1 \\
+            0 \amp \hspace{5mm} if \hspace{2mm} p^2\vert n \hspace{2mm} for \hspace{2mm} some \hspace{2mm} prime \hspace{2mm} p \\
+            (-1)^r \amp \hspace{5mm} if \hspace{2mm} n=p_1p_2\cdots p_r, \hspace{2mm} where \hspace{2mm} p_i \hspace{2mm} are \hspace{2mm} distinct \hspace{2mm} primes.
+            \end{cases}
+            </me>
+            </p>
+        </definition>
+
+        <p>
+        Stated in words, we have that <m>\mu</m> is a function with the property that <m>\mu(1)=1,</m> if <m>n</m> is not square-free then <m>\mu(n)=0,</m> and if <m>n</m> is square-free then <m>\mu(n)= (-1)^r</m> where <m>n</m> has <m>r</m> prime factors.
+        </p>
+
+        <example>
+            <p>
+            We have <m>\mu(60) = 0</m> since <m>2^2\vert 60,</m> but <m>\mu(30) =-1,</m> since <m>30 = 2\cdot 3\cdot 5.</m> For the first few values we have
+            <me>\mu(1) = 1, \mu(2) = -1, \mu(3) = -1, \mu(4) = 0, \mu(5) = -1, \mu(6) = 1,...</me>
+            </p>
+        </example>
+
+        <remark>
+            <p>
+            It is clear from the definition that for <m>p</m> a prime
+            <me>\mu(p)=-1 \hspace{5mm} \mathrm{and} \hspace{5mm} \mu(p^k)=0 \hspace{2mm} (k\geq 2).</me> 
+            </p>
+        </remark>
+
+        <theorem>
+            <statement>
+                <p>
+                The Möbius function is multiplicative.
+                </p>
+            </statement>
+            <proof>
+                <p>
+                Let <m>m, n \in\mathbb{N}</m> with <m>\gcd(m, n) = 1.</m> If <m>p^2\vert mn</m> for some <m>p,</m> then either <m>p^2\vert m</m> or <m>p^2\vert n.</m> In either case we have <m>\mu(mn) = 0,</m> and either <m>\mu(n) = 0</m> or <m>\mu(m) = 0,</m> so that
+                <me>\mu(mn) = 0 = \mu(m)\mu(n).</me>
+                So assume that <m>m</m> and <m>n</m> are square free, say <m>m = p_1p_2\cdots p_r</m> and <m>n =q_1q_2\cdots q_s,</m> where <m>p_i</m> and <m>q_i</m> are all distinct. Then
+                <me>\mu(mn) = \mu(p_1p_2\cdots p_rq_1q_2\cdots q_s) = (-1)^{r+s} = (-1)^r(-1)^s = \mu(m)\mu(n),</me>
+                so that <m>\mu</m> is multiplicative.
+                </p>
+            </proof>
+        </theorem>
+
+        <p>
+        If we consider <m>F(n) = \sum_{d\vert n}\mu(d),</m> we see something very interesting. 
+        </p>
+        <p>
+        First if <m>n = 1,</m> then 
+        <me>F(1) =\sum_{d\vert 1}\mu(d)=\mu(1)=1.</me> 
+        If <m>n = p^k</m> for some <m>k \geq 1,</m> then
+        <me>F(p^k)=\sum_{d\vert p^k} \mu(d)=\mu(1)+\mu(p)+\mu(p^2)+\cdots +\mu(p^k)=1+(-1)+0+\cdots +0=0.</me> 
+        Recall that <m>F</m> is a multiplicative function, since <m>\mu</m> is multiplicative. Thus if <m>n\gt 1,</m> then <m>n = p_1^{k_1}p_2^{k_2}\cdots p_r^{k_r},</m> and so 
+        <me>F(n)=F(p_1^{k_1})F(p_2^{k_2})\cdots F(p_r^{k_r})=0</me>
+        since at least one of the <m>k_i</m>'s is at least <m>1.</m> Thus we have the following theorem.
+        </p>
+
+        <theorem>
+            <statement>
+                <p>
+                For <m>n\in\mathbb{N},</m>
+                <me>\sum_{d\vert n}\mu(d) =
+                \begin{cases} 
+                1 \amp \hspace{5mm} if \hspace{2mm} n=1 \\
+                0 \amp \hspace{5mm} if \hspace{2mm} n\gt 1
+                \end{cases}
+                </me>
+                </p>
+            </statement>
+        </theorem>
+
+        <example>
+            <p>
+            Let <m>n = 15,</m> then
+            <me>M(15) = \sum_{d\vert 15} \mu(d) = \mu(1) + \mu(3) + \mu(5) + \mu(15) = 1 + (-1) + (-1) + 1 = 0.</me> 
+            </p>
+        </example>
+
+        <theorem>
+            <title>Prime Number Theorem</title>  
+            <statement>
+                <p>
+                We have
+                <me>\lim_{n\rightarrow\infty}\frac{\mu(1)+\mu(2)+\cdots +\mu(n)}{n}=0.</me> 
+                </p>
+            </statement>
+        </theorem>
+
+        <p>
+        This following conjecture is worth <m>$1,000,000 US</m> if you can prove it (or disprove it). But don't get your hopes up; it's been an open question for almost <m>150</m> years. 
+        </p>
+
+        <conjecture>
+            <title>Riemann Hypothesis</title>
+            <p>
+            For any <m>\varepsilon\gt 0,</m> we have
+            <me>\lim_{n\rightarrow\infty}\frac{\mu(1)+\mu(2)+\cdots +\mu(n)}{n^{\frac{1}{2}+\varepsilon}}=0.</me> 
+            </p>
+        </conjecture>
+
+        <p>
+        This conjecture seems out of reach at this point in time. In fact, even proving that
+        <me>\lim_{n\rightarrow\infty}\frac{\mu(1)+\mu(2)+\cdots +\mu(n)}{n^{\vartheta+\varepsilon}}=0,</me> 
+        for some <m>\vartheta\lt 1,</m> has yet to be tackled. This would be a very powerful new result and would validate a large number of conjectures.
+        </p>
+    
+    </section>
+
+<!-- =================================================================================================== -->
+
+<!-- =================================================================================================== -->
+<!-- Section 5: A Completely Multiplicative Function-->
+<!-- =================================================================================================== -->
+    <section xml:id="Sec-A_Completely_Multiplicative_Function">
+        <title>A Completely Multiplicative Function</title>
+
+        <definition>
+            <p>
+            A function <m>f</m> is called <term>completely multiplicative</term> provided that for all <m>m, n \in\mathbb{N},</m>
+            <me>f(mn) = f(m)f(n).</me>
+            </p>
+        </definition>
+
+        <p>
+        Recall from a previous lecture that the arithmetic function <m>\Omega:\mathbb{N}\rightarrow\mathbb{N},</m> is defined by <m>\Omega(n) = k_1 +k_2 +\cdots +k_r,</m> where <m>n = p_1^{k_1}p_2^{k_2}\cdots p_r^{k_r}</m> is the prime factorization of <m>n.</m>
+        </p>
+
+        <definition>
+            <p>
+            The <term>Liouville <m>\lambda</m>-function</term>, <m>\lambda:\mathbb{N}\rightarrow \{1,-1\},</m> is defined by <m>\lambda(1) = 1,</m> and <m>\lambda(n) = (-1)^{\Omega(n)},</m> where <m>n = p_1^{k_1}p_2^{k_2}\cdots p_r^{k_r}</m> is the prime factorization of <m>n,</m> and <m>\Omega(n)</m> is as defined previously.
+            </p>
+        </definition>
+
+        <theorem>
+            <p>
+            The Liouville <m>\lambda</m>-function is completely multiplicative.
+            </p>
+        </theorem>
+
+        <p>
+        We can also use Liouville's <m>\lambda</m>-function to rewrite both the prime number theorem and the Riemann hypothesis. 
+        </p>
+
+        <theorem>
+            <title>Prime Number Theorem</title>  
+            <statement>
+                <p>
+                We have
+                <me>\lim_{n\rightarrow\infty}\frac{\lambda(1)+\lambda(2)+\cdots +\lambda(n)}{n}=0.</me> 
+                </p>
+            </statement>
+        </theorem>
+
+        <conjecture>
+            <title>Riemann Hypothesis</title>
+            <p>
+            For any <m>\varepsilon\gt 0,</m> we have
+            <me>\lim_{n\rightarrow\infty}\frac{\lambda(1)+\lambda(2)+\cdots +\lambda(n)}{n^{\frac{1}{2}+\varepsilon}}=0.</me> 
+            </p>
+        </conjecture>
+
+
+    </section>
+
+<!-- =================================================================================================== -->
+
+<!-- =================================================================================================== -->
+<!-- Section 6: Möbius Inversion-->
+<!-- =================================================================================================== -->
+    <section xml:id="Sec-Mobius_Inversion">
+        <title>Möbius Inversion</title>
+
+        <theorem>
+            <title>Möbius Inversion</title>
+            <statement>
+                <p>
+                Let <m>f</m> and <m>F</m> be arithmetic functions such that
+                <me>F(n) = \sum_{d\vert n}f(d).</me> 
+                Then
+                <me>f(n)=\sum_{d\vert n}\mu(d)F\left(\frac{n}{d}\right)=\sum_{d\vert n}\mu\left(\frac{n}{d}\right)F(d).</me> 
+                </p>
+            </statement>
+            <proof>
+                <p>
+                This is proof by computation. We see that
+                <me>\sum_{d\vert n}\mu(d)F\left(\frac{n}{d}\right)=\sum_{d\vert n}\left(\mu(d)\sum_{c\vert (n/d)}f(c)\right)=\sum_{d\vert n}\left(\sum_{c\vert (n/d)}\mu(d) f(c)\right).</me> 
+                Now <m>d\vert n</m> and <m>c\vert (n/d)</m> provided there exist <m>k, l\in\mathbb{N}</m> such that <m>n = kd</m> and <m>(n/d) = cl.</m> But the <m>(n/d) = cl</m> if and only if <m>n = d(cl)</m> so that <m>c\vert n</m> and <m>d\vert (n/c).</m> Now our equality continues to give
+                <me>\sum_{d\vert n}\left(\sum_{c\vert (n/d)}\mu(d) f(c)\right)=\sum_{c\vert n}\left(\sum_{d\vert (n/c)} f(c)\mu(d)\right)=\sum_{c\vert n}\left(f(c)\sum_{d\vert (n/c)} \mu(d)\right).</me> 
+                Due to the previous theorem, we know that <m>\sum_{d\vert (n/c)}\mu(d)=0</m> except when <m>n/c = 1;</m> that is, when <m>n = c,</m> so again continuing, we have
+                <me>\sum_{c\vert n}\left(f(c)\sum_{d\vert (n/c)} \mu(d)\right)=\sum_{c= n}f(c)\cdot 1=f(n),</me>
+                so that <m>f(n) = \sum_{d\vert n}\mu(d)F\left(\frac{n}{d}\right).</m> 
+                </p>
+            </proof>
+        </theorem>
+
+        <example>
+            <p>
+            Recall that
+            <me>d(n) =\sum_{d\vert n} 1 \hspace{5mm} \mathrm{and} \hspace{5mm} \sigma(n)=\sum_{d\vert n} d.</me> 
+            </p>
+        </example>
+
+        <p>
+        Using the Möbius Inversion formula we have that 
+        <me>1 =\sum_{c\vert n} \mu\left(\frac{n}{c}\right)d(c) \hspace{5mm} \mathrm{and} \hspace{5mm} n=\sum_{d\vert n} \mu\left(\frac{n}{d}\right)\sigma(d).</me> 
+        </p>
+
+        <!-- Subsection: Application of Möbius Inversion-->
+        <section xml:id="Sec-Application_of_Mobius_Inversion">
+            <title>Application of Möbius Inversion</title>
+
+            <theorem>
+                <statement>
+                    <p>
+                    If <m>F</m> is a multiplicative function and 
+                    <me>F(n) =\sum_{d\vert n}f(d),</me> 
+                    then <m>f</m> is multiplicative.
+                    </p>
+                </statement>
+                <proof>
+                    <p>
+                    (We use the same lemma as for the converse.) Let <m>m, n \in\mathbb{N}</m> with <m>\gcd(m, n) = 1.</m> Using Möbius inversion, we have
+                    <md>
+                        <mrow>f(mn) \amp =\sum_{d\vert mn} \mu(d)F\left(\frac{mn}{d}\right)</mrow>
+                        <mrow>\amp =\sum_{\substack{d_1\vert m \\ d_2\vert n}} \mu(d_1d_2)F\left(\frac{mn}{d_1d_2}\right) \hspace{5mm} (\gcd(d_1,d_2)=1)</mrow>
+                        <mrow>\amp =\sum_{\substack{d_1\vert m \\ d_2\vert n}} \mu(d_1)\mu(d_2)F\left(\frac{m}{d_1}\right)F\left(\frac{n}{d_2}\right)</mrow>
+                        <mrow>\amp =\sum_{d_1\vert m} \mu(d_1)\mu(d_2)F\left(\frac{m}{d_1}\right)\sum_{d_2\vert n}F\left(\frac{n}{d_2}\right)</mrow>
+                        <mrow>\amp =f(m)f(n),</mrow> 
+                    </md>
+                    which is the desired result.
+                    </p>
+                </proof>
+            </theorem>
+
+
+        </section>
+
+    
+    </section>
+
+<!-- =================================================================================================== -->
+
+<!-- =================================================================================================== -->
+<!-- Section 7: Patterns in mu-->
+<!-- =================================================================================================== -->
+    <section xml:id="Sec-Patterns_in_mu">
+        <title>Patterns in <m>\{\mu(n)\}_n</m></title>
+
+        <p>
+        There are many conjectures concerning patterns of in the sequence of values of the Möbius function and those of the Liouville function.
+        </p>
+
+        <definition>
+            <p>
+            The sequence <m>(x_i)_{i\geq 1}</m> is <term>normal to base <m>b</m></term> if each finite sequence of b-ary digits of length <m>k</m> occurs with frequency <m>1/b^k.</m> 
+            </p>
+        </definition>
+
+        <conjecture>
+            <creator>Folklore</creator>
+            <p>
+            The sequence <m>(\lambda(n))_{n\geq 1}</m> is normal base <m>2.</m>
+            </p>
+        </conjecture>
+
+        <p>
+        Not much is known concerning this conjecture. Indeed, it is not yet established that each block <m>D_k</m> even occurs at all in <m>(\lambda(n))_{n\geq 1},</m> let alone infinitely often. Some work has been done on this and it has been shown that certain all words of length <m>1,2,</m> and <m>3</m> occur infinitely often. S. Chowla thought strongly of this and commemorated a conjecture to it in <em>The Riemann Hypothesis and Hilbert's Tenth Problem</em>. 
+        </p>
+
+        <conjecture>
+            <creator>S. Chowla</creator>
+            <p>
+            Let <m>\varepsilon_1, \varepsilon_2,\cdots, \varepsilon_g</m> be arbitrary numbers each equal to <m>+1</m> or <m>-1,</m> where <m>g</m> is a fixed (but arbitrary) number. Then the equations (in <m>n</m>)
+            <me>\lambda(n+m)=\varepsilon_m \hspace{5mm} (1\leq m\leq g)</me>
+            have infinitely many solutions.
+            </p>
+        </conjecture>
+
+        <p>
+        Chowla adds the comment, "For <m>g\geq 3</m> this seems to be an extremely hard conjecture." Implicit in his conjecture is the presumably weaker statement which we state formally as the following conjecture. 
+        </p>
+
+        <conjecture>
+            <p>
+            Let <m>\varepsilon_1, \varepsilon_2,\cdots, \varepsilon_g</m> be arbitrary numbers each equal to <m>+1</m> or <m>-1,</m> where <m>g</m> is a fixed (but arbitrary) number. Then there exists an <m>n</m> such that
+            <me>\lambda(n+m)=\varepsilon_m \hspace{5mm} (1\leq m\leq g).</me> 
+            </p>
+        </conjecture>
+
+        <p>
+        The patterns of the Möbius function are a little easier. Indeed, we can prove that
+        </p>
+
+        <theorem>
+            <creator>Wintner, Golomb</creator>
+            <statement>
+                <p>
+                For any positive integer <m>n</m> there exists a run of <m>n</m> consecutive zeros in the sequence of Möbius values.
+                </p>
+            </statement>
+            <proof>
+                <p>
+                Let <m>p_0, p_1, p_2,... , p_{n-1}</m> be <m>n</m> distinct primes (not in any necessary order). Then consider the system of congruences
+                <md>
+                    <mrow>x\amp\equiv 0\pmod{p_0^2}</mrow>
+                    <mrow>x+1\amp\equiv 0\pmod{p_1^2}</mrow>
+                    <mrow>x+2\amp\equiv 0\pmod{p_2^2}</mrow>
+                    <mrow>\amp\vdots </mrow>
+                    <mrow>x+(n-1)\amp\equiv 0\pmod{p_{n-1}^2}</mrow>
+                </md>
+                By the Chinese remainder theorem, there is a solution to this modulo <m>p_0^2p_1^2\cdots p_{n-1}^2.</m> Since <m>p_i^2\vert x+i</m> for each <m>i=0,1,...,n-1</m> each such <m>x + i</m> is not squarefree and we have that <m>\mu(x + i) = 0</m> for <m>i = 0, 1,..., n-1.</m> 
+                </p>
+            </proof>
+        </theorem>
+
+
+    
+    </section>
+
+<!-- =================================================================================================== -->
+
+
+</chapter>

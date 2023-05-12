@@ -1,0 +1,73 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-11-10T14:15:20+11:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="hiddenproof"><h3 class="heading"><span class="type">Proof</span></h3>
+<p>Since <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\gcd(a, p) = 1,\)</span> all of the <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\((p-1)/2\)</span> integers of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(S\)</span> are incongruent modulo <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(p\)</span> and none are zero. Let <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(r_1,..., r_m\)</span> be those remainders upon division by <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(p\)</span> that are between <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(0\)</span> and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(p/2 \hspace{2mm} (0\lt r_i \lt p/2)\)</span> and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(s_1,..., s_n\)</span> be those remainders upon division by <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(p\)</span> that are between <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(p/2\)</span> and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(p \hspace{2mm} (p/2 \lt s_i \lt p).\)</span> Then <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(m + n = (p-1)/2\)</span> and the integers</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+r_1,..., r_m, p-s_1,..., p-s_n
+\end{equation*}
+</div>
+<p class="continuation">are all positive and less that <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(p/2.\)</span></p>
+<p>To show these integers are all distinct, we only need to show that <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(p-s_i\)</span> is not equal to any <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(r_j.\)</span> So assume to the contrary that</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+p-s_i = r_j
+\end{equation*}
+</div>
+<p class="continuation">for some <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(i\)</span> and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(j.\)</span> Then there exists <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(u, v \hspace{2mm} (1 \leq u, v\leq (p-1)/2)\)</span> such that <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(s_i \equiv ua\pmod{p}\)</span> and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(r_j \equiv va\pmod{p}.\)</span> So</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+(u + v)a \equiv s_i + r_j = p \equiv 0\pmod{p} \hspace{2mm}\Rightarrow \hspace{2mm} u + v \equiv 0\pmod{p},
+\end{equation*}
+</div>
+<p class="continuation">which is impossible since <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(1\leq u, v \leq (p- 1)/2.\)</span></p>
+<p>So</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\{r_1,..., r_m, p-s_1,..., p-s_n\} = \{1, 2,..., (p-1)/2\},
+\end{equation*}
+</div>
+<p class="continuation">and so the product of them is <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\left(\dfrac{p-1}{2}\right)!.\)</span> Now since the product of the remainders is also congruent modulo <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(p\)</span> to the product of the elements of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(S,\)</span> we have</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{align*}
+\left(\frac{p-1}{2}\right)! \amp = r_1\cdots r_m(p-s_1)\cdots (p-s_n)\\
+\amp = r_1\cdots r_m(-s_1)\cdots (-s_n)\pmod{p}\\
+\amp = (-1)^n r_1\cdots r_m(s_1)\cdots (s_n)\pmod{p}\\
+\amp = (-1)^n a\cdot 2a\cdots \left(\frac{p-1}{2}\right)a\pmod{p}\\
+\amp = (-1)^n a^{(p-1)/2}\left(\frac{p-1}{2}\right)! \pmod{p}
+\end{align*}
+</div>
+<p class="continuation">so that since <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\gcd\left(\left[\dfrac{(p-1)}{2}\right]!, p\right) = 1\)</span> we have</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+1 \equiv (-1)^n a^{(p-1)/2}\pmod{p}.
+\end{equation*}
+</div>
+<p class="continuation">Some rearrangement and Euler's Criterion gives</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+(a/p) \equiv a^{(p-1)/2} \equiv (-1)^n \pmod{p}
+\end{equation*}
+</div>
+<p class="continuation">so that we have</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+(a/p) = (-1)^n.
+\end{equation*}
+</div></article><span class="incontext"><a href="Sec-Gauss_Lemma.html#proof-101">in-context</a></span>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html SYSTEM "about:legacy-compat">
+<html lang="en-US">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*       on 2022-11-10T14:15:21+11:00       *-->
+<!--*   A recent stable commit (2020-08-09):   *-->
+<!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<h4 class="heading"><span class="type">Paragraph</span></h4>
+<p>Summing the elements of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(S,\)</span> we have</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\sum_{k=1}^{(p-1)/2} ka =\sum_{k=1}^{(p-1)/2}\left\lfloor\frac{ka}{p}\right\rfloor p+t_k =\sum_{k=1}^{(p-1)/2}\left\lfloor\frac{ka}{p}\right\rfloor p+\sum_{k=1}^{m}r_k+\sum_{k=1}^{n}s_k.
+\end{equation*}
+</div>
+<p class="continuation">As in Gauss' Lemma we have that the <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\((p-1)/2\)</span> numbers</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+r_1,..., r_m, p-s_1,..., p-s_n
+\end{equation*}
+</div>
+<p class="continuation">are just a rearrangement of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(1, 2,...,(p-1)/2.\)</span> So</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\sum_{k=1}^{(p-1)/2} k =\sum_{k=1}^{m}r_k+\sum_{k=1}^{n}(p-s_k)=pn+\sum_{k=1}^{m}r_k-\sum_{k=1}^{n}s_k.
+\end{equation*}
+</div>
+<p class="continuation">Subtracting this equation from the last gives</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+(a-1)\sum_{k=1}^{(p-1)/2} k =p\left(\sum_{k=1}^{(p-1)/2}\left\lfloor\frac{ka}{p}\right\rfloor -n\right) +2\sum_{k=1}^{n}s_k.
+\end{equation*}
+</div>
+<p class="continuation">Since <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(a\)</span> is an odd integer, we have that <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(p \equiv a \equiv 1\pmod{2},\)</span> so that modulo <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(2\)</span> we have,</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+(0) \cdot \sum_{k=1}^{(p-1)/2}k \equiv 1\cdot \left(\sum_{k=1}^{(p-1)/2} \left\lfloor\frac{ka}{p}\right\rfloor-n\right)\pmod{2}.
+\end{equation*}
+</div>
+<p class="continuation">This means that the sum and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(n\)</span> have the same parity, so that</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+(-1)^n=(-1)^{\sum_{k=1}^{(p-1)/2}\lfloor ka/p\rfloor},
+\end{equation*}
+</div>
+<p class="continuation">thus, by Gauss' Lemma</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+(a/p)=(-1)^{\sum_{k=1}^{(p-1)/2}\lfloor ka/p\rfloor}.
+\end{equation*}
+</div>
+<span class="incontext"><a href="Sec-An_Important_Lemma.html#p-491">in-context</a></span>
+</body>
+</html>
