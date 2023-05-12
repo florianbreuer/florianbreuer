@@ -1,7 +1,7 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-01-07T17:20:54+11:00       *-->
+<!--*       on 2022-10-28T21:01:26+11:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -179,7 +179,6 @@
 </li>
 <li class="link">
 <a href="Chap-Linear_Algebra_3.html" data-scroll="Chap-Linear_Algebra_3"><span class="codenumber">17</span> <span class="title">LA3: Matrix Algebra</span></a><ul>
-<li><a href="Sec-Linear_Algebra_Intro.html" data-scroll="Sec-Linear_Algebra_Intro">Introduction</a></li>
 <li><a href="Sec-Addition_and_Scalar_Multiplication.html" data-scroll="Sec-Addition_and_Scalar_Multiplication">Addition and Scalar Multiplication</a></li>
 <li><a href="Sec-Matrix_multiplication.html" data-scroll="Sec-Matrix_multiplication">Matrix Multiplication</a></li>
 <li><a href="Sec-Matrices_and_Systems_of_Linear_Equations.html" data-scroll="Sec-Matrices_and_Systems_of_Linear_Equations">Matrices and Systems of Linear Equations</a></li>
@@ -210,7 +209,7 @@
 <main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="Interpretation_Via_Rows"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">16.1</span> <span class="title">Interpretation Via Rows</span>
 </h2>
-<p id="p-966">We know that a linear equation in two variables can be interpreted as the equation of a line in the plane. For example the equation</p>
+<p id="p-1014">We know that a linear equation in two variables can be interpreted as the equation of a line in the plane. For example the equation</p>
 <div class="displaymath process-math">
 \begin{equation*}
 2x+3y=6
@@ -219,7 +218,7 @@
 <p class="continuation">can be interpreted as a line of slope <span class="process-math">\(-\frac{2}{3}\)</span> and with a <span class="process-math">\(y\)</span>-intercept of <span class="process-math">\(2\text{.}\)</span> Thus, for a system of linear equations involving two variables each row can be interpreted as a line in the plane and finding the solution to this system can be thought of as finding all of those points in the plane (if any) that lie on all of the lines. (We had several examples last week where we interpreted systems involving just two linear equations this way.)</p>
 <article class="example example-like" id="example-148"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-148"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">16.1.1</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-148"><article class="example example-like"><p id="p-967">Solve the following system of linear equations and interpret the result geometrically.</p>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-148"><article class="example example-like"><p id="p-1015">Solve the following system of linear equations and interpret the result geometrically.</p>
 <div class="displaymath process-math">
 \begin{align*}
 2x+3y \amp=6\\
@@ -227,8 +226,8 @@
 3x-2y \amp=-3
 \end{align*}
 </div>
-<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-119" id="solution-119"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-119"><div class="solution solution-like">
-<p id="p-968">Forming the augmented matrix and row reducing it to reduced row-echelon form gives</p>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-126" id="solution-126"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-126"><div class="solution solution-like">
+<p id="p-1016">Forming the augmented matrix and row reducing it to reduced row-echelon form gives</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \begin{pmatrix} 2 \amp 3 \amp 6 \\ -1 \amp 2 \amp 2 \\ 3 \amp -2 \amp -3 \end{pmatrix} \sim \begin{pmatrix} 1 \amp 0 \amp \frac{6}{7} \\ 0 \amp 1 \amp \frac{10}{7} \\ 0 \amp 0 \amp -\frac{19}{7} \end{pmatrix} 
@@ -237,7 +236,7 @@
 <p class="continuation">We can see from the reduced row-echelon form that this system of equations is inconsistent. The geometric interpretation of this is that there is no point in the plane that lies on all three lines, as can be seen in <a href="" class="xref" data-knowl="./knowl/Fig-Inconsistent_set_of_linear_equations.html" title="Figure 16.1.2">Figure 16.1.2</a>. <figure class="figure figure-like" id="Fig-Inconsistent_set_of_linear_equations"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="./LinearAlgebra/Images/2/figure1.png" class="contained"></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">16.1.2<span class="period">.</span></span><span class="space"> </span></figcaption></figure></p>
 </div></div></article></div>
-<p id="p-969">For systems of linear equations involving three unknowns each equation (or alternatively each row in the augmented matrix) can be thought of as representing a plane in <span class="process-math">\(\mathbb{R}^3\text{,}\)</span> i.e. in three dimensions. Recall that the Cartesian equation of the plane that is normal to the vector <span class="process-math">\(\mathbf{n}=\langle a,b,c \rangle\)</span> and passes through the point <span class="process-math">\((x_0,y_0,z_0)\)</span> is</p>
+<p id="p-1017">For systems of linear equations involving three unknowns each equation (or alternatively each row in the augmented matrix) can be thought of as representing a plane in <span class="process-math">\(\mathbb{R}^3\text{,}\)</span> i.e. in three dimensions. Recall that the Cartesian equation of the plane that is normal to the vector <span class="process-math">\(\mathbf{n}=\langle a,b,c \rangle\)</span> and passes through the point <span class="process-math">\((x_0,y_0,z_0)\)</span> is</p>
 <div class="displaymath process-math">
 \begin{equation*}
 ax+by+cz=k \textrm{ where } k=ax_0+by_0+cz_0
@@ -246,7 +245,7 @@ ax+by+cz=k \textrm{ where } k=ax_0+by_0+cz_0
 <p class="continuation">i.e. a linear equation in three variables. Thus the solution to a system of linear equations in <span class="process-math">\(3\)</span> variables can be interpreted as those points in <span class="process-math">\(\mathbb{R}^3\)</span> (if any) that lie on all of the planes in the system.</p>
 <article class="example example-like" id="example-149"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-149"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">16.1.3</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-149"><article class="example example-like"><p id="p-970">Solve the following system of linear equations and interpret your answer geometrically (in terms of the rows).</p>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-149"><article class="example example-like"><p id="p-1018">Solve the following system of linear equations and interpret your answer geometrically (in terms of the rows).</p>
 <div class="displaymath process-math">
 \begin{align*}
 x_1+2x_2+3x_3 \amp =-3\\
@@ -254,8 +253,8 @@ x_1+2x_2+3x_3 \amp =-3\\
 -x_1+3x_2+7x_3 \amp=-17
 \end{align*}
 </div>
-<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-120" id="solution-120"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-120"><div class="solution solution-like">
-<p id="p-971">Forming the augmented matrix and row reducing it to reduced row-echelon form gives</p>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-127" id="solution-127"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-127"><div class="solution solution-like">
+<p id="p-1019">Forming the augmented matrix and row reducing it to reduced row-echelon form gives</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \begin{pmatrix} 1 \amp 2 \amp 3 \amp -3 \\ 4 \amp 3 \amp 2 \amp 8 \\ -1 \amp 3 \amp 7 \amp -17 \end{pmatrix} \sim \begin{pmatrix} 1 \amp 0 \amp -1 \amp 5 \\ 0 \amp 1 \amp 2 \amp -4 \\ 0 \amp 0 \amp 0 \amp 0 \end{pmatrix} 
@@ -267,7 +266,7 @@ x_1+2x_2+3x_3 \amp =-3\\
 (x,y,z)=(5+t,-4-2t,t), \hspace{5mm} t\in\mathbb{R}
 \end{equation*}
 </div>
-<p class="continuation">The geometric interpretation of this solution, as shown in <a href="" class="xref" data-knowl="./knowl/Fig-Intersection_of_planes.html" title="Figure 16.1.4">Figure 16.1.4</a>., is that the <span class="process-math">\(3\)</span> planes intersect in the line with vector equation</p>
+<p class="continuation">The geometric interpretation of this solution, as shown in <a href="" class="xref" data-knowl="./knowl/Fig-Intersection_of_planes.html" title="Figure 16.1.4">Figure 16.1.4</a>, is that the <span class="process-math">\(3\)</span> planes intersect in the line with vector equation</p>
 <div class="displaymath process-math">
 \begin{equation*}
 (x,y,z)=(5,-4,0)+t(1,-2,1)
@@ -276,21 +275,21 @@ x_1+2x_2+3x_3 \amp =-3\\
 <p class="continuation">i.e. the line passing through the point <span class="process-math">\((5,-4,0)\)</span> and parallel to the vector <span class="process-math">\((1,-2,1)\)</span> <figure class="figure figure-like" id="Fig-Intersection_of_planes"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="./LinearAlgebra/Images/2/figure2.png" class="contained"></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">16.1.4<span class="period">.</span></span><span class="space"> </span></figcaption></figure></p>
 </div></div></article></div>
-<p id="p-972">A linear equation in more than <span class="process-math">\(n\)</span> variables (where <span class="process-math">\(n\gt 3\)</span>) is said to represent an “<span class="process-math">\(n\)</span>-dimensional hyperplane”. The geometric interpretation (in terms of rows) of the solution to a system of linear equations involving such equations would be the set of <span class="process-math">\(n\)</span>-dimensional points that lie on all of the hyperplanes. Obviously drawing pictures for such systems is not possible.</p>
+<p id="p-1020">A linear equation in more than <span class="process-math">\(n\)</span> variables (where <span class="process-math">\(n\gt 3\)</span>) is said to represent an “<span class="process-math">\(n\)</span>-dimensional hyperplane”. The geometric interpretation (in terms of rows) of the solution to a system of linear equations involving such equations would be the set of <span class="process-math">\(n\)</span>-dimensional points that lie on all of the hyperplanes. Obviously drawing pictures for such systems is not possible.</p>
 <section class="exercises" id="exercises-32"><h3 class="heading hide-type">
 <span class="type">Exercises</span> <span class="codenumber"></span> <span class="title">Example Tasks</span>
 </h3>
-<article class="exercise exercise-like" id="exercise-86"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
-<p id="p-973">What would you expect the reduced row-echelon form of the augmented matrix associated with the system of equations for <span class="process-math">\(4\)</span> lines in space meeting a point to look like.</p></article><article class="exercise exercise-like" id="exercise-87"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
-<p id="p-974">Solve the following system of linear equations and interpret your answer geometrically (in terms of the rows).</p>
+<article class="exercise exercise-like" id="exercise-87"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<p id="p-1021">What would you expect the reduced row-echelon form of the augmented matrix associated with the system of equations for <span class="process-math">\(4\)</span> lines in space meeting a point to look like.</p></article><article class="exercise exercise-like" id="exercise-88"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<p id="p-1022">Solve the following system of linear equations and interpret your answer geometrically (in terms of the rows).</p>
 <div class="displaymath process-math">
 \begin{align*}
 x_1+2x_2+3x_3 \amp=4\\
 4x_1+3x_2+2x_3 \amp=1\\
 2x_1+3x_2+4x_3 \amp =1
 \end{align*}
-</div></article><article class="exercise exercise-like" id="exercise-88"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
-<p id="p-975">What form would you expect the reduced row-echelon form of the augmented matrix associated with the system of equations for <span class="process-math">\(3\)</span> distinct parallel planes to take.</p></article></section></section></div></main>
+</div></article><article class="exercise exercise-like" id="exercise-89"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
+<p id="p-1023">What form would you expect the reduced row-echelon form of the augmented matrix associated with the system of equations for <span class="process-math">\(3\)</span> distinct parallel planes to take.</p></article></section></section></div></main>
 </div>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-01-07T17:22:59+11:00       *-->
+<!--*       on 2022-10-28T21:07:38+11:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -13,68 +13,21 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
 </head>
-<body class="ignore-math"><div class="solution solution-like">
-<p>The eigenvalues, <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\lambda\text{,}\)</span> of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(A\)</span> satisfy the characteristic equation</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{equation*}
-\det(A-\lambda I)=0
-\end{equation*}
-</div>
-<p class="continuation">Since</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{equation*}
-A-\lambda I=\begin{pmatrix} 2\amp 1 \\ 1\amp 2 \end{pmatrix}-\lambda \begin{pmatrix} 1\amp 0 \\ 0\amp 1 \end{pmatrix}=\begin{pmatrix} 2-\lambda \amp 1 \\ 1\amp 2-\lambda \end{pmatrix}
-\end{equation*}
-</div>
-<p class="continuation">the characteristic equation is</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+<body class="ignore-math"><div class="solution solution-like">Using the first of the formulas given above with <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(i=1: \)</span><div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
 \begin{align*}
-\det\begin{pmatrix} 2-\lambda \amp 1 \\ 1\amp 2-\lambda \end{pmatrix} \amp =0\\
-(2-\lambda)^2-1 \amp =0\\
-\lambda^2-4\lambda+3 \amp =0
+\det(A) = \amp (-1)^{1+1} 2 \begin{vmatrix}
+2 \amp 1 \\
+1 \amp 2
+\end{vmatrix} + (-1)^{1+2} 4 \begin{vmatrix}
+3 \amp 1 \\
+1 \amp 2
+\end{vmatrix}+ (-1)^{1+3} 6 \begin{vmatrix}
+3 \amp 2 \\
+1 \amp 1
+\end{vmatrix}\\\\
+=\amp 2(4-1)-4(6-1)+6(3-2)\\  \\
+=\amp -8. 
 \end{align*}
 </div>
-<p class="continuation">Thus the eigenvalues for <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(A\)</span> are</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{equation*}
-\lambda=1 \textrm{ and } \lambda=3
-\end{equation*}
-</div>
-<p>To find the eigenvectors associated with each of these eigenvalues we follow the procedure illustrated in <a href="" class="xref" data-knowl="./knowl/Ex-Find_all_eigenvectors_given_eigenvalue.html" title="Example 19.1.5">Example 19.1.5</a>, i.e. solve the homogeneous system of linear equations</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{equation*}
-(A-\lambda I)\mathbf{x}=\mathbf{0}
-\end{equation*}
-</div>
-<p class="continuation">for each eigenvalue.</p>
-<p>When <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\lambda=1\)</span> the augmented matrix and its reduced row echelon form are</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{equation*}
-\begin{pmatrix} 1 \amp 1 \amp 0 \\ 1 \amp 1 \amp 0 \end{pmatrix} \sim \begin{pmatrix} 1 \amp 1 \amp 0 \\ 0 \amp 0 \amp 0 \end{pmatrix}  \begin{matrix} \\ \hspace{5mm} R_2'=R_2-R_1 \end{matrix}
-\end{equation*}
-</div>
-<p class="continuation">Thus, the eigenvectors take the form</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{align*}
-\mathbf{x} \amp =\begin{pmatrix}x_1 \\ x_2\end{pmatrix} \textrm{ where } x_1+x_2=0\\
-\Rightarrow \mathbf{x} \amp =\begin{pmatrix} -t \\ t \end{pmatrix}=t\begin{pmatrix} -1 \\ 1 \end{pmatrix} 
-\end{align*}
-</div>
-<p class="continuation">When <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\lambda=3\)</span> the augmented matrix and its reduced row echelon form are</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{equation*}
-\begin{pmatrix} -1 \amp 1 \amp 0 \\ 1 \amp -1 \amp 0 \end{pmatrix} \sim \begin{pmatrix} -1 \amp 1 \amp 0 \\ 0 \amp 0 \amp 0 \end{pmatrix}  \begin{matrix} \\ \hspace{5mm} R_2'=R_2+R_1 \end{matrix}
-\end{equation*}
-</div>
-<p class="continuation">Thus, the eigenvectors take the form</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{align*}
-\mathbf{x} \amp =\begin{pmatrix}x_1 \\ x_2\end{pmatrix} \textrm{ where } -x_1+x_2=0\\
-\Rightarrow \mathbf{x} \amp =\begin{pmatrix} t \\ t \end{pmatrix}=t\begin{pmatrix} 1 \\ 1 \end{pmatrix} 
-\end{align*}
-</div>
-<p class="continuation">As always, you can very easily check that these vectors are indeed eigenvectors by performing the matrix multiplication <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(A\mathbf{x}\text{.}\)</span></p>
-<p>As an aside, we can get some geometric insight if we consider <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(A\)</span> as the matrix of a plane transformation, (even though <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(A\)</span> isn’t the matrix for any well known transformation). <a href="" class="xref" data-knowl="./knowl/Fig-Transformation_visualised.html" title="Figure 19.2.3">Figure 19.2.3</a> shows the result of applying <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(A\)</span> to a square centred on the origin. <figure class="figure figure-like"><div xmlns:svg="http://www.w3.org/2000/svg" class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="./LinearAlgebra/Images/5/figure2.png" class="contained"></div>
-<figcaption xmlns:svg="http://www.w3.org/2000/svg"><span class="type">Figure</span><span class="space"> </span><span class="codenumber">19.2.3<span class="period">.</span></span><span class="space"> </span></figcaption></figure> Informally, the effect of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(A\)</span> is to pull the square out along the diagonal joining vertices <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(B\)</span> and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(D\text{.}\)</span> Thus vectors along this diagonal will be mapped to scalar multiples of themselves while vectors along the diagonal joining vertices <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(A\)</span> and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(C\)</span> will be left unchanged.</p>
 </div></body>
 </html>

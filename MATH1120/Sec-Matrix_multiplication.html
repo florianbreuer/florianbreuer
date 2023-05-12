@@ -1,7 +1,7 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-01-07T17:20:57+11:00       *-->
+<!--*       on 2022-10-28T21:01:31+11:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -179,7 +179,6 @@
 </li>
 <li class="link">
 <a href="Chap-Linear_Algebra_3.html" data-scroll="Chap-Linear_Algebra_3"><span class="codenumber">17</span> <span class="title">LA3: Matrix Algebra</span></a><ul>
-<li><a href="Sec-Linear_Algebra_Intro.html" data-scroll="Sec-Linear_Algebra_Intro">Introduction</a></li>
 <li><a href="Sec-Addition_and_Scalar_Multiplication.html" data-scroll="Sec-Addition_and_Scalar_Multiplication">Addition and Scalar Multiplication</a></li>
 <li><a href="Sec-Matrix_multiplication.html" data-scroll="Sec-Matrix_multiplication" class="active">Matrix Multiplication</a></li>
 <li><a href="Sec-Matrices_and_Systems_of_Linear_Equations.html" data-scroll="Sec-Matrices_and_Systems_of_Linear_Equations">Matrices and Systems of Linear Equations</a></li>
@@ -208,18 +207,18 @@
 </ul></nav><div class="extras"><nav><a class="pretext-link" href="https://pretextbook.org">Authored in PreTeXt</a><a href="https://www.mathjax.org"><img title="Powered by MathJax" src="https://www.mathjax.org/badge/badge.gif" alt="Powered by MathJax"></a></nav></div>
 </div></div>
 <main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="Sec-Matrix_multiplication"><h2 class="heading hide-type">
-<span class="type">Section</span> <span class="codenumber">17.3</span> <span class="title">Matrix Multiplication</span>
+<span class="type">Section</span> <span class="codenumber">17.2</span> <span class="title">Matrix Multiplication</span>
 </h2>
 <article class="definition definition-like" id="definition-44"><h3 class="heading">
-<span class="type">Definition</span><span class="space"> </span><span class="codenumber">17.3.1</span><span class="period">.</span><span class="space"> </span><span class="title">Matrix multiplication.</span>
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">17.2.1</span><span class="period">.</span>
 </h3>Let <span class="process-math">\(A=\left(a_{ij}\right)_{m \times n}\)</span> and <span class="process-math">\(B = \left(b_{ij}\right)_{n \times p}\text{.}\)</span> Then <dfn class="terminology">matrix multiplication</dfn> is defined by<div class="displaymath process-math">
 \begin{equation*}
 AB = \left(\sum_{k=1}^n a_{ik}b_{kj}\right)_{m \times p}.
 \end{equation*}
-</div></article><p id="p-1021">If we call <span class="process-math">\(C=AB\)</span>  then from this definition it can be seen:</p>
+</div></article><p id="p-1072">If we call <span class="process-math">\(C=AB\)</span>  then from this definition it can be seen:</p>
 <ol class="decimal">
-<li id="li-238"><p id="p-derived-li-238">For the matrix multiplication <span class="process-math">\(AB\)</span> to be defined the number of columns in <span class="process-math">\(A\)</span> has to be equal to the number of rows in <span class="process-math">\(B\text{.}\)</span> The resulting matrix, <span class="process-math">\(C\text{,}\)</span> has the same number of rows as <span class="process-math">\(A\)</span> and the same number of columns as <span class="process-math">\(B\text{.}\)</span></p></li>
-<li id="li-239"><p id="p-derived-li-239">Entry <span class="process-math">\(c_{ij}\)</span> in <span class="process-math">\(C\)</span> is found by taking the scalar (or dot) product of the <span class="process-math">\(i^{\mbox{th}}\)</span> row vector from <span class="process-math">\(A\)</span> with (the transpose of) the <span class="process-math">\(j^{\mbox{th}}\)</span> column vector from <span class="process-math">\(B\text{,}\)</span> i.e.<div class="displaymath process-math">
+<li id="li-259"><p id="p-derived-li-259">For the matrix multiplication <span class="process-math">\(AB\)</span> to be defined the number of columns in <span class="process-math">\(A\)</span> has to be equal to the number of rows in <span class="process-math">\(B\text{.}\)</span> The resulting matrix, <span class="process-math">\(C\text{,}\)</span> has the same number of rows as <span class="process-math">\(A\)</span> and the same number of columns as <span class="process-math">\(B\text{.}\)</span></p></li>
+<li id="li-260"><p id="p-derived-li-260">Entry <span class="process-math">\(c_{ij}\)</span> in <span class="process-math">\(C\)</span> is found by taking the scalar (or dot) product of the <span class="process-math">\(i^{\mbox{th}}\)</span> row vector from <span class="process-math">\(A\)</span> with (the transpose of) the <span class="process-math">\(j^{\mbox{th}}\)</span> column vector from <span class="process-math">\(B\text{,}\)</span> i.e.<div class="displaymath process-math">
 \begin{align*}
 c_{ij} \amp = (a_{i1},a_{i2}, \ldots, a_{in})\cdot (b_{1j},b_{2j}, \ldots, b_{nj}) \\
 \amp = a_{i1}b_{1j} + a_{i2}b_{2j} + \cdots + a_{in}b_{nj}.
@@ -227,25 +226,25 @@ c_{ij} \amp = (a_{i1},a_{i2}, \ldots, a_{in})\cdot (b_{1j},b_{2j}, \ldots, b_{nj
 </div></p></li>
 </ol>
 <article class="example example-like" id="Ex-Matrix_multiplication_not_commutative"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-Ex-Matrix_multiplication_not_commutative"><h3 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">17.3.2</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Ex-Matrix_multiplication_not_commutative"><article class="example example-like"><p id="p-1022">Let</p>
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">17.2.2</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Ex-Matrix_multiplication_not_commutative"><article class="example example-like"><p id="p-1073">Let</p>
 <div class="displaymath process-math">
 \begin{equation*}
 A=\begin{pmatrix} 0 \amp 1 \\ -1 \amp 3 \\ 2 \amp 5 \end{pmatrix} \quad \mbox{and} \quad B=\begin{pmatrix} -2 \amp 1/2 \\ -3 \amp 4 \end{pmatrix}.
 \end{equation*}
 </div>
 <ol class="lower-alpha">
-<li id="li-240"><p id="p-derived-li-240">Calculate <span class="process-math">\(AB\text{.}\)</span></p></li>
-<li id="li-241"><p id="p-derived-li-241">Calculate <span class="process-math">\(BA\text{.}\)</span></p></li>
+<li id="li-261"><p id="p-derived-li-261">Calculate <span class="process-math">\(AB\text{.}\)</span></p></li>
+<li id="li-262"><p id="p-derived-li-262">Calculate <span class="process-math">\(BA\text{.}\)</span></p></li>
 </ol>
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-30" id="answer-30"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-30"><div class="answer solution-like"><ol class="lower-alpha">
-<li id="li-242"><p id="p-derived-li-242"><span class="process-math">\(\displaystyle AB=\begin{pmatrix} -3 \amp 4 \\ -7 \amp 23/2 \\ -19 \amp 21 \end{pmatrix}\)</span></p></li>
-<li id="li-243"><p id="p-derived-li-243"><span class="process-math">\(BA\)</span> is not defined.</p></li>
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-106" id="answer-106"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-106"><div class="answer solution-like"><ol class="lower-alpha">
+<li id="li-263"><p id="p-derived-li-263"><span class="process-math">\(\displaystyle AB=\begin{pmatrix} -3 \amp 4 \\ -7 \amp 23/2 \\ -19 \amp 21 \end{pmatrix}\)</span></p></li>
+<li id="li-264"><p id="p-derived-li-264"><span class="process-math">\(BA\)</span> is not defined.</p></li>
 </ol></div></div>
-<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-131" id="solution-131"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-131"><div class="solution solution-like">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-138" id="solution-138"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-138"><div class="solution solution-like">
 <ol class="lower-alpha">
-<li id="li-244">
-<p id="p-1023">Since <span class="process-math">\(A\)</span> is a <span class="process-math">\(3 \times 2\)</span>  matrix and <span class="process-math">\(B\)</span> is <span class="process-math">\(2\times 2\)</span> then <span class="process-math">\(AB\)</span> is defined since <span class="process-math">\(A\)</span> has <span class="process-math">\(2\)</span> columns and <span class="process-math">\(B\)</span> has <span class="process-math">\(2\)</span> rows. The resultant matrix will be a <span class="process-math">\(3 \times 2\)</span>  matrix since <span class="process-math">\(A\)</span> has <span class="process-math">\(3\)</span> rows and <span class="process-math">\(B\)</span> has <span class="process-math">\(2\)</span> columns. Thus <span class="process-math">\(AB\)</span> will be of the form</p>
+<li id="li-265">
+<p id="p-1074">Since <span class="process-math">\(A\)</span> is a <span class="process-math">\(3 \times 2\)</span>  matrix and <span class="process-math">\(B\)</span> is <span class="process-math">\(2\times 2\)</span> then <span class="process-math">\(AB\)</span> is defined since <span class="process-math">\(A\)</span> has <span class="process-math">\(2\)</span> columns and <span class="process-math">\(B\)</span> has <span class="process-math">\(2\)</span> rows. The resultant matrix will be a <span class="process-math">\(3 \times 2\)</span>  matrix since <span class="process-math">\(A\)</span> has <span class="process-math">\(3\)</span> rows and <span class="process-math">\(B\)</span> has <span class="process-math">\(2\)</span> columns. Thus <span class="process-math">\(AB\)</span> will be of the form</p>
 <div class="displaymath process-math">
 \begin{equation*}
 AB = \begin{pmatrix}c_{11} \amp c_{12}\\ c_{21} \amp c_{22}\\ c_{31} \amp c_{32}\end{pmatrix}.
@@ -269,9 +268,9 @@ AB=\begin{pmatrix} -3 \amp 4 \\ -7 \amp 23/2 \\ -19 \amp 21 \end{pmatrix}.
 \end{equation*}
 </div>
 </li>
-<li id="li-245"><p id="p-1024"><span class="process-math">\(BA\)</span> is not defined because the number of columns in <span class="process-math">\(B\)</span> (i.e. 2) is not equal to the number of rows in <span class="process-math">\(A\)</span> (i.e. 3).</p></li>
+<li id="li-266"><p id="p-1075"><span class="process-math">\(BA\)</span> is not defined because the number of columns in <span class="process-math">\(B\)</span> (i.e. 2) is not equal to the number of rows in <span class="process-math">\(A\)</span> (i.e. 3).</p></li>
 </ol>
-<p id="p-1025">Notice that this example shows that matrix multiplication is not commutative, i.e. in general</p>
+<p id="p-1076">Notice that this example shows that matrix multiplication is not commutative, i.e. in general</p>
 <div class="displaymath process-math">
 \begin{equation*}
 AB \neq BA.
@@ -279,30 +278,30 @@ AB \neq BA.
 </div>
 </div></div></article></div>
 <article class="example example-like" id="Ex-Matrix_multiplication_associative"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-Ex-Matrix_multiplication_associative"><h3 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">17.3.3</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Ex-Matrix_multiplication_associative"><article class="example example-like"><p id="p-1026">Let</p>
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">17.2.3</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Ex-Matrix_multiplication_associative"><article class="example example-like"><p id="p-1077">Let</p>
 <div class="displaymath process-math">
 \begin{equation*}
 A=\begin{pmatrix} 3\amp 2 \amp 1 \amp 6 \\ 2 \amp 1 \amp 3 \amp -1\end{pmatrix},  \quad  B=\begin{pmatrix} 1 \amp 0 \\ -1 \amp 2 \\ 3 \amp 1 \\ 4 \amp 5 \end{pmatrix}, \quad C =\begin{pmatrix}-2 \amp 1 \amp 0 \\ 4 \amp -1 \amp 3\end{pmatrix}.
 \end{equation*}
 </div>
 <ol class="lower-alpha">
-<li id="li-246"><p id="p-derived-li-246">Calculate <span class="process-math">\(A(BC)\text{.}\)</span></p></li>
-<li id="li-247"><p id="p-derived-li-247">Calculate <span class="process-math">\((AB)C\text{.}\)</span></p></li>
+<li id="li-267"><p id="p-derived-li-267">Calculate <span class="process-math">\(A(BC)\text{.}\)</span></p></li>
+<li id="li-268"><p id="p-derived-li-268">Calculate <span class="process-math">\((AB)C\text{.}\)</span></p></li>
 </ol>
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-31" id="answer-31"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-31"><div class="answer solution-like"><p id="p-1027"><span class="process-math">\(A(BC) =  \begin{pmatrix}84 \amp -7 \amp 105 \\ -12 \amp 6 \amp 0\end{pmatrix} = (AB)C\)</span></p></div></div>
-<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-132" id="solution-132"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-132"><div class="solution solution-like">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-107" id="answer-107"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-107"><div class="answer solution-like"><p id="p-1078"><span class="process-math">\(A(BC) =  \begin{pmatrix}84 \amp -7 \amp 105 \\ -12 \amp 6 \amp 0\end{pmatrix} = (AB)C\)</span></p></div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-139" id="solution-139"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-139"><div class="solution solution-like">
 <ol class="lower-alpha">
-<li id="li-248">
-<p id="p-1028"><span class="process-math">\(BC = \begin{pmatrix} 1 \amp 0 \\ -1 \amp 2 \\ 3 \amp 1 \\ 4 \amp 5 \end{pmatrix}\begin{pmatrix}-2 \amp 1 \amp 0 \\ 4 \amp -1 \amp 3\end{pmatrix} = \begin{pmatrix} -2 \amp 1 \amp 0\\ 10 \amp -3 \amp 6 \\ -2 \amp 2 \amp 3 \\ 12 \amp -1 \amp 15\end{pmatrix}\)</span></p>
+<li id="li-269">
+<p id="p-1079"><span class="process-math">\(BC = \begin{pmatrix} 1 \amp 0 \\ -1 \amp 2 \\ 3 \amp 1 \\ 4 \amp 5 \end{pmatrix}\begin{pmatrix}-2 \amp 1 \amp 0 \\ 4 \amp -1 \amp 3\end{pmatrix} = \begin{pmatrix} -2 \amp 1 \amp 0\\ 10 \amp -3 \amp 6 \\ -2 \amp 2 \amp 3 \\ 12 \amp -1 \amp 15\end{pmatrix}\)</span></p>
 <div class="displaymath process-math">
 \begin{equation*}
 A(BC) = \begin{pmatrix} 3\amp 2 \amp 1 \amp 6 \\ 2 \amp 1 \amp 3 \amp -1\end{pmatrix}\begin{pmatrix} -2 \amp 1 \amp 0\\ 10 \amp -3 \amp 6 \\ -2 \amp 2 \amp 3 \\ 12 \amp -1 \amp 15\end{pmatrix} = \begin{pmatrix} 84 \amp -7 \amp 105 \\ -12 \amp 6 \amp 0\end{pmatrix}.
 \end{equation*}
 </div>
 </li>
-<li id="li-249">
-<p id="p-1029"><span class="process-math">\(AB = \begin{pmatrix} 3\amp 2 \amp 1 \amp 6 \\ 2 \amp 1 \amp 3 \amp -1\end{pmatrix} \begin{pmatrix} 1 \amp 0 \\ -1 \amp 2 \\ 3 \amp 1 \\ 4 \amp 5 \end{pmatrix} = \begin{pmatrix} 28 \amp 35 \\ 6 \amp 0\end{pmatrix}\)</span></p>
+<li id="li-270">
+<p id="p-1080"><span class="process-math">\(AB = \begin{pmatrix} 3\amp 2 \amp 1 \amp 6 \\ 2 \amp 1 \amp 3 \amp -1\end{pmatrix} \begin{pmatrix} 1 \amp 0 \\ -1 \amp 2 \\ 3 \amp 1 \\ 4 \amp 5 \end{pmatrix} = \begin{pmatrix} 28 \amp 35 \\ 6 \amp 0\end{pmatrix}\)</span></p>
 <div class="displaymath process-math">
 \begin{equation*}
 (AB)C = \begin{pmatrix} 28 \amp 35 \\ 6 \amp 0\end{pmatrix} \begin{pmatrix}-2 \amp 1 \amp 0 \\ 4 \amp -1 \amp 3\end{pmatrix} = \begin{pmatrix}84 \amp -7 \amp 105 \\ -12 \amp 6 \amp 0\end{pmatrix}.
@@ -310,46 +309,46 @@ A(BC) = \begin{pmatrix} 3\amp 2 \amp 1 \amp 6 \\ 2 \amp 1 \amp 3 \amp -1\end{pma
 </div>
 </li>
 </ol>
-<p id="p-1030">Notice that this example is an illustration that matrix multiplication is associative, i.e. in general</p>
+<p id="p-1081">Notice that this example is an illustration that matrix multiplication is associative, i.e. in general</p>
 <div class="displaymath process-math">
 \begin{equation*}
 A(BC) = (AB)C\text{.}
 \end{equation*}
 </div>
 </div></div></article></div>
-<p id="p-1031">From the definition of matrix multiplication the following properties can be shown to hold.</p>
+<p id="p-1082">From the definition of matrix multiplication the following properties can be shown to hold.</p>
 <article class="theorem theorem-like" id="theorem-19"><h3 class="heading">
-<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">17.3.4</span><span class="period">.</span><span class="space"> </span><span class="title">Properties of Matrix Multiplication.</span>
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">17.2.4</span><span class="period">.</span><span class="space"> </span><span class="title">Properties of Matrix Multiplication.</span>
 </h3>
-<p id="p-1032">Let <span class="process-math">\(A\text{,}\)</span> <span class="process-math">\(B\)</span> and <span class="process-math">\(C\)</span> be appropriately sized matrices. Then</p>
+<p id="p-1083">Let <span class="process-math">\(A\text{,}\)</span> <span class="process-math">\(B\)</span> and <span class="process-math">\(C\)</span> be appropriately sized matrices. Then</p>
 <ol class="decimal">
-<li id="li-250"><p id="p-derived-li-250"><span class="process-math">\(A(BC)=(AB)C \qquad\)</span> (Associative Law)</p></li>
-<li id="li-251"><p id="p-derived-li-251"><span class="process-math">\(A(B+C) = AB + AC \qquad\)</span> (Left Distributive Law)</p></li>
-<li id="li-252"><p id="p-derived-li-252"><span class="process-math">\((A+B)C = AC + BC \qquad\)</span> (Right Distributive Law)</p></li>
-<li id="li-253"><p id="p-derived-li-253"><span class="process-math">\(\displaystyle k(AB) = (kA)B = A(kB)\)</span></p></li>
-<li id="li-254"><p id="p-derived-li-254"><span class="process-math">\(I_mA = A = AI_n\)</span> if <span class="process-math">\(A\)</span> is an <span class="process-math">\(m \times n\)</span> matrix <span class="process-math">\(\quad\)</span> (Identity Law)</p></li>
-</ol></article><p id="p-1033">For later reference, some properties of the transpose of a matrix with respect to the various matrix operations that we have been discussing are listed below.</p>
+<li id="li-271"><p id="p-derived-li-271"><span class="process-math">\(A(BC)=(AB)C \hspace{55mm}\)</span> (Associative Law)</p></li>
+<li id="li-272"><p id="p-derived-li-272"><span class="process-math">\(A(B+C) = AB + AC \hspace{42mm}\)</span> (Left Distributive Law)</p></li>
+<li id="li-273"><p id="p-derived-li-273"><span class="process-math">\((A+B)C = AC + BC \hspace{42mm}\)</span> (Right Distributive Law)</p></li>
+<li id="li-274"><p id="p-derived-li-274"><span class="process-math">\(\displaystyle k(AB) = (kA)B = A(kB)\)</span></p></li>
+<li id="li-275"><p id="p-derived-li-275"><span class="process-math">\(I_mA = A = AI_n\)</span> if <span class="process-math">\(A\)</span> is an <span class="process-math">\(m \times n\)</span> matrix<span class="process-math">\(\hspace{5mm}\)</span> (Identity Law)</p></li>
+</ol></article><p id="p-1084">For later reference, some properties of the transpose of a matrix with respect to the various matrix operations that we have been discussing are listed below.</p>
 <article class="theorem theorem-like" id="theorem-20"><h3 class="heading">
-<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">17.3.5</span><span class="period">.</span><span class="space"> </span><span class="title">Properties of Matrix Transpose.</span>
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">17.2.5</span><span class="period">.</span><span class="space"> </span><span class="title">Properties of Matrix Transpose.</span>
 </h3>
-<p id="p-1034">Let <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> be appropriately sized matrices. Then</p>
+<p id="p-1085">Let <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> be appropriately sized matrices. Then</p>
 <ol class="decimal">
-<li id="li-255"><p id="p-derived-li-255"><span class="process-math">\(\displaystyle (A^T)^T = A\)</span></p></li>
-<li id="li-256"><p id="p-derived-li-256"><span class="process-math">\(\displaystyle (A+B)^T = A^T + B^T \)</span></p></li>
-<li id="li-257"><p id="p-derived-li-257"><span class="process-math">\(\displaystyle (kA)^T = k A^T \)</span></p></li>
-<li id="li-258"><p id="p-derived-li-258"><span class="process-math">\(\displaystyle (AB)^T = B^TA^T \)</span></p></li>
-<li id="li-259"><p id="p-derived-li-259"><span class="process-math">\((A^r)^T = (A^T)^r \)</span> where <span class="process-math">\(r \in \mathbb{Z}^{+}\text{.}\)</span></p></li>
+<li id="li-276"><p id="p-derived-li-276"><span class="process-math">\(\displaystyle (A^T)^T = A\)</span></p></li>
+<li id="li-277"><p id="p-derived-li-277"><span class="process-math">\(\displaystyle (A+B)^T = A^T + B^T \)</span></p></li>
+<li id="li-278"><p id="p-derived-li-278"><span class="process-math">\(\displaystyle (kA)^T = k(A^T) \)</span></p></li>
+<li id="li-279"><p id="p-derived-li-279"><span class="process-math">\(\displaystyle (AB)^T = B^TA^T \)</span></p></li>
+<li id="li-280"><p id="p-derived-li-280"><span class="process-math">\((A^r)^T = (A^T)^r \)</span> where <span class="process-math">\(r \in \mathbb{N}\text{.}\)</span></p></li>
 </ol></article><article class="example example-like" id="Ex-Properties_of_transpose"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-Ex-Properties_of_transpose"><h3 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">17.3.6</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Ex-Properties_of_transpose"><article class="example example-like"><p id="p-1035">Confirm that <span class="process-math">\((AB)^T = B^T A^T\)</span> holds for the matrices</p>
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">17.2.6</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Ex-Properties_of_transpose"><article class="example example-like"><p id="p-1086">Confirm that <span class="process-math">\((AB)^T = B^T A^T\)</span> holds for the matrices</p>
 <div class="displaymath process-math">
 \begin{equation*}
 A = \begin{pmatrix}0 \amp 1\\ -1 \amp 3 \\ 2 \amp 5\end{pmatrix} \quad \mbox{and} \quad B = \begin{pmatrix}-2 \amp 1/2 \\ -3 \amp 4 \end{pmatrix}.
 \end{equation*}
 </div>
 <div class="solutions">
-<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-133" id="solution-133"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-133"><div class="solution solution-like">
-<p id="p-1036">Firstly</p>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-140" id="solution-140"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-140"><div class="solution solution-like">
+<p id="p-1087">Firstly</p>
 <div class="displaymath process-math">
 \begin{align*}
 (AB)^T \amp = \left( \begin{pmatrix}0 \amp 1\\ -1 \amp 3 \\ 2 \amp 5\end{pmatrix} \begin{pmatrix}-2 \amp 1/2 \\ -3 \amp 4 \end{pmatrix}\right)^T\\
@@ -369,26 +368,26 @@ B^TA^T \amp = \begin{pmatrix}-2 \amp -3 \\ 1/2 \amp 4 \end{pmatrix}  \begin{pmat
 <section class="exercises" id="exercises-35"><h3 class="heading hide-type">
 <span class="type">Exercises</span> <span class="codenumber"></span> <span class="title">Example Tasks</span>
 </h3>
-<article class="exercise exercise-like" id="exercise-95"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
-<p id="p-1037">Let</p>
+<article class="exercise exercise-like" id="exercise-96"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<p id="p-1088">Let</p>
 <div class="displaymath process-math">
 \begin{equation*}
 A = \begin{pmatrix} 3 \amp -1 \\ -2 \amp 2\end{pmatrix} \quad \mbox{ and } \quad B=\begin{pmatrix} 0 \amp 1 \\ 4 \amp -1 \end{pmatrix}.
 \end{equation*}
 </div>
 <ol class="lower-alpha">
-<li id="li-260"><p id="p-derived-li-260">Calculate <span class="process-math">\((A+B)^2\text{.}\)</span></p></li>
-<li id="li-261"><p id="p-derived-li-261">Calculate <span class="process-math">\(A^2 + 2AB + B^2\text{.}\)</span></p></li>
-</ol></article><article class="exercise exercise-like" id="exercise-96"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
-<p id="p-1038">Let</p>
+<li id="li-281"><p id="p-derived-li-281">Calculate <span class="process-math">\((A+B)^2\text{.}\)</span></p></li>
+<li id="li-282"><p id="p-derived-li-282">Calculate <span class="process-math">\(A^2 + 2AB + B^2\text{.}\)</span></p></li>
+</ol></article><article class="exercise exercise-like" id="exercise-97"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<p id="p-1089">Let</p>
 <div class="displaymath process-math">
 \begin{equation*}
 E = \begin{pmatrix} 6 \amp 1 \\ -1 \amp 3 \\ -5 \amp 2\end{pmatrix} \quad \mbox{ and } \quad F=\begin{pmatrix} 1 \amp -2 \amp 0 \\ 3 \amp 1 \amp 4 \end{pmatrix}.
 \end{equation*}
 </div>
 <ol class="lower-alpha">
-<li id="li-262"><p id="p-derived-li-262">Calculate <span class="process-math">\((EF)_{23}\text{.}\)</span></p></li>
-<li id="li-263"><p id="p-derived-li-263">Calculate <span class="process-math">\((FE)_{12}\text{.}\)</span></p></li>
+<li id="li-283"><p id="p-derived-li-283">Calculate <span class="process-math">\((EF)_{23}\text{.}\)</span></p></li>
+<li id="li-284"><p id="p-derived-li-284">Calculate <span class="process-math">\((FE)_{12}\text{.}\)</span></p></li>
 </ol></article></section></section></div></main>
 </div>
 </body>

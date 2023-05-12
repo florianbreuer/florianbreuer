@@ -61,7 +61,7 @@
         <section xml:id="Critical-Points">
             <title>Critical Points</title>
 
-            <p>Recall  that  a  function  of  one  variable, <m>f(x)</m>  has  a  <q>critical  point</q> at <m>x=x_0</m> if  the tangent line to the curve at <m>x=x_0</m> is horizontal or if the derivative does not exist at that point. This critical point can be either a (local) maximum, minimum or horizontal point of inflection or vertical point of inflection.  (The first three possibilities are shown in Figure <xref ref="Fig_max_min_inflection"/> below.)</p>
+            <p>Recall  that  a  function  of  one  variable, <m>f(x)</m>  has  a  <q>critical  point</q> at <m>x=x_0</m> if  the tangent line to the curve at <m>x=x_0</m> is horizontal or if the derivative does not exist at that point. This critical point can be either a (local) maximum, minimum or horizontal point of inflection or vertical point of inflection.  (The first three possibilities are shown in <xref ref="Fig_max_min_inflection"/> below.)</p>
 
             <figure xml:id="Fig_max_min_inflection">
                 <caption></caption>
@@ -137,6 +137,10 @@
                     <p>Locate, and determine the nature of, the critical points of the function <me>z = 2x^3 + (x+1)y^2 + 5x^2</me>.</p>
                 </statement>
 
+                <answer>
+                    <p><m>\left(0,0\right)</m> is a local minimum; <m>\left(-\dfrac{5}{3},0\right)</m> is a local maximum; <m>\left(-1,2\right)</m> and <m>\left(-1,-2\right)</m> are saddle points.</p>
+                </answer>
+
                 <solution>
                     <p>To locate the critical points we solve the equations <m>z_x = z_y = 0</m>, and check for any points where they do not exist. Since this function is given by a polynomial, the partial derivatives exist.  We set them to zero below.
                         <mdn>
@@ -154,7 +158,7 @@
                         <image source="./Calculus/Images/7/Fig4-Locate_critical_points.png" width="80%"/>
                     </figure>
 
-                    <p>Sometimes the nature of the critical points is not clear on such graphs or we don’t have access to the graph. Another approach to determining the nature of the critical points is to sketch the level curves for the function.</p>
+                    <p>Sometimes the nature of the critical points is not clear on such graphs or we don't have access to the graph. Another approach to determining the nature of the critical points is to sketch the level curves for the function.</p>
 
                     <figure xml:id="Fig-Locate_critical_points2">
                         <caption></caption>
@@ -174,7 +178,7 @@
 
                         <figure xml:id="Fig-Ex_task_section_1">
                             <caption></caption>
-                            <image source="./Calculus/Images/7/Ex_task_section_1.png" width="80%"/>
+                            <image source="./Calculus/Images/7/Ex_task_section_1.png" width="70%"/>
                         </figure>
 
                     </statement>
@@ -212,7 +216,9 @@
                 </statement>
             </theorem>
 
-            <p><alert>Outline of Proof:</alert> For the sake of simplicity assume that the critical point is at the point <m>(x_0,y_0)=(0,0)</m>. Now using a Taylor expansion for functions of two variables about <m>(a,b) = (0,0)</m> we have (up to the quadratic terms)
+            <proof>
+            <title>Outline of Proof</title>
+            <p>For the sake of simplicity assume that the critical point is at the point <m>(x_0,y_0)=(0,0)</m>. Now using a Taylor expansion for functions of two variables about <m>(a,b) = (0,0)</m> we have (up to the quadratic terms)
             <me>
                 f(x,y); f(0,0) + f_x (0,0)x + f_y (0,0) y + \dfrac{f_{xx}(0,0)}{2} x^2 + f_{xy} (0,0) xy + \dfrac{f_{yy}(0,0)}{2} y^2
             </me>.
@@ -230,12 +236,16 @@
             </p>
 
             <p>From this we can see that if <m>f_{xx} > 0</m> and <m>D = f_{xx} f_{yy} - f_{xy}^2 > 0</m> then when <m>x</m> and <m>y</m> are varied from <m>(0,0)</m>, <m>f(x,y)</m> increases and so <m>(x_0,y_0) = (0,0)</m> will be a local minimum.</p>
-
+            </proof>
 
             <example xml:id="Ex-Locate_critical_points_2">
                 <statement>
                     <p>Locate and identify the critical points of the function <m>f(x,y) = 2x^3 + (x+1)y^2 + 5x^2</m>.</p>
                 </statement>
+
+                <answer>
+                    <p><m>\left(0,0\right)</m> is a local minimum; <m>\left(-\dfrac{5}{3},0\right)</m> is a local maximum; <m>\left(-1,2\right)</m> and <m>\left(-1,-2\right)</m> are saddle points.</p>
+                </answer>
 
                 <solution>
                     <p>We located the critical points of this function in an earlier example. We found that there are 4 critical points at <me>\left( 0, 0 \right), \left( -\dfrac{5}{3}, 0 \right), \left( -1, 2 \right) \: \text{ and } \left( -1, -2 \right)</me>.</p>
@@ -264,6 +274,10 @@
                 <statement>
                     <p>Locate and identify the critical points of the function <me>g(x,y) = 2 - \sqrt{x^2+y^2}</me>.</p>
                 </statement>
+
+                <answer>
+                    <p><m>(0,0)</m> is a local maximum.</p>
+                </answer>
 
                 <solution>
                     <p>Here
@@ -294,7 +308,7 @@
 
                 <exercise>
                     <statement>
-                        <p>Locate and identify the critical points of the function <m>z=\exp \left(xy-\frac{2}{3}x^2 - \frac{2}{3}y^3 \right)</m>.</p>
+                        <p>Locate and identify the critical points of the function <m>z=\exp \left(xy-\frac{2}{3}x^3 - \frac{2}{3}y^3 \right)</m>.</p>
 
                         <figure xml:id="Ex2_crit_points">
                             <caption></caption>
@@ -333,7 +347,7 @@
 
             <example>
                 <statement>
-                    <p>The graph of the function <me>f(x,y) = x(5x+2)(3y-2)e^{-\left( \dfrac{x^2+y^2}{5} \right)}</me> over the domain <m>D = \left \{ (x,y): -5 \leq x \leq 5, \, -5 \leq y \leq 5 \right \}</m> is shown below.</p>
+                    <p>The graph of the function <me>f(x,y) = x(5x+2)(3y-2)e^{-\left(\frac{x^2+y^2}{5} \right)}</me> over the domain <m>D = \left \{ (x,y): -5 \leq x \leq 5, \, -5 \leq y \leq 5 \right \}</m> is shown below.</p>
 
                     <figure xml:id="Fig7_Global_Extrema">
                         <caption></caption>
@@ -402,6 +416,11 @@
                     <p>Find the global extrema of the function <m>z(x,y) = x^2 + 2xy + 3y^2</m> on the closed triangular region <m>D</m> with vertices <m>(-1,1)</m>, <m>(2,1)</m> and <m>(-1,-2)</m>.</p>
                 </statement>
 
+                <answer>
+                    <p>Global maximum: <m>17</m> at <m>(x,y) = (-1,2)</m></p>
+                    <p>Global minimum: <m>0</m> at <m>(x,y)=(0,0)</m>.</p>
+                </answer>
+
                 <solution>
                     <figure xml:id="Fig11_Example7">
                         <caption></caption>
@@ -410,7 +429,7 @@
 
                     <p>Firstly note that <m>D</m> is a closed and bounded region in the plane and so we can use the method outlined above. So begin by finding the critical points of <m>z</m>. Here <me>z_x = 2x+2y \: \text{ and } \: z_y = 2x+6y</me>.</p>
 
-                    <p>Critical points occur when z_x = z_y = 0 and so this function has only one critical point at <m>(x,y) = (0,0)</m>. This is inside <m>D</m> and so we evaluate the function at this point, i.e. <me>z(0,0) = 0</me>.</p>
+                    <p>Critical points occur when <m>z_x = z_y = 0</m> and so this function has only one critical point at <m>(x,y) = (0,0)</m>. This is inside <m>D</m> and so we evaluate the function at this point, i.e. <me>z(0,0) = 0</me>.</p>
 
                     <p>To find the maximum and minimum values of the function on the boundary we will have to consider the 3 sides of the triangle separately. Firstly, consider the side of the triangle defined by <me>y=1, \: -1 \leq x \leq 2</me>.</p>
 
@@ -421,7 +440,7 @@
                         <image source="./Calculus/Images/7/Fig12_Example7_z_function.png" width="60%"/>
                     </figure>
 
-                    <p>This has a maximum value <m>11</m> at <m>x=2</m> and minimum value <m>2</m> at <m>x=1</m>.</p>
+                    <p>This has a maximum value <m>11</m> at <m>x=2</m> and minimum value <m>2</m> at <m>x=-1</m>.</p>
 
                     <p>Next consider the side of the triangle defined by <me>x=-1, \: -2 \leq y \leq 1</me>. On this interval we think of <m>z</m> as a function of <m>y</m> only, i.e. <me>z(y) = 1-2y+3y^2</me>.</p>
 

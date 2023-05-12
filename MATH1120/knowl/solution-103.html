@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-01-07T17:22:28+11:00       *-->
+<!--*       on 2022-10-28T21:06:45+11:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -16,40 +16,46 @@
 <body class="ignore-math">
 <div class="solution solution-like">
 <h3 class="heading">
-<span class="type">Solution</span><span xmlns:svg="http://www.w3.org/2000/svg" class="space"> </span><span class="codenumber">13.1.1.1</span><span xmlns:svg="http://www.w3.org/2000/svg" class="period">.</span>
+<span class="type">Solution</span><span xmlns:svg="http://www.w3.org/2000/svg" class="space"> </span><span class="codenumber">12.1.1.1</span><span xmlns:svg="http://www.w3.org/2000/svg" class="period">.</span>
 </h3>
-<p>Multiplying both sides of this DE via the integrating factor <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(I(x)=e^{\int -1\hspace{2mm}dx}=e^{-x}\)</span> gives</p>
+<ol class="lower-alpha">
+<li>
+<p>What function has its second derivative zero (i.e. has zero curvature)? Clearly any linear function satisfies this property and so we guess that the general solution to this DE is</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
 \begin{equation*}
-\frac{d}{dx}(e^{-x}y)=xe^{-x}
+y(x)=Ax+B, \; A,B\in \mathbb{R} 
 \end{equation*}
 </div>
-<p class="continuation">Using integration by parts gives the general solution as</p>
+</li>
+<li>
+<p>This DE can be rewritten as</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
 \begin{equation*}
-y(x)=Ae^x-x-1
+y''=y. 
 \end{equation*}
 </div>
-<p class="continuation">There are two interesting facts about this general solution. To discuss these facts write the solution as</p>
+<p class="continuation">The solution, then, is any function that has its second derivative equal to the function itself. This is a property of any of the exponential functions</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
 \begin{equation*}
-y(x)=y_c(x)+y_p(x)
+y(x)=Ae^{x}. 
 \end{equation*}
 </div>
-<p class="continuation">where</p>
+<p class="continuation">It is also a property of the exponential functions</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
 \begin{equation*}
-y_c(x)=Ae^x \textrm{ and } y_p(x)=-x-1
+y(x)=Be^{-x}. 
 \end{equation*}
 </div>
-<p class="continuation">The first fact to note is that <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(y_c(x)\)</span> is the general solution to the homogeneous equation</p>
+<p class="continuation">Thus every function of the form</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
 \begin{equation*}
-y'-y=0
+y(x)=Ae^{x}+Be^{-x}, \; A,B\in \mathbb{R} 
 \end{equation*}
 </div>
-<p class="continuation">and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(y_p(x)\)</span> is one particular solution to the original non-homogeneous DE. The second fact to note is that the form of the particular solution <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(y_p(x)=-x-1\)</span> is the same as that of the non-homogeneous term <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(f(x)=x\text{,}\)</span> that is they are both polynomials of degree <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(1\text{.}\)</span></p>
+<p class="continuation">will be a solution to the DE.</p>
+</li>
+</ol>
 </div>
-<span class="incontext"><a href="Non-Homogeneous_First_Order_Linear_DEs.html#solution-103">in-context</a></span>
+<span class="incontext"><a href="Homogeneous_Second_Order_Linear_DEs_With_Constant_Coefficients.html#solution-103">in-context</a></span>
 </body>
 </html>

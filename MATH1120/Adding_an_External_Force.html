@@ -1,7 +1,7 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-01-07T17:20:52+11:00       *-->
+<!--*       on 2022-10-28T21:01:22+11:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -179,7 +179,6 @@
 </li>
 <li class="link">
 <a href="Chap-Linear_Algebra_3.html" data-scroll="Chap-Linear_Algebra_3"><span class="codenumber">17</span> <span class="title">LA3: Matrix Algebra</span></a><ul>
-<li><a href="Sec-Linear_Algebra_Intro.html" data-scroll="Sec-Linear_Algebra_Intro">Introduction</a></li>
 <li><a href="Sec-Addition_and_Scalar_Multiplication.html" data-scroll="Sec-Addition_and_Scalar_Multiplication">Addition and Scalar Multiplication</a></li>
 <li><a href="Sec-Matrix_multiplication.html" data-scroll="Sec-Matrix_multiplication">Matrix Multiplication</a></li>
 <li><a href="Sec-Matrices_and_Systems_of_Linear_Equations.html" data-scroll="Sec-Matrices_and_Systems_of_Linear_Equations">Matrices and Systems of Linear Equations</a></li>
@@ -210,11 +209,11 @@
 <main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="Adding_an_External_Force"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">14.3</span> <span class="title">Adding an External Force</span>
 </h2>
-<p id="p-862">In our final model we will look at the situation where some other external force, <dfn class="terminology"><span class="process-math">\(F_e\)</span></dfn>, is also acting on the object along the <span class="process-math">\(y\)</span>-axis, as shown in Figure 14.3.1. This context has many applications, especially in engineering, although in most applications the context doesn’t actually look like the diagram shown in Figure 14.3.1. For example if the top of a power pole is pulled to one side and let go it will behave like an object-spring system with damping. Now when a wind blows past the pole it is possible that aerodynamic effects can result in an oscillating side force acting on the pole. <figure class="figure figure-like" id="figure-80"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="./DifferentialEquations/Images/6/figure_8.png" class="contained"></div>
+<p id="p-907">In our final model we will look at the situation where some other external force, <span class="process-math">\(\mathbf{F_e}\text{,}\)</span> is also acting on the object along the <span class="process-math">\(y\)</span>-axis, as shown in <a href="" class="xref" data-knowl="./knowl/Fig_14_3_1.html" title="Figure 14.3.1">Figure 14.3.1</a>. This context has many applications, especially in engineering, although in most applications the context doesn't actually look like the diagram shown in <a href="" class="xref" data-knowl="./knowl/Fig_14_3_1.html" title="Figure 14.3.1">Figure 14.3.1</a>. For example if the top of a power pole is pulled to one side and let go it will behave like an object-spring system with damping. Now when a wind blows past the pole it is possible that aerodynamic effects can result in an oscillating side force acting on the pole. <figure class="figure figure-like" id="Fig_14_3_1"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="./DifferentialEquations/Images/6/figure_8.png" class="contained"></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">14.3.1<span class="period">.</span></span><span class="space"> </span></figcaption></figure> Assume that the external force is oscillatory and hence can be represented by</p>
 <div class="displaymath process-math">
 \begin{equation*}
-F_e(t)=A\cos(\alpha t)
+F_e(t)=B\cos(\alpha t)
 \end{equation*}
 </div>
 <p class="continuation">Then the net force acting on the object will be</p>
@@ -226,22 +225,22 @@ F=F_g+F_r+F_d+F_e
 <p class="continuation">and hence the motion of the object can be modelled by the DE</p>
 <div class="displaymath process-math">
 \begin{equation*}
-m\frac{d^2y}{dt^2}=-ky-D\frac{dy}{dt}+A\cos(\alpha t)
+m\frac{d^2y}{dt^2}=-ky-D\frac{dy}{dt}+B\cos(\alpha t)
 \end{equation*}
 </div>
 <p class="continuation">Following the same steps as in the previous section we can, therefore, write our model as</p>
 <div class="displaymath process-math">
 \begin{equation}
-y''+2py'+q^2y=A\cos(\alpha t),\hspace{5mm} y(0)=-L,\hspace{5mm} y'(0)=0,\hspace{5mm} p\gt 0,\hspace{5mm} q\gt 0\tag{14.3.1}
+y''+2py'+q^2y=A\cos(\alpha t),\hspace{5mm} y(0)=-L,\hspace{5mm} y'(0)=0,\hspace{5mm} p\gt 0,\hspace{5mm} q\gt 0,\hspace{5mm} A=\frac{B}{m}\label{Eqn_14_3_1}\tag{14.3.1}
 \end{equation}
 </div>
-<p class="continuation">So now the DE is a non-homogeneous 2nd order linear DE with constant coefficients. The general solution is constructed from the complementary solution and a particular solution. We know the complementary solution from our previous model. From that model we know that the complementary solution always tends to <span class="process-math">\(0\)</span> as <span class="process-math">\(t\rightarrow\infty\text{.}\)</span> Thus the long term behaviour of this system is determined by the particular solution to Equation (14.3.1). From DEs (V) we know that a particular solution will be of the form</p>
+<p class="continuation">So now the DE is a non-homogeneous 2nd order linear DE with constant coefficients. The general solution is constructed from the complementary solution and a particular solution. We know the complementary solution from our previous model. From that model we know that the complementary solution always tends to <span class="process-math">\(0\)</span> as <span class="process-math">\(t\rightarrow\infty\text{.}\)</span> Thus the long term behaviour of this system is determined by the particular solution to <a href="" class="xref" data-knowl="./knowl/Eqn_14_3_1.html" title="Equation 14.3.1">(14.3.1)</a>. From <a href="Differential_Equations_5.html" class="internal" title="Chapter 13: DE5: Non-Homogeneous Second Order Linear DEs">Chapter 13</a> we know that a particular solution will be of the form</p>
 <div class="displaymath process-math">
 \begin{equation*}
 y_p(t)=a\cos(\alpha t)+b\sin(\alpha t)
 \end{equation*}
 </div>
-<p class="continuation">Substituting into Equation (14.3.1) and equating coefficients gives</p>
+<p class="continuation">Substituting into <a href="Differential_Equations_5.html" class="internal" title="Chapter 13: DE5: Non-Homogeneous Second Order Linear DEs">Chapter 13</a> and equating coefficients gives</p>
 <div class="displaymath process-math">
 \begin{equation*}
 a=\left(\frac{2p\alpha}{4p^2\alpha^2+(\alpha^2-q^2)^2}\right)A, \hspace{5mm} b=\left(\frac{\alpha^2-q^2}{4p^2\alpha^2+(\alpha^2-q^2)^2}\right)A
@@ -277,17 +276,17 @@ C=\frac{A}{\sqrt{4p^2\alpha^2+(\alpha^2-q^2)^2}}
 M=\frac{1}{\sqrt{4p^2\alpha^2+(\alpha^2-q^2)^2}}
 \end{equation*}
 </div>
-<p class="continuation">Notice that, since for a given object-spring system <span class="process-math">\(p\)</span> and <span class="process-math">\(q\)</span> are fixed values, this factor <span class="process-math">\(M\)</span> is a function of the forcing angular frequency <span class="process-math">\(\alpha\text{.}\)</span> Figure 14.3.2. shows graphs of <span class="process-math">\(M(\alpha)\)</span> for various values of <span class="process-math">\(p\)</span> (which relates to the damping coefficient) when <span class="process-math">\(q\)</span> (which relates to the stiffness coefficient) is held constant at <span class="process-math">\(q=1\text{.}\)</span> In fact, it can be shown that if the damping parameter <span class="process-math">\(\delta\)</span> (<span class="process-math">\(=\frac{p}{q}\)</span>) is small then <span class="process-math">\(M\)</span> has a maximum when the forcing frequency is near the natural frequency of the system and further that this maximum tends to infinity as <span class="process-math">\(\delta\rightarrow 0\text{.}\)</span> <figure class="figure figure-like" id="figure-81"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="./DifferentialEquations/Images/6/figure_9.png" class="contained"></div>
+<p class="continuation">Notice that, since for a given object-spring system <span class="process-math">\(p\)</span> and <span class="process-math">\(q\)</span> are fixed values, this factor <span class="process-math">\(M\)</span> is a function of the forcing angular frequency <span class="process-math">\(\alpha\text{.}\)</span> <a href="" class="xref" data-knowl="./knowl/Fig_14_3_2.html" title="Figure 14.3.2">Figure 14.3.2</a> shows graphs of <span class="process-math">\(M(\alpha)\)</span> for various values of <span class="process-math">\(p\)</span> (which relates to the damping coefficient) when <span class="process-math">\(q\)</span> (which relates to the stiffness coefficient) is held constant at <span class="process-math">\(q=1\text{.}\)</span> In fact, it can be shown that if the damping parameter <span class="process-math">\(\delta\)</span> (<span class="process-math">\(=\frac{p}{q}\)</span>) is small then <span class="process-math">\(M\)</span> has a maximum when the forcing frequency is near the natural frequency of the system and further that this maximum tends to infinity as <span class="process-math">\(\delta\rightarrow 0\text{.}\)</span> <figure class="figure figure-like" id="Fig_14_3_2"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="./DifferentialEquations/Images/6/figure_9.png" class="contained"></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">14.3.2<span class="period">.</span></span><span class="space"> </span></figcaption></figure></p>
-<p id="p-863">The significance of this analysis is the insight that if our damped object-spring system is subjected to an external oscillatory force near the natural frequency of the system it will respond with large amplitude motion unless the system is sufficiently damped. This phenomenon is known as <dfn class="terminology">resonance</dfn>.</p>
+<p id="p-908">The significance of this analysis is the insight that if our damped object-spring system is subjected to an external oscillatory force near the natural frequency of the system it will respond with large amplitude motion unless the system is sufficiently damped. This phenomenon is known as <dfn class="terminology">resonance</dfn>.</p>
 <section class="exercises" id="exercises-30"><h3 class="heading hide-type">
 <span class="type">Exercises</span> <span class="codenumber"></span> <span class="title">Example Tasks</span>
 </h3>
-<article class="exercise exercise-like" id="exercise-80"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
-<p id="p-864">Determine the values of <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> in the DE <span class="process-math">\(\frac{d^2x}{dt^2}+2a\frac{dx}{dt}+bx=0\)</span> that give the damped object-spring system a damping parameter of <span class="process-math">\(0.5\)</span> and a natural frequency of <span class="process-math">\(2\text{.}\)</span></p></article><article class="exercise exercise-like" id="exercise-81"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
-<p id="p-865">A beam that is fixed rigidly at one end and designed to support a load at the other end is called a <dfn class="terminology">cantilever</dfn>. If the cantilever is designed only to deflect a "small" amount under its load then it is reasonable to assume that the size of the deflection of the tip of the cantilever is proportional to the load applied. When such a cantilever is deflected beyond (or less than) its equilibrium position the cantilever exerts a restoring force toward the equilibrium position. So long as the deflection is reasonably small and the mass of the object is large compared to the mass of the cantilever this restoring force is proportional to the deflection. Show that the resulting motion of the tip of the cantilever can be modelled under these assumptions via a homogeneous 2nd order linear DE. <figure class="figure figure-like" id="figure-82"><div class="image-box" style="width: 40%; margin-left: 30%; margin-right: 30%;"><img src="./DifferentialEquations/Images/6/figure_cantilever.png" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">14.3.3<span class="period">.</span></span><span class="space"> </span></figcaption></figure></p></article><article class="exercise exercise-like" id="exercise-82"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
-<p id="p-866">Show that if <span class="process-math">\(a\cos(\alpha t)+b\sin(\alpha t)=C\cos(\alpha t-\beta)\)</span> then</p>
+<article class="exercise exercise-like" id="exercise-81"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<p id="p-909">Determine the values of <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> in the DE <span class="process-math">\(\frac{d^2x}{dt^2}+2a\frac{dx}{dt}+bx=0\)</span> that give the damped object-spring system a damping parameter of <span class="process-math">\(0.5\)</span> and a natural frequency of <span class="process-math">\(2\text{.}\)</span></p></article><article class="exercise exercise-like" id="exercise-82"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<p id="p-910">A beam that is fixed rigidly at one end and designed to support a load at the other end is called a <dfn class="terminology">cantilever</dfn>. If the cantilever is designed only to deflect a "small" amount under its load then it is reasonable to assume that the size of the deflection of the tip of the cantilever is proportional to the load applied. When such a cantilever is deflected beyond (or less than) its equilibrium position the cantilever exerts a restoring force toward the equilibrium position. So long as the deflection is reasonably small and the mass of the object is large compared to the mass of the cantilever this restoring force is proportional to the deflection. Show that the resulting motion of the tip of the cantilever can be modelled under these assumptions via a homogeneous 2nd order linear DE. <figure class="figure figure-like" id="figure-82"><div class="image-box" style="width: 40%; margin-left: 30%; margin-right: 30%;"><img src="./DifferentialEquations/Images/6/figure_cantilever.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">14.3.3<span class="period">.</span></span><span class="space"> </span></figcaption></figure></p></article><article class="exercise exercise-like" id="exercise-83"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
+<p id="p-911">Show that if <span class="process-math">\(a\cos(\alpha t)+b\sin(\alpha t)=C\cos(\alpha t-\beta)\)</span> then</p>
 <div class="displaymath process-math">
 \begin{equation*}
 C=\sqrt{a^2+b^2} \textrm{ and } \beta=\tan^{-1}\left(\frac{b}{a}\right)

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-01-07T17:22:00+11:00       *-->
+<!--*       on 2022-10-28T21:05:49+11:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -14,8 +14,31 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h3 class="heading"><span class="type">Paragraph</span></h3>
-<p>The question of how good an approximation this polynomial is goes beyond what we will cover in this course but if <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(f(x,y)\)</span> has continuous partial derivatives and if <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\((x,y)\)</span> is “sufficiently close to” <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\((a,b)\)</span> then the approximation should be useful.</p>
-<span class="incontext"><a href="Quadratic-Approximations.html#p-360">in-context</a></span>
+<h4 class="heading"><span class="type">Paragraph</span></h4>
+<p>Using a linear approximation to estimate the error</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\Delta \rho \simeq \dfrac{\partial \rho}{\partial m} \Delta m + \dfrac{\partial \rho}{\partial V} \Delta V\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Now</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\dfrac{\partial \rho}{\partial m} = \dfrac{1}{V} \: \text{ and } \: \dfrac{\partial \rho}{\partial V} = -\dfrac{m}{V^2}
+\end{equation*}
+</div>
+<p class="continuation">and so at <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(m=6300\text{,}\)</span> <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(V=800\)</span> and with <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\Delta m = 50\)</span> and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\Delta V = -10\)</span> (to get the maximum value of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\Delta \rho\)</span>)</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\Delta \rho \simeq \frac{1}{800} \times 50 + \frac{6300}{800^2} \times 10 = 0.1609375\text{.}
+\end{equation*}
+</div>
+<p class="continuation">Thus</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\rho = 7.875 \pm 0.1609375 \: g/cm^3\text{.}
+\end{equation*}
+</div>
+<span class="incontext"><a href="Sec-Linear_Approximations.html#p-360">in-context</a></span>
 </body>
 </html>

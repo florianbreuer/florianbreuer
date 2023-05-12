@@ -1,7 +1,7 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-01-07T17:20:22+11:00       *-->
+<!--*       on 2022-10-28T20:51:42+11:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -179,7 +179,6 @@
 </li>
 <li class="link">
 <a href="Chap-Linear_Algebra_3.html" data-scroll="Chap-Linear_Algebra_3"><span class="codenumber">17</span> <span class="title">LA3: Matrix Algebra</span></a><ul>
-<li><a href="Sec-Linear_Algebra_Intro.html" data-scroll="Sec-Linear_Algebra_Intro">Introduction</a></li>
 <li><a href="Sec-Addition_and_Scalar_Multiplication.html" data-scroll="Sec-Addition_and_Scalar_Multiplication">Addition and Scalar Multiplication</a></li>
 <li><a href="Sec-Matrix_multiplication.html" data-scroll="Sec-Matrix_multiplication">Matrix Multiplication</a></li>
 <li><a href="Sec-Matrices_and_Systems_of_Linear_Equations.html" data-scroll="Sec-Matrices_and_Systems_of_Linear_Equations">Matrices and Systems of Linear Equations</a></li>
@@ -212,13 +211,17 @@
 </h2>
 <article class="example example-like" id="example-116"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-116"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">11.3.1</span><span class="period">.</span><span class="space"> </span><span class="title">Radioactive Decay.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-116"><article class="example example-like"><p id="p-724">The radioactive isotope thorium 234 disintegrates at a rate proportional to the amount present. If 100 milligrams of this isotope is reduced to 82.04 milligrams in one week, find: <ol id="p-725" class="lower-alpha">
-<li id="li-157"><p id="p-derived-li-157">An expression for the amount present at any time.</p></li>
-<li id="li-158"><p id="p-derived-li-158">The time taken for the amount of isotope to decay to one half of its original value.</p></li>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-116"><article class="example example-like"><p id="p-746">The radioactive isotope thorium <span class="process-math">\(234\)</span> disintegrates at a rate proportional to the amount present. If <span class="process-math">\(100\)</span> milligrams of this isotope is reduced to <span class="process-math">\(82.04\)</span> milligrams in one week, find: <ol id="p-747" class="lower-alpha">
+<li id="li-172"><p id="p-derived-li-172">An expression for the amount present at any time.</p></li>
+<li id="li-173"><p id="p-derived-li-173">The time taken for the amount of isotope to decay to one half of its original value.</p></li>
 </ol></p>
 <div class="solutions">
-<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-100" id="solution-100"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-100"><div class="solution solution-like"><ol id="p-726" class="lower-alpha">
-<li id="li-159"><p id="p-derived-li-159">Let <span class="process-math">\(Q(t)\)</span> be the amount (in milligrams) of thorium 234 present at time t (in days). Then<div class="displaymath process-math">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-84" id="answer-84"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-84"><div class="answer solution-like"><ol id="p-748" class="lower-alpha">
+<li id="li-174"><p id="p-derived-li-174"><span class="process-math">\(\displaystyle Q(t) = 100 e^{-0.0283t}\)</span></p></li>
+<li id="li-175"><p id="p-derived-li-175"><span class="process-math">\(\displaystyle t \approx 24.5 \, \text{ days}\)</span></p></li>
+</ol></div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-100" id="solution-100"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-100"><div class="solution solution-like"><ol id="p-749" class="lower-alpha">
+<li id="li-176"><p id="p-derived-li-176">Let <span class="process-math">\(Q(t)\)</span> be the amount (in milligrams) of thorium <span class="process-math">\(234\)</span> present at time <span class="process-math">\(t\)</span> (in days). Then<div class="displaymath process-math">
 \begin{equation*}
 \dfrac{dQ}{dt} = -kQ\text{,}
 \end{equation*}
@@ -255,7 +258,7 @@ k = \dfrac{\ln (0.8204)}{7} = 0.0283 \: (\text{ to 4 dp})\text{.}
 Q(t) = 100 e^{-0.0283t}\text{.}
 \end{equation*}
 </div></p></li>
-<li id="li-160"><p id="p-derived-li-160">The time when the amount of isotope has decayed to 50 milligrams is the value of <span class="process-math">\(t\)</span> that satifies<div class="displaymath process-math">
+<li id="li-177"><p id="p-derived-li-177">The time when the amount of isotope has decayed to <span class="process-math">\(50\)</span> milligrams is the value of <span class="process-math">\(t\)</span> that satifies<div class="displaymath process-math">
 \begin{equation*}
 50 = 100 e^{-kt}\text{,}
 \end{equation*}
@@ -268,11 +271,12 @@ t = \dfrac{\ln(0.5)}{-k} = \dfrac{\ln(2)}{k} \approx 24.5 \, \text{ days}\text{.
 </div></article></div>
 <article class="example example-like" id="example-117"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-117"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">11.3.2</span><span class="period">.</span><span class="space"> </span><span class="title">Mixing Tank.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-117"><article class="example example-like"><p id="p-727">A 200 L tank contains pure water. At time <span class="process-math">\(t=0\)</span> brackish water (i.e. water containing salt) begins to flow into the tank at a rate of 3 L/min and mixed water flows out at the same rate. Assuming that the concentration of salt in the inflowing water is 25 g/L determine the concentration of salt in the water in the tank as a function of time.</p>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-117"><article class="example example-like"><p id="p-750">A <span class="process-math">\(200\)</span>L tank contains pure water. At time <span class="process-math">\(t=0\)</span> brackish water (i.e. water containing salt) begins to flow into the tank at a rate of <span class="process-math">\(3\)</span>L/min and mixed water flows out at the same rate. Assuming that the concentration of salt in the inflowing water is <span class="process-math">\(25\)</span>g/L determine the concentration of salt in the water in the tank as a function of time.</p>
 <div class="solutions">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-85" id="answer-85"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-85"><div class="answer solution-like"><p id="p-751"><span class="process-math">\(C(t) = 25 - 25 \exp \left(- \dfrac{3}{200}t \right)\)</span></p></div></div>
 <a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-101" id="solution-101"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-101"><div class="solution solution-like">
-<p id="p-728">Let <span class="process-math">\(C(t)\)</span> be the concentration (in g/L) of the salt in the water in the tank at time <span class="process-math">\(t\)</span> minutes after the mixing began and let <span class="process-math">\(A(t)\)</span> be the amount (in grams) of salt in the tank at time <span class="process-math">\(t\text{.}\)</span> Then <span class="process-math">\(C(0) = 0\)</span> and <span class="process-math">\(A(0) = 0\text{.}\)</span></p>
-<p id="p-729">Now, salt is coming into the tank at the rate</p>
+<p id="p-752">Let <span class="process-math">\(C(t)\)</span> be the concentration (in g/L) of the salt in the water in the tank at time <span class="process-math">\(t\)</span> minutes after the mixing began and let <span class="process-math">\(A(t)\)</span> be the amount (in grams) of salt in the tank at time <span class="process-math">\(t\text{.}\)</span> Then <span class="process-math">\(C(0) = 0\)</span> and <span class="process-math">\(A(0) = 0\text{.}\)</span></p>
+<p id="p-753">Now, salt is coming into the tank at the rate</p>
 <div class="displaymath process-math">
 \begin{equation*}
 3 \times 25 = 75 \: \text{g/min}\text{,}
@@ -302,7 +306,7 @@ t = \dfrac{\ln(0.5)}{-k} = \dfrac{\ln(2)}{k} \approx 24.5 \, \text{ days}\text{.
 \dfrac{dC}{dt} + \dfrac{3}{200}C = \dfrac{75}{200}\text{.}
 \end{equation*}
 </div>
-<p id="p-730">This is a first order linear DE and hence can be solved by multiplying the equation by the integrating factor</p>
+<p id="p-754">This is a first order linear DE and hence can be solved by multiplying the equation by the integrating factor</p>
 <div class="displaymath process-math">
 \begin{equation*}
 I(t) = \exp \left( \displaystyle \int \frac{3}{200} dt \right) = \exp \left( \dfrac{3}{200}t \right)\text{.}
@@ -339,13 +343,14 @@ C(t) = 25 - 25 \exp \left(- \dfrac{3}{200}t \right)\text{.}
 </div></article></div>
 <article class="example example-like" id="example-118"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-118"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">11.3.4</span><span class="period">.</span><span class="space"> </span><span class="title">Motion in One Dimension.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-118"><article class="example example-like"><p id="p-731">A ball of mass 50 kg is shot from a cannon 100 meters above the ground straight up with an initial velocity of 10 m/s. Assuming that the air resistance is given by <span class="process-math">\(5v\text{,}\)</span> where <span class="process-math">\(v\)</span> is the velocity, determine the velocity of the ball when it hits the ground.</p>
-<p id="p-732"><em class="emphasis">Note:</em> This is a very simple model for the air resistance chosen mostly to simplify the resultant equations</p>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-118"><article class="example example-like"><p id="p-755">A ball of mass <span class="process-math">\(50\)</span>kg is shot from a cannon <span class="process-math">\(100\)</span>meters above the ground straight up with an initial velocity of <span class="process-math">\(10\)</span>m/s. Assuming that the air resistance is given by <span class="process-math">\(5v\text{,}\)</span> where <span class="process-math">\(v\)</span> is the velocity, determine the velocity of the ball when it hits the ground.</p>
+<p id="p-756"><em class="emphasis">Note:</em> This is a very simple model for the air resistance chosen mostly to simplify the resultant equations</p>
 <div class="solutions">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-86" id="answer-86"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-86"><div class="answer solution-like"><p id="p-757"><span class="process-math">\(v(5.98147) = 38.6 \, \text{m/s} \: (\text{to 1dp})\)</span></p></div></div>
 <a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-102" id="solution-102"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-102"><div class="solution solution-like">
-<p id="p-733">Let <span class="process-math">\(v(t)\)</span> be the velocity of the ball at time <span class="process-math">\(t\)</span> seconds after it was fired from the cannon and let the downward direction be the positive direction as shown in <a href="" class="xref" data-knowl="./knowl/Fig-Ball_of_Mass_Example.html" title="Figure 11.3.5">Figure 11.3.5</a>.</p>
+<p id="p-758">Let <span class="process-math">\(v(t)\)</span> be the velocity of the ball at time <span class="process-math">\(t\)</span> seconds after it was fired from the cannon and let the downward direction be the positive direction as shown in <a href="" class="xref" data-knowl="./knowl/Fig-Ball_of_Mass_Example.html" title="Figure 11.3.5">Figure 11.3.5</a>.</p>
 <figure class="figure figure-like" id="Fig-Ball_of_Mass_Example"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="./DifferentialEquations/Images/3/Fig2_ball_of_mass.png" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">11.3.5<span class="period">.</span></span><span class="space"> </span></figcaption></figure><p id="p-734">The motion of the ball will be governed by Newton’s second law of motion which says</p>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">11.3.5<span class="period">.</span></span><span class="space"> </span></figcaption></figure><p id="p-759">The motion of the ball will be governed by Newton's second law of motion which says</p>
 <div class="displaymath process-math">
 \begin{equation*}
 F = ma\text{,}
@@ -411,7 +416,7 @@ I(t) = \exp \left( \displaystyle \int \frac{5}{m} dt \right) = \exp \left( \frac
 \dfrac{d}{dt} \left[ \exp \left( \frac{5t}{m} v \right) \right] = g \exp \left( \frac{5t}{m} \right)\text{.}
 \end{equation*}
 </div>
-<p id="p-735">Integrating both sides gives</p>
+<p id="p-760">Integrating both sides gives</p>
 <div class="displaymath process-math">
 \begin{equation*}
 v(t) = \frac{mg}{5} + C \exp \left(-\frac{5t}{m} \right)
@@ -423,7 +428,7 @@ v(t) = \frac{mg}{5} + C \exp \left(-\frac{5t}{m} \right)
 v(t) = 98 - 108 e^{-t/10}\text{.}
 \end{equation*}
 </div>
-<p id="p-736">Thus we have determined the velocity function for the ball. To use this to determine the speed of the ball when it hits the ground we must first determine the time at which the ball hits the ground. To do this we will need the displacement function which we can obtain by integrating the velocity function. So, letting <span class="process-math">\(s(t)\)</span> be the displacement of the ball at time <span class="process-math">\(t\text{,}\)</span> we have</p>
+<p id="p-761">Thus we have determined the velocity function for the ball. To use this to determine the speed of the ball when it hits the ground we must first determine the time at which the ball hits the ground. To do this we will need the displacement function which we can obtain by integrating the velocity function. So, letting <span class="process-math">\(s(t)\)</span> be the displacement of the ball at time <span class="process-math">\(t\text{,}\)</span> we have</p>
 <div class="displaymath process-math">
 \begin{equation*}
 s(t) = \int v(t) \, dt = 98t + 1080e^{-t/10} + K
@@ -454,7 +459,7 @@ t = 5.98147\text{.}
 \end{equation*}
 </div>
 <figure class="figure figure-like" id="Fig-Motion_in_one_dim"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="./DifferentialEquations/Images/3/Fig3_motion_in_one_dim.png" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">11.3.6<span class="period">.</span></span><span class="space"> </span></figcaption></figure><p id="p-737">Thus the velocity of the ball when it hits the ground will be</p>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">11.3.6<span class="period">.</span></span><span class="space"> </span></figcaption></figure><p id="p-762">Thus the velocity of the ball when it hits the ground will be</p>
 <div class="displaymath process-math">
 \begin{equation*}
 v(5.98147) = 38.6 \, \text{m/s} \: (\text{to 1dp})\text{.}
@@ -466,7 +471,8 @@ v(5.98147) = 38.6 \, \text{m/s} \: (\text{to 1dp})\text{.}
 <span class="type">Exercises</span> <span class="codenumber"></span> <span class="title">Example Tasks</span>
 </h3>
 <article class="exercise exercise-like" id="exercise-70"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
-<p id="p-738">A population of insects in a region will grow at a rate that is proportional to their current population.  In the absence of any outside factors the population will triple in two weeks time.  On any given day there is a net migration into the area of 15 insects and 16 are eaten by the local bird population and 7 die of natural causes.  If there are initially 100 insects in the area will the population survive?  If not, when do they die out?</p></article></section></section></div></main>
+<p id="p-763">A population of insects in a region will grow at a rate that is proportional to their current population. In the absence of any outside factors the population will triple in two weeks time. On any given day there is a net migration into the area of <span class="process-math">\(15\)</span> insects and <span class="process-math">\(16\)</span> are eaten by the local bird population and <span class="process-math">\(7\)</span> die of natural causes.  If there are initially <span class="process-math">\(100\)</span> insects in the area will the population survive? If not, when do they die out?</p></article><article class="exercise exercise-like" id="exercise-71"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<p id="p-764">A tank with a capacity of <span class="process-math">\(500\)</span>L originally contains <span class="process-math">\(200\)</span>L of water with <span class="process-math">\(10\)</span>kg of salt in the solution. Water containing <span class="process-math">\(0.1\)</span>kg of salt per litre is entering the tank at a rate of <span class="process-math">\(3\)</span>L/min and the mixture is allowed to flow out of the tank at a rate of <span class="process-math">\(2\)</span>L/min. Find the concentration of salt in the water in the tank at any time before the tank overflows.</p></article></section></section></div></main>
 </div>
 </body>
 </html>

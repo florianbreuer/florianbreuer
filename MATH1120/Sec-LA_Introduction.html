@@ -1,7 +1,7 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-01-07T17:20:53+11:00       *-->
+<!--*       on 2022-10-28T21:01:24+11:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -179,7 +179,6 @@
 </li>
 <li class="link">
 <a href="Chap-Linear_Algebra_3.html" data-scroll="Chap-Linear_Algebra_3"><span class="codenumber">17</span> <span class="title">LA3: Matrix Algebra</span></a><ul>
-<li><a href="Sec-Linear_Algebra_Intro.html" data-scroll="Sec-Linear_Algebra_Intro">Introduction</a></li>
 <li><a href="Sec-Addition_and_Scalar_Multiplication.html" data-scroll="Sec-Addition_and_Scalar_Multiplication">Addition and Scalar Multiplication</a></li>
 <li><a href="Sec-Matrix_multiplication.html" data-scroll="Sec-Matrix_multiplication">Matrix Multiplication</a></li>
 <li><a href="Sec-Matrices_and_Systems_of_Linear_Equations.html" data-scroll="Sec-Matrices_and_Systems_of_Linear_Equations">Matrices and Systems of Linear Equations</a></li>
@@ -210,7 +209,7 @@
 <main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="Sec-LA_Introduction"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">15.1</span> <span class="title">Introduction</span>
 </h2>
-<p id="p-867">An equation such as</p>
+<p id="p-912">An equation such as</p>
 <div class="displaymath process-math">
 \begin{equation*}
 a_1x_1+a_2x_2+\dots+a_nx_n=b
@@ -220,26 +219,26 @@ a_1x_1+a_2x_2+\dots+a_nx_n=b
 <article class="definition definition-like" id="definition-29"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">15.1.1</span><span class="period">.</span>
 </h3>
-<p id="p-868">A <dfn class="terminology">system of linear equations</dfn> is a set of <span class="process-math">\(m\)</span> simultaneous linear equations in <span class="process-math">\(n\)</span> variables, i.e.</p>
-<div class="displaymath process-math" id="p-869">
+<p id="p-913">A <dfn class="terminology">system of linear equations</dfn> is a set of <span class="process-math">\(m\)</span> simultaneous linear equations in <span class="process-math">\(n\)</span> variables, i.e.</p>
+<div class="displaymath process-math" id="p-914">
 \begin{align*}
 a_{11}x_1+a_{12}x_2+\dots+a_{1n}x_n \amp =b_1\\
 a_{21}x_1+a_{22}x_2+\dots+a_{2n}x_n \amp =b_2\\
 \vdots\\
 a_{m1}x_1+a_{m2}x_2+\dots+a_{mn}x_n \amp =b_m
 \end{align*}
-</div></article><p id="p-870">A <dfn class="terminology">solution</dfn> to a system of linear equations is a set of values for the variables <span class="process-math">\(x_1, x_2, \dots, x_n\)</span> that satisfy all of the equations in the system. The <dfn class="terminology">solution set</dfn> to the system is the set of all possible solutions.</p>
+</div></article><p id="p-915">A <dfn class="terminology">solution</dfn> to a system of linear equations is a set of values for the variables <span class="process-math">\(x_1, x_2, \dots, x_n\)</span> that satisfy all of the equations in the system. The <dfn class="terminology">solution set</dfn> to the system is the set of all possible solutions.</p>
 <article class="example example-like" id="example-134"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-134"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">15.1.2</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-134"><article class="example example-like"><p id="p-871">The following is a homogeneous system of three linear equations in four unknowns.</p>
-<div class="displaymath process-math" id="p-872">
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-134"><article class="example example-like"><p id="p-916">The following is a homogeneous system of three linear equations in four unknowns.</p>
+<div class="displaymath process-math" id="p-917">
 \begin{align*}
 3x_1-x_2+2x_3+x_4 \amp =0\\
 -x_1+6x_2-11x_4 \amp =0\\
 x_1+x_2+7x_3+4x_4 \amp =0
 \end{align*}
 </div>
-<p id="p-873">A solution to this system of equations is <span class="process-math">\(x_1=1\text{,}\)</span> <span class="process-math">\(x_2=2\text{,}\)</span> <span class="process-math">\(x_3=-1\text{,}\)</span> <span class="process-math">\(x_4=1\)</span> which can be written as</p>
+<p id="p-918">A solution to this system of equations is <span class="process-math">\(x_1=1\text{,}\)</span> <span class="process-math">\(x_2=2\text{,}\)</span> <span class="process-math">\(x_3=-1\text{,}\)</span> <span class="process-math">\(x_4=1\)</span> which can be written as</p>
 <div class="displaymath process-math">
 \begin{equation*}
 (x_1,x_2,x_3,x_4)=(1,2,-1,1)
@@ -251,32 +250,34 @@ x_1+x_2+7x_3+4x_4 \amp =0
 (x_1,x_2,x_3,x_4)=(t,2t,-t,t) \textrm{ where } t\in \mathbb{R}
 \end{equation*}
 </div></article></div>
-<p id="p-874">You should already be familiar with solving systems of linear equations involving two equations in two variables and interpreting the solution in terms of lines in the plane.</p>
+<p id="p-919">You should already be familiar with solving systems of linear equations involving two equations in two variables and interpreting the solution in terms of lines in the plane.</p>
 <article class="example example-like" id="example-135"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-135"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">15.1.3</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-135"><article class="example example-like"><p id="p-875">Solve the following system of linear equations and interpret the answer geometrically</p>
-<div class="displaymath process-math" id="p-876">
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-135"><article class="example example-like"><p id="p-920">Solve the following system of linear equations and interpret the answer geometrically</p>
+<div class="displaymath process-math" id="p-921">
 \begin{align*}
 2x-3y \amp =13\\
 x-y \amp =5
 \end{align*}
 </div>
-<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-111" id="solution-111"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-111"><div class="solution solution-like">
-<p id="p-877">Multiplying the second equation by <span class="process-math">\(2\)</span> and then subtracting this from the first equation gives <span class="process-math">\(y=-3\text{.}\)</span> Substituting this result into either of the original equations gives <span class="process-math">\(x=2\text{.}\)</span> Thus the solution is <span class="process-math">\((x,y)=(2,-3)\text{.}\)</span></p>
-<p id="p-878">As shown in <a href="" class="xref" data-knowl="./knowl/Fig-Intersection_of_two_lines.html" title="Figure 15.1.4">Figure 15.1.4</a>, we can interpret the solution <span class="process-math">\((x,y)=(2,-3)\)</span> as the point in the plane at which the straight lines represented by the equations <span class="process-math">\(2x-3y=13\)</span> and <span class="process-math">\(x-y=5\)</span> intersect. <figure class="figure figure-like" id="Fig-Intersection_of_two_lines"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="./LinearAlgebra/Images/1/figure1.png" class="contained"></div>
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-101" id="answer-101"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-101"><div class="answer solution-like"><p id="p-922">We can interpret the solution <span class="process-math">\((x,y)=(2,-3)\)</span> as the point in the plane at which the straight lines represented by the equations <span class="process-math">\(2x-3y=13\)</span> and <span class="process-math">\(x-y=5\)</span> intersect.</p></div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-118" id="solution-118"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-118"><div class="solution solution-like">
+<p id="p-923">Multiplying the second equation by <span class="process-math">\(2\)</span> and then subtracting this from the first equation gives <span class="process-math">\(y=-3\text{.}\)</span> Substituting this result into either of the original equations gives <span class="process-math">\(x=2\text{.}\)</span> Thus the solution is <span class="process-math">\((x,y)=(2,-3)\text{.}\)</span></p>
+<p id="p-924">As shown in <a href="" class="xref" data-knowl="./knowl/Fig-Intersection_of_two_lines.html" title="Figure 15.1.4">Figure 15.1.4</a>, we can interpret the solution <span class="process-math">\((x,y)=(2,-3)\)</span> as the point in the plane at which the straight lines represented by the equations <span class="process-math">\(2x-3y=13\)</span> and <span class="process-math">\(x-y=5\)</span> intersect. <figure class="figure figure-like" id="Fig-Intersection_of_two_lines"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="./LinearAlgebra/Images/1/figure1.png" class="contained"></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">15.1.4<span class="period">.</span></span><span class="space"> </span></figcaption></figure></p>
 </div></div></article></div>
 <article class="example example-like" id="example-136"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-136"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">15.1.5</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-136"><article class="example example-like"><p id="p-879">Solve the following system of linear equations and interpret the answer geometrically</p>
-<div class="displaymath process-math" id="p-880">
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-136"><article class="example example-like"><p id="p-925">Solve the following system of linear equations and interpret the answer geometrically</p>
+<div class="displaymath process-math" id="p-926">
 \begin{align*}
 2x+3y \amp =4\\
 4x+6y \amp =8
 \end{align*}
 </div>
-<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-112" id="solution-112"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-112"><div class="solution solution-like">
-<p id="p-881">Multiplying the first equation by <span class="process-math">\(2\)</span> and then subtracting this from the second equation gives <span class="process-math">\(0=0\text{.}\)</span> This tells us that any values of <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> that satisfy the first equation will also satisfy the second equation. Thus there are infinitely many solutions. We may choose <span class="process-math">\(x\)</span> (say) to be anything we like, and then find a corresponding value for <span class="process-math">\(y\)</span> (from either equation). So if we set <span class="process-math">\(x=t\text{,}\)</span> then</p>
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-102" id="answer-102"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-102"><div class="answer solution-like"><p id="p-927">The solution set is <span class="process-math">\((x,y)=\left(t,\frac{4}{3}-\frac{2}{3}t\right)\text{.}\)</span> The geometric interpretation of this system of linear equations is that both equations represent the same line.</p></div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-119" id="solution-119"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-119"><div class="solution solution-like">
+<p id="p-928">Multiplying the first equation by <span class="process-math">\(2\)</span> and then subtracting this from the second equation gives <span class="process-math">\(0=0\text{.}\)</span> This tells us that any values of <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> that satisfy the first equation will also satisfy the second equation. Thus there are infinitely many solutions. We may choose <span class="process-math">\(x\)</span> (say) to be anything we like, and then find a corresponding value for <span class="process-math">\(y\)</span> (from either equation). So if we set <span class="process-math">\(x=t\text{,}\)</span> then</p>
 <div class="displaymath process-math">
 \begin{equation*}
 y=\frac{4}{3}-\frac{2}{3}t
@@ -289,7 +290,7 @@ y=\frac{4}{3}-\frac{2}{3}t
 \end{equation*}
 </div>
 <p class="continuation">Thus, the parameter <span class="process-math">\(t\)</span> labels the infinite family of solutions.</p>
-<p id="p-882">The geometric interpretation of this system of linear equations is that both equations represent the same line (as shown in <a href="" class="xref" data-knowl="./knowl/Fig-Same_line.html" title="Figure 15.1.6">Figure 15.1.6</a>). <figure class="figure figure-like" id="Fig-Same_line"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="./LinearAlgebra/Images/1/figure2.png" class="contained"></div>
+<p id="p-929">The geometric interpretation of this system of linear equations is that both equations represent the same line (as shown in <a href="" class="xref" data-knowl="./knowl/Fig-Same_line.html" title="Figure 15.1.6">Figure 15.1.6</a>). <figure class="figure figure-like" id="Fig-Same_line"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="./LinearAlgebra/Images/1/figure2.png" class="contained"></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">15.1.6<span class="period">.</span></span><span class="space"> </span></figcaption></figure> Note that the solution written in terms of the parameter <span class="process-math">\(t\)</span> can be interpreted as a vector equation for the line. By writing the solution as</p>
 <div class="displaymath process-math">
 \begin{equation*}
@@ -300,29 +301,30 @@ y=\frac{4}{3}-\frac{2}{3}t
 </div></div></article></div>
 <article class="example example-like" id="example-137"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-137"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">15.1.7</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-137"><article class="example example-like"><p id="p-883">Solve the following system of linear equations and interpret the answer geometrically</p>
-<div class="displaymath process-math" id="p-884">
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-137"><article class="example example-like"><p id="p-930">Solve the following system of linear equations and interpret the answer geometrically</p>
+<div class="displaymath process-math" id="p-931">
 \begin{align*}
 2x-3y \amp =13\\
 4x-6y \amp =5
 \end{align*}
 </div>
-<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-113" id="solution-113"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-113"><div class="solution solution-like">
-<p id="p-885">Multiplying the first equation by <span class="process-math">\(2\)</span> and then subtracting this from the second equation gives <span class="process-math">\(0=-21\text{.}\)</span> This tells us that no values of <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> will satisfy these equations. Thus there are no solutions. A system of equations with no solution is said to be <dfn class="terminology">inconsistent</dfn>.</p>
-<p id="p-886">Geometrically, this system of linear equations can be interpreted as two parallel lines in the plane, as shown in <a href="" class="xref" data-knowl="./knowl/Fig-Parallel_lines.html" title="Figure 15.1.8">Figure 15.1.8</a>. <figure class="figure figure-like" id="Fig-Parallel_lines"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="./LinearAlgebra/Images/1/figure3.png" class="contained"></div>
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-103" id="answer-103"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-103"><div class="answer solution-like"><p id="p-932">There are no solutions. Geometrically, this system of linear equations can be interpreted as two parallel lines in the plane.</p></div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-120" id="solution-120"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-120"><div class="solution solution-like">
+<p id="p-933">Multiplying the first equation by <span class="process-math">\(2\)</span> and then subtracting this from the second equation gives <span class="process-math">\(0=-21\text{.}\)</span> This tells us that no values of <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> will satisfy these equations. Thus there are no solutions. A system of equations with no solution is said to be <dfn class="terminology">inconsistent</dfn>.</p>
+<p id="p-934">Geometrically, this system of linear equations can be interpreted as two parallel lines in the plane, as shown in <a href="" class="xref" data-knowl="./knowl/Fig-Parallel_lines.html" title="Figure 15.1.8">Figure 15.1.8</a>. <figure class="figure figure-like" id="Fig-Parallel_lines"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="./LinearAlgebra/Images/1/figure3.png" class="contained"></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">15.1.8<span class="period">.</span></span><span class="space"> </span></figcaption></figure></p>
 </div></div></article></div>
-<p id="p-887">The above (simple) examples illustrate two important facts that hold for all systems of linear equations. Firstly:</p>
+<p id="p-935">The above (simple) examples illustrate two important facts that hold for all systems of linear equations. Firstly:</p>
 <article class="definition definition-like" id="definition-30"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">15.1.9</span><span class="period">.</span>
 </h3>
-<p id="p-888">A system of <span class="process-math">\(m\)</span> linear equations in <span class="process-math">\(n\)</span> unknowns has either</p>
-<ul id="p-889" class="disc">
-<li id="li-171"><p id="p-890">A unique solution,</p></li>
-<li id="li-172"><p id="p-891">An infinite number of solutions, or</p></li>
-<li id="li-173"><p id="p-892">No solution</p></li>
-</ul></article><p id="p-893">Thus it is impossible, for example, for a system of linear equations to have exactly two or exactly three solutions. (We will see why this is later.) Secondly, we cannot tell which of these cases (i.e. a unique solution, infinitely many solutions or no solution) applies simply by counting the number of equations and unknowns.</p>
-<p id="p-894">For systems of two linear equations in two unknowns we have seen that we can solve the system via the "substitution method" (viz. making one variable the subject of one equation and then substituting this into the second equation) or the "elimination method" (viz. adding a multiple of one equation to other). For larger system of equations this basic idea can still be used but the working can be become quite messy. In the following sections we will look at a systematic way of solving a system of <span class="process-math">\(m\)</span> linear equations in <span class="process-math">\(n\)</span> unknowns using matrices.</p></section></div></main>
+<p id="p-936">A system of <span class="process-math">\(m\)</span> linear equations in <span class="process-math">\(n\)</span> unknowns has either</p>
+<ul id="p-937" class="disc">
+<li id="li-190"><p id="p-938">A unique solution,</p></li>
+<li id="li-191"><p id="p-939">An infinite number of solutions, or</p></li>
+<li id="li-192"><p id="p-940">No solution</p></li>
+</ul></article><p id="p-941">Thus it is impossible, for example, for a system of linear equations to have exactly two or exactly three solutions. (We will see why this is later.) Secondly, we cannot tell which of these cases (i.e. a unique solution, infinitely many solutions or no solution) applies simply by counting the number of equations and unknowns.</p>
+<p id="p-942">For systems of two linear equations in two unknowns we have seen that we can solve the system via the "substitution method" (viz. making one variable the subject of one equation and then substituting this into the second equation) or the "elimination method" (viz. adding a multiple of one equation to other). For larger system of equations this basic idea can still be used but the working can be become quite messy. In the following sections we will look at a systematic way of solving a system of <span class="process-math">\(m\)</span> linear equations in <span class="process-math">\(n\)</span> unknowns using matrices.</p></section></div></main>
 </div>
 </body>
 </html>

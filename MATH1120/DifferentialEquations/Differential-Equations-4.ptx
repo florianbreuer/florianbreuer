@@ -47,9 +47,54 @@
 
         <!-- </frontmatter> -->
 
-        <!-- <introduction>
-            <p>This is a short paragraph to introduce the article (but it is not the abstract).  It is optional, in case it would be preferable to have the first section be titled an <q>Introduction.</q></p>
-        </introduction> -->
+        <introduction>
+            <p>
+            So far we have learnt how to find exact solutions to separable first order DEs and linear first order DEs. For other types of first order DEs finding exact solutions can become quite involved (or even impossible) and so instead we will turn our attention to second order DEs. Recall that a second order DE is one that involves the second derivative of the unknown function. As with first order DEs we can only find analytic methods for solving second order DEs for certain classes of such DEs.
+            </p>
+
+            <p>
+            The class of second order DEs that we are going to consider in this lecture is called the class of “homogeneous, second order, linear DEs with constant coefficients”. Let's try to put this into some sort of context. Recall from <xref ref="Differential_Equations_3"/> that a first order linear DE is a DE of the form:
+            </p>
+
+            <p>
+            <me>
+            P(x)y'+Q(x)y=f(x).
+            </me>
+            </p>
+
+            <p>
+            As we have seen, this equation is called <term>linear</term> because it is the sum of terms that either don't involve <m>y</m> or only involve <m>y</m> or its derivatives raised to the power of one<fn>This is a very rudimentary statement of the concept of linearity</fn>. Extending this idea to second order DEs gives the following definition.
+            </p>
+
+            <definition>
+            <statement>
+            <p>A differential equation of the form,</p>
+            <p>   <me> P(x)y''+Q(x)y'+R(x)y=f(x) </me>. </p>
+            <p> where <m> P(x)\neq 0 </m> is called a <term> second order linear DE. </term> </p>
+            </statement>
+            </definition>
+
+            <p> In the case where   <m> f(x)= 0 </m> the DE is called homogeneous. Thus: </p>
+
+            <definition>
+            <statement>
+            <p>A differential equation of the form,</p>
+            <p>   <me> P(x)y''+Q(x)y'+R(x)y=0 </me>. </p>
+            <p> where <m> P(x)\neq 0 </m> is called a <term> homogeneous second order linear DE. </term> </p>
+            </statement>
+            </definition>
+
+            <p> Further, if each of  <m> P(x),\; Q(x), \text{and}\; R(x) </m>   and   are constant functions then the DE is said to have constant coefficients. Thus: </p>
+
+            <definition>
+            <statement>
+            <p>A differential equation of the form,</p>
+            <p>   <me> ay''+by'+cy=0 </me>. </p>
+            <p> where  <m> a,\; b, \; c \in \mathbb{R} \; \text{and}\; a\neq 0 </m> is called a <term> homogeneous second order linear DE with constant coefficients. </term> </p>
+            </statement>
+            </definition>
+
+        </introduction>
 <!-- =================================================================================================== -->
 
 
@@ -61,63 +106,27 @@
 <section xml:id="Homogeneous_Second_Order_Linear_DEs_With_Constant_Coefficients">
 <title>Homogeneous Second Order Linear DEs With Constant Coefficients</title>
 
-<p>
-So far we have learnt how to find exact solutions to separable first order DEs and linear first order DEs. For other types of first order DEs finding exact solutions can become quite involved (or even impossible) and so instead we will turn our attention to second order DEs. Recall that a second order DE is one that involves the second derivative of the unknown function. As with first order DEs we can only find analytic methods for solving second order DEs for certain classes of such DEs.
-</p>
-
-<p>
-The class of second order DEs that we are going to consider in this lecture is called the class of “homogeneous, second order, linear DEs with constant coefficients”. Let’s try to put this into some sort of context. Recall from DEs (<m> 3 </m>) that a first order linear DE is a DE of the form:
-</p>
-
-<p>
-<me>
-P(x)y'+Q(x)y=f(x).
-</me>
-</p>
-
-<p>
-As we have seen, this equation is called linear because it is the sum of terms that either don’t involve y or only involve y or its derivatives raised to the power of one . Extending this idea to second order DEs gives the following definition.
-</p>
-
-<definition>
-<statement>
-<p>A differential equation of the form,</p>
-<p>   <me> P(x)y''+Q(x)y'+R(x)y=f(x) </me>. </p>
-<p> where <m> P(x)\neq 0 </m> is called a <term> second order linear DE. </term> </p>
-</statement>
-</definition>
-
-<p> In the case where   <m> f(x)= 0 </m> the DE is called homogeneous. Thus: </p>
-
-<definition>
-<statement>
-<p>A differential equation of the form,</p>
-<p>   <me> P(x)y''+Q(x)y'+R(x)y=0 </me>. </p>
-<p> where <m> P(x)\neq 0 </m> is called a <term> homogeneous second order linear DE. </term> </p>
-</statement>
-</definition>
-
-<p> Further, if each of  <m> P(x),\; Q(x), \text{and}\; R(x) </m>   and   are constant functions then the DE is said to have constant coefficients. Thus: </p>
-
-<definition>
-<statement>
-<p>A differential equation of the form,</p>
-<p>   <me> ay''+by'+cy=0 </me>. </p>
-<p> where  <m> a,\; b, \; c \in \mathbb{R} \; \text{and}\; a\neq 0 </m> is called a <term> homogeneous second order linear DE with constant coefficients. </term> </p>
-</statement>
-</definition>
-
 <example xml:id="Two_simple_example_homogeneous">
-<p> Guess solutions to the following homogeneous second order linear DEs with constant coefficients. </p>
+<statement>
+<p>Guess solutions to the following homogeneous second order linear DEs with constant coefficients.</p>
 <p><ol label="a">
-<li><p> <m> y''=0. </m> </p></li>
-<li><p><m> y''-y=0 </m>  </p></li>
+<li><p><m>y''=0. </m> </p></li>
+<li><p><m>y''-y=0 </m>  </p></li>
 </ol></p>
+</statement>
+<answer>
 <p><ol label="a">
-<li><p> What function has its second derivative zero (i.e. has zero curvature)? Clearly any linear function satisfies this property and so we guess that the general solution to this DE is <me> y(x)=Ax+B, \; A,B\in \mathbb{R} </me> </p></li>
-<li><p>  This DE can be rewritten as <me> y''=y. </me>  The solution, then, is any function that has its second derivative equal to the function itself. This is a property of any of the exponential functions <me> y(x)=Ae^{x}. </me> It is also a property of the exponential functions <me> y(x)=Be^{-x}. </me> Thus every function of the form <me> y(x)=Ae^{x}+Be^{-x}, \; A,B\in \mathbb{R} </me> will be a solution to the DE. </p>
+<li><m>y(x)=Ax+B, \; A,B\in \mathbb{R}</m></li>
+<li><m>y(x)=Ae^{x}+Be^{-x}, \; A,B\in \mathbb{R} </m></li>
+</ol></p>
+</answer>
+<solution>
+<p><ol label="a">
+<li><p>What function has its second derivative zero (i.e. has zero curvature)? Clearly any linear function satisfies this property and so we guess that the general solution to this DE is <me> y(x)=Ax+B, \; A,B\in \mathbb{R} </me> </p></li>
+<li><p>This DE can be rewritten as <me> y''=y. </me>  The solution, then, is any function that has its second derivative equal to the function itself. This is a property of any of the exponential functions <me> y(x)=Ae^{x}. </me> It is also a property of the exponential functions <me> y(x)=Be^{-x}. </me> Thus every function of the form <me> y(x)=Ae^{x}+Be^{-x}, \; A,B\in \mathbb{R} </me> will be a solution to the DE. </p>
 </li>
 </ol></p>
+</solution>
 </example>
 
 <p> Before looking at the method for solving a homogeneous second order linear DE with constant coefficients, i.e. a DE of the form </p>
@@ -126,10 +135,10 @@ As we have seen, this equation is called linear because it is the sum of terms t
 
 <p> there are several things that we can predict about the solution, (based on <xref ref="Two_simple_example_homogeneous"/> and previous lectures):   </p>
 
-<p><ol label="a">
+<p><ul>
 <li><p> The general solution will be a family of functions involving two parameters. </p></li>
 <li><p> The exponential function is a likely candidate for a solution.  </p></li>
-</ol></p>
+</ul></p>
 
 <p>
 Notice also that if both <m> y_{1}(x) </m>  and <m> y_{1}(x) </m>  are solutions to <xref ref="homogeneous_2_order_constant_coefficients"/> then so will be <m> y(x)=A y_{1}(x)+B y_{2}(x) </m> where <m> A </m> and <m> B </m> are arbitrary constants. To see this, let <m> y_{1}(x) </m>  and <m> y_{2}(x) </m>  be solutions to <xref ref="homogeneous_2_order_constant_coefficients"/>, i.e.
@@ -146,7 +155,7 @@ Now let <me> y(x) = A y_{1}(x) + B y_{2}(x). </me> Then
 </md>
 Substituting into <xref ref="homogeneous_2_order_constant_coefficients"/> gives:
 <md>
-<mrow>  lhs \amp =  ay + by +cy  </mrow>
+<mrow>  LHS \amp =  ay + by +cy  </mrow>
 <mrow>  \amp = a(A y''_{1}(x) + B y''_{2}(x)) + b(A y'_{1}(x) + B y'_{2}(x)) +c(A y_{1}(x) + B y_{2}(x))   </mrow>
 <mrow>  \amp = A(ay''_{1}+by'_{1}+cy_{1}) + B(ay''_{2}+by'_{2}+cy_{2})   </mrow>
 <mrow>  \amp = 0  </mrow>
@@ -171,15 +180,18 @@ given any pair of solutions    <m> y_{1}(x) </m>  and <m> y_{2}(x) </m>    that 
 </p>
 
 <example xml:id="example_y_double_derivative_minus_y_complete_solution">
+<statement>
 <p>
 Given that
-<m> y=e^{x},\; y=e^{-x}, \; y=\sinh(x), \text{and} y=\cosh(x) </m>
+<m> y=e^{x},\; y=e^{-x}, \; y=\sinh(x), \text{ and } y=\cosh(x) </m>
 are all solutions to the DE
 <me>
 y''-y=0
 </me>
-write down a general solution for to this DE.
+write down a general solution to this DE.
 </p>
+</statement>
+<solution>
 <p>
 From the above theorem, since none of these solutions are constant multiples of each other, any pair of them can be combined to form a general solution to the DE. Thus possible general solutions could be
 <md>
@@ -196,6 +208,7 @@ y(x) =  2 \sinh(x) - 3 \cosh(x).
 </me>
 This solution belongs to the general solution <m> y_{2}(x) </m>  with <m> A=2 \; \text{and}\; B=-3.   </m> It  also belongs to the general solution <m> y_{1}(x) </m>  with <m> A=-\frac{1}{2} \; \text{and}\; B=-\frac{5}{2}.   </m> and to the general solution <m> y_{3}(x) </m>  with <m> A=2 \; \text{and}\; B=-5.  </m>
 </p>
+</solution>
 </example>
 
 
@@ -221,11 +234,16 @@ If the characteristic equation <xref ref="characteristic_equation"/>) has two re
 </p>
 
 <example xml:id="example_y_double_derivative_plus_3yderivative_2y">
+<statement>
 <p>
 Find the general solution to
 <m> y''+3y'+2y=0. </m>
 </p>
-
+</statement>
+<answer>
+<p><m>y(x)=A e^{-x} + B e^{-2 x}.</m></p>
+</answer>
+<solution>
 <p>
 The characteristic equation for this homogeneous second order linear DE with constant coefficients is
 <me> r^{2}+3r+2=0 </me>
@@ -234,10 +252,11 @@ which has solutions
 Thus the general solution to the DE is
 <me> y(x)=A e^{-x} + B e^{-2 x}. </me>
 </p>
+</solution>
 </example>
 
 <p>
-If the characteristic equation <xref ref="characteristic_equation"/> has only one real solution (i.e. <m> b^{2}-4ac=0 </m>) then we will have found only one exponential solution to  <xref ref="homogeneous_2_order_constant_coefficients"/> , i.e.
+If the characteristic equation <xref ref="characteristic_equation"/> has only one real solution (i.e. <m>b^{2}-4ac=0</m>) then we will have found only one exponential solution to  <xref ref="homogeneous_2_order_constant_coefficients"/> , i.e.
 <men xml:id="y_equal_e__power_rx">
 y(x)=e^{rx}\; \text{where}\; r=-\frac{b}{2a}.
 </men>
@@ -261,11 +280,16 @@ y(x)=(Ax+B)e^{rx},\; r=-\frac{b}{2a}.
 </p>
 
 <example>
+<statement>
 <p>
 Find the general solution to
 <m> y''-4y'+4=0. </m>
 </p>
-
+</statement>
+<answer>
+<p><m>y(x)=Ae^{2x} + Bxe^{2x}.</m></p>
+</answer>
+<solution>
 <p>
 The characteristic equation for this DE is
 <me>
@@ -280,6 +304,7 @@ Thus the general solution to the DE is
 y(x)=Ae^{2x} + Bxe^{2x}.
 </me>
 </p>
+</solution>
 </example>
 
 <p>
@@ -287,7 +312,11 @@ The final case to consider is that the characteristic equation <xref ref="charac
 <me>
 r=\alpha\pm i\beta .
 </me>
-Even though we are looking for real solutions, for the moment let us consider the “complex solutions”
+Even though we are looking for real solutions, for the moment let us consider the "complex solutions"
+<me>y_1(x)=e^{(\alpha+i\beta)x} \text{ and } y_2(x)=e^{(\alpha-i\beta)x}</me>.
+Using Euler's formula
+<me>e^{i\theta}=\cos(\theta)+i\sin(\theta)</me>
+we can write these complex solutions as
 <md>
 <mrow>  y_{1}(x) \amp =e^{\alpha x} e^{i \beta x} =e^{\alpha x} (\cos(\beta x) + i\sin(\beta x)),  </mrow>
 <mrow>  y_{2}(x) \amp =e^{\alpha x} e^{-i \beta x} =e^{\alpha x} (\cos(\beta x) - i\sin(\beta x)).  </mrow>
@@ -309,7 +338,15 @@ y(x)=Ae^{\alpha x}\cos(\beta x) + B e^{\alpha x}\sin(\beta x).
 </p>
 
 <example>
+<statement>
+<p>
 Find the general solution to <m> y''-4y'+13y=0. </m>
+</p>
+</statement>
+<answer>
+<p><m>y(x)=Ae^{2 x}\cos(3 x) + B e^{2 x}\sin(3 x).</m></p>
+</answer>
+<solution>
 <p>
 The characteristic equation for this homogeneous second order linear DE with constant coefficients is
 <me>
@@ -324,7 +361,12 @@ Thus the general solution to the DE is
 y(x)=Ae^{2 x}\cos(3 x) + B e^{2 x}\sin(3 x).
 </me>
 </p>
+</solution>
 </example>
+
+<p>
+The above discussion can be summarised as follows.
+</p>
 
 <theorem>
 <statement>
@@ -334,7 +376,7 @@ To solve the homogeneous second order linear DE with constant coefficients
 ay''+by'+cy=0
 </men>
 </p>
-<p><ol label="i">
+<p><ul>
 <li><p>
 Find the roots of the characteristic equation
 <me>
@@ -342,7 +384,7 @@ ar^{2}+br+c=0.
 </me>
 </p></li>
 <li><p>
-If the characteristic equation has two real roots <m> r_{1}\; \text{and}\; r_{2} </m> then the general solution to <xref ref="homogeneous_2_order_constant_coefficients_Repeated_in_Theorem"/> is
+If the characteristic equation has two real roots <m>r_1 \text{ and } r_{2}</m> then the general solution to <xref ref="homogeneous_2_order_constant_coefficients_Repeated_in_Theorem"/> is
 <me>
 y(x)=Ae^{r_{1}x} + Be^{r_{2}x}.
 </me>
@@ -359,7 +401,7 @@ If the characteristic equation has complex roots <m> \alpha\pm i\beta </m>  then
 y(x)=A e^{\alpha x}\cos(\beta x) + B e^{\alpha x}\sin(\beta x).
 </me>
 </p></li>
-</ol></p>
+</ul></p>
 </statement>
 </theorem>
 
@@ -368,9 +410,17 @@ Given that the general solution to a second order DE has two arbitrary constants
 </p>
 
 <example>
+<statement>
+<p>
 Solve the initial-value problem
 <me> 4y''-3y'-y=0, </me>
 <me> y(0)=3,\; y'(0)=0. </me>
+</p>
+</statement>
+<answer>
+<p><m>y(x) = \dfrac{12}{5} e^{-\frac{x}{4}} + \dfrac{3}{5} e^{x}.</m></p>
+</answer>
+<solution>
 <p>
 The DE is a homogeneous second order linear DE with constant coefficients. The characteristic equation then is
 <me>
@@ -406,28 +456,39 @@ y(x) = \frac{12}{5} e^{-\frac{x}{4}} + \frac{3}{5} e^{x}.
 This solution is shown in <xref ref="Fig-initial_value_problem"/>. Note that since
 <m> r_{1}=-\frac{1}{4} &lt; 0 </m>
 the term in the general solution associated with this root (i.e. <m> \frac{12}{5} e^{-\frac{x}{4}} </m>) decays as <m> x\to \infty. </m> On the other hand since <m> r_{2}=1 &gt; 0 </m> the term in the general solution associated with this root (i.e. <m> \frac{3}{5} e^{x} </m>) grows as <m> x\to \infty. </m>
-</p>
+
 <figure xml:id="Fig-initial_value_problem">
 <caption></caption>
 <image source="./DifferentialEquations/Images/4/initial_value_problem.png" width="85%"/>
 </figure>
+</p>
+</solution>
 </example>
 
 <example>
+<statement>
+<p>
 Solve the boundary-value problem
 <me>
 4y''-6y'+25y=0,
 </me>
 <me>
-y(0)=1,\;  y(\frac{\pi}{8})=2.
+y(0)=1,\;  y\left(\frac{\pi}{8}\right)=2.
 </me>
+</p>
+</statement>
+<answer>
+<p><m>y(x)=e^{3x} ( \cos(4 x) + 2 e^{-\frac{3\pi}{8}} \sin(4 x)).</m></p>
+</answer>
+<solution>
+<p>
 The characteristic equation is
 <me>
 r^{2}-6r+25=0,
 </me>
 which has the complex solutions
 <me>
-r=3\pm i 4.
+r=3\pm 4i.
 </me>
 Thus the general solution is
 <me>
@@ -436,17 +497,13 @@ y(x)=e^{3x} (A \cos(4 x) + B \sin(4 x)).
 Using the boundary conditions gives the equations
 <md>
 <mrow>  A  \amp = 1,  </mrow>
-<mrow>  B  e^{-\frac{3\pi}{8}} \amp = 2. </mrow>
+<mrow>  B  e^{\frac{3\pi}{8}} \amp = 2. </mrow>
 </md>
 Thus the solution to the boundary-value problem is
 <me>
 y(x)=e^{3x} ( \cos(4 x) + 2 e^{-\frac{3\pi}{8}} \sin(4 x)).
 </me>
-This graph of this function is shown in <xref ref="Fig-boundary_value_problem"/>. Note that when the characteristic equation has complex roots, the solutions the homogeneous second order linear DE with constant coefficients will be periodic in nature with frequency.
-<m>
-\beta.
-</m>
-Further, if
+This graph of this function is shown in <xref ref="Fig-boundary_value_problem"/>. Note that when the characteristic equation has complex roots, <m>r=\alpha\pm\beta i</m> the solutions the homogeneous second order linear DE with constant coefficients will be periodic in nature with frequency <m>\beta</m>. Further, if
 <m>
 \alpha &gt; 0
 </m>
@@ -455,9 +512,6 @@ then the oscillations will grow as <m> x\to \infty </m>  whereas if
 \alpha &lt; 0
 </m>
 the oscillations will decay as  <m> x\to \infty. </m>
-<me>
-r=\alpha \pm i \beta.
-</me>
 In this case
 <m>
 \alpha =3
@@ -467,6 +521,8 @@ and hence the oscillations increase in amplitude.
 <caption></caption>
 <image source="./DifferentialEquations/Images/4/boundary_value_problem.png" width="85%"/>
 </figure>
+</p>
+</solution>
 </example>
 
 <exercises>
@@ -506,44 +562,12 @@ p''(t)=-9p(t).
 <statement>
 <p> Use the substitution  <m> x=e^{z}. </m> to solve the DE </p>
 <me>
-x^{2}\frac{d^{2}y}{dx^{2}} + 3x\frac{dy}{dx} + \frac{dy}{dx} = 0,\; (x &gt; 0).
+x^{2}\frac{d^{2}y}{dx^{2}} + 3x\frac{dy}{dx} + 2y = 0,\; (x &gt; 0).
 </me>
 </statement>
 </exercise>
 
  </exercises>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 </section>

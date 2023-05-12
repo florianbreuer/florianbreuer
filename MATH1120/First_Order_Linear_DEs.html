@@ -1,7 +1,7 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-01-07T17:20:10+11:00       *-->
+<!--*       on 2022-10-28T20:51:00+11:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -179,7 +179,6 @@
 </li>
 <li class="link">
 <a href="Chap-Linear_Algebra_3.html" data-scroll="Chap-Linear_Algebra_3"><span class="codenumber">17</span> <span class="title">LA3: Matrix Algebra</span></a><ul>
-<li><a href="Sec-Linear_Algebra_Intro.html" data-scroll="Sec-Linear_Algebra_Intro">Introduction</a></li>
 <li><a href="Sec-Addition_and_Scalar_Multiplication.html" data-scroll="Sec-Addition_and_Scalar_Multiplication">Addition and Scalar Multiplication</a></li>
 <li><a href="Sec-Matrix_multiplication.html" data-scroll="Sec-Matrix_multiplication">Matrix Multiplication</a></li>
 <li><a href="Sec-Matrices_and_Systems_of_Linear_Equations.html" data-scroll="Sec-Matrices_and_Systems_of_Linear_Equations">Matrices and Systems of Linear Equations</a></li>
@@ -213,7 +212,7 @@
 <article class="definition definition-like" id="definition-21"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">11.2.1</span><span class="period">.</span><span class="space"> </span><span class="title">Linear First Order DE.</span>
 </h3>
-<p id="p-704">A first order DE that can be put into the form</p>
+<p id="p-722">A first order DE that can be put into the form</p>
 <div class="displaymath process-math">
 \begin{equation*}
 y' + P(x) y = Q(x)
@@ -221,22 +220,23 @@ y' + P(x) y = Q(x)
 </div>
 <p class="continuation">is called a <em class="emphasis">linear first order DE</em>.</p></article><article class="example example-like" id="Which_Are_First_Order_Linear_DEs"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-Which_Are_First_Order_Linear_DEs"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">11.2.2</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Which_Are_First_Order_Linear_DEs"><article class="example example-like"><p id="p-705">Which of the following DEs are linear?</p>
-<ol id="p-706" class="lower-alpha">
-<li id="li-146"><p id="p-derived-li-146"><span class="process-math">\(\displaystyle y' = e^x y\)</span></p></li>
-<li id="li-147"><p id="p-derived-li-147"><span class="process-math">\(\displaystyle \dfrac{dy}{dx} = -\dfrac{x}{y+1}\)</span></p></li>
-<li id="li-148"><p id="p-derived-li-148"><span class="process-math">\(\displaystyle \sin(x) y' + \cos(x) y = \cos(x)\)</span></p></li>
-<li id="li-149"><p id="p-derived-li-149"><span class="process-math">\(\displaystyle y^2 y' + x^2 y =4\)</span></p></li>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Which_Are_First_Order_Linear_DEs"><article class="example example-like"><p id="p-723">Which of the following DEs are linear?</p>
+<ol id="p-724" class="lower-alpha">
+<li id="li-161"><p id="p-derived-li-161"><span class="process-math">\(\displaystyle y' = e^x y\)</span></p></li>
+<li id="li-162"><p id="p-derived-li-162"><span class="process-math">\(\displaystyle \dfrac{dy}{dx} = -\dfrac{x}{y+1}\)</span></p></li>
+<li id="li-163"><p id="p-derived-li-163"><span class="process-math">\(\displaystyle \sin(x) y' + \cos(x) y = \cos(x)\)</span></p></li>
+<li id="li-164"><p id="p-derived-li-164"><span class="process-math">\(\displaystyle y^2 y' + x^2 y =4\)</span></p></li>
 </ol>
 <div class="solutions">
-<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-96" id="solution-96"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-96"><div class="solution solution-like"><ol id="p-707" class="lower-alpha">
-<li id="li-150"><p id="p-derived-li-150">Since this DE can be rearranged as<div class="displaymath process-math">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-80" id="answer-80"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-80"><div class="answer solution-like"><p id="p-725"><span class="process-math">\(a\)</span> and <span class="process-math">\(c\text{.}\)</span></p></div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-96" id="solution-96"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-96"><div class="solution solution-like"><ol id="p-726" class="lower-alpha">
+<li id="li-165"><p id="p-derived-li-165">Since this DE can be rearranged as<div class="displaymath process-math">
 \begin{equation*}
 y' - e^x y = 0
 \end{equation*}
 </div>it is linear with <span class="process-math">\(P(x) = -e^x\)</span> and <span class="process-math">\(Q(x) = 0\text{.}\)</span> Notice that this DE is also separable since it is of the form <span class="process-math">\(y' = f(x)g(y)\text{.}\)</span> Here <span class="process-math">\(f(x) = e^x\)</span> and <span class="process-math">\(g(y) = y\text{.}\)</span></p></li>
-<li id="li-151"><p id="p-derived-li-151">We cannot rearrange this DE into the form <span class="process-math">\(y' + P(x) y = Q(x)\)</span> and hence it is not linear. It is however separable.</p></li>
-<li id="li-152"><p id="p-derived-li-152">Dividing the equation by <span class="process-math">\(\sin(x)\)</span> gives<div class="displaymath process-math">
+<li id="li-166"><p id="p-derived-li-166">We cannot rearrange this DE into the form <span class="process-math">\(y' + P(x) y = Q(x)\)</span> and hence it is not linear. It is however separable.</p></li>
+<li id="li-167"><p id="p-derived-li-167">Dividing the equation by <span class="process-math">\(\sin(x)\)</span> gives<div class="displaymath process-math">
 \begin{equation*}
 y' + \cot(x) y = \cot(x)
 \end{equation*}
@@ -245,10 +245,10 @@ y' + \cot(x) y = \cot(x)
 \dfrac{d}{dx} \left( \sin(x) y \right) = \cos(x)\text{.}
 \end{equation*}
 </div>This observation leads to the solution of the DE very efficiently.</p></li>
-<li id="li-153"><p id="p-derived-li-153">This DE is not linear. It also isn’t separable nor exact.</p></li>
+<li id="li-168"><p id="p-derived-li-168">This DE is not linear. It also isn't separable nor exact.</p></li>
 </ol></div></div>
 </div></article></div>
-<p id="p-708">As illustrated in <a href="" class="xref" data-knowl="./knowl/Which_Are_First_Order_Linear_DEs.html" title="Example 11.2.2">Example 11.2.2</a>(c), we can solve a first order linear DE if it is of the form</p>
+<p id="p-727">As illustrated in <a href="" class="xref" data-knowl="./knowl/Which_Are_First_Order_Linear_DEs.html" title="Example 11.2.2">Example 11.2.2</a>(c), we can solve a first order linear DE if it is of the form</p>
 <div class="displaymath process-math">
 \begin{equation}
 f(x) y' + f'(x) y = g(x)\label{Eqn-first_order_linear_form}\tag{11.2.1}
@@ -260,7 +260,7 @@ f(x) y' + f'(x) y = g(x)\label{Eqn-first_order_linear_form}\tag{11.2.1}
 y'+P(x)y = Q(x)\text{.}
 \end{equation*}
 </div>
-<p id="p-709">Multiplying both sides by the (as yet unknown) function <span class="process-math">\(I(x)\)</span> gives</p>
+<p id="p-728">Multiplying both sides by the (as yet unknown) function <span class="process-math">\(I(x)\)</span> gives</p>
 <div class="displaymath process-math">
 \begin{equation*}
 I(x)y' + I(x) P(x)y = I(x) Q(x)\text{.}
@@ -282,26 +282,27 @@ I(x) = A e ^{\int P(x) dx}
 <article class="algorithm theorem-like" id="algorithm-1"><h3 class="heading">
 <span class="type">Algorithm</span><span class="space"> </span><span class="codenumber">11.2.3</span><span class="period">.</span><span class="space"> </span><span class="title">Solving a First Order Linear DE.</span>
 </h3>
-<p id="p-710">To solve the first order linear DE</p>
+<p id="p-729">To solve the first order linear DE</p>
 <div class="displaymath process-math">
 \begin{equation*}
 y' + P(x) y = Q(x)
 \end{equation*}
 </div>
 <ol class="decimal">
-<li id="li-154"><p id="p-derived-li-154">Calculate the integrating factor<div class="displaymath process-math">
+<li id="li-169"><p id="p-derived-li-169">Calculate the integrating factor<div class="displaymath process-math">
 \begin{equation*}
 I(x) = e^{\int P(x) dx}
 \end{equation*}
 </div></p></li>
-<li id="li-155"><p id="p-derived-li-155">Multiply both sides of the DE by the integrating factor <span class="process-math">\(I(x)\)</span></p></li>
-<li id="li-156"><p id="p-derived-li-156">Solve the resulting exact DE <span class="process-math">\(\dfrac{d}{dx} \left(I(x) y \right) = I(x) Q(x)\)</span></p></li>
+<li id="li-170"><p id="p-derived-li-170">Multiply both sides of the DE by the integrating factor <span class="process-math">\(I(x)\)</span></p></li>
+<li id="li-171"><p id="p-derived-li-171">Solve the resulting exact DE <span class="process-math">\(\dfrac{d}{dx} \left(I(x) y \right) = I(x) Q(x)\)</span></p></li>
 </ol></article><article class="example example-like" id="example-113"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-113"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">11.2.4</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-113"><article class="example example-like"><p id="p-711">Solve <span class="process-math">\(y' = x+y\)</span></p>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-113"><article class="example example-like"><p id="p-730">Solve <span class="process-math">\(y' = x+y\)</span></p>
 <div class="solutions">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-81" id="answer-81"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-81"><div class="answer solution-like"><p id="p-731"><span class="process-math">\(y(x) = Ce^x - x - 1\)</span></p></div></div>
 <a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-97" id="solution-97"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-97"><div class="solution solution-like">
-<p id="p-712">This first order DE is not separable.  If we rearrange the equation as</p>
+<p id="p-732">This first order DE is not separable.  If we rearrange the equation as</p>
 <div class="displaymath process-math">
 \begin{equation*}
 y'-y = x
@@ -313,7 +314,7 @@ y'-y = x
 I(x) = e^{\int -1 dx} = e^{-x}\text{.}
 \end{equation*}
 </div>
-<p id="p-713">Multiplying both sides of the DE by <span class="process-math">\(I(x)\)</span> gives</p>
+<p id="p-733">Multiplying both sides of the DE by <span class="process-math">\(I(x)\)</span> gives</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \dfrac{d}{dx} \left( e^{-x} y \right) = x e^{-x}
@@ -325,7 +326,7 @@ I(x) = e^{\int -1 dx} = e^{-x}\text{.}
 e^{-x} y = \int xe^{-x} dx\text{.}
 \end{equation*}
 </div>
-<p id="p-714">Using integration by parts gives</p>
+<p id="p-734">Using integration by parts gives</p>
 <div class="displaymath process-math">
 \begin{equation*}
 e^{-x} y = -xe^{-x} - e^{-x} + C\text{,}
@@ -337,15 +338,16 @@ e^{-x} y = -xe^{-x} - e^{-x} + C\text{,}
 y(x) = Ce^x - x - 1\text{.}
 \end{equation*}
 </div>
-<p id="p-715"><em class="emphasis">Note:</em> As always we can check our answer by substituting back into the original DE.</p>
+<p id="p-735"><em class="emphasis">Note:</em> As always we can check our answer by substituting back into the original DE.</p>
 </div></div>
 </div></article></div>
 <article class="example example-like" id="example-114"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-114"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">11.2.5</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-114"><article class="example example-like"><p id="p-716">Solve <span class="process-math">\(y' + \sin(x)y = \sin(x)\)</span></p>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-114"><article class="example example-like"><p id="p-736">Solve <span class="process-math">\(y' + \sin(x)y = \sin(x)\)</span></p>
 <div class="solutions">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-82" id="answer-82"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-82"><div class="answer solution-like"><p id="p-737"><span class="process-math">\(y(x) = 1+C e^{\cos(x)}\)</span></p></div></div>
 <a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-98" id="solution-98"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-98"><div class="solution solution-like">
-<p id="p-717">This equation is linear with <span class="process-math">\(P(x) = \sin(x)\)</span> and <span class="process-math">\(Q(x) = \sin(x)\text{.}\)</span> Thus an integrating factor will be</p>
+<p id="p-738">This equation is linear with <span class="process-math">\(P(x) = \sin(x)\)</span> and <span class="process-math">\(Q(x) = \sin(x)\text{.}\)</span> Thus an integrating factor will be</p>
 <div class="displaymath process-math">
 \begin{equation*}
 I(x) = e^{\int \sin(x) dx} = e^{-\cos(x)}\text{.}
@@ -380,15 +382,16 @@ y(x) = 1+C e^{\cos(x)}\text{.}
 </div></article></div>
 <article class="example example-like" id="example-115"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-115"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">11.2.6</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-115"><article class="example example-like"><p id="p-718">Solve the initial-value problem</p>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-115"><article class="example example-like"><p id="p-739">Solve the initial-value problem</p>
 <div class="displaymath process-math">
 \begin{equation*}
 xy' = y + 2x^3, \: \, y(1) = 2\text{.}
 \end{equation*}
 </div>
 <div class="solutions">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-83" id="answer-83"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-83"><div class="answer solution-like"><p id="p-740"><span class="process-math">\(y(x) = x^3 + x\)</span></p></div></div>
 <a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-99" id="solution-99"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-99"><div class="solution solution-like">
-<p id="p-719">On rearranging the equation as</p>
+<p id="p-741">On rearranging the equation as</p>
 <div class="displaymath process-math">
 \begin{equation*}
 y' - \frac{1}{x} y = 2x^2\text{.}
@@ -436,15 +439,15 @@ y(x) = x^3 + x\text{.}
 <span class="type">Exercises</span> <span class="codenumber"></span> <span class="title">Example Tasks</span>
 </h3>
 <article class="exercise exercise-like" id="exercise-66"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
-<p id="p-720">Solve <span class="process-math">\(y' + y = 3\text{.}\)</span></p></article><article class="exercise exercise-like" id="exercise-67"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
-<p id="p-721">Solve the initial-value problem</p>
+<p id="p-742">Solve the first order linear DE <span class="process-math">\(\dfrac{dP}{dt} = t^2 - P\text{.}\)</span></p></article><article class="exercise exercise-like" id="exercise-67"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<p id="p-743">Solve <span class="process-math">\(y' + \cot(x)y = x\text{.}\)</span></p></article><article class="exercise exercise-like" id="exercise-68"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
+<p id="p-744">Solve the initial-value problem</p>
 <div class="displaymath process-math">
 \begin{equation*}
 y' = e^x + y, \: \, y(0) = 4\text{.}
 \end{equation*}
-</div></article><article class="exercise exercise-like" id="exercise-68"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
-<p id="p-722">Solve <span class="process-math">\(x^2y' + y = 1\text{.}\)</span></p></article><article class="exercise exercise-like" id="exercise-69"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
-<p id="p-723">Solve the first order linear DE <span class="process-math">\(\dfrac{dP}{dt} = t^2 - P\text{.}\)</span></p></article></section></section></div></main>
+</div></article><article class="exercise exercise-like" id="exercise-69"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
+<p id="p-745">Solve <span class="process-math">\(x^2y' + y = 1\text{.}\)</span></p></article></section></section></div></main>
 </div>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-01-07T17:22:15+11:00       *-->
+<!--*       on 2022-10-28T21:06:17+11:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -14,16 +14,26 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h5 class="heading"><span class="type">Paragraph</span></h5>
+<h4 class="heading"><span class="type">Paragraph</span></h4>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{align*}
-x_2 \amp =x_1+\Delta x=0.5+0.5=1\\
-y_2 \amp =y_1+f(x_1,y_1)\Delta x\\
-\amp = 1.5+f(0.5,1.5)\times 0.5\\
-\amp = 1.5+1.5\times 0.5\\
-\amp = 2.25
-\end{align*}
+\begin{equation*}
+\frac{dy}{dx}=f(x)
+\end{equation*}
 </div>
-<span class="incontext"><a href="direction-fields-and-eulers-method.html#p-618">in-context</a></span>
+<p class="continuation">we can solve it by simple anti-differentiation. Thus</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+y(x)=\int x \hspace{2mm} dx =\frac{1}{2}x^2+C 
+\end{equation*}
+</div>
+<p class="continuation">Note that this solution is the general solution to the DE, it is a description of all possible solutions to the equation. As shown in <a href="" class="xref" data-knowl="./knowl/Fig_1_example6.html" title="Figure 9.1.11">Figure 9.1.11</a>, when we graph all of the functions in this general solution they fill the entire plane but there are no points of intersection. <figure class="figure figure-like"><div xmlns:svg="http://www.w3.org/2000/svg" class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="./DifferentialEquations/Images/1/1_example6.png" class="contained"></div>
+<figcaption xmlns:svg="http://www.w3.org/2000/svg"><span class="type">Figure</span><span class="space"> </span><span class="codenumber">9.1.11<span class="period">.</span></span><span class="space"> </span></figcaption></figure> A solution with a given value of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(C\)</span> would be a particular solution of the DE, for example</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+y(x)=\frac{1}{2}x^2+1 
+\end{equation*}
+</div>
+<p class="continuation">This particular solution is highlighted in <a href="" class="xref" data-knowl="./knowl/Fig_1_example6.html" title="Figure 9.1.11">Figure 9.1.11</a>.</p>
+<span class="incontext"><a href="introduction.html#p-618">in-context</a></span>
 </body>
 </html>

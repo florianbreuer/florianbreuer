@@ -1,7 +1,7 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-01-07T17:20:27+11:00       *-->
+<!--*       on 2022-10-28T20:52:09+11:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -179,7 +179,6 @@
 </li>
 <li class="link">
 <a href="Chap-Linear_Algebra_3.html" data-scroll="Chap-Linear_Algebra_3"><span class="codenumber">17</span> <span class="title">LA3: Matrix Algebra</span></a><ul>
-<li><a href="Sec-Linear_Algebra_Intro.html" data-scroll="Sec-Linear_Algebra_Intro">Introduction</a></li>
 <li><a href="Sec-Addition_and_Scalar_Multiplication.html" data-scroll="Sec-Addition_and_Scalar_Multiplication">Addition and Scalar Multiplication</a></li>
 <li><a href="Sec-Matrix_multiplication.html" data-scroll="Sec-Matrix_multiplication">Matrix Multiplication</a></li>
 <li><a href="Sec-Matrices_and_Systems_of_Linear_Equations.html" data-scroll="Sec-Matrices_and_Systems_of_Linear_Equations">Matrices and Systems of Linear Equations</a></li>
@@ -210,8 +209,8 @@
 <main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="Adding_Damping"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">14.2</span> <span class="title">Adding Damping</span>
 </h2>
-<p id="p-859">Imagine now that some sort of damping mechanism is added to the object-spring system as shown in Figure 14.2.1. (Such a system might be used as a simple model of a car shock absorber for example.) <figure class="figure figure-like" id="figure-76"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="./DifferentialEquations/Images/6/figure_4.png" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">14.2.1<span class="period">.</span></span><span class="space"> </span></figcaption></figure> So long as the speed of the object is not too fast then a reasonable assumption is that the damping force acting on the object, <dfn class="terminology"><span class="process-math">\(F_d\)</span></dfn>,  is proportional to the speed and acts in the direction opposing  the motion of the object. Thus</p>
+<p id="p-904">Imagine now that some sort of damping mechanism is added to the object-spring system as shown in <a href="" class="xref" data-knowl="./knowl/Fig_14_2_1.html" title="Figure 14.2.1">Figure 14.2.1</a>. (Such a system might be used as a simple model of a car shock absorber for example.) <figure class="figure figure-like" id="Fig_14_2_1"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="./DifferentialEquations/Images/6/figure_4.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">14.2.1<span class="period">.</span></span><span class="space"> </span></figcaption></figure> So long as the speed of the object is not too fast then a reasonable assumption is that the damping force acting on the object, <span class="process-math">\(\mathbf{F_d}\text{,}\)</span>  is proportional to the speed and acts in the direction opposing  the motion of the object. Thus</p>
 <div class="displaymath process-math">
 \begin{equation*}
 F_d=-D\frac{dy}{dt}
@@ -238,10 +237,10 @@ y''+\left(\frac{D}{m}\right)y'+\left(\frac{k}{m}\right)y=0
 <p class="continuation">and so the model becomes</p>
 <div class="displaymath process-math">
 \begin{equation}
-y''+2py'+q^2y=0,\hspace{5mm} y(0)=-L,\hspace{5mm} y'(0)=0, \hspace{5mm}p\gt 0,\hspace{5mm} q\gt 0\tag{14.2.1}
+y''+2py'+q^2y=0,\hspace{5mm} y(0)=-L,\hspace{5mm} y'(0)=0, \hspace{5mm}p\gt 0,\hspace{5mm} q\gt 0\label{Eqn_14_2_1}\tag{14.2.1}
 \end{equation}
 </div>
-<p class="continuation">The characteristic equation for Equation (14.2.1) is</p>
+<p class="continuation">The characteristic equation for <a href="" class="xref" data-knowl="./knowl/Eqn_14_2_1.html" title="Equation 14.2.1">(14.2.1)</a> is</p>
 <div class="displaymath process-math">
 \begin{equation*}
 r^2+2pr+q^2=0
@@ -253,29 +252,29 @@ r^2+2pr+q^2=0
 r=\frac{-2p\pm \sqrt{4p^2-4q^2}}{2}=-p\pm \sqrt{p^2-q^2}
 \end{equation*}
 </div>
-<p class="continuation">Thus the nature of the general solution to Equation (14.2.1) depends upon the sign of <span class="process-math">\(p^2-q^2\text{,}\)</span> or equivalently, on the magnitude of the parameter <span class="process-math">\(\delta=\frac{p}{q}\text{.}\)</span> <span class="process-math">\(\delta\)</span> is called the <dfn class="terminology">damping parameter</dfn> of the system.</p>
-<p id="p-860">If <span class="process-math">\(p^2-q^2\gt 0\)</span> (or equivalently <span class="process-math">\(\delta=\frac{p}{q}\lt 1\)</span>) then the general solution is</p>
+<p class="continuation">Thus the nature of the general solution to <a href="" class="xref" data-knowl="./knowl/Eqn_14_2_1.html" title="Equation 14.2.1">(14.2.1)</a> depends upon the sign of <span class="process-math">\(p^2-q^2\text{,}\)</span> or equivalently, on the magnitude of the parameter <span class="process-math">\(\delta=\frac{p}{q}\text{.}\)</span> <span class="process-math">\(\delta\)</span> is called the <dfn class="terminology">damping parameter</dfn> of the system.</p>
+<p id="p-905">If <span class="process-math">\(p^2-q^2\gt 0\)</span> (or equivalently <span class="process-math">\(\delta=\frac{p}{q}\lt 1\)</span>) then the general solution is</p>
 <div class="displaymath process-math">
 \begin{equation*}
 y(t)=e^{-pt}(C_1\cos(\omega t)+C_2\sin(\omega t))
 \end{equation*}
 </div>
-<p class="continuation">where <span class="process-math">\(\omega=\sqrt{q^2-p^2}\)</span> and hence the function will be like that shown in Figure 14.2.2. In this case the system is called <dfn class="terminology">under-damped</dfn>. <figure class="figure figure-like" id="figure-77"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="./DifferentialEquations/Images/6/figure_5.png" class="contained"></div>
+<p class="continuation">where <span class="process-math">\(\omega=\sqrt{q^2-p^2}\)</span> and hence the function will be like that shown in <a href="" class="xref" data-knowl="./knowl/Fig_14_2_2.html" title="Figure 14.2.2">Figure 14.2.2</a>. In this case the system is called <dfn class="terminology">under-damped</dfn>. <figure class="figure figure-like" id="Fig_14_2_2"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="./DifferentialEquations/Images/6/figure_5.png" class="contained"></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">14.2.2<span class="period">.</span></span><span class="space"> </span></figcaption></figure></p>
-<p id="p-861">If <span class="process-math">\(p^2-q^2\gt 0\)</span> (or equivalently <span class="process-math">\(\delta=\frac{p}{q}\gt 1\)</span>) then the general solution is</p>
+<p id="p-906">If <span class="process-math">\(p^2-q^2\gt 0\)</span> (or equivalently <span class="process-math">\(\delta=\frac{p}{q}\gt 1\)</span>) then the general solution is</p>
 <div class="displaymath process-math">
 \begin{equation*}
-y(t)=C_1e^{p_1t}+C_2e^{p_2t}
+y(t)=C_1e^{r_1t}+C_2e^{r_2t}
 \end{equation*}
 </div>
-<p class="continuation">where both <span class="process-math">\(r_1\)</span> and <span class="process-math">\(r_2\)</span> are negative and hence the function will be like that shown in Figure 14.2.3. In this case the system is called <dfn class="terminology">over-damped</dfn>. <figure class="figure figure-like" id="figure-78"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="./DifferentialEquations/Images/6/figure_6.png" class="contained"></div>
+<p class="continuation">where both <span class="process-math">\(r_1\)</span> and <span class="process-math">\(r_2\)</span> are negative and hence the function will be like that shown in <a href="" class="xref" data-knowl="./knowl/Fig_14_2_3.html" title="Figure 14.2.3">Figure 14.2.3</a>. In this case the system is called <dfn class="terminology">over-damped</dfn>. <figure class="figure figure-like" id="Fig_14_2_3"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="./DifferentialEquations/Images/6/figure_6.png" class="contained"></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">14.2.3<span class="period">.</span></span><span class="space"> </span></figcaption></figure> Finally if <span class="process-math">\(p^2-q^2=0\)</span> (or equivalently <span class="process-math">\(\delta=\frac{p}{q}=1\)</span>) then the general solution is</p>
 <div class="displaymath process-math">
 \begin{equation*}
 y(t)=(C_1+C_2t)e^{-pt}
 \end{equation*}
 </div>
-<p class="continuation">and hence the function will be like that shown in Figure 14.2.4. In this case the system is called <dfn class="terminology">critically-damped</dfn>. <figure class="figure figure-like" id="figure-79"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="./DifferentialEquations/Images/6/figure_7.png" class="contained"></div>
+<p class="continuation">and hence the function will be like that shown in <a href="" class="xref" data-knowl="./knowl/Fig_14_2_4.html" title="Figure 14.2.4">Figure 14.2.4</a>. In this case the system is called <dfn class="terminology">critically-damped</dfn>. <figure class="figure figure-like" id="Fig_14_2_4"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="./DifferentialEquations/Images/6/figure_7.png" class="contained"></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">14.2.4<span class="period">.</span></span><span class="space"> </span></figcaption></figure> The critically-damped case is of practical interest. Often we want to add damping to a system so that it returns close to its equilibrium position "as quickly as possible", (for example in the shock absorber of a car). It turns out that this is achieved by critical damping.</p></section></div></main>
 </div>
 </body>

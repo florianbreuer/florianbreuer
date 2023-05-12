@@ -107,7 +107,7 @@
                         <me>\begin{pmatrix} 1 \amp 2 \amp 3 \amp -3 \\ 4 \amp 3 \amp 2 \amp 8 \\ -1 \amp 3 \amp 7 \amp -17 \end{pmatrix} \sim \begin{pmatrix} 1 \amp 0 \amp -1 \amp 5 \\ 0 \amp 1 \amp 2 \amp -4 \\ 0 \amp 0 \amp 0 \amp 0 \end{pmatrix} </me>
                         From the reduced row-echelon form we can see that the solution set is
                         <me>(x,y,z)=(5+t,-4-2t,t), \hspace{5mm} t\in\mathbb{R}</me>
-                        The geometric interpretation of this solution, as shown in <xref ref="Fig-Intersection_of_planes"/>., is that the <m>3</m> planes intersect in the line with vector equation
+                        The geometric interpretation of this solution, as shown in <xref ref="Fig-Intersection_of_planes"/>, is that the <m>3</m> planes intersect in the line with vector equation
                         <me>(x,y,z)=(5,-4,0)+t(1,-2,1)</me>
                         i.e. the line passing through the point <m>(5,-4,0)</m> and parallel to the vector <m>(1,-2,1)</m>
                         <figure xml:id="Fig-Intersection_of_planes">
@@ -195,7 +195,7 @@
                 Remember that when written in this form, the <m>+</m> sign means vector addition and <m>x\mathbf{a_1}</m>, for example, means the scalar multiplication of the vector <m>\mathbf{a_1}</m> by the scalar <m>x</m>. So solving this system of linear equations can be interpreted as finding scalars <m>x</m> and <m>y</m> such that the vector <m>\mathbf{b}</m> can be written in terms of the vectors <m>\mathbf{a_1}</m> and <m>\mathbf{a_2}</m>.
             </p>
 
-            <example>
+            <example xml:id="Ex_16_2_5">
                 <p>
                     Solve the following system of linear equations and interpret your answer geometrically in terms of the columns of the augmented matrix.
                     <md>
@@ -209,7 +209,7 @@
                         <me> \begin{pmatrix} 2 \amp -3 \amp -3 \\ 2 \amp 2 \amp 7 \end{pmatrix} \sim \begin{pmatrix} 1 \amp 0 \amp \frac{3}{2} \\ 0 \amp 1 \amp 2 \end{pmatrix}</me>
                         Thus the solution is <m>(x,y)=\left(\frac{3}{2},2 \right)</m>. Geometrically we can interpret this solution as saying the vector <m>\begin{pmatrix} -3 \\ 7 \end{pmatrix}</m> can be written in terms of the vectors <m>\begin{pmatrix} 2 \\ 2 \end{pmatrix}</m> and <m>\begin{pmatrix} -3 \\ 2 \end{pmatrix}</m> via the expression
                         <me>\frac{3}{2} \begin{pmatrix} 2 \\ 2 \end{pmatrix} +2 \begin{pmatrix} -3 \\ 2 \end{pmatrix} </me>
-                        See <xref ref="Fig-Vector_sum_parallelogram"/> Note that the solution is also saying that there is only one way in which <m>\begin{pmatrix} -3 \\ 7 \end{pmatrix}</m> can be written in terms of <m>\begin{pmatrix} 2 \\ 2 \end{pmatrix}</m> and <m>\begin{pmatrix} -3 \\ 2 \end{pmatrix}</m>.
+                        See <xref ref="Fig-Vector_sum_parallelogram"/>. Note that the solution is also saying that there is only one way in which <m>\begin{pmatrix} -3 \\ 7 \end{pmatrix}</m> can be written in terms of <m>\begin{pmatrix} 2 \\ 2 \end{pmatrix}</m> and <m>\begin{pmatrix} -3 \\ 2 \end{pmatrix}</m>.
                         <figure xml:id="Fig-Vector_sum_parallelogram">
                             <image source="./LinearAlgebra/Images/2/figure4.png" width="60%"/>
                         </figure>
@@ -231,7 +231,7 @@
             </definition>
 
             <example>
-                <title>(cont.)</title>
+                <title>(<xref ref="Ex_16_2_5"/> cont.)</title>
 
                 <p>
                     The geometric interpretation (in terms of the columns) of the system of linear equations
@@ -289,6 +289,8 @@
                     The set of vectors <m>\mathbf{\{v_1, v_2, \dots, v_n\}}</m> is called <term>linearly independent</term> if no vector in the set can be written as a linear combination of the other vectors in the set, or equivalently if the only solution to homogeneous system of linear equations
                     <me>a_1\mathbf{v_1}+a_2\mathbf{v_2}+\dots +a_n\mathbf{v_n}=\mathbf{0}</me>
                     is <m>a_1=a_2=\dots=a_n=0</m>.
+                </p>
+                <p>
                     A set of vectors that is not linearly independent is called <term>linearly dependent</term>.
                 </p>
             </definition>
@@ -350,10 +352,13 @@
                         <figure xml:id="Fig-Vector_as_a_linear_combination">
                             <image source="./LinearAlgebra/Images/2/figure6.png" width="60%"/>
                         </figure>
-                        Note that if the system of linear equations is homogeneous (i.e. <m>\mathbf{b=0}</m>) then the solution of the system tells us if the set of vectors <m>\{\mathbf{a_1, a_2, a_3}\}</m>  is linearly independent or not.
-                    </p>
+                        </p>
                 </solution>
             </example>
+
+            <p>
+                Note that if the system of linear equations is homogeneous (i.e. <m>\mathbf{b=0}</m>) then the solution of the system tells us if the set of vectors <m>\{\mathbf{a_1, a_2, a_3}\}</m>  is linearly independent or not.
+            </p>
 
             <example>
                 <p>

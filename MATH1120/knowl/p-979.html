@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-01-07T17:22:41+11:00       *-->
+<!--*       on 2022-10-28T21:07:09+11:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,13 +15,24 @@
 </head>
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
-<p>Solve the following system of linear equations and interpret your answer geometrically in terms of the columns of the augmented matrix.</p>
+<p>The following matrices are equivalent because we have just swapped two rows.</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{align*}
-2x-3y \amp =-3\\
-2x+2y \amp = 7
-\end{align*}
+\begin{equation*}
+\left(\begin{array}{c c c | c} 3 \amp -2 \amp 2 \amp -3 \\ -1 \amp 6 \amp 4 \amp 7 \\ 1 \amp 1 \amp 5 \amp -2 \end{array}\right) \sim \left(\begin{array}{c c c | c} 3 \amp -2 \amp 2 \amp -3 \\ 1 \amp 1 \amp 5 \amp -2 \\ -1 \amp 6 \amp 4 \amp 7 \end{array}\right) \begin{matrix} \\ \hspace{5mm} R_2'=R_3 \\ \hspace{5mm} R_3'=R_2 \end{matrix}
+\end{equation*}
 </div>
-<span class="incontext"><a href="Interpretation_Via_Columns.html#p-979">in-context</a></span>
+<p class="continuation">The following matrices are equivalent because we have just multiplied Row <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(2\)</span> by <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(3\text{.}\)</span></p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\left(\begin{array}{c c c | c} 3 \amp -2 \amp 2 \amp -3 \\ 1 \amp 1 \amp 5 \amp -2 \\ -1 \amp 6 \amp 4 \amp 7 \end{array}\right) \sim \left(\begin{array}{c c c | c} 3 \amp -2 \amp 2 \amp -3 \\ 3 \amp 3 \amp 15 \amp -6 \\ -1 \amp 6 \amp 4 \amp 7 \end{array}\right) \hspace{5mm} R_2'=3R_2
+\end{equation*}
+</div>
+<p class="continuation">The following matrices are equivalent because we have just subtracted Row <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(1\)</span> from Row <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(2\text{,}\)</span> (i.e. added <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(-1\)</span> times Row <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(1\)</span> to Row <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(2\)</span>)</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\left(\begin{array}{c c c | c} 3 \amp -2 \amp 2 \amp -3 \\ 3 \amp 3 \amp 15 \amp -6 \\ -1 \amp 6 \amp 4 \amp 7 \end{array}\right) \sim \left(\begin{array}{c c c | c} 3 \amp -2 \amp 2 \amp -3 \\ 0 \amp 5 \amp 13 \amp -3 \\ -1 \amp 6 \amp 4 \amp 7 \end{array}\right) \hspace{5mm} R_2'=R_2-R_1
+\end{equation*}
+</div>
+<span class="incontext"><a href="Sec-LA_Solving_Systems_of_Linear_Equations.html#p-979">in-context</a></span>
 </body>
 </html>

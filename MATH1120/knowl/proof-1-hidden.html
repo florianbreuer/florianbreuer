@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-01-07T17:22:50+11:00       *-->
+<!--*       on 2022-10-28T21:06:00+11:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -13,35 +13,24 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="robots" content="noindex, nofollow">
 </head>
-<body class="ignore-math"><article class="hiddenproof"><ol class="decimal">
-<li>
-<p>Let <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\mathbf{x} = \mathbf{u}\)</span> and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\mathbf{x} = \mathbf{v}\)</span> be two distinct solutions to <a href="" class="xref" data-knowl="./knowl/Eqn-Axb.html" title="Equation 17.4.1">(17.4.1)</a> and let <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\mathbf{w} = \mathbf{u} − \mathbf{v}\text{.}\)</span> By using the properties of matrix multiplication we can see that</p>
+<body class="ignore-math"><article class="hiddenproof"><p>For the sake of simplicity assume that the critical point is at the point <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\((x_0,y_0)=(0,0)\text{.}\)</span> Now using a Taylor expansion for functions of two variables about <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\((a,b) = (0,0)\)</span> we have (up to the quadratic terms)</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
 \begin{equation*}
-A\mathbf{w} = A(\mathbf{u} − \mathbf{v}) = A\mathbf{u} − A\mathbf{v} =\mathbf{b} − \mathbf{b} = \mathbf{0}.
+f(x,y); f(0,0) + f_x (0,0)x + f_y (0,0) y + \dfrac{f_{xx}(0,0)}{2} x^2 + f_{xy} (0,0) xy + \dfrac{f_{yy}(0,0)}{2} y^2\text{.}
 \end{equation*}
 </div>
-<p class="continuation">So, any vector of the form <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\mathbf{u} + t\mathbf{w}\text{,}\)</span> <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(t \in \mathbb{R}\text{,}\)</span> will be a solution to <a href="" class="xref" data-knowl="./knowl/Eqn-Axb.html" title="Equation 17.4.1">(17.4.1)</a> since</p>
+<p class="continuation">Since <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\((x_0,y_0) = (0,0)\)</span> is a critical point of the function <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(f_x (0,0) = f_y (0,0) = 0\text{.}\)</span> Thus</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
 \begin{equation*}
-A(\mathbf{u} +t\mathbf{w}) = A\mathbf{u} + A(t\mathbf{w}) = A\mathbf{u} +tA\mathbf{w} = \mathbf{b} +t\mathbf{0} = \mathbf{b}\text{,}
+f(x,y); f(0,0) + \dfrac{f_{xx}(0,0)}{2}x^2 + f_{xy} (0,0) xy + \dfrac{f_{yy} (0,0)}{2}y^2\text{.}
 \end{equation*}
 </div>
-<p class="continuation">i.e. <a href="" class="xref" data-knowl="./knowl/Eqn-Axb.html" title="Equation 17.4.1">(17.4.1)</a> has an infinite number of solutions.</p>
-</li>
-<li>
-<p>Let <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\mathbf{x} = \mathbf{u}\)</span> be the unique solution to <a href="" class="xref" data-knowl="./knowl/Eqn-Axb.html" title="Equation 17.4.1">(17.4.1)</a> and let <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\mathbf{x} = \mathbf{v}\)</span> be a non-zero solution to <a href="" class="xref" data-knowl="./knowl/Eqn-Ax0.html" title="Equation 17.4.2">(17.4.2)</a>. Then</p>
+<p>On completing the square (and dropping the evaluation at <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\((0,0)\)</span> for brevity)</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{equation*}
-A(\mathbf{u} + \mathbf{v}) = A\mathbf{u} + A\mathbf{v} = \mathbf{b} + \mathbf{0} = \mathbf{b}
-\end{equation*}
+\begin{align*}
+f(x,y) \amp \simeq f + \dfrac{f_{xx}}{2} \left \{x^2 + \dfrac{2f_{xy}}{f_{xx}} + \left( \dfrac{f_{xy}}{f_{xx}} \right)^2 y^2 \right \} - \dfrac{f_{xx}}{2} \left( \dfrac{f_{xy}}{f_{xx}} \right)^2 y^2 + \dfrac{f_{yy}}{2}y^2\\
+\amp = f + \dfrac{f_{xx}}{2} \left( x + \dfrac{f_{xy}}{f_{xx}} y \right)^2 + \dfrac{1}{2 f_{xx}} y^2 \left( f_{xx} f_{yy} - f_{xy}^2 \right)\text{.}
+\end{align*}
 </div>
-<p class="continuation">and so <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\mathbf{x} = \mathbf{u} + \mathbf{v}\)</span> is another solution to <a href="" class="xref" data-knowl="./knowl/Eqn-Axb.html" title="Equation 17.4.1">(17.4.1)</a>, which is not possible. Thus there cannot be any non-zero solutions to <a href="" class="xref" data-knowl="./knowl/Eqn-Ax0.html" title="Equation 17.4.2">(17.4.2)</a>.</p>
-</li>
-<li><p>Since <a href="" class="xref" data-knowl="./knowl/Eqn-Axb.html" title="Equation 17.4.1">(17.4.1)</a> has an infinite number of solutions let <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\mathbf{x} = \mathbf{u}\)</span> and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\mathbf{x} = \mathbf{v}\)</span> be two distinct solutions to <a href="" class="xref" data-knowl="./knowl/Eqn-Axb.html" title="Equation 17.4.1">(17.4.1)</a>. Now let <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\mathbf{w} = \mathbf{u} − \mathbf{v}\)</span> and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(t \in \mathbb{R}\text{.}\)</span> Then<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{equation*}
-A(t\mathbf{w}) = tA(\mathbf{u} − \mathbf{v}) = t(A\mathbf{u} − A\mathbf{v}) = t(\mathbf{b} − \mathbf{b}) = \mathbf{0}\text{,}
-\end{equation*}
-</div>i.e. there are an infinite number of solutions to <a href="" class="xref" data-knowl="./knowl/Eqn-Ax0.html" title="Equation 17.4.2">(17.4.2)</a>.</p></li>
-</ol></article></body>
+<p>From this we can see that if <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(f_{xx} &gt; 0\)</span> and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(D = f_{xx} f_{yy} - f_{xy}^2 &gt; 0\)</span> then when <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(x\)</span> and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(y\)</span> are varied from <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\((0,0)\text{,}\)</span> <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(f(x,y)\)</span> increases and so <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\((x_0,y_0) = (0,0)\)</span> will be a local minimum.</p></article></body>
 </html>

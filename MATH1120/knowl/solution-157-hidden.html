@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-01-07T17:23:01+11:00       *-->
+<!--*       on 2022-10-28T21:07:42+11:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -14,64 +14,38 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math"><div class="solution solution-like">
-<p>The characteristic equation for <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(A\)</span> is</p>
+<p>By definition eigenvectors satisfy the equation</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
 \begin{equation*}
-\det\begin{pmatrix} 7-\lambda \amp 1 \amp -2 \\ 0 \amp 3-\lambda \amp 6 \\ 0 \amp 0 \amp 2-\lambda \end{pmatrix}=0
+A\mathbf{x}=\lambda\mathbf{x}
 \end{equation*}
 </div>
-<p class="continuation">Now, using the minors method and expanding down column 1,</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{align*}
-\det\begin{pmatrix} 7-\lambda \amp 1 \amp -2 \\ 0 \amp 3-\lambda \amp 6 \\ 0 \amp 0\amp 2-\lambda \end{pmatrix} \amp =(7-\lambda)\begin{vmatrix} 3-\lambda \amp 6 \\ 0 \amp 2-\lambda \end{vmatrix}-0\begin{vmatrix} 1 \amp -2 \\ 0 \amp 2-\lambda \end{vmatrix}+0\begin{vmatrix} 1 \amp -2 \\ 3-\lambda \amp 6 \end{vmatrix} \\
-\amp = (7-\lambda)\{(3-\lambda)(2-\lambda)-0\}-0+0\\
-\amp = (7-\lambda)(3-\lambda)(2-\lambda)
-\end{align*}
-</div>
-<p class="continuation">Thus the eigenvalues for <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(A\)</span> satisfy</p>
+<p class="continuation">Thinking in terms of transformations this equation says that an eigenvector will be a vector that is mapped by the transformation to some scalar multiple of itself, (i.e. to a vector parallel to itself). As illustrated in <a href="" class="xref" data-knowl="./knowl/Fig-Geometric_Interpretation.html" title="Figure 19.1.4">Figure 19.1.4</a> any vector lying on the line <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(y=x\)</span> will be mapped to itself by a reflection in that line, i.e. for such vectors</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
 \begin{equation*}
-\lambda=2,3,7
+A\mathbf{x}=\mathbf{x}
 \end{equation*}
 </div>
-<p class="continuation">When <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\lambda=2\)</span> the augmented matrix and its reduced row echelon form are</p>
+<p class="continuation">Thus vectors of the form</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
 \begin{equation*}
-\begin{pmatrix} 5 \amp 1 \amp -2 \amp 0 \\ 0 \amp 1 \amp 6 \amp 0 \\ 0 \amp 0 \amp 0 \amp 0 \end{pmatrix} \sim \begin{pmatrix} 5 \amp 0 \amp -8 \amp 0 \\ 0 \amp 1 \amp 6 \amp 0 \\ 0 \amp 0 \amp 0 \amp 0 \end{pmatrix} 
+\mathbf{x}=\begin{pmatrix} t \\ t \end{pmatrix}=t\begin{pmatrix} 1 \\ 1 \end{pmatrix}, \textrm{ where } t\in \mathbb{R}
 \end{equation*}
 </div>
-<p class="continuation">Thus, the eigenvectors take the form</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{align*}
-\mathbf{x} \amp =\begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix} \textrm{ where } \begin{matrix}  \hspace{2mm} 5x_1-8x_3=0 \\ \hspace{4mm} x_2+6x_3=0 \end{matrix} \\
-\Rightarrow \mathbf{x} \amp =\begin{pmatrix} 8t \\ -30t \\ 5t \end{pmatrix} = t\begin{pmatrix} 8 \\ -30 \\ 5 \end{pmatrix}
-\end{align*}
-</div>
-<p class="continuation">When <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\lambda=3\)</span> the augmented matrix and its reduced row echelon form are</p>
+<p class="continuation">will be eigenvectors of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(A\)</span> with an eigenvalue of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(1\text{.}\)</span> (Note that we could check this algebraically if so desired.)</p>
+<p>As also illustrated in <a href="" class="xref" data-knowl="./knowl/Fig-Geometric_Interpretation.html" title="Figure 19.1.4">Figure 19.1.4</a>, any vector perpendicular to the line <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(y=x\)</span> will be mapped by a reflection in that line to a vector of the same length but in the opposite direction, i.e. for such vectors</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
 \begin{equation*}
-\begin{pmatrix} 4 \amp 1 \amp -2 \amp 0 \\ 0 \amp 0 \amp 6 \amp 0 \\ 0 \amp 0 \amp -1 \amp 0 \end{pmatrix} \sim \begin{pmatrix} 4 \amp 1 \amp 0 \amp 0 \\ 0 \amp 0 \amp 1 \amp 0 \\ 0 \amp 0 \amp 0 \amp 0 \end{pmatrix} 
+A\mathbf{x}=-\mathbf{x}
 \end{equation*}
 </div>
-<p class="continuation">Thus, the eigenvectors take the form</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{align*}
-\mathbf{x} \amp =\begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix} \textrm{ where } \begin{matrix} \hspace{2mm} 4x_1+x_2=0 \\ \hspace{14.5mm} x_3=0 \end{matrix} \\
-\Rightarrow \mathbf{x} \amp =\begin{pmatrix} -t \\ 4t \\ 0 \end{pmatrix} = t\begin{pmatrix} -1 \\ 4 \\ 0 \end{pmatrix}
-\end{align*}
-</div>
-<p class="continuation">When <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\lambda=7\)</span> the augmented matrix and its reduced row echelon form are</p>
+<p class="continuation">Thus vectors of the form</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
 \begin{equation*}
-\begin{pmatrix} 0 \amp 1 \amp -2 \amp 0 \\ 0 \amp -4 \amp 6 \amp 0 \\ 0 \amp 0 \amp -5 \amp 0 \end{pmatrix} \sim \begin{pmatrix} 0 \amp 1 \amp 0 \amp 0 \\ 0 \amp 0 \amp 1 \amp 0 \\ 0 \amp 0 \amp 0 \amp 0 \end{pmatrix} 
+\mathbf{x}=\begin{pmatrix} t \\ -t \end{pmatrix}=t\begin{pmatrix} 1 \\ -1 \end{pmatrix}, \textrm{ where } t\in \mathbb{R}
 \end{equation*}
 </div>
-<p class="continuation">Thus, the eigenvectors take the form</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{align*}
-\mathbf{x} \amp =\begin{pmatrix} x_1 \\ x_2 \\ x_3 \end{pmatrix} \textrm{ where } \begin{matrix} \hspace{2mm} x_2=0 \\ \hspace{2mm} x_3=0 \end{matrix} \\
-\Rightarrow \mathbf{x} \amp =\begin{pmatrix} t \\ 0 \\ 0 \end{pmatrix} = t\begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}
-\end{align*}
-</div>
+<p class="continuation">will be eigenvectors of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(A\)</span> with an eigenvalue of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(-1\text{.}\)</span> <figure class="figure figure-like"><div xmlns:svg="http://www.w3.org/2000/svg" class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="./LinearAlgebra/Images/5/figure1.png" class="contained"></div>
+<figcaption xmlns:svg="http://www.w3.org/2000/svg"><span class="type">Figure</span><span class="space"> </span><span class="codenumber">19.1.4<span class="period">.</span></span><span class="space"> </span></figcaption></figure> Since no other vectors will be mapped by a reflection in the line <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(y=x\)</span> into scalar multiples of themselves, <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(A\)</span> will not have any more eigenvectors.</p>
 </div></body>
 </html>

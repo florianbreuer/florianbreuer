@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-01-07T17:22:18+11:00       *-->
+<!--*       on 2022-10-28T21:06:25+11:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -14,13 +14,32 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h4 class="heading"><span class="type">Paragraph</span></h4>
+<h3 class="heading"><span class="type">Paragraph</span></h3>
+<p>Returning now to the problem of solving first order separable DEs, i.e. to solving DEs of the form</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{align*}
-\int \frac{1}{y(1-y)}\hspace{2mm}dy \amp=\int \frac{1}{y}\hspace{2mm}dy +\int \frac{1}{1-y}\hspace{2mm}dy\\
-\amp =\ln(\vert y\vert)-\ln(\vert 1-y\vert)+C
-\end{align*}
+\begin{equation*}
+\frac{dy}{dx}=f(x)g(y)
+\end{equation*}
 </div>
+<p class="continuation">Assuming that <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(g(y)\neq 0\text{,}\)</span> rearrange the DE as</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\frac{1}{g(y)}\frac{dy}{dx}=f(x)
+\end{equation*}
+</div>
+<p class="continuation">Note that in this step we are "separating the variables". Now integrate both sides with respect to <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(x\)</span> to obtain</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\int \frac{1}{g(y)}\frac{dy}{dx}\hspace{2mm} dx=\int f(x) \hspace{2mm} dx
+\end{equation*}
+</div>
+<p class="continuation">Using the integration by substitution formula on the left hand side gives</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\int \frac{1}{g(y)}\hspace{2mm} dy=\int f(x) \hspace{2mm} dx
+\end{equation*}
+</div>
+<p class="continuation">So long as we can actually perform the integrals on both sides of this equation we will have an equation which will implicitly define <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(y\)</span> (the unknown function) in terms of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(x\)</span> (the independent variable). If we can further make <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(y\)</span> the subject of this equation then we will have found an explicit formula for the solution to the separable DE.</p>
 <span class="incontext"><a href="Sec-First_Order_Separable_DEs.html#p-663">in-context</a></span>
 </body>
 </html>

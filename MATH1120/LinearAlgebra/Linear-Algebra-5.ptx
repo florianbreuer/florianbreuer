@@ -73,6 +73,9 @@
                     <me>A=\begin{pmatrix} 0 \amp 4 \amp 3 \\ \frac{1}{2} \amp 0 \amp 0 \\ 0 \amp \frac{1}{4} \amp 0 \end{pmatrix} </me>
                     determine if any of <m>\mathbf{x}=\begin{pmatrix} 18 \amp 6 \amp 1 \end{pmatrix}^T </m>, <m>\mathbf{y}=\begin{pmatrix} -2 \amp 3 \amp 4 \end{pmatrix}^T </m> or <m>\mathbf{z}=\begin{pmatrix} 36 \amp 12 \amp 2 \end{pmatrix}^T </m> are eigenvectors of <m>A</m>.
                 </p>
+                <answer>
+                    <p><m>\mathbf{x}</m> and <m>\mathbf{z}</m> are eigenvectors of <m>A</m>.</p>
+                </answer>
                 <solution>
                     <p>
                         Since
@@ -92,11 +95,19 @@
                     <me>A=\begin{pmatrix} 0 \amp 1 \\ 1 \amp 0 \end{pmatrix}</me>
                     is the matrix for the plane transformation of a reflection in the line <m>y=x</m>. Use this geometric interpretation of the matrix to determine the possible eigenvectors and eigenvalues of <m>A</m>.
                 </p>
+                <answer>
+                    <p>
+                    <m>\mathbf{x}=t\begin{pmatrix} 1 \\ 1 \end{pmatrix}, \textrm{ where } t\in \mathbb{R}</m> with eigenvalue <m>1</m>.
+                    </p>
+                    <p>
+                    <m>\mathbf{x}=t\begin{pmatrix} 1 \\ -1 \end{pmatrix}, \textrm{ where } t\in \mathbb{R}</m> with eigenvalue <m>-1</m>.
+                    </p>
+                </answer>
                 <solution>
                     <p>
                         By definition eigenvectors satisfy the equation
                         <me>A\mathbf{x}=\lambda\mathbf{x}</me>
-                        Thinking in terms of transformations this equation says that an eigenvector will be a vector that is mapped by the transformation to some scalar multiple of itself, (i.e. to a vector parallel to itself). As illustrated in Figure 19.1.4. any vector lying on the line <m>y=x</m> will be mapped to itself by a reflection in that line, i.e. for such vectors
+                        Thinking in terms of transformations this equation says that an eigenvector will be a vector that is mapped by the transformation to some scalar multiple of itself, (i.e. to a vector parallel to itself). As illustrated in <xref ref="Fig-Geometric_Interpretation"/> any vector lying on the line <m>y=x</m> will be mapped to itself by a reflection in that line, i.e. for such vectors
                         <me>A\mathbf{x}=\mathbf{x}</me>
                         Thus vectors of the form
                         <me>\mathbf{x}=\begin{pmatrix} t \\ t \end{pmatrix}=t\begin{pmatrix} 1 \\ 1 \end{pmatrix}, \textrm{ where } t\in \mathbb{R}</me>
@@ -122,10 +133,15 @@
                     <me> A=\begin{pmatrix} 1 \amp 2 \\ 4 \amp 3 \end{pmatrix}</me>
                     find all eigenvectors associated with this eigenvalue.
                 </p>
+                <answer>
+                <p>
+                The eigenvectors associated with the eigenvalue <m>\lambda=5</m> are all scalar multiples of the vector <m>\begin{pmatrix} 1 \amp 2 \end{pmatrix}^T</m>.
+                </p>
+                </answer>
                 <solution>
                     <p>
                         An eigenvector, <m>\mathbf{x}</m>, associated with the eigenvalue <m>\lambda=5</m> will satisfy the system of linear equations
-                        <m>A\mathbf{x}=5\mathbf{x}</m>
+                        <me>A\mathbf{x}=5\mathbf{x}</me>
                         which can be rewritten as
                         <md>
                             <mrow>\begin{pmatrix} 1 \amp 2 \\ 4 \amp 3 \end{pmatrix} \begin{pmatrix} x_1 \\ x_2 \end{pmatrix} -5\begin{pmatrix} x_1 \\ x_2 \end{pmatrix} \amp =\begin{pmatrix} 0 \\ 0 \end{pmatrix}</mrow>
@@ -133,7 +149,7 @@
                             <mrow>\begin{pmatrix} -4 \amp 2 \\ 4 \amp -2 \end{pmatrix} \begin{pmatrix} x_1 \\ x_2 \end{pmatrix} \amp =\begin{pmatrix} 0 \\ 0 \end{pmatrix}</mrow>
                         </md>
                         Now, using Gauss Jordon elimination to solve this homogeneous system
-                        <me> \begin{pmatrix} -4 \amp 2 \amp 0 \\ 4 \amp -2 \amp 0 \end{pmatrix} \sim \begin{pmatrix} 2 \amp -1 \amp 0 \\ 0 \amp 0 \amp 0 \end{pmatrix}  \begin{matrix} \hspace{5mm} R_1'=R_1/(-2) \\ \hspace{5mm} R_2'=R_2+R_1 \end{matrix}</me>
+                        <me> \begin{pmatrix} -4 \amp 2 \amp 0 \\ 4 \amp -2 \amp 0 \end{pmatrix} \sim \begin{pmatrix} 2 \amp -1 \amp 0 \\ 0 \amp 0 \amp 0 \end{pmatrix}  \begin{matrix} \hspace{5mm} R_1'=\frac{R_1}{-2} \\ \hspace{5mm} R_2'=R_2+R_1 \end{matrix}</me>
                         we see that this system has an infinite number of solutions which take the form
                         <me>\mathbf{x}=\begin{pmatrix} x_1 \\ x_2 \end{pmatrix} \textrm{ where } 2x_1-x_2=0</me>
                         or equivalently
@@ -186,6 +202,14 @@
                     Find all eigenvalues and associated eigenvectors for
                     <me>A=\begin{pmatrix} 2 \amp 1 \\ 1 \amp 2 \end{pmatrix} </me>
                 </p>
+                <answer>
+                <p>
+                For <m>\lambda=1</m>, the eigenvectors take the form <m>\mathbf{x}=t\begin{pmatrix} -1 \\ 1 \end{pmatrix}</m>.                         
+                </p>
+                <p>
+                For <m>\lambda=3</m>, the eigenvectors take the form <m>\mathbf{x}=t\begin{pmatrix} 1 \\ 1 \end{pmatrix}</m>.                         
+                </p>
+                </answer>
                 <solution>
                     <p>
                         The eigenvalues, <m>\lambda</m>, of <m>A</m> satisfy the characteristic equation
@@ -238,6 +262,14 @@
                     Find all eigenvalues and associated eigenvectors for
                     <me>A=\begin{pmatrix} 1 \amp 2 \\ 3 \amp 4 \end{pmatrix} </me>
                 </p>
+                <answer>
+                <p>
+                For <m>\lambda=\dfrac{5+\sqrt{33}}{2}</m>, the eigenvectors take the form <m>\mathbf{x}=t\begin{pmatrix} 4 \\ 3+\sqrt{33} \end{pmatrix}</m>.                         
+                </p>
+                <p>
+                For <m>\lambda=\dfrac{5-\sqrt{33}}{2}</m>, the eigenvectors take the form <m>\mathbf{x}=t\begin{pmatrix} 4 \\ 3-\sqrt{33} \end{pmatrix}</m>.                         
+                </p>
+                </answer>
                 <solution>
                     <p>
                         The characteristic equation for <m>A</m> is
@@ -248,7 +280,7 @@
                         </md>
                         Thus the eigenvalues for <m>A</m> are
                         <me>\lambda=\frac{5\pm\sqrt{33}}{2}\approx 5.37, -0.37</me>
-                        Clearly the eigenvalues don’t always turn out to be nice numbers, even when the matrix is quite simple. The eigenvectors will also turn out to be rather complicated.
+                        Clearly the eigenvalues don't always turn out to be nice numbers, even when the matrix is quite simple. The eigenvectors will also turn out to be rather complicated.
                     </p>
                     <p>
                         When <m>\lambda=\dfrac{5+\sqrt{33}}{2}</m> the augmented matrix and its reduced row echelon form are
@@ -274,6 +306,14 @@
                     Find all eigenvalues and associated eigenvectors for
                     <me>A=\begin{pmatrix} 1 \amp 2 \\ 2 \amp 4 \end{pmatrix} </me>
                 </p>
+                <answer>
+                <p>
+                For <m>\lambda=0</m>, the eigenvectors take the form <m>\mathbf{x}=t\begin{pmatrix} -2 \\ 1 \end{pmatrix}</m>.                         
+                </p>
+                <p>
+                For <m>\lambda=5</m>, the eigenvectors take the form <m>\mathbf{x}=t\begin{pmatrix} 1 \\ 2 \end{pmatrix}</m>.                         
+                </p>
+                </answer>
                 <solution>
                     <p>
                         The characteristic equation for <m>A</m> is
@@ -315,6 +355,14 @@
                     Find all eigenvalues and associated eigenvectors for
                     <me>A=\begin{pmatrix} 0 \amp 1 \\ -1 \amp 0 \end{pmatrix}</me>
                 </p>
+                <answer>
+                <p>
+                For <m>\lambda=i</m>, the eigenvectors take the form <m>\mathbf{x}=t\begin{pmatrix} 1 \\ i \end{pmatrix}</m>.                         
+                </p>
+                <p>
+                For <m>\lambda=-i</m>, the eigenvectors take the form <m>\mathbf{x}=t\begin{pmatrix} -1 \\ i \end{pmatrix}</m>.                         
+                </p>
+                </answer>
                 <solution>
                     <p>
                         The characteristic equation for <m>A</m> is
@@ -351,6 +399,14 @@
                     Find all eigenvalues and associated eigenvectors for
                     <me>A=\begin{pmatrix} 7 \amp 1 \amp -2 \\ -3 \amp 3 \amp 6 \\ 2 \amp 2\amp 2 \end{pmatrix}</me>
                 </p>
+                <answer>
+                <p>
+                For <m>\lambda=0</m>, the eigenvectors take the form <m>\mathbf{x}=t\begin{pmatrix} 1 \\ -3 \\ 2 \end{pmatrix}</m>.                         
+                </p>
+                <p>
+                For <m>\lambda=6</m>, the eigenvectors take the form <m>\mathbf{x}=s\begin{pmatrix} -1 \\ 1 \\ 0 \end{pmatrix}+t\begin{pmatrix} 2 \\ 0 \\ 1 \end{pmatrix}</m>.  
+                </p>
+                </answer>
                 <solution>
                     <p>
                         The characteristic equation for <m>A</m> is
@@ -394,6 +450,17 @@
                     Find all eigenvalues and associated eigenvectors for
                     <me>A=\begin{pmatrix} 7 \amp 1 \amp -2 \\ 0 \amp 3 \amp 6 \\ 0 \amp 0 \amp 2 \end{pmatrix}</me>
                 </p>
+                <answer>
+                <p>
+                For <m>\lambda=2</m>, the eigenvectors take the form <m>\mathbf{x}=t\begin{pmatrix} 8 \\ -30 \\ 5 \end{pmatrix}</m>.
+                </p>
+                <p>
+                For <m>\lambda=3</m>, the eigenvectors take the form <m>\mathbf{x}=t\begin{pmatrix} -1 \\ 4 \\ 0 \end{pmatrix}</m>.  
+                </p>
+                <p>
+                For <m>\lambda=7</m>, the eigenvectors take the form <m>\mathbf{x}=t\begin{pmatrix} 1 \\ 0 \\ 0 \end{pmatrix}</m>.  
+                </p>
+                </answer>
                 <solution>
                     <p>
                         The characteristic equation for <m>A</m> is
@@ -498,8 +565,8 @@
                 Imagine that a query into an internet search engine finds <m>5</m> websites. The engine wants to report these sites to the user in some sort of order relating to how useful each site might be, i.e. the engine wants to work out a ranking for each site.
             </p>
             <p>
-                One approach to this problem is to look at the links between the sites. For the sake of discussion, let the links between the sites be as shown in Figure 19.3.1.
-                <figure>
+                One approach to this problem is to look at the links between the sites. For the sake of discussion, let the links between the sites be as shown in <xref ref="Fig_5_3_1"/>.
+                <figure xml:id="Fig_5_3_1">
                     <image source="./LinearAlgebra/Images/5/figure3.png" width="60%"/>
                 </figure>
                 We can represent the information in this diagram via a matrix <m>A</m> where the entries <m>a_{ij}</m> satisfy
@@ -513,7 +580,7 @@
                 <me>\sum_{i=1}^{5} r_i =1</me>
                 and
                 <me> r_i \propto \textrm{ sum of the rankings of the sites which have links to it.}</me>
-                The idea here is that if a site has links to it from an important site (i.e. one with a high ranking) then that is better than having a link to it from an obscure site (i.e. one with a low ranking). So, letting the constant of proportionality be <m>k</m>, for the websites linked according to Figure 19.3.1. we have
+                The idea here is that if a site has links to it from an important site (i.e. one with a high ranking) then that is better than having a link to it from an obscure site (i.e. one with a low ranking). So, letting the constant of proportionality be <m>k</m>, for the websites linked according to <xref ref="Fig_5_3_1"/> we have
                 <md>
                     <mrow>r_1 \amp =kr_3</mrow>
                     <mrow>r_2 \amp =kr_1</mrow>

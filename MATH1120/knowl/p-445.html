@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-01-07T17:22:05+11:00       *-->
+<!--*       on 2022-10-28T21:05:57+11:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -14,8 +14,26 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h3 class="heading"><span class="type">Paragraph</span></h3>
-<p>From this we can see that if <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(f_{xx} &gt; 0\)</span> and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(D = f_{xx} f_{yy} - f_{xy}^2 &gt; 0\)</span> then when <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(x\)</span> and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(y\)</span> are varied from <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\((0,0)\text{,}\)</span> <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(f(x,y)\)</span> increases and so <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\((x_0,y_0) = (0,0)\)</span> will be a local minimum.</p>
-<span class="incontext"><a href="Second-Derivative-Test.html#p-445">in-context</a></span>
+<h4 class="heading"><span class="type">Paragraph</span></h4>
+<p>The gradient vector for the given function is</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{align*}
+\nabla f \amp = \left \langle f_x, f_y, f_z \right \rangle\\
+\amp = \left \langle y +z^3, x+z^2, 2yz+3xz^2 \right \rangle\text{.}
+\end{align*}
+</div>
+<p class="continuation">Thus</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\nabla f (2,0,3) = \langle 27, 11, 54 \rangle
+\end{equation*}
+</div>
+<p class="continuation">and so the required directional derivative is</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+D_{\hat{\mathbf{u}}} f(2,0,3) = \langle 27, 11, 54 \rangle \cdot \left \langle -\dfrac{2}{3}, -\dfrac{1}{3}, \dfrac{2}{3} \right \rangle = \dfrac{43}{3}\text{.}
+\end{equation*}
+</div>
+<span class="incontext"><a href="In_Three_Variables.html#p-445">in-context</a></span>
 </body>
 </html>

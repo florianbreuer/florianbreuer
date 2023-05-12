@@ -1,7 +1,7 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-01-07T17:20:08+11:00       *-->
+<!--*       on 2022-10-28T20:50:51+11:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -179,7 +179,6 @@
 </li>
 <li class="link">
 <a href="Chap-Linear_Algebra_3.html" data-scroll="Chap-Linear_Algebra_3"><span class="codenumber">17</span> <span class="title">LA3: Matrix Algebra</span></a><ul>
-<li><a href="Sec-Linear_Algebra_Intro.html" data-scroll="Sec-Linear_Algebra_Intro">Introduction</a></li>
 <li><a href="Sec-Addition_and_Scalar_Multiplication.html" data-scroll="Sec-Addition_and_Scalar_Multiplication">Addition and Scalar Multiplication</a></li>
 <li><a href="Sec-Matrix_multiplication.html" data-scroll="Sec-Matrix_multiplication">Matrix Multiplication</a></li>
 <li><a href="Sec-Matrices_and_Systems_of_Linear_Equations.html" data-scroll="Sec-Matrices_and_Systems_of_Linear_Equations">Matrices and Systems of Linear Equations</a></li>
@@ -210,25 +209,26 @@
 <main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="introduction"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">9.1</span> <span class="title">Introduction</span>
 </h2>
-<p id="p-548">Most of the equations that we have come across so far in our mathematical "upbringing" have imposed conditions that a <dfn class="terminology">number</dfn> is required to satisfy.</p>
-<article class="example example-like" id="example-85"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-85"><h3 class="heading">
+<p id="p-587">Most of the equations that we have come across so far in our mathematical "upbringing" have imposed conditions that a <dfn class="terminology">number</dfn> is required to satisfy.</p>
+<article class="example example-like" id="Ex_1"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-Ex_1"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">9.1.1</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-85"><article class="example example-like"><p id="p-549">Let <span class="process-math">\(x\)</span> be a real number. Solve</p>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Ex_1"><article class="example example-like"><p id="p-588">Let <span class="process-math">\(x\)</span> be a real number. Solve</p>
 <div class="displaymath process-math">
 \begin{equation*}
 x^3-x^2-2x+2=0 
 \end{equation*}
 </div>
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-62" id="answer-62"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-62"><div class="answer solution-like"><p id="p-589"><span class="process-math">\(x =1,\sqrt{2},-\sqrt{2}\)</span></p></div></div>
 <a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-69" id="solution-69"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-69"><div class="solution solution-like">
-<p id="p-550">By factoring the left hand side we obtain</p>
-<div class="displaymath process-math" id="p-551">
+<p id="p-590">By factoring the left hand side we obtain</p>
+<div class="displaymath process-math" id="p-591">
 \begin{align*}
 x^2(x-1)-2(x-1) \amp =0\\
 (x^2-2)(x-1)\amp =0\\
 x \amp =1,\sqrt{2},-\sqrt{2}
 \end{align*}
 </div>
-<p id="p-552">Thus we have found the numbers that satisfy the conditions imposed by the equation. Notice that we can check our answers by substituting back into the original equation. For example, when <span class="process-math">\(x=1\text{,}\)</span></p>
+<p id="p-592">Thus we have found the numbers that satisfy the conditions imposed by the equation. Notice that we can check our answers by substituting back into the original equation. For example, when <span class="process-math">\(x=1\text{,}\)</span></p>
 <div class="displaymath process-math">
 \begin{equation*}
 LHS=(1)^3-(1)^2-2(1)+2=0=RHS
@@ -238,17 +238,17 @@ LHS=(1)^3-(1)^2-2(1)+2=0=RHS
 </div></div></article></div>
 <article class="example example-like" id="example-86"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-86"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">9.1.2</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-86"><article class="example example-like"><p id="p-553">Let <span class="process-math">\(x\)</span> be a real number. Solve</p>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-86"><article class="example example-like"><p id="p-593">Let <span class="process-math">\(x\)</span> be a real number. Solve</p>
 <div class="displaymath process-math">
 \begin{equation*}
 x=\tan(x) 
 \end{equation*}
 </div>
 <a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-70" id="solution-70"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-70"><div class="solution solution-like">
-<p id="p-554">The strategy that we used for solving the equation in Example 1 won’t work for this equation. In fact we cannot write down the solution (or solutions) to this equation in closed form. Thus we adopt the strategy of finding an approximation to the solutions.</p>
-<p id="p-555">We could do this geometrically by plotting the graphs of <span class="process-math">\(y=x\)</span> and <span class="process-math">\(y=\tan(x)\)</span> and looking at the points of intersection. <figure class="figure figure-like" id="figure-55"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="./DifferentialEquations/Images/1/1_example2.png" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">9.1.3<span class="period">.</span></span><span class="space"> </span></figcaption></figure> As can be seen in Figure 9.1.3., there will be an infinite number of solutions to this equation. One solution is <span class="process-math">\(x=0\text{.}\)</span> There is another solution between <span class="process-math">\(x=4\)</span> and <span class="process-math">\(x=5\)</span> and so on.</p>
-<p id="p-556">Another way of approximating the solution would be numerically. We could use Newton’s method for example. Starting with an initial guess of <span class="process-math">\(x_0=4.5\)</span> our next guess is</p>
+<p id="p-594">The strategy that we used for solving the equation in <a href="" class="xref" data-knowl="./knowl/Ex_1.html" title="Example 9.1.1">Example 9.1.1</a> won't work for this equation. In fact we cannot write down the solution (or solutions) to this equation in closed form. Thus we adopt the strategy of finding an approximation to the solutions.</p>
+<p id="p-595">We could do this geometrically by plotting the graphs of <span class="process-math">\(y=x\)</span> and <span class="process-math">\(y=\tan(x)\)</span> and looking at the points of intersection. <figure class="figure figure-like" id="Fig_1_example2"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="./DifferentialEquations/Images/1/1_example2.png" class="contained"></div>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">9.1.3<span class="period">.</span></span><span class="space"> </span></figcaption></figure> As can be seen in <a href="" class="xref" data-knowl="./knowl/Fig_1_example2.html" title="Figure 9.1.3">Figure 9.1.3</a>, there will be an infinite number of solutions to this equation. One solution is <span class="process-math">\(x=0\text{.}\)</span> There is another solution between <span class="process-math">\(x=4\)</span> and <span class="process-math">\(x=5\)</span> and so on.</p>
+<p id="p-596">Another way of approximating the solution would be numerically. We could use Newton’s method for example. Starting with an initial guess of <span class="process-math">\(x_0=4.5\)</span> our next guess is</p>
 <div class="displaymath process-math">
 \begin{equation*}
 x_1=x_0-\frac{f(x_0)}{f'(x_0)}=4.5-\frac{\tan(4.5)-4.5}{\sec^2(4.5)-1}=4.4936 \textrm{ (to 4 d.p.)}\text{,}
@@ -256,12 +256,12 @@ x_1=x_0-\frac{f(x_0)}{f'(x_0)}=4.5-\frac{\tan(4.5)-4.5}{\sec^2(4.5)-1}=4.4936 \t
 </div>
 <p class="continuation">and so on.</p>
 </div></div></article></div>
-<p id="p-557">Mathematical models in science and engineering often throw up a situation where information about a function's derivative (or derivatives) is known. From here, we usually want to deduce information about the function itself.</p>
-<article class="example example-like" id="example-87"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-87"><h3 class="heading">
+<p id="p-597">Mathematical models in science and engineering often throw up a situation where information about a function's derivative (or derivatives) is known. From here, we usually want to deduce information about the function itself.</p>
+<article class="example example-like" id="Ex_3"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-Ex_3"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">9.1.4</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-87"><article class="example example-like"><p id="p-558">It has been observed that an object cools at a rate proportional to the difference between the object's temperature and ambient temperature. Write down an equation that conveys this observation.</p>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Ex_3"><article class="example example-like"><p id="p-598">It has been observed that an object cools at a rate proportional to the difference between the object's temperature and ambient temperature. Write down an equation that conveys this observation.</p>
 <a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-71" id="solution-71"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-71"><div class="solution solution-like">
-<p id="p-559">Let <span class="process-math">\(T(t)\)</span> be the temperature of the object at time <span class="process-math">\(t\)</span> after we begin the observation. Also let <span class="process-math">\(T_a\)</span> be the ambient temperature. Then</p>
+<p id="p-599">Let <span class="process-math">\(T(t)\)</span> be the temperature of the object at time <span class="process-math">\(t\)</span> after we begin the observation. Also let <span class="process-math">\(T_a\)</span> be the ambient temperature. Then</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \frac{dT}{dt}=-k(T-T_a)
@@ -269,18 +269,18 @@ x_1=x_0-\frac{f(x_0)}{f'(x_0)}=4.5-\frac{\tan(4.5)-4.5}{\sec^2(4.5)-1}=4.4936 \t
 </div>
 <p class="continuation">where <span class="process-math">\(k\)</span> is a constant.</p>
 </div></div></article></div>
-<p id="p-560">As illustrated in Example 9.1.4., we were able to write the <dfn class="terminology">information</dfn> known about the situation in terms of an equation involving the function and the derivative of the function even though we didn’t know what the actual function was. Such an equation is called a <dfn class="terminology">differential equation</dfn> (DE). Having determined the differential equation, we now want to find a <dfn class="terminology">function</dfn> that satisfies the equation, i.e. we want to find a solution to the DE.</p>
+<p id="p-600">As illustrated in <a href="" class="xref" data-knowl="./knowl/Ex_3.html" title="Example 9.1.4">Example 9.1.4</a>, we were able to write the <dfn class="terminology">information</dfn> known about the situation in terms of an equation involving the function and the derivative of the function even though we didn’t know what the actual function was. Such an equation is called a <dfn class="terminology">differential equation</dfn> (DE). Having determined the differential equation, we now want to find a <dfn class="terminology">function</dfn> that satisfies the equation, i.e. we want to find a solution to the DE.</p>
 <article class="example example-like" id="example-88"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-88"><h3 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">9.1.5</span><span class="period">.</span><span class="space"> </span><span class="title">Example 9.1.4. (cont.).</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-88"><article class="example example-like"><p id="p-561">Assuming that the ambient temperature is fixed, what can we say happens to the temperature of the body over time?</p>
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">9.1.5</span><span class="period">.</span><span class="space"> </span><span class="title">(Example 9.1.4 cont.).</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-88"><article class="example example-like"><p id="p-601">Assuming that the ambient temperature is fixed, what can we say happens to the temperature of the body over time?</p>
 <a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-72" id="solution-72"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-72"><div class="solution solution-like">
-<p id="p-562">Solutions to the DE for the temperature of the cooling body are of the form</p>
+<p id="p-602">Solutions to the DE for the temperature of the cooling body are of the form</p>
 <div class="displaymath process-math">
 \begin{equation*}
 T(t)=Ae^{-kt}+T_a 
 \end{equation*}
 </div>
-<p class="continuation">where <span class="process-math">\(A\)</span> is an arbitrary constant. Even though we haven’t yet looked at the method for finding this solution we can check that it is correct by substituting back into the original equation. Here</p>
+<p class="continuation">where <span class="process-math">\(A\)</span> is an arbitrary constant. Even though we haven't yet looked at the method for finding this solution we can check that it is correct by substituting back into the original equation. Here</p>
 <div class="displaymath process-math">
 \begin{equation*}
 LHS=\frac{dT}{dt}=\frac{d}{dt}\left(Ae^{-kt}+T_a \right)=-kAe^{-kt} 
@@ -292,14 +292,14 @@ LHS=\frac{dT}{dt}=\frac{d}{dt}\left(Ae^{-kt}+T_a \right)=-kAe^{-kt}
 RHS=-k(T-T_a)=-k(Ae^{-kt}+T_a-T_a)=-kAe^{-kt}
 \end{equation*}
 </div>
-<p class="continuation">Once we know the function itself we can now answer questions concerning the temperature of the cooling body over time. For example we see that over time, the temperature of the body starts out at <span class="process-math">\(A+T_a\)</span> and falls exponentially toward <span class="process-math">\(T_a\text{.}\)</span> See Figure 9.1.6. <figure class="figure figure-like" id="figure-56"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="./DifferentialEquations/Images/1/1_example3.png" class="contained"></div>
+<p class="continuation">Once we know the function itself we can now answer questions concerning the temperature of the cooling body over time. For example we see that over time, the temperature of the body starts out at <span class="process-math">\(A+T_a\)</span> and falls exponentially toward <span class="process-math">\(T_a\text{.}\)</span> See <a href="" class="xref" data-knowl="./knowl/Fig_1_example3.html" title="Figure 9.1.6">Figure 9.1.6</a>. <figure class="figure figure-like" id="Fig_1_example3"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="./DifferentialEquations/Images/1/1_example3.png" class="contained"></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">9.1.6<span class="period">.</span></span><span class="space"> </span></figcaption></figure></p>
 </div></div></article></div>
 <article class="example example-like" id="example-89"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-89"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">9.1.7</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-89"><article class="example example-like"><p id="p-563">A population of bacteria reproduces at a rate proportional to the population. If the population of bacteria is <span class="process-math">\(N_0\)</span> at the beginning of the study, predict the behaviour of this population over time.</p>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-89"><article class="example example-like"><p id="p-603">A population of bacteria reproduces at a rate proportional to the population. If the population of bacteria is <span class="process-math">\(N_0\)</span> at the beginning of the study, predict the behaviour of this population over time.</p>
 <a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-73" id="solution-73"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-73"><div class="solution solution-like">
-<p id="p-564">Let <span class="process-math">\(N(t)\)</span> be the number of bacteria present at time <span class="process-math">\(t\)</span> after the study begins. Then</p>
+<p id="p-604">Let <span class="process-math">\(N(t)\)</span> be the number of bacteria present at time <span class="process-math">\(t\)</span> after the study begins. Then</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \frac{dN}{dt}=kN 
@@ -309,9 +309,9 @@ RHS=-k(T-T_a)=-k(Ae^{-kt}+T_a-T_a)=-kAe^{-kt}
 </div></div></article></div>
 <article class="example example-like" id="example-90"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-90"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">9.1.8</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-90"><article class="example example-like"><p id="p-565">An object is dropped from a hot air balloon above the surface of the earth. Assuming that the only forces acting on the object are gravity (acting down) and air resistance (acting up) determine the velocity of the object as a function of time.</p>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-90"><article class="example example-like"><p id="p-605">An object is dropped from a hot air balloon above the surface of the earth. Assuming that the only forces acting on the object are gravity (acting down) and air resistance (acting up) determine the velocity of the object as a function of time.</p>
 <a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-74" id="solution-74"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-74"><div class="solution solution-like">
-<p id="p-566">Let <span class="process-math">\(v(t)\)</span> be the velocity of the object at time <span class="process-math">\(t\)</span> seconds after it was dropped and let the downward direction be the positive direction. Now, Newton’s second law of motion says that the acceleration, <span class="process-math">\(a\text{,}\)</span> of a body and the net force, <span class="process-math">\(F\text{,}\)</span> acting on that body are related according to</p>
+<p id="p-606">Let <span class="process-math">\(v(t)\)</span> be the velocity of the object at time <span class="process-math">\(t\)</span> seconds after it was dropped and let the downward direction be the positive direction. Now, Newton’s second law of motion says that the acceleration, <span class="process-math">\(a\text{,}\)</span> of a body and the net force, <span class="process-math">\(F\text{,}\)</span> acting on that body are related according to</p>
 <div class="displaymath process-math">
 \begin{equation*}
 F=ma
@@ -337,50 +337,37 @@ m\frac{dv}{dt}=mg-kv^2, \hspace{5mm} v(0)=0
 </div>
 <p class="continuation">This is a differential equation involving the (as yet unknown) function <span class="process-math">\(v(t)\text{.}\)</span></p>
 </div></div></article></div>
-<p id="p-567">As these examples illustrate, differential equations can be used to model real world systems. In these models the differential equation captures the interaction of the quantities in the system. The solution to the differential equation describes the behaviour of the system.</p>
-<p id="p-568">In this strand of Math1120 we are going to look at techniques for finding solutions to differential equations. There is no one technique that will solve all differential equations and there are differential equations for which we can only approximate solutions. However, the methods that have been developed usually work for a particular type or class of differential equation. Thus it is important to be able to classify our differential equations into these various classes. We will learn how to do this as we go along. As a first step in this direction we need some basic definitions and terminology.</p>
+<p id="p-607">As these examples illustrate, differential equations can be used to model real world systems. In these models the differential equation captures the interaction of the quantities in the system. The solution to the differential equation describes the behaviour of the system.</p>
+<p id="p-608">In this strand of Math1120 we are going to look at techniques for finding solutions to differential equations. There is no one technique that will solve all differential equations and there are differential equations for which we can only approximate solutions. However, the methods that have been developed usually work for a particular type or class of differential equation. Thus it is important to be able to classify our differential equations into these various classes. We will learn how to do this as we go along. As a first step in this direction we need some basic definitions and terminology.</p>
 <article class="definition definition-like" id="definition-17"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">9.1.9</span><span class="period">.</span>
 </h3>
-<p id="p-569">An equation that involves an unknown function, <span class="process-math">\(y=y(x)\text{,}\)</span> derivatives of that function and the independent variable <span class="process-math">\(x\)</span> is called a <dfn class="terminology">differential equation</dfn> (DE).</p>
-<p id="p-570">The <dfn class="terminology">order</dfn> of a DE is the order of the highest derivative that appears in the equation.</p>
-<p id="p-571">A <dfn class="terminology">particular solution</dfn> for the DE is a function <span class="process-math">\(y=y(x)\)</span> that satisfies the equation.</p>
-<p id="p-572">The <dfn class="terminology">general solution</dfn> of the DE is a description of all possible solutions.</p></article><article class="example example-like" id="example-91"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-91"><h3 class="heading">
+<p id="p-609">An equation that involves an unknown function, <span class="process-math">\(y=y(x)\text{,}\)</span> derivatives of that function and the independent variable <span class="process-math">\(x\)</span> is called a <dfn class="terminology">differential equation</dfn> (DE).</p>
+<p id="p-610">The <dfn class="terminology">order</dfn> of a DE is the order of the highest derivative that appears in the equation.</p>
+<p id="p-611">A <dfn class="terminology">particular solution</dfn> for the DE is a function <span class="process-math">\(y=y(x)\)</span> that satisfies the equation.</p>
+<p id="p-612">The <dfn class="terminology">general solution</dfn> of the DE is a description of all possible solutions.</p></article><article class="example example-like" id="example-91"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-91"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">9.1.10</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-91"><article class="example example-like"><p id="p-573">What is the order of each the following of the DEs?  Using your knowledge of the basic functions of science and engineering try to guess a solution to each DE.</p>
-<ol id="p-574" class="lower-alpha">
-<li id="li-111"><div class="displaymath process-math" id="p-575">
-\begin{equation*}
-y'=x 
-\end{equation*}
-</div></li>
-<li id="li-112"><div class="displaymath process-math" id="p-576">
-\begin{equation*}
-y'=-y 
-\end{equation*}
-</div></li>
-<li id="li-113"><div class="displaymath process-math" id="p-577">
-\begin{equation*}
-y'=-x 
-\end{equation*}
-</div></li>
-<li id="li-114"><div class="displaymath process-math" id="p-578">
-\begin{equation*}
-y''=-y 
-\end{equation*}
-</div></li>
-<li id="li-115"><div class="displaymath process-math" id="p-579">
-\begin{equation*}
-y''-2y'=0 
-\end{equation*}
-</div></li>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-91"><article class="example example-like"><p id="p-613">What is the order of each the following of the DEs?  Using your knowledge of the basic functions of science and engineering try to guess a solution to each DE.</p>
+<ol id="p-614" class="lower-alpha">
+<li id="li-118"><p id="p-derived-li-118"><span class="process-math">\(\displaystyle y'=x \)</span></p></li>
+<li id="li-119"><p id="p-derived-li-119"><span class="process-math">\(\displaystyle y'=-y \)</span></p></li>
+<li id="li-120"><p id="p-derived-li-120"><span class="process-math">\(\displaystyle y'=-x \)</span></p></li>
+<li id="li-121"><p id="p-derived-li-121"><span class="process-math">\(\displaystyle y''=-y \)</span></p></li>
+<li id="li-122"><p id="p-derived-li-122"><span class="process-math">\(\displaystyle y''-2y'=0 \)</span></p></li>
 </ol>
-<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-75" id="solution-75"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-75"><div class="solution solution-like"><ol id="p-580" class="lower-alpha">
-<li id="li-116">
-<p id="p-581">Because this equation only involves the first derivative of the function it is a first order differential equation. Next, since the differential equation is of the form</p>
-<div class="displaymath process-math">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-63" id="answer-63"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-63"><div class="answer solution-like"><ol id="p-615" class="lower-alpha">
+<li id="li-123"><p id="p-derived-li-123">First order; <span class="process-math">\(y(x)=\frac{1}{2}x^2+C\)</span></p></li>
+<li id="li-124"><p id="p-derived-li-124">First order differential equation; <span class="process-math">\(y(x)=e^{-x}\)</span></p></li>
+<li id="li-125"><p id="p-derived-li-125">Second order differential equation; <span class="process-math">\(y(x)=-\frac{1}{6}x^3+Ax+B\)</span></p></li>
+<li id="li-126"><p id="p-derived-li-126">Second order differential equation; <span class="process-math">\(y(x)=\sin(x)\)</span></p></li>
+<li id="li-127"><p id="p-derived-li-127">Second order differential equation; <span class="process-math">\(y(x)=e^{2x}\)</span></p></li>
+</ol></div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-75" id="solution-75"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-75"><div class="solution solution-like"><ol id="p-616" class="lower-alpha">
+<li id="li-128">
+<p id="p-617">Because this equation only involves the first derivative of the function it is a first order differential equation. Next, since the differential equation is of the form</p>
+<div class="displaymath process-math" id="p-618">
 \begin{equation*}
-\frac{dy}{dx}=f(x) 
+\frac{dy}{dx}=f(x)
 \end{equation*}
 </div>
 <p class="continuation">we can solve it by simple anti-differentiation. Thus</p>
@@ -389,80 +376,56 @@ y''-2y'=0
 y(x)=\int x \hspace{2mm} dx =\frac{1}{2}x^2+C 
 \end{equation*}
 </div>
-<p class="continuation">Note that this solution is the general solution to the DE, it is a description of all possible solutions to the equation. As shown in Figure 9.1.11., when we graph all of the functions in this general solution they fill the entire plane but there are no points of intersection. <figure class="figure figure-like" id="figure-57"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="./DifferentialEquations/Images/1/1_example6.png" class="contained"></div>
+<p class="continuation">Note that this solution is the general solution to the DE, it is a description of all possible solutions to the equation. As shown in <a href="" class="xref" data-knowl="./knowl/Fig_1_example6.html" title="Figure 9.1.11">Figure 9.1.11</a>, when we graph all of the functions in this general solution they fill the entire plane but there are no points of intersection. <figure class="figure figure-like" id="Fig_1_example6"><div class="image-box" style="width: 75%; margin-left: 12.5%; margin-right: 12.5%;"><img src="./DifferentialEquations/Images/1/1_example6.png" class="contained"></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">9.1.11<span class="period">.</span></span><span class="space"> </span></figcaption></figure> A solution with a given value of <span class="process-math">\(C\)</span> would be a particular solution of the DE, for example</p>
 <div class="displaymath process-math">
 \begin{equation*}
 y(x)=\frac{1}{2}x^2+1 
 \end{equation*}
 </div>
-<p class="continuation">This particular solution is highlighted in Figure 9.1.11.</p>
+<p class="continuation">This particular solution is highlighted in <a href="" class="xref" data-knowl="./knowl/Fig_1_example6.html" title="Figure 9.1.11">Figure 9.1.11</a>.</p>
 </li>
-<li id="li-117">
-<p id="p-582">Again this is a first order DE since the highest derivative in the equation is a first derivative. In this case we can’t solve the equation via anti-differentiation. However, given that the equation says that the function must be such that its derivative must be equal to the negative of itself it would be reasonable to guess that the function must be an exponential function. For <span class="process-math">\(y(x)=e^x\)</span> we can see that</p>
-<div class="displaymath process-math">
+<li id="li-129"><p id="p-derived-li-129">Again this is a first order DE since the highest derivative in the equation is a first derivative. In this case we can't solve the equation via anti-differentiation. However, given that the equation says that the function must be such that its derivative must be equal to the negative of itself it would be reasonable to guess that the function must be an exponential function. For <span class="process-math">\(y(x)=e^x\)</span> we can see that<div class="displaymath process-math">
 \begin{equation*}
 y'=e^x=y
 \end{equation*}
-</div>
-<p class="continuation">and so try instead <span class="process-math">\(y(x)=e^{-x}\text{.}\)</span> Then</p>
-<div class="displaymath process-math">
+</div>and so try instead <span class="process-math">\(y(x)=e^{-x}\text{.}\)</span> Then<div class="displaymath process-math">
 \begin{equation*}
 y'=-e^{-x}=-y
 \end{equation*}
-</div>
-<p class="continuation">and so we have found a (particular) solution.</p>
-</li>
-<li id="li-118">
-<p id="p-583">This DE contains a second derivative and hence is of order 2. Again we can find a solution by simple anti-differentiation. Since</p>
-<div class="displaymath process-math">
+</div>and so we have found a (particular) solution.</p></li>
+<li id="li-130"><p id="p-derived-li-130">This DE contains a second derivative and hence is of order 2. Again we can find a solution by simple anti-differentiation. Since<div class="displaymath process-math">
 \begin{equation*}
 \frac{d^2y}{dx^2}=-x
 \end{equation*}
-</div>
-<p class="continuation">by anti-differentiating we obtain</p>
-<div class="displaymath process-math">
+</div>by anti-differentiating we obtain<div class="displaymath process-math">
 \begin{equation*}
 \frac{dy}{dx}=\int -x \hspace{2mm} dx=-\frac{1}{2}x^2+A
 \end{equation*}
-</div>
-<p class="continuation">and on anti-differentiating again</p>
-<div class="displaymath process-math">
+</div>and on anti-differentiating again<div class="displaymath process-math">
 \begin{equation*}
 y(x)=\int -\frac{1}{2}x^2+A \hspace{2mm} dx=-\frac{1}{6}x^3+Ax+B
 \end{equation*}
-</div>
-<p class="continuation">This is the general solution to the DE. Notice that this 2nd order DE has two arbitrary constants in its general solution.</p>
-</li>
-<li id="li-119">
-<p id="p-584">This DE is also a 2nd order DE but we can’t get the solution by anti-differentiation. Thus (at this stage) we have to try to guess. What function is the negative of its second derivative? We could try an exponential function (as we did in part b), i.e.</p>
-<div class="displaymath process-math">
+</div>This is the general solution to the DE. Notice that this 2nd order DE has two arbitrary constants in its general solution.</p></li>
+<li id="li-131"><p id="p-derived-li-131">This DE is also a 2nd order DE but we can't get the solution by anti-differentiation. Thus (at this stage) we have to try to guess. What function is the negative of its second derivative? We could try an exponential function (as we did in part <span class="process-math">\((b)\)</span>), i.e.<div class="displaymath process-math">
 \begin{equation*}
 y(x)=e^{-x}
 \end{equation*}
-</div>
-<p class="continuation">Then <span class="process-math">\(y''=e^{-x}=y\)</span> which isn’t quite what we wanted. Another possible candidate would be the sine or cosine function. So let us now try</p>
-<div class="displaymath process-math">
+</div>Then <span class="process-math">\(y''=e^{-x}=y\)</span> which isn't quite what we wanted. Another possible candidate would be the sine or cosine function. So let us now try<div class="displaymath process-math">
 \begin{equation*}
 y(x)=\sin(x)
 \end{equation*}
-</div>
-<p class="continuation">Then <span class="process-math">\(y''=-\sin(x)=-y\)</span> which is what we wanted and so we have found a solution.</p>
-</li>
-<li id="li-120">
-<p id="p-585">This DE contains both the first and second derivative. However since the highest derivative is the second derivative this equation is a 2nd order DE. The most obvious candidate for a solution to this DE would be an exponential function so let’s try</p>
-<div class="displaymath process-math">
+</div>Then <span class="process-math">\(y''=-\sin(x)=-y\)</span> which is what we wanted and so we have found a solution.</p></li>
+<li id="li-132"><p id="p-derived-li-132">This DE contains both the first and second derivative. However since the highest derivative is the second derivative this equation is a 2nd order DE. The most obvious candidate for a solution to this DE would be an exponential function so let's try<div class="displaymath process-math">
 \begin{equation*}
 y(x)=e^{2x}
 \end{equation*}
-</div>
-<p class="continuation">In this case <span class="process-math">\(y'=2e^{2x}\)</span> and <span class="process-math">\(y''=4e^{2x}\)</span> and hence <span class="process-math">\(y''-2y'=0\text{.}\)</span> Thus we have found one solution to the DE.</p>
-</li>
+</div>In this case <span class="process-math">\(y'=2e^{2x}\)</span> and <span class="process-math">\(y''=4e^{2x}\)</span> and hence <span class="process-math">\(y''-2y'=0\text{.}\)</span> Thus we have found one solution to the DE.</p></li>
 </ol></div></div></article></div>
-<p id="p-586">In general a differential equation will have infinitely many solutions. These solutions take the form of a family of functions containing some arbitrary constants. In practical problems, we usually want to select one function out of this infinite family of functions. We do this by specifying additional data, often in the form of initial values for the function and, if appropriate, its derivatives. We call such a problem an <dfn class="terminology">initial-value problem</dfn>.</p>
+<p id="p-619">In general a differential equation will have infinitely many solutions. These solutions take the form of a family of functions containing some arbitrary constants. In practical problems, we usually want to select one function out of this infinite family of functions. We do this by specifying additional data, often in the form of initial values for the function and, if appropriate, its derivatives. We call such a problem an <dfn class="terminology">initial-value problem</dfn>.</p>
 <article class="example example-like" id="example-92"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-92"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">9.1.12</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-92"><article class="example example-like"><p id="p-587">The differential equation <span class="process-math">\(y'=-y\)</span> has the general solution</p>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-92"><article class="example example-like"><p id="p-620">The differential equation <span class="process-math">\(y'=-y\)</span> has the general solution</p>
 <div class="displaymath process-math">
 \begin{equation*}
 y=Ae^{-x}\text{.}
@@ -475,14 +438,14 @@ y'=-y, \hspace{5mm} y(0)=5
 \end{equation*}
 </div>
 <a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-76" id="solution-76"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-76"><div class="solution solution-like">
-<p id="p-588">To confirm that all of the functions <span class="process-math">\(y=Ae^{-x}\)</span> are solutions we just need to show that these functions satisfy the equation. Now</p>
+<p id="p-621">To confirm that all of the functions <span class="process-math">\(y=Ae^{-x}\)</span> are solutions we just need to show that these functions satisfy the equation. Now</p>
 <div class="displaymath process-math">
 \begin{equation*}
 LHS=y'=-Ae^{-x}=-y=RHS\text{,}
 \end{equation*}
 </div>
 <p class="continuation">and so they are solutions.</p>
-<p id="p-589">To solve the initial-value problem we have to find the value of <span class="process-math">\(A\)</span> that ensures that the solution satisfies the initial condition. Now if <span class="process-math">\(y(0)=5\)</span> then</p>
+<p id="p-622">To solve the initial-value problem we have to find the value of <span class="process-math">\(A\)</span> that ensures that the solution satisfies the initial condition. Now if <span class="process-math">\(y(0)=5\)</span> then</p>
 <div class="displaymath process-math">
 \begin{equation*}
 5=Ae^{-0}=A\text{.}
@@ -499,7 +462,7 @@ y(x)=5e^{-x}\text{.}
 <span class="type">Exercises</span> <span class="codenumber"></span> <span class="title">Example Tasks</span>
 </h3>
 <article class="exercise exercise-like" id="exercise-56"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
-<p id="p-590">Determine the value (if any) of the constants <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> such that</p>
+<p id="p-623">Determine the value (if any) of the constants <span class="process-math">\(A\)</span> and <span class="process-math">\(B\)</span> such that</p>
 <div class="displaymath process-math">
 \begin{equation*}
 y(x)=A\cos(4x)+B\sin(4x)
@@ -509,7 +472,7 @@ y(x)=A\cos(4x)+B\sin(4x)
 y''-2y=\sin(4x)
 \end{equation*}
 </div></article><article class="exercise exercise-like" id="exercise-57"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
-<p id="p-591">Guess a solution to the DE <span class="process-math">\(y''+2y=0\text{.}\)</span></p></article></section></section></div></main>
+<p id="p-624">Guess a solution to the DE <span class="process-math">\(y''+2y=0\text{.}\)</span></p></article></section></section></div></main>
 </div>
 </body>
 </html>

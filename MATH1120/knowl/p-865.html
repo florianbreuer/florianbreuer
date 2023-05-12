@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-01-07T17:22:33+11:00       *-->
+<!--*       on 2022-10-28T21:06:56+11:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -14,9 +14,26 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h5 class="heading"><span class="type">Paragraph</span></h5>
-<p>A beam that is fixed rigidly at one end and designed to support a load at the other end is called a <dfn xmlns:svg="http://www.w3.org/2000/svg" class="terminology">cantilever</dfn>. If the cantilever is designed only to deflect a "small" amount under its load then it is reasonable to assume that the size of the deflection of the tip of the cantilever is proportional to the load applied. When such a cantilever is deflected beyond (or less than) its equilibrium position the cantilever exerts a restoring force toward the equilibrium position. So long as the deflection is reasonably small and the mass of the object is large compared to the mass of the cantilever this restoring force is proportional to the deflection. Show that the resulting motion of the tip of the cantilever can be modelled under these assumptions via a homogeneous 2nd order linear DE. <figure class="figure figure-like"><div xmlns:svg="http://www.w3.org/2000/svg" class="image-box" style="width: 40%; margin-left: 30%; margin-right: 30%;"><img src="./DifferentialEquations/Images/6/figure_cantilever.png" class="contained"></div>
-<figcaption xmlns:svg="http://www.w3.org/2000/svg"><span class="type">Figure</span><span class="space"> </span><span class="codenumber">14.3.3<span class="period">.</span></span><span class="space"> </span></figcaption></figure></p>
-<span class="incontext"><a href="Adding_an_External_Force.html#p-865">in-context</a></span>
+<h4 class="heading"><span class="type">Paragraph</span></h4>
+<p>For <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(x_p(t)\)</span> to be a solution</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+x_p''+6x_p'+8x_p=8\sin(2t)
+\end{equation*}
+</div>
+<p class="continuation">and so, on substituting</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+(-4C_1\sin(2t)-4C_2\cos(2t))+6(2C_1\cos(2t)-2C_2\sin(2t))+8(C_1\sin(2t)+C_2\cos(2t)) = 8\sin(2t)
+\end{equation*}
+</div>
+<p class="continuation">which simplifies to</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+(4C_1-12C_2)\sin(2t)+(12C_1+4C_2)\cos(2t) = 8\sin(2t)
+\end{equation*}
+</div>
+<p class="continuation">Equating coefficients on each side of the equation gives</p>
+<span class="incontext"><a href="The_Method_of_Undetermined_Coefficients.html#p-865">in-context</a></span>
 </body>
 </html>

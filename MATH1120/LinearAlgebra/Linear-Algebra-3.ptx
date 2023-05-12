@@ -47,13 +47,7 @@
 
         <!-- </frontmatter> -->
 
-        <!-- <introduction>
-            <p>This is a short paragraph to introduce the article (but it is not the abstract).  It is optional, in case it would be preferable to have the first section be titled an <q>Introduction.</q></p>
-        </introduction> -->
-<!-- =================================================================================================== -->
-        <section xml:id="Sec-Linear_Algebra_Intro">
-            <title>Introduction</title>
-
+        <introduction>
             <p>We introduced matrices when discussing systems of linear equations. Recall that an <m>m \times n</m> matrix is a rectangular array of numbers, written in the form
                 <me>
                     \begin{pmatrix}
@@ -71,7 +65,6 @@
             <p>In the context of systems of linear equations the main concept was row reducing a matrix to produce equivalent matrices. In different contexts, however, other operations on matrices have proved useful and we shall discuss these operations below. Before doing this, though, we will introduce some new terminology.</p>
 
             <definition>
-                <title>Equal matrices</title>
                 <statement>
                     Two matrices are said to be <term>equal</term> if they are of the same size and all corresponding entries are equal.
                 </statement>
@@ -81,16 +74,24 @@
             <example xml:id="Ex-Matrix_equality">
                 <statement>
                     <p>
-                        Let <m>A = \begin{pmatrix}5 \amp 0 \amp 1\\ -3 \amp \sqrt{2} \amp 1/2\end{pmatrix}, \quad B = \begin{pmatrix}5 \amp -3 \\ 0 \amp \sqrt{2} \\ 1 \amp 1/2\end{pmatrix}, \quad C = \begin{pmatrix} 5 \amp 0 \amp 1\\ -3 \amp a \amp b\end{pmatrix}.</m>
+                        Let <m>A = \begin{pmatrix}5 \amp 0 \amp 1\\ -3 \amp \sqrt{2} \amp \frac{1}{2}\end{pmatrix}, \quad B = \begin{pmatrix}5 \amp -3 \\ 0 \amp \sqrt{2} \\ 1 \amp \frac{1}{2}\end{pmatrix}, \quad C = \begin{pmatrix} 5 \amp 0 \amp 1\\ -3 \amp a \amp b\end{pmatrix}.</m>
                         <ol label="a">
                             <li>For what values of <m>a</m> and <m>b</m> does <m>A=C</m>?</li>
                             <li>For what values of <m>a</m> and <m>b</m> does <m>B=C</m>?</li>
                         </ol>
                     </p>
                 </statement>
+                <answer>
+                <p>
+                <ol label="a">
+                    <li><m>a=\sqrt{2}</m> and <m>b=\dfrac{1}{2}</m></li>
+                    <li>None.</li>
+                </ol>
+                </p>
+                </answer>
                 <solution>
                     <ol label="a">
-                        <li>Since <m>A</m> and <m>C</m> are of the same size, the matrices will be equal when <m>a=\sqrt{2}</m> and <m>b=1/2</m>.</li>
+                        <li>Since <m>A</m> and <m>C</m> are of the same size, the matrices will be equal when <m>a=\sqrt{2}</m> and <m>b=\dfrac{1}{2}</m>.</li>
                         <li>Since <m>B</m> and <m>C</m> are not the same size they can never be equal.</li>
                     </ol>
                 </solution>
@@ -98,7 +99,6 @@
 
 
             <definition>
-                <title>Zero matrix</title>
                 <statement>
                     The <term>zero <m>m \times n</m> matrix</term> is the <m>m \times n</m>  matrix with all entries <m>0</m>, i.e.
                     <me>
@@ -115,7 +115,6 @@
             <p>Note that by using the symbol <m>0</m> to denote the zero matrix we have to tell from the context whether the <m>0</m> refers to a number or a matrix.</p>
 
             <definition>
-                <title>Transpose</title>
                 <statement>
                     For the matrix <m>A=(a_{ij})_{m \times n}</m>, its <term>transpose</term>, denoted by <m>A^T</m>, is defined by <m>A^T = \left(a_{ji}\right)_{n \times m}</m>.
                 </statement>
@@ -127,21 +126,20 @@
             <example xml:id="Ex-Transpose">
                 <statement>
                     <p>
-                        Let <me>B = \begin{pmatrix}5 \amp -3 \\ 0 \amp \sqrt{2} \\ 1 \amp 1/2\end{pmatrix}, \quad C = \begin{pmatrix} 5 \amp 0 \amp 1\\ -3 \amp a \amp b\end{pmatrix}.</me>
+                        Let <me>B = \begin{pmatrix}5 \amp -3 \\ 0 \amp \sqrt{2} \\ 1 \amp \frac{1}{2}\end{pmatrix}, \quad C = \begin{pmatrix} 5 \amp 0 \amp 1\\ -3 \amp a \amp b\end{pmatrix}.</me>
                         For what values of <m>a</m> and <m>b</m> does <m>B^T=C</m>?
                     </p>
                 </statement>
                 <answer>
-                    <m>a=\sqrt{2}, \ b=1/2</m>
+                    <m>a=\sqrt{2}, \ b=\dfrac{1}{2}</m>
                 </answer>
                 <solution>
-                    Since <m>B^T = \begin{pmatrix} 5 \amp 0 \amp 1\\ -3 \amp \sqrt{2} \amp 1/2\end{pmatrix}</m>, <m>B^T = C</m> when <m>a=\sqrt{2}</m> and <m>b=1/2</m>.
+                    Since <m>B^T = \begin{pmatrix} 5 \amp 0 \amp 1\\ -3 \amp \sqrt{2} \amp \frac{1}{2}\end{pmatrix}</m>, <m>B^T = C</m> when <m>a=\sqrt{2}</m> and <m>b=\frac{1}{2}</m>.
                 </solution>
             </example>
 
 
             <definition>
-                <title>Square matrix</title>
                 <statement>
                     A <term>square matrix</term> is a matrix that has the same number of rows and columns.
                 </statement>
@@ -152,7 +150,7 @@
                 <statement>
                     <p>
                         Matrix <m>A</m> is a square matrix whereas matrix <m>B</m> is not.
-                        <me>A = \begin{pmatrix}-1 \amp 3 \amp 4\\ 5 \amp 0 \amp -2 \\ 3 \amp 1/3 \amp 6 \end{pmatrix}, \quad B = \begin{pmatrix} -1 \amp 3 \\ 5 \amp 0 \\ 3 \amp 1/3\end{pmatrix}</me>
+                        <me>A = \begin{pmatrix}-1 \amp 3 \amp 4\\ 5 \amp 0 \amp -2 \\ 3 \amp \frac{1}{3} \amp 6 \end{pmatrix}, \quad B = \begin{pmatrix} -1 \amp 3 \\ 5 \amp 0 \\ 3 \amp \frac{1}{3}\end{pmatrix}</me>
                     </p>
                 </statement>
             </example>
@@ -160,7 +158,6 @@
 
 
             <definition>
-                <title>Identity matrix</title>
                 <statement>
                     The <term><m>n \times n</m> identity matrix</term>, <term><m>I_n</m></term>, is the matrix with <m>n</m> rows and <m>n</m> columns with all entries on the main diagonal equal to <m>1</m> and all other entries <m>0</m>, i.e.
                     <me>
@@ -175,10 +172,10 @@
             </definition>
 
             <p>Often, when the size of the identity matrix is clear the subscript is dropped from the notation and the identity matrix is denoted just by <m>I</m>.</p>
-
-        </section>
-
-
+            
+        </introduction>
+<!-- =================================================================================================== -->
+        
 
 <!-- =================================================================================================== -->
 <!-- Section 1: Partial Differentiation -->
@@ -220,9 +217,10 @@
                         </li>
                         <li><m>B^T + A = \begin{pmatrix} 5 \amp 9 \amp 4 \\ 3 \amp 2 \amp 3\end{pmatrix} + \begin{pmatrix} 1 \amp 2 \amp 3\\ 4 \amp 3 \amp 2\end{pmatrix} =  \begin{pmatrix} 6 \amp 11 \amp 7\\ 7 \amp 5 \amp 5\end{pmatrix}</m>. Since this is a <m>2 \times 3</m>  matrix there is no entry in row <m>3</m>, column <m>1</m>.</li>
                     </ol>
-                    <p>From the definitions of matrix addition and scalar multiplication the following general properties can be shown.</p>
                 </solution>
             </example>
+
+            <p>From the definitions of matrix addition and scalar multiplication the following general properties can be shown.</p>
 
 
             <theorem>
@@ -231,10 +229,10 @@
                         <p>
                         Let <m>A</m>, <m>B</m> and <m>C</m> be matrices of the same size. Then
                         <dl>
-                            <li><title>(A1)</title> <m>A+B = B+A \qquad </m> (Commutative Law)</li>
-                            <li><title>(A2)</title> <m>(A+B)+C = A+(B+C)  \qquad </m>(Associative Law)</li>
-                            <li><title>(A3)</title> <m>A+0 = A \qquad </m> (Identity Law)</li>
-                            <li><title>(A4)</title> <m>A+(-A) = 0 \qquad </m> (Inverse Law)</li>
+                            <li><title>(A1)</title> <m>A+B = B+A \hspace{32mm}</m> (Commutative Law)</li>
+                            <li><title>(A2)</title> <m>(A+B)+C = A+(B+C) \hspace{10mm}</m>(Associative Law)</li>
+                            <li><title>(A3)</title> <m>A+0 = A \hspace{57mm}</m> (Identity Law)</li>
+                            <li><title>(A4)</title> <m>A+(-A) = 0 \hspace{50mm}</m> (Inverse Law)</li>
                             <li><title>(S1)</title> <m>k(A+B) = kA+kB</m> </li>
                             <li><title>(S2)</title> <m>(k_1 + k_2)A= k_1A + k_2A</m> </li>
                             <li><title>(S3)</title> <m>k_1(k_2A) = (k_1k_2)A</m> </li>
@@ -280,7 +278,6 @@
             <title>Matrix Multiplication</title>
 
             <definition>
-                <title>Matrix multiplication</title>
                 <statement>
                     Let <m>A=\left(a_{ij}\right)_{m \times n}</m> and <m>B = \left(b_{ij}\right)_{n \times p}</m>. Then <term>matrix multiplication</term> is defined by
                     <me>AB = \left(\sum_{k=1}^n a_{ik}b_{kj}\right)_{m \times p}.</me>
@@ -375,11 +372,11 @@
                         <p>
                         Let <m>A</m>, <m>B</m> and <m>C</m> be appropriately sized matrices. Then
                         <ol label="(1)">
-                            <li><m>A(BC)=(AB)C \qquad</m> (Associative Law)</li>
-                            <li><m>A(B+C) = AB + AC \qquad</m> (Left Distributive Law)</li>
-                            <li><m>(A+B)C = AC + BC \qquad</m> (Right Distributive Law)</li>
+                            <li><m>A(BC)=(AB)C \hspace{55mm}</m> (Associative Law)</li>
+                            <li><m>A(B+C) = AB + AC \hspace{42mm}</m> (Left Distributive Law)</li>
+                            <li><m>(A+B)C = AC + BC \hspace{42mm}</m> (Right Distributive Law)</li>
                             <li><m>k(AB) = (kA)B = A(kB)</m></li>
-                            <li><m>I_mA = A = AI_n</m> if <m>A</m> is an <m>m \times n</m> matrix <m>\quad</m> (Identity Law)</li>
+                            <li><m>I_mA = A = AI_n</m> if <m>A</m> is an <m>m \times n</m> matrix<m>\hspace{5mm}</m> (Identity Law)</li>
                         </ol>
                         </p>
                     </statement>
@@ -394,9 +391,9 @@
                         <ol label="(1)">
                             <li><m>(A^T)^T = A</m> </li>
                             <li><m>(A+B)^T = A^T + B^T </m> </li>
-                            <li><m>(kA)^T = k A^T </m> </li>
+                            <li><m>(kA)^T = k(A^T) </m> </li>
                             <li><m>(AB)^T = B^TA^T </m> </li>
-                            <li><m>(A^r)^T = (A^T)^r </m> where <m>r \in \mathbb{Z}^{+}</m>.</li>
+                            <li><m>(A^r)^T = (A^T)^r </m> where <m>r \in \mathbb{N}</m>.</li>
                         </ol>
                         </p>
                     </statement>
@@ -615,7 +612,7 @@
                 <title>Example Tasks</title>
                 <exercise>
                     <statement>
-                        <p>Which vectors are mapped to <m>\begin{pmatrix} 1 \amp 1 \amp 0 \end{pmatrix}^T</m> under the transformation whose matrix is <me>\begin{pmatrix} 1 \amp 2 \amp -1 \\ 0 \amp -1 \amp 2 \\ 2 \amp 3 \amp 0 \end{pmatrix} \text{?}</me>
+                        <p>Which vectors are mapped to <m>\begin{pmatrix} 1 \amp 1 \amp 0 \end{pmatrix}^T</m> under the transformation whose matrix is <me>\begin{pmatrix} 1 \amp 2 \amp -1 \\ 0 \amp -1 \amp 2 \\ 2 \amp 3 \amp 0 \end{pmatrix}\</me>.
                         </p>
                     </statement>
                 </exercise>

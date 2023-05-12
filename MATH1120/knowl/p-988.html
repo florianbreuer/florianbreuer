@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-01-07T17:22:43+11:00       *-->
+<!--*       on 2022-10-28T21:07:10+11:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,25 +15,55 @@
 </head>
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
-<p>Firstly note that the vectors in this set are <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(3\)</span>-dimensional vectors and hence the vectors in the span will also be <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(3\)</span>-dimensional. Now, the span of the set <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\{\mathbf{v_1, v_2}\}\)</span> is the set of vectors <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\mathbf{u}\)</span> of the form</p>
+<ol class="lower-alpha">
+<li>
+<p>This matrix is in reduced row-echelon form. The system of equations represented by this matrix is</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{align*}
+x+3z \amp =2\\
+y-z \amp =-3\\
+0 \amp =0
+\end{align*}
+</div>
+<p class="continuation">The third equation in this system is satisfied no matter what values we choose for <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(x\text{,}\)</span> <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(y\)</span> and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(z\text{.}\)</span> Once we choose a value for <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(z\)</span> (say) then from the first two equations we can determine the values for <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(x\)</span> and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(y\)</span> as</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{align*}
+x \amp =2-3z\\
+y \amp =-3+z
+\end{align*}
+</div>
+<p class="continuation">Thus this system of equations has an infinite number of solutions given by</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
 \begin{equation*}
-\mathbf{u}=x \begin{pmatrix} 2 \\ 2 \\ 1 \end{pmatrix} +y \begin{pmatrix} -3 \\ 2 \\ -1 \end{pmatrix}
+(x,y,z)=(2-3t,-3+t,t)
 \end{equation*}
 </div>
-<p class="continuation">We recognise this as the vector equation of the plane through the origin and with direction vectors <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\mathbf{v_1}\)</span> and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\mathbf{v_2}\text{,}\)</span> as shown in <a href="" class="xref" data-knowl="./knowl/Fig-Vector_equation_of_plane.html" title="Figure 16.2.9">Figure 16.2.9</a>. <figure class="figure figure-like"><div xmlns:svg="http://www.w3.org/2000/svg" class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="./LinearAlgebra/Images/2/figure5.png" class="contained"></div>
-<figcaption xmlns:svg="http://www.w3.org/2000/svg"><span class="type">Figure</span><span class="space"> </span><span class="codenumber">16.2.9<span class="period">.</span></span><span class="space"> </span></figcaption></figure> Recall that the normal to this plane (shown in blue in <a href="" class="xref" data-knowl="./knowl/Fig-Vector_equation_of_plane.html" title="Figure 16.2.9">Figure 16.2.9</a>) is given by <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\mathbf{n=v_1\times v_2}\)</span> and so here (using the column vector notation) is</p>
+<p class="continuation">or</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
 \begin{equation*}
-\mathbf{n}=\begin{pmatrix} -4 \\ -1 \\ 10 \end{pmatrix}
+(x,y,z)=(2,-3,0)+t(-3,1,1)
 \end{equation*}
 </div>
-<p class="continuation">Thus the Cartesian equation of this plane is</p>
+</li>
+<li><p>This matrix isn't in row-echelon form (and hence not in reduced row-echelon form either) since the leading entry in row <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(3\)</span> occurs to the left of the leading entry is row <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(2\text{.}\)</span></p></li>
+<li>
+<p>This matrix is in row-echelon form but not reduced row-echelon form. Notice that in this case we can tell that the associated system of linear equations is inconsistent even though the matrix is not in reduced row-echelon form. The fourth equation in this system is</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
 \begin{equation*}
--4x-y+10z=0
+0=6
 \end{equation*}
 </div>
-<span class="incontext"><a href="Interpretation_Via_Columns.html#p-988">in-context</a></span>
+<p class="continuation">and this cannot be satisfied no matter which values of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(x\text{,}\)</span> <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(y\)</span> and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(z\)</span> we choose.</p>
+</li>
+<li>
+<p>This matrix is in reduced row-echelon form and the solution of the associated systems of linear equations is</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+(x,y,z)=(1,2,-1)
+\end{equation*}
+</div>
+</li>
+</ol>
+<span class="incontext"><a href="Sec-LA_Solving_Systems_of_Linear_Equations.html#p-988">in-context</a></span>
 </body>
 </html>

@@ -84,7 +84,7 @@
 
     <section xml:id="Sec-Multivariable-chain-rules">
         <!-- =================================================================================================== -->
-        <!-- Section 1: Multivariable Chain Rules-->
+        <!-- Section 2: Multivariable Chain Rules-->
         <!-- =================================================================================================== -->
         <title>Multivariable Chain Rules</title>
         <p>Begin by considering the case where <m>z=z(x,y)</m> and <m>x=x(t)</m>, <m>y=y(t)</m>. In this case we can think of <m>z</m> as defining a real valued function <m>z=z(t)</m>.</p>
@@ -93,12 +93,12 @@
             <statement><p>If <m>z=x^2+2xy+3y^2</m> and <m>x=t+1</m>, <m>y=t-1</m> then find <m>z'(t)</m> by substituting the expressions for <m>x</m> and <m>y</m> into <m>z</m> and then differentiating.</p></statement>
             <answer><p><m>\dfrac{dz}{dt} = 12t-4</m></p></answer>
             <solution>
-                <p>On substituting <m>x</m> and <m>x</m> into <m>z</m>
+                <p>On substituting <m>x</m> and <m>y</m> into <m>z</m>
                     <md alignment="alignat">
                         <mrow>z(t) \amp = (t+1)^2 + 2(t+1)(t-1)+3(t-1)^2</mrow>
                         <mrow>\quad \amp = 6t^2-4t+2</mrow>
                     </md>
-                    Thus <me>\dfrac{dz}{dt} = 12-4.</me>
+                    Thus <me>\dfrac{dz}{dt} = 12t-4.</me>
                 </p>
             </solution>
         </example>
@@ -238,7 +238,7 @@
     <example xml:id="Ex-Chain_rule_3_sample">
         <statement><p>Use the appropriate chain rules to find <m>\dfrac{\partial z}{\partial s}</m> and <m>\dfrac{\partial z}{\partial t}</m> when <me>z = \dfrac{x}{y} \text{ and } x = se^t, \quad y = 1+se^{-t}.</me></p></statement>
         <answer><p><m>\dfrac{\partial z}{\partial s} = \dfrac{e^t}{(1+se^{-t})^2}</m></p>
-                <p><m>\dfrac{\partial z}{\partial y} = \dfrac{se^t+2s^2}{(1+se^{-t})^2}</m></p>
+                <p><m>\dfrac{\partial z}{\partial t} = \dfrac{se^t+2s^2}{(1+se^{-t})^2}</m></p>
         </answer>
         <solution>
             <p>Here
@@ -348,15 +348,15 @@
         </solution>
     </example>
 
-    <p>To use the chain rules to find a formula for <m>\dfrac{dy}{dx}</m> for the function implicitly defined by the equation <men xml:id="Eqn-Implicit_function"> F(x,y)=0</men> let <me>z=F(x,y) \text{ and }  x=x(t), \quad y=y(t).</me> Thus we can think of <m>F</m> as being a function of the one variable <m>t</m>, and so, by Chain Rule 1, <me>\dfrac{dz}{dt} = \dfrac{\partial F}{\partial x}\dfrac{dx}{dt} + \dfrac{\partial F}{\partial y}\dfrac{dy}{dt}.</me> Now we are thinking of equation <xref ref="Eqn-Implicit_function"/> as defining a function of one variable <m>y=y(x)</m>, so let <m>x=t</m> and <m>y=y(t)</m> and hence <men>\dfrac{dz}{dt} = \dfrac{\partial F}{\partial x}\times (1) + \dfrac{\partial F}{\partial y}\dfrac{dy}{dt} = F_x + F_y \dfrac{dy}{dt}.</men>
+    <p>To use the chain rules to find a formula for <m>\dfrac{dy}{dx}</m> for the function implicitly defined by the equation <men xml:id="Eqn-Implicit_function"> F(x,y)=0</men> let <me>z=F(x,y) \text{ and }  x=x(t), \quad y=y(t).</me> Thus we can think of <m>F</m> as being a function of the one variable <m>t</m>, and so, by Chain Rule 1, <me>\dfrac{dz}{dt} = \dfrac{\partial F}{\partial x}\dfrac{dx}{dt} + \dfrac{\partial F}{\partial y}\dfrac{dy}{dt}.</me> Now we are thinking of equation <xref ref="Eqn-Implicit_function"/> as defining a function of one variable <m>y=y(x)</m>, so let <m>x=x</m> and <m>y=y(x)</m> and hence <men>\dfrac{dz}{dx} = \dfrac{\partial F}{\partial x}\times (1) + \dfrac{\partial F}{\partial y}\dfrac{dy}{dx} = F_x + F_y \dfrac{dy}{dx}.</men>
     </p>
     <p>
-        Returning to equation <xref ref="Eqn-Implicit_function"/>, on differentiating both sides with respect to <m>t</m>, we obtain
+        Returning to equation <xref ref="Eqn-Implicit_function"/>, on differentiating both sides with respect to <m>x</m>, we obtain
         <md alignment="alignat">
-            <mrow>\dfrac{dz}{dt} \amp= \dfrac{d}{dt}(0)</mrow>
-            <mrow>F_x + F_y \dfrac{dy}{dt} \amp = 0.</mrow>
+            <mrow>\dfrac{dz}{dx} \amp= \dfrac{d}{dx}(0)</mrow>
+            <mrow>F_x + F_y \dfrac{dy}{dx} \amp = 0.</mrow>
         </md>
-        Of course <m>x=t</m> so <m>\dfrac{dy}{dx} = \dfrac{dy}{dt}</m> from which we obtain, provided <m>F_y \neq 0</m>, <me>\dfrac{dy}{dx} = -\dfrac{F_x}{F_y}.</me>
+        from which we obtain, provided <m>F_y\neq 0</m>, <me>\dfrac{dy}{dx} = -\dfrac{F_x}{F_y}.</me>
     </p>
 
     <p>Thus we can find a formula for <m>\dfrac{dy}{dx}</m> via partial differentiation as opposed to implicit differentiation. In summary:</p>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-01-07T17:22:25+11:00       *-->
+<!--*       on 2022-10-28T21:06:40+11:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,7 +15,54 @@
 </head>
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
-<p>where <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(P(x)\neq 0 \)</span> is called a <dfn xmlns:svg="http://www.w3.org/2000/svg" class="terminology">homogeneous second order linear DE.</dfn></p>
-<span class="incontext"><a href="Homogeneous_Second_Order_Linear_DEs_With_Constant_Coefficients.html#p-749">in-context</a></span>
+<ol class="lower-alpha">
+<li><p>Let <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(Q(t)\)</span> be the amount (in milligrams) of thorium <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(234\)</span> present at time <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(t\)</span> (in days). Then<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\dfrac{dQ}{dt} = -kQ\text{,}
+\end{equation*}
+</div>where <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(k\)</span> is a positive constant and<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+Q(0) = 100, Q(7) = 82.04\text{.}
+\end{equation*}
+</div>The DE is separable but if we write it as<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\dfrac{dQ}{dt} + kQ = 0\text{,}
+\end{equation*}
+</div>then we see that it is also linear. The integrating factor is<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+I(t) = e^{\int k \, dt} = e^{kt}\text{.}
+\end{equation*}
+</div>Multiplying both sides by this integrating factor gives<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\dfrac{d}{dt} \left( e^{kt} Q \right) = 0\text{,}
+\end{equation*}
+</div>and hence the general solution is<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+Q(t) = Ae^{-kt}\text{.}
+\end{equation*}
+</div>Using <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(Q(0) = 100\)</span> gives <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(A = 100\)</span> and from <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(Q(7) = 82.04\)</span> we obtain<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+82.04 = 100 e^{7k}
+\end{equation*}
+</div>from which<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+k = \dfrac{\ln (0.8204)}{7} = 0.0283 \: (\text{ to 4 dp})\text{.}
+\end{equation*}
+</div>Thus<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+Q(t) = 100 e^{-0.0283t}\text{.}
+\end{equation*}
+</div></p></li>
+<li><p>The time when the amount of isotope has decayed to <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(50\)</span> milligrams is the value of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(t\)</span> that satifies<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+50 = 100 e^{-kt}\text{,}
+\end{equation*}
+</div>which is<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+t = \dfrac{\ln(0.5)}{-k} = \dfrac{\ln(2)}{k} \approx 24.5 \, \text{ days}\text{.}
+\end{equation*}
+</div></p></li>
+</ol>
+<span class="incontext"><a href="Simple_Applications_of_First_Order_Linear_DEs.html#p-749">in-context</a></span>
 </body>
 </html>

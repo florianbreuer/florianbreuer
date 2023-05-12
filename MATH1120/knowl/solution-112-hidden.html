@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-01-07T17:22:35+11:00       *-->
+<!--*       on 2022-10-28T21:06:54+11:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -14,26 +14,18 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math"><div class="solution solution-like">
-<p>Multiplying the first equation by <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(2\)</span> and then subtracting this from the second equation gives <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(0=0\text{.}\)</span> This tells us that any values of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(x\)</span> and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(y\)</span> that satisfy the first equation will also satisfy the second equation. Thus there are infinitely many solutions. We may choose <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(x\)</span> (say) to be anything we like, and then find a corresponding value for <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(y\)</span> (from either equation). So if we set <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(x=t\text{,}\)</span> then</p>
+<p>The general solution to this DE, found via an integrating factor, is</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
 \begin{equation*}
-y=\frac{4}{3}-\frac{2}{3}t
+y(x)=Ae^x+xe^x
 \end{equation*}
 </div>
-<p class="continuation">and the solution set is</p>
+<p class="continuation">Letting</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
 \begin{equation*}
-(x,y)=\left(t,\frac{4}{3}-\frac{2}{3}t\right)
+y_c(x)=Ae^x \textrm{ and } y_p(x)=xe^x
 \end{equation*}
 </div>
-<p class="continuation">Thus, the parameter <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(t\)</span> labels the infinite family of solutions.</p>
-<p>The geometric interpretation of this system of linear equations is that both equations represent the same line (as shown in <a href="" class="xref" data-knowl="./knowl/Fig-Same_line.html" title="Figure 15.1.6">Figure 15.1.6</a>). <figure class="figure figure-like"><div xmlns:svg="http://www.w3.org/2000/svg" class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="./LinearAlgebra/Images/1/figure2.png" class="contained"></div>
-<figcaption xmlns:svg="http://www.w3.org/2000/svg"><span class="type">Figure</span><span class="space"> </span><span class="codenumber">15.1.6<span class="period">.</span></span><span class="space"> </span></figcaption></figure> Note that the solution written in terms of the parameter <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(t\)</span> can be interpreted as a vector equation for the line. By writing the solution as</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{equation*}
-(x,y)=\left(0,\frac{4}{3}\right)+t\left(1,-\frac{2}{3}\right)
-\end{equation*}
-</div>
-<p class="continuation">we can see that the line passes through the point <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\left(0,\frac{4}{3}\right)\)</span> and is parallel to the vector <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\left(1,-\frac{2}{3}\right)\text{.}\)</span></p>
+<p class="continuation">we see that, once again, <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(y_c(x)\)</span> is the general solution to the associated homogeneous DE but this time <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(y_p(x)\)</span> is not quite the same form as <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(f(x)\text{.}\)</span> The difference in this case from the previous two examples is that here <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(f(x)\)</span> is the same form as <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(y_c(x)\text{,}\)</span> the solution to the homogeneous DE and hence <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(y_p(x)\)</span> can’t also be of this form.</p>
 </div></body>
 </html>

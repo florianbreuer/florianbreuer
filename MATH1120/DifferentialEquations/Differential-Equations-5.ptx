@@ -52,7 +52,7 @@
                 Recall that a 2nd order linear DE is a differential equation of the form
                 <me>P(x)y''+Q(x)y'+R(x)y=f(x)</me>
 
-                If the functions <m>P</m>, <m>Q</m> and <m>R</m> are all constant functions then the DE is said to have constant coefficients. If <m>f(x)=0</m> then the DE is said to be homogeneous. In the previous lecture (i.e. <term>12 Homogenous Second Order Linear DEs</term>) we discussed how to find solutions to a second order linear homogeneous DE with constant coefficients, i.e. to a DE of the form
+                If the functions <m>P</m>, <m>Q</m> and <m>R</m> are all constant functions then the DE is said to have constant coefficients. If <m>f(x)=0</m> then the DE is said to be homogeneous. In the previous lecture (i.e. <xref ref="Differential_Equations_4"/>) we discussed how to find solutions to a second order linear homogeneous DE with constant coefficients, i.e. to a DE of the form
                 <me>ay''+by'+c=0</me>
                 In this lecture we are going to look at solving some non-homogeneous second order linear DEs with constant coefficients, i.e. DEs of the form
                 <me>ay''+by'+c=f(x)</me>
@@ -71,7 +71,7 @@
             <p>
                 Non-homogeneous first order linear DEs with constant coefficients take the form
                 <me>ay'+by=f(x)</me>
-                We know that we can solve these DEs via an integrating factor, (see section <term>11 First Order Linear DEs</term>).
+                We know that we can solve these DEs via an integrating factor, (see section <xref ref="Differential_Equations_3"/>).
             </p>
 
             <example>
@@ -79,6 +79,10 @@
                     Find the general solution to the DE
                     <me>y'-y=x</me>
                 </p>
+                <answer>
+                <p><m>y(x)=Ae^x-x-1</m></p>
+                </answer>
+
                 <solution>
                     <p>
                         Multiplying both sides of this DE via the integrating factor <m>I(x)=e^{\int -1\hspace{2mm}dx}=e^{-x}</m> gives
@@ -101,6 +105,10 @@
                     Find the general solution to the DE
                     <me>y'-y=\cos(x)</me>
                 </p>
+                <answer>
+                <p><m>y(x)=Ae^x+\dfrac{1}{2}\sin(x)-\dfrac{1}{2}\cos(x)</m></p>
+                </answer>
+
                 <solution>
                     <p>
                         Solving via an integrating factor gives the general solution as
@@ -114,11 +122,14 @@
                 </solution>
             </example>
 
-            <example>
+            <example xml:id="Example_13_1_3">
                 <p>
                     Find the general solution to the DE
                     <me>y'-y=e^x</me>
                 </p>
+                <answer>
+                <p><m>y(x)=Ae^x+xe^x</m></p>
+                </answer>
                 <solution>
                     <p>
                         The general solution to this DE, found via an integrating factor, is
@@ -179,7 +190,7 @@
             <p>
                 We return now to the problem of finding solutions to non-homogeneous second order linear DEs with constant coefficients, i.e. to DEs of the form
                 <me>ay''+by'+cy=f(x)</me>
-                Since we don’t have any alternative method (such as using an integrating factor) for finding a solution to this class of DE we are forced to use the method suggested by the previous section.
+                Since we don't have any alternative method (such as using an integrating factor) for finding a solution to this class of DE we are forced to use the method suggested by the previous section.
             </p>
 
             <definition>
@@ -211,7 +222,7 @@
                 Now since <m>y_c(x)</m> is the general solution to the homogeneous DE, <m>g(x)</m> must be one of the solutions in <m>y_c(x)</m>. Thus <m>\phi(x)=g(x)+y_p(x)</m> must be one of the solutions in <m>y(x)=y_c(x)+y_p(x)</m>, or to put it the other way, <m>y(x)=y_c(x)+y_p(x)</m> contains all solutions to the non-homogeneous DE.
             </p>
             <p>
-                Thus to solve a non-homogeneous second order DE with constant coefficients we have to first find the complementary solution, then find any particular solution and then add these solutions together. We already know how to find the complementary solution (see <term>12 Homogenous Second Order Linear DEs</term>) so all that remains is to work out how to find a particular solution, <m>y_p</m>. The <term>method of undetermined coefficients</term> tries to find <m>y_p</m> by guessing that the form that <m>y_p</m> should take is a linear combination of the non-homogeneous term, <m>f(x)</m>, and its derivatives.
+                Thus to solve a non-homogeneous second order DE with constant coefficients we have to first find the complementary solution, then find any particular solution and then add these solutions together. We already know how to find the complementary solution (see <xref ref="Differential_Equations_4"/>) so all that remains is to work out how to find a particular solution, <m>y_p</m>. The <term>method of undetermined coefficients</term> tries to find <m>y_p</m> by guessing that the form that <m>y_p</m> should take is a linear combination of the non-homogeneous term, <m>f(x)</m>, and its derivatives.
             </p>
 
             <example>
@@ -219,11 +230,14 @@
                     Find a particular solution to the DE
                     <me>y''+2y'-3y=4x^2</me>
                 </p>
+                <answer>
+                <p><m>y_p(x)=-\dfrac{4}{3}x^2-\dfrac{16}{9}x-\dfrac{56}{27}</m></p>
+                </answer>
                 <solution>
                     <p>
                         Here the non-homogeneous term is <m>f(x)=4x^2</m>. This is a 2nd degree polynomial. The first and second derivatives of this will be a linear polynomial and a constant respectively. Thus we guess that a particular solution can found of the form
-                        <men>y_p(x)=Ax^2+Bx+C</men>
-                        where <m>A</m>, <m>B</m> and <m>C</m> are coefficients to be determined by substituting into the DE. Now, from (13.2.1)
+                        <men xml:id="DEs_5_Example_4_1">y_p(x)=Ax^2+Bx+C</men>
+                        where <m>A</m>, <m>B</m> and <m>C</m> are coefficients to be determined by substituting into the DE. Now, from <xref ref="DEs_5_Example_4_1"/>
                         <me>y_p'=2Ax+B</me>
                         <me>y_p''=2A</me>
                         Substituting into the DE gives
@@ -251,8 +265,8 @@
             </example>
 
             <p>
-                The method of undetermined coefficients is only useful for finding the particular solution when the non-homogeneous term is fairly simple. Table 13.2.3 gives a guide to the form of the particular solution, <m>y_p</m>, to try for various non-homogeneous terms <m>f</m>.
-                <table>
+                The method of undetermined coefficients is only useful for finding the particular solution when the non-homogeneous term is fairly simple. <xref ref="DEs_5_table"/> gives a guide to the form of the particular solution, <m>y_p</m>, to try for various non-homogeneous terms <m>f</m>.
+                <table xml:id="DEs_5_table">
                     <tabular halign="center">
                         <row header="yes" bottom="minor" >
                         <cell>Non-Homogenous Term</cell>
@@ -275,6 +289,11 @@
                         <cell><m>y_p(x)=\sum_{i=0}^{n} C_{n-i}x^{n-i}</m></cell>
                         </row>
                         <row>
+                        <cell><m>f(x)</m></cell>
+                        <cell>
+                        <m>y_p(x)</m> is a linear combination of <m>f(x)</m> and its derivatives,
+                        i.e. <m>y_p(x)=\sum_{k=0} C_kf^{(k)}(x)</m>
+                        </cell>
                         </row>
                     </tabular>
                 </table>
@@ -285,6 +304,9 @@
                     Find the general solution to
                     <me>x''+6x'+8x=8\sin(2t)</me>
                 </p>
+                <answer>
+                <p><m>x(t)=Ae^{-2t}+Be^{-4t}+\dfrac{1}{5}\sin(2t)-\dfrac{3}{5}\cos(2t)</m></p>
+                </answer>
                 <solution>
                     <p>
                         The first step is to find the general solution to the homogeneous DE
@@ -333,6 +355,10 @@
                     <me>y''+3y'=5e^{2x}</me>
                     <me>y(0)=1,\hspace{5mm} y'(0)=-2</me>
                 </p>
+                <answer>
+                <p><m>y(x)=e^{-3x}+\dfrac{1}{2}e^{2x}-\dfrac{1}{2}</m></p>
+                </answer>
+                
                 <solution>
                     <p>
                         To solve the initial-value problem we have to begin by finding the general solution to the DE. Since this DE is a non-homogeneous second order DE with constant coefficients we have to first find the general solution to the associated homogeneous DE
@@ -378,7 +404,7 @@
             </example>
 
             <p>
-                If the non-homogeneous term <m>f</m> is itself a solution to the associated homogeneous DE then the form that we guess for the particular solution has to change. Guided by our experience from non-homogeneous first order constant coefficient DEs (see Section 13.1, Example 13.1.3) what we try for the particular solution is to multiply the usual form by <m>x</m> (or <m>x^2</m>, <m>x^3</m> etc. if necessary) so that no term in the particular solution is itself a solution to the homogeneous DE.
+                If the non-homogeneous term <m>f</m> is itself a solution to the associated homogeneous DE then the form that we guess for the particular solution has to change. Guided by our experience from non-homogeneous first order constant coefficient DEs (see <xref ref="Example_13_1_3"/>) what we try for the particular solution is to multiply the usual form by <m>x</m> (or <m>x^2</m>, <m>x^3</m> etc. if necessary) so that no term in the particular solution is itself a solution to the homogeneous DE.
             </p>
 
             <example>
@@ -386,6 +412,9 @@
                     Find the general solution to
                     <me>\frac{d^2u}{dt^2}+\frac{du}{dt}-2u=e^t</me>
                 </p>
+                <answer>
+                <p><m>u(t)=Ae^t+Be^{-2t}+\dfrac{1}{3}te^t</m></p>
+                </answer>
                 <solution>
                     <p>
                         The general solution to the associated homogeneous DE, i.e.
@@ -423,6 +452,9 @@
                    <me>y''+y'=x</me>
                    <me>y(0)=1,\hspace{5mm} y'(0)=1</me>
                 </p>
+                <answer>
+                <p><m>y(x)=3-2e^{-x}+\dfrac{1}{2}x^2-x</m></p>
+                </answer>
                 <solution>
                     <p>
                         The associated homogeneous DE is

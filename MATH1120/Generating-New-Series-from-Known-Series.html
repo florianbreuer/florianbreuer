@@ -1,7 +1,7 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-01-07T17:20:05+11:00       *-->
+<!--*       on 2022-10-28T20:50:37+11:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -179,7 +179,6 @@
 </li>
 <li class="link">
 <a href="Chap-Linear_Algebra_3.html" data-scroll="Chap-Linear_Algebra_3"><span class="codenumber">17</span> <span class="title">LA3: Matrix Algebra</span></a><ul>
-<li><a href="Sec-Linear_Algebra_Intro.html" data-scroll="Sec-Linear_Algebra_Intro">Introduction</a></li>
 <li><a href="Sec-Addition_and_Scalar_Multiplication.html" data-scroll="Sec-Addition_and_Scalar_Multiplication">Addition and Scalar Multiplication</a></li>
 <li><a href="Sec-Matrix_multiplication.html" data-scroll="Sec-Matrix_multiplication">Matrix Multiplication</a></li>
 <li><a href="Sec-Matrices_and_Systems_of_Linear_Equations.html" data-scroll="Sec-Matrices_and_Systems_of_Linear_Equations">Matrices and Systems of Linear Equations</a></li>
@@ -210,120 +209,157 @@
 <main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="Generating-New-Series-from-Known-Series"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">2.1</span> <span class="title">Generating New Series from Known Series</span>
 </h2>
-<p id="p-64">In Table <span class="process-math">\(1\)</span> below we have listed the Maclaurin series for a small set of basic functions of science and engineering. These series can all be relatively easily derived from first principals as discussed in previous lectures. However, for some more complex functions it is easier to find their Maclaurin series by starting from known series rather than trying to find the series from scratch. We will look at two commonly used techniques.</p>
-<ol id="p-65" class="decimal">
+<p id="p-60">In <a href="" class="xref" data-knowl="./knowl/Table_Maclaurin.html" title="Table 2.1.1: Some Important Maclaurin Series:">Table 2.1.1</a> below we have listed the Maclaurin series for a small set of basic functions of science and engineering. These series can all be relatively easily derived from first principals as discussed in previous lectures. However, for some more complex functions it is easier to find their Maclaurin series by starting from known series rather than trying to find the series from scratch. We will look at two commonly used techniques.</p>
+<ul id="p-61" class="disc">
 <li id="li-24"><p id="p-derived-li-24">Manipulating/Substituting into known series.</p></li>
-<li id="li-25"><p id="p-66">Differentiating/Integrating known series.</p></li>
-</ol>
-<p id="p-67"></p>
-<ol id="p-68" class="decimal">
-<li id="li-26"><p id="p-derived-li-26"><span class="process-math">\(\displaystyle \dfrac{1}{1-x}=\sum_{k=0}^{\infty}x^{k}=1+x+x^{2}+x^{3}+\cdots . \hspace{5cm}  \lvert x\rvert &lt; 1  \)</span></p></li>
-<li id="li-27"><p id="p-69"><span class="process-math">\(\displaystyle e^{x}=\sum_{k=0}^{\infty}\dfrac{x^{k}}{k!}=1+x+\dfrac{x^{2}}{2!} +\dfrac{x^{3}}{3!}+\cdots .  \hspace{5.6cm}\sim \)</span></p></li>
-<li id="li-28"><p id="p-70"><span class="process-math">\(\displaystyle \sin(x)=\sum_{k=0}^{\infty}(-1)^{k}\dfrac{x^{2k+1}}{(2k+1)!}=x-\dfrac{x^{3}}{3!} +\dfrac{x^{5}}{5!}-\cdots .\hspace{3cm}\sim \)</span></p></li>
-<li id="li-29"><p id="p-71"><span class="process-math">\(\displaystyle \cos(x)=\sum_{k=0}^{\infty}(-1)^{k}\dfrac{x^{2k}}{(2k)!}=1-\dfrac{x^{2}}{2!} +\dfrac{x^{4}}{4!}-\cdots .\hspace{3.9cm} \sim \)</span></p></li>
-<li id="li-30"><p id="p-72"><span class="process-math">\(\displaystyle \ln(1+x)=\sum_{k=0}^{\infty}(-1)^{k-1}\dfrac{x^{k}}{(k)}=x-\dfrac{x^{2}}{2} +\dfrac{x^{3}}{3}-\cdots . \hspace{2.5cm}  \lvert x\rvert &lt; 1 \)</span></p></li>
-<li id="li-31"><p id="p-73"><span class="process-math">\(\displaystyle \tan^{-1}(1+x)=\sum_{k=0}^{\infty}(-1)^{k}\dfrac{x^{2k+1}}{(2k+1)}=x-\dfrac{x^{3}}{3} +\dfrac{x^{5}}{5}-\cdots . \hspace{1.1cm} \lvert x\rvert &lt; 1 \)</span></p></li>
-<li id="li-32"><p id="p-74"><span class="process-math">\(\displaystyle \sinh(x)=\sum_{k=0}^{\infty}\dfrac{x^{2k+1}}{(2k+1)!}=x+\dfrac{x^{3}}{3!} +\dfrac{x^{5}}{5!}+\cdots . \hspace{3.9cm} \sim \)</span></p></li>
-<li id="li-33"><p id="p-75"><span class="process-math">\(\displaystyle \cosh(x)=\sum_{k=0}^{\infty}\dfrac{x^{2k}}{(2k)!}=1+\dfrac{x^{2}}{2!} +\dfrac{x^{4}}{4!}+\cdots . \hspace{4.8cm} \sim \)</span></p></li>
-</ol>
-<section class="paragraphs" id="paragraphs-1"><h3 class="heading"><span class="title">Manipulating/Substituting into Known Series.</span></h3></section><article class="example example-like" id="Maclaurin_series_1_on_1_plus_x2"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-Maclaurin_series_1_on_1_plus_x2"><h3 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.1</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Maclaurin_series_1_on_1_plus_x2"><article class="example example-like"><p id="p-76">Find the Maclaurin series for  <span class="process-math">\(f(x)=\dfrac{1}{1+x^{2}}. \)</span></p>
+<li id="li-25"><p id="p-62">Differentiating/Integrating known series.</p></li>
+</ul>
+<figure class="table table-like" id="Table_Maclaurin"><figcaption><span class="type">Table</span><span class="space"> </span><span class="codenumber">2.1.1<span class="period">.</span></span><span class="space"> </span>Some Important Maclaurin Series:</figcaption><div class="tabular-box natural-width"><table class="tabular">
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\dfrac{1}{1-x}=\sum_{k=0}^{\infty}x^{k}=1+x+x^{2}+x^{3}+\cdots\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\lvert x\rvert &lt; 1\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(e^{x}=\sum_{k=0}^{\infty}\dfrac{x^{k}}{k!}=1+x+\dfrac{x^{2}}{2!} +\dfrac{x^{3}}{3!}+\cdots\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\mathbb{R}\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\sin(x)=\sum_{k=0}^{\infty}(-1)^{k}\dfrac{x^{2k+1}}{(2k+1)!}=x-\dfrac{x^{3}}{3!} +\dfrac{x^{5}}{5!}-\cdots\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\mathbb{R}\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\cos(x)=\sum_{k=0}^{\infty}(-1)^{k}\dfrac{x^{2k}}{(2k)!}=1-\dfrac{x^{2}}{2!} +\dfrac{x^{4}}{4!}-\cdots\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\mathbb{R}\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\ln(1+x)=\sum_{k=1}^{\infty}(-1)^{k-1}\dfrac{x^{k}}{k}=x-\dfrac{x^{2}}{2} +\dfrac{x^{3}}{3}-\cdots\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\lvert x\rvert &lt; 1\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\tan^{-1}(1+x)=\sum_{k=0}^{\infty}(-1)^{k}\dfrac{x^{2k+1}}{2k+1}=x-\dfrac{x^{3}}{3} +\dfrac{x^{5}}{5}-\cdots\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\lvert x\rvert &lt; 1\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\sinh(x)=\sum_{k=0}^{\infty}\dfrac{x^{2k+1}}{(2k+1)!}=x+\dfrac{x^{3}}{3!} +\dfrac{x^{5}}{5!}+\cdots\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\mathbb{R}\)</span></td>
+</tr>
+<tr>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\cosh(x)=\sum_{k=0}^{\infty}\dfrac{x^{2k}}{(2k)!}=1+\dfrac{x^{2}}{2!} +\dfrac{x^{4}}{4!}+\cdots\)</span></td>
+<td class="l m b0 r0 l0 t0 lines"><span class="process-math">\(\mathbb{R}\)</span></td>
+</tr>
+</table></div></figure><section class="paragraphs" id="paragraphs-1"><h3 class="heading"><span class="title">Manipulating/Substituting into Known Series.</span></h3></section><article class="example example-like" id="Maclaurin_series_1_on_1_plus_x2"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-Maclaurin_series_1_on_1_plus_x2"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.2</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Maclaurin_series_1_on_1_plus_x2"><article class="example example-like"><p id="p-63">Find the Maclaurin series for  <span class="process-math">\(f(x)=\dfrac{1}{1+x^{2}}. \)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-7" id="answer-7"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-7"><div class="answer solution-like"><p id="p-64"><span class="process-math">\(\dfrac{1}{1+x^{2}}=\displaystyle\sum_{k=0}^{\infty}(-1)^{k}x^{2k}\)</span></p></div></div>
 <a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-7" id="solution-7"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-7"><div class="solution solution-like">
-<p id="p-77">We know that the Maclaurin series for<span class="process-math">\(f(x)=\dfrac{1}{1-x}\)</span> on <span class="process-math">\(\lvert x\rvert &lt; 1 \)</span> is</p>
+<p id="p-65">We know that the Maclaurin series for<span class="process-math">\(f(x)=\dfrac{1}{1-x}\)</span> on <span class="process-math">\(\lvert x\rvert &lt; 1 \)</span> is</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \dfrac{1}{1-x}=\sum_{k=0}^{\infty}x^{k}=1+x+x^{2}+x^{3}+\cdots \cdot 
 \end{equation*}
 </div>
-<p id="p-78">We can use this series by replacing <span class="process-math">\(x \)</span> with <span class="process-math">\(-x^{2} \)</span> to obtain</p>
-<div class="displaymath process-math" id="p-79">
+<p id="p-66">We can use this series by replacing <span class="process-math">\(x \)</span> with <span class="process-math">\(-x^{2} \)</span> to obtain</p>
+<div class="displaymath process-math" id="p-67">
 \begin{align*}
 \dfrac{1}{1+x^{2}} \amp =\dfrac{1}{1-(-x^{2})}\\
 \amp = 1+(-x^{2})+(-x^{2})^{2}+(-x^{2})^{3}+\cdots\\
-\amp = 1-\dfrac{x^{2}}{2!} +\dfrac{x^{4}}{4!}-\cdots\\
+\amp = 1-x^{2} +x^{4}-x^6+\cdots\\
 \amp = \sum_{k=0}^{\infty}(-1)^{k}x^{2k}
 \end{align*}
 </div>
-<p id="p-80">which will converge on the interval <span class="process-math">\(\lvert -x^{2}\rvert &lt; 1, \)</span> i.e., <span class="process-math">\(-1&lt; x &lt; 1. \)</span></p>
-</div></div></article></div>
+<p id="p-68">which will converge on the interval <span class="process-math">\(\lvert -x^{2}\rvert &lt; 1, \)</span> i.e., <span class="process-math">\(-1&lt; x &lt; 1. \)</span></p>
+</div></div>
+</div></article></div>
 <article class="example example-like" id="Maclaurin_series_x_on_2_minus_5x"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-Maclaurin_series_x_on_2_minus_5x"><h3 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.2</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Maclaurin_series_x_on_2_minus_5x"><article class="example example-like"><p id="p-81">Find the Maclaurin series for  <span class="process-math">\(f(x)=\dfrac{1}{1+x^{2}}. \)</span></p>
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.3</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Maclaurin_series_x_on_2_minus_5x"><article class="example example-like"><p id="p-69">Find the Maclaurin series for  <span class="process-math">\(f(x)=\dfrac{x^2}{2-5x}. \)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-8" id="answer-8"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-8"><div class="answer solution-like"><p id="p-70"><span class="process-math">\(\dfrac{x^2}{2-5x}=\dfrac{x^2}{2}\displaystyle\sum_{k=0}^{\infty}\left(\dfrac{5x}{2}\right)^{k}\)</span></p></div></div>
 <a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-8" id="solution-8"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-8"><div class="solution solution-like">
-<p id="p-82">Once again we will use the Maclaurin series for <span class="process-math">\(f(x)=\dfrac{1}{1-x}\)</span> on <span class="process-math">\(\lvert x\rvert &lt; 1. \)</span> Now</p>
-<div class="displaymath process-math" id="p-83">
+<p id="p-71">Once again we will use the Maclaurin series for <span class="process-math">\(f(x)=\dfrac{1}{1-x}\)</span> on <span class="process-math">\(\lvert x\rvert &lt; 1. \)</span> Now</p>
+<div class="displaymath process-math" id="p-72">
 \begin{align*}
-\frac{x^2}{2-5x} \amp =\dfrac{x^{2}}{2}(\dfrac{1}{1-(\frac{5x}{2})})\\
-\amp = \dfrac{x^2}{2}(1+(\frac{5x}{2})+(\frac{5x}{2})^{2}+(\frac{5x}{2})^{3}+\cdots)\\
-\amp = \dfrac{x^2}{2}\sum_{k=0}^{\infty}(\dfrac{5x}{2})^{k}
+\frac{x^2}{2-5x} \amp =\dfrac{x^{2}}{2}\left(\dfrac{1}{1-(\frac{5x}{2})}\right)\\
+\amp = \dfrac{x^2}{2}\left(1+\left(\frac{5x}{2}\right)+\left(\frac{5x}{2}\right)^{2}+\left(\frac{5x}{2}\right)^{3}+\cdots\right)\\
+\amp = \dfrac{x^2}{2}\sum_{k=0}^{\infty}\left(\dfrac{5x}{2}\right)^{k}
 \end{align*}
 </div>
-<p id="p-84">which will converge on the interval <span class="process-math">\(\lvert \frac{5x}{2}\rvert &lt; 1, \)</span> i.e., <span class="process-math">\(-\frac{2}{5}&lt; x &lt; \frac{2}{5}. \)</span></p>
-</div></div></article></div>
+<p id="p-73">which will converge on the interval <span class="process-math">\(\lvert \frac{5x}{2}\rvert &lt; 1, \)</span> i.e., <span class="process-math">\(-\frac{2}{5}&lt; x &lt; \frac{2}{5}. \)</span></p>
+</div></div>
+</div></article></div>
 <article class="example example-like" id="Maclaurin_series_e_minus_x_2"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-Maclaurin_series_e_minus_x_2"><h3 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.3</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Maclaurin_series_e_minus_x_2"><article class="example example-like"><p id="p-85">Find the Maclaurin series for  <span class="process-math">\(f(x)=e^{-x^2}. \)</span></p>
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.4</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Maclaurin_series_e_minus_x_2"><article class="example example-like"><p id="p-74">Find the Maclaurin series for  <span class="process-math">\(f(x)=e^{-x^2}. \)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-9" id="answer-9"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-9"><div class="answer solution-like"><p id="p-75"><span class="process-math">\(e^{-x^2}=\displaystyle\sum_{k=0}^{\infty}(-1)^{k}\dfrac{x^{2k}}{k!}\)</span></p></div></div>
 <a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-9" id="solution-9"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-9"><div class="solution solution-like">
-<p id="p-86">Substituting into the Maclaurin series for  <span class="process-math">\(f(x)=e^{x}\)</span> .</p>
-<div class="displaymath process-math" id="p-87">
+<p id="p-76">Substituting into the Maclaurin series for  <span class="process-math">\(f(x)=e^{x}\text{,}\)</span> we obtain</p>
+<div class="displaymath process-math" id="p-77">
 \begin{align*}
-e^{-x^2} \amp =\sum_{k=0}^{\infty}\dfrac{(-x^2)^{k}}{k!}=\sum_{k=0}^{\infty}(-1)^{k}\dfrac{(x)^{2k}}{k!}\\
+e^{-x^2} \amp =\sum_{k=0}^{\infty}\dfrac{(-x^2)^{k}}{k!}=\sum_{k=0}^{\infty}(-1)^{k}\dfrac{x^{2k}}{k!}\\
 \amp = 1- x^{2}+\frac{x^{4}}{2!}-\frac{x^{6}}{3!}+\cdots
 \end{align*}
 </div>
-<p id="p-88">which will converge for all real values of <span class="process-math">\(x. \)</span></p>
-</div></div></article></div>
-<section class="paragraphs" id="paragraphs-2"><h3 class="heading"><span class="title">Differentiating/Integrating Known Series.</span></h3></section><p id="p-89">As the theorem below says, we can also use differentiation and integration to work out new Maclaurin series expansions from ones that we already know. The proof of this theorem is beyond the scope of this course.</p>
+<p id="p-78">which will converge for all real values of <span class="process-math">\(x. \)</span></p>
+</div></div>
+</div></article></div>
+<section class="paragraphs" id="paragraphs-2"><h3 class="heading"><span class="title">Differentiating/Integrating Known Series.</span></h3></section><p id="p-79">As the theorem below says, we can also use differentiation and integration to work out new Maclaurin series expansions from ones that we already know. The proof of this theorem is beyond the scope of this course.</p>
 <article class="theorem theorem-like" id="theorem-4"><h3 class="heading">
-<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">2.1.4</span><span class="period">.</span>
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">2.1.5</span><span class="period">.</span>
 </h3>
-<p id="p-90">If  <span class="process-math">\(f(x)=\sum\limits_{k=0}^{\infty}c_{k}x^{k}\)</span> with radius of convergence <span class="process-math">\(\mathbb{R} \)</span> then</p>
-<ol id="p-91" class="lower-roman">
-<li id="li-34"><p id="p-92"><span class="process-math">\(f'(x)=\sum\limits_{k=0}^{\infty}k c_{k}x^{k-1}\)</span> with radius of convergence   <span class="process-math">\(\mathbb{R}, \)</span></p></li>
-<li id="li-35"><p id="p-93"><span class="process-math">\(\int f(x)dx=K+ \sum\limits_{k=0}^{\infty} \dfrac{c_{k}}{k+1}x^{k-1}\)</span> with radius of convergence   <span class="process-math">\(\mathbb{R}, \)</span> (where <span class="process-math">\(K \)</span>  is a constant).</p></li>
-</ol></article><p id="p-94">Note that the behaviour of the series (i.e. whether it converges or diverges) at the endpoints may change when it is differentiated or integrated.</p>
+<p id="p-80">If  <span class="process-math">\(f(x)=\sum\limits_{k=0}^{\infty}c_{k}x^{k}\)</span> with radius of convergence <span class="process-math">\(R\)</span> then</p>
+<ul id="p-81" class="disc">
+<li id="li-26"><p id="p-82"><span class="process-math">\(f'(x)=\sum\limits_{k=0}^{\infty}k c_{k}x^{k-1}\)</span> with radius of convergence <span class="process-math">\(R\text{,}\)</span></p></li>
+<li id="li-27"><p id="p-83"><span class="process-math">\(\int f(x)dx=K+ \sum\limits_{k=0}^{\infty} \dfrac{c_{k}}{k+1}x^{k-1}\)</span> with radius of convergence <span class="process-math">\(R\)</span> (where <span class="process-math">\(K\in\mathbb{R}\)</span>).</p></li>
+</ul></article><p id="p-84">Note that the behaviour of the series (i.e. whether it converges or diverges) at the endpoints may change when it is differentiated or integrated.</p>
 <article class="example example-like" id="Maclaurin_series_1_on_1_minus_x_power_2"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-Maclaurin_series_1_on_1_minus_x_power_2"><h3 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.5</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Maclaurin_series_1_on_1_minus_x_power_2"><article class="example example-like"><p id="p-95">Find the Maclaurin series for  <span class="process-math">\(ff(x)=\dfrac{1}{(1-x)^{2}}.\)</span></p>
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.6</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Maclaurin_series_1_on_1_minus_x_power_2"><article class="example example-like"><p id="p-85">Find the Maclaurin series for  <span class="process-math">\(f(x)=\dfrac{1}{(1-x)^{2}}.\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-10" id="answer-10"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-10"><div class="answer solution-like"><p id="p-86"><span class="process-math">\(\dfrac{1}{(1-x)^{2}}=\displaystyle\sum_{k=1}^{\infty} k x^{k-1}\)</span></p></div></div>
 <a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-10" id="solution-10"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-10"><div class="solution solution-like">
-<p id="p-96">Notice that <span class="process-math">\(\int \frac{1}{(1-x)^{2}}=\frac{1}{1-x}, \)</span> or put the other way, <span class="process-math">\(\frac{1}{(1-x)^{2}}=\frac{d}{dx} (\frac{1}{1-x}). \)</span> Since we know the Maclaurin series for <span class="process-math">\(\frac{1}{1-x} \)</span> we can differentiate this series to obtain the Maclaurin series for <span class="process-math">\(\frac{1}{(1-x)^{2}}. \)</span> So, on <span class="process-math">\(\lvert x\rvert &lt; 1, \)</span></p>
-<div class="displaymath process-math" id="p-97">
+<p id="p-87">Notice that <span class="process-math">\(\int \frac{1}{(1-x)^{2}} dx=\frac{1}{1-x}, \)</span> or put the other way, <span class="process-math">\(\frac{1}{(1-x)^{2}}=\frac{d}{dx} \left(\frac{1}{1-x}\right). \)</span> Since we know the Maclaurin series for <span class="process-math">\(\frac{1}{1-x} \)</span> we can differentiate this series to obtain the Maclaurin series for <span class="process-math">\(\frac{1}{(1-x)^{2}}. \)</span> So, on <span class="process-math">\(\lvert x\rvert &lt; 1, \)</span></p>
+<div class="displaymath process-math" id="p-88">
 \begin{align*}
-\frac{1}{(1-x)^{2}} \amp =\frac{d}{dx}(\sum_{k=0}^{\infty} x^{k})\\
-\amp = \frac{d}{dx}(\sum_{k=1}^{\infty} k x^{k-1}\\
+\frac{1}{(1-x)^{2}} \amp =\frac{d}{dx}\left(\sum_{k=0}^{\infty} x^{k}\right)\\
+\amp = \sum_{k=1}^{\infty} k x^{k-1}\\
 \amp = 1+2x+3x^2+4x^3+\dots 
 \end{align*}
 </div>
-</div></div></article></div>
+</div></div>
+</div></article></div>
 <article class="example example-like" id="Maclaurin_series_ln_1_plus_x"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-Maclaurin_series_ln_1_plus_x"><h3 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.6</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Maclaurin_series_ln_1_plus_x"><article class="example example-like"><p id="p-98">Find the Maclaurin series for  <span class="process-math">\(ff(x)=\ln(1+x).\)</span></p>
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.1.7</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Maclaurin_series_ln_1_plus_x"><article class="example example-like"><p id="p-89">Find the Maclaurin series for  <span class="process-math">\(f(x)=\ln(1+x).\)</span></p>
+<div class="solutions">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-11" id="answer-11"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-11"><div class="answer solution-like"><p id="p-90"><span class="process-math">\(\ln(1+x)=\displaystyle\sum_{k=1}^{\infty}(-1)^{k-1}\dfrac{x^{k}}{k}\)</span></p></div></div>
 <a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-11" id="solution-11"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-11"><div class="solution solution-like">
-<p id="p-99">Notice that <span class="process-math">\(\frac{d}{(dx)}(\ln(1+x)), \)</span> or put the other way, <span class="process-math">\(\ln(1+x)=K+\int \frac{1}{1+x}. \)</span> Since we know the Maclaurin series for <span class="process-math">\(\frac{1}{1+x} \)</span> we can integrate this series to obtain the Maclaurin series for <span class="process-math">\(\ln(1+x).\)</span> So, on <span class="process-math">\(\lvert x\rvert &lt; 1, \)</span></p>
-<div class="displaymath process-math" id="p-100">
+<p id="p-91">Notice that <span class="process-math">\(\frac{d}{dx}(\ln(1+x)), \)</span> or put the other way, <span class="process-math">\(\ln(1+x)=K+\int \frac{1}{1+x} dx\text{.}\)</span> Since we know the Maclaurin series for <span class="process-math">\(\frac{1}{1+x} \)</span> we can integrate this series to obtain the Maclaurin series for <span class="process-math">\(\ln(1+x).\)</span> So, on <span class="process-math">\(\lvert x\rvert &lt; 1, \)</span></p>
+<div class="displaymath process-math" id="p-92">
 \begin{align*}
-\ln(1+x) \amp = K+\int (\sum_{k=0}^{\infty} (-x)^{k})dx\\
+\ln(1+x) \amp = K+\int \left(\sum_{k=0}^{\infty} (-x)^{k}\right)dx\\
 \amp = K+\sum_{k=0}^{\infty} (-1)^{k}\frac{x^{k+1}}{k+1}\\
 \amp = K + x - \frac{1}{2}x^{2} +\frac{1}{3}x^{3} - \dots
 \end{align*}
 </div>
-<p id="p-101">Since <span class="process-math">\(\ln(1+x)\)</span> is <span class="process-math">\(0 \)</span> when <span class="process-math">\(x=0 \)</span> we have <span class="process-math">\(K=0. \)</span> Thus on <span class="process-math">\(\lvert x\rvert &lt; 1 \)</span></p>
+<p id="p-93">Since <span class="process-math">\(\ln(1+x)\)</span> is <span class="process-math">\(0 \)</span> when <span class="process-math">\(x=0 \)</span> we have <span class="process-math">\(K=0. \)</span> Thus on <span class="process-math">\(\lvert x\rvert &lt; 1 \)</span></p>
 <div class="displaymath process-math">
 \begin{equation*}
-\ln(1+x)=\sum_{k=0}^{\infty}(-1)^{k-1}\frac{x^{k}}{k}=x-\frac{x^{2}}{2}+\frac{x^{3}}{3}-\cdots \cdot 
+\ln(1+x)=\sum_{k=1}^{\infty}(-1)^{k-1}\frac{x^{k}}{k}=x-\frac{x^{2}}{2}+\frac{x^{3}}{3}-\cdots \cdot 
 \end{equation*}
 </div>
-</div></div></article></div>
+</div></div>
+</div></article></div>
 <section class="exercises" id="exercises-3"><h3 class="heading hide-type">
 <span class="type">Exercises</span> <span class="codenumber"></span> <span class="title">Example Tasks</span>
 </h3>
 <article class="exercise exercise-like" id="exercise-5"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
-<p id="p-102">Find the Maclaurin series for  <span class="process-math">\(f(x)=\frac{1}{3+2x}. \)</span></p></article><article class="exercise exercise-like" id="exercise-6"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
-<p id="p-103">Find the Maclaurin series for  <span class="process-math">\(f(x)=\frac{1-x^2}{5-3x^2}. \)</span></p></article><article class="exercise exercise-like" id="exercise-7"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
-<p id="p-104">Find the Maclaurin series for <span class="process-math">\(f(x)=\frac{1}{(1-2x)^2}. \)</span></p></article><article class="exercise exercise-like" id="exercise-8"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
-<p id="p-105">Find the Maclaurin series for <span class="process-math">\(f(x)=\tan{-1}(x). \)</span></p></article><article class="exercise exercise-like" id="exercise-9"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
-<p id="p-106">Use a sixth degree Maclaurin polynomial to estimate  <span class="process-math">\(f(x)=\int_{0}^{1}e^{-x^{2}}dx. \)</span></p></article></section></section></div></main>
+<p id="p-94">Find the Maclaurin series for  <span class="process-math">\(f(x)=\dfrac{1}{3+2x}. \)</span></p></article><article class="exercise exercise-like" id="exercise-6"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<p id="p-95">Find the Maclaurin series for  <span class="process-math">\(f(x)=\dfrac{1-x^2}{5-3x^2}. \)</span></p></article><article class="exercise exercise-like" id="exercise-7"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
+<p id="p-96">Find the Maclaurin series for <span class="process-math">\(f(x)=\dfrac{1}{(1-2x)^2}. \)</span></p></article><article class="exercise exercise-like" id="exercise-8"><h4 class="heading"><span class="codenumber">4<span class="period">.</span></span></h4>
+<p id="p-97">Find the Maclaurin series for <span class="process-math">\(f(x)=\tan^{-1}(x). \)</span></p></article><article class="exercise exercise-like" id="exercise-9"><h4 class="heading"><span class="codenumber">5<span class="period">.</span></span></h4>
+<p id="p-98">Use a sixth degree Maclaurin polynomial to estimate  <span class="process-math">\(f(x)=\displaystyle\int_{0}^{1}e^{-x^{2}}dx. \)</span></p></article></section></section></div></main>
 </div>
 </body>
 </html>

@@ -74,7 +74,7 @@
             <li><p>The derivative <m>f'(x)</m> is itself a function of one variable, when it exists.</p></li>
         </ol></p>
 
-        <p>For a function of two variables,  , the rate at which the function is changing at any point as we vary the independent variables depends upon the direction in which we vary those variables.</p>
+        <p>For a function of two variables, <m>f(x,y)</m>, the rate at which the function is changing at any point as we vary the independent variables depends upon the direction in which we vary those variables.</p>
 
 
         <example xml:id="Ex-Direction_and_rate_of_change">
@@ -95,7 +95,7 @@
             <!-- <title>Direction and Instantaneous Rate of Change</title> -->
 
             <p>Consider the function <m>f(x,y) = 5 - \dfrac{x^2+y^2}{2}</m> at the point <m>(2,1)</m>.</p>
-            <p>Firstly, let’s look at the instantaneous rate of change of <m>f</m> in the direction of the positive <m>x</m>-axis, As shown in the diagram below, if we hold <m>y</m> constant at and vary <m>x</m> we are actually moving along the curve <me>z=\frac{9}{2}-\frac{1}{2}x^2</me>.</p>
+            <p>Firstly, let’s look at the instantaneous rate of change of <m>f</m> in the direction of the positive <m>x</m>-axis. As shown in the diagram below, if we hold <m>y</m> constant at and vary <m>x</m> we are actually moving along the curve <me>z=\frac{9}{2}-\frac{1}{2}x^2</me>.</p>
 
             <figure xml:id="Fig-Example_2_x_axis">
                 <caption></caption>
@@ -153,7 +153,7 @@
                     </md></p>
                     <p>Next, calculate the partial derivative of <m>f</m> with respect to <m>y</m> at <m>(2,1)</m>.</p>
                     <p><md>
-                        <mrow>\frac{\partial f}{\partial x}(2,1) \amp = \lim_{h \to 0} \left[ \frac{f(2,1+h)-f(2,1)}{h} \right]</mrow>
+                        <mrow>\frac{\partial f}{\partial y}(2,1) \amp = \lim_{h \to 0} \left[ \frac{f(2,1+h)-f(2,1)}{h} \right]</mrow>
                         <mrow>\amp = \lim_{h \to 0} \left[\frac{1}{h} \left( \left( 5 - \frac{2^2 + (1+h)^2}{2} \right) - \left( 5 - \frac{2^2+1^2}{2} \right) \right) \right]</mrow>
                         <mrow>\amp = \lim_{h \to 0} \left[\frac{1}{h} \left( -\frac{1}{2}(4+1+2h+h^2) +\frac{1}{2}(4+1) \right) \right]</mrow>
                         <mrow>\amp = \lim_{h \to 0} \left[ \frac{1}{h} \left(-h-\frac{1}{2}h^2 \right) \right]</mrow>
@@ -242,6 +242,10 @@
                     <p>Find <m>f_x</m> and <m>f_y</m> when <m>f(x,y) = x^2y</m>.</p>
                 </statement>
 
+                <answer>
+                    <p><m>f_x(x,y) = 2xy</m> and <m>f_y(x,y) = x^2</m>.</p>
+                </answer>
+
                 <solution>
                     <p>To find <m>f_x (x,y)</m>, think of <m>y</m> as a constant. Thus, <me>f_x(x,y) = 2xy</me>.</p>
                     <p>To find <m>f_y (x,y)</m>, think of <m>x</m> as a constant. So, <me>f_y(x,y) = x^2</me>.</p>
@@ -251,8 +255,13 @@
 
         <example xml:id="Ex-shorthand_computation_example_arcsin">
                 <statement>
-                    <p>Find <m>f_x</m> and <m>f_y</m> when <m>f(x,y) = \sin^{-1}\left(\frac{x}{y}\right) - 5x^2</m>.</p>
+                    <p>Find <m>f_x</m> and <m>f_y</m> when <m>f(x,y) = \sin^{-1}\left(\dfrac{x}{y}\right) - 5x^2</m>.</p>
                 </statement>
+
+                <answer>
+                    <p><m>f_x(x,y) =\dfrac{1}{\sqrt{y^2 - x^2}} - 10x</m> and <m>f_y(x,y)= \dfrac{-x}{y\sqrt{y^2-x^2}}.</m>
+                    </p>
+                </answer>
 
                 <solution>
                     <p>To find <m>f_x (x,y)</m>, think of <m>y</m> as a constant. Thus, using the chain rule:
@@ -275,6 +284,11 @@
                 <statement>
                     <p>The equation <m>xz + y^2z^3 = 2</m> can be thought of as implicitly defining <m>z</m> as a function of <m>x</m> and <m>y</m>. Find <m>z_x</m> and <m>z_y</m>.</p>
                 </statement>
+
+                <answer>
+                    <p><m>z_x = \dfrac{-z}{x+3y^2 z^2}</m> and <m>z_y =\dfrac{-2yz^3}{x+3y^2 z^2}</m>
+                    </p>
+                </answer>
 
                 <solution>
                     <p>To find <m>z_x</m> differentiate both sides of the defining equation with respect to <m>x</m>, remembering that <m>z</m> is some unknown function of <m>x</m>. Also, remember to treat <m>y</m> as a constant. Then, using the product rule and the chain rule,</p>
@@ -302,6 +316,10 @@
                 <statement>
                     <p>Find the partial derivatives for the function of three variables <me>f(x,y,z) = (2x+3y-z^2)e^{xz}</me>.</p>
                 </statement>
+
+                <answer>
+                    <p><m>f_x(x,y,z) = e^{xz} (2xz + 3yz - z^3 + 2)</m>, <m>f_y(x,y,z) = 3e^{xz}</m> and <m>f_z(x,y,z) = e^{xz} (2x^2 + 3xy - xz^2 - 2z)</m></p>
+                </answer>
 
                 <solution>
                     <p>Write the function as <me>f(x,y,z) = 2xe^{xz} + 3ye^{xz} - z^2 e^{xz}</me>.</p>
@@ -389,6 +407,11 @@
                     <p>Find the second partial derivatives for the function <me>f(x,y) = \sin(x) \cos(y)</me>.</p>
                 </statement>
 
+                <answer>
+                    <p><m>f_{xx}(x,y) = -\sin(x) \cos(y)</m>, <m>f_{xy}(x,y) = -\cos(x) \sin(y)</m>, <m>f_{yx}(x,y) = -\cos(x) \sin(y)</m> and <m>f_{yy}(x,y) = -\sin(x) \cos(y).</m>
+                    </p>
+                </answer>
+
                 <solution>
                     <p>Begin by finding the first partial derivatives. Here
                         <md>
@@ -417,6 +440,11 @@
                 <statement>
                     <p>Calculate <m>g_{xxy}</m>, <m>g_{xyx}</m> and <m>g_{yxx}</m> when <m>g(x)=xy^2 + \dfrac{y}{x^2}</m>.</p>
                 </statement>
+
+                <answer>
+                    <p><m>g_{xxy} = 6x^{-4}</m>, <m>g_{xyx} = 6x^{-4}</m> and <m>g_{yxx} = 6x^{-4}</m>.
+                    </p>
+                </answer>
 
                 <solution>
                     <p>Begin by writing the function in the form <me>g(x,y) = xy^2 + yx^{-2}</me>.
@@ -450,7 +478,7 @@
                 </statement>
         </theorem>
 
-        <p>Clairaut’s Theorem can be extended to higher partial derivatives and to functions of more than two variables.</p>
+        <p>Clairaut's Theorem can be extended to higher partial derivatives and to functions of more than two variables.</p>
 
         <example xml:id="Ex-first_and_second_partials_of_3_variable_function">
                 <statement>
@@ -496,7 +524,7 @@
 
             <exercise>
                 <statement>
-                    <p>Let <m>u(x,t) = e^{-t} \sin \left(\frac{x}{c}\right)</m> where <m>c</m> is a constant and <m>c>0</m>. Determine if <m>u</m> satisfies <me>\dfrac{\partial u}{\partial t} = c^2 \dfrac{\partial^2 u}{\partial x^2}</me></p>
+                    <p>Let <m>u(x,t) = e^{-t} \sin \left(\dfrac{x}{c}\right)</m> where <m>c</m> is a constant and <m>c>0</m>. Determine if <m>u</m> satisfies <me>\dfrac{\partial u}{\partial t} = c^2 \dfrac{\partial^2 u}{\partial x^2}</me></p>
                 </statement>
             </exercise>
 

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-01-07T17:22:12+11:00       *-->
+<!--*       on 2022-10-28T21:06:08+11:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,31 +15,13 @@
 </head>
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
-<p>Let <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(v(t)\)</span> be the velocity of the object at time <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(t\)</span> seconds after it was dropped and let the downward direction be the positive direction. Now, Newton’s second law of motion says that the acceleration, <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(a\text{,}\)</span> of a body and the net force, <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(F\text{,}\)</span> acting on that body are related according to</p>
+<p>If <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(z=z(x_1,x_2,\ldots,x_n)\)</span> is a differentiable function of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(n\)</span> variables <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(x_1,x_2,\ldots,x_n\)</span> and each <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(x_i = x_i(t_1,t_2,\ldots,t_m)\)</span> is a differentiable function of the <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(m\)</span> variables <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(t_1,t_2,\ldots,t_m\)</span> then</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
 \begin{equation*}
-F=ma
+\dfrac{\partial z}{\partial t_i} = \dfrac{\partial z}{\partial x_1} \cdot \dfrac{\partial x_1}{\partial t_i} + \dfrac{\partial z}{\partial x_2} \cdot \dfrac{\partial x_2}{\partial t_i} + \cdots + \dfrac{\partial z}{\partial x_n} \cdot \dfrac{\partial x_n}{\partial t_i}
 \end{equation*}
 </div>
-<p class="continuation">where <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(m\)</span> is the mass of the body. Also we know that</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{equation*}
-a=\frac{dv}{dt} 
-\end{equation*}
-</div>
-<p class="continuation">The net force on the free falling object will be</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{equation*}
-F=F_G+F_R
-\end{equation*}
-</div>
-<p class="continuation">where <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(F_G=mg\)</span> is the force due to gravity (<span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(g\)</span> is gravitational constant) and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(F_R\)</span> is the force due to the air resistance. Assuming that <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(F_R\)</span> is proportional to the square of the speed of the object, we have <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(F_R=-kv^2\text{,}\)</span> where the (positive) constant of proportionality <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(k\)</span> will depend on the shape of the object (amongst other things). Thus, from Newton’s second law, the function <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(v(t)\)</span> satisfies</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{equation*}
-m\frac{dv}{dt}=mg-kv^2, \hspace{5mm} v(0)=0 
-\end{equation*}
-</div>
-<p class="continuation">This is a differential equation involving the (as yet unknown) function <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(v(t)\text{.}\)</span></p>
-<span class="incontext"><a href="introduction.html#p-566">in-context</a></span>
+<p class="continuation">for each <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(i = 1,2,\ldots, m.\)</span></p>
+<span class="incontext"><a href="Sec-Multivariable-chain-rules.html#p-566">in-context</a></span>
 </body>
 </html>

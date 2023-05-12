@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-01-07T17:22:33+11:00       *-->
+<!--*       on 2022-10-28T21:06:56+11:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -14,8 +14,38 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h3 class="heading"><span class="type">Paragraph</span></h3>
-<p>The significance of this analysis is the insight that if our damped object-spring system is subjected to an external oscillatory force near the natural frequency of the system it will respond with large amplitude motion unless the system is sufficiently damped. This phenomenon is known as <dfn xmlns:svg="http://www.w3.org/2000/svg" class="terminology">resonance</dfn>.</p>
-<span class="incontext"><a href="Adding_an_External_Force.html#p-863">in-context</a></span>
+<h4 class="heading"><span class="type">Paragraph</span></h4>
+<p>The first step is to find the general solution to the homogeneous DE</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+x''+6x'+8x=0
+\end{equation*}
+</div>
+<p class="continuation">The characteristic equation for this DE is</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+r^2+6r+8=0
+\end{equation*}
+</div>
+<p class="continuation">which has solutions</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+r=-2, -4
+\end{equation*}
+</div>
+<p class="continuation">Thus the complementary solution is</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+x_c(t)=Ae^{-2t}+Be^{-4t}
+\end{equation*}
+</div>
+<p class="continuation">The next step is to find a particular solution to the non-homogeneous DE. Using the method of undetermined coefficients we try a particular solution of the form</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+x_p(t)=C_1\sin(2t)+C_2\cos(2t)
+\end{equation*}
+</div>
+<p class="continuation">where <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(C_1\)</span> and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(C_2\)</span> are the coefficients to be determined. Now</p>
+<span class="incontext"><a href="The_Method_of_Undetermined_Coefficients.html#p-863">in-context</a></span>
 </body>
 </html>

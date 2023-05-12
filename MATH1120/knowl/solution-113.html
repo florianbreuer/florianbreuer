@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-01-07T17:22:35+11:00       *-->
+<!--*       on 2022-10-28T21:06:55+11:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -16,12 +16,54 @@
 <body class="ignore-math">
 <div class="solution solution-like">
 <h3 class="heading">
-<span class="type">Solution</span><span xmlns:svg="http://www.w3.org/2000/svg" class="space"> </span><span class="codenumber">15.1.7.1</span><span xmlns:svg="http://www.w3.org/2000/svg" class="period">.</span>
+<span class="type">Solution</span><span xmlns:svg="http://www.w3.org/2000/svg" class="space"> </span><span class="codenumber">13.2.2.1</span><span xmlns:svg="http://www.w3.org/2000/svg" class="period">.</span>
 </h3>
-<p>Multiplying the first equation by <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(2\)</span> and then subtracting this from the second equation gives <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(0=-21\text{.}\)</span> This tells us that no values of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(x\)</span> and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(y\)</span> will satisfy these equations. Thus there are no solutions. A system of equations with no solution is said to be <dfn xmlns:svg="http://www.w3.org/2000/svg" class="terminology">inconsistent</dfn>.</p>
-<p>Geometrically, this system of linear equations can be interpreted as two parallel lines in the plane, as shown in <a href="" class="xref" data-knowl="./knowl/Fig-Parallel_lines.html" title="Figure 15.1.8">Figure 15.1.8</a>. <figure class="figure figure-like"><div xmlns:svg="http://www.w3.org/2000/svg" class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="./LinearAlgebra/Images/1/figure3.png" class="contained"></div>
-<figcaption xmlns:svg="http://www.w3.org/2000/svg"><span class="type">Figure</span><span class="space"> </span><span class="codenumber">15.1.8<span class="period">.</span></span><span class="space"> </span></figcaption></figure></p>
+<p>Here the non-homogeneous term is <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(f(x)=4x^2\text{.}\)</span> This is a 2nd degree polynomial. The first and second derivatives of this will be a linear polynomial and a constant respectively. Thus we guess that a particular solution can found of the form</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation}
+y_p(x)=Ax^2+Bx+C\tag{13.2.1}
+\end{equation}
 </div>
-<span class="incontext"><a href="Sec-LA_Introduction.html#solution-113">in-context</a></span>
+<p class="continuation">where <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(A\text{,}\)</span> <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(B\)</span> and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(C\)</span> are coefficients to be determined by substituting into the DE. Now, from <a href="" class="xref" data-knowl="./knowl/DEs_5_Example_4_1.html" title="Equation 13.2.1">(13.2.1)</a></p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+y_p'=2Ax+B
+\end{equation*}
+</div>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+y_p''=2A
+\end{equation*}
+</div>
+<p class="continuation">Substituting into the DE gives</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{align*}
+y_p''+2y_p'-3y_p \amp = 4x^2\\
+(2A)+2(2Ax+B)-3(Ax^2+Bx+C)\amp = 4x^2\\
+(-3A)x^2+(4A-3B)x+(2A+2B-3C)\amp = 4x^2
+\end{align*}
+</div>
+<p>Thus for <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(y_p\)</span> to be a solution</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{align*}
+-3A \amp = 4\\
+4A-3B \amp = 0\\
+2A+2B-3C \amp = 0
+\end{align*}
+</div>
+<p>Solving these equations gives</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+A=-\frac{4}{3}, \hspace{5mm} B=-\frac{16}{9}, \hspace{5mm} C=-\frac{56}{27}
+\end{equation*}
+</div>
+<p class="continuation">Thus a particular solution to the DE is</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+y_p(x)=-\frac{4}{3}x^2-\frac{16}{9}x-\frac{56}{27}
+\end{equation*}
+</div>
+</div>
+<span class="incontext"><a href="The_Method_of_Undetermined_Coefficients.html#solution-113">in-context</a></span>
 </body>
 </html>

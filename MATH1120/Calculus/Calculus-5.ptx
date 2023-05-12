@@ -66,7 +66,7 @@
 
 
         <example xml:id="Ex-Tangent_Plane">
-            <p>For  the  function <m>f(x,y) = 5-\dfrac{x^2+y^2}{2}</m> the  graph  below  shows  the  graph of the function and it’s tangent plane at the point <m>(x,y) = (2,1)</m>. </p>
+            <p>For  the  function <m>f(x,y) = 5-\dfrac{x^2+y^2}{2}</m> the  graph  below  shows  the  graph of the function and it's tangent plane at the point <m>(x,y) = (2,1)</m>. </p>
 
             <figure xml:id="Fig-Example_1_Tangent_Plane">
                 <caption></caption>
@@ -75,7 +75,7 @@
         </example>
 
 
-        <p>To find the equation of the plane tangent to the function <m>z=f(x,y)</m> at the point <m>(x_0,y_0,z_0)</m>, firstly recall that the equation of a plane in Cartesian form is given by <me>ax+by+cz = k, \quad a,b,c,k \in \mathbb{R},</me> or in normal form, as illustrated in <xref ref="Fig-Tangent_Plane_Vector_Form_Figure"/>, by <men xml:id="Eqn-Tangent_Plane_Vector_Form">\bm{n} \cdot (\bm{r}-\bm{r}_0) = 0</men> where <m>\bm{n} = \langle a,b,c \rangle</m> is a normal vector to the plane, <m>\bm{r}_0</m> is the position vector of a point on the plane and <m>\bm{r} = \langle x,y,z \rangle</m>. </p>
+        <p>To find the equation of the plane tangent to the function <m>z=f(x,y)</m> at the point <m>(x_0,y_0,z_0)</m>, firstly recall that the equation of a plane in Cartesian form is given by <me>ax+by+cz = k, \quad a,b,c,k \in \mathbb{R},</me> or in normal form, as illustrated in <xref ref="Fig-Tangent_Plane_Vector_Form_Figure"/>, by <men xml:id="Eqn-Tangent_Plane_Vector_Form">\mathbf{n} \cdot (\mathbf{r}-\mathbf{r}_0) = 0</men> where <m>\mathbf{n} = \langle a,b,c \rangle</m> is a normal vector to the plane, <m>\mathbf{r}_0</m> is the position vector of a point on the plane and <m>\mathbf{r} = \langle x,y,z \rangle</m>. </p>
 
 
         <figure xml:id="Fig-Tangent_Plane_Vector_Form_Figure">
@@ -103,7 +103,7 @@
 
                 <p>Since this tangent line lies in the plane tangent to <m>f</m> at <m>(x,y) = (2,1)</m> the vector <me>\langle 1,0,f_x(2,1) \rangle</me> will be a vector that is parallel to the tangent plane, (or lies in the tangent plane if we place it’s tail at the point <m>(2,1,\frac{5}{2})</m>). Similarly, the vector <me>\langle 0,1,f_y(2,1) \rangle</me> will be another vector parallel to the tangent plane. Since these two non-parallel vectors are parallel to the tangent plane, their vector product will give a vector normal to the tangent plane, i.e.
                 <md>
-                    <mrow>\bm{n} \amp = \langle 1,0,f_x(2,1) \rangle \times \langle 0,1,f_y(2,1) \rangle</mrow>
+                    <mrow>\mathbf{n} \amp = \langle 1,0,f_x(2,1) \rangle \times \langle 0,1,f_y(2,1) \rangle</mrow>
                     <mrow>\amp = \langle -f_x(2,1), -f_y(2,1), 1 \rangle</mrow>
                     <mrow>\amp = \langle 2,1,1 \rangle</mrow>
                 </md>
@@ -115,7 +115,7 @@
 
         <p>In general, to find the equation of the plane tangent to the function <m>f(x,y)</m> at the point <m>(x_0,y_0)</m>, note that the vectors <me>\langle 1, 0, f_x(x_0,y_0) \rangle \: \text{and} \: \langle 0,1,f_y(x_0,y_0) \rangle</me> lie in the tangent plane and hence a normal to the plane is
             <md>
-                <mrow>\bm{n} \amp = \langle 1, 0 f_x(x_0,y_0) \rangle \times \langle0,1,f_y(x_0,y_0) \rangle</mrow>
+                <mrow>\mathbf{n} \amp = \langle 1, 0, f_x(x_0,y_0) \rangle \times \langle0,1,f_y(x_0,y_0) \rangle</mrow>
                 <mrow>\amp = \langle -f_x(x_0,y_0), -f_y(x_0,y_0),1 \rangle</mrow>
             </md>.
         Since the point <m>(x_0,y_0,z_0)</m> lies on the plane, using equation <xref ref="Eqn-Tangent_Plane_Vector_Form"/>, the equation of the tangent plane is <me> \langle  -f_x(x_0,y_0), -f_y(x_0,y_0),1 \rangle \cdot \bigg( \langle x,y,z \rangle - \langle x_0, y_0, z_0 \rangle \bigg) = 0.</me> On expanding and rearranging this we get the following result.
@@ -159,15 +159,15 @@
             </statement>
 
             <answer>
-                <p><m>\bm{r} = \langle 1, 2, 9 \rangle + t \langle -2, -8, 1 \rangle</m></p>
+                <p><m>\mathbf{r} = \langle 1, 2, 9 \rangle + t \langle -2, -8, 1 \rangle</m></p>
             </answer>
 
             <solution>
-                <p>Recall that the vector equation of a line in <m>\mathbb{R}^3</m> is <me>\bm{r} = \bm{r}_0 + t \bm{d}, \: t \in \mathbb{R}</me> where <m>\bm{r} = \langle x, y, z \rangle</m> is the position vector of a general point, <m>\bm{r}_0</m> is the position vector of a point that lies on the line and <m>d</m> is a direction vector for the line (i.e. a vector that is parallel to the line).</p>
+                <p>Recall that the vector equation of a line in <m>\mathbb{R}^3</m> is <me>\mathbf{r} = \mathbf{r}_0 + t \mathbf{d}, \: t \in \mathbb{R}</me> where <m>\mathbf{r} = \langle x, y, z \rangle</m> is the position vector of a general point, <m>\mathbf{r}_0</m> is the position vector of a point that lies on the line and <m>d</m> is a direction vector for the line (i.e. a vector that is parallel to the line).</p>
 
-                <p>We know that a vector normal to the surface <m>z=f(x,y)</m> at the point <m>(x_0,y_0,z_0)</m> is given by <me>\bm{n} = \langle -f_x(x_0,y_0), -f_y(x_0,y_0),1 \rangle</me>.</p>
+                <p>We know that a vector normal to the surface <m>z=f(x,y)</m> at the point <m>(x_0,y_0,z_0)</m> is given by <me>\mathbf{n} = \langle -f_x(x_0,y_0), -f_y(x_0,y_0),1 \rangle</me>.</p>
 
-                <p>For the function <m>z=x^2+2y^2</m>, <m>z_x=2x</m> and <m>z_y=4y</m>. Thus a direction vector for the line normal to <m>z=x^2+2y^2</m> at the point <m>(x,y)=(1,2)</m> will be <me>\bm{d} = \langle -2, -8, 1 \rangle</me>. Since the normal line passes through the point <m>(1,2,9)</m> its equation is <me>\bm{r} = \langle 1, 2, 9 \rangle + t \langle -2, -8, 1 \rangle</me>.</p>
+                <p>For the function <m>z=x^2+2y^2</m>, <m>z_x=2x</m> and <m>z_y=4y</m>. Thus a direction vector for the line normal to <m>z=x^2+2y^2</m> at the point <m>(x,y)=(1,2)</m> will be <me>\mathbf{d} = \langle -2, -8, 1 \rangle</me>. Since the normal line passes through the point <m>(1,2,9)</m> its equation is <me>\mathbf{r} = \langle 1, 2, 9 \rangle + t \langle -2, -8, 1 \rangle</me>.</p>
             </solution>
         </example>
 
@@ -177,7 +177,7 @@
 
             <exercise>
                 <statement>
-                    <p>Find the equation of the tangent plane to <m>z=x^2-5xy+2y^2</m> at the point <m>(x,y)=(1,2)</m>.</p>
+                    <p>Find the equation of the tangent plane to <m>z=x^2-5xy+2y^2</m> at the point <m>(x,y)=(-1,-2)</m>.</p>
                 </statement>
             </exercise>
 
@@ -209,12 +209,12 @@
         <title>Linear Approximations</title>
 
 
-        <p>In Section <xref ref="Sec-Tangent_Planes"/> we found that the equation of the tangent plane to the function <m>f(x,y)</m> at the point <m>(x_0,y_0,f(x_0,y_0))</m>, which is a linear equation.</p>
+        <p>In <xref ref="Sec-Tangent_Planes"/> we found that the equation of the tangent plane to the function <m>f(x,y)</m> at the point <m>(x_0,y_0,f(x_0,y_0))</m>, which is a linear equation.</p>
 
         <definition>
             <!-- <title>Linearisation</title> -->
             <statement>
-                <p>We call the function <me>L(x,y) = f(x_0,y_0) + f_x(x_0,y_0)(x-x_0) + f_y(x_0,y_0)(y-y_0)</me> the linearisation of <m>f</m> at the point <m>(x_0,y_0)</m>.</p>
+                <p>We call the function <me>L(x,y) = f(x_0,y_0) + f_x(x_0,y_0)(x-x_0) + f_y(x_0,y_0)(y-y_0)</me> the <term>linearisation</term> of <m>f</m> at the point <m>(x_0,y_0)</m>.</p>
             </statement>
         </definition>
 
@@ -233,7 +233,7 @@
                 <md alignment="alignat">
                     <mrow>z \left(\dfrac{\pi}{4},\dfrac{\pi}{4} \right) \amp = \, \, \, \, \sin \left(\dfrac{\pi}{4} \right) \cos \left(\dfrac{\pi}{4} \right) \amp = \dfrac{1}{2}</mrow>
                     <mrow>z_x \left(\dfrac{\pi}{4},\dfrac{\pi}{4} \right) \amp = \, \, \, \, \cos \left(\dfrac{\pi}{4} \right) \cos \left(\dfrac{\pi}{4} \right) \amp = \dfrac{1}{2}</mrow>
-                    <mrow>z_y \left(\dfrac{\pi}{4},\dfrac{\pi}{4} \right) \amp = -\sin \left(\dfrac{\pi}{4} \right) \sin \left(\dfrac{\pi}{4} \right) \amp = \dfrac{1}{2}</mrow>
+                    <mrow>z_y \left(\dfrac{\pi}{4},\dfrac{\pi}{4} \right) \amp = -\sin \left(\dfrac{\pi}{4} \right) \sin \left(\dfrac{\pi}{4} \right) \amp = -\dfrac{1}{2}</mrow>
                 </md>.
                 and so the linearisation is <me>L(x,y) = \dfrac{1}{2} + \dfrac{1}{2} \left( x - \dfrac{\pi}{4} \right) - \dfrac{1}{2} \left(y - \dfrac{\pi}{4} \right)</me>.
             </p>
@@ -438,6 +438,10 @@
                 <p>Find the quadratic approximation to the function <m>f(x,y) = x^2y</m> about the point <m>(x,y) = (1,2)</m>.</p>
             </statement>
 
+            <answer>
+                <p><m>T_2(x,y) = 2+4(x-1)+(y-2)+2(x-1)^2+2(x-1)(y-2)</m></p>
+            </answer>
+
             <solution>
                 <p>First calculate the partial derivatives:
                     <me>
@@ -462,6 +466,11 @@
             <statement>
                 <p>Using both a linear and a quadratic approximation, estimate the difference in the volume between a box with a square base of side length <quantity><mag>1</mag><unit base="meter"/></quantity> and height <quantity><mag>2</mag><unit base="meter"/></quantity> and a box with square base of side length <quantity><mag>1.1</mag><unit base="meter"/></quantity> and height <quantity><mag>2.05</mag><unit base="meter"/></quantity>.</p>
             </statement>
+
+            <answer>
+                <p>Via a linear approximation, <m>\Delta V = 0.45</m>.</p>
+                <p>Via a quadratic approximation, <m>\Delta V = 0.48</m></p>
+            </answer>
 
             <solution>
                 <p>If we let the side length of the base of a box be <m>x</m> and the height be <m>y</m> then volume <m>V</m> of the box is given by the formula <me>V(x,y) = x^2y</me>.</p>

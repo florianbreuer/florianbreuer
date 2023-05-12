@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-01-07T17:22:30+11:00       *-->
+<!--*       on 2022-10-28T21:06:50+11:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -16,95 +16,54 @@
 <body class="ignore-math">
 <div class="solution solution-like">
 <h3 class="heading">
-<span class="type">Solution</span><span xmlns:svg="http://www.w3.org/2000/svg" class="space"> </span><span class="codenumber">13.2.5.1</span><span xmlns:svg="http://www.w3.org/2000/svg" class="period">.</span>
+<span class="type">Solution</span><span xmlns:svg="http://www.w3.org/2000/svg" class="space"> </span><span class="codenumber">12.1.8.1</span><span xmlns:svg="http://www.w3.org/2000/svg" class="period">.</span>
 </h3>
-<p>To solve the initial-value problem we have to begin by finding the general solution to the DE. Since this DE is a non-homogeneous second order DE with constant coefficients we have to first find the general solution to the associated homogeneous DE</p>
+<p>The DE is a homogeneous second order linear DE with constant coefficients. The characteristic equation then is</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
 \begin{equation*}
-y''+3y'=0
+4r^{2}-3r-1=0.
 \end{equation*}
 </div>
-<p class="continuation">The characteristic equation for this DE is</p>
+<p class="continuation">Since this equation has two real solutions,</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
 \begin{equation*}
-r^2+3r=0
+r=-\frac{1}{4},\, 1
 \end{equation*}
 </div>
-<p class="continuation">which has solutions</p>
+<p class="continuation"><p>the general solution is</p></p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
 \begin{equation*}
-r=0, -3
+y(x) = A e^{-\frac{x}{4}} + B e^{x}.
 \end{equation*}
 </div>
-<p class="continuation">Thus the complementary solution is</p>
+<p class="continuation">Thus</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
 \begin{equation*}
-y_c(x)=A+Be^{-3x}
+y'(x) = -\frac{1}{4} A e^{-\frac{x}{4}} + B e^{x}.
 \end{equation*}
 </div>
-<p class="continuation">For the particular solution try a function of the form</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{equation*}
-y_p(x)=Ce^{2x}
-\end{equation*}
-</div>
-<p class="continuation">Then</p>
+<p class="continuation">Using the initial conditions gives the equations.</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
 \begin{align*}
-y_p'(x) \amp =2Ce^{2x}\\
-y_p''(x) \amp=4Ce^{2x}
+A + B \amp = 3  \\
+-\frac{1}{4} A + B \amp = 0. 
 \end{align*}
 </div>
-<p>For this to be a solution</p>
+<p class="continuation">Solving these simultaneously gives</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
 \begin{equation*}
-y_p''+3y_p'=5e^{2x}
+A=\frac{12}{5},\; B=\frac{3}{5}.
 \end{equation*}
 </div>
-<p class="continuation">and so</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{align*}
-4Ce^{2x}+3(2Ce^{2x}) \amp =5e^{2x}\\
-10Ce^{2x} \amp=5e^{2x}
-\end{align*}
-</div>
-<p>On equating coefficients on both sides of this equation</p>
+<p class="continuation">Thus the solution to the initial-value problem is</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
 \begin{equation*}
-10C=5\Rightarrow C=\frac{1}{2}
+y(x) = \frac{12}{5} e^{-\frac{x}{4}} + \frac{3}{5} e^{x}.
 \end{equation*}
 </div>
-<p class="continuation">Combining the complementary solution and this particular solution gives the general solution as</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{equation*}
-y(x)=A+Be^{-3x}+\frac{1}{2}e^{2x}
-\end{equation*}
+<p class="continuation">This solution is shown in <a href="" class="xref" data-knowl="./knowl/Fig-initial_value_problem.html" title="Figure 12.1.9">Figure 12.1.9</a>. Note that since <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(r_{1}=-\frac{1}{4} &lt; 0 \)</span> the term in the general solution associated with this root (i.e. <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\frac{12}{5} e^{-\frac{x}{4}} \)</span>) decays as <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(x\to \infty. \)</span> On the other hand since <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(r_{2}=1 &gt; 0 \)</span> the term in the general solution associated with this root (i.e. <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\frac{3}{5} e^{x} \)</span>) grows as <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(x\to \infty. \)</span> <figure class="figure figure-like"><div xmlns:svg="http://www.w3.org/2000/svg" class="image-box" style="width: 85%; margin-left: 7.5%; margin-right: 7.5%;"><img src="./DifferentialEquations/Images/4/initial_value_problem.png" class="contained"></div>
+<figcaption xmlns:svg="http://www.w3.org/2000/svg"><span class="type">Figure</span><span class="space"> </span><span class="codenumber">12.1.9<span class="period">.</span></span><span class="space"> </span></figcaption></figure></p>
 </div>
-<p class="continuation">On using the initial condition <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(y(0)=1\)</span> we find</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{equation*}
-A+B=\frac{1}{2}
-\end{equation*}
-</div>
-<p class="continuation">Since</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{equation*}
-y'(x)=-3Be^{-3x}+e^{2x}
-\end{equation*}
-</div>
-<p class="continuation">on using the initial condition <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(y'(0)=2\)</span> we find</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{equation*}
-B=1
-\end{equation*}
-</div>
-<p class="continuation">Thus <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(A=-\frac{1}{2}, B=1\)</span> and the solution to the initial-value problem is</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{equation*}
-y(x)=e^{-3x}+\frac{1}{2}e^{2x}-\frac{1}{2}
-\end{equation*}
-</div>
-</div>
-<span class="incontext"><a href="The_Method_of_Undetermined_Coefficients.html#solution-108">in-context</a></span>
+<span class="incontext"><a href="Homogeneous_Second_Order_Linear_DEs_With_Constant_Coefficients.html#solution-108">in-context</a></span>
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-01-07T17:22:12+11:00       *-->
+<!--*       on 2022-10-28T21:06:09+11:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -14,34 +14,31 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h4 class="heading"><span class="type">Paragraph</span></h4>
-<ol class="lower-alpha">
-<li><div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+<h3 class="heading"><span class="type">Paragraph</span></h3>
+<p>To use the chain rules to find a formula for <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\dfrac{dy}{dx}\)</span> for the function implicitly defined by the equation</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation}
+F(x,y)=0\tag{8.3.1}
+\end{equation}
+</div>
+<p class="continuation">let</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
 \begin{equation*}
-y'=x 
+z=F(x,y) \text{ and }  x=x(t), \quad y=y(t).
 \end{equation*}
-</div></li>
-<li><div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+</div>
+<p class="continuation">Thus we can think of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(F\)</span> as being a function of the one variable <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(t\text{,}\)</span> and so, by Chain Rule 1,</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
 \begin{equation*}
-y'=-y 
+\dfrac{dz}{dt} = \dfrac{\partial F}{\partial x}\dfrac{dx}{dt} + \dfrac{\partial F}{\partial y}\dfrac{dy}{dt}.
 \end{equation*}
-</div></li>
-<li><div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{equation*}
-y'=-x 
-\end{equation*}
-</div></li>
-<li><div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{equation*}
-y''=-y 
-\end{equation*}
-</div></li>
-<li><div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{equation*}
-y''-2y'=0 
-\end{equation*}
-</div></li>
-</ol>
-<span class="incontext"><a href="introduction.html#p-574">in-context</a></span>
+</div>
+<p class="continuation">Now we are thinking of equation <a href="" class="xref" data-knowl="./knowl/Eqn-Implicit_function.html" title="Equation 8.3.1">(8.3.1)</a> as defining a function of one variable <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(y=y(x)\text{,}\)</span> so let <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(x=x\)</span> and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(y=y(x)\)</span> and hence</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation}
+\dfrac{dz}{dx} = \dfrac{\partial F}{\partial x}\times (1) + \dfrac{\partial F}{\partial y}\dfrac{dy}{dx} = F_x + F_y \dfrac{dy}{dx}.\tag{8.3.2}
+\end{equation}
+</div>
+<span class="incontext"><a href="section-22.html#p-574">in-context</a></span>
 </body>
 </html>

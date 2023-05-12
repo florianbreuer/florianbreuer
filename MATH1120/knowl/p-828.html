@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-01-07T17:22:30+11:00       *-->
+<!--*       on 2022-10-28T21:06:52+11:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,12 +15,39 @@
 </head>
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
+<p>The characteristic equation is</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+r^{2}-6r+25=0,
+\end{equation*}
+</div>
+<p class="continuation">which has the complex solutions</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+r=3\pm 4i.
+\end{equation*}
+</div>
+<p class="continuation">Thus the general solution is</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+y(x)=e^{3x} (A \cos(4 x) + B \sin(4 x)).
+\end{equation*}
+</div>
+<p class="continuation">Using the boundary conditions gives the equations</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
 \begin{align*}
-y_p'(x) \amp =2Ce^{2x}\\
-y_p''(x) \amp=4Ce^{2x}
+A  \amp = 1,  \\
+B  e^{\frac{3\pi}{8}} \amp = 2. 
 \end{align*}
 </div>
-<span class="incontext"><a href="The_Method_of_Undetermined_Coefficients.html#p-828">in-context</a></span>
+<p class="continuation">Thus the solution to the boundary-value problem is</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+y(x)=e^{3x} ( \cos(4 x) + 2 e^{-\frac{3\pi}{8}} \sin(4 x)).
+\end{equation*}
+</div>
+<p class="continuation">This graph of this function is shown in <a href="" class="xref" data-knowl="./knowl/Fig-boundary_value_problem.html" title="Figure 12.1.11">Figure 12.1.11</a>. Note that when the characteristic equation has complex roots, <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(r=\alpha\pm\beta i\)</span> the solutions the homogeneous second order linear DE with constant coefficients will be periodic in nature with frequency <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\beta\text{.}\)</span> Further, if <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\alpha &gt; 0\)</span> then the oscillations will grow as <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(x\to \infty \)</span>  whereas if <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\alpha &lt; 0\)</span> the oscillations will decay as  <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(x\to \infty. \)</span> In this case <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\alpha =3\)</span> and hence the oscillations increase in amplitude. <figure class="figure figure-like"><div xmlns:svg="http://www.w3.org/2000/svg" class="image-box" style="width: 85%; margin-left: 7.5%; margin-right: 7.5%;"><img src="./DifferentialEquations/Images/4/boundary_value_problem.png" class="contained"></div>
+<figcaption xmlns:svg="http://www.w3.org/2000/svg"><span class="type">Figure</span><span class="space"> </span><span class="codenumber">12.1.11<span class="period">.</span></span><span class="space"> </span></figcaption></figure></p>
+<span class="incontext"><a href="Homogeneous_Second_Order_Linear_DEs_With_Constant_Coefficients.html#p-828">in-context</a></span>
 </body>
 </html>

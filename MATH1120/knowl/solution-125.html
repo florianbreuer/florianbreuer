@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-01-07T17:22:44+11:00       *-->
+<!--*       on 2022-10-28T21:07:11+11:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -16,17 +16,29 @@
 <body class="ignore-math">
 <div class="solution solution-like">
 <h3 class="heading">
-<span class="type">Solution</span><span xmlns:svg="http://www.w3.org/2000/svg" class="space"> </span><span class="codenumber">16.2.12.1</span><span xmlns:svg="http://www.w3.org/2000/svg" class="period">.</span>
+<span class="type">Solution</span><span xmlns:svg="http://www.w3.org/2000/svg" class="space"> </span><span class="codenumber">15.3.9.1</span><span xmlns:svg="http://www.w3.org/2000/svg" class="period">.</span>
 </h3>
-<p>The augmented matrix and its reduced row-echelon equivalent matrix are</p>
+<p>The augmented matrix for this system is</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
 \begin{equation*}
-\begin{pmatrix} 2 \amp 4 \amp 2 \amp 3 \\ 2 \amp 3 \amp 3 \amp 6 \\4 \amp 1 \amp -1 \amp 3 \end{pmatrix} \sim \begin{pmatrix} 1 \amp 0 \amp 0 \amp \frac{3}{2} \\ 0 \amp 1 \amp 0 \amp -1 \\ 0 \amp 0 \amp 1 \amp 2 \end{pmatrix}
+\begin{pmatrix} 2 \amp 6 \amp 2 \amp 4 \\ 3 \amp 2 \amp 1 \amp 0 \\ 2 \amp 3 \amp 0 \amp 1 \end{pmatrix} 
 \end{equation*}
 </div>
-<p class="continuation">Thus the solution is <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\((x,y,z)=\left(\frac{3}{2},-1,2 \right)\text{.}\)</span> The geometric interpretation of this solution is that the vector <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\begin{pmatrix} 3 \\ 6 \\ 3 \end{pmatrix}\)</span> (shown in blue in <a href="" class="xref" data-knowl="./knowl/Fig-Vector_as_a_linear_combination.html" title="Figure 16.2.13">Figure 16.2.13</a>) can be written as a linear combination of the vectors <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\left \{\begin{pmatrix} 2 \\ 2 \\ 4 \end{pmatrix}, \begin{pmatrix} 4 \\ 3 \\ 1 \end{pmatrix}, \begin{pmatrix} 2 \\ 3 \\ -1 \end{pmatrix} \right \}\)</span> (shown in red in <a href="" class="xref" data-knowl="./knowl/Fig-Vector_as_a_linear_combination.html" title="Figure 16.2.13">Figure 16.2.13</a>) and in only one way, (shown in green in <a href="" class="xref" data-knowl="./knowl/Fig-Vector_as_a_linear_combination.html" title="Figure 16.2.13">Figure 16.2.13</a>). <figure class="figure figure-like"><div xmlns:svg="http://www.w3.org/2000/svg" class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="./LinearAlgebra/Images/2/figure6.png" class="contained"></div>
-<figcaption xmlns:svg="http://www.w3.org/2000/svg"><span class="type">Figure</span><span class="space"> </span><span class="codenumber">16.2.13<span class="period">.</span></span><span class="space"> </span></figcaption></figure> Note that if the system of linear equations is homogeneous (i.e. <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\mathbf{b=0}\)</span>) then the solution of the system tells us if the set of vectors <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\{\mathbf{a_1, a_2, a_3}\}\)</span>  is linearly independent or not.</p>
+<p class="continuation">Now using the steps as outlined to reduce this to reduced row-echelon form:</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{align*}
+\begin{pmatrix} 2 \amp 6 \amp 2 \amp 4 \\ 3 \amp 2 \amp 1 \amp 0 \\ 2 \amp 3 \amp 0 \amp 1 \end{pmatrix} \amp \sim \begin{pmatrix} 1 \amp 3 \amp 1 \amp 2 \\ 0 \amp -7 \amp -2 \amp -6 \\ 0 \amp -3 \amp -2 \amp -3 \end{pmatrix}  \begin{matrix} R_1'=R_1/2 \\ \hspace{10mm} R_2'=R_2-3R_1' \\ \hspace{10mm} R_3'=R_3-2R_1' \end{matrix} \\
+\amp \sim \begin{pmatrix} 1 \amp 0 \amp \frac{1}{7} \amp -\frac{4}{7} \\ 0 \amp 1 \amp \frac{2}{7} \amp \frac{6}{7} \\ 0 \amp 0 \amp -\frac{8}{7} \amp -\frac{3}{7} \end{pmatrix}  \hspace{6mm} \begin{matrix} \hspace{5mm} R_1'=R_1-3R_2' \\  R_2'=-R_2/7 \\ \hspace{5.5mm} R_3'=R_3+3R_2' \end{matrix}\\
+\amp \sim \begin{pmatrix} 1 \amp 0 \amp 0 \amp -\frac{5}{8} \\ 0 \amp 1 \amp 0 \amp \frac{3}{4} \\ 0 \amp 0 \amp 1 \amp \frac{3}{8} \end{pmatrix}   \begin{matrix} \hspace{14.5mm} R_1'=R_1-R_3'/7 \\ \hspace{16.5mm} R_2'=R_2-2R_3'/7 \\ \hspace{10mm} R_3'=-7R_3/8 \end{matrix}
+\end{align*}
 </div>
-<span class="incontext"><a href="Interpretation_Via_Columns.html#solution-125">in-context</a></span>
+<p class="continuation">Thus the solution is</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+(x,y,z)=\left(-\frac{5}{8},\frac{3}{4},\frac{3}{8}\right)
+\end{equation*}
+</div>
+</div>
+<span class="incontext"><a href="Sec-LA_Solving_Systems_of_Linear_Equations.html#solution-125">in-context</a></span>
 </body>
 </html>

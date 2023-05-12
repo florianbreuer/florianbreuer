@@ -63,11 +63,15 @@
             Most of the equations that we have come across so far in our mathematical "upbringing" have imposed conditions that a <term>number</term> is required to satisfy.
         </p>
 
-        <example>
+        <example xml:id="Ex_1">
             <p>
                 Let <m>x</m> be a real number. Solve
                 <me> x^3-x^2-2x+2=0 </me>
             </p>
+
+            <answer>
+            <p><m>x =1,\sqrt{2},-\sqrt{2}</m></p>
+            </answer>
 
             <solution>
                 <p>
@@ -92,16 +96,17 @@
                 Let <m>x</m> be a real number. Solve
                 <me> x=\tan(x) </me>
             </p>
+
             <solution>
                 <p>
-                    The strategy that we used for solving the equation in Example 1 won’t work for this equation. In fact we cannot write down the solution (or solutions) to this equation in closed form. Thus we adopt the strategy of finding an approximation to the solutions.
+                    The strategy that we used for solving the equation in <xref ref="Ex_1"/> won't work for this equation. In fact we cannot write down the solution (or solutions) to this equation in closed form. Thus we adopt the strategy of finding an approximation to the solutions.
                 </p>
                 <p>
                     We could do this geometrically by plotting the graphs of <m>y=x</m> and <m>y=\tan(x)</m> and looking at the points of intersection.
-                    <figure>
+                    <figure xml:id="Fig_1_example2">
                         <image source="./DifferentialEquations/Images/1/1_example2.png" width="75%"/>
                     </figure>
-                    As can be seen in Figure 9.1.3., there will be an infinite number of solutions to this equation. One solution is <m>x=0</m>. There is another solution between <m>x=4</m> and <m>x=5</m> and so on.
+                    As can be seen in <xref ref="Fig_1_example2"/>, there will be an infinite number of solutions to this equation. One solution is <m>x=0</m>. There is another solution between <m>x=4</m> and <m>x=5</m> and so on.
                 </p>
                 <p>
                     Another way of approximating the solution would be numerically. We could use Newton’s method for example. Starting with an initial guess of <m>x_0=4.5</m> our next guess is
@@ -115,7 +120,7 @@
             Mathematical models in science and engineering often throw up a situation where information about a function's derivative (or derivatives) is known. From here, we usually want to deduce information about the function itself.
         </p>
 
-        <example>
+        <example xml:id="Ex_3">
             <p>
                 It has been observed that an object cools at a rate proportional to the difference between the object's temperature and ambient temperature. Write down an equation that conveys this observation.
             </p>
@@ -129,11 +134,11 @@
         </example>
 
         <p>
-            As illustrated in Example 9.1.4., we were able to write the <term>information</term> known about the situation in terms of an equation involving the function and the derivative of the function even though we didn’t know what the actual function was. Such an equation is called a <term>differential equation</term> (DE). Having determined the differential equation, we now want to find a <term>function</term> that satisfies the equation, i.e. we want to find a solution to the DE.
+            As illustrated in <xref ref="Ex_3"/>, we were able to write the <term>information</term> known about the situation in terms of an equation involving the function and the derivative of the function even though we didn’t know what the actual function was. Such an equation is called a <term>differential equation</term> (DE). Having determined the differential equation, we now want to find a <term>function</term> that satisfies the equation, i.e. we want to find a solution to the DE.
         </p>
 
         <example>
-            <title>Example 9.1.4. (cont.) </title>
+            <title>(<xref ref="Ex_3"/> cont.) </title>
             <p>
                 Assuming that the ambient temperature is fixed, what can we say happens to the temperature of the body over time?
             </p>
@@ -141,12 +146,12 @@
                 <p>
                     Solutions to the DE for the temperature of the cooling body are of the form
                     <me> T(t)=Ae^{-kt}+T_a </me>
-                    where <m>A</m> is an arbitrary constant. Even though we haven’t yet looked at the method for finding this solution we can check that it is correct by substituting back into the original equation. Here
+                    where <m>A</m> is an arbitrary constant. Even though we haven't yet looked at the method for finding this solution we can check that it is correct by substituting back into the original equation. Here
                     <me> LHS=\frac{dT}{dt}=\frac{d}{dt}\left(Ae^{-kt}+T_a \right)=-kAe^{-kt} </me>
                     and
                     <me> RHS=-k(T-T_a)=-k(Ae^{-kt}+T_a-T_a)=-kAe^{-kt}</me>
-                    Once we know the function itself we can now answer questions concerning the temperature of the cooling body over time. For example we see that over time, the temperature of the body starts out at <m>A+T_a</m> and falls exponentially toward <m>T_a</m>. See Figure 9.1.6.
-                    <figure>
+                    Once we know the function itself we can now answer questions concerning the temperature of the cooling body over time. For example we see that over time, the temperature of the body starts out at <m>A+T_a</m> and falls exponentially toward <m>T_a</m>. See <xref ref="Fig_1_example3"/>.
+                    <figure xml:id="Fig_1_example3">
                         <image source="./DifferentialEquations/Images/1/1_example3.png" width="75%"/>
                     </figure>
                 </p>
@@ -211,57 +216,70 @@
             <p>
                 What is the order of each the following of the DEs?  Using your knowledge of the basic functions of science and engineering try to guess a solution to each DE.
             </p>
-            <p><ol label="a.">
-                <li><p> <me> y'=x </me></p></li>
-                <li><p> <me> y'=-y </me></p></li>
-                <li><p> <me> y'=-x </me></p></li>
-                <li><p> <me> y''=-y </me></p></li>
-                <li><p> <me> y''-2y'=0 </me></p></li>
+            <p><ol label="(a)">
+                <li><m>y'=x </m></li>
+                <li><m>y'=-y </m></li>
+                <li><m>y'=-x </m></li>
+                <li><m>y''=-y </m></li>
+                <li><m>y''-2y'=0 </m></li>
             </ol></p>
+
+            <answer>
+                <p><ol label="a.">
+                    <li>First order differential equation; <m>y(x)=\frac{1}{2}x^2+C</m></li>
+                    <li>First order differential equation; <m>y(x)=e^{-x}</m></li>
+                    <li>Second order differential equation; <m>y(x)=-\frac{1}{6}x^3+Ax+B</m></li>
+                    <li>Second order differential equation; <m>y(x)=\sin(x)</m></li>
+                    <li>Second order differential equation; <m>y(x)=e^{2x}</m></li>
+                </ol></p>
+            </answer>
 
             <solution>
                 <p><ol label="a.">
                     <li><p>
-                        Because this equation only involves the first derivative of the function it is a first order differential equation. Next, since the differential equation is of the form
-                        <me> \frac{dy}{dx}=f(x) </me>
-                        we can solve it by simple anti-differentiation. Thus
-                        <me> y(x)=\int x \hspace{2mm} dx =\frac{1}{2}x^2+C </me>
-                        Note that this solution is the general solution to the DE, it is a description of all possible solutions to the equation. As shown in Figure 9.1.11., when we graph all of the functions in this general solution they fill the entire plane but there are no points of intersection.
-                        <figure>
-                            <image source="./DifferentialEquations/Images/1/1_example6.png" width="75%"/>
-                        </figure>
-                        A solution with a given value of <m>C</m> would be a particular solution of the DE, for example
-                        <me> y(x)=\frac{1}{2}x^2+1 </me>
-                        This particular solution is highlighted in Figure 9.1.11.
-                    </p></li>
-                    <li><p>
-                        Again this is a first order DE since the highest derivative in the equation is a first derivative. In this case we can’t solve the equation via anti-differentiation. However, given that the equation says that the function must be such that its derivative must be equal to the negative of itself it would be reasonable to guess that the function must be an exponential function. For <m>y(x)=e^x</m> we can see that
-                        <me>y'=e^x=y</me>
-                        and so try instead <m>y(x)=e^{-x}</m>. Then
-                        <me>y'=-e^{-x}=-y</me>
-                        and so we have found a (particular) solution.
-                    </p></li>
-                    <li><p>
-                        This DE contains a second derivative and hence is of order 2. Again we can find a solution by simple anti-differentiation. Since
-                        <me>\frac{d^2y}{dx^2}=-x</me>
-                        by anti-differentiating we obtain
-                        <me>\frac{dy}{dx}=\int -x \hspace{2mm} dx=-\frac{1}{2}x^2+A</me>
-                        and on anti-differentiating again
-                        <me>y(x)=\int -\frac{1}{2}x^2+A \hspace{2mm} dx=-\frac{1}{6}x^3+Ax+B</me>
-                        This is the general solution to the DE. Notice that this 2nd order DE has two arbitrary constants in its general solution.
-                    </p></li>
-                    <li><p>
-                        This DE is also a 2nd order DE but we can’t get the solution by anti-differentiation. Thus (at this stage) we have to try to guess. What function is the negative of its second derivative? We could try an exponential function (as we did in part b), i.e.
-                        <me>y(x)=e^{-x}</me>
-                        Then <m>y''=e^{-x}=y</m> which isn’t quite what we wanted. Another possible candidate would be the sine or cosine function. So let us now try
-                        <me>y(x)=\sin(x)</me>
-                        Then <m>y''=-\sin(x)=-y</m> which is what we wanted and so we have found a solution.
-                    </p></li>
-                    <li><p>
-                        This DE contains both the first and second derivative. However since the highest derivative is the second derivative this equation is a 2nd order DE. The most obvious candidate for a solution to this DE would be an exponential function so let’s try
-                        <me>y(x)=e^{2x}</me>
-                        In this case <m>y'=2e^{2x}</m> and <m>y''=4e^{2x}</m> and hence <m>y''-2y'=0</m>. Thus we have found one solution to the DE.
-                    </p></li>
+                    Because this equation only involves the first derivative of the function it is a first order differential equation. Next, since the differential equation is of the form
+                    </p>
+                    <p>
+                    <me>\frac{dy}{dx}=f(x)</me>
+                    we can solve it by simple anti-differentiation. Thus
+                    <me> y(x)=\int x \hspace{2mm} dx =\frac{1}{2}x^2+C </me>
+                    Note that this solution is the general solution to the DE, it is a description of all possible solutions to the equation. As shown in <xref ref="Fig_1_example6"/>, when we graph all of the functions in this general solution they fill the entire plane but there are no points of intersection.
+                    <figure xml:id="Fig_1_example6">
+                        <image source="./DifferentialEquations/Images/1/1_example6.png" width="75%"/>
+                    </figure>
+                    A solution with a given value of <m>C</m> would be a particular solution of the DE, for example
+                    <me> y(x)=\frac{1}{2}x^2+1 </me>
+                    This particular solution is highlighted in <xref ref="Fig_1_example6"/>.
+                    </p>
+                    </li>
+                    <li>
+                    Again this is a first order DE since the highest derivative in the equation is a first derivative. In this case we can't solve the equation via anti-differentiation. However, given that the equation says that the function must be such that its derivative must be equal to the negative of itself it would be reasonable to guess that the function must be an exponential function. For <m>y(x)=e^x</m> we can see that
+                    <me>y'=e^x=y</me>
+                    and so try instead <m>y(x)=e^{-x}</m>. Then
+                    <me>y'=-e^{-x}=-y</me>
+                    and so we have found a (particular) solution.
+                    </li>
+                    <li>
+                    This DE contains a second derivative and hence is of order 2. Again we can find a solution by simple anti-differentiation. Since
+                    <me>\frac{d^2y}{dx^2}=-x</me>
+                    by anti-differentiating we obtain
+                    <me>\frac{dy}{dx}=\int -x \hspace{2mm} dx=-\frac{1}{2}x^2+A</me>
+                    and on anti-differentiating again
+                    <me>y(x)=\int -\frac{1}{2}x^2+A \hspace{2mm} dx=-\frac{1}{6}x^3+Ax+B</me>
+                    This is the general solution to the DE. Notice that this 2nd order DE has two arbitrary constants in its general solution.
+                    </li>
+                    <li>
+                    This DE is also a 2nd order DE but we can't get the solution by anti-differentiation. Thus (at this stage) we have to try to guess. What function is the negative of its second derivative? We could try an exponential function (as we did in part <m>(b)</m>), i.e.
+                    <me>y(x)=e^{-x}</me>
+                    Then <m>y''=e^{-x}=y</m> which isn't quite what we wanted. Another possible candidate would be the sine or cosine function. So let us now try
+                    <me>y(x)=\sin(x)</me>
+                    Then <m>y''=-\sin(x)=-y</m> which is what we wanted and so we have found a solution.
+                    </li>
+                    <li>
+                    This DE contains both the first and second derivative. However since the highest derivative is the second derivative this equation is a 2nd order DE. The most obvious candidate for a solution to this DE would be an exponential function so let's try
+                    <me>y(x)=e^{2x}</me>
+                    In this case <m>y'=2e^{2x}</m> and <m>y''=4e^{2x}</m> and hence <m>y''-2y'=0</m>. Thus we have found one solution to the DE.
+                    </li>
                 </ol></p>
             </solution>
         </example>
@@ -344,15 +362,15 @@
                         <me>y'=\frac{x-y}{3}</me>,
                         i.e. <m>f(x,y)=\frac{x-y}{3}</m>. Now, at the point <m>(0,2)</m> the slope of the tangent to <m>y(x)</m> will be
                         <me> f(0,2)=\frac{0-2}{3}=-\frac{2}{3}</me>
-                        So draw a small segment of the line passing through the point <m>(0,2)</m> with slope <m>-\frac{2}{3}</m>, as shown in Figure 9.2.2.
-                        <figure>
-                            <image source="./DifferentialEquations/Images/1/2_example8.png" width="75%"/>
+                        So draw a small segment of the line passing through the point <m>(0,2)</m> with slope <m>-\frac{2}{3}</m>, as shown in <xref ref="Fig_2_example8"/>.
+                        <figure xml:id="Fig_2_example8">
+                            <image source="./DifferentialEquations/Images/1/2_example8.png" width="70%"/>
                         </figure>
-                        Repeating for many points <m>(x,y)</m> in the plane gives the direction field for the DE shown in Figure 9.2.3.
-                        <figure>
-                            <image source="./DifferentialEquations/Images/1/2_example8_2.png" width="75%"/>
+                        Repeating for many points <m>(x,y)</m> in the plane gives the direction field for the DE shown in <xref ref="Fig_2_example8_2"/>.
+                        <figure xml:id="Fig_2_example8_2">
+                            <image source="./DifferentialEquations/Images/1/2_example8_2.png" width="60%"/>
                         </figure>
-                        Notice that from this direction field we can see the general shape of the family of solutions to the DE. We can also sketch any particular solution that we want. The particular solution satisfying <m>y(0)=2</m> has been constructed in Figure 9.2.3.
+                        Notice that from this direction field we can see the general shape of the family of solutions to the DE. We can also sketch any particular solution that we want. The particular solution satisfying <m>y(0)=2</m> has been constructed in <xref ref="Fig_2_example8_2"/>.
                     </p>
                 </solution>
             </example>
@@ -372,12 +390,12 @@
                     <p>
                         Notice that for this DE the functions
                         <me>y(x)=0 \textrm{ and }  y(x)=1</me>
-                        are solutions and that for these solutions <m>y'=0</m>. (These solutions are called <term>steady state solutions</term> since <m>y</m> does not vary along these solutions). Notice also that at any point whose <m>y</m> coordinate is greater than <m>1</m>, <m>y'\lt 0</m>. Similarly for those points with <m>y</m> coordinate satisfying <m>0\lt y\lt 1</m>, <m>y'>0</m> and for those points with <m>y</m> coordinate satisfying <m>y\lt 0</m>, <m>y'\lt 0</m>. These observations allow us to very quickly make a sketch of the direction field. The direction field for this DE is shown in Figure 9.2.5.
+                        are solutions and that for these solutions <m>y'=0</m>. (These solutions are called <term>steady state solutions</term> since <m>y</m> does not vary along these solutions). Notice also that at any point whose <m>y</m> coordinate is greater than <m>1</m>, <m>y'\lt 0</m>. Similarly for those points with <m>y</m> coordinate satisfying <m>0\lt y\lt 1</m>, <m>y'>0</m> and for those points with <m>y</m> coordinate satisfying <m>y\lt 0</m>, <m>y'\lt 0</m>. These observations allow us to very quickly make a sketch of the direction field. The direction field for this DE is shown in <xref ref="Figure_2_example9"/>.
                     </p>
                     <p>
                     	From the direction field we can see that the behaviour of the solution for large values of <m>x</m> depends on the initial condition that the solution satisfies. If <m>y(0)\lt 0</m> then <m>y\rightarrow -\infty</m> as <m>x\rightarrow\infty</m> whereas if <m>y(0)>0</m> then <m>y\rightarrow 1</m> as <m>x\rightarrow\infty</m>.
                     </p>
-                    <figure>
+                    <figure xml:id="Figure_2_example9">
                         <image source="./DifferentialEquations/Images/1/2_example9.png" width="75%"/>
                     </figure>
                 </solution>
@@ -399,65 +417,71 @@
             <definition>
                 <title>Euler's Method (for solving the initial-value problem <m>y'=f(x,y), \hspace{5mm} y(x_0)=y_0</m>)</title>
                 <p><ul>
-                    <li><p>Choose a step size <term><m>\Delta x</m></term></p></li>
-                    <li><p>Begin at the point <term><m>(x_0,y_0)</m></term></p></li>
-                    <li><p>Move from one point <term><m>(x_0,y_0)</m></term> on the solution to the next point <term><m>(x_{n+1},y_{n+1})</m></term> on the solution by:
-                        <p><md>
+                    <li>Choose a step size <term><m>\Delta x</m></term></li>
+                    <li>Begin at the point <term><m>(x_0,y_0)</m></term></li>
+                    <li>Move from one point <term><m>(x_0,y_0)</m></term> on the solution to the next point <term><m>(x_{n+1},y_{n+1})</m></term> on the solution by:
+                        <md>
                             <mrow>x_{n+1} \amp =x_n+\Delta x</mrow>
                             <mrow>y_{n+1} \amp =y_n+f(x_n,y_n)\Delta x</mrow>
-                        </md></p>
-                    </p></li>
+                        </md></li>
                 </ul></p>
             </definition>
 
             <p>
-                Note that the accuracy of Euler’s method will depend on both the step size used and the distance from the initial known point on the solution.
+                Note that the accuracy of Euler's method will depend on both the step size used and the distance from the initial known point on the solution.
             </p>
 
             <example>
                 <p>
                     Consider the initial-value problem:
                     <me>y'=y, \hspace{5mm} y(0)=1</me>
-                    Estimate <m>y(1)</m> using Euler’s method with step size
+                    Estimate <m>y(1)</m> using Euler's method with step size
                 </p>
-                <p><ol label="a.">
-                    <li><p><m>\Delta x=1</m></p></li>
-                    <li><p><m>\Delta x=0.5</m></p></li>
-                    <li><p><m>\Delta x=0.25</m></p></li>
+                <p><ol label="(a)">
+                    <li><m>\Delta x=1</m></li>
+                    <li><m>\Delta x=0.5</m></li>
+                    <li><m>\Delta x=0.25</m></li>
                 </ol></p>
+
+                <answer>
+                    <p><ol label="(a)">
+                        <li><m>y(1)=2</m>.</li>
+                        <li><m>y(1)=2.25</m>.</li>
+                        <li><m>y(1)=2.4414 \textrm{ (to 4 d.p.)}</m></li>
+                    </ol></p>
+                </answer>
+
                 <solution>
                     <p>
                         Here <m>f(x,y)=y</m>.
                     </p>
-                    <p><ol label="a.">
-                        <li><p>Let <m>(x_0,y_0)=(0,1)</m>. Then with <m>\Delta x=1</m> we have
-                            <p><md>
+                    <p><ol label="(a)">
+                        <li>Let <m>(x_0,y_0)=(0,1)</m>. Then with <m>\Delta x=1</m> we have
+                            <md>
                                 <mrow>x_1 \amp =x_0+\Delta x=0+1=1</mrow>
                                 <mrow>y_1 \amp =y_0+f(x_0,y_0)\Delta x</mrow>
                                 <mrow>\amp = 1+f(0,1)\times 1</mrow>
                                 <mrow>\amp = 1+1</mrow>
                                 <mrow>\amp = 2</mrow>
-                            </md></p>
-                            Thus the Euler estimate is <m>y(1)=2</m>.
-                        </p></li>
-                        <li><p>Again, begin with <m>(x_0,y_0)=(0,1)</m>. Using <m>\Delta x=0.5</m> we will need two iterations to reach <m>x=1</m>. The first iteration gives
-                            <p><md>
+                            </md>
+                            Thus the Euler estimate is <m>y(1)=2</m>.</li>
+                        <li>Again, begin with <m>(x_0,y_0)=(0,1)</m>. Using <m>\Delta x=0.5</m> we will need two iterations to reach <m>x=1</m>. The first iteration gives
+                            <md>
                                 <mrow>x_1 \amp =x_0+\Delta x=0+0.5=0.5</mrow>
                                 <mrow>y_1 \amp =y_0+f(x_0,y_0)\Delta x</mrow>
                                 <mrow>\amp = 1+f(0,1)\times 0.5</mrow>
                                 <mrow>\amp = 1.5</mrow>
-                            </md></p>
+                            </md>
                             Now complete the second iteration
-                            <p><md>
+                            <md>
                                 <mrow>x_2 \amp =x_1+\Delta x=0.5+0.5=1</mrow>
                                 <mrow>y_2 \amp =y_1+f(x_1,y_1)\Delta x</mrow>
                                 <mrow>\amp = 1.5+f(0.5,1.5)\times 0.5</mrow>
                                 <mrow>\amp = 1.5+1.5\times 0.5</mrow>
                                 <mrow>\amp = 2.25</mrow>
-                            </md></p>
-                            Thus the Euler estimate is <m>y(1)=2.25</m>.
-                        </p></li>
-                        <li><p>With <m>\Delta x=0.25</m> we will need 4 iterations to reach <m>x=1</m>. We can conveniently summarise the calculations via a table
+                            </md>
+                            Thus the Euler estimate is <m>y(1)=2.25</m>.</li>
+                        <li>With <m>\Delta x=0.25</m> we will need 4 iterations to reach <m>x=1</m>. We can conveniently summarise the calculations via a table
                             <table>
                                 <tabular halign="center">
                                     <row header="yes" bottom="minor" >
@@ -505,13 +529,12 @@
                                 </tabular>
                             </table>
 
-
                             Thus the Euler estimate is <m>y(1)=2.4414 \textrm{ (to 4 d.p.)}</m>
-                        </p></li>
+                        </li>
                     </ol></p>
                     <p>
-                        Note that the exact solution to this initial-value problem is <m>y=e^x</m> and hence <m>y(1)=e=2.7183</m> (to 4 d.p.). Figure 9.2.4. shows how the Euler solution with <m>\Delta x=0.5</m> compares with the exact solution.
-                        <figure>
+                        Note that the exact solution to this initial-value problem is <m>y=e^x</m> and hence <m>y(1)=e=2.7183</m> (to 4 d.p.). <xref ref="Figure_2_example11"/> shows how the Euler solution with <m>\Delta x=0.5</m> compares with the exact solution.
+                        <figure xml:id="Figure_2_example11">
                             <image source="./DifferentialEquations/Images/1/2_example11.png" width="75%"/>
                         </figure>
                     </p>
@@ -522,8 +545,13 @@
                 <p>
                     Consider the DE
                     <me>y'=y+x^2, \hspace{5mm} y(1)=2</me>
-                    Use Euler’s method with <m>\Delta x=0.5</m> to estimate <m>y(3)</m>.
+                    Use Euler's method with <m>\Delta x=0.5</m> to estimate <m>y(3)</m>.
                 </p>
+
+                <answer>
+                <p><m>y(3)=20.4688 \textrm{ (to 4 d.p.)}</m></p>
+                </answer>
+
                 <solution>
                     <p>
                         Using the table layout:
@@ -585,9 +613,9 @@
                         <p>At time <m>t</m> the population density of the Striped Dingbat is modelled by the function <m>P(t)</m>. This function satisﬁes the DE
                         <me>\frac{dP}{dt}=kP(C-P)</me>
                         where <m>k</m> and <m>C</m> are positive constants.</p>
-                        <p><ol label="a.">
-                            <li><p>Find all steady-state solutions to this DE.</p></li>
-                            <li><p>By considering the direction ﬁeld, explain how this model predicts the long-term Striped Dingbat population.</p></li>
+                        <p><ol label="(a)">
+                            <li>Find all steady-state solutions to this DE.</li>
+                            <li>By considering the direction ﬁeld, explain how this model predicts the long-term Striped Dingbat population.</li>
                         </ol></p>
                     </statement>
                 </exercise>
@@ -598,9 +626,9 @@
                             <me>y'=x\left(y+\frac{1}{2}\right)+y^2</me>
                             is shown below. Sketch the solution satisfying the initial condition
                         </p>
-                        <p><ol label="a.">
-                            <li><p><m>y(0)=0.5</m></p></li>
-                            <li><p><m>y(0)=-0.5</m></p></li>
+                        <p><ol label="(a)">
+                            <li><m>y(0)=0.5</m></li>
+                            <li><m>y(0)=-0.5</m></li>
                         </ol></p>
                         <figure>
                             <image source="./DifferentialEquations/Images/1/2_ET2.png" width="75%"/>
@@ -612,7 +640,7 @@
                         <p>
                             Consider the initial-value problem
                             <me>y'=xy+x, \hspace{5mm} y(0)=1</me>
-                            Use Euler’s method with <m>\Delta x=0.1</m> to estimate <m>y(0.3)</m>.
+                            Use Euler's method with <m>\Delta x=0.1</m> to estimate <m>y(0.3)</m>.
                         </p>
                     </statement>
                 </exercise>

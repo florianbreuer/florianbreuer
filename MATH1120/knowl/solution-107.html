@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-01-07T17:22:30+11:00       *-->
+<!--*       on 2022-10-28T21:06:49+11:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -16,89 +16,27 @@
 <body class="ignore-math">
 <div class="solution solution-like">
 <h3 class="heading">
-<span class="type">Solution</span><span xmlns:svg="http://www.w3.org/2000/svg" class="space"> </span><span class="codenumber">13.2.4.1</span><span xmlns:svg="http://www.w3.org/2000/svg" class="period">.</span>
+<span class="type">Solution</span><span xmlns:svg="http://www.w3.org/2000/svg" class="space"> </span><span class="codenumber">12.1.6.1</span><span xmlns:svg="http://www.w3.org/2000/svg" class="period">.</span>
 </h3>
-<p>The first step is to find the general solution to the homogeneous DE</p>
+<p>The characteristic equation for this homogeneous second order linear DE with constant coefficients is</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
 \begin{equation*}
-x''+6x'+8x=0
+r^{2}-4r+13=0
 \end{equation*}
 </div>
-<p class="continuation">The characteristic equation for this DE is</p>
+<p class="continuation">which has the complex solutions</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
 \begin{equation*}
-r^2+6r+8=0
+r=2\pm 3i.
 \end{equation*}
 </div>
-<p class="continuation">which has solutions</p>
+<p class="continuation">Thus the general solution to the DE is</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
 \begin{equation*}
-r=-2, -4
-\end{equation*}
-</div>
-<p class="continuation">Thus the complementary solution is</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{equation*}
-x_c(t)=Ae^{-2t}+Be^{-4t}
-\end{equation*}
-</div>
-<p class="continuation">The next step is to find a particular solution to the non-homogeneous DE. Using the method of undetermined coefficients we try a particular solution of the form</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{equation*}
-x_p(t)=C_1\sin(2t)+C_2\cos(2t)
-\end{equation*}
-</div>
-<p class="continuation">where <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(C_1\)</span> and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(C_2\)</span> are the coefficients to be determined. Now</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{align*}
-x_p'(t) \amp = 2C_1\cos(2t)-2C_2\sin(2t)\\
-x_p''(t) \amp = -4C_1\sin(2t)-4C_2\cos(2t)
-\end{align*}
-</div>
-<p>For <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(x_p(t)\)</span> to be a solution</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{equation*}
-x_p''+6x_p'+8x_p=8\sin(2t)
-\end{equation*}
-</div>
-<p class="continuation">and so, on substituting</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{equation*}
-(-4C_1\sin(2t)-4C_2\cos(2t))+6(2C_1\cos(2t)-2C_2\sin(2t))+8(C_1\sin(2t)+C_2\cos(2t)) = 8\sin(2t)
-\end{equation*}
-</div>
-<p class="continuation">which simplifies to</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{equation*}
-(4C_1-12C_2)\sin(2t)+(12C_1+4C_2)\cos(2t) = 8\sin(2t)
-\end{equation*}
-</div>
-<p class="continuation">Equating coefficients on each side of the equation gives</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{align*}
-4C_1-12C_2 \amp = 8\\
-12C_1+4C_2 \amp = 0
-\end{align*}
-</div>
-<p>Solving these equations gives</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{equation*}
-C_1=\frac{1}{5}, \hspace{5mm} C_2=-\frac{3}{5}
-\end{equation*}
-</div>
-<p class="continuation">and so a particular solution is</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{equation*}
-x_p(t)=\frac{1}{5}\sin(2t)-\frac{3}{5}\cos(2t)
-\end{equation*}
-</div>
-<p class="continuation">Combining the particular solution with the complementary solution gives the general solution</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{equation*}
-x(t)=Ae^{-2t}+Be^{-4t}+\frac{1}{5}\sin(2t)-\frac{3}{5}\cos(2t)
+y(x)=Ae^{2 x}\cos(3 x) + B e^{2 x}\sin(3 x).
 \end{equation*}
 </div>
 </div>
-<span class="incontext"><a href="The_Method_of_Undetermined_Coefficients.html#solution-107">in-context</a></span>
+<span class="incontext"><a href="Homogeneous_Second_Order_Linear_DEs_With_Constant_Coefficients.html#solution-107">in-context</a></span>
 </body>
 </html>

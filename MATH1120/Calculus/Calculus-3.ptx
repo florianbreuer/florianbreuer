@@ -74,18 +74,19 @@
           Suppose that we have a thin metal plate and that we are interested in the temperature <m>T</m> on this plate. In general the temperature will vary from point to point. If we imagine a coordinate grid on the plate then points on the plate can be identified by their coordinates <m>(x,y)</m>. Thus <m>T</m> will depend on two independent variables, <m>x</m> and <m>y</m>. Thus we would write
           <me>T(x,y)</me>
           and say that <m>T</m> is a function of two variables.
-          Note that functions of two variables are of the form
-          <me>f:D\rightarrow\mathbb{R}^2</me>
-          where <m>D\subseteq\mathbb{R}^2</m> is again the domain.
         </p>
       </example>
       <p>
-        Formally, we define a function of two variables as:
-        <definition>
-          <term>A (real valued) function <m>f</m> of two variables</term> is a rule that assigns to each ordered pair of real numbers <m>(x,y)</m> in a set <m>D</m> a unique (real) number denoted by <m>f(x,y)</m>.
-        </definition>
+         Note that functions of two variables are of the form
+          <me>f:D\rightarrow\mathbb{R}^2</me>
+          where <m>D\subseteq\mathbb{R}^2</m> is again the domain. Formally, we define a function of two variables as:
+      </p>
+      <definition>
+        <term>A (real valued) function <m>f</m> of two variables</term> is a rule that assigns to each ordered pair of real numbers <m>(x,y)</m> in a set <m>D</m> a unique (real) number denoted by <m>f(x,y)</m>.
+      </definition>
+      <p>
         Thus,
-        <me>g(x,t)=\frac{\sin(t+1)}{s^2+t^2}, h(x,y)=(x-y)^2e^{-(x+y)}+6</me>
+        <me>g(s,t)=\frac{\sin(t+1)}{s^2+t^2}, h(x,y)=(x-y)^2e^{-(x+y)}+6</me>
         are examples of functions of two variables.
       </p>
       <p>
@@ -105,6 +106,18 @@
           <li><p><m>f(1,3)</m></p></li>
         </ol></p>
 
+        <answer>
+        <p><ol label="a.">
+            <li><p><m>D=\{(x,y):y \lt x-1\}</m></p></li>
+            <li><p> </p></li>
+          </ol></p>
+          <p><ol label="i.">
+            <li><p><m>f(3,1)=0</m></p></li>
+            <li><p><m>f(\frac{1}{2},-\sqrt{5})=0.5516</m> (to 4.d.p.).</p></li>
+            <li><p><m>f(1,3)</m> is not defined.</p></li>
+          </ol></p>
+        </answer>
+
         <solution>
           <p><ol label="a.">
             <li><p>Since the argument of the log function has to be positive, the domain <m>D</m> is the set of points in the plane satisfying
@@ -118,6 +131,7 @@
           </ol></p>
         </solution>
       </example>
+
       <example>
         <p>
           Consider the function <m>f(x,y)=y-xy</m>
@@ -131,6 +145,18 @@
           <li><p><m>f(\frac{1}{2},-\sqrt{5})</m></p></li>
           <li><p><m>f(1,3)</m></p></li>
         </ol></p>
+
+        <answer>
+          <p><ol label="a.">
+            <li><p><m>\mathbb{R}^2</m></p></li>
+            <li><p> </p></li>
+          </ol></p>
+          <p><ol label="i.">
+            <li><p><m>f(3,1)=-2</m></p></li>
+            <li><p><m>f(\frac{1}{2},-\sqrt{5})=-\frac{\sqrt{5}}{2}</m></p></li>
+            <li><p><m>f(1,3)=0</m></p></li>
+          </ol></p>
+        </answer>
 
         <solution>
           <p><ol label="a.">
@@ -172,7 +198,7 @@
           </p>
         </solution>
       </example>
-      <example>
+      <example xml:id="Example-6-Calc-3">
         <p>
           Produce the graph of the function <m>f(x,y)=\sqrt{x^2+y^2}e^{-(x^2+y^2)}</m>
         </p>
@@ -202,7 +228,7 @@
 
         <exercise>
           <statement>
-            <p>Determine the domain of the function <m>f(x,y)=\frac{\sin(y)}{xy-1}</m>.</p>
+            <p>Determine the domain of the function <m>f(x,y)=\dfrac{\sin(y)}{xy-1}</m>.</p>
           </statement>
         </exercise>
         <exercise>
@@ -296,7 +322,7 @@
           <statement>
             <p>Make a rough sketch of the contour map (centred on the origin) for the function whose graph is:</p>
             <figure>
-              <image source="./Calculus/Images/3/2_ET2.png" width="75%"/>
+              <image source="./Calculus/Images/3/2_ET2.png" width="50%"/>
             </figure>
           </statement>
         </exercise>
@@ -304,7 +330,7 @@
           <statement>
             <p>Make a rough sketch of the contour map (centred on the origin) for the function whose graph is:</p>
             <figure>
-              <image source="./Calculus/Images/3/2_ET3.png" width="75%"/>
+              <image source="./Calculus/Images/3/2_ET3.png" width="50%"/>
             </figure>
           </statement>
         </exercise>
@@ -323,7 +349,7 @@
       <title>Surfaces of Revolution</title>
 
       <p>
-        The surface associated with the graph of <m>f(x,y)=\sqrt{x^2+y^2}e^{-(x^2+y^2)}</m> (see example in section 1) is an example of a special kind of surface...a surface of revolution.
+        The surface associated with the graph of <m>f(x,y)=\sqrt{x^2+y^2}e^{-(x^2+y^2)}</m> (see <xref ref="Example-6-Calc-3"/>) is an example of a special kind of surface...a surface of revolution.
         <definition>
           A <term>surface of revolution</term> is a surface in <m>\mathbb{R}^3</m> obtained by rotating a curve about an axis.
         </definition>
@@ -333,6 +359,9 @@
         <p>
           Determine the equation of the surface obtained by rotating the curve in the <m>xz</m>-plane <m>z=2-3x, x\geq 0</m> about the <m>z</m>-axis.
         </p>
+        <answer>
+        <p><m>f(x,y)=2-3\sqrt{x^2+y^2}</m></p>
+        </answer>
         <solution>
           <p>
             <figure>
@@ -341,7 +370,7 @@
             Let the equation of the surface be <m>z=f(x,y)</m>. Then the equation of the level curves of the surface will be
             <me>f(x,y)=k</me>
             Now, note that the cross-sections of the surface of revolution perpendicular to the <m>z</m>-axis (i.e. the level curves) will be circles. For example the cross section at <m>z=k</m> will be a circle with centre <m>(0,0)</m> and radius <m>\frac{2-k}{3}</m> and hence has equation
-            <me>x^2+y^2=\big(\frac{2-k}{3}\big)^2</me>
+            <me>x^2+y^2=\left(\frac{2-k}{3}\right)^2</me>
             On re-arranging this equation we obtain
             <me>k=2-3\sqrt{x^2+y^2}</me>
             Putting this into <m>f(x,y)=k</m> gives
@@ -362,6 +391,9 @@
           <me>z=xe^{-x^2}, x\geq 0</me>
           about the <m>z</m>-axis.
         </p>
+        <answer>
+        <p><m>z=\sqrt{x^2+y^2}e^{-(x^2+y^2)}</m></p>
+        </answer>  
         <solution>
           <p>
             <figure>
@@ -370,7 +402,7 @@
             The equation of the surface of revolution will be
             <me>z=f(\sqrt{x^2+y^2}) \textrm{ where } f(x)=xe^{-x^2}</me>
             that is,
-            <me>z=\sqrt{x^2+y^2}e^{-\big(\sqrt{x^2+y^2}\big)^2}=\sqrt{x^2+y^2}e^{-(x^2+y^2)}</me>
+            <me>z=\sqrt{x^2+y^2}e^{-\left(\sqrt{x^2+y^2}\right)^2}=\sqrt{x^2+y^2}e^{-(x^2+y^2)}</me>
           </p>
         </solution>
       </example>
@@ -381,7 +413,7 @@
         <solution>
           <p>
             Since we can write the function as
-            <me>f(x,y)=4-\big(\sqrt{x^2+y^2}\big)^2</me>
+            <me>f(x,y)=4-\left(\sqrt{x^2+y^2}\right)^2</me>
             this surface can be obtained by rotating the curve in the <m>xz</m>-plane
             <me>z=4-x^2, x\geq 0</me>
           </p>
@@ -415,7 +447,7 @@
       <title>Functions of 3 (or more) Variables</title>
 
       <p>
-        Although we won’t do much with them in this course it is possible to define (real valued) functions in <m>n</m> variables where <m>n</m> is any natural number, that is functions of the form <m>f:\mathbb{R}^n\rightarrow\mathbb{R}</m>.
+        Although we won't do much with them in this course it is possible to define (real valued) functions in <m>n</m> variables where <m>n</m> is any natural number, that is functions of the form <m>f:\mathbb{R}^n\rightarrow\mathbb{R}</m>.
       </p>
       <example>
         <p>

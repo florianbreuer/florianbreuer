@@ -1,7 +1,7 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-01-07T17:20:56+11:00       *-->
+<!--*       on 2022-10-28T21:01:29+11:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -179,7 +179,6 @@
 </li>
 <li class="link">
 <a href="Chap-Linear_Algebra_3.html" data-scroll="Chap-Linear_Algebra_3"><span class="codenumber">17</span> <span class="title">LA3: Matrix Algebra</span></a><ul>
-<li><a href="Sec-Linear_Algebra_Intro.html" data-scroll="Sec-Linear_Algebra_Intro">Introduction</a></li>
 <li><a href="Sec-Addition_and_Scalar_Multiplication.html" data-scroll="Sec-Addition_and_Scalar_Multiplication">Addition and Scalar Multiplication</a></li>
 <li><a href="Sec-Matrix_multiplication.html" data-scroll="Sec-Matrix_multiplication">Matrix Multiplication</a></li>
 <li><a href="Sec-Matrices_and_Systems_of_Linear_Equations.html" data-scroll="Sec-Matrices_and_Systems_of_Linear_Equations">Matrices and Systems of Linear Equations</a></li>
@@ -210,7 +209,7 @@
 <main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="Interpretation_Via_Columns"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">16.2</span> <span class="title">Interpretation Via Columns</span>
 </h2>
-<p id="p-976">Consider (initially at least) a system of two linear equations in two unknowns <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span></p>
+<p id="p-1024">Consider (initially at least) a system of two linear equations in two unknowns <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span></p>
 <div class="displaymath process-math">
 \begin{align*}
 a_{11}x+a_{12}y \amp =b_1 \\
@@ -232,9 +231,9 @@ a_{21}x+a_{22}y \amp =b_2
 <p class="continuation">as representing the vector in <span class="process-math">\(\mathbb{R}^2\)</span> (i.e. in the plane) whose tail is at the origin and whose head is at the point <span class="process-math">\((v_1,v_2)\text{.}\)</span> Thus this matrix is sometimes called a <dfn class="terminology">column vector</dfn>.</p>
 <article class="example example-like" id="example-150"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-150"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">16.2.1</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-150"><article class="example example-like"><p id="p-977">The vector represented by <span class="process-math">\(\begin{pmatrix} 3 \\ 2 \end{pmatrix} \)</span> is sketched in <a href="" class="xref" data-knowl="./knowl/Fig-Vector_sketch.html" title="Figure 16.2.2">Figure 16.2.2</a>. <figure class="figure figure-like" id="Fig-Vector_sketch"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="./LinearAlgebra/Images/2/figure3.png" class="contained"></div>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-150"><article class="example example-like"><p id="p-1025">The vector represented by <span class="process-math">\(\begin{pmatrix} 3 \\ 2 \end{pmatrix} \)</span> is sketched in <a href="" class="xref" data-knowl="./knowl/Fig-Vector_sketch.html" title="Figure 16.2.2">Figure 16.2.2</a>. <figure class="figure figure-like" id="Fig-Vector_sketch"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="./LinearAlgebra/Images/2/figure3.png" class="contained"></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">16.2.2<span class="period">.</span></span><span class="space"> </span></figcaption></figure></p></article></div>
-<p id="p-978">Now, the system of linear equations given above can be written as</p>
+<p id="p-1026">Now, the system of linear equations given above can be written as</p>
 <div class="displaymath process-math">
 \begin{equation*}
 x \begin{pmatrix} a_{11} \\ a_{21} \end{pmatrix} +y \begin{pmatrix} a_{12} \\ a_{22} \end{pmatrix} = \begin{pmatrix} b_{1} \\ b_{2} \end{pmatrix} 
@@ -247,17 +246,17 @@ x\mathbf{a_1}+y\mathbf{a_2}=\mathbf{b}
 \end{equation*}
 </div>
 <p class="continuation">Remember that when written in this form, the <span class="process-math">\(+\)</span> sign means vector addition and <span class="process-math">\(x\mathbf{a_1}\text{,}\)</span> for example, means the scalar multiplication of the vector <span class="process-math">\(\mathbf{a_1}\)</span> by the scalar <span class="process-math">\(x\text{.}\)</span> So solving this system of linear equations can be interpreted as finding scalars <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> such that the vector <span class="process-math">\(\mathbf{b}\)</span> can be written in terms of the vectors <span class="process-math">\(\mathbf{a_1}\)</span> and <span class="process-math">\(\mathbf{a_2}\text{.}\)</span></p>
-<article class="example example-like" id="example-151"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-151"><h3 class="heading">
+<article class="example example-like" id="Ex_16_2_5"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-Ex_16_2_5"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">16.2.3</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-151"><article class="example example-like"><p id="p-979">Solve the following system of linear equations and interpret your answer geometrically in terms of the columns of the augmented matrix.</p>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Ex_16_2_5"><article class="example example-like"><p id="p-1027">Solve the following system of linear equations and interpret your answer geometrically in terms of the columns of the augmented matrix.</p>
 <div class="displaymath process-math">
 \begin{align*}
 2x-3y \amp =-3\\
 2x+2y \amp = 7
 \end{align*}
 </div>
-<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-121" id="solution-121"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-121"><div class="solution solution-like">
-<p id="p-980">The augmented matrix and its reduced row-echelon equivalent matrix are</p>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-128" id="solution-128"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-128"><div class="solution solution-like">
+<p id="p-1028">The augmented matrix and its reduced row-echelon equivalent matrix are</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \begin{pmatrix} 2 \amp -3 \amp -3 \\ 2 \amp 2 \amp 7 \end{pmatrix} \sim \begin{pmatrix} 1 \amp 0 \amp \frac{3}{2} \\ 0 \amp 1 \amp 2 \end{pmatrix}
@@ -269,17 +268,17 @@ x\mathbf{a_1}+y\mathbf{a_2}=\mathbf{b}
 \frac{3}{2} \begin{pmatrix} 2 \\ 2 \end{pmatrix} +2 \begin{pmatrix} -3 \\ 2 \end{pmatrix} 
 \end{equation*}
 </div>
-<p class="continuation">See <a href="" class="xref" data-knowl="./knowl/Fig-Vector_sum_parallelogram.html" title="Figure 16.2.4">Figure 16.2.4</a> Note that the solution is also saying that there is only one way in which <span class="process-math">\(\begin{pmatrix} -3 \\ 7 \end{pmatrix}\)</span> can be written in terms of <span class="process-math">\(\begin{pmatrix} 2 \\ 2 \end{pmatrix}\)</span> and <span class="process-math">\(\begin{pmatrix} -3 \\ 2 \end{pmatrix}\text{.}\)</span> <figure class="figure figure-like" id="Fig-Vector_sum_parallelogram"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="./LinearAlgebra/Images/2/figure4.png" class="contained"></div>
+<p class="continuation">See <a href="" class="xref" data-knowl="./knowl/Fig-Vector_sum_parallelogram.html" title="Figure 16.2.4">Figure 16.2.4</a>. Note that the solution is also saying that there is only one way in which <span class="process-math">\(\begin{pmatrix} -3 \\ 7 \end{pmatrix}\)</span> can be written in terms of <span class="process-math">\(\begin{pmatrix} 2 \\ 2 \end{pmatrix}\)</span> and <span class="process-math">\(\begin{pmatrix} -3 \\ 2 \end{pmatrix}\text{.}\)</span> <figure class="figure figure-like" id="Fig-Vector_sum_parallelogram"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="./LinearAlgebra/Images/2/figure4.png" class="contained"></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">16.2.4<span class="period">.</span></span><span class="space"> </span></figcaption></figure></p>
 </div></div></article></div>
-<p id="p-981">Before going on to consider systems of linear equations involving <span class="process-math">\(3\)</span> (or more) variables it is convenient to introduce some new terminology.</p>
+<p id="p-1029">Before going on to consider systems of linear equations involving <span class="process-math">\(3\)</span> (or more) variables it is convenient to introduce some new terminology.</p>
 <article class="definition definition-like" id="definition-35"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">16.2.5</span><span class="period">.</span>
 </h3>
-<p id="p-982">The vector <span class="process-math">\(a_1\mathbf{v_1}+a_2\mathbf{v_2}+\dots a_n\mathbf{v_n}\text{,}\)</span> where <span class="process-math">\(a_i\in \mathbb{R}\text{,}\)</span> is said to be a <dfn class="terminology">linear combination</dfn> of the vectors <span class="process-math">\(\mathbf{v_1}, \mathbf{v_2}, \dots, \mathbf{v_n}\text{.}\)</span></p>
-<p id="p-983">The set of all linear combinations of the set of vectors <span class="process-math">\(\{\mathbf{v_1}, \mathbf{v_2}, \dots, \mathbf{v_n}\}\)</span>  is said to be the <dfn class="terminology">span</dfn> of that set of vectors.</p></article><article class="example example-like" id="example-152"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-152"><h3 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">16.2.6</span><span class="period">.</span><span class="space"> </span><span class="title">(cont.).</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-152"><article class="example example-like"><p id="p-984">The geometric interpretation (in terms of the columns) of the system of linear equations</p>
+<p id="p-1030">The vector <span class="process-math">\(a_1\mathbf{v_1}+a_2\mathbf{v_2}+\dots a_n\mathbf{v_n}\text{,}\)</span> where <span class="process-math">\(a_i\in \mathbb{R}\text{,}\)</span> is said to be a <dfn class="terminology">linear combination</dfn> of the vectors <span class="process-math">\(\mathbf{v_1}, \mathbf{v_2}, \dots, \mathbf{v_n}\text{.}\)</span></p>
+<p id="p-1031">The set of all linear combinations of the set of vectors <span class="process-math">\(\{\mathbf{v_1}, \mathbf{v_2}, \dots, \mathbf{v_n}\}\)</span>  is said to be the <dfn class="terminology">span</dfn> of that set of vectors.</p></article><article class="example example-like" id="example-152"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-152"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">16.2.6</span><span class="period">.</span><span class="space"> </span><span class="title">(Example 16.2.3 cont.).</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-152"><article class="example example-like"><p id="p-1032">The geometric interpretation (in terms of the columns) of the system of linear equations</p>
 <div class="displaymath process-math">
 \begin{align*}
 2x-3y \amp =-3\\
@@ -288,14 +287,14 @@ x\mathbf{a_1}+y\mathbf{a_2}=\mathbf{b}
 </div>
 <p class="continuation">can be now be phrased as:</p>
 <ul class="disc">
-<li id="li-203"><p id="p-derived-li-203">The vector <span class="process-math">\(\begin{pmatrix} -3 \\ 7 \end{pmatrix}\)</span> can be written as a linear combination of the vectors <span class="process-math">\(\begin{pmatrix} 2 \\ 2 \end{pmatrix}\)</span> and <span class="process-math">\(\begin{pmatrix} -3 \\ 2 \end{pmatrix}\text{,}\)</span> and in only one way, or</p></li>
-<li id="li-204"><p id="p-derived-li-204">The vector <span class="process-math">\(\begin{pmatrix} -3 \\ 7 \end{pmatrix}\)</span> is in the span of the vectors <span class="process-math">\(\begin{pmatrix} 2 \\ 2 \end{pmatrix}\)</span> and <span class="process-math">\(\begin{pmatrix} -3 \\ 2 \end{pmatrix}\text{.}\)</span></p></li>
+<li id="li-222"><p id="p-derived-li-222">The vector <span class="process-math">\(\begin{pmatrix} -3 \\ 7 \end{pmatrix}\)</span> can be written as a linear combination of the vectors <span class="process-math">\(\begin{pmatrix} 2 \\ 2 \end{pmatrix}\)</span> and <span class="process-math">\(\begin{pmatrix} -3 \\ 2 \end{pmatrix}\text{,}\)</span> and in only one way, or</p></li>
+<li id="li-223"><p id="p-derived-li-223">The vector <span class="process-math">\(\begin{pmatrix} -3 \\ 7 \end{pmatrix}\)</span> is in the span of the vectors <span class="process-math">\(\begin{pmatrix} 2 \\ 2 \end{pmatrix}\)</span> and <span class="process-math">\(\begin{pmatrix} -3 \\ 2 \end{pmatrix}\text{.}\)</span></p></li>
 </ul></article></div>
 <article class="example example-like" id="example-153"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-153"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">16.2.7</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-153"><article class="example example-like"><p id="p-985">Describe the span of the set of vectors <span class="process-math">\(\left \{\mathbf{v_1, v_2} \right \}=\left \{\begin{pmatrix} 2 \\ 2 \end{pmatrix}, \begin{pmatrix} -3 \\ 2 \end{pmatrix} \right \}\text{.}\)</span></p>
-<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-122" id="solution-122"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-122"><div class="solution solution-like">
-<p id="p-986">The span of the set <span class="process-math">\(\{\mathbf{v_1, v_2}\}\)</span> is the set of vectors <span class="process-math">\(\mathbf{u}\)</span> of the form</p>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-153"><article class="example example-like"><p id="p-1033">Describe the span of the set of vectors <span class="process-math">\(\left \{\mathbf{v_1, v_2} \right \}=\left \{\begin{pmatrix} 2 \\ 2 \end{pmatrix}, \begin{pmatrix} -3 \\ 2 \end{pmatrix} \right \}\text{.}\)</span></p>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-129" id="solution-129"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-129"><div class="solution solution-like">
+<p id="p-1034">The span of the set <span class="process-math">\(\{\mathbf{v_1, v_2}\}\)</span> is the set of vectors <span class="process-math">\(\mathbf{u}\)</span> of the form</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \mathbf{u}=x \begin{pmatrix} 2 \\ 2 \end{pmatrix}+y \begin{pmatrix} -3 \\ 2 \end{pmatrix}
@@ -317,9 +316,9 @@ x\mathbf{a_1}+y\mathbf{a_2}=\mathbf{b}
 </div></div></article></div>
 <article class="example example-like" id="example-154"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-154"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">16.2.8</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-154"><article class="example example-like"><p id="p-987">Describe the span of the set of vectors <span class="process-math">\(\{\mathbf{v_1, v_2}\}=\left \{\begin{pmatrix} 2 \\ 2 \\ 1 \end{pmatrix}, \begin{pmatrix} -3 \\ 2 \\ -1 \end{pmatrix} \right \}\text{.}\)</span></p>
-<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-123" id="solution-123"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-123"><div class="solution solution-like">
-<p id="p-988">Firstly note that the vectors in this set are <span class="process-math">\(3\)</span>-dimensional vectors and hence the vectors in the span will also be <span class="process-math">\(3\)</span>-dimensional. Now, the span of the set <span class="process-math">\(\{\mathbf{v_1, v_2}\}\)</span> is the set of vectors <span class="process-math">\(\mathbf{u}\)</span> of the form</p>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-154"><article class="example example-like"><p id="p-1035">Describe the span of the set of vectors <span class="process-math">\(\{\mathbf{v_1, v_2}\}=\left \{\begin{pmatrix} 2 \\ 2 \\ 1 \end{pmatrix}, \begin{pmatrix} -3 \\ 2 \\ -1 \end{pmatrix} \right \}\text{.}\)</span></p>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-130" id="solution-130"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-130"><div class="solution solution-like">
+<p id="p-1036">Firstly note that the vectors in this set are <span class="process-math">\(3\)</span>-dimensional vectors and hence the vectors in the span will also be <span class="process-math">\(3\)</span>-dimensional. Now, the span of the set <span class="process-math">\(\{\mathbf{v_1, v_2}\}\)</span> is the set of vectors <span class="process-math">\(\mathbf{u}\)</span> of the form</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \mathbf{u}=x \begin{pmatrix} 2 \\ 2 \\ 1 \end{pmatrix} +y \begin{pmatrix} -3 \\ 2 \\ -1 \end{pmatrix}
@@ -342,32 +341,33 @@ x\mathbf{a_1}+y\mathbf{a_2}=\mathbf{b}
 <article class="definition definition-like" id="definition-36"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">16.2.10</span><span class="period">.</span>
 </h3>
-<p id="p-989">The set of vectors <span class="process-math">\(\mathbf{\{v_1, v_2, \dots, v_n\}}\)</span> is called <dfn class="terminology">linearly independent</dfn> if no vector in the set can be written as a linear combination of the other vectors in the set, or equivalently if the only solution to homogeneous system of linear equations</p>
+<p id="p-1037">The set of vectors <span class="process-math">\(\mathbf{\{v_1, v_2, \dots, v_n\}}\)</span> is called <dfn class="terminology">linearly independent</dfn> if no vector in the set can be written as a linear combination of the other vectors in the set, or equivalently if the only solution to homogeneous system of linear equations</p>
 <div class="displaymath process-math">
 \begin{equation*}
 a_1\mathbf{v_1}+a_2\mathbf{v_2}+\dots +a_n\mathbf{v_n}=\mathbf{0}
 \end{equation*}
 </div>
-<p class="continuation">is <span class="process-math">\(a_1=a_2=\dots=a_n=0\text{.}\)</span> A set of vectors that is not linearly independent is called <dfn class="terminology">linearly dependent</dfn>.</p></article><article class="example example-like" id="example-155"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-155"><h3 class="heading">
+<p class="continuation">is <span class="process-math">\(a_1=a_2=\dots=a_n=0\text{.}\)</span></p>
+<p id="p-1038">A set of vectors that is not linearly independent is called <dfn class="terminology">linearly dependent</dfn>.</p></article><article class="example example-like" id="example-155"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-155"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">16.2.11</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-155"><article class="example example-like"><p id="p-990">Decide if the following sets of vectors are linearly independent or not.</p>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-155"><article class="example example-like"><p id="p-1039">Decide if the following sets of vectors are linearly independent or not.</p>
 <ol class="lower-alpha">
-<li id="li-205"><p id="p-derived-li-205"><span class="process-math">\(\displaystyle \{\mathbf{v_1, v_2, v_3}\}=\left \{\begin{pmatrix} 2 \\ 2 \end{pmatrix}, \begin{pmatrix} -3 \\ 2 \end{pmatrix}, \begin{pmatrix} -3 \\ 7 \end{pmatrix} \right \}\)</span></p></li>
-<li id="li-206"><p id="p-derived-li-206"><span class="process-math">\(\displaystyle \{\mathbf{v_1, v_2}\}=\left \{\begin{pmatrix} 2 \\ 2 \end{pmatrix}, \begin{pmatrix} -3 \\ 2 \end{pmatrix} \right \}\)</span></p></li>
+<li id="li-224"><p id="p-derived-li-224"><span class="process-math">\(\displaystyle \{\mathbf{v_1, v_2, v_3}\}=\left \{\begin{pmatrix} 2 \\ 2 \end{pmatrix}, \begin{pmatrix} -3 \\ 2 \end{pmatrix}, \begin{pmatrix} -3 \\ 7 \end{pmatrix} \right \}\)</span></p></li>
+<li id="li-225"><p id="p-derived-li-225"><span class="process-math">\(\displaystyle \{\mathbf{v_1, v_2}\}=\left \{\begin{pmatrix} 2 \\ 2 \end{pmatrix}, \begin{pmatrix} -3 \\ 2 \end{pmatrix} \right \}\)</span></p></li>
 </ol>
-<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-124" id="solution-124"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-124"><div class="solution solution-like"><ol id="p-991" class="lower-alpha">
-<li id="li-207"><p id="p-derived-li-207">This set of vectors is linearly dependent since (from our previous examples) we know that<div class="displaymath process-math">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-131" id="solution-131"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-131"><div class="solution solution-like"><ol id="p-1040" class="lower-alpha">
+<li id="li-226"><p id="p-derived-li-226">This set of vectors is linearly dependent since (from our previous examples) we know that<div class="displaymath process-math">
 \begin{equation*}
 \begin{pmatrix} -3 \\ 7 \end{pmatrix}=\frac{3}{2} \begin{pmatrix} 2 \\ 2 \end{pmatrix}+2\begin{pmatrix} -3 \\ 2 \end{pmatrix}
 \end{equation*}
 </div>i.e. <span class="process-math">\(\mathbf{v_3}\)</span> can be written as a linear combination of <span class="process-math">\(\mathbf{v_1}\)</span> and <span class="process-math">\(\mathbf{v_2}\text{.}\)</span></p></li>
-<li id="li-208"><p id="p-derived-li-208">This set of vectors is linearly independent since the only solution to<div class="displaymath process-math">
+<li id="li-227"><p id="p-derived-li-227">This set of vectors is linearly independent since the only solution to<div class="displaymath process-math">
 \begin{equation*}
 x_1\mathbf{v_1}+x_2\mathbf{v_2}=\mathbf{0}
 \end{equation*}
 </div>is <span class="process-math">\(x_1=x_2=0\text{.}\)</span> Note that in this case this is telling us that <span class="process-math">\(\mathbf{v_2}\)</span> is not a scalar multiple of <span class="process-math">\(\mathbf{v_1}\text{,}\)</span> i.e. <span class="process-math">\(\mathbf{v_2}\)</span> is not parallel to <span class="process-math">\(\mathbf{v_1}\text{.}\)</span></p></li>
 </ol></div></div></article></div>
-<p id="p-992">We are now ready to discuss the geometric interpretation, in terms of the columns, of a system of three linear equations in three unknowns <span class="process-math">\(x\text{,}\)</span> <span class="process-math">\(y\)</span> and <span class="process-math">\(z\text{,}\)</span> i.e. of</p>
+<p id="p-1041">We are now ready to discuss the geometric interpretation, in terms of the columns, of a system of three linear equations in three unknowns <span class="process-math">\(x\text{,}\)</span> <span class="process-math">\(y\)</span> and <span class="process-math">\(z\text{,}\)</span> i.e. of</p>
 <div class="displaymath process-math">
 \begin{gather*}
 a_{11}x+a_{12}y+a_{13}z=b_1\\
@@ -390,7 +390,7 @@ x\mathbf{a_1}+y\mathbf{a_2}+z\mathbf{a_3}=\mathbf{b}
 <p class="continuation">Thus, solving this system of linear equations can be interpreted as finding scalars <span class="process-math">\(x\text{,}\)</span> <span class="process-math">\(y\)</span> and <span class="process-math">\(z\)</span> such that the vector <span class="process-math">\(\mathbf{b}\)</span> can be written as a linear combination of the vectors <span class="process-math">\(\{\mathbf{a_1, a_2, a_3}\}\text{,}\)</span> (or equivalently, that <span class="process-math">\(\mathbf{b}\)</span> is in the span of  <span class="process-math">\(\{\mathbf{a_1, a_2, a_3}\}\)</span>).</p>
 <article class="example example-like" id="example-156"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-156"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">16.2.12</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-156"><article class="example example-like"><p id="p-993">Solve the following system of linear equations and interpret your answer geometrically in terms of the columns of the augmented matrix.</p>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-156"><article class="example example-like"><p id="p-1042">Solve the following system of linear equations and interpret your answer geometrically in terms of the columns of the augmented matrix.</p>
 <div class="displaymath process-math">
 \begin{align*}
 2x+4y+2z \amp=3\\
@@ -398,19 +398,20 @@ x\mathbf{a_1}+y\mathbf{a_2}+z\mathbf{a_3}=\mathbf{b}
 4x+y-z \amp=3
 \end{align*}
 </div>
-<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-125" id="solution-125"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-125"><div class="solution solution-like">
-<p id="p-994">The augmented matrix and its reduced row-echelon equivalent matrix are</p>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-132" id="solution-132"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-132"><div class="solution solution-like">
+<p id="p-1043">The augmented matrix and its reduced row-echelon equivalent matrix are</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \begin{pmatrix} 2 \amp 4 \amp 2 \amp 3 \\ 2 \amp 3 \amp 3 \amp 6 \\4 \amp 1 \amp -1 \amp 3 \end{pmatrix} \sim \begin{pmatrix} 1 \amp 0 \amp 0 \amp \frac{3}{2} \\ 0 \amp 1 \amp 0 \amp -1 \\ 0 \amp 0 \amp 1 \amp 2 \end{pmatrix}
 \end{equation*}
 </div>
 <p class="continuation">Thus the solution is <span class="process-math">\((x,y,z)=\left(\frac{3}{2},-1,2 \right)\text{.}\)</span> The geometric interpretation of this solution is that the vector <span class="process-math">\(\begin{pmatrix} 3 \\ 6 \\ 3 \end{pmatrix}\)</span> (shown in blue in <a href="" class="xref" data-knowl="./knowl/Fig-Vector_as_a_linear_combination.html" title="Figure 16.2.13">Figure 16.2.13</a>) can be written as a linear combination of the vectors <span class="process-math">\(\left \{\begin{pmatrix} 2 \\ 2 \\ 4 \end{pmatrix}, \begin{pmatrix} 4 \\ 3 \\ 1 \end{pmatrix}, \begin{pmatrix} 2 \\ 3 \\ -1 \end{pmatrix} \right \}\)</span> (shown in red in <a href="" class="xref" data-knowl="./knowl/Fig-Vector_as_a_linear_combination.html" title="Figure 16.2.13">Figure 16.2.13</a>) and in only one way, (shown in green in <a href="" class="xref" data-knowl="./knowl/Fig-Vector_as_a_linear_combination.html" title="Figure 16.2.13">Figure 16.2.13</a>). <figure class="figure figure-like" id="Fig-Vector_as_a_linear_combination"><div class="image-box" style="width: 60%; margin-left: 20%; margin-right: 20%;"><img src="./LinearAlgebra/Images/2/figure6.png" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">16.2.13<span class="period">.</span></span><span class="space"> </span></figcaption></figure> Note that if the system of linear equations is homogeneous (i.e. <span class="process-math">\(\mathbf{b=0}\)</span>) then the solution of the system tells us if the set of vectors <span class="process-math">\(\{\mathbf{a_1, a_2, a_3}\}\)</span>  is linearly independent or not.</p>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">16.2.13<span class="period">.</span></span><span class="space"> </span></figcaption></figure></p>
 </div></div></article></div>
+<p id="p-1044">Note that if the system of linear equations is homogeneous (i.e. <span class="process-math">\(\mathbf{b=0}\)</span>) then the solution of the system tells us if the set of vectors <span class="process-math">\(\{\mathbf{a_1, a_2, a_3}\}\)</span>  is linearly independent or not.</p>
 <article class="example example-like" id="example-157"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-157"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">16.2.14</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-157"><article class="example example-like"><p id="p-995">Solve the following system of linear equations and interpret your answer geometrically in terms of the columns of the augmented matrix.</p>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-157"><article class="example example-like"><p id="p-1045">Solve the following system of linear equations and interpret your answer geometrically in terms of the columns of the augmented matrix.</p>
 <div class="displaymath process-math">
 \begin{gather*}
 2x+4y+2z=0\\
@@ -418,8 +419,8 @@ x\mathbf{a_1}+y\mathbf{a_2}+z\mathbf{a_3}=\mathbf{b}
 4x+y-z=0
 \end{gather*}
 </div>
-<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-126" id="solution-126"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-126"><div class="solution solution-like">
-<p id="p-996">The augmented matrix and its reduced row-echelon equivalent matrix are</p>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-133" id="solution-133"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-133"><div class="solution solution-like">
+<p id="p-1046">The augmented matrix and its reduced row-echelon equivalent matrix are</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \begin{pmatrix} 2 \amp 4 \amp 2 \amp 0 \\ 2 \amp 3 \amp 3 \amp 0 \\ 4 \amp 1 \amp -1 \amp 0 \end{pmatrix} \sim \begin{pmatrix} 1 \amp 0 \amp 0 \amp 0 \\ 0 \amp 1 \amp 0 \amp 0 \\ 0 \amp 0 \amp 1 \amp 0 \end{pmatrix} 
@@ -436,7 +437,7 @@ x\mathbf{a_1}+y\mathbf{a_2}+z\mathbf{a_3}=\mathbf{b}
 </div></div></article></div>
 <article class="example example-like" id="example-158"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-158"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">16.2.16</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-158"><article class="example example-like"><p id="p-997">Solve the following system of linear equations and interpret your answer geometrically in terms of the columns of the augmented matrix.</p>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-158"><article class="example example-like"><p id="p-1047">Solve the following system of linear equations and interpret your answer geometrically in terms of the columns of the augmented matrix.</p>
 <div class="displaymath process-math">
 \begin{align*}
 x+2y+3z \amp=-3\\
@@ -444,8 +445,8 @@ x+2y+3z \amp=-3\\
 2x+3y+4z \amp=-2
 \end{align*}
 </div>
-<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-127" id="solution-127"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-127"><div class="solution solution-like">
-<p id="p-998">The augmented matrix and its reduced row-echelon equivalent matrix are</p>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-134" id="solution-134"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-134"><div class="solution solution-like">
+<p id="p-1048">The augmented matrix and its reduced row-echelon equivalent matrix are</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \begin{pmatrix} 1 \amp 2 \amp 3 \amp -3 \\ 4 \amp 3 \amp 2 \amp 8 \\ 2 \amp 3 \amp 4 \amp -2 \end{pmatrix} \sim \begin{pmatrix} 1 \amp 0 \amp -1 \amp 5 \\ 0 \amp 1 \amp 2 \amp -4 \\ 0 \amp 0 \amp 0 \amp 0 \end{pmatrix} 
@@ -470,18 +471,18 @@ x+2y+3z \amp=-3\\
 \end{equation*}
 </div>
 <p class="continuation">Since <span class="process-math">\(\mathbf{b}\)</span> can written as a linear combination of <span class="process-math">\(\{\mathbf{a_1, a_2}\}\text{,}\)</span> the vectors <span class="process-math">\(\mathbf{b}\text{,}\)</span> <span class="process-math">\(\mathbf{a_1}\)</span> and <span class="process-math">\(\mathbf{a_2}\)</span> are coplanar. Similarly (with <span class="process-math">\(t=-2\)</span>) we can see that <span class="process-math">\(\mathbf{b}\text{,}\)</span> <span class="process-math">\(\mathbf{a_1}\)</span> and <span class="process-math">\(\mathbf{a_3}\)</span> are coplanar. So, in fact, <span class="process-math">\(\mathbf{b}\text{,}\)</span> <span class="process-math">\(\mathbf{a_1}\text{,}\)</span> <span class="process-math">\(\mathbf{a_2}\)</span> and <span class="process-math">\(\mathbf{a_3}\)</span> are all coplanar.</p>
-<p id="p-999">Finally we can see from the above working that the vectors <span class="process-math">\(\{\mathbf{a_1, a_2, a_3}\}\)</span> are linearly dependent since if <span class="process-math">\(\mathbf{b=0}\)</span> then the reduced row-echelon form would be</p>
+<p id="p-1049">Finally we can see from the above working that the vectors <span class="process-math">\(\{\mathbf{a_1, a_2, a_3}\}\)</span> are linearly dependent since if <span class="process-math">\(\mathbf{b=0}\)</span> then the reduced row-echelon form would be</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \begin{pmatrix} 1 \amp 0 \amp -1 \amp 0 \\ 0 \amp 1 \amp 2 \amp 0 \\ 0 \amp 0 \amp 0 \amp 0 \end{pmatrix}
 \end{equation*}
 </div>
 </div></div></article></div>
-<p id="p-1000">To summarise what we have we have covered:</p>
+<p id="p-1050">To summarise what we have we have covered:</p>
 <article class="definition definition-like" id="definition-37"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">16.2.17</span><span class="period">.</span>
 </h3>
-<p id="p-1001">Consider the system of linear equations whose augmented matrix is</p>
+<p id="p-1051">Consider the system of linear equations whose augmented matrix is</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \begin{pmatrix} a_{11} \amp a_{12} \amp a_{13} \amp b_1 \\ a_{21} \amp a_{22} \amp a_{23} \amp b_2 \\ a_{31} \amp a_{32} \amp a_{33} \amp b_3 \end{pmatrix}
@@ -489,29 +490,29 @@ x+2y+3z \amp=-3\\
 </div>
 <p class="continuation">The following statements are equivalent:</p>
 <ol class="decimal">
-<li id="li-209"><p id="p-derived-li-209">The system has a unique solution</p></li>
-<li id="li-210"><p id="p-derived-li-210">The planes represented by the rows intersect in a point</p></li>
-<li id="li-211"><p id="p-derived-li-211">The column vectors of the coefficient matrix are linearly independent</p></li>
+<li id="li-228"><p id="p-derived-li-228">The system has a unique solution</p></li>
+<li id="li-229"><p id="p-derived-li-229">The planes represented by the rows intersect in a point</p></li>
+<li id="li-230"><p id="p-derived-li-230">The column vectors of the coefficient matrix are linearly independent</p></li>
 </ol></article><section class="exercises" id="exercises-33"><h3 class="heading hide-type">
 <span class="type">Exercises</span> <span class="codenumber"></span> <span class="title">Example Tasks</span>
 </h3>
-<article class="exercise exercise-like" id="exercise-89"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
-<p id="p-1002">Decide if the following sets of vectors are linearly independent or not</p>
+<article class="exercise exercise-like" id="exercise-90"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<p id="p-1052">Decide if the following sets of vectors are linearly independent or not</p>
 <ol class="lower-alpha">
-<li id="li-212"><p id="p-derived-li-212"><span class="process-math">\(\displaystyle \{\mathbf{v_1, v_2}\}=\left \{(1,1), (1,-1)\right \}\)</span></p></li>
-<li id="li-213"><p id="p-derived-li-213"><span class="process-math">\(\displaystyle \{\mathbf{v_1, v_2, v_3}\}=\left \{(1,1, 2), (1,-1,0), (3,2,1)\right \}\)</span></p></li>
-</ol></article><article class="exercise exercise-like" id="exercise-90"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
-<p id="p-1003">Solve the following system of linear equations and interpret your answer geometrically in terms of the columns of the augmented matrix.</p>
+<li id="li-231"><p id="p-derived-li-231"><span class="process-math">\(\displaystyle \{\mathbf{v_1, v_2}\}=\left \{(1,1), (1,-1)\right \}\)</span></p></li>
+<li id="li-232"><p id="p-derived-li-232"><span class="process-math">\(\displaystyle \{\mathbf{v_1, v_2, v_3}\}=\left \{(1,1, 2), (1,-1,0), (3,2,1)\right \}\)</span></p></li>
+</ol></article><article class="exercise exercise-like" id="exercise-91"><h4 class="heading"><span class="codenumber">2<span class="period">.</span></span></h4>
+<p id="p-1053">Solve the following system of linear equations and interpret your answer geometrically in terms of the columns of the augmented matrix.</p>
 <div class="displaymath process-math">
 \begin{gather*}
 x_1+2x_2+3x_3=4\\
 4x_1+3x_2+2x_3=1\\
 2x_1+3x_2+4x_3=1
 \end{gather*}
-</div></article><article class="exercise exercise-like" id="exercise-91"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
-<ol id="p-1004" class="lower-alpha">
-<li id="li-214"><p id="p-derived-li-214">Show that the set of vectors <span class="process-math">\(\left \{(2,3, 7), (3,4, 5), (2,1,-15) \right\}\)</span> are linearly dependent.</p></li>
-<li id="li-215"><p id="p-derived-li-215">Find values of <span class="process-math">\(a\text{,}\)</span> <span class="process-math">\(b\)</span> and <span class="process-math">\(c\)</span> such that the following system of linear equations has infinitely many solutions<div class="displaymath process-math">
+</div></article><article class="exercise exercise-like" id="exercise-92"><h4 class="heading"><span class="codenumber">3<span class="period">.</span></span></h4>
+<ol id="p-1054" class="lower-alpha">
+<li id="li-233"><p id="p-derived-li-233">Show that the set of vectors <span class="process-math">\(\left \{(2,3, 7), (3,4, 5), (2,1,-15) \right\}\)</span> are linearly dependent.</p></li>
+<li id="li-234"><p id="p-derived-li-234">Find values of <span class="process-math">\(a\text{,}\)</span> <span class="process-math">\(b\)</span> and <span class="process-math">\(c\)</span> such that the following system of linear equations has infinitely many solutions<div class="displaymath process-math">
 \begin{align*}
 2x_1+3x_2+2x_3 \amp =a\\
 3x_1+4x_2+x_3 \amp =b\\

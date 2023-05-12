@@ -1,7 +1,7 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-01-07T17:21:41+11:00       *-->
+<!--*       on 2022-10-28T21:05:18+11:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -179,7 +179,6 @@
 </li>
 <li class="link">
 <a href="Chap-Linear_Algebra_3.html" data-scroll="Chap-Linear_Algebra_3"><span class="codenumber">17</span> <span class="title">LA3: Matrix Algebra</span></a><ul>
-<li><a href="Sec-Linear_Algebra_Intro.html" data-scroll="Sec-Linear_Algebra_Intro">Introduction</a></li>
 <li><a href="Sec-Addition_and_Scalar_Multiplication.html" data-scroll="Sec-Addition_and_Scalar_Multiplication">Addition and Scalar Multiplication</a></li>
 <li><a href="Sec-Matrix_multiplication.html" data-scroll="Sec-Matrix_multiplication">Matrix Multiplication</a></li>
 <li><a href="Sec-Matrices_and_Systems_of_Linear_Equations.html" data-scroll="Sec-Matrices_and_Systems_of_Linear_Equations">Matrices and Systems of Linear Equations</a></li>
@@ -210,7 +209,7 @@
 <main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="Coupled_Linear_Differential_Equations"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">20.2</span> <span class="title">Coupled Linear Differential Equations</span>
 </h2>
-<p id="p-1178">Recall that the linear differential equation</p>
+<p id="p-1252">Recall that the linear differential equation</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \dfrac{dx}{dt} = ax, \, \, a \in \mathbb{R}\text{,}
@@ -232,33 +231,33 @@ x(t) = C e^{at}\text{,}
 <p class="continuation">where <span class="process-math">\(a, \, b, \, c, \, d \in \mathbb{R}\text{,}\)</span> which can be written in matrix notation as</p>
 <div class="displaymath process-math">
 \begin{equation}
-\dot{\bm{x}} = A \bm{x}\label{Eq-matrix_form_coupled_linear_DEs}\tag{20.2.1}
+\dot{\mathbf{x}} = A \mathbf{x}\label{Eq-matrix_form_coupled_linear_DEs}\tag{20.2.1}
 \end{equation}
 </div>
-<p class="continuation">where <span class="process-math">\(\bm{x} = \begin{pmatrix} x_1 \\ x_2 \end{pmatrix}\text{,}\)</span> <span class="process-math">\(\dot{\bm{x}} = \begin{pmatrix} \dot{x}_1 \\ \dot{x}_2 \end{pmatrix}\)</span> and <span class="process-math">\(A = \begin{pmatrix} a \amp b \\ c \amp d \end{pmatrix}\text{.}\)</span> These equations are “coupled”, i.e. the derivative of <span class="process-math">\(x_1(t)\)</span> depends on both <span class="process-math">\(x_1(t)\)</span> and <span class="process-math">\(x_2(t)\)</span> and likewise for the derivative of <span class="process-math">\(x_2(t)\text{.}\)</span> Thus we can’t solve the first equation unless we can solve the second and vice versa. Note that if <span class="process-math">\(A\)</span> is diagonal then the equations become uncoupled and we could solve each separately.</p>
-<p id="p-1179">If the matrix <span class="process-math">\(A\)</span> has 2 distinct eigenvalues, <span class="process-math">\(\lambda_1\)</span> and <span class="process-math">\(\lambda_2\text{,}\)</span> by making the change of variable <span class="process-math">\(\bm{y} = P^{-1} \bm{x}\text{,}\)</span> where <span class="process-math">\(P\)</span> is the matrix whose columns are the eigenvectors <span class="process-math">\(\bm{v}_1\)</span> and <span class="process-math">\(\bm{v}_2\)</span> of <span class="process-math">\(A\text{,}\)</span> we can transform Equation <a href="" class="xref" data-knowl="./knowl/Eq-matrix_form_coupled_linear_DEs.html" title="Equation 20.2.1">(20.2.1)</a> into a system where the matrix is diagonal. By solving that system and converting back to our original variables we find that the general solution to Equation <a href="" class="xref" data-knowl="./knowl/Eq-matrix_form_coupled_linear_DEs.html" title="Equation 20.2.1">(20.2.1)</a> is</p>
+<p class="continuation">where <span class="process-math">\(\mathbf{x} = \begin{pmatrix} x_1 \\ x_2 \end{pmatrix}\text{,}\)</span> <span class="process-math">\(\dot{\mathbf{x}} = \begin{pmatrix} \dot{x}_1 \\ \dot{x}_2 \end{pmatrix}\)</span> and <span class="process-math">\(A = \begin{pmatrix} a \amp b \\ c \amp d \end{pmatrix}\text{.}\)</span> These equations are “coupled”, i.e. the derivative of <span class="process-math">\(x_1(t)\)</span> depends on both <span class="process-math">\(x_1(t)\)</span> and <span class="process-math">\(x_2(t)\)</span> and likewise for the derivative of <span class="process-math">\(x_2(t)\text{.}\)</span> Thus we can't solve the first equation unless we can solve the second and vice versa. Note that if <span class="process-math">\(A\)</span> is diagonal then the equations become uncoupled and we could solve each separately.</p>
+<p id="p-1253">If the matrix <span class="process-math">\(A\)</span> has 2 distinct eigenvalues, <span class="process-math">\(\lambda_1\)</span> and <span class="process-math">\(\lambda_2\text{,}\)</span> by making the change of variable <span class="process-math">\(\mathbf{y}= P^{-1} \mathbf{x}\text{,}\)</span> where <span class="process-math">\(P\)</span> is the matrix whose columns are the eigenvectors <span class="process-math">\(\mathbf{v_1}\)</span> and <span class="process-math">\(\mathbf{v_2}\)</span> of <span class="process-math">\(A\text{,}\)</span> we can transform <a href="" class="xref" data-knowl="./knowl/Eq-matrix_form_coupled_linear_DEs.html" title="Equation 20.2.1">(20.2.1)</a> into a system where the matrix is diagonal. By solving that system and converting back to our original variables we find that the general solution to <a href="" class="xref" data-knowl="./knowl/Eq-matrix_form_coupled_linear_DEs.html" title="Equation 20.2.1">(20.2.1)</a> is</p>
 <div class="displaymath process-math">
 \begin{equation}
-\bm{x} = C_1 e^{\lambda_1 t} \bm{v}_1 + C_2 e^{\lambda_2 t} \bm{v}_2\label{Eq-general_solution_coupled_linear_DEs}\tag{20.2.2}
+\mathbf{x} = C_1 e^{\lambda_1 t} \mathbf{v_1} + C_2 e^{\lambda_2 t} \mathbf{v_2}\label{Eq-general_solution_coupled_linear_DEs}\tag{20.2.2}
 \end{equation}
 </div>
 <p class="continuation">where <span class="process-math">\(C_1\)</span> and <span class="process-math">\(C_2\)</span> are arbitrary constants. We can check that <a href="" class="xref" data-knowl="./knowl/Eq-general_solution_coupled_linear_DEs.html" title="Equation 20.2.2">(20.2.2)</a> is indeed a solution to <a href="" class="xref" data-knowl="./knowl/Eq-matrix_form_coupled_linear_DEs.html" title="Equation 20.2.1">(20.2.1)</a>. From <a href="" class="xref" data-knowl="./knowl/Eq-general_solution_coupled_linear_DEs.html" title="Equation 20.2.2">(20.2.2)</a></p>
 <div class="displaymath process-math">
 \begin{equation*}
-\bm{x} = C_1 \lambda_1 e^{\lambda_1 t} \bm{v}_1 + C_2 \lambda_2 e^{\lambda_2 t} \bm{v}_2
+\mathbf{x} = C_1 \lambda_1 e^{\lambda_1 t} \mathbf{v_1} + C_2 \lambda_2 e^{\lambda_2 t} \mathbf{v_2}
 \end{equation*}
 </div>
 <p class="continuation">and</p>
 <div class="displaymath process-math">
 \begin{align*}
-A \bm{x} \amp = A \left( C_1 e^{\lambda_1 t} \bm{v}_1 + C_2 e^{\lambda_2 t} \bm{v}_2 \right)\\
-\amp = C_1 e^{\lambda_1 t} A \bm{v}_1 + C_2 e^{\lambda_2 t} A \bm{v}_2\\
-\amp = C_1 e^{\lambda_1 t} \lambda_1 \bm{v}_1 + C_2 e^{\lambda_2 t} \lambda_2 \bm{v}_2\text{.}
+A \mathbf{x} \amp = A \left( C_1 e^{\lambda_1 t} \mathbf{v_1} + C_2 e^{\lambda_2 t} \mathbf{v_2} \right)\\
+\amp = C_1 e^{\lambda_1 t} A \mathbf{v_1} + C_2 e^{\lambda_2 t} A \mathbf{v_2}\\
+\amp = C_1 e^{\lambda_1 t} \lambda_1 \mathbf{v_1} + C_2 e^{\lambda_2 t} \lambda_2 \mathbf{v_2}\text{.}
 \end{align*}
 </div>
 <article class="example example-like" id="example-195"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-195"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">20.2.1</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-195"><article class="example example-like"><p id="p-1180">Find the solution to the initial value problem</p>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-195"><article class="example example-like"><p id="p-1254">Find the solution to the initial value problem</p>
 <div class="displaymath process-math">
 \begin{align*}
 \dfrac{dx_1}{dt} \amp = x_1 + 2x_2\\
@@ -267,17 +266,18 @@ A \bm{x} \amp = A \left( C_1 e^{\lambda_1 t} \bm{v}_1 + C_2 e^{\lambda_2 t} \bm{
 </div>
 <p class="continuation">where <span class="process-math">\(x_1(0) = 2\)</span> and <span class="process-math">\(x_2(0) = 3\text{.}\)</span></p>
 <div class="solutions">
-<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-160" id="solution-160"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-160"><div class="solution solution-like">
-<p id="p-1181">In matrix notation this system is</p>
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-131" id="answer-131"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-131"><div class="answer solution-like"><p id="p-1255"><span class="process-math">\(x_1(t) = \dfrac{5}{2} e^{3t} - \dfrac{1}{2} e^{-t}\)</span> and <span class="process-math">\(x_2(t) = \dfrac{5}{2} e^{3t} + \dfrac{1}{2} e^{-t}\)</span></p></div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-167" id="solution-167"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-167"><div class="solution solution-like">
+<p id="p-1256">In matrix notation this system is</p>
 <div class="displaymath process-math">
 \begin{equation*}
-\dot{\bm{x}} = \begin{pmatrix} 1 \amp 2 \\ 2 \amp 1 \end{pmatrix} \bm{x}, \quad \bm{x}(0) = \begin{pmatrix} 2 \\ 3 \end{pmatrix}\text{.}
+\dot{\mathbf{x}} = \begin{pmatrix} 1 \amp 2 \\ 2 \amp 1 \end{pmatrix} \mathbf{x}, \quad \mathbf{x}(0) = \begin{pmatrix} 2 \\ 3 \end{pmatrix}\text{.}
 \end{equation*}
 </div>
-<p class="continuation">The eigenvalues of <span class="process-math">\(\begin{pmatrix} 1 \amp 2 \\ 2 \amp 1 \end{pmatrix}\)</span> turn out to be <span class="process-math">\(\lambda_1 = -1\)</span> and <span class="process-math">\(\lambda_2 = 3\)</span> with associated eigenvectors <span class="process-math">\(\bm{v}_1 = \begin{pmatrix} 1 \\ -1 \end{pmatrix}\)</span> and <span class="process-math">\(\bm{v}_2 = \begin{pmatrix} 1 \\ 1 \end{pmatrix}\text{.}\)</span> Thus, from <a href="" class="xref" data-knowl="./knowl/Eq-general_solution_coupled_linear_DEs.html" title="Equation 20.2.2">(20.2.2)</a> the general solution is</p>
+<p class="continuation">The eigenvalues of <span class="process-math">\(\begin{pmatrix} 1 \amp 2 \\ 2 \amp 1 \end{pmatrix}\)</span> turn out to be <span class="process-math">\(\lambda_1 = -1\)</span> and <span class="process-math">\(\lambda_2 = 3\)</span> with associated eigenvectors <span class="process-math">\(\mathbf{v_1} = \begin{pmatrix} 1 \\ -1 \end{pmatrix}\)</span> and <span class="process-math">\(\mathbf{v_2} = \begin{pmatrix} 1 \\ 1 \end{pmatrix}\text{.}\)</span> Thus, from <a href="" class="xref" data-knowl="./knowl/Eq-general_solution_coupled_linear_DEs.html" title="Equation 20.2.2">(20.2.2)</a> the general solution is</p>
 <div class="displaymath process-math">
 \begin{equation*}
-\bm{x} = C_1 e^{-t} \begin{pmatrix} 1 \\ -1 \end{pmatrix} + C_2 e^{3t} \begin{pmatrix} 1 \\ 1 \end{pmatrix}\text{.}
+\mathbf{x} = C_1 e^{-t} \begin{pmatrix} 1 \\ -1 \end{pmatrix} + C_2 e^{3t} \begin{pmatrix} 1 \\ 1 \end{pmatrix}\text{.}
 \end{equation*}
 </div>
 <p class="continuation">From the initial conditions we have</p>
@@ -295,7 +295,7 @@ C_1 = -\dfrac{1}{2} \, \text{ and } \, C_2 = \dfrac{5}{2}\text{.}
 <p class="continuation">Thus, the solution to the initial value problem is</p>
 <div class="displaymath process-math">
 \begin{equation*}
-\bm{x} = \dfrac{5}{2} e^{3t} \begin{pmatrix} 1 \\ 1 \end{pmatrix} - \dfrac{1}{2} e^{-t} \begin{pmatrix} 1 \\ -1 \end{pmatrix}
+\mathbf{x} = \dfrac{5}{2} e^{3t} \begin{pmatrix} 1 \\ 1 \end{pmatrix} - \dfrac{1}{2} e^{-t} \begin{pmatrix} 1 \\ -1 \end{pmatrix}
 \end{equation*}
 </div>
 <p class="continuation">or equivalently</p>
@@ -305,28 +305,29 @@ x_1(t) \amp = \dfrac{5}{2} e^{3t} - \dfrac{1}{2} e^{-t}\\
 x_2(t) \amp = \dfrac{5}{2} e^{3t} + \dfrac{1}{2} e^{-t}
 \end{align*}
 </div>
-<p id="p-1182">Note that you can always check your answer by checking that the functions do indeed satisfy the original equations.</p>
-<p id="p-1183"><a href="" class="xref" data-knowl="./knowl/Fig-Coupled_DEs_Solutions_Plotted.html" title="Figure 20.2.2">Figure 20.2.2</a> shows the graph of these solutions. Notice that as <span class="process-math">\(t\)</span> gets larger because of the <span class="process-math">\(e^{-t}\)</span> term in each solution the functions get closer together and because of the <span class="process-math">\(e^{3t}\)</span> term both solutions grow (exponentially). Thus the eigenvalues of the matrix <span class="process-math">\(A\)</span> will give us some idea of the qualitative nature of the solutions.</p>
+<p id="p-1257">Note that you can always check your answer by checking that the functions do indeed satisfy the original equations.</p>
+<p id="p-1258"><a href="" class="xref" data-knowl="./knowl/Fig-Coupled_DEs_Solutions_Plotted.html" title="Figure 20.2.2">Figure 20.2.2</a> shows the graph of these solutions. Notice that as <span class="process-math">\(t\)</span> gets larger because of the <span class="process-math">\(e^{-t}\)</span> term in each solution the functions get closer together and because of the <span class="process-math">\(e^{3t}\)</span> term both solutions grow (exponentially). Thus the eigenvalues of the matrix <span class="process-math">\(A\)</span> will give us some idea of the qualitative nature of the solutions.</p>
 <figure class="figure figure-like" id="Fig-Coupled_DEs_Solutions_Plotted"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="./LinearAlgebra/Images/6/Fig1-solution_curves_plotted.png" class="contained"></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">20.2.2<span class="period">.</span></span><span class="space"> </span></figcaption></figure>
 </div></div>
 </div></article></div>
 <article class="example example-like" id="example-196"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-196"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">20.2.3</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-196"><article class="example example-like"><p id="p-1184">Solve the initial value problem</p>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-196"><article class="example example-like"><p id="p-1259">Solve the initial value problem</p>
 <div class="displaymath process-math">
 \begin{equation*}
-\dot{\bm{x}} = A \bm{x}, \: A =
-\begin{pmatrix} 0 \amp 1 \\ -1 \amp 0 \end{pmatrix}, \: \bm{x}(0) =
+\dot{\mathbf{x}} = A \mathbf{x}, \: A =
+\begin{pmatrix} 0 \amp 1 \\ -1 \amp 0 \end{pmatrix}, \: \mathbf{x}(0) =
 \begin{pmatrix} -4 \\ 8 \end{pmatrix}\text{.}
 \end{equation*}
 </div>
 <div class="solutions">
-<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-161" id="solution-161"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-161"><div class="solution solution-like">
-<p id="p-1185">The eigenvalues of <span class="process-math">\(A\)</span> turn out to be purely complex with <span class="process-math">\(\lambda_1 = i\)</span> and <span class="process-math">\(\lambda_2 = -i\text{.}\)</span> The associated eigenvectors are <span class="process-math">\(\bm{v}_1 = \begin{pmatrix} -i \\ 1 \end{pmatrix}\)</span> and <span class="process-math">\(\bm{v}_2 = \begin{pmatrix} i \\ 1 \end{pmatrix}\text{.}\)</span> Thus, from <a href="" class="xref" data-knowl="./knowl/Eq-general_solution_coupled_linear_DEs.html" title="Equation 20.2.2">(20.2.2)</a> the general solution is</p>
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-132" id="answer-132"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-132"><div class="answer solution-like"><p id="p-1260"><span class="process-math">\(\mathbf{x} = \begin{pmatrix} 8 \sin(t) - 4 \cos(t) \\ 8 \cos(t) + 4 \sin(t) \end{pmatrix}\)</span></p></div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-168" id="solution-168"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-168"><div class="solution solution-like">
+<p id="p-1261">The eigenvalues of <span class="process-math">\(A\)</span> turn out to be purely complex with <span class="process-math">\(\lambda_1 = i\)</span> and <span class="process-math">\(\lambda_2 = -i\text{.}\)</span> The associated eigenvectors are <span class="process-math">\(\mathbf{v_1} = \begin{pmatrix} -i \\ 1 \end{pmatrix}\)</span> and <span class="process-math">\(\mathbf{v_2}= \begin{pmatrix} i \\ 1 \end{pmatrix}\text{.}\)</span> Thus, from <a href="" class="xref" data-knowl="./knowl/Eq-general_solution_coupled_linear_DEs.html" title="Equation 20.2.2">(20.2.2)</a> the general solution is</p>
 <div class="displaymath process-math">
 \begin{equation*}
-\bm{x} = C_1 e^{it} \begin{pmatrix} -i \\ 1 \end{pmatrix} + C_2 e^{-it} \begin{pmatrix} i \\ 1 \end{pmatrix}\text{.}
+\mathbf{x} = C_1 e^{it} \begin{pmatrix} -i \\ 1 \end{pmatrix} + C_2 e^{-it} \begin{pmatrix} i \\ 1 \end{pmatrix}\text{.}
 \end{equation*}
 </div>
 <p class="continuation">From the initial conditions we have</p>
@@ -344,7 +345,7 @@ C_1 = 4-2i \, \text{ and } \, C_2 = 4+2i\text{.}
 <p class="continuation">Thus, the solution to the initial value problem is</p>
 <div class="displaymath process-math">
 \begin{equation*}
-\bm{x} = (4-2i) e^{it} \begin{pmatrix} -i \\ 1 \end{pmatrix} + (4-2i) e^{-it} \begin{pmatrix} i \\ 1 \end{pmatrix}\text{.}
+\mathbf{x} = (4-2i) e^{it} \begin{pmatrix} -i \\ 1 \end{pmatrix} + (4+2i) e^{-it} \begin{pmatrix} i \\ 1 \end{pmatrix}\text{.}
 \end{equation*}
 </div>
 <p class="continuation">We can simplify this solution by using Euler's equation</p>
@@ -356,141 +357,142 @@ e^{i \theta} = \cos( \theta ) + i \sin( \theta )\text{.}
 <p class="continuation">Thus</p>
 <div class="displaymath process-math">
 \begin{equation*}
-\bm{x} = (4-2i) \left( \cos(t) + i\sin(t) \right) \begin{pmatrix} -i \\ 1 \end{pmatrix} + (4+2i) \left( \cos(t) - i \sin(t) \right) \begin{pmatrix} i \\ 1 \end{pmatrix}\text{,}
+\mathbf{x} = (4-2i) \left( \cos(t) + i\sin(t) \right) \begin{pmatrix} -i \\ 1 \end{pmatrix} + (4+2i) \left( \cos(t) - i \sin(t) \right) \begin{pmatrix} i \\ 1 \end{pmatrix}\text{,}
 \end{equation*}
 </div>
 <p class="continuation">which simplifies to</p>
 <div class="displaymath process-math">
 \begin{equation*}
-\bm{x} = \begin{pmatrix} 8 \sin(t) - 4 \cos(t) \\ 8 \cos(t) + 4 \sin(t) \end{pmatrix}\text{.}
+\mathbf{x} = \begin{pmatrix} 8 \sin(t) - 4 \cos(t) \\ 8 \cos(t) + 4 \sin(t) \end{pmatrix}\text{.}
 \end{equation*}
 </div>
 <p class="continuation">This is a real solution! As explained below, because all of the entries in <span class="process-math">\(A\)</span> are real and the initial conditions are real the solution will also be real.</p>
-<p id="p-1186">As shown in <a href="" class="xref" data-knowl="./knowl/Fig-Coupled_DEs_Solutions_Plotted_2.html" title="Figure 20.2.4">Figure 20.2.4</a> where these solutions are graphed, purely complex eigenvalues are associated with periodic solutions. The period of these solutions is <span class="process-math">\(\dfrac{2 \pi}{| \operatorname{Im}(\lambda) |}\text{.}\)</span></p>
+<p id="p-1262">As shown in <a href="" class="xref" data-knowl="./knowl/Fig-Coupled_DEs_Solutions_Plotted_2.html" title="Figure 20.2.4">Figure 20.2.4</a> where these solutions are graphed, purely complex eigenvalues are associated with periodic solutions. The period of these solutions is <span class="process-math">\(\dfrac{2 \pi}{| \operatorname{Im}(\lambda) |}\text{.}\)</span></p>
 <figure class="figure figure-like" id="Fig-Coupled_DEs_Solutions_Plotted_2"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="./LinearAlgebra/Images/6/Fig2-solution_curves_plotted_2.png" class="contained"></div>
 <figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">20.2.4<span class="period">.</span></span><span class="space"> </span></figcaption></figure>
 </div></div>
 </div></article></div>
-<p id="p-1187">Consider the system of coupled linear differential equations</p>
+<p id="p-1263">Consider the system of coupled linear differential equations</p>
 <div class="displaymath process-math">
 \begin{equation}
-\dot{\bm{x}} = A \bm{x}\label{Eq3-matri_form_for_system_linear_DEs}\tag{20.2.3}
+\dot{\mathbf{x}} = A \mathbf{x}\label{Eq3-matri_form_for_system_linear_DEs}\tag{20.2.3}
 \end{equation}
 </div>
 <p class="continuation">where the entries in <span class="process-math">\(A\)</span> are all real. Now imagine that this system has a complex solution given by</p>
 <div class="displaymath process-math">
 \begin{equation}
-\bm{x}(t) = \bm{x}_1(t) + i \bm{x}_2(t)\text{.}\label{Eq4-complex_solution}\tag{20.2.4}
+\mathbf{x}(t) = \mathbf{x_1}(t) + i \mathbf{x_2}(t)\text{.}\label{Eq4-complex_solution}\tag{20.2.4}
 \end{equation}
 </div>
 <p class="continuation">Taking the complex conjugates of both sides of <a href="" class="xref" data-knowl="./knowl/Eq3-matri_form_for_system_linear_DEs.html" title="Equation 20.2.3">(20.2.3)</a></p>
 <div class="displaymath process-math">
 \begin{equation*}
-\bar{\dot{\bm{x}}} = \overline{A \bm{x}} = \bar{A} \bar{\bm{x}}\text{.}
+\bar{\dot{\mathbf{x}}} = \overline{A \mathbf{x}} = \bar{A} \bar{\mathbf{x}}\text{.}
 \end{equation*}
 </div>
-<p class="continuation">Since <span class="process-math">\(\bar{\dot{\bm{x}}} = \dot{\bar{\bm{x}}}\)</span> and <span class="process-math">\(\bar{A} = A\)</span> (as the entries in <span class="process-math">\(A\)</span> are all real),</p>
+<p class="continuation">Since <span class="process-math">\(\bar{\dot{\mathbf{x}}} = \dot{\bar{\mathbf{x}}}\)</span> and <span class="process-math">\(\bar{A} = A\)</span> (as the entries in <span class="process-math">\(A\)</span> are all real),</p>
 <div class="displaymath process-math">
 \begin{equation*}
-\dot{\bar{\bm{x}}} = A \bar{\bm{x}}
+\dot{\bar{\mathbf{x}}} = A \bar{\mathbf{x}}
 \end{equation*}
 </div>
 <p class="continuation">i.e.</p>
 <div class="displaymath process-math">
 \begin{equation}
-\bar{\bm{x}}(t) = \bm{x}_1(t) - i \bm{x}_2 (t)\label{Eq5-complex_conjugate_solution}\tag{20.2.5}
+\bar{\mathbf{x}}(t) =\mathbf{x_1}(t) - i \mathbf{x_2} (t)\label{Eq5-complex_conjugate_solution}\tag{20.2.5}
 \end{equation}
 </div>
 <p class="continuation">will also be a solution to <a href="" class="xref" data-knowl="./knowl/Eq3-matri_form_for_system_linear_DEs.html" title="Equation 20.2.3">(20.2.3)</a>. Substituting <a href="" class="xref" data-knowl="./knowl/Eq4-complex_solution.html" title="Equation 20.2.4">(20.2.4)</a> into <a href="" class="xref" data-knowl="./knowl/Eq3-matri_form_for_system_linear_DEs.html" title="Equation 20.2.3">(20.2.3)</a> gives</p>
 <div class="displaymath process-math">
 \begin{equation}
-\dot{\bm{x}}_1 + i \dot{\bm{x}}_2 = A \bm{x}_1 + i A \bm{x}_2\label{Eq6-substituting_4_into_3}\tag{20.2.6}
+\dot{\mathbf{x}}_1 + i \dot{\mathbf{x}}_2 = A \mathbf{x_1} + i A \mathbf{x_2}\label{Eq6-substituting_4_into_3}\tag{20.2.6}
 \end{equation}
 </div>
 <p class="continuation">while substituting <a href="" class="xref" data-knowl="./knowl/Eq5-complex_conjugate_solution.html" title="Equation 20.2.5">(20.2.5)</a> into <a href="" class="xref" data-knowl="./knowl/Eq3-matri_form_for_system_linear_DEs.html" title="Equation 20.2.3">(20.2.3)</a> gives</p>
 <div class="displaymath process-math">
 \begin{equation}
-\dot{\bm{x}}_1 - i \dot{\bm{x}}_2 = A \bm{x}_1 - i A \bm{x}_2\text{.}\label{Eq7-substituting_5_into_3}\tag{20.2.7}
+\dot{\mathbf{x}}_1 - i \dot{\mathbf{x}}_2 = A \mathbf{x_1} - i A \mathbf{x_2}\text{.}\label{Eq7-substituting_5_into_3}\tag{20.2.7}
 \end{equation}
 </div>
 <p class="continuation">Now, adding equations <a href="" class="xref" data-knowl="./knowl/Eq6-substituting_4_into_3.html" title="Equation 20.2.6">(20.2.6)</a> and <a href="" class="xref" data-knowl="./knowl/Eq7-substituting_5_into_3.html" title="Equation 20.2.7">(20.2.7)</a> gives</p>
 <div class="displaymath process-math">
 \begin{equation*}
-\dot{\bm{x}}_1 = A \bm{x}_1\text{,}
+\dot{\mathbf{x}}_1 = A \mathbf{x_1}\text{,}
 \end{equation*}
 </div>
 <p class="continuation">while subtracting <a href="" class="xref" data-knowl="./knowl/Eq7-substituting_5_into_3.html" title="Equation 20.2.7">(20.2.7)</a> from <a href="" class="xref" data-knowl="./knowl/Eq6-substituting_4_into_3.html" title="Equation 20.2.6">(20.2.6)</a> gives</p>
 <div class="displaymath process-math">
 \begin{equation*}
-\dot{\bm{x}}_2 = A \bm{x}_2
+\dot{\mathbf{x}}_2 = A \mathbf{x_2}
 \end{equation*}
 </div>
 <p class="continuation">Thus if we have a complex solution to <a href="" class="xref" data-knowl="./knowl/Eq3-matri_form_for_system_linear_DEs.html" title="Equation 20.2.3">(20.2.3)</a> then both the real and imaginary parts of this complex solution must separately be solutions and hence a general solution to <a href="" class="xref" data-knowl="./knowl/Eq3-matri_form_for_system_linear_DEs.html" title="Equation 20.2.3">(20.2.3)</a> is</p>
 <div class="displaymath process-math">
 \begin{equation*}
-\bm{x}(t) = C_1 \bm{x}_1(t) + C_2 \bm{x}_2(t)\text{.}
+\mathbf{x}(t) = C_1 \mathbf{x}(t) + C_2 \mathbf{x_2}(t)\text{.}
 \end{equation*}
 </div>
 <p class="continuation">This gives us another way of proceeding when the eigenvalues of <span class="process-math">\(A\)</span> are complex.</p>
 <article class="example example-like" id="example-197"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-197"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">20.2.5</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-197"><article class="example example-like"><p id="p-1188">Find the general solution to</p>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-197"><article class="example example-like"><p id="p-1264">Find the general solution to</p>
 <div class="displaymath process-math">
 \begin{equation*}
-\dot{\bm{x}} = A \bm{x}, \: A =
+\dot{\mathbf{x}} = A \mathbf{x}, \: A =
 \begin{pmatrix} 1 \amp -5 \\ 2 \amp 3 \end{pmatrix}\text{.}
 \end{equation*}
 </div>
 <div class="solutions">
-<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-162" id="solution-162"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-162"><div class="solution solution-like">
-<p id="p-1189">Here the eigenvalues of <span class="process-math">\(A\)</span> are complex with <span class="process-math">\(\lambda_1 = 2+3i\)</span> and <span class="process-math">\(\lambda_2 = 2-3i\text{.}\)</span> The eigenvector associated with <span class="process-math">\(\lambda_1\)</span> is <span class="process-math">\(\bm{v}_1 = \begin{pmatrix} -5 \\ 1+3i \end{pmatrix}\text{.}\)</span> Thus, one solution to the system is</p>
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-133" id="answer-133"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-133"><div class="answer solution-like"><p id="p-1265"><span class="process-math">\(\mathbf{x} = C_1 e^{2t} \begin{pmatrix} -5\cos(3t) \\ \cos(3t) - 3 \sin(3t) \end{pmatrix} + C_2 e^{2t} \begin{pmatrix} -5\sin(3t) \\ \sin(3t) + 3\cos(3t) \end{pmatrix}\)</span></p></div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-169" id="solution-169"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-169"><div class="solution solution-like">
+<p id="p-1266">Here the eigenvalues of <span class="process-math">\(A\)</span> are complex with <span class="process-math">\(\lambda_1 = 2+3i\)</span> and <span class="process-math">\(\lambda_2 = 2-3i\text{.}\)</span> The eigenvector associated with <span class="process-math">\(\lambda_1\)</span> is <span class="process-math">\(\mathbf{v_1} = \begin{pmatrix} -5 \\ 1+3i \end{pmatrix}\text{.}\)</span> Thus, one solution to the system is</p>
 <div class="displaymath process-math">
 \begin{equation*}
-\bm{x} = e^{(2+3i)t} \begin{pmatrix} -5 \\ 1+3i \end{pmatrix}\text{.}
+\mathbf{x} = e^{(2+3i)t} \begin{pmatrix} -5 \\ 1+3i \end{pmatrix}\text{.}
 \end{equation*}
 </div>
-<p class="continuation">Simplifying this solution using Euler’s equation gives</p>
+<p class="continuation">Simplifying this solution using Euler's equation gives</p>
 <div class="displaymath process-math">
 \begin{equation*}
-\bm{x} = e^{2t} \left \{ \begin{pmatrix} -5\cos(3t) \\ \cos(3t) - 3 \sin(3t) \end{pmatrix} + i \begin{pmatrix} -5\sin(3t) \\ \sin(3t) + 3\cos(3t) \end{pmatrix} \right \}\text{.}
+\mathbf{x} = e^{2t} \left \{ \begin{pmatrix} -5\cos(3t) \\ \cos(3t) - 3 \sin(3t) \end{pmatrix} + i \begin{pmatrix} -5\sin(3t) \\ \sin(3t) + 3\cos(3t) \end{pmatrix} \right \}\text{.}
 \end{equation*}
 </div>
 <p class="continuation">Since we know that both the real part and the imaginary part are solutions to the system we know that the general solution is</p>
 <div class="displaymath process-math">
 \begin{equation*}
-\bm{x} = C_1 e^{2t} \begin{pmatrix} -5\cos(3t) \\ \cos(3t) - 3 \sin(3t) \end{pmatrix} + C_2 e^{2t} \begin{pmatrix} -5\sin(3t) \\ \sin(3t) + 3\cos(3t) \end{pmatrix}\text{.}
+\mathbf{x} = C_1 e^{2t} \begin{pmatrix} -5\cos(3t) \\ \cos(3t) - 3 \sin(3t) \end{pmatrix} + C_2 e^{2t} \begin{pmatrix} -5\sin(3t) \\ \sin(3t) + 3\cos(3t) \end{pmatrix}\text{.}
 \end{equation*}
 </div>
 <p class="continuation"><a href="" class="xref" data-knowl="./knowl/Fig-Coupled_DEs_Solutions_Plotted_3.html" title="Figure 20.2.6">Figure 20.2.6</a> shows a plot of this solution when <span class="process-math">\(C_1 = C_2 = 1\text{.}\)</span></p>
 <figure class="figure figure-like" id="Fig-Coupled_DEs_Solutions_Plotted_3"><div class="image-box" style="width: 70%; margin-left: 15%; margin-right: 15%;"><img src="./LinearAlgebra/Images/6/Fig3-solution_curves_plotted_3.png" class="contained"></div>
-<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">20.2.6<span class="period">.</span></span><span class="space"> </span></figcaption></figure><p id="p-1190">Note the solutions to the system are periodic with the period determined from the imaginary part of the eigenvalue. However, since the real part of the eigenvalue is positive the amplitude of the solutions grows without bound.</p>
+<figcaption><span class="type">Figure</span><span class="space"> </span><span class="codenumber">20.2.6<span class="period">.</span></span><span class="space"> </span></figcaption></figure><p id="p-1267">Note the solutions to the system are periodic with the period determined from the imaginary part of the eigenvalue. However, since the real part of the eigenvalue is positive the amplitude of the solutions grows without bound.</p>
 </div></div>
 </div></article></div>
-<p id="p-1191">The discussion so far has concentrated on systems of two coupled first-order linear differential equations. However the ideas carry over to systems with more equations.</p>
+<p id="p-1268">The discussion so far has concentrated on systems of two coupled first-order linear differential equations. However the ideas carry over to systems with more equations.</p>
 <article class="theorem theorem-like" id="theorem-30"><h3 class="heading">
-<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">20.2.7</span><span class="period">.</span><span class="space"> </span><span class="title">General Solution to the System of <span class="process-math">\(n\)</span> Coupled First-Order Linear Differential Equations.</span>
+<span class="type">Theorem</span><span class="space"> </span><span class="codenumber">20.2.7</span><span class="period">.</span>
 </h3>Consider the system of n coupled first-order linear differential equations<div class="displaymath process-math">
 \begin{equation*}
-\dot{\bm{x}} = A \bm{x}
+\dot{\mathbf{x}} = A \mathbf{x}
 \end{equation*}
 </div>where <span class="process-math">\(A\)</span> is a real <span class="process-math">\(n \times n\)</span> matrix with <span class="process-math">\(n\)</span> distinct eigenvalues <span class="process-math">\(\lambda_i\text{,}\)</span> <span class="process-math">\(i = 1,2,\ldots,n\text{.}\)</span> Then the general solution to this system is<div class="displaymath process-math">
 \begin{equation*}
-\bm{x}(t) = \sum_{i=1}^{n} C_i e^{\lambda_i t} \bm{v}_i
+\mathbf{x}(t) = \sum_{i=1}^{n} C_i e^{\lambda_i t} \mathbf{v_i}
 \end{equation*}
-</div>where <span class="process-math">\(\bm{v}_i\)</span> is the eigenvector corresponding to eigenvalue <span class="process-math">\(\lambda_i\text{.}\)</span></article><p id="p-1192">A qualitative description of the solutions to the system can be determined from the eigenvalues of <span class="process-math">\(A\text{.}\)</span></p>
+</div>where <span class="process-math">\(\mathbf{v_i}\)</span> is the eigenvector corresponding to eigenvalue <span class="process-math">\(\lambda_i\text{.}\)</span></article><p id="p-1269">A qualitative description of the solutions to the system can be determined from the eigenvalues of <span class="process-math">\(A\text{.}\)</span></p>
 <article class="remark remark-like" id="remark-8"><h3 class="heading">
-<span class="type">Remark</span><span class="space"> </span><span class="codenumber">20.2.8</span><span class="period">.</span><span class="space"> </span><span class="title">Behaviour of Solutions.</span>
+<span class="type">Remark</span><span class="space"> </span><span class="codenumber">20.2.8</span><span class="period">.</span>
 </h3>
-<ul id="p-1193" class="disc">
-<li id="li-326"><p id="p-derived-li-326">If <span class="process-math">\(A\)</span> has a positive  real eigenvalue then the corresponding solution grows without bound.</p></li>
-<li id="li-327"><p id="p-derived-li-327">If <span class="process-math">\(A\)</span> has a negative  real eigenvalue then the corresponding solution decays.</p></li>
-<li id="li-328"><p id="p-derived-li-328">If <span class="process-math">\(A\)</span> has a zero eigenvalue then the corresponding solution is constant.</p></li>
-<li id="li-329"><p id="p-derived-li-329">If <span class="process-math">\(A\)</span> has a pair of complex conjugate eigenvalues then the corresponding solution oscillates with period <span class="process-math">\(2\pi / \operatorname{Im}(\lambda)\)</span> and with the amplitude either growing <span class="process-math">\((\operatorname{Re}(\lambda) &gt; 0)\text{,}\)</span> decaying <span class="process-math">\((\operatorname{Re}(\lambda) &lt; 0 )\)</span> or staying the same <span class="process-math">\((\operatorname{Re}(\lambda) = 0)\text{.}\)</span></p></li>
+<ul id="p-1270" class="disc">
+<li id="li-347"><p id="p-derived-li-347">If <span class="process-math">\(A\)</span> has a positive  real eigenvalue then the corresponding solution grows without bound.</p></li>
+<li id="li-348"><p id="p-derived-li-348">If <span class="process-math">\(A\)</span> has a negative  real eigenvalue then the corresponding solution decays.</p></li>
+<li id="li-349"><p id="p-derived-li-349">If <span class="process-math">\(A\)</span> has a zero eigenvalue then the corresponding solution is constant.</p></li>
+<li id="li-350"><p id="p-derived-li-350">If <span class="process-math">\(A\)</span> has a pair of complex conjugate eigenvalues then the corresponding solution oscillates with period <span class="process-math">\(2\pi / \operatorname{Im}(\lambda)\)</span> and with the amplitude either growing <span class="process-math">\((\operatorname{Re}(\lambda) &gt; 0)\text{,}\)</span> decaying <span class="process-math">\((\operatorname{Re}(\lambda) &lt; 0 )\)</span> or staying the same <span class="process-math">\((\operatorname{Re}(\lambda) = 0)\text{.}\)</span></p></li>
 </ul></article><section class="exercises" id="exercises-42"><h3 class="heading hide-type">
 <span class="type">Exercises</span> <span class="codenumber"></span> <span class="title">Example Tasks</span>
 </h3>
-<article class="exercise exercise-like" id="exercise-109"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
-<p id="p-1194">Describe the long term behaviour of the solutions to the system <span class="process-math">\(\dot{\bm{x}} = A \bm{x}\text{,}\)</span> where</p>
+<article class="exercise exercise-like" id="exercise-110"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>
+<p id="p-1271">Describe the long term behaviour of the solutions to the system <span class="process-math">\(\dot{\mathbf{x}} = A \bm{x}\text{,}\)</span> where</p>
 <div class="displaymath process-math">
 \begin{equation*}
 A = \begin{pmatrix} -1 \amp 2 \amp 3 \\ 0 \amp -2 \amp 4 \\ 0 \amp 0 \amp 0 \end{pmatrix}\text{.}

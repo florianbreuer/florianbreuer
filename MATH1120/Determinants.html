@@ -1,7 +1,7 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-01-07T17:21:00+11:00       *-->
+<!--*       on 2022-10-28T21:01:36+11:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -179,7 +179,6 @@
 </li>
 <li class="link">
 <a href="Chap-Linear_Algebra_3.html" data-scroll="Chap-Linear_Algebra_3"><span class="codenumber">17</span> <span class="title">LA3: Matrix Algebra</span></a><ul>
-<li><a href="Sec-Linear_Algebra_Intro.html" data-scroll="Sec-Linear_Algebra_Intro">Introduction</a></li>
 <li><a href="Sec-Addition_and_Scalar_Multiplication.html" data-scroll="Sec-Addition_and_Scalar_Multiplication">Addition and Scalar Multiplication</a></li>
 <li><a href="Sec-Matrix_multiplication.html" data-scroll="Sec-Matrix_multiplication">Matrix Multiplication</a></li>
 <li><a href="Sec-Matrices_and_Systems_of_Linear_Equations.html" data-scroll="Sec-Matrices_and_Systems_of_Linear_Equations">Matrices and Systems of Linear Equations</a></li>
@@ -223,20 +222,21 @@ d \amp -b  \\
 -c \amp a
 \end{pmatrix}, 
 \end{equation*}
-</div>and if <span class="process-math">\(ad-bc\neq 0 \)</span>  then <span class="process-math">\(A \)</span> does not have an inverse. Thus for a  <span class="process-math">\(2\times 2\)</span> matrix, <span class="process-math">\(A \text{,}\)</span> calculating the quantity <span class="process-math">\(ad-bc \)</span>  can act as a test for the invertibility of <span class="process-math">\(A \text{.}\)</span> This quantity is called the <dfn class="terminology">determinant</dfn> of <span class="process-math">\(A \)</span> and is denoted by<div class="displaymath process-math">
+</div>and if <span class="process-math">\(ad-bc=0 \)</span>  then <span class="process-math">\(A \)</span> does not have an inverse. Thus for a  <span class="process-math">\(2\times 2\)</span> matrix, <span class="process-math">\(A \text{,}\)</span> calculating the quantity <span class="process-math">\(ad-bc \)</span>  can act as a test for the invertibility of <span class="process-math">\(A \text{.}\)</span> This quantity is called the <dfn class="terminology">determinant</dfn> of <span class="process-math">\(A \)</span> and is denoted by<div class="displaymath process-math">
 \begin{equation*}
 \det(A) \;\text{or}\; \vert A\vert.
 \end{equation*}
 </div>
 <article class="example example-like" id="Ex-determinant_2_by_2_matrix"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-Ex-determinant_2_by_2_matrix"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">18.2.1</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Ex-determinant_2_by_2_matrix"><article class="example example-like"><p id="p-1094">Find the determinant of</p>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Ex-determinant_2_by_2_matrix"><article class="example example-like"><p id="p-1145">Find the determinant of</p>
 <div class="displaymath process-math">
 \begin{equation*}
 A=\begin{pmatrix} 2 \amp -1 \\ 3 \amp 1 \end{pmatrix}.  
 \end{equation*}
 </div>
-<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-143" id="solution-143"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-143"><div class="solution solution-like">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-115" id="answer-115"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-115"><div class="answer solution-like"><p id="p-1146"><span class="process-math">\(\det(A)=5\)</span></p></div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-150" id="solution-150"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-150"><div class="solution solution-like">
 <div class="displaymath process-math">
 \begin{equation*}
 \begin{vmatrix}
@@ -255,7 +255,7 @@ c \amp d
 \begin{equation*}
 Area=\vert u_{1}v_{2} - u_{2}v_{1}\vert. 
 \end{equation*}
-</div>Thus matrix <span class="process-math">\(A \)</span> will have an inverse when <span class="process-math">\(ad-bc\neq 0 \)</span> , i.e.  <span class="process-math">\(\det(A)\neq 0. \)</span><p id="p-1095">Let’s now apply the same geometric argument to the general <span class="process-math">\(3 \times 3\)</span> matrix</p>
+</div>Thus matrix <span class="process-math">\(A \)</span> will have an inverse when <span class="process-math">\(ad-bc\neq 0 \)</span> , i.e.  <span class="process-math">\(\det(A)\neq 0. \)</span><p id="p-1147">Let's now apply the same geometric argument to the general <span class="process-math">\(3 \times 3\)</span> matrix</p>
 <div class="displaymath process-math">
 \begin{equation*}
 A=\begin{pmatrix}
@@ -265,7 +265,7 @@ u_{3} \amp v_{3} \amp w_{3}
 \end{pmatrix}=(\bm{u}, \bm{v}, \bm{w}).
 \end{equation*}
 </div>
-<p id="p-1096">Three vectors in space are linearly independent if they define a parallelepiped with non-zero volume. Now, the volume of the parallelepiped formed by the vectors</p>
+<p id="p-1148">Three vectors in space are linearly independent if they define a parallelepiped with non-zero volume. Now, the volume of the parallelepiped formed by the vectors</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \bm{u} = (u_{1},u_{2},u_{3})^{T} ,\;  \bm{v} = (v_{1},v_{2},v_{3})^{T}, \; \text{and} \; \bm{w} =(w_{1},w_{2},w_{3})^{T} 
@@ -285,7 +285,7 @@ Volume=\vert \bm{u} \cdot \bm{v} \times \bm{w} \vert,
 </div>
 <article class="example example-like" id="Ex-determinant_3_by_3_matrix_by_volume"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-Ex-determinant_3_by_3_matrix_by_volume"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">18.2.2</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Ex-determinant_3_by_3_matrix_by_volume"><article class="example example-like"><p id="p-1097">Find the determinant of</p>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Ex-determinant_3_by_3_matrix_by_volume"><article class="example example-like"><p id="p-1149">Find the determinant of</p>
 <div class="displaymath process-math">
 \begin{equation*}
 A= \begin{pmatrix}
@@ -295,25 +295,26 @@ A= \begin{pmatrix}
 \end{pmatrix}.
 \end{equation*}
 </div>
-<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-144" id="solution-144"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-144"><div class="solution solution-like">Let <span class="process-math">\(\bm{u}=(2,3,1)^{T},\;  \bm{v}=(4,2,1)^{T},\; \bm{w}=(6,1,2)^{T}. \)</span> Then<div class="displaymath process-math">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-116" id="answer-116"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-116"><div class="answer solution-like"><p id="p-1150"><span class="process-math">\(\det(A)=-8\)</span></p></div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-151" id="solution-151"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-151"><div class="solution solution-like">Let <span class="process-math">\(\bm{u}=(2,3,1)^{T},\;  \bm{v}=(4,2,1)^{T},\; \bm{w}=(6,1,2)^{T}. \)</span> Then<div class="displaymath process-math">
 \begin{equation*}
 \bm{v} \times \bm{w}=(4,3,1) ^{T} \times (6,1,2)^{T}=(3,-2,-8)^{T}
 \end{equation*}
 </div>and hence<div class="displaymath process-math">
 \begin{equation*}
-\det(A) = (2,3,1) ^{T} (3,-2,-8)^{T}=(3,-2,-8)^{T}=-8.
+\det(A) = (2,3,1) ^{T} \cdot (3,-2,-8)^{T}=(3,-2,-8)^{T}=-8.
 \end{equation*}
 </div>
 </div></div></article></div> While we can calculate the determinant of a <span class="process-math">\(3\times 3\)</span> matrix using formula <a href="" class="xref" data-knowl="./knowl/Eq-det_with_three_vectors.html" title="Equation 18.2.1">(18.2.1)</a> other algorithms have been derived and have the advantage that they easily generalise to matrices of orders higher than <span class="process-math">\(3 \text{.}\)</span> <article class="theorem theorem-like" id="theorem-25"><h3 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">18.2.3</span><span class="period">.</span>
 </h3>
-<ol id="p-1098" class="decimal">
-<li id="li-298"><p id="p-1099">For the <span class="process-math">\(2\times 2\)</span> matrix <span class="process-math">\(\begin{pmatrix}
+<ol id="p-1151" class="decimal">
+<li id="li-319"><p id="p-1152">For the <span class="process-math">\(2\times 2\)</span> matrix <span class="process-math">\(\begin{pmatrix}
 a \amp b \\
 c \amp d
 \end{pmatrix}\text{,}\)</span> <span class="process-math">\(\det \begin{pmatrix} a \amp b \\ c \amp d \end{pmatrix}=ad-bc \text{.}\)</span></p></li>
-<li id="li-299">
-<p id="p-1100">For the <span class="process-math">\(n\times n\)</span> matrix <span class="process-math">\(A=\begin{pmatrix}
+<li id="li-320">
+<p id="p-1153">For the <span class="process-math">\(n\times n\)</span> matrix <span class="process-math">\(A=\begin{pmatrix}
 a_{ij}
 \end{pmatrix}\)</span> we define the <dfn class="terminology">minor,</dfn> <span class="process-math">\(M_{ij} \)</span> as the determinant of the <span class="process-math">\((n-1)\times (n-1) \)</span> matrix obtained by deleting the <span class="process-math">\(i\)</span>th row and the <span class="process-math">\(j\)</span>th column of <span class="process-math">\(A \text{.}\)</span> Then</p>
 <div class="displaymath process-math">
@@ -329,8 +330,8 @@ a_{ij}
 </div>
 </li>
 </ol></article><article class="example example-like" id="Ex-determinant_3_by_3_matrix_by_minor"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-Ex-determinant_3_by_3_matrix_by_minor"><h3 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">18.2.4</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Ex-determinant_3_by_3_matrix_by_minor"><article class="example example-like"><p id="p-1101">Find the determinant of</p>
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">18.2.4</span><span class="period">.</span><span class="space"> </span><span class="title">(Example 18.2.2 revisited).</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Ex-determinant_3_by_3_matrix_by_minor"><article class="example example-like"><p id="p-1154">Find the determinant of</p>
 <div class="displaymath process-math">
 \begin{equation*}
 A=\begin{pmatrix}
@@ -340,8 +341,8 @@ A=\begin{pmatrix}
 \end{pmatrix}.
 \end{equation*}
 </div>
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-39" id="answer-39"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-39"><div class="answer solution-like"><span class="process-math">\(\det ( A ) = -8\)</span></div></div>
-<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-145" id="solution-145"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-145"><div class="solution solution-like">Using the first of the formulas given above with <span class="process-math">\(i=1: \)</span><div class="displaymath process-math">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-117" id="answer-117"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-117"><div class="answer solution-like"><span class="process-math">\(\det ( A ) = -8\)</span></div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-152" id="solution-152"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-152"><div class="solution solution-like">Using the first of the formulas given above with <span class="process-math">\(i=1: \)</span><div class="displaymath process-math">
 \begin{align*}
 \det(A) = \amp (-1)^{1+1} 2 \begin{vmatrix}
 2 \amp 1 \\
@@ -360,7 +361,7 @@ A=\begin{pmatrix}
 </div></div></article></div>
 <article class="example example-like" id="Ex-determinant_3_by_3_matrix_by_minor_upper_triangle_case"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-Ex-determinant_3_by_3_matrix_by_minor_upper_triangle_case"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">18.2.5</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Ex-determinant_3_by_3_matrix_by_minor_upper_triangle_case"><article class="example example-like"><p id="p-1102">Find the determinant of</p>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Ex-determinant_3_by_3_matrix_by_minor_upper_triangle_case"><article class="example example-like"><p id="p-1155">Find the determinant of</p>
 <div class="displaymath process-math">
 \begin{equation*}
 A=\begin{pmatrix}
@@ -370,55 +371,56 @@ A=\begin{pmatrix}
 \end{pmatrix}.
 \end{equation*}
 </div>
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-40" id="answer-40"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-40"><div class="answer solution-like"><span class="process-math">\(\det ( A ) = -24\)</span></div></div>
-<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-146" id="solution-146"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-146"><div class="solution solution-like">Using the first of the formulas given above with <span class="process-math">\(i=1: \)</span><div class="displaymath process-math">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-118" id="answer-118"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-118"><div class="answer solution-like"><span class="process-math">\(\det ( A ) = -24\)</span></div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-153" id="solution-153"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-153"><div class="solution solution-like">Using the second of the formulas given above with <span class="process-math">\(j=1: \)</span><div class="displaymath process-math">
 \begin{align*}
 \det(A) = \amp (-1)^{1+1} 2 \begin{vmatrix}
 3 \amp 1 \\
 0 \amp -4
-\end{vmatrix} + (-1)^{1+2} 0 \begin{vmatrix}
+\end{vmatrix} + (-1)^{2+1} 0 \begin{vmatrix}
 2 \amp 6 \\
 0 \amp -4
-\end{vmatrix}+ (-1)^{1+3} 0 \begin{vmatrix}
+\end{vmatrix}+ (-1)^{3+1} 0 \begin{vmatrix}
 4 \amp 6 \\
 3 \amp 1
 \end{vmatrix}\\\\
-=\amp 2(-12-0)-0\\  \\
+=\amp 2(-12-0)-0+0\\  \\
 =\amp -24. 
 \end{align*}
 </div>Notice that for a matrix that is upper triangular the determinant is just the product of the entries on the main diagonal.</div></div></article></div> Calculating the determinant of a <span class="process-math">\(3 \times 3 \)</span> matrix via minors is relatively easy. However for matrices of higher orders the calculation can become very tedious. For example, to calculate the determinant of a <span class="process-math">\(4\times 4 \)</span> matrix potentially involves calculating the determinants of four <span class="process-math">\(3\times 3\)</span> matrices. Thus for large matrices the preferred strategy for calculating its determinant is based on the observation that for an upper triangular matrix the determinant is just the product of the entries on the main diagonal. <article class="theorem theorem-like" id="theorem-26"><h3 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">18.2.6</span><span class="period">.</span>
-</h3>To calculate the determinant of the <span class="process-math">\(n \times n \)</span> matrix <span class="process-math">\(A \text{:}\)</span> <ol id="p-1103" class="decimal">
-<li id="li-300"><p id="p-1104">Row reduce <span class="process-math">\(A \)</span> to an equivalent upper triangular matrix, <span class="process-math">\(B \text{,}\)</span> noting that; <ol id="p-1105" class="lower-alpha">
-<li id="li-301">
-<p id="p-1106">If matrix <span class="process-math">\(B \)</span> is obtained from matrix <span class="process-math">\(A \)</span> by interchanging <span class="process-math">\(2 \)</span> rows then</p>
+</h3>
+<p id="p-1156">To calculate the determinant of the <span class="process-math">\(n \times n \)</span> matrix <span class="process-math">\(A \text{:}\)</span></p>
+<ul id="p-1157" class="disc"><li id="li-321"><p id="p-1158">Row reduce <span class="process-math">\(A \)</span> to an equivalent upper triangular matrix, <span class="process-math">\(B \text{,}\)</span> noting that;</p></li></ul>
+<ol id="p-1159" class="lower-roman">
+<li id="li-322">
+<p id="p-1160">If matrix <span class="process-math">\(B \)</span> is obtained from matrix <span class="process-math">\(A \)</span> by interchanging <span class="process-math">\(2 \)</span> rows then</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \det(B)=-\det(A).
 \end{equation*}
 </div>
 </li>
-<li id="li-302">
-<p id="p-1107">If matrix <span class="process-math">\(B \)</span> is obtained from matrix <span class="process-math">\(A \)</span> by multiplying a row of <span class="process-math">\(A \)</span> by a scalar <span class="process-math">\(k \)</span> then</p>
+<li id="li-323">
+<p id="p-1161">If matrix <span class="process-math">\(B \)</span> is obtained from matrix <span class="process-math">\(A \)</span> by multiplying a row of <span class="process-math">\(A \)</span> by a scalar <span class="process-math">\(k \)</span> then</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \det(B)=k\det(A).
 \end{equation*}
 </div>
 </li>
-<li id="li-303">
-<p id="p-1108">If matrix <span class="process-math">\(B \)</span> is obtained from matrix <span class="process-math">\(A \)</span> by adding a multiple of one row of <span class="process-math">\(A \)</span> to another then</p>
+<li id="li-324">
+<p id="p-1162">If matrix <span class="process-math">\(B \)</span> is obtained from matrix <span class="process-math">\(A \)</span> by adding a multiple of one row of <span class="process-math">\(A \)</span> to another then</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \det(B)=\det(A).
 \end{equation*}
 </div>
 </li>
-</ol></p></li>
-<li id="li-304"><p id="p-1109">Find the determinant of <span class="process-math">\(B \)</span> by finding the product of the entries on the main diagonal of <span class="process-math">\(B \text{.}\)</span></p></li>
-</ol></article><article class="example example-like" id="Ex-determinant_3_by_3_matrix_by_Echelonizing"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-Ex-determinant_3_by_3_matrix_by_Echelonizing"><h3 class="heading">
-<span class="type">Example</span><span class="space"> </span><span class="codenumber">18.2.7</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Ex-determinant_3_by_3_matrix_by_Echelonizing"><article class="example example-like"><p id="p-1110">Find the determinant of</p>
+</ol>
+<ul id="p-1163" class="disc"><li id="li-325"><p id="p-1164">Find the determinant of <span class="process-math">\(B \)</span> by finding the product of the entries on the main diagonal of <span class="process-math">\(B \text{.}\)</span></p></li></ul></article><article class="example example-like" id="Ex-determinant_3_by_3_matrix_by_Echelonizing"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-Ex-determinant_3_by_3_matrix_by_Echelonizing"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">18.2.7</span><span class="period">.</span><span class="space"> </span><span class="title">(Example 18.2.2 revisited).</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Ex-determinant_3_by_3_matrix_by_Echelonizing"><article class="example example-like"><p id="p-1165">Find the determinant of</p>
 <div class="displaymath process-math">
 \begin{equation*}
 A=\begin{pmatrix}
@@ -428,8 +430,8 @@ A=\begin{pmatrix}
 \end{pmatrix}.
 \end{equation*}
 </div>
-<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-41" id="answer-41"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-41"><div class="answer solution-like"><span class="process-math">\(\det ( A ) = -8\)</span></div></div>
-<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-147" id="solution-147"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-147"><div class="solution solution-like">Using the row reduction method, first reduce <span class="process-math">\(A \)</span> to an equivalent upper triangular matrix.<div class="displaymath process-math">
+<a href="" data-knowl="" class="id-ref answer-knowl original" data-refid="hk-answer-119" id="answer-119"><span class="type">Answer</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-answer-119"><div class="answer solution-like"><span class="process-math">\(\det ( A ) = -8\)</span></div></div>
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-154" id="solution-154"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-154"><div class="solution solution-like">Using the row reduction method, first reduce <span class="process-math">\(A \)</span> to an equivalent upper triangular matrix.<div class="displaymath process-math">
 \begin{align*}
 \begin{pmatrix}
 2 \amp 4 \amp 6  \\
@@ -444,8 +446,8 @@ A=\begin{pmatrix}
 \end{pmatrix} \;\;\;
 \begin{matrix}
 \amp  \\
-R'_{2} \amp =  R_{2}-3\dfrac{R_{2}}{2} \\
-R'_{3} \amp =  R_{3}-\dfrac{R_{1}}{2}
+R'_{2} \amp =  R_{2}-3\frac{R_{1}}{2} \\
+R'_{3} \amp =  R_{3}-\frac{R_{1}}{2}
 \end{matrix}\\
 \amp \sim
 \begin{pmatrix}
@@ -456,7 +458,7 @@ R'_{3} \amp =  R_{3}-\dfrac{R_{1}}{2}
 \begin{matrix}
 \amp  \\
 \amp  \\
-R'_{3} \amp = R_{3}-\dfrac{R_{2}}{4}
+R'_{3} \amp = R_{3}-\frac{R_{2}}{4}
 \end{matrix}
 \end{align*}
 </div>Since the only elementary row operation used here was that of adding a multiple of one row to another the determinant of the reduced matrix will be the same as the determinant of <span class="process-math">\(A \text{.}\)</span> Thus<div class="displaymath process-math">
@@ -466,14 +468,14 @@ R'_{3} \amp = R_{3}-\dfrac{R_{2}}{4}
 </div>
 </div></div></article></div> For later reference, some properties of the determinant of a matrix are listed below. <article class="theorem theorem-like" id="Th-Determinant_Property"><h3 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">18.2.8</span><span class="period">.</span><span class="space"> </span><span class="title">Properties of the Determinant.</span>
-</h3>Let <span class="process-math">\(A \)</span> and <span class="process-math">\(B \)</span> be square invertible matrices of order <span class="process-math">\(n \)</span> and let <span class="process-math">\(k \)</span> be a real number. Then <ol id="p-1111" class="decimal">
-<li id="li-305"><p id="p-1112"><span class="process-math">\(\displaystyle \det(A^{-1})=\frac{1}{\det(A)}\)</span></p></li>
-<li id="li-306"><p id="p-1113"><span class="process-math">\(\displaystyle \det(A^{T})=\det(A)\)</span></p></li>
-<li id="li-307"><p id="p-1114"><span class="process-math">\(\displaystyle \det(AB)=\det(A) \det(B)\)</span></p></li>
-<li id="li-308"><p id="p-1115"><span class="process-math">\(\displaystyle \det(kA)=k^{n} \det(A)\)</span></p></li>
+</h3>Let <span class="process-math">\(A \)</span> and <span class="process-math">\(B \)</span> be square invertible matrices of order <span class="process-math">\(n \)</span> and let <span class="process-math">\(k \)</span> be a real number. Then <ol id="p-1166" class="decimal">
+<li id="li-326"><p id="p-1167"><span class="process-math">\(\displaystyle \det(A^{-1})=\frac{1}{\det(A)}\)</span></p></li>
+<li id="li-327"><p id="p-1168"><span class="process-math">\(\displaystyle \det(A^{T})=\det(A)\)</span></p></li>
+<li id="li-328"><p id="p-1169"><span class="process-math">\(\displaystyle \det(AB)=\det(A) \det(B)\)</span></p></li>
+<li id="li-329"><p id="p-1170"><span class="process-math">\(\displaystyle \det(kA)=k^{n} \det(A)\)</span></p></li>
 </ol></article><article class="example example-like" id="Ex-determinant_2_by_2_matrix_Property"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-Ex-determinant_2_by_2_matrix_Property"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">18.2.9</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Ex-determinant_2_by_2_matrix_Property"><article class="example example-like"><p id="p-1116">Calculate the determinant of the following matrices. Which property of determinants does this illustrate?</p>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-Ex-determinant_2_by_2_matrix_Property"><article class="example example-like"><p id="p-1171">Calculate the determinant of the following matrices. Which property of determinants does this illustrate?</p>
 <div class="displaymath process-math">
 \begin{equation*}
 A=\begin{pmatrix}
@@ -481,12 +483,12 @@ A=\begin{pmatrix}
 3 \amp -4
 \end{pmatrix},\;
 B=\begin{pmatrix}
-2 \amp 4 \\
+-2 \amp 4 \\
 6 \amp -8
 \end{pmatrix}
 \end{equation*}
 </div>
-<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-148" id="solution-148"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-148"><div class="solution solution-like">Firstly,<div class="displaymath process-math">
+<a href="" data-knowl="" class="id-ref solution-knowl original" data-refid="hk-solution-155" id="solution-155"><span class="type">Solution</span><span class="period">.</span></a><div class="hidden-content tex2jax_ignore" id="hk-solution-155"><div class="solution solution-like">Firstly,<div class="displaymath process-math">
 \begin{equation*}
 \det(A)=(-1)\times (-4)-3\times 2=4-6=-2.
 \end{equation*}
@@ -494,22 +496,22 @@ B=\begin{pmatrix}
 \begin{equation*}
 \det(B)=(-2)\times (-8)-4\times 6=16-24=-8.
 \end{equation*}
-</div>Since <span class="process-math">\(A \)</span> and <span class="process-math">\(B \)</span> are square matrices of order <span class="process-math">\(2 \)</span> and <span class="process-math">\(B=2A \)</span> the fact that <span class="process-math">\(\det(B)=4\det(A) \)</span> illustrates Property of <a href="" class="xref" data-knowl="./knowl/Th-Determinant_Property.html" title="Theorem 18.2.8: Properties of the Determinant">Theorem 18.2.8</a>.</div></div></article></div> To close this section, note that we can now add one more statement to our theorem connecting the ideas that we have studied so far. <article class="theorem theorem-like" id="Th-non_homogeneous_system_Update"><h3 class="heading">
+</div>Since <span class="process-math">\(A \)</span> and <span class="process-math">\(B \)</span> are square matrices of order <span class="process-math">\(2 \)</span> and <span class="process-math">\(B=2A \)</span> the fact that <span class="process-math">\(\det(B)=4\det(A) \)</span> illustrates Property <span class="process-math">\(4.\)</span> of <a href="" class="xref" data-knowl="./knowl/Th-Determinant_Property.html" title="Theorem 18.2.8: Properties of the Determinant">Theorem 18.2.8</a> above.</div></div></article></div> To close this section, note that we can now add one more statement to our theorem connecting the ideas that we have studied so far. <article class="theorem theorem-like" id="Th-non_homogeneous_system_Update"><h3 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">18.2.10</span><span class="period">.</span>
 </h3>Consider the non-homogenous system of <span class="process-math">\(n \)</span> linear equations in <span class="process-math">\(n \)</span> variables<div class="displaymath process-math">
 \begin{equation*}
 A \bm{x} = \bm{b},\; \bm{b} \neq 0.
 \end{equation*}
-</div>The following statements are equivalent: <ol id="p-1117" class="decimal">
-<li id="li-309"><p id="p-1118">The system has a unique solution,</p></li>
-<li id="li-310"><p id="p-1119"><span class="process-math">\(A \bm{x} =0 \)</span>  has only the trivial solution  <span class="process-math">\(\bm{x} =0, \)</span></p></li>
-<li id="li-311"><p id="p-1120">The columns of <span class="process-math">\(A \)</span>  are linearly independent,</p></li>
-<li id="li-312"><p id="p-1121"><span class="process-math">\(A \)</span> is invertible.</p></li>
-<li id="li-313"><p id="p-1122"><span class="process-math">\(\det(A)\neq 0 \text{.}\)</span></p></li>
+</div>The following statements are equivalent: <ol id="p-1172" class="decimal">
+<li id="li-330"><p id="p-1173">The system has a unique solution,</p></li>
+<li id="li-331"><p id="p-1174"><span class="process-math">\(A \bm{x} =0 \)</span>  has only the trivial solution  <span class="process-math">\(\bm{x} =0, \)</span></p></li>
+<li id="li-332"><p id="p-1175">The columns of <span class="process-math">\(A \)</span>  are linearly independent,</p></li>
+<li id="li-333"><p id="p-1176"><span class="process-math">\(A \)</span> is invertible.</p></li>
+<li id="li-334"><p id="p-1177"><span class="process-math">\(\det(A)\neq 0 \text{.}\)</span></p></li>
 </ol></article><section class="exercises" id="exercises-39"><h3 class="heading hide-type">
 <span class="type">Exercises</span> <span class="codenumber"></span> <span class="title">Example Tasks</span>
 </h3>
-<article class="exercise exercise-like" id="exercise-103"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>Find the determinant of<div class="displaymath process-math">
+<article class="exercise exercise-like" id="exercise-104"><h4 class="heading"><span class="codenumber">1<span class="period">.</span></span></h4>Find the determinant of<div class="displaymath process-math">
 \begin{equation*}
 M=\begin{pmatrix}
 1 \amp 1 \amp 2  \\
@@ -518,9 +520,9 @@ M=\begin{pmatrix}
 \end{pmatrix}
 \end{equation*}
 </div>
-<ol id="p-1123" class="lower-alpha">
-<li id="li-314"><p id="p-1124">Using the minor formula.</p></li>
-<li id="li-315"><p id="p-1125">Using row reduction to an upper triangular matrix.Using row reduction to an upper triangular matrix.</p></li>
+<ol id="p-1178" class="lower-alpha">
+<li id="li-335"><p id="p-1179">Using the minor formula.</p></li>
+<li id="li-336"><p id="p-1180">Using row reduction to an upper triangular matrix.</p></li>
 </ol></article></section></section></div></main>
 </div>
 </body>
