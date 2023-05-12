@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-11-10T14:15:17+11:00       *-->
+<!--*       on 2023-05-12T13:54:03+10:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,13 +15,32 @@
 </head>
 <body class="ignore-math">
 <h3 class="heading"><span class="type">Paragraph</span></h3>
-<p>Let <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\xi\in [0, 1)\)</span> be a real number, and let <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(b\gt 1\)</span> be a positive integer. Then <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\xi\)</span> can be uniquely written as</p>
+<p>For uniqueness, suppose that we have two representations</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{align*}
+n \amp= a_mb^m + a_{m-1}b^{m-1} +\cdots + a_1b + a_0\\
+\amp= c_mb^m + c_{m-1}b^{m-1} +\cdots + c_1b + c_0,
+\end{align*}
+</div>
+<p class="continuation">where <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(0\leq a_i, c_i\leq b-1\)</span> and if where if needed we have padded the higher indices of one of the expansions with zeros. Now subtracting the expansions from each other, we have</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
 \begin{equation*}
-\xi=\sum_{i\geq 1}\frac{c_i}{b^i},
+(a_m-c_m)b^m + (a_{m-1}-c_{m-1})b^{m-1} +\cdots + (a_1-c_1)b + (a_0-c_0)=0.
 \end{equation*}
 </div>
-<p class="continuation">where the integers <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(c_i\in \{0,..., b-1\}\)</span> for <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(i\geq 1,\)</span> with the restriction that for every positive integer <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(N\)</span> there is an integer <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(n\geq N\)</span> such that <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(c_n\neq b-1.\)</span></p>
+<p class="continuation">If the two expansions are different, then there is a minimal integer <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(j \hspace{2mm} (0\leq j\leq m)\)</span> such that <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(a_j-c_j\neq 0.\)</span> Thus</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+b^j((a_m-c_m)b^{m-j} + (a_{m-1}-c_{m-1})b^{m-j-1} +\cdots + (a_j-c_j))=0,
+\end{equation*}
+</div>
+<p class="continuation">so that</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+(a_m-c_m)b^{m-j} + (a_{m-1}-c_{m-1})b^{m-j-1} +\cdots + (a_{j+1}-c_{j+1})b=-(a_j-c_j),
+\end{equation*}
+</div>
+<p class="continuation">and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(b\vert (a_j-c_j).\)</span> But this is possible only if <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(a_j = c_j,\)</span> a contradiction, so the expansion is unique.</p>
 <span class="incontext"><a href="Chap-Some_Base_Results.html#p-413">in-context</a></span>
 </body>
 </html>

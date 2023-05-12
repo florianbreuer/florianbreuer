@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-11-10T14:15:12+11:00       *-->
+<!--*       on 2023-05-12T13:53:58+10:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,37 +15,12 @@
 </head>
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
-<p>Let <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(S = \{1, 2, 3,..., n\},\)</span> and for each divisor <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(d\)</span> of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(n\)</span> let</p>
+<p>If <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(n = 10,\)</span> then</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
 \begin{equation*}
-S_d = \{a\in S : \gcd(a, n) = n/d\}.
+\sum_{d\vert 10}f(d) = f(1) + f(2) + f(5) + f(10).
 \end{equation*}
 </div>
-<p class="continuation">Now if <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(d \neq d'\)</span> then <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(S_d\cap S_{d'}= \emptyset,\)</span> so that since each <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(a\in S\)</span> is in <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(S_d\)</span> for some <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(d\vert n,\)</span> we have</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{equation*}
-S =\bigcup_{d\vert n}S_d.
-\end{equation*}
-</div>
-<p class="continuation">Thus</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{equation*}
-\sum_{d\vert n}\#S_d = \#S = n.
-\end{equation*}
-</div>
-<p class="continuation">So it is enough to show that <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\#S_d = \varphi(d).\)</span> Now</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{equation*}
-a\in S_d \hspace{2mm} \mathrm{if} \hspace{2mm} \mathrm{and} \hspace{2mm} \mathrm{only} \hspace{2mm} \mathrm{if} \hspace{2mm} a\in S \hspace{2mm} \mathrm{and} \hspace{2mm} \gcd(a, n) = n/d.
-\end{equation*}
-</div>
-<p class="continuation">If we define a <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(a' = ad/n\)</span> for each <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(a,\)</span> then <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(a'\)</span> is an integer since <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(n/d = \gcd(a, n)\vert a.\)</span> So dividing on the right-hand side by <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(n/d\)</span> we can rewrite the condition as</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{equation*}
-a\in S_d \hspace{2mm} \mathrm{if} \hspace{2mm} \mathrm{and} \hspace{2mm} \mathrm{only} \hspace{2mm} \mathrm{if} \hspace{2mm} a =\frac{n}{d}a' \hspace{2mm} \mathrm{where} \hspace{2mm} a'\in S, 1\leq a'\leq d, \gcd(a',d)=1.
-\end{equation*}
-</div>
-<p class="continuation">Thus <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\#S_d\)</span> is the number of integers, between <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(1\)</span> and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(d,\)</span> inclusive, which are relatively prime to <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(d.\)</span> This is the definition of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\varphi(d),\)</span> so <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\#S_d = \varphi(d),\)</span> and we have <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(n =\sum_{d\vert n}\varphi(d).\)</span></p>
 <span class="incontext"><a href="Sec-Eulers_phi-function.html#p-296">in-context</a></span>
 </body>
 </html>

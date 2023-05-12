@@ -1,7 +1,7 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-11-10T14:14:52+11:00       *-->
+<!--*       on 2023-05-12T13:53:42+10:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -159,8 +159,8 @@
 </div></div>
 <main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="section" id="Sec-Chinese_Remainder_Theorem"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">4.2</span> <span class="title">Chinese Remainder Theorem</span>
-</h2>number <p id="p-187">Now we add yet another twist to solving congruences.</p>
-<p id="p-188">In the first century A.D. Sun-Tsu asked what number yields remainders of <span class="process-math">\(2,3,\)</span> and <span class="process-math">\(2\)</span> when divided by <span class="process-math">\(3,5,\)</span> and <span class="process-math">\(7,\)</span> respectively? This is equivalent to solving the system</p>
+</h2>number <p id="p-189">Now we add yet another twist to solving congruences.</p>
+<p id="p-190">In the first century A.D. Sun-Tsu asked what number yields remainders of <span class="process-math">\(2,3,\)</span> and <span class="process-math">\(2\)</span> when divided by <span class="process-math">\(3,5,\)</span> and <span class="process-math">\(7,\)</span> respectively? This is equivalent to solving the system</p>
 <div class="displaymath process-math">
 \begin{align*}
 x \amp \equiv 2\pmod{3}\\
@@ -171,7 +171,7 @@ x \amp \equiv 2\pmod{7}
 <article class="theorem theorem-like" id="theorem-38"><h3 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.2.1</span><span class="space"> </span><span class="creator">(Chinese Remainder Theorem)</span><span class="period">.</span>
 </h3>
-<p id="p-189">Let <span class="process-math">\(n_1, n_2,..., n_r \in\mathbb{N}\)</span> such that <span class="process-math">\(\gcd(n_i, n_j) = 1\)</span> for <span class="process-math">\(i \neq j.\)</span> Then the system of linear congruences</p>
+<p id="p-191">Let <span class="process-math">\(n_1, n_2,..., n_r \in\mathbb{N}\)</span> such that <span class="process-math">\(\gcd(n_i, n_j) = 1\)</span> for <span class="process-math">\(i \neq j.\)</span> Then the system of linear congruences</p>
 <div class="displaymath process-math">
 \begin{align*}
 x \amp \equiv a_1\pmod{n_1}\\
@@ -180,7 +180,7 @@ x \amp \equiv a_2\pmod{n_2}\\
 x \amp \equiv a_r\pmod{n_3}
 \end{align*}
 </div>
-<p class="continuation">has a simultaneous solution, which is unique modulo <span class="process-math">\(n_1n_2...n_r.\)</span></p></article><article class="hiddenproof" id="proof-42"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-42"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-42"><article class="hiddenproof"><p id="p-190">Let <span class="process-math">\(n = n_1n_2...n_r,\)</span> and for each <span class="process-math">\(k = 1, 2,..., r\)</span> let</p>
+<p class="continuation">has a simultaneous solution, which is unique modulo <span class="process-math">\(n_1n_2...n_r.\)</span></p></article><article class="hiddenproof" id="proof-42"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-42"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-42"><article class="hiddenproof"><p id="p-192">Let <span class="process-math">\(n = n_1n_2...n_r,\)</span> and for each <span class="process-math">\(k = 1, 2,..., r\)</span> let</p>
 <div class="displaymath process-math">
 \begin{equation*}
 N_k=\frac{n}{n_k}.
@@ -193,7 +193,7 @@ N_k=\frac{n}{n_k}.
 \end{equation*}
 </div>
 <p class="continuation">is a simultaneous solution to the given system.</p>
-<p id="p-191">Since <span class="process-math">\(n_i\vert N_k\)</span> for <span class="process-math">\(i \neq k, N_i \equiv 0 \pmod{n_k}\)</span> if <span class="process-math">\(i\neq k.\)</span> Thus</p>
+<p id="p-193">Since <span class="process-math">\(n_i\vert N_k\)</span> for <span class="process-math">\(i \neq k, N_i \equiv 0 \pmod{n_k}\)</span> if <span class="process-math">\(i\neq k.\)</span> Thus</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \overline{x} = a_1N_1x_1 + a_2N_2x_2 +...+ a_rN_rx_r \equiv a_kN_kx_k\pmod{n_k}.
@@ -206,7 +206,7 @@ N_k=\frac{n}{n_k}.
 \end{equation*}
 </div>
 <p class="continuation">Thus <span class="process-math">\(\overline{x}\)</span> is a simultaneous solution.</p>
-<p id="p-192">To see that it is unique modulo <span class="process-math">\(n,\)</span> suppose that <span class="process-math">\(\overline{x}'\)</span> is any other solution that satisfies the given system. Then</p>
+<p id="p-194">To see that it is unique modulo <span class="process-math">\(n,\)</span> suppose that <span class="process-math">\(\overline{x}'\)</span> is any other solution that satisfies the given system. Then</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \overline{x} \equiv a_k \equiv \overline{x}'\pmod{n_k}
@@ -215,7 +215,7 @@ N_k=\frac{n}{n_k}.
 <p class="continuation">and so <span class="process-math">\(n_k\vert (\overline{x}-\overline{x}')\)</span> for each <span class="process-math">\(k.\)</span> But since <span class="process-math">\(\gcd(n_i, n_j)=1\)</span> for <span class="process-math">\(i\neq j,\)</span> we have that <span class="process-math">\(n_1n_2...n_r = n\vert (\overline{x}-\overline{x}').\)</span> Thus <span class="process-math">\(\overline{x}\equiv\overline{x}'\pmod{n}.\)</span> This proves the theorem.</p></article></div>
 <article class="example example-like" id="example-9"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-9"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">4.2.2</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-9"><article class="example example-like"><p id="p-193">To solve Sun-Tsu's problem, we have</p>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-9"><article class="example example-like"><p id="p-195">To solve Sun-Tsu's problem, we have</p>
 <div class="displaymath process-math">
 \begin{align*}
 x \amp \equiv 2\pmod{3}\\
@@ -243,10 +243,10 @@ x \amp \equiv 15x \pmod{7}
 x = 2\cdot 35\cdot 2 + 3\cdot 21\cdot 1 + 2\cdot 15\cdot 1 = 233 \equiv 23\pmod{105}.
 \end{equation*}
 </div></article></div>
-<p id="p-194">Now we can finally solve some more general congruences. Consider the next example. As a different way to solve some congruences.</p>
+<p id="p-196">Now we can finally solve some more general congruences. Consider the next example. As a different way to solve some congruences.</p>
 <article class="example example-like" id="example-10"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-10"><h3 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">4.2.3</span><span class="period">.</span>
-</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-10"><article class="example example-like"><p id="p-195">Using the Chinese Remainder Theorem we can solve the congruence</p>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-10"><article class="example example-like"><p id="p-197">Using the Chinese Remainder Theorem we can solve the congruence</p>
 <div class="displaymath process-math">
 \begin{equation*}
 17x \equiv 9 \pmod{276}.
@@ -301,8 +301,8 @@ k \equiv 3\pmod{4},
 x = 9 + 12(2 + 23t) = 33 + 276t,
 \end{equation*}
 </div>
-<p class="continuation">so <span class="process-math">\(x \equiv 33 \pmod{276}\)</span> is the unique solution modulo <span class="process-math">\(276.\)</span> It is unique since <span class="process-math">\(\gcd(17, 276) = 1.\)</span></p></article></div> <p id="p-196">The Chinese Remainder Theorem has numerous applications. It is conceivable that one of these might have been how the Chinese generals counted their troops:</p> <p id="p-197"><span class="process-math">\(\hspace{10mm}\)</span> Line up <span class="process-math">\(7\)</span> by <span class="process-math">\(7\text{!}\)</span> <span class="process-math">\(\hspace{5mm}\)</span> (Not factorial, but a SCREAMED military command.)</p> <p id="p-198"><span class="process-math">\(\hspace{10mm}\)</span> Line up <span class="process-math">\(11\)</span> by <span class="process-math">\(11\text{!}\)</span></p> <p id="p-199"><span class="process-math">\(\hspace{10mm}\)</span> Line up <span class="process-math">\(13\)</span> by <span class="process-math">\(13\text{!}\)</span></p> <p id="p-200"><span class="process-math">\(\hspace{10mm}\)</span> Line up <span class="process-math">\(17\)</span> by <span class="process-math">\(17\text{!}\)</span></p>
-<p id="p-201">Counting only the remainders in the incomplete rows, the intelligent generals could know the exact number of their soldiers<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-5" id="fn-5"><sup> 1 </sup></a>.</p>
+<p class="continuation">so <span class="process-math">\(x \equiv 33 \pmod{276}\)</span> is the unique solution modulo <span class="process-math">\(276.\)</span> It is unique since <span class="process-math">\(\gcd(17, 276) = 1.\)</span></p></article></div> <p id="p-198">The Chinese Remainder Theorem has numerous applications. It is conceivable that one of these might have been how the Chinese generals counted their troops:</p> <p id="p-199"><span class="process-math">\(\hspace{10mm}\)</span> Line up <span class="process-math">\(7\)</span> by <span class="process-math">\(7\text{!}\)</span> <span class="process-math">\(\hspace{5mm}\)</span> (Not factorial, but a SCREAMED military command.)</p> <p id="p-200"><span class="process-math">\(\hspace{10mm}\)</span> Line up <span class="process-math">\(11\)</span> by <span class="process-math">\(11\text{!}\)</span></p> <p id="p-201"><span class="process-math">\(\hspace{10mm}\)</span> Line up <span class="process-math">\(13\)</span> by <span class="process-math">\(13\text{!}\)</span></p> <p id="p-202"><span class="process-math">\(\hspace{10mm}\)</span> Line up <span class="process-math">\(17\)</span> by <span class="process-math">\(17\text{!}\)</span></p>
+<p id="p-203">Counting only the remainders in the incomplete rows, the intelligent generals could know the exact number of their soldiers<a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-5" id="fn-5"><sup> 1 </sup></a>.</p>
 <div class="hidden-content tex2jax_ignore" id="hk-fn-5"><div class="fn">In between us, this may never have been practiced. The existence of intelligent generals remains a wide open question.</div></div></section></div></main>
 </div>
 </body>

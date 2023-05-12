@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-11-10T14:15:12+11:00       *-->
+<!--*       on 2023-05-12T13:53:58+10:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,13 +15,12 @@
 </head>
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
-<p>For <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(n = 60 = 2^2\cdot 3\cdot 5,\)</span> we have</p>
+<p>If <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(n\)</span> has the prime factorization <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(n = p_1^{k_1}p_2^{k_2}\cdots p_r^{k_r},\)</span> then</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
 \begin{equation*}
-\varphi(60) = 60\left(1-\frac{1}{2}\right)\left(1-\frac{1}{3}\right)\left(1-\frac{1}{5}\right)=60\cdot\frac{1}{2}\frac{2}{3}\frac{4}{5}=16
+\varphi(n) = \prod_{i=1}^r(p_i^{k_1}-p_i^{k_i-1})=\prod_{i=1}^rp_i^{k_i-1}(p_i-1)=n\prod_{i=1}^r\left(1-\frac{1}{p_i}\right). 
 \end{equation*}
 </div>
-<p class="continuation">One can also think of this example in terms of probabilities. Since the probability of a number being divisible by a prime <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(p\)</span> is <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\frac{1}{p},\)</span> the probability of a number being coprime to <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(p\)</span> is <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(1-\frac{1}{p}.\)</span> So that relating this to each one of it's prime divisors, the above equation for <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\varphi(60)\)</span> says that the probability that a number <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(n\leq 60\)</span> is coprime to <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(60\)</span> is <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\frac{16}{60}.\)</span></p>
 <span class="incontext"><a href="Sec-Eulers_phi-function.html#p-292">in-context</a></span>
 </body>
 </html>

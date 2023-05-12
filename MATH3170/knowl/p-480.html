@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-11-10T14:15:20+11:00       *-->
+<!--*       on 2023-05-12T13:54:06+10:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,7 +15,19 @@
 </head>
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
-<p>Let <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(x\in\mathbb{R}.\)</span> Then <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\lfloor x\rfloor\)</span> denotes the greatest integer less than or equal to <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(x.\)</span> This is sometimes called the integer part of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(x.\)</span></p>
-<span class="incontext"><a href="Sec-The_Floor_Function.html#p-480">in-context</a></span>
+<p>To show these integers are all distinct, we only need to show that <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(p-s_i\)</span> is not equal to any <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(r_j.\)</span> So assume to the contrary that</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+p-s_i = r_j
+\end{equation*}
+</div>
+<p class="continuation">for some <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(i\)</span> and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(j.\)</span> Then there exists <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(u, v \hspace{2mm} (1 \leq u, v\leq (p-1)/2)\)</span> such that <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(s_i \equiv ua\pmod{p}\)</span> and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(r_j \equiv va\pmod{p}.\)</span> So</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+(u + v)a \equiv s_i + r_j = p \equiv 0\pmod{p} \hspace{2mm}\Rightarrow \hspace{2mm} u + v \equiv 0\pmod{p},
+\end{equation*}
+</div>
+<p class="continuation">which is impossible since <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(1\leq u, v \leq (p- 1)/2.\)</span></p>
+<span class="incontext"><a href="Sec-Gauss_Lemma.html#p-480">in-context</a></span>
 </body>
 </html>

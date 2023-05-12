@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-11-10T14:15:17+11:00       *-->
+<!--*       on 2023-05-12T13:54:04+10:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,7 +15,20 @@
 </head>
 <body class="ignore-math">
 <h3 class="heading"><span class="type">Paragraph</span></h3>
-<p>Let <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(b\gt 1\)</span> be a positive integer. Then a periodic base-<span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(b\)</span> expansion represents a rational number, and conversely, the base-<span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(b\)</span> expansion of a rational number either terminates or is eventually periodic. Moreover, if <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\xi\in (0, 1)\cap \mathbb{Q}\)</span> with <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\xi = r/s\)</span> with <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\gcd(r, s) = 1,\)</span> and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(s = TU\)</span> where every prime factor of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(T\)</span> divides <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(b\)</span> and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\gcd(U, b) = 1,\)</span> then the period length of the base-<span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(b\)</span> expansion of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\xi\)</span> is the order of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(b\)</span> modulo <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(U,\)</span> and the pre-period length is <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(N,\)</span> where <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(N\)</span> is the smallest positive integer such that <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(T \vert b^N.\)</span></p>
+<p>Now suppose that <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\xi\in [0, 1)\)</span> and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\xi = r/s\)</span> where each prime dividing <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(s\)</span> divides <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(b.\)</span> Then there is an <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(N\)</span> such that <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(s\vert b^N,\)</span> so there is an integer <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(a\)</span> such that <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(sa = b^N.\)</span> Then</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+b^N\xi=b^Nr/s=ar\in\mathbb{N}.
+\end{equation*}
+</div>
+<p class="continuation">Now let <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\((a_ma_{m-1}\cdots a_1a_0)_b\)</span> be the base-<span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(b\)</span> expansion of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(ar.\)</span> Then</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{align*}
+\xi =\frac{ar}{b^N}=\frac{a_mb^{m}+\cdots +a_1b+a_0}{b^N} \amp=a_mb^{m-N}+\cdots +a_1b^{1-N}+a_0b^{-N}\\
+\amp=(.00...0a_ma_{m-1}...a_1a_0)_b,
+\end{align*}
+</div>
+<p class="continuation">which is a terminating base-<span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(b\)</span> expansion.</p>
 <span class="incontext"><a href="Chap-Some_Base_Results.html#p-422">in-context</a></span>
 </body>
 </html>

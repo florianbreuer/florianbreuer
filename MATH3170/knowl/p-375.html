@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-11-10T14:15:15+11:00       *-->
+<!--*       on 2023-05-12T13:54:02+10:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -14,8 +14,25 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h4 class="heading"><span class="type">Paragraph</span></h4>
-<p>If <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\gcd(a, n) = 1\)</span> and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(a\)</span> has order <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\varphi(n)\)</span> modulo <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(n,\)</span> then <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(a\)</span> is a <dfn xmlns:svg="http://www.w3.org/2000/svg" class="terminology">primitive root</dfn> of the integer <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(n.\)</span></p>
-<span class="incontext"><a href="Sec-Primitive_Roots.html#p-375">in-context</a></span>
+<h3 class="heading"><span class="type">Paragraph</span></h3>
+<p>Let <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(d = \gcd(h, k).\)</span> Then we may write <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(h = h_1d\)</span> and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(k = k_1d,\)</span> with <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\gcd(h_1, k_1) = 1.\)</span> Now</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+(a^h)^{k_1}=(a^{h_1d})^{k/d}=(a^k)^{h_1}\equiv 1\pmod{n}.
+\end{equation*}
+</div>
+<p class="continuation">If we assume that <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(a^h\)</span> has order <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(r\)</span> modulo <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(n,\)</span> then we know that <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(r\vert k_1.\)</span> On the other hand, because <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(a\)</span> has order <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(k\)</span> modulo <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(n,\)</span></p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+a^{hr}=(a^h)^r\equiv 1\pmod{n}
+\end{equation*}
+</div>
+<p class="continuation">gives <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(k\vert hr,\)</span> so <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(k_1d\vert h_1dr\)</span> so <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(k_1\vert h_1r.\)</span> But <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\gcd(k_1, h_1) = 1,\)</span> so <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(k_1\vert r\)</span> by Euclid's Lemma. Thus <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(r = k_1,\)</span> and</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+r = k_1 =\frac{k}{d}=\frac{k}{\gcd(k,h)}.
+\end{equation*}
+</div>
+<span class="incontext"><a href="Chap-Order_of_Elements_of_Zn.html#p-375">in-context</a></span>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-11-10T14:14:54+11:00       *-->
+<!--*       on 2023-05-12T13:53:43+10:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -163,12 +163,12 @@
 <article class="theorem theorem-like" id="theorem-44"><h3 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.3.1</span><span class="period">.</span><span class="space"> </span><span class="title">Partial Summation.</span>
 </h3>
-<p id="p-235">Let <span class="process-math">\(f: \mathbb{N}\rightarrow\mathbb{R}\)</span> and suppose that <span class="process-math">\(g: \mathbb{R}\rightarrow [1, \infty)\)</span> is a continuous differentiable function. Then</p>
+<p id="p-237">Let <span class="process-math">\(f: \mathbb{N}\rightarrow\mathbb{R}\)</span> and suppose that <span class="process-math">\(g: \mathbb{R}\rightarrow [1, \infty)\)</span> is a continuous differentiable function. Then</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \sum_{n\leq x}f(n)g(n)=g(x)\sum_{n\leq x}f(n)-\int_{1}^{x}\left(\sum_{n\leq x}f(n)\right)g'(t)dt. 
 \end{equation*}
-</div></article><article class="hiddenproof" id="proof-49"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-49"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-49"><article class="hiddenproof"><p id="p-236">For convenience suppose <span class="process-math">\(x\)</span> is an integer and write</p>
+</div></article><article class="hiddenproof" id="proof-49"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-49"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-49"><article class="hiddenproof"><p id="p-238">For convenience suppose <span class="process-math">\(x\)</span> is an integer and write</p>
 <div class="displaymath process-math">
 \begin{equation*}
 S(y):=\sum_{n\leq y}f(n),
@@ -184,7 +184,7 @@ S(y):=\sum_{n\leq y}f(n),
 \end{align*}
 </div>
 <p class="continuation">which is the desired result.</p></article></div>
-<p id="p-237">It is common for us to apply partial summation to partial sums of reciprocal sums. In fact, if we use the prime number theorem in the-form</p>
+<p id="p-239">It is common for us to apply partial summation to partial sums of reciprocal sums. In fact, if we use the prime number theorem in the-form</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \pi(x)=\frac{x}{\log(x)}+O\left(\frac{x}{\log^2(x)}\right),
@@ -194,12 +194,12 @@ S(y):=\sum_{n\leq y}f(n),
 <article class="theorem theorem-like" id="theorem-45"><h3 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">5.3.2</span><span class="period">.</span>
 </h3>
-<p id="p-238">We have</p>
+<p id="p-240">We have</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \sum_{p\leq x}\frac{1}{p} \asymp \log(\log(x)). 
 \end{equation*}
-</div></article><article class="hiddenproof" id="proof-50"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-50"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-50"><article class="hiddenproof"><p id="p-239">Set <span class="process-math">\(g(x)=\dfrac{1}{x},\)</span> and</p>
+</div></article><article class="hiddenproof" id="proof-50"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-50"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-50"><article class="hiddenproof"><p id="p-241">Set <span class="process-math">\(g(x)=\dfrac{1}{x},\)</span> and</p>
 <div class="displaymath process-math">
 \begin{equation*}
 f(n)=
@@ -236,23 +236,23 @@ f(n)=
 \end{align*}
 </div>
 <p class="continuation">which gives the result.</p></article></div>
-<p id="p-240">Note that using a stronger version of the prime number theorem one can show that there is a real constant <span class="process-math">\(C\)</span> so that</p>
+<p id="p-242">Note that using a stronger version of the prime number theorem one can show that there is a real constant <span class="process-math">\(C\)</span> so that</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \sum_{p\leq x}\frac{1}{p}=\log(\log(x))+C+O\left(\frac{1}{\log(x)}\right).
 \end{equation*}
 </div>
 <p class="continuation">We will use this stronger version in what follows.</p>
-<p id="p-241">The following discussion of <span class="process-math">\(B\)</span>-smooth numbers is taken from the paper <em class="emphasis">Smooth numbers</em> and the <em class="emphasis">quadratic sieve (2008)</em> by Carl Pomerance.</p>
+<p id="p-243">The following discussion of <span class="process-math">\(B\)</span>-smooth numbers is taken from the paper <em class="emphasis">Smooth numbers</em> and the <em class="emphasis">quadratic sieve (2008)</em> by Carl Pomerance.</p>
 <article class="definition definition-like" id="definition-22"><h3 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">5.3.3</span><span class="period">.</span>
 </h3>
-<p id="p-242">Denote by <span class="process-math">\(\varphi(x, B)\)</span> the counting function of the <span class="process-math">\(B\)</span>-smooth numbers in the interval <span class="process-math">\([1, x].\)</span> That is,</p>
+<p id="p-244">Denote by <span class="process-math">\(\varphi(x, B)\)</span> the counting function of the <span class="process-math">\(B\)</span>-smooth numbers in the interval <span class="process-math">\([1, x].\)</span> That is,</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \varphi(x,B)=\# \{m\in[1,X]: \hspace{2mm} \mathrm{if} \hspace{2mm} p\vert m \hspace{2mm} \mathrm{then} \hspace{2mm} p\leq B\}.
 \end{equation*}
-</div></article><p id="p-243">We will use a very simple sieve to estimate <span class="process-math">\(\varphi(x, x^{1/2}).\)</span> The sieve will be the principle of inclusion-exclusion, with a single exclusion, since no number up to <span class="process-math">\(x\)</span> is divisible by two primes that are larger than <span class="process-math">\(x^{1/2}.\)</span> Thus</p>
+</div></article><p id="p-245">We will use a very simple sieve to estimate <span class="process-math">\(\varphi(x, x^{1/2}).\)</span> The sieve will be the principle of inclusion-exclusion, with a single exclusion, since no number up to <span class="process-math">\(x\)</span> is divisible by two primes that are larger than <span class="process-math">\(x^{1/2}.\)</span> Thus</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \varphi(x,x^{1/2})=\lfloor x\rfloor-\sum_{\sqrt{x}\lt p\leq x}\left\lfloor\frac{x}{p}\right\rfloor. 

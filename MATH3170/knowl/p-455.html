@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-11-10T14:15:19+11:00       *-->
+<!--*       on 2023-05-12T13:54:05+10:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,19 +15,25 @@
 </head>
 <body class="ignore-math">
 <h3 class="heading"><span class="type">Paragraph</span></h3>
-<p>Let <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\gcd(a, p) = 1.\)</span> Then by Fermat's Little Theorem we have that</p>
+<p>Suppose that <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(a\)</span> is a quadratic residue of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(p,\)</span> so that <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(x^2 \equiv a\pmod{p}\)</span> has a solution, say <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(y.\)</span> Since <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\gcd(a, p) = 1,\)</span> we have <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\gcd(y, p) = 1,\)</span> and so using Fermat's Little Theorem we have</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
 \begin{equation*}
-a^{p-1}-1 = (a^{(p-1)/2}-1)(a^{(p-1)/2} + 1) \equiv 0\pmod{p},
+a^{(p-1)/2}\equiv (y^2)^{(p-1)/2} = y^{p-1} \equiv 1\pmod{p}.
 \end{equation*}
 </div>
-<p class="continuation">so that either</p>
+<p class="continuation">Conversely suppose that <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(a^{(p-1)/2} \equiv 1\pmod{p}\)</span> and let <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(r\)</span> be a primitive root of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(p.\)</span> Then <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(a \equiv r^k\pmod{p}\)</span> for some <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(k\)</span> with <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(1\leq k\leq p-1.\)</span> So</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
 \begin{equation*}
-a^{\frac{(p-1)}{2}} \equiv 1 \pmod{p} \hspace{5mm} \mathrm{or} \hspace{5mm} a^{\frac{(p-1)}{2}} \equiv -1 \pmod{p}.
+r^{k(p-1)/2} \equiv a^{(p-1)/2} \equiv 1\pmod{p}.
 \end{equation*}
 </div>
-<p class="continuation">If the first congruence holds, then <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(a\)</span> is a quadratic residue of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(p.\)</span> If the first does not hold, then the second must, and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(a\)</span> is a quadratic nonresidue of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(p.\)</span></p>
+<p class="continuation">But the order of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(r\)</span> must divide <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(k(p-1)/2;\)</span> that is, <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(p-1\vert k(p- 1)/2,\)</span> so that <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(k\)</span> must be even, say <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(k = 2n\)</span> for some <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(n.\)</span> Thus</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+(r^n)^2 \equiv r^{2n} \equiv r^k \equiv a\pmod{p}
+\end{equation*}
+</div>
+<p class="continuation">so that <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(r^n\)</span> is a solution to <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(x^2 \equiv a\pmod{p}\)</span> and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(a\)</span> is a quadratic residue of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(p.\)</span></p>
 <span class="incontext"><a href="Chap-Quadratic_Residues.html#p-455">in-context</a></span>
 </body>
 </html>

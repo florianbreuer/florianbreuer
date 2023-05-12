@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-11-10T14:15:09+11:00       *-->
+<!--*       on 2023-05-12T13:53:54+10:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,7 +15,31 @@
 </head>
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
-<p>If <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\gcd(a, n) = 1,\)</span> then the linear congruence <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(ax \equiv b\pmod{n}\)</span> has a unique solution modulo <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(n.\)</span></p>
+<p>Since we are only interested in the solution of the congruence and not the equation, we consider only the solution for <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(x.\)</span> We shall show that of all of the solutions <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(x = x_0 +\frac{n}{d}t\)</span> for <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(t\in\mathbb{Z},\)</span> the only incongruent ones are</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+x_0, x_0+\frac{n}{d}, x_0+\frac{n}{d}2, x_0+\frac{n}{d}3, ...,x_0+\frac{n}{d}(d-1)
+\end{equation*}
+</div>
+<p class="continuation">Suppose it happened that two solutions were congruent; that is,</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+x_0=\frac{n}{d}t_1\equiv x_0+\frac{n}{d}t_2 \pmod{n}
+\end{equation*}
+</div>
+<p class="continuation">where <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(0 \leq t_1 \lt t_2 \leq d-1.\)</span> Then we would have</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\frac{n}{d}t_1\equiv \frac{n}{d}t_2 \pmod{n}.
+\end{equation*}
+</div>
+<p class="continuation">But since <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\gcd(\frac{n}{d}, n) = \frac{n}{d},\)</span> so that</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+t_1 \equiv t_2 \pmod{d}
+\end{equation*}
+</div>
+<p class="continuation">which is impossible since <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(0 \leq t_1 \lt t_2 \leq d-1\)</span> shows that <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(n \nmid t_1-t_2.\)</span> Thus our list of solutions are pairwise incongruent.</p>
 <span class="incontext"><a href="Sec-Solving_Linear_Congruences.html#p-180">in-context</a></span>
 </body>
 </html>

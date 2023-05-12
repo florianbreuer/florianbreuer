@@ -1,7 +1,7 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-11-10T14:15:02+11:00       *-->
+<!--*       on 2023-05-12T13:53:46+10:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -163,7 +163,7 @@
 <article class="theorem theorem-like" id="theorem-96"><h3 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">10.1.1</span><span class="period">.</span>
 </h3>
-<p id="p-504">For <span class="process-math">\(f_n\)</span> the <span class="process-math">\(n\)</span>th Fibonacci sequence, we have <span class="process-math">\(\gcd(f_n, f_{n+1}) = 1\)</span> for all <span class="process-math">\(n \geq 1.\)</span></p></article><article class="hiddenproof" id="proof-108"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-108"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-108"><article class="hiddenproof"><p id="p-505">For <span class="process-math">\(n = 1\)</span> and <span class="process-math">\(n = 2\)</span> we have that <span class="process-math">\(\gcd(1, 1) = 1\)</span> and <span class="process-math">\(\gcd(1, 2) =1.\)</span> For <span class="process-math">\(n\geq 3\)</span> we use the Euclidean algorithm and the definition of the Fibonacci numbers to give</p>
+<p id="p-506">For <span class="process-math">\(f_n\)</span> the <span class="process-math">\(n\)</span>th Fibonacci sequence, we have <span class="process-math">\(\gcd(f_n, f_{n+1}) = 1\)</span> for all <span class="process-math">\(n \geq 1.\)</span></p></article><article class="hiddenproof" id="proof-108"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-108"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-108"><article class="hiddenproof"><p id="p-507">For <span class="process-math">\(n = 1\)</span> and <span class="process-math">\(n = 2\)</span> we have that <span class="process-math">\(\gcd(1, 1) = 1\)</span> and <span class="process-math">\(\gcd(1, 2) =1.\)</span> For <span class="process-math">\(n\geq 3\)</span> we use the Euclidean algorithm and the definition of the Fibonacci numbers to give</p>
 <div class="displaymath process-math">
 \begin{align*}
 f_{n+1} \amp = 1 \cdot f_n + f_{n-1}\\
@@ -174,7 +174,7 @@ f_{3} \amp = 2 \cdot f_{2}
 \end{align*}
 </div>
 <p class="continuation">Thus <span class="process-math">\(\gcd(f_{n+1}, f_n) = f_2 = 1.\)</span></p></article></div>
-<p id="p-506">Note that as an example we can show that <span class="process-math">\(\gcd(21, 13) = 1.\)</span> We have</p>
+<p id="p-508">Note that as an example we can show that <span class="process-math">\(\gcd(21, 13) = 1.\)</span> We have</p>
 <div class="displaymath process-math">
 \begin{align*}
 21 \amp = 1 \cdot 13 + 8\\
@@ -186,25 +186,25 @@ f_{3} \amp = 2 \cdot f_{2}
 \end{align*}
 </div>
 <p class="continuation">We will return to this example when we come to the next chapter on continued fractions.</p>
-<p id="p-507">The above theorem generalizes in the following way.</p>
+<p id="p-509">The above theorem generalizes in the following way.</p>
 <article class="theorem theorem-like" id="Thm_10_2"><h3 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">10.1.2</span><span class="period">.</span>
 </h3>
-<p id="p-508">The greatest common divisor of two Fibonacci numbers is itself a Fibonacci number, and we have that</p>
+<p id="p-510">The greatest common divisor of two Fibonacci numbers is itself a Fibonacci number, and we have that</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \gcd(f_m, f_n) = f_{\gcd(m,n)}
 \end{equation*}
-</div></article><p id="p-509">To prove this theorem we will need first a few of lemmas.</p>
+</div></article><p id="p-511">To prove this theorem we will need first a few of lemmas.</p>
 <article class="lemma theorem-like" id="lemma-14"><h3 class="heading">
 <span class="type">Lemma</span><span class="space"> </span><span class="codenumber">10.1.3</span><span class="period">.</span>
 </h3>
-<p id="p-510">Let <span class="process-math">\(m\geq 2\)</span> and <span class="process-math">\(n\geq 1.\)</span> Then we have that</p>
+<p id="p-512">Let <span class="process-math">\(m\geq 2\)</span> and <span class="process-math">\(n\geq 1.\)</span> Then we have that</p>
 <div class="displaymath process-math">
 \begin{equation*}
 f_{m+n} = f_{m-1}f_n + f_mf_{n+1}.
 \end{equation*}
-</div></article><article class="hiddenproof" id="proof-109"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-109"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-109"><article class="hiddenproof"><p id="p-511">We proceed by induction. When <span class="process-math">\(n = 1\)</span> we have</p>
+</div></article><article class="hiddenproof" id="proof-109"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-109"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-109"><article class="hiddenproof"><p id="p-513">We proceed by induction. When <span class="process-math">\(n = 1\)</span> we have</p>
 <div class="displaymath process-math">
 \begin{equation*}
 f_{m+1} = f_{m-1}+f_m =f_{m-1}f_{1}+f_{m}f_{2},
@@ -238,7 +238,7 @@ f_{m+k+1} = f_{m-1}f_{k+1} +f_{m}f_{k+2},
 <article class="lemma theorem-like" id="lemma-15"><h3 class="heading">
 <span class="type">Lemma</span><span class="space"> </span><span class="codenumber">10.1.4</span><span class="period">.</span>
 </h3>
-<p id="p-512">For <span class="process-math">\(m, n\geq 1\)</span> we have that <span class="process-math">\(f_m\)</span> divides <span class="process-math">\(f_{mn}.\)</span></p></article><article class="hiddenproof" id="proof-110"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-110"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-110"><article class="hiddenproof"><p id="p-513">Again, we prove this by induction. For <span class="process-math">\(n = 1\)</span> this holds trivially. So suppose that the result holds for <span class="process-math">\(n\leq k,\)</span> and note then that <span class="process-math">\(f_m\vert f_{mk}.\)</span> Using the previous lemma, we have that</p>
+<p id="p-514">For <span class="process-math">\(m, n\geq 1\)</span> we have that <span class="process-math">\(f_m\)</span> divides <span class="process-math">\(f_{mn}.\)</span></p></article><article class="hiddenproof" id="proof-110"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-110"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-110"><article class="hiddenproof"><p id="p-515">Again, we prove this by induction. For <span class="process-math">\(n = 1\)</span> this holds trivially. So suppose that the result holds for <span class="process-math">\(n\leq k,\)</span> and note then that <span class="process-math">\(f_m\vert f_{mk}.\)</span> Using the previous lemma, we have that</p>
 <div class="displaymath process-math">
 \begin{equation*}
 f_{m(k+1)} = f_{mk-1}f_m + f_{mk}f_{m+1}.
@@ -248,7 +248,7 @@ f_{m(k+1)} = f_{mk-1}f_m + f_{mk}f_{m+1}.
 <article class="lemma theorem-like" id="lemma-16"><h3 class="heading">
 <span class="type">Lemma</span><span class="space"> </span><span class="codenumber">10.1.5</span><span class="period">.</span>
 </h3>
-<p id="p-514">If <span class="process-math">\(m = qn + r,\)</span> then <span class="process-math">\(\gcd(f_m, f_n) = \gcd(f_n, f_r).\)</span></p></article><article class="hiddenproof" id="proof-111"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-111"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-111"><article class="hiddenproof"><p id="p-515">Write <span class="process-math">\(m = qn + r.\)</span> Then we have by one of the above lemmas that</p>
+<p id="p-516">If <span class="process-math">\(m = qn + r,\)</span> then <span class="process-math">\(\gcd(f_m, f_n) = \gcd(f_n, f_r).\)</span></p></article><article class="hiddenproof" id="proof-111"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-111"><h3 class="heading"><span class="type">Proof<span class="period">.</span></span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-111"><article class="hiddenproof"><p id="p-517">Write <span class="process-math">\(m = qn + r.\)</span> Then we have by one of the above lemmas that</p>
 <div class="displaymath process-math">
 \begin{equation*}
 \gcd(f_m, f_n) = \gcd(f_{qn+r}, f_n) = \gcd(f_{qn-1}f_r + f_{qn}f_{r+1}, f_n).
@@ -267,8 +267,8 @@ f_{m(k+1)} = f_{mk-1}f_m + f_{mk}f_{m+1}.
 \end{equation*}
 </div>
 <p class="continuation">If we can show that <span class="process-math">\(\gcd(f_{qn-1}, f_n) = 1\)</span> then we would be done.</p>
-<p id="p-516">To this end, set <span class="process-math">\(d = \gcd(f_{qn-1}, f_n).\)</span> Then since <span class="process-math">\(d\vert f_n\)</span> and <span class="process-math">\(f_n\vert f_{qn},\)</span> we have that <span class="process-math">\(d\vert f_{qn}.\)</span> But we have also that <span class="process-math">\(d\vert f_{qn-1}\)</span> so that <span class="process-math">\(\gcd(f_{qn}, f_{qn-1})\geq d.\)</span> Since consecutive Fibonacci numbers are coprime we have that <span class="process-math">\(d = 1,\)</span> and the desired result follows.</p></article></div>
-<article class="hiddenproof" id="proof-112"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-112"><h3 class="heading"><span class="title">Proof of Theorem 10.1.2.</span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-112"><article class="hiddenproof"><p id="p-517">Without loss of generality assume that <span class="process-math">\(m\geq n.\)</span> We apply the Euclidean algorithm to give the system</p>
+<p id="p-518">To this end, set <span class="process-math">\(d = \gcd(f_{qn-1}, f_n).\)</span> Then since <span class="process-math">\(d\vert f_n\)</span> and <span class="process-math">\(f_n\vert f_{qn},\)</span> we have that <span class="process-math">\(d\vert f_{qn}.\)</span> But we have also that <span class="process-math">\(d\vert f_{qn-1}\)</span> so that <span class="process-math">\(\gcd(f_{qn}, f_{qn-1})\geq d.\)</span> Since consecutive Fibonacci numbers are coprime we have that <span class="process-math">\(d = 1,\)</span> and the desired result follows.</p></article></div>
+<article class="hiddenproof" id="proof-112"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-112"><h3 class="heading"><span class="title">Proof of Theorem 10.1.2.</span></h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-112"><article class="hiddenproof"><p id="p-519">Without loss of generality assume that <span class="process-math">\(m\geq n.\)</span> We apply the Euclidean algorithm to give the system</p>
 <div class="displaymath process-math">
 \begin{align*}
 m \amp = q_1n + r_1 \hspace{15mm} 0 \lt r_1 \lt n\\
@@ -286,11 +286,11 @@ r_{n-1} \amp = q_{n+1}r_n + 0.
 \end{equation*}
 </div>
 <p class="continuation">Because <span class="process-math">\(r_n\vert r_{n-1},\)</span> we have that <span class="process-math">\(f_{r_n}\vert f_{r_{n-1}},\)</span> so that <span class="process-math">\(\gcd(f_{r_{n-1}}, f_{r_n}) = f_{r_n}.\)</span> Since <span class="process-math">\(r_n = \gcd(m, n),\)</span> we have that <span class="process-math">\(\gcd(f_m, f_n) = f_{\gcd(m,n)}.\)</span></p></article></div>
-<p id="p-518">As an immediate corollary of this theorem we have</p>
+<p id="p-520">As an immediate corollary of this theorem we have</p>
 <article class="corollary theorem-like" id="corollary-25"><h3 class="heading">
 <span class="type">Corollary</span><span class="space"> </span><span class="codenumber">10.1.6</span><span class="period">.</span>
 </h3>
-<p id="p-519">Let <span class="process-math">\(n\geq m \geq 3.\)</span> We have that <span class="process-math">\(f_m\vert f_n\)</span> if and only if <span class="process-math">\(m\vert n.\)</span></p></article></section></div></main>
+<p id="p-521">Let <span class="process-math">\(n\geq m \geq 3.\)</span> We have that <span class="process-math">\(f_m\vert f_n\)</span> if and only if <span class="process-math">\(m\vert n.\)</span></p></article></section></div></main>
 </div>
 </body>
 </html>

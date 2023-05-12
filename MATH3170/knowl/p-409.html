@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-11-10T14:15:16+11:00       *-->
+<!--*       on 2023-05-12T13:54:03+10:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -14,14 +14,38 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h3 class="heading"><span class="type">Paragraph</span></h3>
-<p>Let <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(b\gt 1\)</span> be a positive integer. Then each <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(n\in\mathbb{N}\)</span> can be written uniquely in the form</p>
+<h5 class="heading"><span class="type">Paragraph</span></h5>
+<p>We know from the previous lemma that there is a primitive root <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(r\)</span> of p that is also a primitive root of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(p^2\)</span> such that</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
 \begin{equation*}
-n = a_mb^m + a_{m-1}b^{m-1} +\cdots + a_1b + a_0,
+r^{p-1}\not\equiv 1\pmod{p^2}.
 \end{equation*}
 </div>
-<p class="continuation">where <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(m\)</span> is a nonnegative integer and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(a_i \in \{0,..., b-1\}\)</span> for each <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(i =0,..., m\)</span> with <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(a_m \neq 0.\)</span></p>
-<span class="incontext"><a href="Chap-Some_Base_Results.html#p-409">in-context</a></span>
+<p class="continuation">We show by induction that for this primitive root and for <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(k\geq 2\)</span> that</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+r^{p^{k-2}(p-1)}\not\equiv 1\pmod{p^k}.
+\end{equation*}
+</div>
+<p class="continuation">The base case follows from the previous lemma. Now suppose there is some <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(k\geq 2\)</span> such that</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+r^{p^{k-2}k(p-1)}\not\equiv 1\pmod{p^k}.
+\end{equation*}
+</div>
+<p class="continuation">Since <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\gcd(r, p) = 1,\)</span> we have that <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\gcd(r, p^{k-1}) = 1\)</span> and so using Euler's generalisation of Fermat's little theorem, we have that</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+r^{p^{k-2}(p-1)}\equiv r^{\phi(p^{k-1})} \equiv 1\pmod{p^{k-1}}.
+\end{equation*}
+</div>
+<p class="continuation">Thus there is a <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(d\)</span> such that <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(r^{p^{k-2}(p-1)}=1+dp^{k-1},\)</span> where <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(p\)</span> does not divide <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(d\)</span> due to the induction hypothesis. As before we use the binomial theorem to give</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+r^{p^{k-1}(p-1)}=(1+dp^{k-1})^p\equiv 1+dp^k \pmod{p^{k+1}}.
+\end{equation*}
+</div>
+<p class="continuation">Since <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(p\)</span> does not divide <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(d,\)</span> this gives the desired non-congruence.</p>
+<span class="incontext"><a href="Sec-Applications_of_Primitive_Roots.html#p-409">in-context</a></span>
 </body>
 </html>

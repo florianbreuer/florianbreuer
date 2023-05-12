@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-11-10T14:15:08+11:00       *-->
+<!--*       on 2023-05-12T13:53:53+10:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,15 +15,37 @@
 </head>
 <body class="ignore-math">
 <h3 class="heading"><span class="type">Paragraph</span></h3>
-<p>We have</p>
+<p>Note that <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\((ii)\)</span> and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\((iii)\)</span> are special cases of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\((i),\)</span> so that we will only prove <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\((i).\)</span> Thus let <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(n\in\mathbb{N}\)</span> and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(a, b, c, d \in\mathbb{Z}.\)</span> By a previous theorem we know that both <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(a\)</span> and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(b\)</span> have the same remainder when divided by <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(n,\)</span> say <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(r,\)</span> and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(c\)</span> and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(d\)</span> have the same remainder when divided by <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(n,\)</span> say <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(r'.\)</span> So there exist <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(q, s, q', s'\in\mathbb{Z}\)</span> so that</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
 \begin{align*}
-19 \amp \equiv 11\pmod{4}\\
-6 \amp \equiv 2\pmod{4}\\
-13\amp\equiv 19-6\equiv 11-2\equiv 9\pmod{4}\\
-114\amp\equiv 19\cdot 6\equiv 11\cdot 2\equiv 22 \equiv 2\pmod{4}.
+a \amp =qn+r\\
+b \amp =sn+r\\
+c \amp =q'n+r'\\
+d \amp =s'n+r'
 \end{align*}
 </div>
+<p class="continuation">Using this we have that</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{align*}
+a+c \amp =qn+r+q'n+r'\\
+\amp =(q+q')n+(r+r')\\
+\amp \equiv(r+r')\pmod{n}\\
+\amp \equiv(s+s')n+(r+r')\pmod{n}\\
+\amp \equiv(sn+r)+(s'n+r')\pmod{n}
+\end{align*}
+</div>
+<p class="continuation">so that <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(a + c \equiv b + d\pmod{n}.\)</span> Also we have</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{align*}
+ac \amp =(qn+r)(q'n+r')\\
+\amp =qq'n^2+(rq'+r'q)n+rr'\\
+\amp \equiv rr'\pmod{n}\\
+\amp \equiv ss'n^2+(rs'+r's)n+rr'\pmod{n}\\
+\amp \equiv(sn+r)(s'n+r')\pmod{n}\\
+\amp \equiv bd \pmod{n}
+\end{align*}
+</div>
+<p class="continuation">so that <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(ac \equiv bd\pmod{n}.\)</span></p>
 <span class="incontext"><a href="Chap-Congruences.html#p-163">in-context</a></span>
 </body>
 </html>

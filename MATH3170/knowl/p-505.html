@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-11-10T14:15:21+11:00       *-->
+<!--*       on 2023-05-12T13:54:07+10:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -14,18 +14,20 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h4 class="heading"><span class="type">Paragraph</span></h4>
-<p>For <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(n = 1\)</span> and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(n = 2\)</span> we have that <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\gcd(1, 1) = 1\)</span> and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\gcd(1, 2) =1.\)</span> For <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(n\geq 3\)</span> we use the Euclidean algorithm and the definition of the Fibonacci numbers to give</p>
+<h2 class="heading"><span class="type">Paragraph</span></h2>
+<p>In the first month we have <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(1\)</span> adult pair bearing <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(1\)</span> new pair for a total of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(2\)</span> pairs. In the second month we have <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(2\)</span> adult pairs, only one of which can bear a new pair, for a total of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(3\)</span> pairs. In the third month we have <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(3\)</span> adult pairs only <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(2\)</span> of which can bear a new pair, for a total of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(5\)</span> pairs. Continuing in this manner we concern ourselves with the sequence</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{align*}
-f_{n+1} \amp = 1 \cdot f_n + f_{n-1}\\
-f_{n} \amp = 1 \cdot f_{n-1} + f_{n-2}\\
-\amp \vdots \\
-f_{4} \amp = 1 \cdot f_{3} + f_{2}\\
-f_{3} \amp = 2 \cdot f_{2}
-\end{align*}
+\begin{equation*}
+1, 1, 2, 3, 5, 8, 13, 21,...
+\end{equation*}
 </div>
-<p class="continuation">Thus <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\gcd(f_{n+1}, f_n) = f_2 = 1.\)</span></p>
-<span class="incontext"><a href="Sec-Divisibility_properties.html#p-505">in-context</a></span>
+<p class="continuation">We can define this sequence recursively, denoting <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(f_n\)</span> the <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(n\)</span>th Fibonacci number, by <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(f_1 = 1, f_2 = 1,\)</span> and for <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(n\geq 3\)</span> we have</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+f_n = f_{n-1} + f_{n-2}.
+\end{equation*}
+</div>
+<p class="continuation">The <em xmlns:svg="http://www.w3.org/2000/svg" class="emphasis">Fibonacci sequence</em> is our first instance of a <em xmlns:svg="http://www.w3.org/2000/svg" class="emphasis">recursive sequence,</em> and in this sense it is interesting apart from its connection to the breading habits of hypothetical rabbits. For this reason we make a more abstract investigation of the sequence <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\{f_n\}_n.\)</span></p>
+<span class="incontext"><a href="Chap-The_Fibonacci_Sequence.html#p-505">in-context</a></span>
 </body>
 </html>

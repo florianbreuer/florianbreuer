@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-11-10T14:15:16+11:00       *-->
+<!--*       on 2023-05-12T13:54:02+10:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,25 +15,13 @@
 </head>
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
-<p>Let <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(d\vert p-1\)</span> and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(f(d)\)</span> denote the number of integers <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(k, 1\leq k\leq p-1,\)</span> that have order <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(d\)</span> modulo <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(p.\)</span> Because each integer between <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(1\)</span> and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(p-1\)</span> has order <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(d\)</span> for some <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(d\vert p- 1,\)</span></p>
+<p>Any solution of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(x^{p-1}\equiv 1\pmod{p}\)</span> is that is not a solution of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(f(x)\equiv 0\pmod{p},\)</span> must satisfy <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(x^d-1 \equiv 0\pmod{p}.\)</span> Since <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(x^{p-1}-1 \equiv 0\pmod{p}\)</span> has <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(p-1\)</span> solutions and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(f(x)\equiv 0\pmod{p}\)</span> has at most <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(p-1-d\)</span> solutions, there are at least</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
 \begin{equation*}
-p-1 = \sum_{d\vert p-1} f(d).
+p-1-(p-1-d) = d
 \end{equation*}
 </div>
-<p class="continuation">Recall that also we have</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{equation*}
-p-1 = \sum_{d\vert p-1} \varphi(d),
-\end{equation*}
-</div>
-<p class="continuation">so that</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{equation*}
-\sum_{d\vert p-1}\varphi(d)=\sum_{d\vert p-1}f(d).
-\end{equation*}
-</div>
-<p class="continuation">To show that <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(f(d) = \varphi(d)\)</span> for each divisor <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(d\)</span> of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(p -1,\)</span> it is enough to show that <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(f(d)\geq \varphi(d).\)</span></p>
+<p class="continuation">solutions to <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(x^d-1\equiv 0\pmod{p}.\)</span> Again since <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(x^d-1 \equiv 0\pmod{p}\)</span> has at most <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(d\)</span> solutions, we have that the congruence <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(x^d-1 \equiv 0\pmod{p}\)</span> has exactly <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(d\)</span> solutions.</p>
 <span class="incontext"><a href="Sec-Primitive_Roots.html#p-386">in-context</a></span>
 </body>
 </html>

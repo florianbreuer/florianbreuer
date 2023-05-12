@@ -34,12 +34,13 @@
 
         <!-- <frontmatter> -->
 
-<!--             <titlepage>
-                <author>
+        <!--     <titlepage>
+                <author> Course notes by Michael Coons, edited by Florian Breuer<br>
+                   Typesetting in PreTexT by Chloe Wilkins.
                     <institution>University of Newcastle</institution>
                 </author>
                 <date><today /></date>
-            </titlepage> -->
+            </titlepage>   -->
 
             <!-- <abstract>
                 <p>This is a very short article, but it still exercises some advanced features of MathBook XML.</p>
@@ -47,9 +48,11 @@
 
         <!-- </frontmatter> -->
 
-        <!-- <introduction>
-            <p>This is a short paragraph to introduce the article (but it is not the abstract).  It is optional, in case it would be preferable to have the first section be titled an <q>Introduction.</q></p>
-        </introduction> -->
+        <introduction>
+          <p>These are the course notes for MATH3170, originally written by Michael Coons,
+            and typeset in PreTeXt by Chloe Wilkins.</p>
+          <p>These notes will be updated as we go along by Florian Breuer.</p>
+        </introduction>
 <!-- =================================================================================================== -->
 
 
@@ -62,15 +65,15 @@
         <title>Sets of Numbers</title>
 
         <p>
-        In this course we are mainly interested in the counting numbers, which we will call the natural numbers, <m>\mathbb{N};</m> more specifically, 
+        In this course we are mainly interested in the counting numbers, which we will call the natural numbers, <m>\mathbb{N};</m> more specifically,
         <me>\mathbb{N}=\{1,2,3,4,5,6,7,8,9,10,...\}.</me>
-        If we add <m>0</m> to the naturals we will denote the set by <m>\mathbb{N}_0;</m> that is, 
+        If we add <m>0</m> to the naturals we will denote the set by <m>\mathbb{N}_0;</m> that is,
         <me>\mathbb{N}_0=\mathbb{N}\cup\{0\}.</me>
-        If we then add the negatives, we come up with the integers<fn><m>\mathbb{Z}</m> comes from the German word for numbers, <term>Zahlen</term></fn>, 
+        If we then add the negatives, we come up with the integers<fn><m>\mathbb{Z}</m> comes from the German word for numbers, <term>Zahlen</term></fn>,
         <me>\mathbb{Z}=\{..., -3, -2, -1, 0, 1, 2, 3,...\}.</me>
-        If we divide integers by non-zero integers, we get the rational numbers, or quotients, 
+        If we divide integers by non-zero integers, we get the rational numbers, or quotients,
         <me>\mathbb{Q}=\left\{\frac{a}{b}:a,b\in\mathbb{Z}, b\neq 0\right\}.</me>
-        It is easily seen from the definitions above that 
+        It is easily seen from the definitions above that
         <me>\mathbb{N}\subset\mathbb{N}_0\subset\mathbb{Z}\subset\mathbb{Q},</me>
         where "<m>\subset</m>" is used to mean "is a subset of"; symbolically
         <me>A\subset B \Leftrightarrow (\forall x\in A, a\in B).</me>
@@ -82,7 +85,7 @@
         <convention>
             <statement>
                 <p>
-                We say that <m>a</m> divides <m>b,</m> and write <m>a\vert b,</m> if there is some integer <m>c</m> such that <m>b=ac.</m> 
+                We say that <m>a</m> divides <m>b,</m> and write <m>a\vert b,</m> if there is some integer <m>c</m> such that <m>b=ac.</m>
                 </p>
             </statement>
         </convention>
@@ -111,7 +114,7 @@
         </p>
 
     </section>
-    
+
 <!-- =================================================================================================== -->
 
 
@@ -135,9 +138,9 @@
             <mrow>(n^2-1)^2+(2n)^2 \amp= (n^2+1)^2.</mrow>
         </md>
         If we consider <m>n=\frac{p}{q}</m> to be a rational number and clear denominators we get the general solution
-        <me>(p^2-q^2)^2+(2pq)^2=(p^2+q^2)^2.</me> 
+        <me>(p^2-q^2)^2+(2pq)^2=(p^2+q^2)^2.</me>
         There is a wonderful proof of Pythagoras' theorem which we will consider now.
-        </p> 
+        </p>
 
         <theorem>
             <creator>Pythagorean Theorem</creator>
@@ -181,7 +184,7 @@
         </p>
 
     </section>
-    
+
 <!-- =================================================================================================== -->
 
 
@@ -287,7 +290,7 @@
             <me>\sum_{i=1}^{n}i=\frac{n(n+1)}{2}.</me>
             </p>
         </proof>
-        
+
         <p>
         Induction is not always needed. Indeed, we may prove the above theorem without using induction.
         </p>

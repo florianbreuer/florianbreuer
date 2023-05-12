@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-11-10T14:15:10+11:00       *-->
+<!--*       on 2023-05-12T13:53:55+10:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,13 +15,25 @@
 </head>
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
-<p>By contrapositive. Suppose that <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(m\)</span> is not a power of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(2.\)</span> Then <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(m = 2^nq\)</span> for some odd <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(q \gt 1.\)</span> Now the polynomial <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(f(x) = x^q+1\)</span> has a root at <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(x =-1,\)</span> so it is divisible by <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(x + 1.\)</span> Since <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(q \gt 1, x + 1\)</span> is a proper factor of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(f(x);\)</span> thus, setting <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(x = y^{2^{n}}\)</span> we see that the polynomial</p>
+<p>To show that <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\Phi_p(x)\)</span> is irreducible, we cannot apply Eisenstein's criterion directly; however, it is sufficient to show that the polynomial</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
 \begin{equation*}
-g(y) = f(y^{2^{n}})=y^m+1,
+f(x)=\Phi_p(x+1)
 \end{equation*}
 </div>
-<p class="continuation">which has a proper factor <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(y^{2^{n}}+1.\)</span> Setting <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(y = 2\)</span> this says that <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(2^{2^{n}}+1\)</span> is a proper factor of the integer <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(g(2) = 2^m + 1,\)</span> which is, by means of having a proper factor, not prime.</p>
+<p class="continuation">is irreducible. Now from an earlier lecture we know that</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\Phi_p(x)=\frac{x^p-1}{x-1},
+\end{equation*}
+</div>
+<p class="continuation">so we have</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+f(x) =\frac{(x+1)^p-1}{x}=\sum_{i=0}^{p-1}\binom{p}{i}x^i=x^{p-1}+\binom{p}{p-1}x^{p-2}+...+\binom{p}{2}x^1+\binom{p}{1}.
+\end{equation*}
+</div>
+<p class="continuation">Since <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(p\)</span> is a prime <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(p\)</span> divides <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\binom{p}{i}\)</span> for <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(i=1,2,...,p-1.\)</span> Also, <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(p\)</span> does not divide the leading coefficient (<span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(= 1\)</span>) of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(f(x),\)</span> and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(p^2\)</span> does not divide the constant term, <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\binom{p}{1}=p.\)</span>  Thus, by Eisenstein's criterion, <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(f(x)\)</span> is irreducible, and hence <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\Phi_p(x)\)</span> is irreducible.</p>
 <span class="incontext"><a href="Sec-Polynomials.html#p-214">in-context</a></span>
 </body>
 </html>

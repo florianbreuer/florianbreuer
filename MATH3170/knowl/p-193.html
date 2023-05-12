@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-11-10T14:15:09+11:00       *-->
+<!--*       on 2023-05-12T13:53:54+10:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,34 +15,19 @@
 </head>
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
-<p>To solve Sun-Tsu's problem, we have</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{align*}
-x \amp \equiv 2\pmod{3}\\
-x \amp \equiv 3\pmod{5}\\
-x \amp \equiv 2\pmod{7}
-\end{align*}
-</div>
-<p class="continuation">Using the notation of the Chinese Remainder Theorem, we have <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(n = 3\cdot 5\cdot 7 =105\)</span> and</p>
+<p>Since <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(n_i\vert N_k\)</span> for <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(i \neq k, N_i \equiv 0 \pmod{n_k}\)</span> if <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(i\neq k.\)</span> Thus</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
 \begin{equation*}
-N_1=\frac{n}{3}=35 \hspace{10mm} N_2=\frac{n}{5}=21 \hspace{10mm} N_3=\frac{n}{7}=15.
+\overline{x} = a_1N_1x_1 + a_2N_2x_2 +...+ a_rN_rx_r \equiv a_kN_kx_k\pmod{n_k}.
 \end{equation*}
 </div>
-<p class="continuation">To find the <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(x_i\)</span>'s we solve each of the congruences</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{align*}
-x \amp \equiv 35x \pmod{3}\\
-x \amp \equiv 21x \pmod{5}\\
-x \amp \equiv 15x \pmod{7}
-\end{align*}
-</div>
-<p class="continuation">so that we have <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(x_1 = 2, x_2 = 1, x_3 = 1.\)</span> So a solution of the given system is</p>
+<p class="continuation">But since <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(N_kx_k \equiv 1 \pmod{n_k},\)</span> we have that</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
 \begin{equation*}
-x = 2\cdot 35\cdot 2 + 3\cdot 21\cdot 1 + 2\cdot 15\cdot 1 = 233 \equiv 23\pmod{105}.
+\overline{x} \equiv a_k\cdot 1 \equiv a_k\pmod{n_k}.
 \end{equation*}
 </div>
+<p class="continuation">Thus <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\overline{x}\)</span> is a simultaneous solution.</p>
 <span class="incontext"><a href="Sec-Chinese_Remainder_Theorem.html#p-193">in-context</a></span>
 </body>
 </html>

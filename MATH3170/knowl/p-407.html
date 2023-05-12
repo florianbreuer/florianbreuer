@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-11-10T14:15:16+11:00       *-->
+<!--*       on 2023-05-12T13:54:03+10:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,37 +15,16 @@
 </head>
 <body class="ignore-math">
 <h5 class="heading"><span class="type">Paragraph</span></h5>
-<p>We know from the previous lemma that there is a primitive root <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(r\)</span> of p that is also a primitive root of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(p^2\)</span> such that</p>
+<p>If <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(n = p(p-1)\)</span> we are done, so suppose that <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(n = p-1\)</span> and consider <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(r + p.\)</span> Since <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(r\equiv r + p \pmod{p}, r + p\)</span> is also a primitive root of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(p.\)</span> So as above we have that the order <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(m\)</span> of <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(r + p\)</span> modulo <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(p^2\)</span> is either <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(p-1\)</span> or <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(p(p-1).\)</span> Again, if <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(m = p(p-1)\)</span> we are done, so suppose that <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(m = p-1.\)</span> Then, using the binomial theorem, we have</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{equation*}
-r^{p-1}\not\equiv 1\pmod{p^2}.
-\end{equation*}
+\begin{align*}
+(r + p)^{p-1} \amp = r^{p-1} + (p-1)r^{p-2}p +\binom{p-1}{2}r^{p-3}p^2+\cdots p^{p-1}\\
+\amp = r^{p-1} + (p-1)pr^{p-2} \pmod{p^2}\\
+\amp = 1+(p-1)pr^{p-2} \pmod{p^2}\\
+\amp = 1-pr^{p-2} \pmod{p^2}.
+\end{align*}
 </div>
-<p class="continuation">We show by induction that for this primitive root and for <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(k\geq 2\)</span> that</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{equation*}
-r^{p^{k-2}(p-1)}\not\equiv 1\pmod{p^k}.
-\end{equation*}
-</div>
-<p class="continuation">The base case follows from the previous lemma. Now suppose there is some <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(k\geq 2\)</span> such that</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{equation*}
-r^{p^{k-2}k(p-1)}\not\equiv 1\pmod{p^k}.
-\end{equation*}
-</div>
-<p class="continuation">Since <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\gcd(r, p) = 1,\)</span> we have that <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\gcd(r, p^{k-1}) = 1\)</span> and so using Euler's generalisation of Fermat's little theorem, we have that</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{equation*}
-r^{p^{k-2}(p-1)}\equiv r^{\phi(p^{k-1})} \equiv 1\pmod{p^{k-1}}.
-\end{equation*}
-</div>
-<p class="continuation">Thus there is a <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(d\)</span> such that <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(r^{p^{k-2}(p-1)}=1+dp^{k-1},\)</span> where <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(p\)</span> does not divide <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(d\)</span> due to the induction hypothesis. As before we use the binomial theorem to give</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{equation*}
-r^{p^{k-1}(p-1)}=(1+dp^{k-1})^p\equiv 1+dp^k \pmod{p^{k+1}}.
-\end{equation*}
-</div>
-<p class="continuation">Since <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(p\)</span> does not divide <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(d,\)</span> this gives the desired non-congruence.</p>
+<p class="continuation">Now if <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\((r + p)^{p-1}\)</span> is <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(1\)</span> modulo <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(p^2,\)</span> then <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(p^2\vert pr^{p-2}\)</span> and so <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(p\vert r^{p-2},\)</span> which is impossible since <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(p\)</span> does not divide <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(r.\)</span> This contradiction proves the theorem.</p>
 <span class="incontext"><a href="Sec-Applications_of_Primitive_Roots.html#p-407">in-context</a></span>
 </body>
 </html>

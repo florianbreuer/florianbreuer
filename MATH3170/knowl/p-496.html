@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-11-10T14:15:21+11:00       *-->
+<!--*       on 2023-05-12T13:54:07+10:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -15,17 +15,37 @@
 </head>
 <body class="ignore-math">
 <h4 class="heading"><span class="type">Paragraph</span></h4>
-<p>Another way to think about this, and probably the most helpful, is that if <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(p\)</span> or <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(q\)</span> is congruent to <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(1\)</span> modulo <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(4,\)</span> then</p>
+<p>Note that there are</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
 \begin{equation*}
-(p/q) = (q/p),
+\frac{p-1}{2}\cdot \frac{q-1}{2}
 \end{equation*}
 </div>
-<p class="continuation">and if <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(p\)</span> and <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(q\)</span> are both congruent to <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(3\)</span> modulo <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(4,\)</span> then</p>
+<p class="continuation">integer points in the whole square. Now the equation of the diagonal line is <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(y =\frac{q}{p}x.\)</span> To find the number of integer points in <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\mathcal{R}_1\)</span> we first note that the number of integers in the interval <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(0 \lt y \lt kq/p\)</span> is <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\lfloor kq/p\rfloor.\)</span> So for <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(1\leq k \leq (p- 1)/2\)</span> we have <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\lfloor kq/p\rfloor\)</span> in <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\mathcal{R}_1\)</span> over the point <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\((k, 0).\)</span> Thus the number of points in <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\mathcal{R}_1\)</span> is</p>
 <div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
 \begin{equation*}
-(p/q) = -(q/p).
+\sum_{k=1}^{(p-1)/2}\left\lfloor\frac{kq}{p}\right\rfloor.
 \end{equation*}
+</div>
+<p class="continuation">Similarly, the number of points in <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\mathcal{R}_2\)</span> is</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\sum_{j=1}^{(q-1)/2}\left\lfloor\frac{jp}{q}\right\rfloor,
+\end{equation*}
+</div>
+<p class="continuation">and so</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{equation*}
+\frac{p-1}{2}\cdot \frac{q-1}{2}=\sum_{k=1}^{(p-1)/2}\left\lfloor\frac{kq}{p}\right\rfloor+\sum_{j=1}^{(q-1)/2}\left\lfloor\frac{jp}{q}\right\rfloor.
+\end{equation*}
+</div>
+<p class="continuation">Applying Gauss' Lemma we have</p>
+<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
+\begin{align*}
+(p/q)(q/p) \amp=(-1)^{\sum_{k=1}^{(p-1)/2}\lfloor \frac{kq}{p}\rfloor}(-1)^{\sum_{j=1}^{(q-1)/2}\lfloor \frac{jp}{q}\rfloor}\\
+\amp=(-1)^{\sum_{k=1}^{(p-1)/2}\lfloor \frac{kq}{p}\rfloor +\sum_{j=1}^{(q-1)/2}\lfloor \frac{jp}{q}\rfloor}\\
+\amp=(-1)^{\frac{p-1}{2}\cdot\frac{q-1}{2}}.
+\end{align*}
 </div>
 <span class="incontext"><a href="Sec-Quadratic_Reciprocity.html#p-496">in-context</a></span>
 </body>

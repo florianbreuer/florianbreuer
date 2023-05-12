@@ -2,7 +2,7 @@
 <html lang="en-US">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-11-10T14:15:10+11:00       *-->
+<!--*       on 2023-05-12T13:53:56+10:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -14,23 +14,8 @@
 <meta name="robots" content="noindex, nofollow">
 </head>
 <body class="ignore-math">
-<h4 class="heading"><span class="type">Paragraph</span></h4>
-<p>For convenience suppose <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(x\)</span> is an integer and write</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{equation*}
-S(y):=\sum_{n\leq y}f(n),
-\end{equation*}
-</div>
-<p class="continuation">for <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(1\leq y\leq x.\)</span> If <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(y\lt 1,\)</span> we use the convention that <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(S(y)=0.\)</span> Then</p>
-<div xmlns:svg="http://www.w3.org/2000/svg" class="displaymath process-math">
-\begin{align*}
-\sum_{n\leq x}f(n)g(n) \amp=\sum_{n\leq x}g(n)(S(n)-S(n-1))\\
-\amp =g(x)S(x)-\sum_{n\leq x-1}S(n)(g(n+1)-g(n))\\
-\amp =g(x)S(x)-\sum_{n\leq x-1}S(n)\int_{n}^{n+1}g'(t)dt\\
-\amp =g(x)S(x)-\int_{1}^{x}S(t)g'(t)dt
-\end{align*}
-</div>
-<p class="continuation">which is the desired result.</p>
-<span class="incontext"><a href="Sec-A_more_general_Sieve.html#p-236">in-context</a></span>
+<h3 class="heading"><span class="type">Paragraph</span></h3>
+<p>If we want to factor an integer <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(n,\)</span> the above theorem says all that we have to do is divide it by every prime less than <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(\sqrt{n},\)</span> and if one of the primes divides evenly (with remainder <span xmlns:svg="http://www.w3.org/2000/svg" class="process-math">\(0\)</span>), then the number is composite, and we have a factorization.</p>
+<span class="incontext"><a href="Sec-Factoring_Integers.html#p-236">in-context</a></span>
 </body>
 </html>

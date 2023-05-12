@@ -1,7 +1,7 @@
 <!DOCTYPE html SYSTEM "about:legacy-compat">
 <!--********************************************-->
 <!--*       Generated from PreTeXt source      *-->
-<!--*       on 2022-11-10T14:14:51+11:00       *-->
+<!--*       on 2023-05-12T13:53:42+10:00       *-->
 <!--*   A recent stable commit (2020-08-09):   *-->
 <!--* 98f21740783f166a773df4dc83cab5293ab63a4a *-->
 <!--*                                          *-->
@@ -160,20 +160,20 @@
 <main class="main"><div id="content" class="pretext-content"><section xmlns:svg="http://www.w3.org/2000/svg" class="chapter" id="Chap-Congruences"><h2 class="heading">
 <span class="type">Chapter</span> <span class="codenumber">4</span> <span class="title">Congruences</span>
 </h2>
-<section class="introduction" id="introduction-2"><p id="p-144">For this section, it is helpful if you keep "clock arithmetic" in mind. That is <span class="process-math">\(14:00\)</span> hours is <span class="process-math">\(2\)</span> o'clock. This will be considered doing arithmetic modulo <span class="process-math">\(12.\)</span> We will just consider an <span class="process-math">\(n\)</span> hour clock.</p>
+<section class="introduction" id="introduction-3"><p id="p-146">For this section, it is helpful if you keep "clock arithmetic" in mind. That is <span class="process-math">\(14:00\)</span> hours is <span class="process-math">\(2\)</span> o'clock. This will be considered doing arithmetic modulo <span class="process-math">\(12.\)</span> We will just consider an <span class="process-math">\(n\)</span> hour clock.</p>
 <article class="definition definition-like" id="definition-12"><h2 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.0.1</span><span class="period">.</span>
 </h2>
-<p id="p-145">Let <span class="process-math">\(n\in\mathbb{N}.\)</span> Two integers <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> are said to be congruent modulo <span class="process-math">\(n,\)</span> written</p>
+<p id="p-147">Let <span class="process-math">\(n\in\mathbb{N}.\)</span> Two integers <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> are said to be congruent modulo <span class="process-math">\(n,\)</span> written</p>
 <div class="displaymath process-math">
 \begin{equation*}
 a \equiv b\pmod{n},
 \end{equation*}
 </div>
-<p class="continuation">provided <span class="process-math">\(n\vert (a-b).\)</span></p></article><p id="p-146">The canonical example of a congruence comes from the division algorithm.</p>
+<p class="continuation">provided <span class="process-math">\(n\vert (a-b).\)</span></p></article><p id="p-148">The canonical example of a congruence comes from the division algorithm.</p>
 <article class="example example-like" id="example-5"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-5"><h2 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">4.0.2</span><span class="period">.</span>
-</h2></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-5"><article class="example example-like"><p id="p-147">Let <span class="process-math">\(a\in\mathbb{Z}\)</span> and <span class="process-math">\(n\in\mathbb{N}.\)</span> Given the division algorithm we know that there exists unique <span class="process-math">\(q, r\in\mathbb{Z}\)</span> with <span class="process-math">\(0\leq r\lt n,\)</span> such that</p>
+</h2></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-5"><article class="example example-like"><p id="p-149">Let <span class="process-math">\(a\in\mathbb{Z}\)</span> and <span class="process-math">\(n\in\mathbb{N}.\)</span> Given the division algorithm we know that there exists unique <span class="process-math">\(q, r\in\mathbb{Z}\)</span> with <span class="process-math">\(0\leq r\lt n,\)</span> such that</p>
 <div class="displaymath process-math">
 \begin{equation*}
 a = qn + r.
@@ -188,10 +188,10 @@ a \equiv r\pmod{n}.
 <article class="definition definition-like" id="definition-13"><h2 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.0.3</span><span class="period">.</span>
 </h2>
-<p id="p-148">If <span class="process-math">\(a, b\in\mathbb{Z}\)</span> and <span class="process-math">\(a\equiv b\pmod{n}\)</span> we say that <span class="process-math">\(a\)</span> is a residue of <span class="process-math">\(b\)</span> modulo <span class="process-math">\(n.\)</span></p></article><article class="remark remark-like" id="remark-4"><h2 class="heading">
+<p id="p-150">If <span class="process-math">\(a, b\in\mathbb{Z}\)</span> and <span class="process-math">\(a\equiv b\pmod{n}\)</span> we say that <span class="process-math">\(a\)</span> is a residue of <span class="process-math">\(b\)</span> modulo <span class="process-math">\(n.\)</span></p></article><article class="remark remark-like" id="remark-4"><h2 class="heading">
 <span class="type">Remark</span><span class="space"> </span><span class="codenumber">4.0.4</span><span class="period">.</span>
 </h2>
-<p id="p-149">The above examples tells us that modulo <span class="process-math">\(n\)</span> any integer <span class="process-math">\(a\)</span> is congruent to one of</p>
+<p id="p-151">The above examples tells us that modulo <span class="process-math">\(n\)</span> any integer <span class="process-math">\(a\)</span> is congruent to one of</p>
 <div class="displaymath process-math">
 \begin{equation*}
 0, 1, 2,...,n-1.
@@ -200,19 +200,19 @@ a \equiv r\pmod{n}.
 <p class="continuation">These integers are called the <dfn class="terminology">least nonnegative residues modulo <span class="process-math">\(n\)</span></dfn>.</p></article><article class="definition definition-like" id="definition-14"><h2 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.0.5</span><span class="period">.</span>
 </h2>
-<p id="p-150">The set of integers <span class="process-math">\(\{a_0, a_1,..., a_n-1\}\)</span> is called a <dfn class="terminology">complete residue system</dfn> modulo <span class="process-math">\(n\)</span> provided</p>
+<p id="p-152">The set of integers <span class="process-math">\(\{a_0, a_1,..., a_n-1\}\)</span> is called a <dfn class="terminology">complete residue system</dfn> modulo <span class="process-math">\(n\)</span> provided</p>
 <ol class="lower-roman">
 <li id="li-20"><p id="p-derived-li-20"><span class="process-math">\(a_i \not\equiv a_j\pmod{n},\)</span> whenever <span class="process-math">\(i\neq j\)</span></p></li>
 <li id="li-21"><p id="p-derived-li-21">for each integer <span class="process-math">\(k\)</span> there corresponds an <span class="process-math">\(a_i\)</span> such that <span class="process-math">\(k\equiv a_i\pmod{n}.\)</span></p></li>
 </ol></article><article class="theorem theorem-like" id="theorem-31"><h2 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.0.6</span><span class="period">.</span>
 </h2>
-<p id="p-151">The set <span class="process-math">\(\{0, 1, 2,...,n-1\}\)</span> is a complete residue system modulo <span class="process-math">\(n.\)</span></p></article><article class="hiddenproof" id="proof-34"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-34"><h2 class="heading"><span class="type">Proof<span class="period">.</span></span></h2></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-34"><article class="hiddenproof"><p id="p-152">This is a direct consequence of the Division Algorithm.</p></article></div>
+<p id="p-153">The set <span class="process-math">\(\{0, 1, 2,...,n-1\}\)</span> is a complete residue system modulo <span class="process-math">\(n.\)</span></p></article><article class="hiddenproof" id="proof-34"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-34"><h2 class="heading"><span class="type">Proof<span class="period">.</span></span></h2></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-34"><article class="hiddenproof"><p id="p-154">This is a direct consequence of the Division Algorithm.</p></article></div>
 <article class="theorem theorem-like" id="theorem-32"><h2 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.0.7</span><span class="period">.</span>
 </h2>
-<p id="p-153">Let <span class="process-math">\(a, b\in\mathbb{Z},\)</span> then <span class="process-math">\(a \equiv b\pmod{n}\)</span> if and only if <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> have the same nonnegative remainder when divided by <span class="process-math">\(n.\)</span></p></article><article class="hiddenproof" id="proof-35"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-35"><h2 class="heading"><span class="type">Proof<span class="period">.</span></span></h2></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-35"><article class="hiddenproof"><p id="p-154">Let <span class="process-math">\(a, b\in\mathbb{Z}.\)</span> Suppose <span class="process-math">\(a \equiv b\pmod{n}.\)</span> Then by definition <span class="process-math">\(n\vert (a-b).\)</span> Now by the Division Algorithm there are <span class="process-math">\(q, q', r, r'\in\mathbb{Z}\)</span> with <span class="process-math">\(&gt;0\leq r, r' \lt n\)</span> so that <span class="process-math">\(a = qn + r\)</span> and <span class="process-math">\(b = q'n + r'.\)</span> Now <span class="process-math">\(n\vert (n(q-q')+(r-r')),\)</span> which says that <span class="process-math">\(n\vert (r-r').\)</span> Since both <span class="process-math">\(r, r'\lt n\)</span> this gives <span class="process-math">\(r-r'=0,\)</span> so that <span class="process-math">\(r=r'.\)</span></p>
-<p id="p-155">Suppose that <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> have the same nonnegative remainder when divided by <span class="process-math">\(n,\)</span> say <span class="process-math">\(r.\)</span> So</p>
+<p id="p-155">Let <span class="process-math">\(a, b\in\mathbb{Z},\)</span> then <span class="process-math">\(a \equiv b\pmod{n}\)</span> if and only if <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> have the same nonnegative remainder when divided by <span class="process-math">\(n.\)</span></p></article><article class="hiddenproof" id="proof-35"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-35"><h2 class="heading"><span class="type">Proof<span class="period">.</span></span></h2></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-35"><article class="hiddenproof"><p id="p-156">Let <span class="process-math">\(a, b\in\mathbb{Z}.\)</span> Suppose <span class="process-math">\(a \equiv b\pmod{n}.\)</span> Then by definition <span class="process-math">\(n\vert (a-b).\)</span> Now by the Division Algorithm there are <span class="process-math">\(q, q', r, r'\in\mathbb{Z}\)</span> with <span class="process-math">\(&gt;0\leq r, r' \lt n\)</span> so that <span class="process-math">\(a = qn + r\)</span> and <span class="process-math">\(b = q'n + r'.\)</span> Now <span class="process-math">\(n\vert (n(q-q')+(r-r')),\)</span> which says that <span class="process-math">\(n\vert (r-r').\)</span> Since both <span class="process-math">\(r, r'\lt n\)</span> this gives <span class="process-math">\(r-r'=0,\)</span> so that <span class="process-math">\(r=r'.\)</span></p>
+<p id="p-157">Suppose that <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> have the same nonnegative remainder when divided by <span class="process-math">\(n,\)</span> say <span class="process-math">\(r.\)</span> So</p>
 <div class="displaymath process-math">
 \begin{equation*}
 a-b = qn + r-(q'n + r) = (q-q')n,
@@ -222,25 +222,25 @@ a-b = qn + r-(q'n + r) = (q-q')n,
 <article class="theorem theorem-like" id="theorem-33"><h2 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.0.8</span><span class="period">.</span>
 </h2>
-<p id="p-156">Let <span class="process-math">\(n\in\mathbb{N}\)</span> and <span class="process-math">\(a, b\in\mathbb{Z}.\)</span> Then</p>
+<p id="p-158">Let <span class="process-math">\(n\in\mathbb{N}\)</span> and <span class="process-math">\(a, b\in\mathbb{Z}.\)</span> Then</p>
 <ol class="lower-roman">
 <li id="li-22"><p id="p-derived-li-22"><span class="process-math">\(a \equiv a\pmod{n} \hspace{5mm}\)</span> (reflexive)</p></li>
 <li id="li-23"><p id="p-derived-li-23">if <span class="process-math">\(a \equiv b\pmod{n},\)</span> then <span class="process-math">\(b \equiv a\pmod{n} \hspace{5mm} \)</span> (symmetric)</p></li>
 <li id="li-24"><p id="p-derived-li-24">if <span class="process-math">\(a \equiv b\pmod{n}\)</span> and <span class="process-math">\(b \equiv c\pmod{n},\)</span> then <span class="process-math">\(a \equiv c\pmod{n} \hspace{5mm} \)</span> (transitive)</p></li>
-</ol></article><article class="hiddenproof" id="proof-36"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-36"><h2 class="heading"><span class="type">Proof<span class="period">.</span></span></h2></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-36"><article class="hiddenproof"><p id="p-157">Let <span class="process-math">\(n\in\mathbb{N}\)</span> and <span class="process-math">\(a, b\in\mathbb{Z}.\)</span> Now for <span class="process-math">\((i)\)</span> we simply note that <span class="process-math">\(n\vert 0\)</span> so that <span class="process-math">\(n\vert (a-a)\)</span> and <span class="process-math">\(a \equiv a\pmod{n}.\)</span> For <span class="process-math">\((ii),\)</span> if <span class="process-math">\(a \equiv b\pmod{n},\)</span> then <span class="process-math">\(n\vert (a-b)\)</span> so that there is a <span class="process-math">\(k\in\mathbb{Z}\)</span> such that <span class="process-math">\(kn = (a-b).\)</span> Thus <span class="process-math">\((-k)n = (b-a),\)</span> so <span class="process-math">\(n\vert (b-a)\)</span> and we have that <span class="process-math">\(b \equiv a\pmod{n}.\)</span> For <span class="process-math">\((iii),\)</span> if <span class="process-math">\(a \equiv b\pmod{n}\)</span> and <span class="process-math">\(b \equiv c\pmod{n},\)</span> we have that <span class="process-math">\(n\vert (a-b)\)</span> and <span class="process-math">\(n\vert (b-c)\)</span> so that <span class="process-math">\(n\vert[(a-b)+(b-c)]\)</span> which gives <span class="process-math">\(n\vert (a-c).\)</span> Thus <span class="process-math">\(a \equiv c\pmod{n}.\)</span></p></article></div>
+</ol></article><article class="hiddenproof" id="proof-36"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-36"><h2 class="heading"><span class="type">Proof<span class="period">.</span></span></h2></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-36"><article class="hiddenproof"><p id="p-159">Let <span class="process-math">\(n\in\mathbb{N}\)</span> and <span class="process-math">\(a, b\in\mathbb{Z}.\)</span> Now for <span class="process-math">\((i)\)</span> we simply note that <span class="process-math">\(n\vert 0\)</span> so that <span class="process-math">\(n\vert (a-a)\)</span> and <span class="process-math">\(a \equiv a\pmod{n}.\)</span> For <span class="process-math">\((ii),\)</span> if <span class="process-math">\(a \equiv b\pmod{n},\)</span> then <span class="process-math">\(n\vert (a-b)\)</span> so that there is a <span class="process-math">\(k\in\mathbb{Z}\)</span> such that <span class="process-math">\(kn = (a-b).\)</span> Thus <span class="process-math">\((-k)n = (b-a),\)</span> so <span class="process-math">\(n\vert (b-a)\)</span> and we have that <span class="process-math">\(b \equiv a\pmod{n}.\)</span> For <span class="process-math">\((iii),\)</span> if <span class="process-math">\(a \equiv b\pmod{n}\)</span> and <span class="process-math">\(b \equiv c\pmod{n},\)</span> we have that <span class="process-math">\(n\vert (a-b)\)</span> and <span class="process-math">\(n\vert (b-c)\)</span> so that <span class="process-math">\(n\vert[(a-b)+(b-c)]\)</span> which gives <span class="process-math">\(n\vert (a-c).\)</span> Thus <span class="process-math">\(a \equiv c\pmod{n}.\)</span></p></article></div>
 <article class="definition definition-like" id="definition-15"><h2 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.0.9</span><span class="period">.</span>
 </h2>
-<p id="p-158">If a relation has the properties that it is reflexive, symmetric, and transitive, then we call it an <dfn class="terminology">equivalence relation</dfn>.</p></article><p id="p-159">Thus "<span class="process-math">\(\equiv\)</span>" to the modulus <span class="process-math">\(n\)</span> is an equivalence relation, as seen in the previous theorem.</p>
+<p id="p-160">If a relation has the properties that it is reflexive, symmetric, and transitive, then we call it an <dfn class="terminology">equivalence relation</dfn>.</p></article><p id="p-161">Thus "<span class="process-math">\(\equiv\)</span>" to the modulus <span class="process-math">\(n\)</span> is an equivalence relation, as seen in the previous theorem.</p>
 <article class="theorem theorem-like" id="theorem-34"><h2 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.0.10</span><span class="period">.</span>
 </h2>
-<p id="p-160">Let <span class="process-math">\(n\in\mathbb{N}\)</span> and <span class="process-math">\(a, b\in\mathbb{Z}.\)</span></p>
+<p id="p-162">Let <span class="process-math">\(n\in\mathbb{N}\)</span> and <span class="process-math">\(a, b\in\mathbb{Z}.\)</span></p>
 <ol class="lower-roman">
 <li id="li-25"><p id="p-derived-li-25">if <span class="process-math">\(a \equiv b\pmod{n}\)</span> and <span class="process-math">\(c \equiv d\pmod{n},\)</span> then <span class="process-math">\(a+c \equiv b+d\pmod{n}\)</span> and <span class="process-math">\(ac \equiv bd\pmod{n}\)</span></p></li>
 <li id="li-26"><p id="p-derived-li-26">if <span class="process-math">\(a \equiv b\pmod{n},\)</span> <span class="process-math">\(a+c \equiv b+c\pmod{n}\)</span> and <span class="process-math">\(ac \equiv bc\pmod{n}\)</span></p></li>
 <li id="li-27"><p id="p-derived-li-27">if <span class="process-math">\(a \equiv b\pmod{n},\)</span> then <span class="process-math">\(a^k \equiv b^k\pmod{n}\)</span> for any <span class="process-math">\(k\in\mathbb{N}\)</span></p></li>
-</ol></article><article class="hiddenproof" id="proof-37"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-37"><h2 class="heading"><span class="type">Proof<span class="period">.</span></span></h2></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-37"><article class="hiddenproof"><p id="p-161">Note that <span class="process-math">\((ii)\)</span> and <span class="process-math">\((iii)\)</span> are special cases of <span class="process-math">\((i),\)</span> so that we will only prove <span class="process-math">\((i).\)</span> Thus let <span class="process-math">\(n\in\mathbb{N}\)</span> and <span class="process-math">\(a, b, c, d \in\mathbb{Z}.\)</span> By a previous theorem we know that both <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> have the same remainder when divided by <span class="process-math">\(n,\)</span> say <span class="process-math">\(r,\)</span> and <span class="process-math">\(c\)</span> and <span class="process-math">\(d\)</span> have the same remainder when divided by <span class="process-math">\(n,\)</span> say <span class="process-math">\(r'.\)</span> So there exist <span class="process-math">\(q, s, q', s'\in\mathbb{Z}\)</span> so that</p>
+</ol></article><article class="hiddenproof" id="proof-37"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-37"><h2 class="heading"><span class="type">Proof<span class="period">.</span></span></h2></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-37"><article class="hiddenproof"><p id="p-163">Note that <span class="process-math">\((ii)\)</span> and <span class="process-math">\((iii)\)</span> are special cases of <span class="process-math">\((i),\)</span> so that we will only prove <span class="process-math">\((i).\)</span> Thus let <span class="process-math">\(n\in\mathbb{N}\)</span> and <span class="process-math">\(a, b, c, d \in\mathbb{Z}.\)</span> By a previous theorem we know that both <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> have the same remainder when divided by <span class="process-math">\(n,\)</span> say <span class="process-math">\(r,\)</span> and <span class="process-math">\(c\)</span> and <span class="process-math">\(d\)</span> have the same remainder when divided by <span class="process-math">\(n,\)</span> say <span class="process-math">\(r'.\)</span> So there exist <span class="process-math">\(q, s, q', s'\in\mathbb{Z}\)</span> so that</p>
 <div class="displaymath process-math">
 \begin{align*}
 a \amp =qn+r\\
@@ -274,9 +274,9 @@ ac \amp =(qn+r)(q'n+r')\\
 <article class="remark remark-like" id="remark-5"><h2 class="heading">
 <span class="type">Remark</span><span class="space"> </span><span class="codenumber">4.0.11</span><span class="period">.</span>
 </h2>
-<p id="p-162">The arithmetic, "<span class="process-math">\(+, -, \cdot\)</span>" with congruences is the same as the arithmetic "<span class="process-math">\(+, -, \cdot\)</span>" in integers. But here we are only interested in remainders.</p></article><article class="example example-like" id="example-6"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-6"><h2 class="heading">
+<p id="p-164">The arithmetic, "<span class="process-math">\(+, -, \cdot\)</span>" with congruences is the same as the arithmetic "<span class="process-math">\(+, -, \cdot\)</span>" in integers. But here we are only interested in remainders.</p></article><article class="example example-like" id="example-6"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-example-6"><h2 class="heading">
 <span class="type">Example</span><span class="space"> </span><span class="codenumber">4.0.12</span><span class="period">.</span>
-</h2></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-6"><article class="example example-like"><p id="p-163">We have</p>
+</h2></a></article><div class="hidden-content tex2jax_ignore" id="hk-example-6"><article class="example example-like"><p id="p-165">We have</p>
 <div class="displaymath process-math">
 \begin{align*}
 19 \amp \equiv 11\pmod{4}\\
@@ -288,7 +288,7 @@ ac \amp =(qn+r)(q'n+r')\\
 <article class="definition definition-like" id="definition-16"><h2 class="heading">
 <span class="type">Definition</span><span class="space"> </span><span class="codenumber">4.0.13</span><span class="period">.</span>
 </h2>
-<p id="p-164">The set <span class="process-math">\(\mathbb{Z}_n := \{0, 1, 2,..., n-1\}\)</span> equipped with addition and multiplication modulo <span class="process-math">\(n\)</span> is called the ring of integers modulo <span class="process-math">\(n.\)</span></p></article><p id="p-165">Note that every element in <span class="process-math">\(a\in\mathbb{Z}_n\)</span> has an additive inverse (there is an element <span class="process-math">\(b\)</span> such that <span class="process-math">\(a + b \equiv 0\pmod{n}),\)</span> but not every element has a multiplicative inverse (an element <span class="process-math">\(b\)</span> such that <span class="process-math">\(ab\equiv 1\pmod{n}\)</span>). As an example let <span class="process-math">\(n = 10\)</span> and <span class="process-math">\(a = 2.\)</span> Then the additive inverse of <span class="process-math">\(5\)</span> is <span class="process-math">\(5\)</span> since</p>
+<p id="p-166">The set <span class="process-math">\(\mathbb{Z}_n := \{0, 1, 2,..., n-1\}\)</span> equipped with addition and multiplication modulo <span class="process-math">\(n\)</span> is called the ring of integers modulo <span class="process-math">\(n.\)</span></p></article><p id="p-167">Note that every element in <span class="process-math">\(a\in\mathbb{Z}_n\)</span> has an additive inverse (there is an element <span class="process-math">\(b\)</span> such that <span class="process-math">\(a + b \equiv 0\pmod{n}),\)</span> but not every element has a multiplicative inverse (an element <span class="process-math">\(b\)</span> such that <span class="process-math">\(ab\equiv 1\pmod{n}\)</span>). As an example let <span class="process-math">\(n = 10\)</span> and <span class="process-math">\(a = 2.\)</span> Then the additive inverse of <span class="process-math">\(5\)</span> is <span class="process-math">\(5\)</span> since</p>
 <div class="displaymath process-math">
 \begin{equation*}
 5 + 5 \equiv 0\pmod{10}.
@@ -313,14 +313,14 @@ ac \amp =(qn+r)(q'n+r')\\
 <article class="theorem theorem-like" id="theorem-35"><h2 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.0.14</span><span class="period">.</span>
 </h2>
-<p id="p-166">Let <span class="process-math">\(n\in\mathbb{N}\)</span> and <span class="process-math">\(a, b, c\in\mathbb{Z}.\)</span> If <span class="process-math">\(a + c \equiv b + c\pmod{n},\)</span> then <span class="process-math">\(a \equiv b \pmod{n}.\)</span></p></article><article class="hiddenproof" id="proof-38"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-38"><h2 class="heading"><span class="type">Proof<span class="period">.</span></span></h2></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-38"><article class="hiddenproof"><p id="p-167">Let <span class="process-math">\(n\in\mathbb{N}\)</span> and <span class="process-math">\(a, b, c\in\mathbb{Z}.\)</span> Suppose <span class="process-math">\(a + c \equiv b + c\pmod{n}.\)</span> Now we know that <span class="process-math">\(-c \equiv -c\pmod{n}\)</span> by the reflexive property. Thus we have</p>
+<p id="p-168">Let <span class="process-math">\(n\in\mathbb{N}\)</span> and <span class="process-math">\(a, b, c\in\mathbb{Z}.\)</span> If <span class="process-math">\(a + c \equiv b + c\pmod{n},\)</span> then <span class="process-math">\(a \equiv b \pmod{n}.\)</span></p></article><article class="hiddenproof" id="proof-38"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-38"><h2 class="heading"><span class="type">Proof<span class="period">.</span></span></h2></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-38"><article class="hiddenproof"><p id="p-169">Let <span class="process-math">\(n\in\mathbb{N}\)</span> and <span class="process-math">\(a, b, c\in\mathbb{Z}.\)</span> Suppose <span class="process-math">\(a + c \equiv b + c\pmod{n}.\)</span> Now we know that <span class="process-math">\(-c \equiv -c\pmod{n}\)</span> by the reflexive property. Thus we have</p>
 <div class="displaymath process-math">
 \begin{equation*}
 (a + c) + (-c) \equiv (b + c) + (-c) \pmod{n},
 \end{equation*}
 </div>
 <p class="continuation">and so <span class="process-math">\(a \equiv b \pmod{n}.\)</span></p></article></div>
-<p id="p-168">There is a kind of limited converse for the second part of the statement. First we need to see when <span class="process-math">\(a\)</span> has an inverse in <span class="process-math">\(\mathbb{Z}_n.\)</span> This is the same as asking if the linear equivalence</p>
+<p id="p-170">There is a kind of limited converse for the second part of the statement. First we need to see when <span class="process-math">\(a\)</span> has an inverse in <span class="process-math">\(\mathbb{Z}_n.\)</span> This is the same as asking if the linear equivalence</p>
 <div class="displaymath process-math">
 \begin{equation*}
 ax \equiv 1 \pmod{n}
@@ -336,10 +336,10 @@ ax + ny = 1
 <article class="theorem theorem-like" id="theorem-36"><h2 class="heading">
 <span class="type">Theorem</span><span class="space"> </span><span class="codenumber">4.0.15</span><span class="period">.</span>
 </h2>
-<p id="p-169">If <span class="process-math">\(\gcd(a, n) = 1,\)</span> then a has a multiplicative inverse in <span class="process-math">\(\mathbb{Z}_n.\)</span></p></article><article class="corollary theorem-like" id="corollary-7"><h2 class="heading">
+<p id="p-171">If <span class="process-math">\(\gcd(a, n) = 1,\)</span> then a has a multiplicative inverse in <span class="process-math">\(\mathbb{Z}_n.\)</span></p></article><article class="corollary theorem-like" id="corollary-7"><h2 class="heading">
 <span class="type">Corollary</span><span class="space"> </span><span class="codenumber">4.0.16</span><span class="period">.</span>
 </h2>
-<p id="p-170">Let <span class="process-math">\(n\in\mathbb{N},\)</span> <span class="process-math">\(a,b,c\in\mathbb{Z}\)</span> and <span class="process-math">\(\gcd(c,n)=1.\)</span> If <span class="process-math">\(ac\equiv bc\pmod{n},\)</span> then <span class="process-math">\(a\equiv b\pmod{n}.\)</span></p></article><article class="hiddenproof" id="proof-39"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-39"><h2 class="heading"><span class="type">Proof<span class="period">.</span></span></h2></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-39"><article class="hiddenproof"><p id="p-171">Let <span class="process-math">\(n\in\mathbb{N},\)</span> <span class="process-math">\(a,b,c\in\mathbb{Z}\)</span> and <span class="process-math">\(\gcd(c,n)=1.\)</span> Suppose <span class="process-math">\(ac\equiv bc\pmod{n},\)</span> then</p>
+<p id="p-172">Let <span class="process-math">\(n\in\mathbb{N},\)</span> <span class="process-math">\(a,b,c\in\mathbb{Z}\)</span> and <span class="process-math">\(\gcd(c,n)=1.\)</span> If <span class="process-math">\(ac\equiv bc\pmod{n},\)</span> then <span class="process-math">\(a\equiv b\pmod{n}.\)</span></p></article><article class="hiddenproof" id="proof-39"><a href="" data-knowl="" class="id-ref proof-knowl original" data-refid="hk-proof-39"><h2 class="heading"><span class="type">Proof<span class="period">.</span></span></h2></a></article><div class="hidden-content tex2jax_ignore" id="hk-proof-39"><article class="hiddenproof"><p id="p-173">Let <span class="process-math">\(n\in\mathbb{N},\)</span> <span class="process-math">\(a,b,c\in\mathbb{Z}\)</span> and <span class="process-math">\(\gcd(c,n)=1.\)</span> Suppose <span class="process-math">\(ac\equiv bc\pmod{n},\)</span> then</p>
 <div class="displaymath process-math">
 \begin{gather*}
 n\vert(ac-bc)\\
@@ -351,7 +351,7 @@ n\vert(a-b),
 <article class="corollary theorem-like" id="corollary-8"><h2 class="heading">
 <span class="type">Corollary</span><span class="space"> </span><span class="codenumber">4.0.17</span><span class="period">.</span>
 </h2>
-<p id="p-172">Let <span class="process-math">\(p\)</span> be a prime. If <span class="process-math">\(ac\equiv bc\pmod{p}\)</span> and <span class="process-math">\(p\nmid c,\)</span> then <span class="process-math">\(a\equiv b\pmod{p}.\)</span></p></article></section><nav class="summary-links"><ul>
+<p id="p-174">Let <span class="process-math">\(p\)</span> be a prime. If <span class="process-math">\(ac\equiv bc\pmod{p}\)</span> and <span class="process-math">\(p\nmid c,\)</span> then <span class="process-math">\(a\equiv b\pmod{p}.\)</span></p></article></section><nav class="summary-links"><ul>
 <li><a href="Sec-Solving_Linear_Congruences.html"><span class="codenumber">4.1</span> <span class="title">Solving Linear Congruences</span></a></li>
 <li><a href="Sec-Chinese_Remainder_Theorem.html"><span class="codenumber">4.2</span> <span class="title">Chinese Remainder Theorem</span></a></li>
 <li><a href="Sec-Polynomial_Congruences.html"><span class="codenumber">4.3</span> <span class="title">Polynomial Congruences</span></a></li>
