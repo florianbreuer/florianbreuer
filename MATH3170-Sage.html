@@ -45,8 +45,52 @@
 <h1>Contents</h1>
 <ul>
   <li><a href="#RSA">RSA Cryptosystem</a></li>
+  <li><a href="#GCD">GCDs and the Euclidean Algorithm</a></li>
+  <li><a href="#primes">Primes</a></li>
 </ul>
 <hr>
+
+<h2 id="GCD">GCDs and the Euclidean Algorithm</h2>
+
+Computing the GCD of two integers is really fast:
+
+<div class="compute"><script type="text/x-sage">
+gcd(2376457, 8987678)
+</script></div>
+
+Furthermore, the Extended Euclidean Algorithm lets you find integers \(x, y\)
+for which
+\[
+ax + by = \gcd(a,b).
+\]
+In this example,
+\[
+2376457\cdot 3308815 + 8987678 \cdot (-874893) = 1
+\]
+
+<div class="compute"><script type="text/x-sage">
+print(xgcd(2376457, 8987678))
+print(2376457 * 3308815 + 8987678 * (-874893))
+</script></div>
+
+<h2 id="primes">Primes</h2>
+
+<div class="compute"><script type="text/x-sage">
+for p in primes(1000):
+    print(p, end=', ')
+</script></div>
+
+
+<div class="compute"><script type="text/x-sage">
+plot([prime_pi(x), x/log(x), Li(x)] , (x,2,1000), legend_label = "automatic")
+</script></div>
+
+<div class="compute"><script type="text/x-sage">
+N = 10^10
+print(prime_pi(N))
+print(round(li(10^10)))
+</script></div>
+
 
 <h2 id="RSA">The RSA Cryptosystem</h2>
 
