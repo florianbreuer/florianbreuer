@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>History of Stellenbosch Number Theory Conferences</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #8C1D40;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #34495e;
+            margin-top: 30px;
+        }
+        .conference {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-left: 4px solid #8C1D40;
+            background-color: #f8f9fa;
+        }
+        .conference h3 {
+            margin: 0 0 10px 0;
+            color: #2c3e50;
+        }
+        a {
+            color: #8C1D40;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .note {
+            font-style: italic;
+            color: #666;
+            margin-top: 20px;
+            padding: 10px;
+            border-top: 1px solid #ddd;
+        }
+        .participants {
+            font-size: 0.9em;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #fff;
+            border: 1px solid #e1e1e1;
+            border-radius: 4px;
+            display: none;
+        }
+        .toggle-participants {
+            display: inline-block;
+            margin-top: 8px;
+            padding: 4px 8px;
+            background-color: #edf2f7;
+            border: 1px solid #cbd5e0;
+            border-radius: 4px;
+            font-size: 0.85em;
+            cursor: pointer;
+            color: #4a5568;
+        }
+        .toggle-participants:hover {
+            background-color: #e2e8f0;
+            text-decoration: none;
+        }
+        .participant-list {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            columns: 2;
+            column-gap: 20px;
+        }
+        .participant-list li {
+            margin-bottom: 4px;
+            break-inside: avoid;
+        }
+    </style>
+    <script>
+        function toggleParticipants(id) {
+            const el = document.getElementById(id);
+            if (el.style.display === 'none' || !el.style.display) {
+                el.style.display = 'block';
+            } else {
+                el.style.display = 'none';
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>History of Stellenbosch Number Theory Conferences</h1>
+        
+        <p>The Number Theory conference series at Stellenbosch University began in 1997 as part of a Volkswagen 
+            Foundation German-South African Partnership Project on "Arithmetic Geometry and Data Security". 
+            The series has included workshops, student seminars, and international conferences held both in Stellenbosch and Essen (Germany).</p>
+
+        <h2>Conference Timeline</h2>
+
+        <div class="conference">
+            <h3>1997 December 1-6</h3>
+            <p>First Volkswagen Foundation Meeting: "On Algebraic Curves and their Automorphism Groups"<br>
+            Location: University of Stellenbosch<br>
+            <a href="VW1Prog97.pdf" target="_blank">View Program</a><br>
+            <a href="#" class="toggle-participants" onclick="toggleParticipants('participants-1997'); return false;">View Participants</a></p>
+            <div id="participants-1997" class="participants">
+                <p>Speakers included:</p>
+                <ul class="participant-list">
+                    <li>Henning Stichtenoth</li>
+                    <li>Gerhard Frey</li>
+                    <li>Roland Fray</li>
+                    <li>Brink van der Merwe</li>
+                    <li>Barry Green</li>
+                    <li>Rafiq Omar</li>
+                    <li>Kenneth Hughes</li>
+                    <li>Arnold Keet</li>
+                    <li>Paul Cherenack</li>
+                    <li>Paul van Wamelen</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="conference">
+            <h3>1998 June 3-7</h3>
+            <p>Workshop on Function Fields of one Variable over Finite Fields, Drinfeld Modules and Coding Theory<br>
+            Location: Institute of Experimental Mathematics, University of Essen<br>
+            <a href="VW2PROG.pdf" target="_blank">View Program</a><br>
+            <a href="#" class="toggle-participants" onclick="toggleParticipants('participants-1998-june'); return false;">View Participants</a></p>
+            <div id="participants-1998-june" class="participants">
+                <p>Speakers included:</p>
+                <ul class="participant-list">
+                    <li>Rafiq Omar (University of Western Cape)</li>
+                    <li>Florian Breuer (University Stellenbosch)</li>
+                    <li>Brink van der Merwe (University Stellenbosch)</li>
+                    <li>Arnold Keet (University of South Africa)</li>
+                    <li>Barry Green (University Stellenbosch)</li>
+                    <li>Hans-Georg Rück (IEM, University Essen)</li>
+                    <li>Henning Stichtenoth (University Essen)</li>
+                    <li>Ilia Aleshnikov (University Essen)</li>
+                    <li>Emir Nurbegovic (University Essen)</li>
+                    <li>Annika Bruns (IEM, University Essen)</li>
+                    <li>Matthias Traulsen (IEM, University Essen)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="conference">
+            <h3>1998 December 7-11</h3>
+            <p>Number Theory Meeting<br>
+            Location: University of Stellenbosch<br>
+            <a href="SNT98PROG.pdf" target="_blank">View Program</a><br>
+            <a href="#" class="toggle-participants" onclick="toggleParticipants('participants-1998-dec'); return false;">View Participants</a></p>
+            <div id="participants-1998-dec" class="participants">
+                <p>Speakers included:</p>
+                <ul class="participant-list">
+                    <li>Peter Roquette (Heidelberg)</li>
+                    <li>Florian Pop (Bonn)</li>
+                    <li>Arnold Knopfmacher (WITS)</li>
+                    <li>Marcel Wild (US)</li>
+                    <li>Brink van der Merwe (US)</li>
+                    <li>Kenneth Hughes (UCT)</li>
+                    <li>Stan Gurak (Boston)</li>
+                    <li>Helmut Prodinger (WITS)</li>
+                    <li>Rafiq Omar (UWC)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="conference">
+            <h3>1999 April 6-9</h3>
+            <p>Volkswagen Foundation Student Workshop on Arithmetic Geometry and Data Security<br>
+            Location: University of Stellenbosch<br>
+            <a href="VW3Prog.pdf" target="_blank">View Program</a><br>
+            <a href="#" class="toggle-participants" onclick="toggleParticipants('participants-1999-apr'); return false;">View Participants</a></p>
+            <div id="participants-1999-apr" class="participants">
+                <p>Speakers included:</p>
+                <ul class="participant-list">
+                    <li>Hans-Georg Rück</li>
+                    <li>Matthias Traulsen</li>
+                    <li>Rafiq Omar</li>
+                    <li>Sheldon Joyner</li>
+                    <li>Gerhard Frey</li>
+                    <li>Jan van Vuuren</li>
+                    <li>Barry Green</li>
+                    <li>Arnold Keet</li>
+                    <li>Brink van der Merwe</li>
+                </ul>
+                <p>Organizers:</p>
+                <ul class="participant-list">
+                    <li>G. Frey</li>
+                    <li>B. Green</li>
+                    <li>R. Omar</li>
+                    <li>H.-G. Rück</li>
+                    <li>B. van der Merwe</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="conference">
+            <h3>1999 December 13-17</h3>
+            <p>Workshop "Arithmetical Geometry"<br>
+            Location: Institut für Experimentelle Mathematik, Essen<br>
+            <a href="VW4Prog.pdf" target="_blank">View Program</a><br>
+            <a href="#" class="toggle-participants" onclick="toggleParticipants('participants-1999-dec'); return false;">View Participants</a></p>
+            <div id="participants-1999-dec" class="participants">
+                <p>Speakers included:</p>
+                <ul class="participant-list">
+                    <li>Rafiq Omar (Cape Town)</li>
+                    <li>Arnold Keet (Pretoria)</li>
+                    <li>Brink van der Merwe (Stellenbosch)</li>
+                    <li>Ilia Aleshnikov (Essen)</li>
+                    <li>Sergei Vostokov (St. Petersburg)</li>
+                    <li>Gregor Kemper (Heidelberg)</li>
+                    <li>Seldon Joyner (Stellenbosch)</li>
+                    <li>Barry Green (Stellenbosch)</li>
+                    <li>Michel Matignon (Bordeaux)</li>
+                    <li>Yannick Henrio (Bordeaux)</li>
+                    <li>Michael Müller (Essen)</li>
+                    <li>Florian Breuer (Paris)</li>
+                    <li>Moshe Jarden (Tel Aviv)</li>
+                    <li>Werner Lütkebohmert (Ulm)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="conference">
+            <h3>2000 September 11-12</h3>
+            <p>Number Theory Meeting<br>
+            Location: University of Stellenbosch<br>
+            <a href="SNT2000PROG.pdf" target="_blank">View Program</a><br>
+            <a href="#" class="toggle-participants" onclick="toggleParticipants('participants-2000-sept'); return false;">View Participants</a></p>
+            <div id="participants-2000-sept" class="participants">
+                <p>Speakers included:</p>
+                <ul class="participant-list">
+                    <li>Arnold Keet (UNISA)</li>
+                    <li>Moshe Jarden (Tel Aviv)</li>
+                    <li>Florian Breuer (Paris)</li>
+                    <li>Barry Green (Stellenbosch)</li>
+                    <li>Kenneth Hughes (Cape Town)</li>
+                    <li>Robert Schumann (Stellenbosch)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="conference">
+            <h3>2001 January 29-31</h3>
+            <p>Workshop on the Arithmetic of Curves (Deformation Theory and Counting Points on Curves)<br>
+            Location: University of Stellenbosch<br>
+            <a href="SNT2001Prog.pdf" target="_blank">View Program</a><br>
+            <a href="#" class="toggle-participants" onclick="toggleParticipants('participants-2001-jan'); return false;">View Participants</a></p>
+            <div id="participants-2001-jan" class="participants">
+                <p>Speakers included:</p>
+                <ul class="participant-list">
+                    <li>T. Sekiguchi</li>
+                    <li>R. Omar</li>
+                    <li>M. Knebusch</li>
+                    <li>P. Cherenack</li>
+                    <li>N. Suwa</li>
+                    <li>A. Keet</li>
+                    <li>D. Balduzzi</li>
+                    <li>B. Green</li>
+                    <li>M. Wild</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="conference">
+            <h3>2001 April 9-12</h3>
+            <p>Volkswagen Foundation Workshop on Arithmetic Geometry and Data Security (Counting Points on Curves)<br>
+            Location: University of Stellenbosch<br>
+            <a href="VW5Prog.pdf" target="_blank">View Program</a><br>
+            <a href="#" class="toggle-participants" onclick="toggleParticipants('participants-2001-apr'); return false;">View Participants</a></p>
+            <div id="participants-2001-apr" class="participants">
+                <p>Speakers included:</p>
+                <ul class="participant-list">
+                    <li>Hans-Georg Rück</li>
+                    <li>Florian Breuer</li>
+                    <li>Arnold Keet</li>
+                    <li>Markus Wessler</li>
+                    <li>Gerhard Frey</li>
+                    <li>Barry Green</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="conference">
+            <h3>2003 January 22-24</h3>
+            <p>Workshop on the Arithmetic of Curves and Applications<br>
+            Location: University of Stellenbosch<br>
+            <a href="SNT2003Prog.pdf" target="_blank">View Program</a><br>
+            <a href="#" class="toggle-participants" onclick="toggleParticipants('participants-2003-jan'); return false;">View Participants</a></p>
+            <div id="participants-2003-jan" class="participants">
+                <p>Speakers included:</p>
+                <ul class="participant-list">
+                    <li>F. Breuer</li>
+                    <li>K. Hughes</li>
+                    <li>L. Wessels</li>
+                    <li>T. Sekiguchi</li>
+                    <li>K. Tsuchiya</li>
+                    <li>A. Keet</li>
+                    <li>E. Lötter</li>
+                    <li>G. Boxall</li>
+                    <li>J.P. Harper</li>
+                    <li>C. Maxson</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="conference">
+            <h3>2005 February 1-4</h3>
+            <p>Workshop on Arithmetic Geometry, Related Areas and Applications<br>
+            Location: University of Stellenbosch<br>
+            <a href="SNT2005Prog.pdf" target="_blank">View Program</a><br>
+            <a href="#" class="toggle-participants" onclick="toggleParticipants('participants-2005-feb'); return false;">View Participants</a></p>
+            <div id="participants-2005-feb" class="participants">
+                <ul class="participant-list">
+                    <li>Ilhem Benzaoui (Stellenbosch)</li>
+                    <li>Florian Breuer (Stellenbosch)</li>
+                    <li>Louis Brewis (Stellenbosch)</li>
+                    <li>Sinnou David (Paris)</li>
+                    <li>Gerhard Frey (Essen)</li>
+                    <li>Ernst Gekeler (Saarbrucken)</li>
+                    <li>Martine Girard (Sydney)</li>
+                    <li>Barry Green (Stellenbosch)</li>
+                    <li>Yuki Haraguchi (Tokyo)</li>
+                    <li>Marc Hindry (Paris)</li>
+                    <li>Kenneth Hughes (Cape Town)</li>
+                    <li>Paul Joubert (Stellenbosch)</li>
+                    <li>Arnold Keet (Stellenbosch)</li>
+                    <li>David Kohel (Sydney)</li>
+                    <li>Marelize Kriel (Stellenbosch)</li>
+                    <li>Boris Kunyavski (Tel Aviv)</li>
+                    <li>Archie Karumbidze (Stellenbosch)</li>
+                    <li>Ernest Lötter (Stellenbosch)</li>
+                    <li>Yasuhiro Niitsuma (Tokyo)</li>
+                    <li>Rafi Omar (Western Cape)</li>
+                    <li>Amilcar Pacheco (Rio de Janeiro)</li>
+                    <li>Helmut Prodinger (Stellenbosch)</li>
+                    <li>Georg Rück (Kassel)</li>
+                    <li>Tsutomu Sekiguchi (Tokyo)</li>
+                    <li>Noriyuki Suwa (Tokyo)</li>
+                    <li>Christine Swart (Cape Town)</li>
+                    <li>Brink van der Merwe (Stellenbosch)</li>
+                    <li>Koos van Zyl (Pretoria)</li>
+                    <li>Lesley Wessels (Stellenbosch)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="conference">
+            <h3>2005 June 15</h3>
+            <p>Number Theory Day<br>
+            Location: University of Stellenbosch<br>
+            <a href="CEM2005Prog1.pdf" target="_blank">View Program</a><br>
+            <a href="#" class="toggle-participants" onclick="toggleParticipants('participants-2005-june'); return false;">View Participants</a></p>
+            <div id="participants-2005-june" class="participants">
+                <p>Speakers included:</p>
+                <ul class="participant-list">
+                    <li>S. Joyner (On Abhyankar's conjecture)</li>
+                    <li>I. Benzaoui (On the LLL algorithm)</li>
+                    <li>H. Prodinger (Number theoretic problems)</li>
+                </ul>
+                <p>Organizers:</p>
+                <ul class="participant-list">
+                    <li>Florian Breuer</li>
+                    <li>Barry Green</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="conference">
+            <h3>2005 November 7-9</h3>
+            <p>November Workshop in Honour of Barry Green's 50th Birthday<br>
+            Location: University of Stellenbosch<br>
+            <a href="ProgNovember2005.pdf" target="_blank">View Program</a><br>
+            <a href="#" class="toggle-participants" onclick="toggleParticipants('participants-2005-nov'); return false;">View Participants</a></p>
+            <div id="participants-2005-nov" class="participants">
+                <p>Speakers included:</p>
+                <ul class="participant-list">
+                    <li>Helmut Prodinger (US)</li>
+                    <li>David Gay (UCT)</li>
+                    <li>Florian Breuer (US)</li>
+                    <li>Dirk Laurie (US)</li>
+                    <li>Arnold Knopfmacher (Wits)</li>
+                    <li>Stefan Wehmeier (Paderborn)</li>
+                    <li>Carl Maxson (Texas A&M)</li>
+                    <li>Leon van Wyk (US)</li>
+                    <li>Hans-Georg Rück (Kassel)</li>
+                    <li>Kenneth Hughes (UCT)</li>
+                    <li>Arnold Keet (US)</li>
+                    <li>Christine Swart (UCT)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="note">
+            <p>The series began as part of a Volkswagen Foundation Partnership Project between the University of Essen and the University of Stellenbosch. Following the project's end in 2001, the Stellenbosch group continued to organize regular workshops as part of their research activities.</p>
+        </div>
+    </div>
+</body>
+</html>
