@@ -86,6 +86,21 @@
             margin-bottom: 4px;
             break-inside: avoid;
         }
+        .photo-gallery {
+            margin-top: 15px;
+            display: flex;
+            gap: 10px;
+        }
+        .photo-gallery img {
+            max-width: 150px;
+            height: auto;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+        .photo-gallery img:hover {
+            opacity: 0.9;
+        }
     </style>
     <script>
         function toggleParticipants(id) {
@@ -385,6 +400,14 @@
             Location: University of Stellenbosch<br>
             <a href="ProgNovember2005.pdf" target="_blank">View Program</a><br>
             <a href="#" class="toggle-participants" onclick="toggleParticipants('participants-2005-nov'); return false;">View Participants</a></p>
+            <div class="photo-gallery">
+                <a href="groupphotograph5.JPG" target="_blank">
+                    <img src="groupphotograph5.JPG" alt="Workshop Photo 1" title="Click to view full size">
+                </a>
+                <a href="groupphotographgreen50.JPG" target="_blank">
+                    <img src="groupphotographgreen50.JPG" alt="Workshop Photo 2" title="Click to view full size">
+                </a>
+            </div>
             <div id="participants-2005-nov" class="participants">
                 <p>Speakers included:</p>
                 <ul class="participant-list">
