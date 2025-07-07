@@ -1,0 +1,334 @@
+<!DOCTYPE HTML>
+<div>
+<script type="text/javascript" async="" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+</div>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>MATH1120 Sage Playground</title>
+    <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
+    <script>
+    // Make the div with id 'mycell' a Sage cell
+    sagecell.makeSagecell({inputLocation:  '#mycell',
+                           template:       sagecell.templates.minimal,
+                           evalButtonText: 'Activate'});
+    // Make *any* div with class 'compute' a Sage cell
+    sagecell.makeSagecell({inputLocation: 'div.compute',
+                           evalButtonText: 'Evaluate'});
+    </script>
+  </head>
+  <body>
+  
+
+<h1>Optimization</h1>
+
+<b>
+    Note: You don't need to understand the SageMath code to play with the examples on this page:
+    just click "Evaluate" underneath a cell and see what happens. Enjoy!
+</b>
+
+<h2>One dimension: Optimize a can</h2>
+
+We want to design a can that holds 330ml of volume while using the least amount of 
+material. This means minimizing the surface area.
+
+We have two inputs: the radius \(r\) of the can, and the height \(h\) of the can.
+Since the volume is fixed at 330ml, these inputs are related by the equation for the volume of a cylinder:
+\(V = \pi r^2 h\). This means we can choose one variable, say the radius \(r\), 
+and then the height \(h\) is determined by the volume.
+
+In the interactive below, we have a slider for the radius \(r\). The height and 
+the surface area are then calculated from the volume. 
+Play with the slider to determine the optimal radius.<br><br>
+
+
+
+<div class="compute"><script type="text/x-sage">
+from sage.plot.plot3d.shapes import Cylinder
+
+r = var('r')
+t = var('t')
+V = 330
+
+@interact
+def _(
+    r0 = slider(0.1, 10, step_size=0.01, default=5.0, label="r"),
+    show_gradient = True,
+    show_gradient_vector = False,
+    show_graph = False,
+    show_cylinder = True,
+    auto_update=True,
+    ):
+    A = 2*pi*r^2 + 2*V/r
+    A_r = diff(A, r, 1)
+    A0 = A(r=r0)
+    h0 = V/(pi*r0^2)
+    print(f"h = {float(h0):.06}")
+    print(f"A = {float(A0):.06}")
+
+    if show_gradient:
+        print(f"A_r = {float(A_r(r=r0)):.06}")
+    if show_graph:
+        A_plot = plot(A, (r, 0.1, 10.0), ymax=500, ymin=0, axes_labels=['radius', 'area'])
+        ll = line([(r0,0), (r0,A0)], color='red')
+        if show_gradient_vector:
+            show(A_plot + ll + arrow((r0,A0), (r0+0.1*A_r(r=r0),A0), color='black', arrowsize=1, width=1))
+        else:
+            show(A_plot + ll, figsize=4)
+    if show_cylinder:
+        C = Cylinder(r0, h0, color='red', plot_edges=True, edgecolor='black', mesh=False)
+        t_radius = text3d(f"radius = {float(r0):.06}", (0, r0/2, h0+1.0), color='black', fontsize=12)
+        t_height = text3d(f"height = {float(h0):.06}", (0, r0+1.5, 0.5*h0), color='black', fontsize=12)
+        circ_1 = parametric_plot3d((r0*cos(t), r0*sin(t), h0), (t, 0, 2*pi), color='black', thickness=1)
+        circ_2 = parametric_plot3d((r0*cos(t), r0*sin(t), 0), (t, 0, 2*pi), color='black', thickness=1)
+        show(C + circ_1 + circ_2 + t_radius + t_height, frame=False, axes=False, figsize=4)
+</script></div>
+
+<h2>Two dimensions: Maximizing the area of a triangle</h2>
+
+<div class="compute"><script type="text/x-sage">
+a = var('a')
+b = var('b')
+c = var('c')
+x, y = var('x y')
+
+f = (a-1)*(b-1)*(a+b-1)
+f_a = diff(f,a,1)
+f_b = diff(f,b,1)
+
+def g(x, y):
+    if x + y >= 1:
+        return sqrt((x-1)*(y-1)*(x+y-1))
+    else:
+        return False
+    
+# def grad_f(x, y):
+#     if x + y >= 1:
+#         return ((y-1)*(2*x+y-2), (x-1)*(x+2*y-2))
+#     else:
+#         return (0,0)
+
+pp = contour_plot(g, (x, 0, 1), (y, 0, 1), 
+                    contours=50, 
+                    fill=False, 
+                    cmap='jet', 
+                    axes_labels=['a', 'b'],
+                    colorbar=True
+                    )
+
+# vf = plot_vector_field(f.gradient(), (a,0,1), (b,0,1), color='red')
+
+def triangle_with_side_labels(a, b, c, delta=0.2, show_area=True):
+    """
+    Draws a triangle with sides of lengths a, b, c.
+    Assumes vertices A, B, C are ordered counterclockwise,
+    with AB=c, AC=b, and BC=a.
+    Labels are placed at the midpoints of each edge, offset
+    by 'delta' in the outward (i.e. clockwise) direction.
+    """
+    # Check triangle inequality
+    if a + b <= c or a + c <= b or b + c <= a:
+        return False
+    
+    # Place vertices:
+    A = (0, 0)
+    B = (c, 0)
+    x = (b**2 - a**2 + c**2) / (2*c)
+    y = sqrt(b**2 - x**2)
+    C = (x, y)
+    
+    # Create the triangle as a polygon:
+    tri = polygon([A, B, C], fill=True, color='lightblue')
+    
+    # Helper function: compute label position for edge from P to Q.
+    # The outward (clockwise) offset is given by n = (v_y, -v_x)/L.
+    def label_position(P, Q, offset):
+        vx = Q[0] - P[0]
+        vy = Q[1] - P[1]
+        L = sqrt(vx**2 + vy**2)
+        if L == 0:
+            return P
+        # Unit vector to the right (clockwise)
+        nx = vy / L
+        ny = -vx / L
+        # Midpoint:
+        mx = (P[0] + Q[0]) / 2
+        my = (P[1] + Q[1]) / 2
+        return (mx + offset * nx, my + offset * ny)
+    
+    # By convention, label side "c" on AB, "b" on AC, and "a" on BC.
+    # Adjust the delta if necessary.
+    label_c = text(f"c = {float(c):.05}", label_position(A, B, delta), color='black')
+    label_b = text(f"b = {float(b):.05}", label_position(A, C, -delta), color='black')
+    label_a = text(f"a = {float(a):.05}", label_position(B, C, delta), color='black')
+    
+    if show_area:
+        s = (a + b + c)/2
+        area = sqrt(s*(s-a)*(s-b)*(s-c))
+        label_area = text(f"A = {float(area):.05}", ((x+c/2)/2, y/2), color='black')
+        return tri + label_a + label_b + label_c + label_area
+    
+    return tri + label_a + label_b + label_c
+
+def draw_grad_vector(a,b, da, db, h=1, draw_components=False):
+    '''Returns the gradient vector at (a,b) with components h*(da, db)'''
+    v = arrow((a,b), (a+h*da, b+h*db), color='black', width=1, arrowsize=1)
+    if draw_components:
+        return v + arrow((a,b), (a+h*da,b), color='blue', width=1, arrowsize=1) + arrow((a,b), (a,b+h*db), color='blue', width=1, arrowsize=1)
+    else:
+        return v
+
+@interact
+def _(
+    show_graph = True,
+    show_triangle = True,
+    show_grad_vector = True,
+#     show_vf = True,
+    a = slider(0.0, 1.0, step_size=0.001, default=0.5),
+    b = slider(0.0, 1.0, step_size=0.001, default=0.5),
+    auto_update=False,
+    ):
+    c = 2 - a - b
+    
+    f0 = f(a=a, b=b)
+    fa = f_a(a=a, b=b)
+    fb = f_b(a=a, b=b)
+
+    print(f"f_a = {float(fa):.05}")
+    print(f"f_b = {float(fb):.05}")
+    
+    if f0 >=0:
+        print(f"A = {float(sqrt(f0)):.05}")
+    else:
+        print("A = ?")
+    print(f"c = {float(c):.05}")
+#     if show_vf:
+#         G = pp + vf
+#     else:
+#         G = pp
+    if show_graph:
+        pt = circle((a,b), 0.01, fill=True, color='black')
+        l1 = line([(a,0), (a,b)], linestyle="--", color='gray')
+        l2 = line([(0,b), (a,b)], linestyle="--", color='gray')
+        if show_grad_vector:
+            show(pp + pt + l1 + l2 + draw_grad_vector(a,b,fa,fb, draw_components=False))
+        else:
+            show(pp + pt + l1 + l2)
+    if show_triangle:
+        tt = triangle_with_side_labels(a,b,c)
+        if tt:
+            show(tt, axes=False, aspect_ratio=1)
+</script></div>
+
+<h2>A more abstract function</h2>
+
+<div class="compute"><script type="text/x-sage">
+x, y = var('x y')
+# f = (x-1)*y*(y+2)*exp(-(x^2+y^2)/10)
+f = (x^3- y^2 + 3*x*y)*exp(-(x^2+y^2)/10)
+
+M = 6
+
+f_x = diff(f,x,1)
+f_y = diff(f,y,1)
+
+def draw_grad_vector(a,b, da, db, h=1, draw_components=False):
+    '''Returns the gradient vector at (a,b) with components h*(da, db)'''
+    v = arrow((a,b), (a+h*da, b+h*db), color='black', width=1, arrowsize=1)
+    if draw_components:
+        return v + arrow((a,b), (a+h*da,b), color='blue', width=1, arrowsize=1) + arrow((a,b), (a,b+h*db), color='blue', width=1, arrowsize=1)
+    else:
+        return v
+
+p = contour_plot(f, (x,-M,M), (y,-M,M), 
+                 contours=50, 
+                 fill=False,
+                 cmap='jet',
+                 colorbar=True
+                )
+
+@interact
+def _(
+    show_graph = False,
+    show_grad_vector = False,
+#     show_vf = True,
+    x0 = slider(-M, M, step_size=0.001, default=2.0, label='$x$'),
+    y0 = slider(-M, M, step_size=0.001, default=-1.0, label='$y$'),
+    auto_update=True,
+    ):
+    
+    f0 = f(x=x0, y=y0)
+    fx = f_x(x=x0, y=y0)
+    fy = f_y(x=x0, y=y0)
+    print(f"f = {float(f0):.05}")
+    print(f"f_x = {float(fx):.05}")
+    print(f"f_y = {float(fy):.05}")
+    
+    if f0 < -14.47:
+        print('Congratulations! You have found the minumum!')
+    if f0 > 14:
+        print('Congratulations! You have found the maximum!')
+    
+    if show_graph:
+        pt = circle((x0,y0), M/100, fill=True, color='black')
+        if show_grad_vector:
+            show(p + pt + draw_grad_vector(a=x0, b=y0, da=fx, db=fy))
+        else:
+            show(p + pt)
+</script></div>
+
+
+<h2>Five dimensions: preparing for an exam</h2>
+
+<div class="compute"><script type="text/x-sage">
+N = 5   # number of subjects
+T = 72  # hours until exam
+c1, c2, c3, c4, c5 = 0.18, 0.22, 0.2, 0.3, 0.1
+subjects = ['Aerodynamics', 
+            'Propellant Chemistry',
+            'Material Science',
+            'Orbital Mechanics',
+            'WHS'
+           ]
+
+x1, x2, x3, x4, x5 = var('x_1 x_2 x_3 x_4 x_5')
+
+f = lambda x : x/(x+T/(6*N))
+g = lambda x: 0 if x < 0 else (1 if x > 1 else x)
+z = lambda x1, x2, x3, x4, x5 : 3*(T - x1 - x2 - x3 - x4 - x5)/T   # time for sleep
+
+P = lambda x1, x2, x3, x4, x5 : g(z(x1, x2, x3, x4, x5))*(c1*f(x1) + c2*f(x2) + c3*f(x3) + c4*f(x4) + c5*f(x5))
+
+print("You have 72 hours before your Rocket Science exam. Choose how much time to spend revising each topic to maximise your exam performance. Remember to get enough sleep, too!")
+print()
+
+
+@interact
+def _(
+    t1 = slider(0, 24, default=0, label=subjects[0]),
+    t2 = slider(0, 24, default=0, label=subjects[1]),
+    t3 = slider(0, 24, default=0, label=subjects[2]),
+    t4 = slider(0, 24, default=0, label=subjects[3]),
+    t5 = slider(0, 24, default=0, label=subjects[4]),
+):
+    sleep = 72 - t1 - t2 - t3 - t4 - t5
+    performance = P(t1, t2, t3, t4, t5)*1.2
+    print("Exam result: ", performance*100, ", Sleep: ", sleep, " hours total")
+</script></div>
+
+<h2>About SageMath</h2>
+
+  SageMath is a powerful open source mathematics package used by actual researchers.<br><br>
+
+  You can download SageMath <a href="https://www.sagemath.org/">here</a>.<br>
+
+  You can also just run Sage commands online, on this page or on the
+  <a href="https://sagecell.sagemath.org/">Sage Cell Server</a>.<br>
+
+  Sage <a href="https://doc.sagemath.org/html/en/tutorial/index.html">Tutorials</a> and documentation are
+  <a href="https://doc.sagemath.org/">here</a>.<br>
+
+</body>
+</html>
