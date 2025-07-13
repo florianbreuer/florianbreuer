@@ -9,6 +9,54 @@
     <meta name="viewport" content="width=device-width">
     <title>MATH1120 Sage Playground</title>
     <script src="https://sagecell.sagemath.org/static/embedded_sagecell.js"></script>
+    <style>
+      .collapsible {
+        background-color: #f8f9fa;
+        border: 1px solid #dee2e6;
+        border-radius: 5px;
+        margin: 10px 0;
+        cursor: pointer;
+        padding: 15px;
+        width: 100%;
+        text-align: left;
+        outline: none;
+        font-size: 16px;
+        font-weight: bold;
+        color: #495057;
+        transition: background-color 0.3s;
+      }
+
+      .collapsible:hover {
+        background-color: #e9ecef;
+      }
+
+      .collapsible:after {
+        content: '\002B'; /* Unicode character for "plus" sign (+) */
+        font-weight: bold;
+        float: right;
+        margin-left: 5px;
+        font-size: 18px;
+      }
+
+      .active:after {
+        content: "\2212"; /* Unicode character for "minus" sign (-) */
+      }
+
+      .content {
+        padding: 0 18px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+        background-color: white;
+        border-left: 3px solid #007bff;
+        margin-left: 15px;
+      }
+
+      .content.show {
+        max-height: 1000px; /* Adjust this value based on your content */
+        padding: 18px;
+      }
+    </style>
     <script>
     // Make the div with id 'mycell' a Sage cell
     sagecell.makeSagecell({inputLocation:  '#mycell',
@@ -17,6 +65,29 @@
     // Make *any* div with class 'compute' a Sage cell
     sagecell.makeSagecell({inputLocation: 'div.compute',
                            evalButtonText: 'Evaluate'});
+
+    // Collapsible functionality
+    function toggleCollapsible(element) {
+      element.classList.toggle("active");
+      var content = element.nextElementSibling;
+      if (content.style.maxHeight) {
+        content.style.maxHeight = null;
+        content.classList.remove("show");
+      } else {
+        content.style.maxHeight = content.scrollHeight + "px";
+        content.classList.add("show");
+      }
+    }
+
+    // Add click event listeners to all collapsible buttons
+    document.addEventListener('DOMContentLoaded', function() {
+      var coll = document.getElementsByClassName("collapsible");
+      for (var i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function() {
+          toggleCollapsible(this);
+        });
+      }
+    });
     </script>
   </head>
   <body>
@@ -36,14 +107,42 @@ material. This means minimizing the surface area.
 
 We have two inputs: the radius \(r\) of the can, and the height \(h\) of the can.
 Since the volume is fixed at 330ml, these inputs are related by the equation for the volume of a cylinder:
-\(V = \pi r^2 h\). This means we can choose one variable, say the radius \(r\), 
-and then the height \(h\) is determined by the volume.
+\(V = \pi r^2 h\). This means we can adjust one variable, say the radius \(r\), 
+and then the height \(h\) is determined by the volume.<br><br>
 
 In the interactive below, we have a slider for the radius \(r\). The height and 
 the surface area are then calculated from the volume. 
-Play with the slider to determine the optimal radius.<br><br>
+Click "Evaluate" to execute the SageMath code, then 
+play with the slider to determine the optimal radius, i.e. 
+the radius that minimizes the surface area \(A\).<br><br>
 
+Since there is only one slider, this is a <b>one-dimensional</b> optimization problem.
 
+<button class="collapsible">📐 Mathematical Details</button>
+<div class="content">
+  <h4>Mathematical Formulation</h4>
+  <p>The surface area of a cylinder is given by:</p>
+  <p>\[A = 2\pi r^2 + 2\pi rh\]</p>
+  
+  <p>Since the volume is fixed at 330ml, we have:</p>
+  <p>\[V = \pi r^2 h = 330\]</p>
+  
+  <p>Solving for \(h\):</p>
+  <p>\[h = \frac{330}{\pi r^2}\]</p>
+  
+  <p>Substituting back into the surface area formula:</p>
+  <p>\[A = 2\pi r^2 + 2\pi r \cdot \frac{330}{\pi r^2} = 2\pi r^2 + \frac{660}{r}\]</p>
+  
+  <p>To find the minimum, we take the derivative and set it to zero:</p>
+  <p>\[\frac{dA}{dr} = 4\pi r - \frac{660}{r^2} = 0\]</p>
+  
+  <p>Solving for \(r\):</p>
+  <p>\[4\pi r = \frac{660}{r^2}\]</p>
+  <p>\[4\pi r^3 = 660\]</p>
+  <p>\[r = \sqrt[3]{\frac{660}{4\pi}} \approx 3.74\]</p>
+  
+  <p>This gives us the optimal radius for minimal surface area!</p>
+</div>
 
 <div class="compute"><script type="text/x-sage">
 from sage.plot.plot3d.shapes import Cylinder
@@ -81,12 +180,64 @@ def _(
         C = Cylinder(r0, h0, color='red', plot_edges=True, edgecolor='black', mesh=False)
         t_radius = text3d(f"radius = {float(r0):.06}", (0, r0/2, h0+1.0), color='black', fontsize=12)
         t_height = text3d(f"height = {float(h0):.06}", (0, r0+1.5, 0.5*h0), color='black', fontsize=12)
+        t_area = text3d(f"area = {float(A0):.06}", (0, r0+3, -0.5*h0), color='black', fontsize=14)
         circ_1 = parametric_plot3d((r0*cos(t), r0*sin(t), h0), (t, 0, 2*pi), color='black', thickness=1)
         circ_2 = parametric_plot3d((r0*cos(t), r0*sin(t), 0), (t, 0, 2*pi), color='black', thickness=1)
-        show(C + circ_1 + circ_2 + t_radius + t_height, frame=False, axes=False, figsize=4)
+        show(C + circ_1 + circ_2 + t_radius + t_height + t_area, frame=False, axes=False, figsize=4)
 </script></div>
 
+
+
+
+
+
+
 <h2>Two dimensions: Maximizing the area of a triangle</h2>
+
+Now for a two-dimensional optimization problem. We want to find out how to make a triangle with the 
+largest possible area, given a fixed perimeter. The triangle is determined by its three sidelengths,
+\(a\), \(b\), and \(c\).  
+However, the perimeter is fixed, so we can only adjust two of the sidelengths, with the third being
+determined by the other two and the perimeter.<br><br>
+
+Let's suppose the perimeter is 2, so \(a + b + c = 2\). In the interactive below, we have two sliders, 
+one for \(a\) and one for \(b\). The third sidelength \(c\) is then determined by the perimeter.
+Click "Evaluate" to execute the SageMath code, then 
+play with the sliders to determine the optimal values of \(a\) and \(b\) that maximize the area 
+\(A\) of the triangle.<br><br>
+
+(You may notice that, when your two sidelengths add up to less than 1 or more than 2, then you can't 
+form a triangle with perimeter 2. This is because the triangle inequality says that the sum of any two 
+sides of a triangle must be greater than the third side.)<br><br>
+
+
+<button class="collapsible">📐 Mathematical Details</button>
+<div class="content">
+  <h4>Mathematical Formulation</h4>
+  <p>Here we use a cool result called <b>Heron's formula</b>, 
+    which gives the area of a triangle in terms of its sidelengths: 
+    \[ A = \sqrt{s(s-a)(s-b)(s-c)}, \]
+    where \(s = (a+b+c)/2\) is the semiperimeter.<br><br>
+    
+    For simplicity, suppose \(s=1\), i.e. the triangle has perimeter 2. 
+    Then the square of the area is given by
+    \[A^2 = f(a,b) = (a-1)(b-1)(a+b-1),\]
+    where
+    \[a +b \geq 1,\; a\leq 1,\; b\leq 1.\]
+  </p>
+  <p>Maximizing \(A^2\) is equivalent to maximizing \(A\), so we can ignore the square root and 
+    just maximize \(f(a,b) = (a-1)(b-1)(a+b-1)\).
+  </p>
+  <p>
+    The details of how to maximize \(f(a,b)\) are taught in MATH1120, 
+    but a simple method involves following the gradient vector of \(f\) until it is zero. 
+    Then you have found a (local) maximum. This is called <b>gradient ascent</b>, and is often used 
+    in more advanced optimization problems, such as machine learning.
+  </p>
+  <p>
+    With hindsight, does it surprise you that the optimal triangle is equilateral?
+  </p>
+</div>
 
 <div class="compute"><script type="text/x-sage">
 a = var('a')
@@ -103,12 +254,7 @@ def g(x, y):
         return sqrt((x-1)*(y-1)*(x+y-1))
     else:
         return False
-    
-# def grad_f(x, y):
-#     if x + y >= 1:
-#         return ((y-1)*(2*x+y-2), (x-1)*(x+2*y-2))
-#     else:
-#         return (0,0)
+
 
 pp = contour_plot(g, (x, 0, 1), (y, 0, 1), 
                     contours=50, 
@@ -182,13 +328,13 @@ def draw_grad_vector(a,b, da, db, h=1, draw_components=False):
 
 @interact
 def _(
-    show_graph = True,
+    show_graph = False,
     show_triangle = True,
     show_grad_vector = True,
 #     show_vf = True,
     a = slider(0.0, 1.0, step_size=0.001, default=0.5),
     b = slider(0.0, 1.0, step_size=0.001, default=0.5),
-    auto_update=False,
+    auto_update=True,
     ):
     c = 2 - a - b
     
@@ -222,7 +368,14 @@ def _(
             show(tt, axes=False, aspect_ratio=1)
 </script></div>
 
+
+
+
 <h2>A more abstract function</h2>
+
+Here is a more abstract function. It has two inputs, \(x\) and \(y\). <br><br>
+
+Play with the sliders below and see if you can find the maximum and minimum values of the function.
 
 <div class="compute"><script type="text/x-sage">
 x, y = var('x y')
@@ -254,8 +407,8 @@ def _(
     show_graph = False,
     show_grad_vector = False,
 #     show_vf = True,
-    x0 = slider(-M, M, step_size=0.001, default=2.0, label='$x$'),
-    y0 = slider(-M, M, step_size=0.001, default=-1.0, label='$y$'),
+    x0 = slider(-M, M, step_size=0.001, default=2.0, label='x'),
+    y0 = slider(-M, M, step_size=0.001, default=-1.0, label='y'),
     auto_update=True,
     ):
     
@@ -281,6 +434,25 @@ def _(
 
 
 <h2>Five dimensions: preparing for an exam</h2>
+
+In the previous examples, it was possible to plot the function that was to be maximized or minimized.
+
+But when there are more than two inputs, this is no longer possible. 
+It becomes very hard to visualize what is going on, since the input is now a point in a
+higher-dimensional space. <br><br>
+
+Here is a <b>five-dimensional</b> optimization problem, i.e. you have to adjust five inputs. 
+
+You have 72 hours before your Rocket Science exam. 
+You have to choose how much time to spend revising each topic. 
+Play with the sliders below to allocate study time to each topic, 
+but remember to leave enough time for sleep!<br><br>
+
+
+
+
+
+
 
 <div class="compute"><script type="text/x-sage">
 N = 5   # number of subjects
