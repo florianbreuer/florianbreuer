@@ -1,0 +1,283 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vigenère Cipher Playground</title>
+  <style>
+    :root {
+      --bg: #0f172a;        /* slate-900 */
+      --panel: #111827;     /* gray-900 */
+      --muted: #94a3b8;     /* slate-400 */
+      --text: #e5e7eb;      /* gray-200 */
+      --accent: #22d3ee;    /* cyan-400 */
+      --accent-2: #a78bfa;  /* violet-400 */
+      --danger: #fca5a5;    /* red-300 */
+      --ok: #86efac;        /* green-300 */
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
+      background: linear-gradient(135deg, #0f172a 0%, #111827 60%, #0b1324 100%);
+      color: var(--text);
+    }
+    .wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+    header {
+      display: grid;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+    h1 { font-size: clamp(1.6rem, 2.5vw, 2.2rem); margin: 0; letter-spacing: 0.3px; }
+    header p { margin: 0; color: var(--muted); }
+
+    .card {
+      background: rgba(17, 24, 39, 0.7);
+      border: 1px solid rgba(148, 163, 184, 0.15);
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+      overflow: hidden;
+    }
+    .card .grid { display: grid; gap: 16px; padding: 16px; }
+    @media (min-width: 980px) {
+      .card .grid { grid-template-columns: 1fr 1fr; }
+    }
+    label { font-weight: 600; font-size: 0.95rem; }
+    textarea, input[type="text"] {
+      width: 100%;
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      background: #0b1222;
+      color: var(--text);
+      border-radius: 12px;
+      padding: 12px 14px;
+      outline: none;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+      font-size: 0.98rem;
+    }
+    textarea { min-height: 220px; resize: vertical; }
+    textarea::placeholder, input::placeholder { color: #64748b; }
+    textarea:focus, input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(34, 211, 238, 0.15); }
+
+    .row { display: grid; gap: 8px; }
+    .controls { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    .spacer { flex: 1 1 auto; }
+
+    .btn {
+      --btn-bg: #0b1222; --btn-brd: rgba(148,163,184,0.35); --btn-hover: rgba(34,211,238,0.18);
+      border: 1px solid var(--btn-brd);
+      color: var(--text);
+      background: var(--btn-bg);
+      border-radius: 999px;
+      padding: 10px 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.06s ease, background 0.15s ease, box-shadow 0.15s ease, border-color 0.15s ease;
+      user-select: none;
+    }
+    .btn:hover { background: var(--btn-hover); border-color: rgba(34,211,238,0.6); }
+    .btn:active { transform: translateY(1px); }
+    .btn.primary { --btn-bg: linear-gradient(90deg, rgba(34,211,238,0.12), rgba(167,139,250,0.12)); --btn-hover: rgba(167,139,250,0.22); }
+    .btn.ghost { opacity: 0.9; }
+    .btn.warn { border-color: rgba(252,165,165,0.6); background: rgba(252,165,165,0.12); }
+    .btn.success { border-color: rgba(134,239,172,0.7); background: rgba(134,239,172,0.12); }
+
+    .options { display: grid; gap: 10px; padding: 0 16px 16px; }
+    .options .inline { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+    .chip {
+      border: 1px dashed rgba(148,163,184,0.35);
+      color: var(--muted);
+      border-radius: 999px;
+      padding: 6px 10px;
+      font-size: 0.85rem;
+    }
+
+    .help { color: var(--muted); font-size: 0.9rem; }
+    .key-error { color: var(--danger); font-weight: 600; display: none; }
+    .toast { position: fixed; right: 16px; bottom: 16px; padding: 10px 14px; background: #0b1222; border: 1px solid rgba(148,163,184,0.35); color: var(--text); border-radius: 12px; box-shadow: 0 10px 25px rgba(0,0,0,0.35); opacity: 0; transform: translateY(10px); transition: all 0.2s ease; }
+    .toast.show { opacity: 1; transform: translateY(0); }
+    footer { margin-top: 18px; color: var(--muted); font-size: 0.85rem; }
+    code { background: rgba(148,163,184,0.15); padding: 2px 6px; border-radius: 6px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Vigenère Cipher Playground</h1>
+      <p>Encode and decode text with a classic polyalphabetic cipher. Great for demos in class—no internet needed.</p>
+    </header>
+
+    <div class="card">
+      <div class="grid">
+        <div class="row">
+          <label for="input">Input text</label>
+          <textarea id="input" placeholder="Type or paste text here…">ATTACK AT DAWN</textarea>
+          <div class="controls">
+            <button class="btn ghost" id="example">Load classic example</button>
+            <button class="btn ghost" id="swap">Swap ⇄</button>
+            <div class="spacer"></div>
+            <button class="btn warn" id="clear">Clear</button>
+          </div>
+        </div>
+        <div class="row">
+          <label for="output">Output</label>
+          <textarea id="output" placeholder="Result will appear here…" readonly></textarea>
+          <div class="controls">
+            <button class="btn success" id="copy">Copy output</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="options">
+        <div class="row">
+          <label for="key">Keyword</label>
+          <input type="text" id="key" placeholder="Letters only, e.g., LEMON" value="LEMON" />
+          <div id="keyError" class="key-error">Keyword must contain at least one A–Z letter.</div>
+        </div>
+        <div class="inline">
+          <button class="btn primary" id="enc">Encrypt</button>
+          <button class="btn" id="dec">Decrypt</button>
+          <span class="chip" id="modeChip">Mode: Encrypt</span>
+          <div class="spacer"></div>
+          <label><input type="checkbox" id="preserveCase" checked> Preserve case</label>
+          <label><input type="checkbox" id="lettersOnly" checked> Letters only (skip others)</label>
+        </div>
+        <p class="help">Standard repeating-key Vigenère. When <em>Letters only</em> is checked, non-letters are copied verbatim and do not advance the key index.</p>
+      </div>
+    </div>
+
+    <footer>
+      <p>
+        Tip: Try the textbook example <code>ATTACKATDAWN</code> with key <code>LEMON</code> → ciphertext <code>LXFOPVEFRNHR</code>.
+      </p>
+    </footer>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    // --- Utility helpers ----------------------------------------------------
+    const $ = (sel) => document.querySelector(sel);
+    const toast = (msg) => { const t = $('#toast'); t.textContent = msg; t.classList.add('show'); setTimeout(() => t.classList.remove('show'), 1600); };
+
+    function normalizeKey(key) {
+      // Keep A-Z letters; map to 0..25 shifts
+      const letters = key.toUpperCase().match(/[A-Z]/g);
+      if (!letters) return [];
+      return letters.map(ch => ch.charCodeAt(0) - 65);
+    }
+
+    function isLetterCode(code) {
+      // A-Z or a-z
+      return (code >= 65 && code <= 90) || (code >= 97 && code <= 122);
+    }
+
+    /**
+     * Vigenère transform (encrypt/decrypt)
+     * @param {string} text - input text
+     * @param {number[]} keyShifts - array of 0..25 shifts
+     * @param {'enc'|'dec'} mode
+     * @param {{preserveCase:boolean, lettersOnly:boolean}} opts
+     */
+    function vigenere(text, keyShifts, mode, opts) {
+      if (!keyShifts.length) return { out: '', err: 'Empty key' };
+      const { preserveCase, lettersOnly } = opts;
+      let out = '';
+      let ki = 0; // key index (advances only on letters if lettersOnly)
+      for (let i = 0; i < text.length; i++) {
+        const ch = text[i];
+        const code = ch.charCodeAt(0);
+        if (isLetterCode(code)) {
+          const isUpper = (code >= 65 && code <= 90);
+          const base = isUpper ? 65 : 97;
+          const shift = keyShifts[ki % keyShifts.length];
+          const n = code - base;
+          const s = mode === 'enc' ? (n + shift) % 26 : (n - shift + 26) % 26;
+          let outCh = String.fromCharCode(base + s);
+          if (!preserveCase) outCh = outCh.toUpperCase();
+          out += outCh;
+          ki++;
+        } else {
+          // Not a letter
+          out += ch; // copy through
+          if (!lettersOnly) ki++; // optionally advance the key even on non-letters
+        }
+      }
+      return { out };
+    }
+
+    // --- DOM wiring ---------------------------------------------------------
+    const input = $('#input');
+    const output = $('#output');
+    const keyEl = $('#key');
+    const keyError = $('#keyError');
+    const encBtn = $('#enc');
+    const decBtn = $('#dec');
+    const modeChip = $('#modeChip');
+    const preserveCase = $('#preserveCase');
+    const lettersOnly = $('#lettersOnly');
+
+    function getKeyShiftsOrShowError() {
+      const shifts = normalizeKey(keyEl.value);
+      if (!shifts.length) {
+        keyError.style.display = 'block';
+      } else {
+        keyError.style.display = 'none';
+      }
+      return shifts;
+    }
+
+    function run(mode) {
+      const shifts = getKeyShiftsOrShowError();
+      if (!shifts.length) { toast('Please enter a keyword (A–Z).'); return; }
+      const { out } = vigenere(input.value, shifts, mode, {
+        preserveCase: preserveCase.checked,
+        lettersOnly: lettersOnly.checked
+      });
+      output.value = out;
+      modeChip.textContent = `Mode: ${mode === 'enc' ? 'Encrypt' : 'Decrypt'}`;
+      try { localStorage.setItem('vigenereLast', JSON.stringify({
+        input: input.value, output: out, key: keyEl.value, preserveCase: preserveCase.checked, lettersOnly: lettersOnly.checked
+      })); } catch {}
+    }
+
+    encBtn.addEventListener('click', () => run('enc'));
+    decBtn.addEventListener('click', () => run('dec'));
+
+    $('#swap').addEventListener('click', () => {
+      const tmp = input.value; input.value = output.value; output.value = tmp; toast('Swapped');
+    });
+    $('#copy').addEventListener('click', async () => {
+      try { await navigator.clipboard.writeText(output.value); toast('Copied to clipboard'); } catch {
+        output.select(); document.execCommand('copy'); toast('Copied');
+      }
+    });
+    $('#clear').addEventListener('click', () => { input.value = ''; output.value = ''; toast('Cleared'); });
+    $('#example').addEventListener('click', () => {
+      input.value = 'ATTACKATDAWN'; keyEl.value = 'LEMON'; preserveCase.checked = false; lettersOnly.checked = true; toast('Loaded example');
+      run('enc');
+    });
+
+    keyEl.addEventListener('input', getKeyShiftsOrShowError);
+
+    // Restore last session if present
+    (function restore() {
+      try {
+        const saved = JSON.parse(localStorage.getItem('vigenereLast') || 'null');
+        if (!saved) { run('enc'); return; }
+        input.value = saved.input || input.value;
+        output.value = saved.output || '';
+        keyEl.value = saved.key || keyEl.value;
+        preserveCase.checked = !!saved.preserveCase;
+        lettersOnly.checked = saved.lettersOnly !== false; // default true
+        modeChip.textContent = 'Mode: Encrypt';
+      } catch {}
+      run('enc');
+    })();
+  </script>
+</body>
+</html>

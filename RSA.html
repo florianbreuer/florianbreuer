@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>RSA Classroom Demo (Tiny Keys)</title>
+  <style>
+    :root {
+      --bg: #0f172a;        /* slate-900 */
+      --panel: #111827;     /* gray-900 */
+      --muted: #94a3b8;     /* slate-400 */
+      --text: #e5e7eb;      /* gray-200 */
+      --accent: #22d3ee;    /* cyan-400 */
+      --accent-2: #a78bfa;  /* violet-400 */
+      --danger: #fca5a5;    /* red-300 */
+      --ok: #86efac;        /* green-300 */
+    }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial; background: linear-gradient(135deg, #0f172a 0%, #111827 60%, #0b1324 100%); color: var(--text); }
+    .wrap { max-width: 1200px; margin: 0 auto; padding: 24px; }
+    h1 { margin: 0 0 6px; font-size: clamp(1.6rem, 2.6vw, 2.2rem); letter-spacing: .2px; }
+    .sub { color: var(--muted); margin-bottom: 16px; }
+    .grid { display: grid; gap: 16px; }
+    @media (min-width: 980px) { .grid.two { grid-template-columns: 1fr 1fr; } }
+    .card { background: rgba(17,24,39,0.75); border: 1px solid rgba(148,163,184,0.18); border-radius: 16px; overflow:hidden; box-shadow: 0 10px 30px rgba(0,0,0,.4); }
+    .card .pad { padding: 16px; }
+    label { font-weight: 600; font-size: 0.95rem; }
+    input[type="text"], input[type="number"], textarea, select { width: 100%; border:1px solid rgba(148,163,184,0.28); background:#0b1222; color: var(--text); border-radius: 12px; padding: 10px 12px; font-size: 0.95rem; outline: none; transition: border-color .15s ease, box-shadow .15s ease; }
+    textarea { min-height: 150px; resize: vertical; }
+    input:focus, textarea:focus, select:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(34,211,238,0.18); }
+    .row { display: grid; gap: 8px; margin-bottom: 10px; }
+    .inline { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+    .spacer { flex: 1 1 auto; }
+    .btn { --btn-bg:#0b1222; --btn-brd:rgba(148,163,184,.35); border:1px solid var(--btn-brd); background:var(--btn-bg); color:var(--text); border-radius: 999px; padding: 9px 13px; font-weight: 700; cursor: pointer; transition: transform .06s ease, background .15s ease, border-color .15s ease; }
+    .btn:hover { background: rgba(34,211,238,0.15); border-color: rgba(34,211,238,0.6); }
+    .btn:active { transform: translateY(1px); }
+    .btn.primary { background: linear-gradient(90deg, rgba(34,211,238,0.12), rgba(167,139,250,0.12)); }
+    .btn.warn { background: rgba(252,165,165,0.12); border-color: rgba(252,165,165,0.6); }
+    .btn.success { background: rgba(134,239,172,0.12); border-color: rgba(134,239,172,0.7); }
+    .muted { color: var(--muted); font-size: .9rem; }
+    .chip { border:1px dashed rgba(148,163,184,.4); color:var(--muted); padding: 4px 10px; border-radius: 999px; font-size: .85rem; }
+    .kbd { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-size: .92rem; }
+    .cols { display:grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .danger { color: var(--danger); font-weight: 700; }
+    footer { color: var(--muted); margin-top: 14px; font-size: .85rem; }
+    .toast { position:fixed; right:16px; bottom:16px; background:#0b1222; border:1px solid rgba(148,163,184,.35); padding:10px 14px; color:var(--text); border-radius:12px; box-shadow:0 10px 25px rgba(0,0,0,.35); opacity:0; transform:translateY(10px); transition:all .2s ease; }
+    .toast.show { opacity:1; transform:translateY(0); }
+    .row .hint { color:var(--muted); font-size:.85rem; margin-top:-4px; }
+    .kbdblock { background:#0b1222; border:1px dashed rgba(148,163,184,.35); border-radius:10px; padding:8px 10px; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono"; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>RSA Demo — Tiny, Insecure Keys (for teaching only)</h1>
+    <div class="sub">Generate a small RSA keypair, encrypt with <span class="kbd">(N, e)</span>, and decrypt with <span class="kbd">d</span>. Byte‑packing is automatic so that each plaintext block is smaller than <span class="kbd">N</span>. <strong class="danger">Not real security. No padding (OAEP) — educational demo only.</strong></div>
+
+    <div class="card">
+      <div class="pad grid two">
+        <!-- LEFT: Key material -->
+        <div>
+          <div class="row"><label>Public key (N, e)</label>
+            <div class="cols">
+              <input id="N" type="text" placeholder="N = p × q" />
+              <input id="e" type="number" placeholder="e" value="3" />
+            </div>
+          </div>
+          <div class="row"><label>Private key (d)</label>
+            <input id="d" type="text" placeholder="d (private exponent)" />
+            <div class="hint">Keep this secret. For classroom exercises, you can blank it out and give students only <span class="kbd">N, e</span>.</div>
+          </div>
+          <div class="cols">
+            <button class="btn primary" id="gen">Generate keypair</button>
+            <button class="btn" id="clearKeys">Clear keys</button>
+          </div>
+          <div class="row inline" style="margin-top:8px;">
+            <label>Prime size:
+              <select id="digits">
+                <option value="2">2‑digit primes (10–99)</option>
+                <option value="3" selected>3‑digit primes (100–999)</option>
+              </select>
+            </label>
+            <label>Public exponent:
+              <select id="ePreset">
+                <option value="3" selected>e = 3 (simple)</option>
+                <option value="17">e = 17</option>
+                <option value="65537">e = 65537</option>
+              </select>
+            </label>
+            <span class="chip" id="blockInfo">Block size: —</span>
+            <div class="spacer"></div>
+            <label><input id="showPQ" type="checkbox"> Show p & q</label>
+          </div>
+          <div class="row" id="pqRow" style="display:none;">
+            <div class="cols">
+              <input id="p" type="text" placeholder="p (prime)" />
+              <input id="q" type="text" placeholder="q (prime)" />
+            </div>
+          </div>
+        </div>
+
+        <div class="row" id="computeRow" style="display:none;">
+            <div class="inline">
+              <button class="btn success" id="computeD">Use p & q → compute N and d</button>
+              <span class="chip" id="phiInfo">φ(N): —</span>
+            </div>
+            <div class="hint">If students have factored <span class="kbd">N</span>, enter primes <span class="kbd">p,q</span> and click the button to compute <span class="kbd">N</span>, <span class="kbd">φ(N)</span>, and <span class="kbd">d = e^{-1} mod φ(N)</span>. Requires gcd(e, φ)=1.</div>
+          </div>
+
+        <!-- RIGHT: Mode settings -->
+        <div>
+          <div class="row"><label>Byte packing & formatting</label>
+            <div class="inline">
+              <label><input type="checkbox" id="lettersOnly" checked> Only pack letters? <span class="muted">(No, pack all bytes by default)</span></label>
+              <label><input type="checkbox" id="padZeros" checked> Pad final block with zeros</label>
+              <label><input type="checkbox" id="lenPrefix"> Include 2‑byte length prefix</label>
+            </div>
+            <div class="hint">Block size = max k s.t. <span class="kbd">256^k &lt; N</span>. Length prefix requires k ≥ 2.</div>
+          </div>
+          <div class="row">
+            <div class="inline">
+              <button class="btn" id="exportPub">Copy public key</button>
+              <button class="btn" id="exportPriv">Copy private key</button>
+              <button class="btn" id="importKeys">Import keys…</button>
+            </div>
+            <div id="ioHint" class="hint">Keys JSON format: <span class="kbdblock">{"N":"12345","e":"3","d":"6789","p":"101","q":"123"}</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Encrypt / Decrypt Panels -->
+    <div class="grid two" style="margin-top:16px;">
+      <div class="card">
+        <div class="pad">
+          <div class="row"><label>Encrypt with (N, e)</label>
+            <textarea id="plain" placeholder="Type message to encrypt (UTF‑8)…">HELLO RSA DEMO</textarea>
+          </div>
+          <div class="inline">
+            <button class="btn success" id="enc">Encrypt →</button>
+            <span class="chip" id="encStatus">Ready</span>
+            <div class="spacer"></div>
+            <button class="btn" id="copyCipher">Copy ciphertext</button>
+          </div>
+          <div class="row" style="margin-top:10px;">
+            <label>Ciphertext blocks (space‑separated decimals or JSON array)</label>
+            <textarea id="cipherOut" readonly placeholder="e.g., 1234 5678 9012 …"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="pad">
+          <div class="row"><label>Decrypt with (N, d)</label>
+            <textarea id="cipherIn" placeholder="Paste ciphertext blocks here (space‑separated or JSON)…"></textarea>
+          </div>
+          <div class="inline">
+            <button class="btn success" id="dec">← Decrypt</button>
+            <span class="chip" id="decStatus">Ready</span>
+            <div class="spacer"></div>
+            <button class="btn" id="copyPlain">Copy plaintext</button>
+          </div>
+          <div class="row" style="margin-top:10px;">
+            <label>Plaintext</label>
+            <textarea id="plainOut" readonly></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <p>
+        This is a didactic RSA toy: tiny primes, no OAEP padding, e may be 3. <strong>Never use for real data.</strong> In real systems, keys are 2048+ bits and proper padding is mandatory.
+      </p>
+      <div class="inline">
+        <button class="btn" id="runTests">Run self‑tests</button>
+        <span class="chip" id="testChip">Self‑tests: not run</span>
+      </div>
+    </footer>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <script>
+    // ---------- Helpers (UI) -------------------------------------------------
+    const $ = sel => document.querySelector(sel);
+    const toast = (msg) => { const t = $('#toast'); t.textContent = msg; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'), 1600); };
+    const encStatus = (s) => $('#encStatus').textContent = s;
+    const decStatus = (s) => $('#decStatus').textContent = s;
+
+    // ---------- BigInt math --------------------------------------------------
+    const toBig = (x) => (typeof x === 'bigint') ? x : BigInt(x);
+
+    function egcd(a, b) {
+      a = toBig(a); b = toBig(b);
+      let x = 1n, y = 0n, u = 0n, v = 1n;
+      while (b !== 0n) {
+        const q = a / b; const r = a % b; a = b; b = r;
+        const m = x - u * q; x = u; u = m;
+        const n = y - v * q; y = v; v = n;
+      }
+      return { g: a, x, y }; // ax + by = g
+    }
+    function modInv(a, m) {
+      const { g, x } = egcd(((a % m) + m) % m, m);
+      if (g !== 1n) throw new Error('No modular inverse');
+      return (x % m + m) % m;
+    }
+    function modPow(base, exp, mod) {
+      base = ((toBig(base) % mod) + mod) % mod; exp = toBig(exp); mod = toBig(mod);
+      let res = 1n;
+      while (exp > 0n) {
+        if (exp & 1n) res = (res * base) % mod;
+        base = (base * base) % mod;
+        exp >>= 1n;
+      }
+      return res;
+    }
+
+    // ---------- Primes (small) ----------------------------------------------
+    function isPrimeSmall(n) {
+      n = Number(n);
+      if (n < 2) return false;
+      if (n % 2 === 0) return n === 2;
+      const r = Math.floor(Math.sqrt(n));
+      for (let i = 3; i <= r; i += 2) if (n % i === 0) return false;
+      return true;
+    }
+    function randInt(min, max) { // inclusive
+      return Math.floor(min + Math.random() * (max - min + 1));
+    }
+    function randomPrimeWithDigits(d, e) {
+      const ranges = { 2: [10, 99], 3: [100, 999] };
+      const [lo, hi] = ranges[d];
+      let tries = 0;
+      while (true) {
+        if (++tries > 10000) throw new Error('Prime generation failed');
+        let n = randInt(lo, hi);
+        if (n % 2 === 0) n += 1; // make odd
+        if (n > hi) n = lo | 1;
+        // For e=3, avoid primes ≡ 1 (mod 3) to reduce gcd(e, phi) conflicts
+        if (e === 3 && n % 3 === 1) continue;
+        // forward search to next prime
+        while (!isPrimeSmall(n)) { n += 2; if (n > hi) n = lo | 1; }
+        return n;
+      }
+    }
+
+    // ---------- Key generation ----------------------------------------------
+    function generateKeypair(digits, eVal) {
+      const e = BigInt(eVal);
+      let p, q, N, phi, d;
+      while (true) {
+        p = BigInt(randomPrimeWithDigits(digits, Number(e)));
+        do { q = BigInt(randomPrimeWithDigits(digits, Number(e))); } while (q === p);
+        N = p * q;
+        phi = (p - 1n) * (q - 1n);
+        if (egcd(e, phi).g === 1n) {
+          try { d = modInv(e, phi); break; } catch { /* try again */ }
+        }
+      }
+      return { p, q, N, e, d, phi };
+    }
+
+    // ---------- Byte packing -------------------------------------------------
+    function computeBlockSize(N) { // max k with 256^k < N
+      let k = 0n, pow = 1n;
+      while (pow * 256n < N) { pow *= 256n; k++; }
+      return Number(k);
+    }
+    function textToBytes(str) { return new TextEncoder().encode(str); }
+    function bytesToText(bytes) { return new TextDecoder().decode(Uint8Array.from(bytes)); }
+
+    function bytesToBlocks(bytes, k, padZeros, lenPrefix) {
+      let data = Array.from(bytes);
+      if (lenPrefix && k >= 2) {
+        const L = data.length;
+        const hi = (L >>> 8) & 0xff; const lo = L & 0xff;
+        data = [hi, lo, ...data];
+      }
+      const res = [];
+      for (let i = 0; i < data.length; i += k) {
+        const chunk = data.slice(i, i + k);
+        if (chunk.length < k) {
+          if (padZeros) while (chunk.length < k) chunk.push(0);
+          else { /* drop last partial */ }
+        }
+        if (chunk.length === 0) break;
+        let value = 0n;
+        for (let j = 0; j < chunk.length; j++) value = (value << 8n) | BigInt(chunk[j]);
+        res.push(value);
+      }
+      return res;
+    }
+    function blocksToBytes(blocks, k, lenPrefix) {
+      const out = [];
+      for (const b of blocks) {
+        let x = BigInt(b);
+        const tmp = new Array(k).fill(0);
+        for (let i = k - 1; i >= 0; i--) { tmp[i] = Number(x & 255n); x >>= 8n; }
+        out.push(...tmp);
+      }
+      if (lenPrefix && k >= 2 && out.length >= 2) {
+        const L = (out[0] << 8) | out[1];
+        return out.slice(2, 2 + L);
+      }
+      return out;
+    }
+
+    // ---------- Ciphertext I/O ----------------------------------------------
+    function parseBlocks(str) {
+      str = (str || '').trim();
+      if (!str) return [];
+      try { const arr = JSON.parse(str); if (Array.isArray(arr)) return arr.map(v => BigInt(v)); } catch {}
+      // allow space/comma separated decimals or hex (0x...)
+      return str.split(/[\s,]+/).filter(Boolean).map(tok => tok.startsWith('0x') ? BigInt(tok) : BigInt(tok));
+    }
+    function blocksToString(blocks, mode='space') {
+      if (mode === 'json') return JSON.stringify(blocks.map(b => b.toString()))
+      return blocks.map(b => b.toString()).join(' ');
+    }
+
+    // ---------- Wiring -------------------------------------------------------
+    const NEl = $('#N'), eEl = $('#e'), dEl = $('#d'), pEl = $('#p'), qEl = $('#q');
+    const digitsEl = $('#digits'), ePreset = $('#ePreset');
+    const blockInfo = $('#blockInfo');
+    const lenPrefix = $('#lenPrefix');
+    const padZeros = $('#padZeros');
+    const testChip = $('#testChip');
+
+    function refreshBlockInfo() {
+      try {
+        const N = BigInt(NEl.value);
+        if (N > 0n) {
+          const k = computeBlockSize(N);
+          blockInfo.textContent = `Block size: ${k} byte${k===1?'':'s'}`;
+          if (k >= 2) { lenPrefix.disabled = false; } else { lenPrefix.checked = false; lenPrefix.disabled = true; }
+        } else blockInfo.textContent = 'Block size: —';
+      } catch { blockInfo.textContent = 'Block size: —'; }
+    }
+
+    function setKeys({N, e, d, p, q}) {
+      if (N) NEl.value = N.toString();
+      if (e) eEl.value = e.toString();
+      if (d) dEl.value = d.toString();
+      if (p) pEl.value = p.toString();
+      if (q) qEl.value = q.toString();
+      refreshBlockInfo();
+    }
+
+    $('#gen').addEventListener('click', () => {
+      const digits = Number(digitsEl.value);
+      const eVal = Number(ePreset.value);
+      try {
+        const {p, q, N, e, d} = generateKeypair(digits, eVal);
+        setKeys({N, e, d, p, q});
+        toast('Keypair generated');
+      } catch (err) {
+        toast('Key generation failed');
+      }
+    });
+    $('#clearKeys').addEventListener('click', () => { NEl.value=''; eEl.value='3'; dEl.value=''; pEl.value=''; qEl.value=''; const phi = $('#phiInfo'); if (phi) phi.textContent = 'φ(N): —'; refreshBlockInfo(); });
+    ePreset.addEventListener('change', () => { eEl.value = ePreset.value; });
+    [NEl, eEl].forEach(el => el.addEventListener('input', refreshBlockInfo));
+
+    $('#showPQ').addEventListener('change', (ev) => {
+      const show = ev.target.checked;
+      $('#pqRow').style.display = show ? '' : 'none';
+      const cr = $('#computeRow'); if (cr) cr.style.display = show ? '' : 'none';
+    });
+
+    $('#exportPub').addEventListener('click', () => {
+      const obj = { N: NEl.value, e: eEl.value };
+      navigator.clipboard.writeText(JSON.stringify(obj)).then(()=>toast('Public key copied')).catch(()=>toast('Copy failed'));
+    });
+    $('#exportPriv').addEventListener('click', () => {
+      const obj = { N: NEl.value, e: eEl.value, d: dEl.value, p: pEl.value, q: qEl.value };
+      navigator.clipboard.writeText(JSON.stringify(obj)).then(()=>toast('Private key copied')).catch(()=>toast('Copy failed'));
+    });
+    $('#importKeys').addEventListener('click', () => {
+      const s = prompt('Paste keys JSON (at least {"N":"…","e":"…"})');
+      if (!s) return;
+      try {
+        const obj = JSON.parse(s);
+        setKeys(obj);
+        toast('Keys imported');
+      } catch {
+        toast('Invalid JSON');
+      }
+    });
+
+    // Compute d from provided p & q (and e)
+    function computeFromPQ() {
+      try {
+        const pStr = pEl.value.trim();
+        const qStr = qEl.value.trim();
+        const eStr = eEl.value.trim();
+        if (!pStr || !qStr || !eStr) { toast('Enter p, q, and e'); return; }
+        const p = BigInt(pStr); const q = BigInt(qStr); const e = BigInt(eStr);
+        if (!isPrimeSmall(Number(p)) || !isPrimeSmall(Number(q))) { toast('p or q is not prime (small check)'); return; }
+        const N = p * q;
+        const phi = (p - 1n) * (q - 1n);
+        if (egcd(e, phi).g !== 1n) { toast('gcd(e, φ) ≠ 1 — choose a different e'); return; }
+        const d = modInv(e, phi);
+        setKeys({N, e, d, p, q});
+        const phiEl = $('#phiInfo'); if (phiEl) phiEl.textContent = `φ(N): ${phi.toString()}`;
+        toast('Computed d from p & q');
+      } catch (err) {
+        toast('Error computing from p & q: ' + err.message);
+      }
+    }
+    const computeBtn = $('#computeD'); if (computeBtn) computeBtn.addEventListener('click', computeFromPQ);
+    ;[pEl, qEl].forEach(el => el.addEventListener('keydown', (ev) => { if (ev.key === 'Enter') computeFromPQ(); }));
+
+    $('#enc').addEventListener('click', () => {
+      try {
+        const N = BigInt(NEl.value); const e = BigInt(eEl.value);
+        if (!N || !e) { encStatus('Missing N/e'); toast('Enter N and e'); return; }
+        const k = computeBlockSize(N);
+        if (k < 1) { encStatus('N too small'); return; }
+        const bytes = textToBytes($('#plain').value);
+        const blocks = bytesToBlocks(bytes, k, padZeros.checked, lenPrefix.checked);
+        // RSA encrypt each block: c = m^e mod N
+        const cipher = blocks.map(m => modPow(m, e, N));
+        $('#cipherOut').value = blocksToString(cipher, 'space');
+        encStatus(`Encrypted ${blocks.length} block${blocks.length===1?'':'s'}`);
+      } catch (err) {
+        encStatus('Error'); toast('Encryption error: ' + err.message);
+      }
+    });
+
+    $('#copyCipher').addEventListener('click', () => { navigator.clipboard.writeText($('#cipherOut').value).then(()=>toast('Ciphertext copied')); });
+
+    $('#dec').addEventListener('click', () => {
+      try {
+        const N = BigInt(NEl.value); const d = BigInt(dEl.value);
+        if (!N || !d) { decStatus('Missing N/d'); toast('Enter N and d'); return; }
+        const k = computeBlockSize(N);
+        const blocks = parseBlocks($('#cipherIn').value);
+        if (!blocks.length) { decStatus('No ciphertext'); return; }
+        const plainBlocks = blocks.map(c => modPow(c, d, N));
+        const bytes = blocksToBytes(plainBlocks, k, lenPrefix.checked);
+        $('#plainOut').value = bytesToText(bytes);
+        decStatus(`Decrypted ${plainBlocks.length} block${plainBlocks.length===1?'':'s'}`);
+      } catch (err) {
+        decStatus('Error'); toast('Decryption error: ' + err.message);
+      }
+    });
+
+    $('#copyPlain').addEventListener('click', () => { navigator.clipboard.writeText($('#plainOut').value).then(()=>toast('Plaintext copied')); });
+
+    // ---------- Self tests ---------------------------------------------------
+    function runSelfTests() {
+      const results = [];
+      const ok = (name, cond) => { results.push({ name, pass: !!cond }); return !!cond; };
+      try {
+        // Test 1: modular inverse
+        ok('modInv(3,40)=27', modInv(3n,40n) === 27n);
+        // Test 2: fast power classic
+        ok('modPow(4,13,497)=445', modPow(4n,13n,497n) === 445n);
+        // Test 3: tiny RSA roundtrip
+        const { N, e, d } = generateKeypair(2, 3);
+        const k = computeBlockSize(N);
+        const msg = 'TEST';
+        const blocks = bytesToBlocks(textToBytes(msg), k, true, true);
+        const cipher = blocks.map(m => modPow(m, e, N));
+        const plainBlocks = cipher.map(c => modPow(c, d, N));
+        const out = bytesToText(blocksToBytes(plainBlocks, k, true));
+        ok('RSA roundtrip (2-digit primes, e=3)', out.startsWith(msg));
+      } catch (err) {
+        console.error('Self-test error:', err);
+        results.push({ name: 'exception', pass: false, err });
+      }
+      const allPass = results.every(r => r.pass);
+      if (testChip) testChip.textContent = allPass ? 'Self‑tests: PASS' : 'Self‑tests: FAIL';
+      console.table(results);
+      return allPass;
+    }
+
+    $('#runTests').addEventListener('click', () => { const ok = runSelfTests(); toast(ok ? 'Self‑tests passed' : 'Self‑tests failed'); });
+
+    // Init
+    refreshBlockInfo();
+    // Optionally run tests on load:
+    runSelfTests();
+  </script>
+</body>
+</html>
