@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Interactive Roman/Decimal Abacus</title>
+<style>
+  :root{
+    --bg:#0b1020; --panel:#151b2d; --accent:#7aa2ff; --muted:#9aa3b2; --bar:#2b3350; --bead:#e5e7eb; --bead-active:#ffd166;
+  }
+  html,body{height:100%;}
+  body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",Arial,"Noto Sans",sans-serif;background:linear-gradient(180deg,#0b1020,#0f1630);color:#e6e9f0}
+  h1{font-size:clamp(1.2rem,1.2rem + 1.2vw,2rem);margin:0}
+  .wrap{max-width:1100px;margin-inline:auto;padding:24px;display:flex;flex-direction:column;gap:16px}
+  .toolbar{display:grid;grid-template-columns:1fr;gap:12px;background:var(--panel);border-radius:14px;padding:14px}
+  @media (min-width:780px){.toolbar{grid-template-columns:1.1fr 1fr 1fr 1fr;align-items:end}}
+  label{display:block;font-size:.85rem;color:var(--muted);margin-bottom:6px}
+  select,input[type="number"],input[type="text"]{width:100%;padding:10px 12px;border-radius:10px;border:1px solid #2a2f45;background:#0f1430;color:#eef2ff;outline:none}
+  .btnrow{display:flex;gap:10px;flex-wrap:wrap}
+  button{appearance:none;border:1px solid #2a2f45;background:#101634;color:#e8edff;padding:10px 14px;border-radius:10px;cursor:pointer}
+  button.primary{background:var(--accent);color:#0a0f22;border-color:transparent;font-weight:600}
+  button:disabled{opacity:.5;cursor:not-allowed}
+  .readout{background:#0e1430;border:1px solid #252a42;border-radius:12px;padding:12px;margin:0 0 10px 0}
+  .readout div{font-size:.85rem;color:var(--muted)}
+  .readout strong{font-size:1.1rem}
+
+  /* Abacus area */
+  .abacus-shell{background:var(--panel);border-radius:16px;padding:16px;border:1px solid #252a42}
+  .abacus{display:flex;gap:18px;justify-content:center;align-items:stretch;min-height:360px;position:relative}
+  .col{width:72px;position:relative;background:rgba(255,255,255,0.02);border-radius:14px;padding:10px 10px 14px;border:1px solid #212744}
+  .col-label{position:absolute;inset:auto 0 6px 0;text-align:center;font-size:.8rem;color:var(--muted)}
+  .rod{position:absolute;left:10px;right:10px;top:46%;height:6px;background:var(--bar);border-radius:3px;border:1px solid #1b2037}
+
+  .zone{position:absolute;left:0;right:0;display:flex;flex-direction:column;align-items:center;gap:10px;padding:10px}
+  .zone.upper{top:8px;bottom:52%}
+  .zone.lower{top:52%;bottom:26px}
+
+  .bead{width:46px;height:28px;border-radius:999px;background:linear-gradient(180deg,#e9eef6,#cdd3de);border:1px solid #a5adbb;box-shadow:inset 0 -3px 6px rgba(0,0,0,.25),0 2px 6px rgba(0,0,0,.25);transition:transform .15s ease, background .15s ease, box-shadow .15s ease}
+  .bead.dark{background:linear-gradient(180deg,#d9dde7,#bfc5d2)}
+  .bead.active{background:linear-gradient(180deg,#ffe599,#ffd166);border-color:#f0c157}
+  .bead[role="button"]{cursor:pointer}
+  .hint{color:var(--muted);font-size:.9rem}
+  .footer{opacity:.8;font-size:.85rem}
+
+  /* Positioning for active states */
+  /* Upper: inactive = far from rod; active = pressed toward rod (down) */
+  .bead.upper.inactive{transform:translateY(-18px)}
+  .bead.upper.active{transform:translateY(0)}
+  /* Lower: inactive = far from rod (down); active = pressed toward rod (up) */
+  .bead.lower.inactive{transform:translateY(18px)}
+  .bead.lower.active{transform:translateY(0)}
+
+  /* Layout helpers */
+  .sidepanel{min-width:230px;display:flex;flex-direction:column;gap:10px}
+  .abacus-row{display:flex;gap:16px;align-items:stretch}
+
+  /* Small help card */
+  details{background:#0e1430;border:1px solid #252a42;border-radius:12px;padding:12px}
+  details summary{cursor:pointer;font-weight:600}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header style="display:flex;justify-content:space-between;gap:12px;align-items:end;flex-wrap:wrap">
+      <div>
+        <h1>Interactive Abacus — Roman hand abacus & decimal mode</h1>
+        <div class="hint">Click beads to move them, or enter a number to set the beads automatically.</div>
+      </div>
+    </header>
+
+    <section class="toolbar" aria-label="Controls">
+      <div>
+        <label for="mode">Mode</label>
+        <select id="mode" aria-label="Abacus mode">
+          <option value="roman" selected>Roman hand abacus (I, X, C, M …)</option>
+          <option value="decimal">Decimal (soroban-like biquinary)</option>
+        </select>
+      </div>
+      <div>
+        <label for="columns">Number of columns</label>
+        <select id="columns" aria-label="Number of columns">
+          <option value="4" selected>4 (ones…thousands)</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+        </select>
+      </div>
+      <div>
+        <label for="numberInput">Enter a number (0–9…):</label>
+        <input id="numberInput" type="text" inputmode="numeric" pattern="[0-9]+" placeholder="e.g., 3358" />
+        <div class="hint" style="margin-top:6px">In Roman mode we’ll also show its Roman numeral.</div>
+      </div>
+      <div>
+        <div class="btnrow">
+          <button id="setBtn" class="primary">Set from number</button>
+          <button id="readBtn">Read from beads</button>
+          <button id="clearBtn">Clear</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Operations & optional workspace -->
+    <section class="toolbar" aria-label="Operations" style="margin-top:6px">
+      <div>
+        <label for="opA">A (augend)</label>
+        <input id="opA" type="text" inputmode="numeric" pattern="[0-9]+" placeholder="e.g., 73" />
+        <div class="btnrow" style="margin-top:6px">
+          <button id="loadA" class="primary">Load A → Main</button>
+          <button id="readA">Read Main → A</button>
+        </div>
+      </div>
+      <div>
+        <label for="opB">B (addend/subtrahend)</label>
+        <input id="opB" type="text" inputmode="numeric" pattern="[0-9]+" placeholder="e.g., 46" />
+        <div class="btnrow" style="margin-top:6px">
+          <button id="loadB">Load B → Workspace</button>
+          <button id="copyMainToWork">Copy Main → Workspace</button>
+        </div>
+      </div>
+      <div>
+        <label>Single‑register arithmetic (acts on Main)</label>
+        <div class="btnrow">
+          <button id="addBtn">Main ← Main + B</button>
+          <button id="subBtn">Main ← Main − B</button>
+          <button id="stepAddBtn">Step Add (by digits)</button>
+        </div>
+        <div class="hint">“Single‑register” uses carries/borrows directly on the main abacus, like historical practice.</div>
+      </div>
+      <div>
+        <label>
+          <input type="checkbox" id="toggleWorkspace" /> Show second abacus (workspace)
+        </label>
+        <div class="hint">Use the workspace to hold a second number when you prefer two registers (e.g., for manual addition, subtraction, or checking).</div>
+      </div>
+    </section>
+
+    <section class="abacus-shell">
+      <div class="abacus-row">
+        <div id="abacus" class="abacus" aria-label="Abacus (Main)" role="application"></div>
+        <div class="sidepanel">
+          <div class="readout" aria-live="polite">
+            <div>Arabic value (Main)</div>
+            <strong id="arabicOut">0</strong>
+          </div>
+          <div class="readout" aria-live="polite">
+            <div id="romanLabelMain">Roman value (mode: Roman)</div>
+            <strong id="romanOut">—</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="abacus-shell" id="workspaceShell" style="display:none">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+        <div class="hint">Workspace abacus</div>
+        <div class="btnrow">
+          <button id="swapBtn">Swap Main ⇄ Workspace</button>
+          <button id="clearWork">Clear Workspace</button>
+        </div>
+      </div>
+      <div class="abacus-row">
+        <div id="abacus2" class="abacus" aria-label="Abacus (Workspace)" role="application"></div>
+        <div class="sidepanel">
+          <div class="readout" aria-live="polite">
+            <div>Arabic value (Workspace)</div>
+            <strong id="arabicOut2">0</strong>
+          </div>
+          <div class="readout" aria-live="polite">
+            <div id="romanLabelWork">Roman value (mode: Roman)</div>
+            <strong id="romanOut2">—</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <details>
+      <summary>How this works</summary>
+      <p>
+        Each column is bi‑quinary: an <em>upper bead</em> worth five units of its place value and four <em>lower beads</em> worth one unit each.
+        Press the upper bead toward the bar to add 5; press lower beads up to add 1–4. The app enforces contiguous lower beads.
+      </p>
+      <p>
+        In <strong>Roman mode</strong> the columns are labeled I, X, C, M, etc. Entering a number sets the beads; clicking beads updates the Arabic and Roman readouts.
+      </p>
+      <p>
+        <strong>Single‑register vs two‑register arithmetic:</strong> Historically one could add by operating directly on one register (adding B digit‑wise with carries). This app supports both: one‑register <em>Add/Subtract</em> buttons, and an optional second abacus as a workspace.
+      </p>
+    </details>
+
+    <details id="devTests" style="margin-top:8px">
+      <summary>Developer tests (optional)</summary>
+      <div class="btnrow" style="margin:8px 0">
+        <button id="runTests">Run tests</button>
+        <span id="testStatus" class="hint">(writes results below; state restored after tests)</span>
+      </div>
+      <pre id="testLog" style="background:#0e1430;border:1px solid #252a42;border-radius:8px;padding:10px;max-height:220px;overflow:auto"></pre>
+    </details>
+
+    <p class="footer">Built as a standalone single‑file widget. No external libraries.</p>
+  </div>
+
+<script>
+(function(){
+  const el = {
+    abacus: document.getElementById('abacus'),
+    arabicOut: document.getElementById('arabicOut'),
+    romanOut: document.getElementById('romanOut'),
+    romanLabelMain: document.getElementById('romanLabelMain'),
+    arabicOut2: document.getElementById('arabicOut2'),
+    romanOut2: document.getElementById('romanOut2'),
+    romanLabelWork: document.getElementById('romanLabelWork'),
+    numberInput: document.getElementById('numberInput'),
+    setBtn: document.getElementById('setBtn'),
+    readBtn: document.getElementById('readBtn'),
+    clearBtn: document.getElementById('clearBtn'),
+    columns: document.getElementById('columns'),
+    mode: document.getElementById('mode'),
+    // ops
+    opA: document.getElementById('opA'),
+    opB: document.getElementById('opB'),
+    loadA: document.getElementById('loadA'),
+    loadB: document.getElementById('loadB'),
+    readA: document.getElementById('readA'),
+    copyMainToWork: document.getElementById('copyMainToWork'),
+    addBtn: document.getElementById('addBtn'),
+    subBtn: document.getElementById('subBtn'),
+    stepAddBtn: document.getElementById('stepAddBtn'),
+    toggleWorkspace: document.getElementById('toggleWorkspace'),
+    workspaceShell: document.getElementById('workspaceShell'),
+    abacus2: document.getElementById('abacus2'),
+    swapBtn: document.getElementById('swapBtn'),
+    clearWork: document.getElementById('clearWork'),
+    // tests
+    runTests: document.getElementById('runTests'),
+    testLog: document.getElementById('testLog'),
+    testStatus: document.getElementById('testStatus'),
+  };
+
+  // Roman numerals up to standard range (we'll cap by columns anyway)
+  function toRoman(num){
+    if(num <= 0) return 'N'; // nulla (rare); display N for zero
+    const map = [
+      [1000,'M'], [900,'CM'], [500,'D'], [400,'CD'],
+      [100,'C'], [90,'XC'], [50,'L'], [40,'XL'],
+      [10,'X'], [9,'IX'], [5,'V'], [4,'IV'], [1,'I']
+    ];
+    let out='';
+    for(const [v,s] of map){
+      while(num >= v){ out += s; num -= v; }
+    }
+    return out;
+  }
+
+  const romanLabels = ['I','X','C','M','ↁ','ↂ','ↇ','ↈ'];
+
+  class Abacus{
+    constructor(container, opts={}){
+      this.container = container;
+      this.cols = opts.cols || 4;
+      this.mode = opts.mode || 'roman';
+      this.state = [];
+      this.render();
+    }
+    setMode(mode){ this.mode = mode; this.render(); this.updateOutputs?.(); }
+    setCols(n){ this.cols = n; this.render(); this.updateOutputs?.(); }
+
+    render(){
+      this.container.innerHTML = '';
+      this.state = [];
+      // Columns shown high-to-low (left to right highest place)
+      for(let c=this.cols-1; c>=0; c--){
+        const col = document.createElement('div');
+        col.className = 'col';
+        col.dataset.index = c;
+
+        const rod = document.createElement('div'); rod.className = 'rod';
+        const zoneU = document.createElement('div'); zoneU.className = 'zone upper';
+        const zoneL = document.createElement('div'); zoneL.className = 'zone lower';
+        const label = document.createElement('div'); label.className = 'col-label';
+
+        if(this.mode === 'roman'){
+          label.textContent = romanLabels[c] || ('10^'+c);
+        } else {
+          label.textContent = '10^'+c;
+        }
+
+        const upper = document.createElement('div');
+        upper.className = 'bead upper inactive dark';
+        upper.setAttribute('role','button');
+        upper.setAttribute('aria-label',`Upper bead (5×10^${c})`);
+        upper.tabIndex = 0;
+        zoneU.appendChild(upper);
+
+        const lowers = [];
+        for(let i=0;i<4;i++){
+          const b = document.createElement('div');
+          b.className = 'bead lower inactive';
+          b.setAttribute('role','button');
+          b.setAttribute('aria-label',`Lower bead ${i+1} (1×10^${c})`);
+          b.tabIndex = 0;
+          zoneL.appendChild(b);
+          lowers.push(b);
+        }
+
+        col.appendChild(zoneU); col.appendChild(rod); col.appendChild(zoneL); col.appendChild(label);
+        this.container.appendChild(col);
+
+        this.state[c] = { upper:false, lower:0, els:{upper, lowers} };
+
+        upper.addEventListener('click',()=>this.toggleUpper(c));
+        upper.addEventListener('keydown',(e)=>{ if(e.key===' '||e.key==='Enter'){ e.preventDefault(); this.toggleUpper(c); }});
+        lowers.forEach((bead,idx)=>{
+          bead.addEventListener('click',()=>this.setLower(c, idx+1));
+          bead.addEventListener('keydown',(e)=>{ if(e.key===' '||e.key==='Enter'){ e.preventDefault(); this.setLower(c, idx+1); }});
+        });
+      }
+    }
+
+    paintColumn(c){
+      const st = this.state[c];
+      st.els.upper.classList.toggle('active', st.upper);
+      st.els.upper.classList.toggle('inactive', !st.upper);
+      st.els.lowers.forEach((b,i)=>{
+        const active = i < st.lower;
+        b.classList.toggle('active', active);
+        b.classList.toggle('inactive', !active);
+      });
+    }
+
+    toggleUpper(c){
+      const st = this.state[c];
+      st.upper = !st.upper;
+      this.paintColumn(c); this.updateOutputs?.();
+    }
+    setLower(c,count){
+      const st = this.state[c];
+      st.lower = (st.lower===count) ? 0 : count;
+      this.paintColumn(c); this.updateOutputs?.();
+    }
+
+    value(){
+      let total = 0;
+      for(let c=0;c<this.cols;c++){
+        const digit = (this.state[c].upper?5:0) + this.state[c].lower;
+        total += digit * Math.pow(10,c);
+      }
+      return total;
+    }
+
+    setValue(n){
+      if(n<0) n = 0;
+      const max = Math.pow(10,this.cols)-1;
+      if(n>max) n = max;
+      for(let c=0;c<this.cols;c++){
+        const pow = Math.pow(10,c);
+        const digit = Math.floor(n / pow) % 10;
+        const upper = digit>=5;
+        const lower = digit % 5;
+        this.state[c].upper = upper;
+        this.state[c].lower = lower;
+        this.paintColumn(c);
+      }
+      this.updateOutputs?.();
+    }
+
+    clear(){
+      for(let c=0;c<this.cols;c++){ this.state[c].upper=false; this.state[c].lower=0; this.paintColumn(c);} 
+      this.updateOutputs?.();
+    }
+  }
+
+  // Instantiate two abaci (main & workspace)
+  const abacusMain = new Abacus(el.abacus,{cols:parseInt(el.columns.value,10), mode:el.mode.value});
+  const abacusWork = new Abacus(el.abacus2,{cols:parseInt(el.columns.value,10), mode:el.mode.value});
+
+  // Output updaters for main and workspace
+  function updateOutputsMain(){
+    const v = abacusMain.value();
+    el.arabicOut.textContent = v.toLocaleString();
+    if(el.mode.value==='roman'){
+      el.romanOut.textContent = v>0 ? toRoman(v) : 'N';
+    } else {
+      el.romanOut.textContent = '—';
+    }
+  }
+  function updateOutputsWork(){
+    const v = abacusWork.value();
+    el.arabicOut2.textContent = v.toLocaleString();
+    if(el.mode.value==='roman'){
+      el.romanOut2.textContent = v>0 ? toRoman(v) : 'N';
+    } else {
+      el.romanOut2.textContent = '—';
+    }
+  }
+  abacusMain.updateOutputs = updateOutputsMain;
+  abacusWork.updateOutputs = updateOutputsWork;
+  updateOutputsMain();
+  updateOutputsWork();
+
+  // Keep both abaci in sync with global settings
+  el.columns.addEventListener('change',()=>{
+    const n = parseInt(el.columns.value,10);
+    abacusMain.setCols(n); 
+    abacusWork.setCols(n);
+    updateOutputsMain();
+    updateOutputsWork();
+  });
+  el.mode.addEventListener('change',()=>{
+    const m = el.mode.value;
+    abacusMain.setMode(m); 
+    abacusWork.setMode(m);
+    el.romanLabelMain.textContent = (m==='roman')? 'Roman value (mode: Roman)':'Roman value (mode: Decimal)';
+    el.romanLabelWork.textContent = (m==='roman')? 'Roman value (mode: Roman)':'Roman value (mode: Decimal)';
+    updateOutputsMain();
+    updateOutputsWork();
+  });
+
+  // Basic number set/read for main
+  el.setBtn.addEventListener('click',()=>{
+    const s = (el.numberInput.value||'').replace(/[^0-9]/g,'');
+    if(!s){ alert('Please enter a nonnegative integer.'); return; }
+    abacusMain.setValue(parseInt(s,10));
+  });
+  el.readBtn.addEventListener('click',()=>{
+    const v = abacusMain.value();
+    el.numberInput.value = String(v);
+    el.arabicOut.parentElement.animate([{boxShadow:'0 0 0 rgba(0,0,0,0)'},{boxShadow:'0 0 0 6px rgba(122,162,255,.25)'}],{duration:250,iterations:1});
+  });
+  el.clearBtn.addEventListener('click',()=>{
+    abacusMain.clear();
+    el.numberInput.value = '';
+    el.opA.value = '';
+    el.opB.value = '';
+    updateOutputsMain();
+  });
+  el.numberInput.addEventListener('keydown',(e)=>{ if(e.key==='Enter'){ e.preventDefault(); el.setBtn.click(); }});
+
+  // Workspace visibility
+  el.toggleWorkspace.addEventListener('change',()=>{
+    el.workspaceShell.style.display = el.toggleWorkspace.checked ? 'block' : 'none';
+  });
+
+  // Load/read/copy helpers
+  el.loadA.addEventListener('click',()=>{
+    const s = (el.opA.value||'').replace(/[^0-9]/g,'');
+    if(!s) return; abacusMain.setValue(parseInt(s,10)); updateOutputsMain();
+  });
+  el.readA.addEventListener('click',()=>{
+    el.opA.value = String(abacusMain.value());
+  });
+  el.loadB.addEventListener('click',()=>{
+    const s = (el.opB.value||'').replace(/[^0-9]/g,'');
+    if(!s) return; abacusWork.setValue(parseInt(s,10)); updateOutputsWork();
+  });
+  el.copyMainToWork.addEventListener('click',()=>{
+    abacusWork.setValue(abacusMain.value()); updateOutputsWork();
+  });
+  el.swapBtn.addEventListener('click',()=>{
+    const a = abacusMain.value(); const b = abacusWork.value();
+    abacusMain.setValue(b); abacusWork.setValue(a); 
+    updateOutputsMain(); updateOutputsWork();
+  });
+  el.clearWork.addEventListener('click',()=>{ 
+    abacusWork.clear(); 
+    updateOutputsWork();
+  });
+
+  // Arithmetic (single-register) — operate directly on Main
+  function clampToCols(n){
+    const max = Math.pow(10,abacusMain.cols)-1; 
+    if(n<0) return 0; 
+    if(n>max) return max; 
+    return n;
+  }
+  el.addBtn.addEventListener('click',()=>{
+    const s = (el.opB.value||'').replace(/[^0-9]/g,'');
+    const b = s? parseInt(s,10) : 0;
+    const result = clampToCols(abacusMain.value() + b);
+    abacusMain.setValue(result); updateOutputsMain();
+  });
+  el.subBtn.addEventListener('click',()=>{
+    const s = (el.opB.value||'').replace(/[^0-9]/g,'');
+    const b = s? parseInt(s,10) : 0;
+    const result = clampToCols(abacusMain.value() - b);
+    abacusMain.setValue(result); updateOutputsMain();
+  });
+
+  // Optional: stepwise addition by digits (visualize carries)
+  el.stepAddBtn.addEventListener('click',()=>{
+    const s = (el.opB.value||'').replace(/[^0-9]/g,'');
+    if(!s) return;
+    const b = parseInt(s,10);
+    let a = abacusMain.value();
+    let carry = 0;
+    const steps = [];
+    for(let c=0;c<abacusMain.cols;c++){
+      const pow = Math.pow(10,c);
+      const digitA = Math.floor(a / pow) % 10;
+      const digitB = Math.floor(b / pow) % 10;
+      let sum = digitA + digitB + carry;
+      carry = Math.floor(sum / 10);
+      sum = sum % 10;
+      steps.push({c, pow, newDigit: sum});
+      // update a for next computation (replace digit c)
+      a = a - digitA*pow + sum*pow;
+    }
+    let t = 0;
+    let tempValue = abacusMain.value();
+    steps.forEach((st, i)=>{
+      setTimeout(()=>{
+        // rebuild number digit-by-digit based on current tempValue
+        let current = tempValue;
+        const origDigit = Math.floor(current / st.pow) % 10;
+        current = current - origDigit*st.pow + st.newDigit*st.pow;
+        abacusMain.setValue(current);
+        updateOutputsMain();
+        tempValue = current;
+        if(i === steps.length-1 && carry>0){
+          // apply carry if within columns
+          const nextPow = Math.pow(10, steps[steps.length-1].c + 1);
+          const withCarry = current + carry * nextPow;
+          abacusMain.setValue(clampToCols(withCarry));
+          updateOutputsMain();
+        }
+      }, t);
+      t += 300;
+    });
+  });
+
+  // ---------- Simple test harness ----------
+  function log(msg){ el.testLog.textContent += msg + "\n"; }
+  function assertEq(actual, expected, label){
+    const ok = actual === expected;
+    log((ok?"✅":"❌") + " " + label + " → actual: " + actual + ", expected: " + expected);
+    return ok;
+  }
+  el.runTests?.addEventListener('click',()=>{
+    el.testLog.textContent = '';
+    const snapshot = {
+      main: abacusMain.value(),
+      work: abacusWork.value(),
+      cols: abacusMain.cols,
+      mode: el.mode.value,
+      numInput: el.numberInput.value,
+      A: el.opA.value,
+      B: el.opB.value,
+    };
+
+    try{
+      // Test 1: Roman conversion
+      assertEq(toRoman(3358), 'MMMCCCLVIII', 'toRoman(3358)');
+
+      // Test 2: set/get
+      abacusMain.setCols(4);
+      abacusMain.setValue(3358);
+      assertEq(abacusMain.value(), 3358, 'setValue/value roundtrip');
+
+      // Test 3: two-register copy & swap
+      abacusWork.setValue(46);
+      assertEq(abacusWork.value(), 46, 'workspace setValue');
+      el.copyMainToWork.click();
+      assertEq(abacusWork.value(), 3358, 'copy Main → Workspace');
+      el.swapBtn.click();
+      assertEq(abacusMain.value(), 3358, 'swap leaves Main as previous Workspace value');
+
+      // Reset for addition test
+      abacusMain.setValue(73); el.opB.value = '46';
+      el.addBtn.click();
+      assertEq(abacusMain.value(), 119, 'Main ← Main + B (73 + 46)');
+
+      log('All tests executed.');
+      el.testStatus.textContent = 'Tests completed. See log.';
+    } finally {
+      // restore state
+      abacusMain.setCols(snapshot.cols);
+      abacusMain.setMode(snapshot.mode);
+      abacusWork.setCols(snapshot.cols);
+      abacusWork.setMode(snapshot.mode);
+      abacusMain.setValue(snapshot.main);
+      abacusWork.setValue(snapshot.work);
+      el.numberInput.value = snapshot.numInput;
+      el.opA.value = snapshot.A;
+      el.opB.value = snapshot.B;
+      updateOutputsMain();
+      updateOutputsWork();
+    }
+  });
+})();
+</script>
+</body>
+</html>
