@@ -141,7 +141,7 @@
 </ul></p>
 
 <p>
-Notice also that if both <m> y_{1}(x) </m>  and <m> y_{1}(x) </m>  are solutions to <xref ref="homogeneous_2_order_constant_coefficients"/> then so will be <m> y(x)=A y_{1}(x)+B y_{2}(x) </m> where <m> A </m> and <m> B </m> are arbitrary constants. To see this, let <m> y_{1}(x) </m>  and <m> y_{2}(x) </m>  be solutions to <xref ref="homogeneous_2_order_constant_coefficients"/>, i.e.
+Notice also that if both <m> y_{1}(x) </m>  and <m> y_{2}(x) </m>  are solutions to <xref ref="homogeneous_2_order_constant_coefficients"/> then so will be <m> y(x)=A y_{1}(x)+B y_{2}(x) </m> where <m> A </m> and <m> B </m> are arbitrary constants. To see this, let <m> y_{1}(x) </m>  and <m> y_{2}(x) </m>  be solutions to <xref ref="homogeneous_2_order_constant_coefficients"/>, i.e.
 </p>
 
 <p><md>
