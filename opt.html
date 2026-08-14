@@ -467,11 +467,44 @@ subjects = ['Aerodynamics',
 
 x1, x2, x3, x4, x5 = var('x_1 x_2 x_3 x_4 x_5')
 
-f = lambda x : x/(x+T/(6*N))
-g = lambda x: 0 if x < 0 else (1 if x > 1 else x)
-z = lambda x1, x2, x3, x4, x5 : 3*(T - x1 - x2 - x3 - x4 - x5)/T   # time for sleep
+taus = [5, 8, 6, 10, 4]  # hours needed to make good progress in each subject
 
-P = lambda x1, x2, x3, x4, x5 : g(z(x1, x2, x3, x4, x5))*(c1*f(x1) + c2*f(x2) + c3*f(x3) + c4*f(x4) + c5*f(x5))
+def P(x1, x2, x3, x4, x5):
+    times = [x1, x2, x3, x4, x5]
+    mastery = [1 - exp(-times[i]/taus[i]) for i in range(N)]
+
+    # Reward both performance in important subjects and balanced preparation.
+    weighted_knowledge = sum([c1, c2, c3, c4, c5][i]*mastery[i] for i in range(N))
+    balanced_knowledge = prod(mastery)^(1/N)
+    knowledge = 0.75*weighted_knowledge + 0.25*balanced_knowledge
+
+    sleep = T - sum(times)
+    if sleep <= 0:
+        return 0
+
+    # This factor is largest at 24 hours of sleep over the three days.
+    sleep_factor = (sleep/24)*exp(1 - sleep/24)
+    return 1.09*knowledge*sleep_factor
+
+def gradient_at(times, h=0.001):
+    gradient = []
+    for i in range(N):
+        if times[i] == 0:
+            nearby = list(times)
+            nearby[i] += h
+            derivative = (P(*nearby) - P(*times))/h
+        elif times[i] == 24:
+            nearby = list(times)
+            nearby[i] -= h
+            derivative = (P(*times) - P(*nearby))/h
+        else:
+            before = list(times)
+            after = list(times)
+            before[i] -= h
+            after[i] += h
+            derivative = (P(*after) - P(*before))/(2*h)
+        gradient.append(100*derivative)
+    return vector(gradient)
 
 print("You have 72 hours before your Rocket Science exam. Choose how much time to spend revising each topic to maximise your exam performance. Remember to get enough sleep, too!")
 print()
@@ -484,10 +517,28 @@ def _(
     t3 = slider(0, 24, default=0, label=subjects[2]),
     t4 = slider(0, 24, default=0, label=subjects[3]),
     t5 = slider(0, 24, default=0, label=subjects[4]),
+    show_gradient_vector = False,
 ):
+    times = [t1, t2, t3, t4, t5]
     sleep = 72 - t1 - t2 - t3 - t4 - t5
-    performance = P(t1, t2, t3, t4, t5)*1.2
-    print("Exam result: ", performance*100, ", Sleep: ", sleep, " hours total")
+    performance = P(t1, t2, t3, t4, t5)
+    result = float(performance*100)
+
+    if result < 50:
+        grade = "FF"
+    elif result < 65:
+        grade = "P"
+    elif result < 75:
+        grade = "C"
+    elif result < 85:
+        grade = "D"
+    else:
+        grade = "HD"
+
+    print(f"Exam result: {result:.2f}% ({grade}), Sleep: {sleep} hours total")
+    if show_gradient_vector:
+        print("Gradient vector (percentage points per additional study hour):")
+        print(gradient_at(times))
 </script></div>
 
 <h2>About SageMath</h2>
