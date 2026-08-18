@@ -82,7 +82,11 @@
           where <m>D\subseteq\mathbb{R}^2</m> is again the domain. Formally, we define a function of two variables as:
       </p>
       <definition>
-        <term>A (real valued) function <m>f</m> of two variables</term> is a rule that assigns to each ordered pair of real numbers <m>(x,y)</m> in a set <m>D</m> a unique (real) number denoted by <m>f(x,y)</m>.
+        <statement>
+          <p>
+            <term>A (real valued) function <m>f</m> of two variables</term> is a rule that assigns to each ordered pair of real numbers <m>(x,y)</m> in a set <m>D</m> a unique (real) number denoted by <m>f(x,y)</m>.
+          </p>
+        </statement>
       </definition>
       <p>
         Thus,
@@ -268,7 +272,11 @@
         </figure>
       </p>
       <definition>
-        The <term>level curves</term> of a function <m>z=(x,y)</m> are curves in the <m>xy</m>-plane on which the function has the same value, i.e. on which <m>z=k</m>, where <m>k</m> is some constant.
+        <statement>
+          <p>
+            The <term>level curves</term> of a function <m>z=(x,y)</m> are curves in the <m>xy</m>-plane on which the function has the same value, i.e. on which <m>z=k</m>, where <m>k</m> is some constant.
+          </p>
+        </statement>
       </definition>
       <p>
         Note:
@@ -350,10 +358,14 @@
 
       <p>
         The surface associated with the graph of <m>f(x,y)=\sqrt{x^2+y^2}e^{-(x^2+y^2)}</m> (see <xref ref="Example-6-Calc-3"/>) is an example of a special kind of surface...a surface of revolution.
-        <definition>
-          A <term>surface of revolution</term> is a surface in <m>\mathbb{R}^3</m> obtained by rotating a curve about an axis.
-        </definition>
       </p>
+      <definition>
+        <statement>
+          <p>
+            A <term>surface of revolution</term> is a surface in <m>\mathbb{R}^3</m> obtained by rotating a curve about an axis.
+          </p>
+        </statement>
+      </definition>
 
       <example>
         <p>
@@ -380,11 +392,15 @@
       </example>
       <p>
         On repeating what we did in the above example in general gives:
-        <definition>
-          The equation of a surface of revolution obtained by rotating the curve <m>z=f(x), x\geq 0</m> in the <m>xz</m>-plane about the <m>z</m>-axis will be
-          <me>z=f(\sqrt{x^2+y^2})</me>
-        </definition>
       </p>
+      <definition>
+        <statement>
+          <p>
+            The equation of a surface of revolution obtained by rotating the curve <m>z=f(x), x\geq 0</m> in the <m>xz</m>-plane about the <m>z</m>-axis will be
+            <me>z=f(\sqrt{x^2+y^2})</me>
+          </p>
+        </statement>
+      </definition>
       <example>
         <p>
           Determine the equation of the surface obtained by rotating the curve in the <m>xz</m>-plane
