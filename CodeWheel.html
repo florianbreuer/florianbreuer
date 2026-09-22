@@ -1,0 +1,2425 @@
+<!doctype html>
+<html lang="en" data-visualize-standalone>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline' 'unsafe-eval' 'wasm-unsafe-eval' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src 'unsafe-inline' blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<title>Bronze Cipher Wheel — Caesar and Vigenère</title>
+<style>:root{color-scheme:light dark;background:light-dark(rgb(255 255 255), rgb(24 24 24))}html,body{margin:0}body{box-sizing:border-box;padding:1rem;background:inherit}iframe{display:block;width:100%;height:calc(100vh - 2rem);margin:0 auto;border:0}</style>
+</head>
+<body>
+<iframe id="codex-visualization" sandbox="allow-scripts" referrerpolicy="no-referrer" title="Bronze Cipher Wheel — Caesar and Vigenère" data-srcdoc="&lt;!doctype html&gt;
+&lt;html lang=&quot;en&quot; data-visualize-standalone&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+&lt;meta name=&quot;referrer&quot; content=&quot;no-referrer&quot;&gt;
+&lt;meta http-equiv=&quot;Content-Security-Policy&quot; content=&quot;default-src &#x27;none&#x27;; script-src &#x27;unsafe-inline&#x27; &#x27;unsafe-eval&#x27; &#x27;wasm-unsafe-eval&#x27; blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; style-src &#x27;unsafe-inline&#x27; blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; img-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; font-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; media-src blob: data: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://esm.sh https://fonts.bunny.net https://fonts.googleapis.com https://fonts.gstatic.com https://unpkg.com; worker-src blob:; connect-src blob: data:; frame-src &#x27;none&#x27;; object-src &#x27;none&#x27;; base-uri &#x27;none&#x27;; form-action &#x27;none&#x27;&quot;&gt;
+&lt;title&gt;Bronze Cipher Wheel — Caesar and Vigenère&lt;/title&gt;
+&lt;style&gt;:root {
+  color-scheme: light dark;
+  background-color: var(
+    --background,
+    var(--color-background-primary, light-dark(rgb(255 255 255), rgb(24 24 24)))
+  ) !important;
+
+  /* Agent-facing contract; keep in sync with SKILL.md. */
+  --background: var(
+    --color-background-primary,
+    light-dark(rgb(255 255 255), rgb(24 24 24))
+  );
+  --foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --card: color-mix(in oklab, var(--foreground) 5%, var(--background));
+  --card-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --popover: var(
+    --color-background-secondary,
+    light-dark(rgb(255 255 255), rgb(45 45 45))
+  );
+  --popover-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --primary: var(
+    --color-text-info,
+    light-dark(rgb(51 156 255), rgb(131 195 255))
+  );
+  --primary-foreground: var(
+    --color-text-inverse,
+    light-dark(rgb(255 255 255), rgb(13 13 13))
+  );
+  --secondary: var(
+    --color-background-secondary,
+    light-dark(rgb(255 255 255 / 96%), rgb(54 54 54 / 96%))
+  );
+  --secondary-foreground: var(
+    --color-text-primary,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --muted: color-mix(in srgb, var(--foreground) 10%, transparent);
+  --muted-foreground: var(
+    --color-text-secondary,
+    light-dark(rgb(26 28 31 / 49.4%), rgb(255 255 255 / 49.8%))
+  );
+  --accent: var(
+    --color-background-info,
+    light-dark(rgb(229 242 255), rgb(13 39 63))
+  );
+  --accent-foreground: var(
+    --color-text-info,
+    light-dark(rgb(51 156 255), rgb(131 195 255))
+  );
+  --destructive: var(
+    --color-text-warning,
+    light-dark(rgb(226 85 7), rgb(255 133 73))
+  );
+  --border: var(
+    --color-border-secondary,
+    light-dark(rgb(26 28 31 / 8%), rgb(255 255 255 / 8.2%))
+  );
+  --input: var(
+    --color-border-primary,
+    light-dark(
+      rgb(26 28 31 / 11.8%),
+      color-mix(in oklab, rgb(0 0 0) 10%, transparent)
+    )
+  );
+  --ring: var(
+    --color-ring-primary,
+    light-dark(rgb(51 156 255), rgb(131 195 255 / 76%))
+  );
+  --font-size-base: var(--font-text-md-size, 14px);
+  --blue: light-dark(rgb(51 156 255), rgb(51 156 255));
+  --orange: light-dark(rgb(226 85 7), rgb(251 106 34));
+  --green: light-dark(rgb(0 162 64), rgb(64 201 119));
+  --red: light-dark(rgb(224 46 42), rgb(255 103 100));
+  --purple: light-dark(rgb(146 79 247), rgb(173 123 249));
+  --yellow: light-dark(rgb(255 195 0), rgb(255 210 64));
+  --viz-series-1: var(--primary);
+  --viz-series-2: light-dark(rgb(243 136 59), rgb(245 154 86));
+  --viz-series-3: light-dark(rgb(93 201 119), rgb(116 213 139));
+  --viz-series-4: light-dark(rgb(235 119 177), rgb(240 143 192));
+  --viz-series-5: light-dark(rgb(155 121 236), rgb(170 145 239));
+  --viz-series-6: light-dark(rgb(58 185 177), rgb(90 203 194));
+
+  /* Internal implementation variables; not part of the agent contract. */
+  --font-sans: -apple-system, system-ui, &quot;Segoe UI&quot;, sans-serif;
+  --font-mono:
+    ui-monospace, SFMono-Regular, &quot;SF Mono&quot;, Menlo, Consolas, &quot;Liberation Mono&quot;,
+    monospace;
+  --font-size-normal: max(11px, var(--font-size-base));
+  --font-size-tooltip: calc(var(--font-size-base) - 1px);
+  --font-size-small: max(11px, calc(var(--font-size-base) - 2px));
+  --font-size-h1: calc(var(--font-size-normal) * 1.7142857143);
+  --font-size-h2: calc(var(--font-size-normal) * 1.4285714286);
+  --font-size-h3: calc(var(--font-size-normal) * 1.2857142857);
+  --font-weight-normal: 430;
+  --font-weight-medium: 500;
+  --icon-size: 16px;
+  --line-height-normal: calc(var(--font-size-normal) * 1.5);
+  --line-height-tooltip: calc(var(--font-size-tooltip) * 1.4285714286);
+  --line-height-small: calc(var(--font-size-small) + 4px);
+  --corner-shape: round;
+  --radius: var(--border-radius-lg, 10px);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-2xl: calc(var(--radius) * 1.6);
+  --radius-full: 9999px;
+  --shadow-sm: 0 1px 2px -1px rgb(0 0 0 / 8%);
+  --checkmark-image: url(&quot;data:image/svg+xml,%3Csvg xmlns=&#x27;http://www.w3.org/2000/svg&#x27; viewBox=&#x27;0 0 17 17&#x27;%3E%3Cpath d=&#x27;M12.8961 3.64101C13.1297 3.41418 13.4984 3.37523 13.7779 3.56581C14.0571 3.75635 14.1554 4.11331 14.0299 4.41347L13.9615 4.53847L7.71151 13.7045C7.59411 13.8767 7.4063 13.9877 7.19881 14.0072C6.99136 14.0267 6.78564 13.9533 6.63826 13.806L2.88826 10.056L2.79842 9.9457C2.6192 9.67407 2.64927 9.30496 2.88826 9.06581C3.12738 8.82669 3.49647 8.79676 3.76815 8.97597L3.8785 9.06581L7.03084 12.2182L12.8053 3.74941L12.8961 3.64101Z&#x27;/%3E%3C/svg%3E&quot;);
+
+  /* Legacy aliases; not part of the current agent contract. */
+  --viz-bg: transparent;
+  --viz-panel: var(--card);
+  --viz-border: var(--border);
+  --viz-text: var(--foreground);
+  --viz-muted: var(--muted-foreground);
+  --viz-accent: var(--primary);
+  --viz-accent-text: var(--primary-foreground);
+  --viz-accent-bg: var(--accent);
+  --viz-font-size: var(--font-size-base);
+  --viz-warning: var(--destructive);
+}
+
+:root[data-theme=&quot;light&quot;] {
+  color-scheme: light;
+}
+
+:root[data-theme=&quot;dark&quot;] {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html &gt; body {
+  /* Preserve MCP aliases for older inline renderers without creating :root cycles. */
+  --color-background-primary: var(
+    --background,
+    light-dark(rgb(255 255 255), rgb(24 24 24))
+  );
+  --color-text-primary: var(
+    --foreground,
+    light-dark(rgb(26 28 31), rgb(255 255 255))
+  );
+  --color-border-secondary: var(
+    --border,
+    light-dark(rgb(26 28 31 / 8%), rgb(255 255 255 / 8.2%))
+  );
+
+  margin: 0;
+  padding: var(--visualize-paint-gutter, 0px);
+  color: var(--foreground);
+  background: transparent !important;
+  font-family: var(--font-sans) !important;
+  font-size: var(--font-size-normal);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-normal);
+}
+
+:root:not([data-app-block-surface], [data-visualize-standalone]) &gt; body {
+  padding: 12px;
+}
+
+.cursor-interaction {
+  cursor: var(--cursor-interaction, pointer);
+}
+
+a {
+  color: color-mix(in srgb, var(--viz-accent) 80%, var(--viz-text) 20%);
+  cursor: var(--cursor-interaction, pointer);
+  font-weight: var(--font-weight-medium, 500);
+  text-decoration: none;
+  text-underline-offset: 2px;
+}
+
+a:is(:hover, :focus-visible) {
+  text-decoration-line: underline;
+  text-decoration-style: dashed;
+  text-decoration-thickness: 0.5px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-block: 0;
+}
+
+h1 {
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+h2 {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+h3,
+h4,
+h5,
+h6 {
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.3;
+}
+
+b,
+strong,
+th {
+  font-weight: var(--font-weight-medium);
+}
+
+code:not(pre code) {
+  display: inline;
+  padding: 1px 6px;
+  border-radius: var(--radius-sm);
+  corner-shape: var(--corner-shape);
+  background: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  overflow-wrap: anywhere;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  word-break: break-word;
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  color: var(--foreground);
+  font: inherit;
+  text-align: start;
+}
+
+.table :is(th, td) {
+  padding-block: 10px;
+  padding-inline: 0 24px;
+  overflow-wrap: anywhere;
+  border-bottom: 1px solid var(--border);
+  text-align: start;
+  vertical-align: top;
+}
+
+.table-responsive &gt; .table :is(th, td) {
+  overflow-wrap: break-word;
+}
+
+.table :is(th, td):last-child {
+  padding-inline-end: 0;
+}
+
+.table :is(caption, thead th) {
+  font-weight: 600;
+}
+
+.table thead th {
+  padding-block: 8px;
+  border-bottom-color: color-mix(in srgb, var(--foreground) 16%, transparent);
+}
+
+.table tbody tr:last-child :is(th, td) {
+  border-bottom: 0;
+}
+
+.table.table-sm :is(th, td) {
+  padding-block: 6px;
+}
+
+.table.table-sm :is(th, td):not(:last-child) {
+  padding-inline-end: 16px;
+}
+
+.table :is(.text-end, [align=&quot;right&quot;]) {
+  text-align: end;
+  font-variant-numeric: tabular-nums;
+}
+
+.table :is(.text-center, [align=&quot;center&quot;]) {
+  text-align: center;
+}
+
+.table .text-nowrap {
+  white-space: nowrap;
+}
+
+#widget {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  padding: 0;
+  background: transparent !important;
+}
+
+.card {
+  min-width: 0;
+  padding: 12px;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  border-radius: var(--radius-2xl);
+  corner-shape: var(--corner-shape);
+  color: var(--card-foreground);
+  background: var(--card);
+}
+
+#widget &gt; :not(.card, .progress) {
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.tooltip {
+  position: fixed;
+  z-index: 50;
+  top: 0;
+  left: 0;
+  width: max-content;
+  max-width: min(
+    20rem,
+    var(--tooltip-available-width, calc(100vw - 10px)),
+    calc(100vw - 10px)
+  );
+  max-height: min(
+    var(--tooltip-available-height, calc(100vh - 10px)),
+    calc(100vh - 10px)
+  );
+  padding: 4px 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  corner-shape: var(--corner-shape);
+  color: var(--popover-foreground);
+  background: var(--popover);
+  box-shadow: none;
+  font-size: var(--font-size-tooltip);
+  line-height: var(--line-height-tooltip);
+  overflow-wrap: break-word;
+  white-space: normal;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* The shared runtime owns data-tooltip; suppress AppBlock&#x27;s pseudo-tooltip. */
+main [data-tooltip]::after {
+  content: none;
+}
+
+.viz-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(max(180px, 24%), 1fr));
+  gap: 10px;
+}
+
+.viz-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.viz-stat-value {
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.25;
+}
+
+.viz-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+hr {
+  width: 100%;
+  height: 1px;
+  margin-block: 6px;
+  border: 0;
+  background: var(--border);
+}
+
+.nav {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 4px;
+}
+
+.progress {
+  display: flex;
+  height: 8px;
+  margin-block: calc((var(--line-height-normal, 1.5em) - 8px) / 2);
+  overflow: hidden;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--muted);
+}
+
+.progress-bar:only-child {
+  border-radius: var(--radius-full);
+}
+
+.progress-bar {
+  height: 100%;
+  flex-shrink: 0;
+  border: 0;
+  background: var(--viz-series-1);
+}
+
+.viz-badge {
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  color: var(--accent-foreground);
+  background: var(--accent);
+  font-weight: var(--font-weight-medium);
+}
+
+small,
+.text-small,
+.viz-badge {
+  font-size: var(--font-size-small);
+  line-height: var(--line-height-small);
+}
+
+.text-muted {
+  color: var(--muted-foreground);
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.viz-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.viz-controls &gt; .form-label {
+  display: grid;
+  min-width: min(100%, 260px);
+  flex: 1 1 280px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 2px 12px;
+  margin-bottom: 0;
+}
+
+.viz-controls &gt; .form-label &gt; :is(.form-control, .form-range, .form-select) {
+  grid-column: 1 / -1;
+}
+
+.btn,
+.nav-link,
+.form-check-input,
+.form-control,
+.form-range,
+.form-select {
+  font: inherit;
+}
+
+.btn,
+.nav-link {
+  appearance: button;
+  display: inline-flex;
+  inline-size: fit-content;
+  max-inline-size: 100%;
+  min-height: 28px;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin: 0;
+  padding: 0 8px;
+  -webkit-app-region: no-drag;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: var(--corner-shape);
+  color: var(--secondary-foreground);
+  background: var(--secondary);
+  cursor: var(--cursor-interaction, pointer);
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+.btn:is(.btn-block, .viz-tile) {
+  inline-size: 100%;
+}
+
+.btn.viz-tile {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+a.btn {
+  cursor: var(--cursor-interaction, pointer);
+  text-decoration: none;
+}
+
+.btn:not(:disabled):hover,
+.nav-link:not(:disabled):not([aria-disabled=&quot;true&quot;]):hover {
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.btn-primary {
+  border-color: transparent;
+  color: var(--primary-foreground);
+  background: var(--foreground);
+  background-clip: padding-box;
+}
+
+.btn-primary .text-muted {
+  color: color-mix(in srgb, var(--primary-foreground) 50%, transparent);
+}
+
+.btn-primary:not(:disabled):hover {
+  background: color-mix(in srgb, var(--foreground) 80%, transparent);
+  background-clip: padding-box;
+}
+
+.btn-ghost {
+  border-color: transparent;
+  color: var(--muted-foreground);
+  background: transparent;
+}
+
+.btn-ghost:not(:disabled):hover {
+  color: var(--foreground);
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.nav-pills .nav-link {
+  min-width: 0;
+  border-color: transparent;
+  color: var(--muted-foreground);
+  background: transparent;
+}
+
+.nav-justified .nav-link {
+  flex: 1 1 0;
+  overflow-wrap: anywhere;
+  white-space: normal;
+}
+
+.nav-pills .nav-link.active {
+  color: var(--foreground);
+  background: var(--muted);
+}
+
+.btn:disabled,
+.nav-link:disabled,
+.nav-link[aria-disabled=&quot;true&quot;] {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+[data-lucide] {
+  stroke-width: 1.6;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 6px;
+  color: var(--foreground);
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  min-height: 28px;
+  padding: 0 8px;
+  outline: none;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: var(--corner-shape);
+  color: var(--foreground);
+  background: var(--secondary);
+}
+
+.form-control::placeholder {
+  color: var(--muted-foreground);
+}
+
+.form-control[type=&quot;file&quot;] {
+  padding: 0;
+  overflow: hidden;
+  cursor: var(--cursor-interaction, pointer);
+}
+
+.form-control[type=&quot;file&quot;]::file-selector-button {
+  min-height: 26px;
+  margin-right: 8px;
+  padding: 0 8px;
+  border: 0;
+  border-right: 1px solid var(--input);
+  color: var(--secondary-foreground);
+  background: var(--secondary);
+  cursor: inherit;
+  font: inherit;
+}
+
+.form-control[type=&quot;file&quot;]:not(:disabled):hover::file-selector-button {
+  background: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.form-control-color[type=&quot;color&quot;] {
+  width: 40px;
+  height: 28px;
+  padding: 3px;
+  cursor: var(--cursor-interaction, pointer);
+}
+
+.form-control-color[type=&quot;color&quot;]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.form-control-color[type=&quot;color&quot;]::-webkit-color-swatch {
+  border: 0;
+  border-radius: calc(var(--radius-lg) - 4px);
+  corner-shape: var(--corner-shape);
+}
+
+textarea.form-control {
+  height: auto;
+  min-height: 72px;
+  padding: 8px 10px;
+  resize: vertical;
+}
+
+.form-control:focus-visible {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-control:disabled,
+.form-select:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.form-select {
+  appearance: none;
+  display: block;
+  width: 100%;
+  min-height: 28px;
+  margin: 0;
+  padding: 0 32px 0 8px;
+  outline: none;
+  border: 1px solid var(--input);
+  border-radius: var(--radius-lg);
+  corner-shape: var(--corner-shape);
+  color: var(--foreground);
+  background-color: var(--secondary);
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--muted-foreground) 50%),
+    linear-gradient(135deg, var(--muted-foreground) 50%, transparent 50%);
+  background-position:
+    calc(100% - 14px) 50%,
+    calc(100% - 10px) 50%;
+  background-repeat: no-repeat;
+  background-size: 4px 4px;
+  cursor: var(--cursor-interaction, default);
+}
+
+.form-select:not(:disabled):hover {
+  background-color: color-mix(in srgb, var(--foreground) 6%, var(--secondary));
+}
+
+.form-select:focus-visible {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-check {
+  display: flex;
+  min-height: 20px;
+  align-items: center;
+  gap: 6px;
+}
+
+.form-check-input {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  flex: 0 0 auto;
+  margin: 0;
+  border: 1px solid var(--input);
+  color: var(--primary-foreground);
+  background-color: transparent;
+  cursor: var(--cursor-interaction, default);
+  transition:
+    background-color 150ms,
+    border-color 150ms,
+    box-shadow 150ms;
+}
+
+.form-check:not(.form-switch) .form-check-input[type=&quot;checkbox&quot;] {
+  border-color: var(--input);
+  border-radius: var(--radius-sm);
+  corner-shape: var(--corner-shape);
+  background-color: var(--secondary);
+  box-shadow: var(--shadow-sm);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input:not(:disabled):not(:checked):hover {
+  background-color: var(--card);
+}
+
+.form-check:not(.form-switch) .form-check-input[type=&quot;checkbox&quot;]:checked {
+  border-color: var(--primary);
+  background-color: var(--primary);
+}
+
+.form-check:not(.form-switch)
+  .form-check-input[type=&quot;checkbox&quot;]:checked::before {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-foreground);
+  content: &quot;&quot;;
+  mask: var(--checkmark-image) center / 12px 12px no-repeat;
+}
+
+.form-check-input[type=&quot;radio&quot;] {
+  width: 14px;
+  height: 14px;
+  border-radius: var(--radius-full);
+}
+
+.form-check-input[type=&quot;radio&quot;]:checked {
+  border: 2px solid var(--primary);
+  background:
+    radial-gradient(circle, var(--primary-foreground) 0 2.5px, transparent 3px),
+    var(--primary);
+}
+
+.form-check:not(.form-switch) .form-check-input:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+.form-check:not(.form-switch) .form-check-input:disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.form-check:not(.form-switch) .form-check-input:disabled + .form-check-label {
+  cursor: not-allowed;
+}
+
+.form-switch .form-check-input:disabled,
+.form-switch .form-check-input:disabled + .form-check-label {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.form-check-label {
+  color: var(--foreground);
+  cursor: var(--cursor-interaction, default);
+}
+
+.form-switch .form-check-input {
+  position: relative;
+  width: 32px;
+  height: 20px;
+  border: 0;
+  border-radius: var(--radius-full);
+  background: var(--muted);
+  box-shadow: none;
+  transition: background-color 200ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.form-switch .form-check-input::before {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  box-sizing: border-box;
+  border: 1px solid light-dark(var(--primary-foreground), var(--foreground));
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+  box-shadow: var(--shadow-sm);
+  content: &quot;&quot;;
+  transform: translate(2px, -50%);
+  transition: transform 200ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.form-switch .form-check-input:checked {
+  background: var(--primary);
+}
+
+.form-switch .form-check-input:checked::before {
+  transform: translate(14px, -50%);
+}
+
+.form-switch .form-check-input:focus-visible {
+  box-shadow: 0 0 0 2px var(--ring);
+}
+
+.form-range {
+  appearance: none;
+  display: block;
+  width: 100%;
+  height: 28px;
+  flex: 1;
+  margin: 0;
+  padding: 0;
+  outline: none;
+  border: 0;
+  accent-color: var(--primary);
+  background: linear-gradient(
+      color-mix(in srgb, var(--foreground) 7%, transparent),
+      color-mix(in srgb, var(--foreground) 7%, transparent)
+    )
+    center / 100% 2px no-repeat;
+}
+
+.form-range::-webkit-slider-runnable-track {
+  height: 28px;
+  background: transparent;
+}
+
+.form-range::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  margin-top: 4px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+}
+
+.form-range:focus-visible::-webkit-slider-thumb {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-range::-moz-range-track {
+  height: 28px;
+  background: transparent;
+}
+
+.form-range::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  background: light-dark(var(--primary-foreground), var(--foreground));
+}
+
+.form-range:focus-visible::-moz-range-thumb {
+  border-color: var(--ring);
+  box-shadow: inset 0 0 0 1px var(--ring);
+}
+
+.form-range:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.btn:not(.btn-primary, .viz-tile):is(
+  [aria-pressed=&quot;true&quot;],
+  [aria-selected=&quot;true&quot;],
+  .is-selected
+) {
+  border-color: var(--primary);
+  color: var(--primary-foreground);
+  background: var(--primary);
+}
+
+.btn.viz-tile:is([aria-pressed=&quot;true&quot;], [aria-selected=&quot;true&quot;], .is-selected) {
+  border-color: var(--primary);
+  box-shadow: inset 0 0 0 1px var(--primary);
+}
+
+.btn:focus-visible,
+.nav-link:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+@media (pointer: coarse) {
+  .btn,
+  .nav-link,
+  .form-control,
+  .form-select {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  /* Keep small-screen WebKit from zooming when a text field receives focus. */
+  .form-control,
+  .form-select {
+    font-size: max(16px, var(--font-size-normal));
+  }
+
+  .form-control[type=&quot;file&quot;]::file-selector-button {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .form-control-color[type=&quot;color&quot;] {
+    width: 44px;
+    height: 44px;
+  }
+
+  .form-control:is(
+    [type=&quot;date&quot;],
+    [type=&quot;datetime-local&quot;],
+    [type=&quot;month&quot;],
+    [type=&quot;time&quot;],
+    [type=&quot;week&quot;]
+  ) {
+    min-width: 0;
+    max-width: 100%;
+    padding-block: 8px;
+  }
+
+  .form-check {
+    min-height: 44px;
+    padding-inline: 15px;
+  }
+
+  .form-check-input {
+    position: relative;
+  }
+
+  .form-check-input::after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 44px;
+    height: 44px;
+    content: &quot;&quot;;
+    transform: translate(-50%, -50%);
+  }
+
+  .form-check-label {
+    display: inline-flex;
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+  }
+
+  .form-range {
+    height: 44px;
+    touch-action: pan-y;
+  }
+
+  .form-range::-webkit-slider-runnable-track {
+    height: 44px;
+  }
+
+  .form-range::-moz-range-track {
+    height: 44px;
+  }
+
+  .form-range::-webkit-slider-thumb {
+    margin-top: 12px;
+  }
+}
+
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+#widget &gt; svg {
+  width: 100%;
+}
+
+/* Model-authored chart rules can otherwise stretch icons after these styles load. */
+svg.lucide {
+  display: block;
+  width: var(--icon-size) !important;
+  height: var(--icon-size) !important;
+  flex: none;
+  margin: 0 !important;
+  stroke-width: 1.6;
+}
+
+.text-warning,
+.text-destructive {
+  color: var(--destructive);
+}
+
+html&gt;body{padding:0}&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;script type=&quot;application/json&quot; id=&quot;codex-visualization-widget-state&quot;&gt;__CODEX_VISUALIZATION_WIDGET_STATE__&lt;/script&gt;
+&lt;script&gt;(() =&gt; {
+  const root = document.documentElement;
+  const mediaQuery = globalThis.matchMedia(&quot;(prefers-color-scheme: dark)&quot;);
+  const apply = Reflect.apply;
+  const isArray = Array.isArray;
+  const hasOwn = Object.hasOwn;
+  const parentWindow = globalThis.parent;
+  const stringify = JSON.stringify;
+  const parse = JSON.parse;
+  const encode = TextEncoder.prototype.encode.bind(new TextEncoder());
+  const initialStateElement = document.getElementById(
+    &quot;codex-visualization-widget-state&quot;,
+  );
+  const initialGlobals = parse(initialStateElement?.textContent ?? &quot;{}&quot;);
+  initialStateElement?.remove();
+  /** @type {Record&lt;string, unknown&gt; | null} */
+  let state = initialGlobals.widgetState ?? null;
+  const statePersistence = initialGlobals.statePersistence ?? &quot;none&quot;;
+  let nextStateRequestId = 0;
+  /** @type {Map&lt;number, { resolve: () =&gt; void; reject: (error: Error) =&gt; void; timeout: ReturnType&lt;typeof globalThis.setTimeout&gt;; serializedState: string }&gt;} */
+  const pendingStateWrites = new Map();
+  const persistenceError = () =&gt;
+    Object.assign(
+      new Error(&quot;The host could not persist the widget state update&quot;),
+      {
+        code: -32000,
+        data: { code: &quot;widget_state_persistence_failed&quot;, retryable: false },
+      },
+    );
+  /**
+   * @param {object} prototype
+   * @param {string} property
+   */
+  const getPrototypeGetter = (prototype, property) =&gt; {
+    // oxlint-disable-next-line typescript/unbound-method -- invoked through captured Reflect.apply
+    const getter = Object.getOwnPropertyDescriptor(prototype, property)?.get;
+    if (getter == null) {
+      throw new Error(`Missing ${property} getter`);
+    }
+    return getter;
+  };
+  const getMessageData = getPrototypeGetter(MessageEvent.prototype, &quot;data&quot;);
+  const getMessagePorts = getPrototypeGetter(MessageEvent.prototype, &quot;ports&quot;);
+  const getMessageSource = getPrototypeGetter(MessageEvent.prototype, &quot;source&quot;);
+  // oxlint-disable-next-line typescript/unbound-method -- captured before the untrusted fragment runs
+  const addHostMessageListener = MessagePort.prototype.addEventListener;
+  // oxlint-disable-next-line typescript/unbound-method -- captured before the untrusted fragment runs
+  const postHostMessage = MessagePort.prototype.postMessage;
+  // oxlint-disable-next-line typescript/unbound-method -- captured before the untrusted fragment runs
+  const startHostPort = MessagePort.prototype.start;
+  // oxlint-disable-next-line typescript/unbound-method -- captured before the untrusted fragment runs
+  const stopMessagePropagation = Event.prototype.stopImmediatePropagation;
+  /** @type {MessagePort | null} */
+  let hostPort = null;
+  const postToHost = (type, payload) =&gt; {
+    if (hostPort != null) {
+      apply(postHostMessage, hostPort, [{ type, ...payload }]);
+    }
+  };
+  const openExternal = ({ href }) =&gt; {
+    if (globalThis.navigator.userActivation?.isActive === true) {
+      postToHost(&quot;open-external&quot;, { href });
+    }
+  };
+  const sendFollowUpMessage = ({ context, prompt, title }) =&gt; {
+    if (globalThis.navigator.userActivation?.isActive === true) {
+      postToHost(&quot;follow-up&quot;, { context, prompt, title });
+    }
+    return Promise.resolve();
+  };
+  /**
+   * @param {Record&lt;string, unknown&gt; | ((previous: Record&lt;string, unknown&gt; | null) =&gt; Record&lt;string, unknown&gt;)} next
+   * @returns {Promise&lt;void&gt;}
+   */
+  const setWidgetState = async (next) =&gt; {
+    const nextState = typeof next === &quot;function&quot; ? next(state) : next;
+    if (
+      nextState == null ||
+      typeof nextState !== &quot;object&quot; ||
+      isArray(nextState)
+    ) {
+      throw new TypeError(&quot;Widget state must be a JSON object&quot;);
+    }
+    const inputState = stringify(
+      nextState,
+      (_key, /** @type {unknown} */ value) =&gt; {
+        if (
+          typeof value === &quot;undefined&quot; ||
+          typeof value === &quot;function&quot; ||
+          typeof value === &quot;symbol&quot; ||
+          (typeof value === &quot;number&quot; &amp;&amp; !Number.isFinite(value))
+        ) {
+          throw new TypeError(&quot;Widget state must be a JSON object&quot;);
+        }
+        return value;
+      },
+    );
+    const parsedState = parse(inputState);
+    if (
+      parsedState == null ||
+      typeof parsedState !== &quot;object&quot; ||
+      isArray(parsedState)
+    ) {
+      throw new TypeError(&quot;Widget state must be a JSON object&quot;);
+    }
+    const storedState = {
+      modelContent: null,
+      privateContent: null,
+      ...parsedState,
+    };
+    const serializedState = stringify(storedState);
+    if (encode(serializedState).length &gt; 16 * 1024) {
+      throw new TypeError(
+        &quot;Widget state must be a JSON object of at most 16 KiB&quot;,
+      );
+    }
+    if (
+      hasOwn(storedState, &quot;imageIds&quot;) &amp;&amp;
+      (!isArray(storedState.imageIds) ||
+        storedState.imageIds.some(
+          (/** @type {unknown} */ id) =&gt; typeof id !== &quot;string&quot;,
+        ))
+    ) {
+      throw new TypeError(&quot;Widget state imageIds must be an array of strings&quot;);
+    }
+    if (storedState.imageIds?.length &gt; 0) {
+      throw Object.assign(
+        new TypeError(&quot;Visualization state does not support image attachments&quot;),
+        { code: -32602, data: { code: &quot;images_unsupported&quot; } },
+      );
+    }
+    state = storedState;
+    globalThis.openai.widgetState = state;
+    globalThis.dispatchEvent(
+      new CustomEvent(&quot;openai:set_globals&quot;, {
+        detail: { globals: { widgetState: state } },
+      }),
+    );
+    if (statePersistence === &quot;none&quot;) {
+      throw persistenceError();
+    }
+    const id = ++nextStateRequestId;
+    return new Promise((resolve, reject) =&gt; {
+      const timeout = globalThis.setTimeout(() =&gt; {
+        pendingStateWrites.delete(id);
+        reject(persistenceError());
+      }, 30_000);
+      pendingStateWrites.set(id, { resolve, reject, timeout, serializedState });
+      postToHost(&quot;widget-state-write&quot;, { id, state: serializedState });
+    });
+  };
+  const syncTheme = () =&gt; {
+    const theme = mediaQuery.matches ? &quot;dark&quot; : &quot;light&quot;;
+    root.dataset.theme = theme;
+    globalThis.openai = {
+      ...globalThis.openai,
+      openExternal,
+      sendFollowUpMessage,
+      setWidgetState,
+      theme,
+      visualizationStyleVariables: {},
+      visualizationTheme: theme,
+      widgetState: state,
+      statePersistence,
+      stateModelContext: &quot;none&quot;,
+    };
+    globalThis.dispatchEvent(
+      new CustomEvent(&quot;openai:set_globals&quot;, {
+        detail: { globals: globalThis.openai },
+      }),
+    );
+  };
+  const sendHeight = () =&gt; {
+    postToHost(&quot;height&quot;, {
+      height: Math.ceil(
+        Math.max(
+          document.body.scrollHeight,
+          document.body.getBoundingClientRect().height,
+        ),
+      ),
+    });
+  };
+
+  globalThis.addEventListener(
+    &quot;message&quot;,
+    (event) =&gt; {
+      const data = apply(getMessageData, event, []);
+      const ports = apply(getMessagePorts, event, []);
+      const source = apply(getMessageSource, event, []);
+      if (
+        hostPort != null ||
+        source !== parentWindow ||
+        typeof data !== &quot;object&quot; ||
+        data?.type !== &quot;codex-visualization-initialize&quot; ||
+        !isArray(ports) ||
+        ports.length !== 1
+      ) {
+        return;
+      }
+      apply(stopMessagePropagation, event, []);
+      const nextHostPort = ports[0];
+      try {
+        apply(addHostMessageListener, nextHostPort, [
+          &quot;message&quot;,
+          (event) =&gt; {
+            const data = apply(getMessageData, event, []);
+            if (typeof data === &quot;object&quot; &amp;&amp; data?.type === &quot;measure&quot;) {
+              sendHeight();
+            } else if (
+              typeof data === &quot;object&quot; &amp;&amp;
+              data?.type === &quot;widget-state-result&quot;
+            ) {
+              /** @type {unknown} */
+              const id = data.id;
+              if (typeof id !== &quot;number&quot;) {
+                return;
+              }
+              const pending = pendingStateWrites.get(id);
+              if (pending != null) {
+                pendingStateWrites.delete(id);
+                globalThis.clearTimeout(pending.timeout);
+                if (data.ok === true) {
+                  pending.resolve();
+                } else {
+                  pending.reject(persistenceError());
+                }
+              }
+            }
+          },
+        ]);
+        apply(startHostPort, nextHostPort, []);
+      } catch {
+        return;
+      }
+      hostPort = nextHostPort;
+      for (const [id, { serializedState }] of pendingStateWrites) {
+        postToHost(&quot;widget-state-write&quot;, { id, state: serializedState });
+      }
+      sendHeight();
+    },
+    { capture: true },
+  );
+  document.currentScript?.remove();
+  mediaQuery.addEventListener(&quot;change&quot;, syncTheme);
+  globalThis.addEventListener(&quot;click&quot;, (event) =&gt; {
+    if (event.defaultPrevented) {
+      return;
+    }
+    let element = null;
+    if (event.target instanceof globalThis.Element) {
+      element = event.target;
+    } else if (event.target instanceof globalThis.Node) {
+      element = event.target.parentElement;
+    }
+    const link = element?.closest(&quot;a[href]&quot;);
+    const href = link?.getAttribute(&quot;href&quot;);
+    if (href == null) {
+      return;
+    }
+    if (href.startsWith(&quot;#&quot;)) {
+      let id;
+      try {
+        id = decodeURIComponent(href.slice(1));
+      } catch {
+        return;
+      }
+      const target = id.length === 0 ? root : document.getElementById(id);
+      if (
+        target == null ||
+        globalThis.navigator.userActivation?.isActive !== true
+      ) {
+        return;
+      }
+      event.preventDefault();
+      postToHost(&quot;scroll-to&quot;, {
+        top: target.getBoundingClientRect().top + globalThis.scrollY,
+      });
+      return;
+    }
+    event.preventDefault();
+    openExternal({ href });
+  });
+  new ResizeObserver(sendHeight).observe(document.body);
+  syncTheme();
+})();
+&lt;/script&gt;
+&lt;div id=&quot;cipher-wheel-demo&quot;&gt;
+  &lt;style&gt;
+    #cipher-wheel-demo { color: var(--foreground); max-width: 1040px; margin: 0 auto; }
+    #cipher-wheel-demo [hidden] { display: none !important; }
+    #cipher-wheel-demo .cw-top { margin-bottom: 16px; }
+    #cipher-wheel-demo .cw-main { display: grid; grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr); gap: 24px; align-items: center; }
+    #cipher-wheel-demo .cw-wheel-wrap { width: 100%; max-width: 420px; margin: 0 auto; position: relative; }
+    #cipher-wheel-demo .cw-wheel { display: block; width: 100%; aspect-ratio: 1; overflow: visible; }
+    #cipher-wheel-demo .cw-wheel text { fill: #281b10; font-family: Georgia, &#x27;Times New Roman&#x27;, serif; font-weight: 400; text-anchor: middle; dominant-baseline: central; text-shadow: 0 1px 0 #f0d396; }
+    #cipher-wheel-demo .cw-hub { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 39%; display: flex; flex-direction: column; gap: 6px; align-items: center; text-align: center; pointer-events: none; color: #291d10; font-family: Georgia, &#x27;Times New Roman&#x27;, serif; text-shadow: 0 1px 0 #d5b273; }
+    #cipher-wheel-demo .cw-hub .text-muted { color: #443018; }
+    #cipher-wheel-demo .cw-hub h2 { margin: 0; }
+    #cipher-wheel-demo .cw-side { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+    #cipher-wheel-demo .cw-field { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+    #cipher-wheel-demo .cw-field-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+    #cipher-wheel-demo .cw-keys { display: flex; flex-wrap: wrap; gap: 4px; min-height: 28px; }
+    #cipher-wheel-demo .cw-key { display: inline-grid; place-items: center; width: 25px; height: 28px; background: var(--muted); border-radius: 4px; color: var(--foreground); }
+    #cipher-wheel-demo .cw-key.is-current { background: color-mix(in srgb, var(--viz-series-1) 22%, var(--background)); font-weight: 500; box-shadow: inset 0 -3px 0 var(--viz-series-1); }
+    #cipher-wheel-demo .cw-key-caption { display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+    #cipher-wheel-demo .cw-footer { margin-top: 20px; display: flex; flex-direction: column; gap: 12px; }
+    #cipher-wheel-demo .cw-playback { display: flex; align-items: end; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    #cipher-wheel-demo .cw-actions { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+    #cipher-wheel-demo .cw-speed { min-width: 120px; }
+    #cipher-wheel-demo .cw-status-row { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+    #cipher-wheel-demo .cw-legend { text-align: center; margin-top: 6px; }
+    #cipher-wheel-demo .cw-result { font-family: ui-monospace, SFMono-Regular, Consolas, monospace; white-space: pre-wrap; overflow-wrap: anywhere; min-height: 2.7em; }
+    #cipher-wheel-demo .cw-result-pending { color: var(--muted-foreground); }
+    #cipher-wheel-demo .cw-result-current { background: color-mix(in srgb, var(--viz-series-1) 22%, transparent); color: var(--foreground); border-radius: 2px; }
+    @media (max-width: 620px) {
+      #cipher-wheel-demo .cw-main { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+      #cipher-wheel-demo .cw-wheel-wrap { max-width: 360px; }
+    }
+  &lt;/style&gt;
+  &lt;div class=&quot;viz-controls cw-top&quot;&gt;
+    &lt;label class=&quot;form-label&quot; for=&quot;cw-mode&quot;&gt;Cipher
+      &lt;select class=&quot;form-select&quot; id=&quot;cw-mode&quot;&gt;
+        &lt;option value=&quot;fixed&quot;&gt;Fixed wheel · Caesar&lt;/option&gt;
+        &lt;option value=&quot;key&quot;&gt;Repeating key · Vigenère&lt;/option&gt;
+      &lt;/select&gt;
+    &lt;/label&gt;
+    &lt;label class=&quot;form-label&quot; for=&quot;cw-direction&quot;&gt;Operation
+      &lt;select class=&quot;form-select&quot; id=&quot;cw-direction&quot;&gt;
+        &lt;option value=&quot;encode&quot;&gt;Encode&lt;/option&gt;
+        &lt;option value=&quot;decode&quot;&gt;Decode&lt;/option&gt;
+      &lt;/select&gt;
+    &lt;/label&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;cw-main&quot;&gt;
+    &lt;div&gt;
+      &lt;div class=&quot;cw-wheel-wrap&quot; id=&quot;cw-wheel-wrap&quot;&gt;
+        &lt;svg class=&quot;cw-wheel&quot; id=&quot;cw-wheel&quot; role=&quot;img&quot; aria-labelledby=&quot;cw-wheel-title cw-wheel-desc&quot;&gt;
+          &lt;title id=&quot;cw-wheel-title&quot;&gt;Antique bronze cipher wheel&lt;/title&gt;
+          &lt;desc id=&quot;cw-wheel-desc&quot;&gt;The fixed outer alphabet is plaintext. The rotating inner alphabet is ciphertext.&lt;/desc&gt;
+          &lt;defs&gt;
+            &lt;linearGradient id=&quot;cw-bronze-rim&quot; x1=&quot;0&quot; y1=&quot;0&quot; x2=&quot;1&quot; y2=&quot;1&quot;&gt;
+              &lt;stop offset=&quot;0&quot; stop-color=&quot;#54371c&quot;/&gt;&lt;stop offset=&quot;0.2&quot; stop-color=&quot;#b68b4c&quot;/&gt;
+              &lt;stop offset=&quot;0.4&quot; stop-color=&quot;#efd299&quot;/&gt;&lt;stop offset=&quot;0.53&quot; stop-color=&quot;#947040&quot;/&gt;
+              &lt;stop offset=&quot;0.76&quot; stop-color=&quot;#684420&quot;/&gt;&lt;stop offset=&quot;1&quot; stop-color=&quot;#322112&quot;/&gt;
+            &lt;/linearGradient&gt;
+            &lt;linearGradient id=&quot;cw-bronze-outer&quot; x1=&quot;0&quot; y1=&quot;0&quot; x2=&quot;1&quot; y2=&quot;1&quot;&gt;
+              &lt;stop offset=&quot;0&quot; stop-color=&quot;#9b723d&quot;/&gt;&lt;stop offset=&quot;0.22&quot; stop-color=&quot;#d0aa69&quot;/&gt;
+              &lt;stop offset=&quot;0.48&quot; stop-color=&quot;#b98c4c&quot;/&gt;&lt;stop offset=&quot;0.68&quot; stop-color=&quot;#d4af70&quot;/&gt;
+              &lt;stop offset=&quot;1&quot; stop-color=&quot;#a17940&quot;/&gt;
+            &lt;/linearGradient&gt;
+            &lt;linearGradient id=&quot;cw-bronze-inner&quot; x1=&quot;0&quot; y1=&quot;0&quot; x2=&quot;1&quot; y2=&quot;1&quot;&gt;
+              &lt;stop offset=&quot;0&quot; stop-color=&quot;#e2c58a&quot;/&gt;&lt;stop offset=&quot;0.28&quot; stop-color=&quot;#c79b59&quot;/&gt;
+              &lt;stop offset=&quot;0.57&quot; stop-color=&quot;#b78a47&quot;/&gt;&lt;stop offset=&quot;0.8&quot; stop-color=&quot;#d5b374&quot;/&gt;
+              &lt;stop offset=&quot;1&quot; stop-color=&quot;#99733e&quot;/&gt;
+            &lt;/linearGradient&gt;
+            &lt;radialGradient id=&quot;cw-bronze-hub&quot; cx=&quot;0.35&quot; cy=&quot;0.28&quot; r=&quot;0.85&quot;&gt;
+              &lt;stop offset=&quot;0&quot; stop-color=&quot;#d8b87a&quot;/&gt;&lt;stop offset=&quot;0.5&quot; stop-color=&quot;#bd9658&quot;/&gt;
+              &lt;stop offset=&quot;1&quot; stop-color=&quot;#97723c&quot;/&gt;
+            &lt;/radialGradient&gt;
+            &lt;radialGradient id=&quot;cw-bronze-bolt&quot; cx=&quot;0.3&quot; cy=&quot;0.25&quot; r=&quot;0.8&quot;&gt;
+              &lt;stop offset=&quot;0&quot; stop-color=&quot;#ead29b&quot;/&gt;&lt;stop offset=&quot;0.46&quot; stop-color=&quot;#b89050&quot;/&gt;
+              &lt;stop offset=&quot;0.83&quot; stop-color=&quot;#806036&quot;/&gt;&lt;stop offset=&quot;1&quot; stop-color=&quot;#4b321a&quot;/&gt;
+            &lt;/radialGradient&gt;
+            &lt;filter id=&quot;cw-bronze-grain&quot; x=&quot;0&quot; y=&quot;0&quot; width=&quot;1&quot; height=&quot;1&quot; color-interpolation-filters=&quot;sRGB&quot;&gt;
+              &lt;feTurbulence type=&quot;fractalNoise&quot; baseFrequency=&quot;0.72&quot; numOctaves=&quot;3&quot; seed=&quot;12&quot; result=&quot;noise&quot;/&gt;
+              &lt;feColorMatrix in=&quot;noise&quot; type=&quot;saturate&quot; values=&quot;0&quot;/&gt;
+              &lt;feComposite in2=&quot;SourceGraphic&quot; operator=&quot;in&quot;/&gt;
+            &lt;/filter&gt;
+            &lt;marker id=&quot;cw-arrow&quot; markerWidth=&quot;5&quot; markerHeight=&quot;5&quot; refX=&quot;4&quot; refY=&quot;2.5&quot; orient=&quot;auto&quot; markerUnits=&quot;userSpaceOnUse&quot;&gt;&lt;path d=&quot;M0,0 L5,2.5 L0,5 Z&quot; fill=&quot;#422d17&quot;&gt;&lt;/path&gt;&lt;/marker&gt;
+          &lt;/defs&gt;
+          &lt;g id=&quot;cw-drawing&quot; aria-hidden=&quot;true&quot;&gt;&lt;/g&gt;
+        &lt;/svg&gt;
+        &lt;div class=&quot;cw-hub&quot; aria-hidden=&quot;true&quot;&gt;
+          &lt;span id=&quot;cw-phase&quot; class=&quot;text-small text-muted&quot;&gt;Next letter&lt;/span&gt;
+          &lt;h2 id=&quot;cw-pair&quot;&gt;A → ?&lt;/h2&gt;
+          &lt;span id=&quot;cw-hub-shift&quot; class=&quot;text-small tabular-nums&quot;&gt;Shift +3&lt;/span&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;cw-legend text-small text-muted&quot;&gt;Outer: plaintext · Inner: ciphertext&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;cw-side&quot;&gt;
+      &lt;div id=&quot;cw-fixed-field&quot; class=&quot;cw-field&quot;&gt;
+        &lt;label class=&quot;form-label&quot; for=&quot;cw-shift&quot;&gt;Wheel setting&lt;/label&gt;
+        &lt;select class=&quot;form-select&quot; id=&quot;cw-shift&quot; aria-describedby=&quot;cw-alignment&quot;&gt;&lt;/select&gt;
+        &lt;span id=&quot;cw-alignment&quot; class=&quot;text-small text-muted&quot;&gt;Plaintext A aligns with ciphertext D.&lt;/span&gt;
+      &lt;/div&gt;
+      &lt;div id=&quot;cw-key-field&quot; class=&quot;cw-field&quot; hidden&gt;
+        &lt;label class=&quot;form-label&quot; for=&quot;cw-key&quot;&gt;Repeating key · A = 0, …, Z = 25&lt;/label&gt;
+        &lt;input class=&quot;form-control&quot; id=&quot;cw-key&quot; value=&quot;LEMON&quot; maxlength=&quot;64&quot; spellcheck=&quot;false&quot; autocomplete=&quot;off&quot; aria-describedby=&quot;cw-key-error&quot; /&gt;
+        &lt;div id=&quot;cw-key-error&quot; class=&quot;text-small text-destructive&quot; role=&quot;alert&quot; hidden&gt;&lt;/div&gt;
+        &lt;div class=&quot;cw-keys&quot; id=&quot;cw-keys&quot; role=&quot;group&quot; aria-label=&quot;Key letters&quot;&gt;&lt;/div&gt;
+        &lt;div class=&quot;cw-key-caption text-small text-muted&quot;&gt;&lt;span id=&quot;cw-key-position&quot;&gt;Key letter 1 of 5&lt;/span&gt;&lt;span id=&quot;cw-key-value&quot; class=&quot;tabular-nums&quot;&gt;L = 11&lt;/span&gt;&lt;/div&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;cw-field&quot;&gt;
+        &lt;label class=&quot;form-label&quot; for=&quot;cw-message&quot; id=&quot;cw-input-label&quot;&gt;Plaintext message&lt;/label&gt;
+        &lt;textarea class=&quot;form-control&quot; id=&quot;cw-message&quot; rows=&quot;3&quot; spellcheck=&quot;false&quot;&gt;ATTACK AT DAWN!&lt;/textarea&gt;
+      &lt;/div&gt;
+      &lt;div class=&quot;cw-field&quot;&gt;
+        &lt;div class=&quot;cw-field-head&quot;&gt;&lt;span id=&quot;cw-output-label&quot;&gt;Ciphertext&lt;/span&gt;&lt;span id=&quot;cw-count&quot; class=&quot;text-small text-muted tabular-nums&quot;&gt;0 / 12 letters&lt;/span&gt;&lt;/div&gt;
+        &lt;div class=&quot;cw-result&quot; id=&quot;cw-result&quot; role=&quot;region&quot; aria-labelledby=&quot;cw-output-label&quot;&gt;&lt;/div&gt;
+        &lt;div&gt;&lt;button class=&quot;btn btn-ghost&quot; id=&quot;cw-reverse&quot; type=&quot;button&quot; disabled&gt;Decode this result&lt;/button&gt;&lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;cw-footer&quot;&gt;
+    &lt;div class=&quot;cw-playback&quot;&gt;
+      &lt;div class=&quot;cw-actions&quot; role=&quot;group&quot; aria-label=&quot;Animation controls&quot;&gt;
+        &lt;button class=&quot;btn btn-primary&quot; id=&quot;cw-play&quot; type=&quot;button&quot;&gt;Play&lt;/button&gt;
+        &lt;button class=&quot;btn&quot; id=&quot;cw-step&quot; type=&quot;button&quot;&gt;Step&lt;/button&gt;
+        &lt;button class=&quot;btn&quot; id=&quot;cw-back&quot; type=&quot;button&quot; disabled&gt;Back&lt;/button&gt;
+        &lt;button class=&quot;btn btn-ghost&quot; id=&quot;cw-restart&quot; type=&quot;button&quot; disabled&gt;Restart&lt;/button&gt;
+        &lt;button class=&quot;btn btn-ghost&quot; id=&quot;cw-finish&quot; type=&quot;button&quot;&gt;Finish&lt;/button&gt;
+      &lt;/div&gt;
+      &lt;label class=&quot;form-label cw-speed&quot; for=&quot;cw-speed&quot;&gt;Speed
+        &lt;select class=&quot;form-select&quot; id=&quot;cw-speed&quot;&gt;
+          &lt;option value=&quot;slow&quot;&gt;Slow&lt;/option&gt;&lt;option value=&quot;normal&quot; selected&gt;Normal&lt;/option&gt;&lt;option value=&quot;fast&quot;&gt;Fast&lt;/option&gt;
+        &lt;/select&gt;
+      &lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;progress&quot; id=&quot;cw-progress&quot; role=&quot;progressbar&quot; aria-label=&quot;Letters transformed&quot; aria-valuenow=&quot;0&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;12&quot;&gt;&lt;div class=&quot;progress-bar&quot; id=&quot;cw-progress-bar&quot; style=&quot;width:0%&quot;&gt;&lt;/div&gt;&lt;/div&gt;
+    &lt;div class=&quot;cw-status-row text-small&quot;&gt;&lt;span id=&quot;cw-status&quot; role=&quot;status&quot; aria-live=&quot;polite&quot;&gt;Ready · letter 1 of 12&lt;/span&gt;&lt;span class=&quot;text-muted&quot;&gt;Spaces and punctuation keep their places; the key advances on A–Z only.&lt;/span&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;script&gt;
+    (() =&gt; {
+      &#x27;use strict&#x27;;
+      const root = document.getElementById(&#x27;cipher-wheel-demo&#x27;);
+      const $ = id =&gt; root.querySelector(&#x27;#cw-&#x27; + id);
+      const alphabet = &#x27;ABCDEFGHIJKLMNOPQRSTUVWXYZ&#x27;;
+      const unit = 360 / 26;
+      const mod = n =&gt; ((n % 26) + 26) % 26;
+      const svgNS = &#x27;http://www.w3.org/2000/svg&#x27;;
+      const reducedMotion = window.matchMedia(&#x27;(prefers-reduced-motion: reduce)&#x27;);
+      const state = { mode: &#x27;fixed&#x27;, direction: &#x27;encode&#x27;, shift: 3, key: &#x27;LEMON&#x27;, valid: true, records: [], letters: [], done: 0, playing: false, busy: false, token: 0, angle: -3 * unit, phase: &#x27;ready&#x27;, current: null, size: 0, geometry: null };
+      let innerGroup, innerCells = [], outerCells = [], innerText = [], outerText = [], connector;
+      for (let i = 0; i &lt; 26; i++) {
+        const option = document.createElement(&#x27;option&#x27;);
+        option.value = i;
+        option.textContent = alphabet[i] + &#x27; · shift &#x27; + i + &#x27; (A → &#x27; + alphabet[i] + &#x27;)&#x27;;
+        $(&#x27;shift&#x27;).append(option);
+      }
+      $(&#x27;shift&#x27;).value = &#x27;3&#x27;;
+
+      function svg(tag, attributes, parent) {
+        const element = document.createElementNS(svgNS, tag);
+        for (const [key, value] of Object.entries(attributes)) element.setAttribute(key, value);
+        if (parent) parent.append(element);
+        return element;
+      }
+      function point(radius, degrees) {
+        const a = degrees * Math.PI / 180;
+        const c = state.size / 2;
+        return [c + radius * Math.sin(a), c - radius * Math.cos(a)];
+      }
+      function sector(inner, outer, degrees) {
+        const p = point(outer, degrees - unit / 2 + 0.65);
+        const q = point(outer, degrees + unit / 2 - 0.65);
+        const r = point(inner, degrees + unit / 2 - 0.65);
+        const s = point(inner, degrees - unit / 2 + 0.65);
+        return `M${p} A${outer},${outer} 0 0 1 ${q} L${r} A${inner},${inner} 0 0 0 ${s} Z`;
+      }
+      function buildWheel() {
+        const width = Math.floor($(&#x27;wheel-wrap&#x27;).getBoundingClientRect().width);
+        if (width &lt; 1 || width === state.size) return;
+        state.size = width;
+        const c = width / 2;
+        const r = c - 9;
+        const gap = Math.min(45, width * 0.116);
+        state.geometry = { r, plain: r - 22, cipher: r - 22 - gap, gap };
+        const g = state.geometry;
+        $(&#x27;wheel&#x27;).setAttribute(&#x27;viewBox&#x27;, `0 0 ${width} ${width}`);
+        const drawing = $(&#x27;drawing&#x27;);
+        drawing.replaceChildren();
+        // Separate cast-metal plates, with lighting fixed to the room as the inner one turns.
+        svg(&#x27;ellipse&#x27;, { cx: c, cy: c + 6, rx: r - 2, ry: r - 1, fill: &#x27;#2d2014&#x27;, opacity: 0.18 }, drawing);
+        svg(&#x27;circle&#x27;, { cx: c, cy: c + 3, r, fill: &#x27;#614321&#x27;, stroke: &#x27;#392713&#x27;, &#x27;stroke-width&#x27;: 1 }, drawing);
+        svg(&#x27;circle&#x27;, { cx: c, cy: c, r, fill: &#x27;url(#cw-bronze-rim)&#x27;, stroke: &#x27;#735331&#x27;, &#x27;stroke-width&#x27;: 1 }, drawing);
+        svg(&#x27;circle&#x27;, { cx: c, cy: c, r: r - 5, fill: &#x27;url(#cw-bronze-outer)&#x27;, stroke: &#x27;#e2c18a&#x27;, &#x27;stroke-width&#x27;: 1.1 }, drawing);
+        svg(&#x27;circle&#x27;, { cx: c, cy: c, r: r - 8, fill: &#x27;none&#x27;, stroke: &#x27;#775129&#x27;, &#x27;stroke-width&#x27;: 0.8 }, drawing);
+        svg(&#x27;circle&#x27;, { cx: c, cy: c, r: r - 9.3, fill: &#x27;none&#x27;, stroke: &#x27;#e5c58d&#x27;, &#x27;stroke-width&#x27;: 0.6, opacity: 0.8 }, drawing);
+        // Small irregular pits and rubbed edges make the metal read as an old instrument.
+        const wear = (parent, radius, count, seed, inner = 0) =&gt; {
+          const hash = n =&gt; { const x = Math.sin(n * 12.9898 + seed * 78.233) * 43758.5453; return x - Math.floor(x); };
+          for (let j = 0; j &lt; count; j++) {
+            const a = hash(j + 1) * 360;
+            const distance = inner + (radius - inner) * hash(j + 31);
+            const p = point(distance, a);
+            svg(&#x27;ellipse&#x27;, { cx: p[0], cy: p[1], rx: 0.25 + hash(j + 71) * 1.05, ry: 0.18 + hash(j + 91) * 0.5, fill: j % 5 === 0 ? &#x27;#475c44&#x27; : &#x27;#624521&#x27;, opacity: 0.08 + hash(j + 53) * 0.2 }, parent);
+          }
+          for (let j = 0; j &lt; 18; j++) {
+            const rr = inner + (radius - inner) * hash(j + 153);
+            const angle = hash(j + 177) * 360;
+            const p = point(rr, angle), q = point(rr, angle + 5 + hash(j + 194) * 16);
+            svg(&#x27;path&#x27;, { d: `M${p} A${rr},${rr} 0 0 1 ${q}`, fill: &#x27;none&#x27;, stroke: j % 2 ? &#x27;#f0d89f&#x27; : &#x27;#64421f&#x27;, &#x27;stroke-width&#x27;: 0.45, opacity: 0.25 }, parent);
+          }
+        };
+        wear(drawing, r - 7, 130, 4, g.cipher + 23);
+        svg(&#x27;circle&#x27;, { cx: c, cy: c, r: r - 6, fill: &#x27;#8f6935&#x27;, filter: &#x27;url(#cw-bronze-grain)&#x27;, opacity: 0.11 }, drawing);
+        for (let i = 0; i &lt; 104; i++) {
+          const a = i * unit / 4;
+          const p = point(r - 1.5, a), q = point(r - (i % 4 ? 4.2 : 6.1), a);
+          svg(&#x27;line&#x27;, { x1: p[0], y1: p[1], x2: q[0], y2: q[1], stroke: i % 2 ? &#x27;#e6c28a&#x27; : &#x27;#624120&#x27;, &#x27;stroke-width&#x27;: 0.7, opacity: 0.6 }, drawing);
+        }
+        outerCells = []; outerText = []; innerCells = []; innerText = [];
+        for (let i = 0; i &lt; 26; i++) {
+          const cell = svg(&#x27;path&#x27;, { d: sector(g.plain - 13, g.plain + 12, i * unit), fill: &#x27;transparent&#x27; }, drawing);
+          outerCells.push(cell);
+          const p = point(g.plain, i * unit);
+          const t = svg(&#x27;text&#x27;, { x: p[0], y: p[1] }, drawing);
+          t.textContent = alphabet[i]; outerText.push(t);
+          const p1 = point(g.plain - 10, (i + 0.5) * unit), p2 = point(g.plain + 10, (i + 0.5) * unit);
+          svg(&#x27;line&#x27;, { x1: p1[0], y1: p1[1], x2: p2[0], y2: p2[1], stroke: &#x27;#6d4c28&#x27;, &#x27;stroke-width&#x27;: 0.65, opacity: 0.38 }, drawing);
+        }
+        svg(&#x27;circle&#x27;, { cx: c, cy: c + 2, r: g.cipher + 21, fill: &#x27;#593d20&#x27;, opacity: 0.9 }, drawing);
+        svg(&#x27;circle&#x27;, { cx: c, cy: c, r: g.cipher + 20, fill: &#x27;url(#cw-bronze-rim)&#x27;, stroke: &#x27;#6c4b26&#x27;, &#x27;stroke-width&#x27;: 1 }, drawing);
+        svg(&#x27;circle&#x27;, { cx: c, cy: c, r: g.cipher + 16, fill: &#x27;url(#cw-bronze-inner)&#x27;, stroke: &#x27;#ead19b&#x27;, &#x27;stroke-width&#x27;: 0.9 }, drawing);
+        innerGroup = svg(&#x27;g&#x27;, {}, drawing);
+        wear(innerGroup, g.cipher + 13, 85, 9, g.cipher - 13);
+        for (let i = 0; i &lt; 26; i++) {
+          const p = point(g.cipher + 14, (i + 0.5) * unit), q = point(g.cipher - 12, (i + 0.5) * unit);
+          svg(&#x27;line&#x27;, { x1: p[0], y1: p[1], x2: q[0], y2: q[1], stroke: &#x27;#6b4a25&#x27;, &#x27;stroke-width&#x27;: 0.65, opacity: 0.45 }, innerGroup);
+        }
+        for (let i = 0; i &lt; 26; i++) {
+          innerCells.push(svg(&#x27;path&#x27;, { d: sector(g.cipher - 12, g.cipher + 12, i * unit), fill: &#x27;transparent&#x27; }, innerGroup));
+          const p = point(g.cipher, i * unit);
+          const t = svg(&#x27;text&#x27;, { x: p[0], y: p[1] }, innerGroup);
+          t.textContent = alphabet[i]; innerText.push({ element: t, x: p[0], y: p[1] });
+        }
+        const hub = g.cipher - 19;
+        svg(&#x27;circle&#x27;, { cx: c, cy: c, r: hub + 3, fill: &#x27;#70502a&#x27;, stroke: &#x27;#ecd198&#x27;, &#x27;stroke-width&#x27;: 1 }, drawing);
+        svg(&#x27;circle&#x27;, { cx: c, cy: c, r: hub, fill: &#x27;url(#cw-bronze-hub)&#x27;, stroke: &#x27;#4c341c&#x27;, &#x27;stroke-width&#x27;: 0.8 }, drawing);
+        svg(&#x27;circle&#x27;, { cx: c, cy: c, r: hub - 3, fill: &#x27;none&#x27;, stroke: &#x27;#e2c18b&#x27;, &#x27;stroke-width&#x27;: 0.75, opacity: 0.8 }, drawing);
+        svg(&#x27;circle&#x27;, { cx: c, cy: c, r: hub - 6, fill: &#x27;none&#x27;, stroke: &#x27;#7a5930&#x27;, &#x27;stroke-width&#x27;: 0.55, opacity: 0.6 }, drawing);
+        wear(drawing, hub - 8, 75, 14, 0);
+        svg(&#x27;circle&#x27;, { cx: c, cy: c, r: hub - 1, fill: &#x27;#8f6935&#x27;, filter: &#x27;url(#cw-bronze-grain)&#x27;, opacity: 0.08 }, drawing);
+        for (const a of [0, 90, 180, 270]) {
+          const p = point(hub - 12, a);
+          svg(&#x27;circle&#x27;, { cx: p[0], cy: p[1] + 0.7, r: 3.9, fill: &#x27;#6b4825&#x27;, opacity: 0.65 }, drawing);
+          svg(&#x27;circle&#x27;, { cx: p[0], cy: p[1], r: 3.2, fill: &#x27;url(#cw-bronze-bolt)&#x27;, stroke: &#x27;#75532c&#x27;, &#x27;stroke-width&#x27;: 0.55 }, drawing);
+          svg(&#x27;line&#x27;, { x1: p[0] - 1.8, y1: p[1] + 1, x2: p[0] + 1.8, y2: p[1] - 1, stroke: &#x27;#63451f&#x27;, &#x27;stroke-width&#x27;: 0.9 }, drawing);
+        }
+        connector = svg(&#x27;line&#x27;, { stroke: &#x27;#422d17&#x27;, &#x27;stroke-width&#x27;: 2, &#x27;marker-end&#x27;: &#x27;url(#cw-arrow)&#x27;, opacity: 0 }, drawing);
+        applyAngle();
+        highlight();
+      }
+      function applyAngle() {
+        if (!innerGroup) return;
+        const c = state.size / 2;
+        innerGroup.setAttribute(&#x27;transform&#x27;, `rotate(${state.angle} ${c} ${c})`);
+        for (const t of innerText) t.element.setAttribute(&#x27;transform&#x27;, `rotate(${-state.angle} ${t.x} ${t.y})`);
+      }
+      function activeRecord() {
+        if (state.phase === &#x27;reveal&#x27; || state.phase === &#x27;complete&#x27; || (state.done &gt; 0 &amp;&amp; state.done === state.letters.length)) return state.current;
+        return state.letters[state.done] || null;
+      }
+      function activeShift() {
+        const active = activeRecord();
+        if (active) return active.shift;
+        return state.mode === &#x27;fixed&#x27; ? state.shift : alphabet.indexOf(state.key[0] || &#x27;A&#x27;);
+      }
+      function highlight() {
+        if (!outerCells.length) return;
+        const record = activeRecord();
+        const visible = state.valid &amp;&amp; record &amp;&amp; state.phase !== &#x27;turn&#x27;;
+        const revealed = state.phase === &#x27;reveal&#x27; || state.phase === &#x27;complete&#x27;;
+        const plainOn = visible &amp;&amp; (revealed || state.direction === &#x27;encode&#x27;) ? record.plain : -1;
+        const cipherOn = visible &amp;&amp; (revealed || state.direction === &#x27;decode&#x27;) ? record.cipher : -1;
+        for (let i = 0; i &lt; 26; i++) {
+          outerCells[i].setAttribute(&#x27;fill&#x27;, i === plainOn ? &#x27;#f1d59b&#x27; : &#x27;transparent&#x27;);
+          innerCells[i].setAttribute(&#x27;fill&#x27;, i === cipherOn ? &#x27;#f1d59b&#x27; : &#x27;transparent&#x27;);
+          outerCells[i].setAttribute(&#x27;stroke&#x27;, i === plainOn ? &#x27;#785323&#x27; : &#x27;none&#x27;);
+          innerCells[i].setAttribute(&#x27;stroke&#x27;, i === cipherOn ? &#x27;#785323&#x27; : &#x27;none&#x27;);
+          outerText[i].style.fontWeight = i === plainOn ? &#x27;500&#x27; : &#x27;400&#x27;;
+          innerText[i].element.style.fontWeight = i === cipherOn ? &#x27;500&#x27; : &#x27;400&#x27;;
+        }
+        connector.setAttribute(&#x27;opacity&#x27;, visible &amp;&amp; revealed ? &#x27;1&#x27; : &#x27;0&#x27;);
+        if (visible &amp;&amp; revealed) {
+          const g = state.geometry;
+          const p = point(g.plain - 16, record.plain * unit);
+          const q = point(g.cipher + 17, record.plain * unit);
+          const [from, to] = state.direction === &#x27;encode&#x27; ? [p, q] : [q, p];
+          connector.setAttribute(&#x27;x1&#x27;, from[0]); connector.setAttribute(&#x27;y1&#x27;, from[1]);
+          connector.setAttribute(&#x27;x2&#x27;, to[0]); connector.setAttribute(&#x27;y2&#x27;, to[1]);
+        }
+      }
+      function updateResult() {
+        const result = $(&#x27;result&#x27;);
+        result.replaceChildren();
+        const chunks = [];
+        for (const record of state.records) {
+          const revealed = record.ordinal === undefined || record.ordinal &lt; state.done;
+          const cls = record.ordinal === state.done - 1 ? &#x27;cw-result-current&#x27; : revealed ? &#x27;&#x27; : &#x27;cw-result-pending&#x27;;
+          const text = revealed ? record.output : &#x27;·&#x27;;
+          if (chunks.length &amp;&amp; chunks[chunks.length - 1].cls === cls) chunks[chunks.length - 1].text += text;
+          else chunks.push({ cls, text });
+        }
+        for (const chunk of chunks) {
+          const span = document.createElement(&#x27;span&#x27;);
+          span.className = chunk.cls; span.textContent = chunk.text; result.append(span);
+        }
+        if (!state.valid) result.textContent = &#x27;—&#x27;;
+        else if (!state.records.length) result.textContent = &#x27;—&#x27;;
+        result.setAttribute(&#x27;aria-label&#x27;, state.valid ? state.records.map(r =&gt; r.ordinal === undefined || r.ordinal &lt; state.done ? r.output : &#x27;·&#x27;).join(&#x27;&#x27;) || &#x27;No message&#x27; : &#x27;Enter a valid key&#x27;);
+      }
+      function updateKeys() {
+        const record = activeRecord();
+        const ordinal = record ? record.ordinal : 0;
+        Array.from($(&#x27;keys&#x27;).children).forEach((el, i) =&gt; {
+          const current = state.valid &amp;&amp; i === ordinal % state.key.length;
+          el.classList.toggle(&#x27;is-current&#x27;, current);
+          if (current) el.setAttribute(&#x27;aria-current&#x27;, &#x27;step&#x27;); else el.removeAttribute(&#x27;aria-current&#x27;);
+        });
+        $(&#x27;key-position&#x27;).textContent = state.valid ? `Key letter ${ordinal % state.key.length + 1} of ${state.key.length} · cycle ${Math.floor(ordinal / state.key.length) + 1}` : &#x27;No valid key&#x27;;
+        $(&#x27;key-value&#x27;).textContent = state.valid ? `${alphabet[activeShift()]} = ${activeShift()}` : &#x27;&#x27;;
+      }
+      function updateUI() {
+        const total = state.letters.length;
+        const record = activeRecord();
+        const complete = state.done === total;
+        const encoding = state.direction === &#x27;encode&#x27;;
+        const ready = state.valid &amp;&amp; total &gt; 0;
+        const revealed = state.phase === &#x27;reveal&#x27; || state.phase === &#x27;complete&#x27;;
+        $(&#x27;input-label&#x27;).textContent = encoding ? &#x27;Plaintext message&#x27; : &#x27;Ciphertext message&#x27;;
+        $(&#x27;output-label&#x27;).textContent = encoding ? &#x27;Ciphertext&#x27; : &#x27;Plaintext&#x27;;
+        $(&#x27;reverse&#x27;).textContent = encoding ? &#x27;Decode this result&#x27; : &#x27;Encode this result&#x27;;
+        $(&#x27;reverse&#x27;).disabled = !ready || !complete || state.busy;
+        $(&#x27;play&#x27;).textContent = state.playing ? &#x27;Pause&#x27; : complete &amp;&amp; total ? &#x27;Replay&#x27; : &#x27;Play&#x27;;
+        $(&#x27;play&#x27;).disabled = !ready;
+        $(&#x27;step&#x27;).disabled = !ready || complete || state.busy || state.playing;
+        $(&#x27;back&#x27;).disabled = !ready || !state.done || state.busy || state.playing;
+        $(&#x27;restart&#x27;).disabled = !ready || (!state.done &amp;&amp; !state.busy &amp;&amp; !state.playing);
+        $(&#x27;finish&#x27;).disabled = !ready || complete;
+        $(&#x27;count&#x27;).textContent = `${state.done} / ${total} letters`;
+        $(&#x27;progress&#x27;).setAttribute(&#x27;aria-valuemax&#x27;, Math.max(1, total));
+        $(&#x27;progress&#x27;).setAttribute(&#x27;aria-valuenow&#x27;, state.done);
+        $(&#x27;progress-bar&#x27;).style.width = total ? `${state.done / total * 100}%` : &#x27;0%&#x27;;
+        $(&#x27;hub-shift&#x27;).textContent = state.valid ? `Shift ${encoding ? &#x27;+&#x27; : &#x27;−&#x27;}${activeShift()}` : &#x27;—&#x27;;
+        $(&#x27;pair&#x27;).textContent = record &amp;&amp; state.valid ? `${record.input.toUpperCase()} → ${revealed ? record.output.toUpperCase() : &#x27;?&#x27;}` : &#x27;A–Z&#x27;;
+        $(&#x27;phase&#x27;).textContent = !state.valid ? &#x27;Enter a key&#x27; : state.phase === &#x27;turn&#x27; ? &#x27;Turning to next key&#x27; : record &amp;&amp; revealed ? &#x27;Last letter&#x27; : &#x27;Next letter&#x27;;
+        if (!state.valid) $(&#x27;status&#x27;).textContent = &#x27;Enter a valid key to begin.&#x27;;
+        else if (!state.records.length) $(&#x27;status&#x27;).textContent = &#x27;Enter a message to begin.&#x27;;
+        else if (!total) $(&#x27;status&#x27;).textContent = &#x27;No A–Z letters · message copied unchanged.&#x27;;
+        else if (state.phase === &#x27;turn&#x27;) $(&#x27;status&#x27;).textContent = `Turning to ${alphabet[activeShift()]} · shift ${activeShift()}`;
+        else if (state.phase === &#x27;reveal&#x27;) $(&#x27;status&#x27;).textContent = `Letter ${state.done} of ${total} · ${record.input} → ${record.output}`;
+        else if (complete) $(&#x27;status&#x27;).textContent = `Complete · ${total} ${total === 1 ? &#x27;letter&#x27; : &#x27;letters&#x27;} ${encoding ? &#x27;encoded&#x27; : &#x27;decoded&#x27;}.`;
+        else $(&#x27;status&#x27;).textContent = `${state.playing ? &#x27;Playing&#x27; : state.done ? &#x27;Paused&#x27; : &#x27;Ready&#x27;} · letter ${state.done + 1} of ${total}`;
+        if (record &amp;&amp; state.valid) $(&#x27;wheel-desc&#x27;).textContent = `Outer ring: plaintext. Inner ring: ciphertext. Key ${alphabet[record.shift]}, shift ${record.shift}. ${revealed ? `Plaintext ${alphabet[record.plain]} aligns with ciphertext ${alphabet[record.cipher]}.` : `Next input letter: ${record.input}.`}`;
+        updateKeys(); highlight();
+      }
+      function stop() {
+        state.token++;
+        state.playing = false; state.busy = false;
+      }
+      function buildMessage() {
+        state.records = []; state.letters = [];
+        for (const input of $(&#x27;message&#x27;).value) {
+          if (!/^[A-Za-z]$/.test(input)) { state.records.push({ input, output: input }); continue; }
+          const ordinal = state.letters.length;
+          const shift = state.mode === &#x27;fixed&#x27; ? state.shift : alphabet.indexOf(state.key[ordinal % state.key.length] || &#x27;A&#x27;);
+          const n = alphabet.indexOf(input.toUpperCase());
+          const value = mod(n + (state.direction === &#x27;encode&#x27; ? shift : -shift));
+          const output = input === input.toLowerCase() ? alphabet[value].toLowerCase() : alphabet[value];
+          const record = { input, output, shift, ordinal, plain: state.direction === &#x27;encode&#x27; ? n : value, cipher: state.direction === &#x27;encode&#x27; ? value : n };
+          state.letters.push(record); state.records.push(record);
+        }
+      }
+      function keyStrip() {
+        $(&#x27;keys&#x27;).replaceChildren();
+        if (!state.valid) return;
+        for (const letter of state.key) {
+          const span = document.createElement(&#x27;span&#x27;); span.className = &#x27;cw-key&#x27;; span.textContent = letter;
+          span.setAttribute(&#x27;aria-label&#x27;, `${letter}, shift ${alphabet.indexOf(letter)}`); $(&#x27;keys&#x27;).append(span);
+        }
+      }
+      function timing() {
+        return { slow: { hold: 1250, turn: 850 }, normal: { hold: 750, turn: 500 }, fast: { hold: 260, turn: 240 } }[$(&#x27;speed&#x27;).value];
+      }
+      async function turnTo(shift, token, animate = true) {
+        const from = state.angle;
+        const wanted = -shift * unit;
+        const delta = ((wanted - from + 540) % 360 + 360) % 360 - 180;
+        const duration = animate &amp;&amp; !reducedMotion.matches ? timing().turn : 0;
+        if (!duration || Math.abs(delta) &lt; 0.01) { state.angle = from + delta; applyAngle(); return token === state.token; }
+        return new Promise(resolve =&gt; {
+          let start = null;
+          const tick = now =&gt; {
+            if (token !== state.token) { resolve(false); return; }
+            if (start === null) start = now;
+            const t = Math.min(1, (now - start) / duration);
+            const eased = t &lt; 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+            state.angle = from + delta * eased; applyAngle();
+            if (t &lt; 1) requestAnimationFrame(tick); else resolve(true);
+          };
+          requestAnimationFrame(tick);
+        });
+      }
+      function delay(ms) { return new Promise(resolve =&gt; setTimeout(resolve, ms)); }
+      async function configure(animate = true) {
+        stop();
+        const token = state.token;
+        state.mode = $(&#x27;mode&#x27;).value; state.direction = $(&#x27;direction&#x27;).value; state.shift = Number($(&#x27;shift&#x27;).value);
+        const raw = $(&#x27;key&#x27;).value.replace(/\s/g, &#x27;&#x27;);
+        state.key = raw.toUpperCase();
+        state.valid = state.mode === &#x27;fixed&#x27; || /^[A-Za-z]+$/.test(raw);
+        $(&#x27;fixed-field&#x27;).hidden = state.mode !== &#x27;fixed&#x27;; $(&#x27;key-field&#x27;).hidden = state.mode !== &#x27;key&#x27;;
+        $(&#x27;key-error&#x27;).hidden = state.valid;
+        $(&#x27;key-error&#x27;).textContent = raw ? &#x27;Use A–Z letters only; spaces are ignored.&#x27; : &#x27;Enter at least one A–Z letter.&#x27;;
+        $(&#x27;key&#x27;).setAttribute(&#x27;aria-invalid&#x27;, String(!state.valid));
+        $(&#x27;alignment&#x27;).textContent = `Plaintext A aligns with ciphertext ${alphabet[state.shift]}.`;
+        state.done = 0; state.current = null; state.phase = &#x27;ready&#x27;;
+        buildMessage(); keyStrip(); updateResult();
+        const target = activeShift();
+        state.busy = animate &amp;&amp; state.valid;
+        if (state.busy) state.phase = &#x27;turn&#x27;;
+        updateUI();
+        if (!await turnTo(target &lt; 0 ? 0 : target, token, animate)) return;
+        state.busy = false; state.phase = &#x27;ready&#x27;; updateUI();
+        if (state.playing) run();
+      }
+      async function step() {
+        if (!state.valid || state.busy || state.done &gt;= state.letters.length) return;
+        const token = state.token;
+        state.busy = true;
+        const record = state.letters[state.done];
+        if (!await turnTo(record.shift, token)) return;
+        state.current = record; state.done++; state.phase = &#x27;reveal&#x27;; updateResult(); updateUI();
+        await delay(timing().hold);
+        if (token !== state.token) return;
+        if (state.done &lt; state.letters.length) {
+          state.phase = &#x27;turn&#x27;; updateUI();
+          if (!await turnTo(state.letters[state.done].shift, token)) return;
+          state.phase = &#x27;ready&#x27;;
+        } else { state.phase = &#x27;complete&#x27;; state.playing = false; }
+        state.busy = false; updateUI();
+      }
+      async function run() {
+        const token = state.token;
+        while (state.playing &amp;&amp; token === state.token &amp;&amp; state.done &lt; state.letters.length) {
+          await step();
+          if (state.busy) break;
+        }
+      }
+      $(&#x27;play&#x27;).addEventListener(&#x27;click&#x27;, async () =&gt; {
+        if (state.playing) { state.playing = false; updateUI(); return; }
+        if (!state.valid || !state.letters.length) return;
+        if (state.done === state.letters.length &amp;&amp; !state.busy) await configure(false);
+        state.playing = true; updateUI();
+        if (!state.busy) run();
+      });
+      $(&#x27;step&#x27;).addEventListener(&#x27;click&#x27;, () =&gt; { step().then(() =&gt; { if (state.playing &amp;&amp; !state.busy) run(); }); });
+      $(&#x27;back&#x27;).addEventListener(&#x27;click&#x27;, async () =&gt; {
+        if (!state.done || state.busy) return;
+        stop(); const token = state.token;
+        state.done--; state.current = state.done ? state.letters[state.done - 1] : null;
+        state.phase = &#x27;turn&#x27;; state.busy = true; updateResult(); updateUI();
+        if (!await turnTo(state.letters[state.done].shift, token)) return;
+        state.busy = false; state.phase = &#x27;ready&#x27;; updateUI();
+        if (state.playing) run();
+      });
+      $(&#x27;restart&#x27;).addEventListener(&#x27;click&#x27;, () =&gt; configure());
+      $(&#x27;finish&#x27;).addEventListener(&#x27;click&#x27;, async () =&gt; {
+        if (!state.valid || !state.letters.length) return;
+        stop(); const token = state.token;
+        state.done = state.letters.length; state.current = state.letters[state.done - 1];
+        state.phase = &#x27;turn&#x27;; state.busy = true; updateResult(); updateUI();
+        if (!await turnTo(state.current.shift, token)) return;
+        state.phase = &#x27;complete&#x27;; state.busy = false; state.playing = false; updateUI();
+      });
+      $(&#x27;reverse&#x27;).addEventListener(&#x27;click&#x27;, () =&gt; {
+        if (state.done !== state.letters.length) return;
+        $(&#x27;message&#x27;).value = state.records.map(r =&gt; r.output).join(&#x27;&#x27;);
+        $(&#x27;direction&#x27;).value = state.direction === &#x27;encode&#x27; ? &#x27;decode&#x27; : &#x27;encode&#x27;;
+        configure();
+      });
+      [&#x27;mode&#x27;, &#x27;direction&#x27;, &#x27;shift&#x27;].forEach(id =&gt; $(id).addEventListener(&#x27;change&#x27;, () =&gt; configure()));
+      [&#x27;message&#x27;, &#x27;key&#x27;].forEach(id =&gt; $(id).addEventListener(&#x27;input&#x27;, () =&gt; configure()));
+      new ResizeObserver(buildWheel).observe($(&#x27;wheel-wrap&#x27;));
+      buildWheel(); configure(false);
+    })();
+  &lt;/script&gt;
+&lt;/div&gt;
+
+&lt;script src=&quot;https://unpkg.com/@floating-ui/core@1.7.3/dist/floating-ui.core.umd.min.js&quot;&gt;&lt;/script&gt;
+&lt;script src=&quot;https://unpkg.com/@floating-ui/dom@1.7.4/dist/floating-ui.dom.umd.min.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+(() =&gt; {
+  if (window.FloatingUIDOM == null) {
+    return;
+  }
+  const { autoUpdate, computePosition, flip, offset, shift, size } =
+    window.FloatingUIDOM;
+  const tooltipPlacements = new Set([&quot;top&quot;, &quot;right&quot;, &quot;bottom&quot;, &quot;left&quot;]);
+  const tooltipId = `codex-visualization-tooltip-${
+    window.crypto?.randomUUID?.() ?? Date.now().toString(36)
+  }`;
+  const tooltipGap = 5;
+  const hoverDelay = 700;
+  const skipDelay = 300;
+  let activeTrigger = null;
+  let pendingTrigger = null;
+  let tooltip = null;
+  let openTimeout = null;
+  let autoUpdateCleanup = null;
+  let positionRequest = 0;
+  let skipDelayUntil = 0;
+  let lastPointerWasTouch = false;
+  let pinnedByTouch = false;
+
+  const getTrigger = (event) =&gt; {
+    for (const target of event.composedPath()) {
+      if (target?.nodeType === Node.ELEMENT_NODE) {
+        const trigger = target.closest(&quot;[data-tooltip]&quot;);
+        if (trigger) return trigger;
+      }
+    }
+    return null;
+  };
+  const containsTarget = (trigger, target) =&gt;
+    target?.nodeType != null &amp;&amp; trigger.contains(target);
+  const getContent = (trigger) =&gt;
+    trigger.getAttribute(&quot;data-tooltip&quot;)?.trim() ?? &quot;&quot;;
+  const getPlacement = (trigger) =&gt; {
+    const placement = trigger.getAttribute(&quot;data-tooltip-placement&quot;);
+    return tooltipPlacements.has(placement) ? placement : &quot;top&quot;;
+  };
+  const getTooltip = () =&gt; {
+    if (tooltip == null) {
+      tooltip = document.createElement(&quot;div&quot;);
+      tooltip.id = tooltipId;
+      tooltip.className = &quot;tooltip&quot;;
+      tooltip.setAttribute(&quot;role&quot;, &quot;tooltip&quot;);
+    }
+    return tooltip;
+  };
+  const setDescribedBy = (trigger, described) =&gt; {
+    const ids = new Set(
+      (trigger.getAttribute(&quot;aria-describedby&quot;) ?? &quot;&quot;)
+        .split(/\s+/)
+        .filter(Boolean),
+    );
+    if (described) {
+      ids.add(tooltipId);
+    } else {
+      ids.delete(tooltipId);
+    }
+    if (ids.size === 0) {
+      trigger.removeAttribute(&quot;aria-describedby&quot;);
+    } else {
+      trigger.setAttribute(&quot;aria-describedby&quot;, [...ids].join(&quot; &quot;));
+    }
+  };
+  const clearOpenTimeout = () =&gt; {
+    if (openTimeout != null) {
+      window.clearTimeout(openTimeout);
+      openTimeout = null;
+    }
+    pendingTrigger = null;
+  };
+  const closeTooltip = (activateSkipDelay = true) =&gt; {
+    clearOpenTimeout();
+    pinnedByTouch = false;
+    positionRequest += 1;
+    autoUpdateCleanup?.();
+    autoUpdateCleanup = null;
+    if (activeTrigger == null) {
+      return;
+    }
+    setDescribedBy(activeTrigger, false);
+    activeTrigger = null;
+    tooltip?.remove();
+    if (activateSkipDelay) {
+      skipDelayUntil = Date.now() + skipDelay;
+    }
+  };
+  const updatePosition = (trigger, floating) =&gt; {
+    const request = ++positionRequest;
+    void computePosition(trigger, floating, {
+      middleware: [
+        offset(tooltipGap),
+        flip({ padding: tooltipGap }),
+        shift({ padding: tooltipGap }),
+        size({
+          padding: tooltipGap,
+          apply({ availableHeight, availableWidth, elements }) {
+            elements.floating.style.setProperty(
+              &quot;--tooltip-available-width&quot;,
+              `${Math.max(0, availableWidth)}px`,
+            );
+            elements.floating.style.setProperty(
+              &quot;--tooltip-available-height&quot;,
+              `${Math.max(0, availableHeight)}px`,
+            );
+          },
+        }),
+      ],
+      placement: getPlacement(trigger),
+      strategy: &quot;fixed&quot;,
+    })
+      .then(({ x, y }) =&gt; {
+        if (activeTrigger !== trigger || request !== positionRequest) {
+          return;
+        }
+        const scale = window.devicePixelRatio || 1;
+        floating.style.transform = `translate(${Math.round(x * scale) / scale}px, ${Math.round(y * scale) / scale}px)`;
+        floating.style.visibility = &quot;visible&quot;;
+      })
+      .catch(() =&gt; {
+        if (activeTrigger === trigger &amp;&amp; request === positionRequest) {
+          closeTooltip(false);
+        }
+      });
+  };
+  const openTooltip = (trigger) =&gt; {
+    const content = getContent(trigger);
+    if (!trigger.isConnected || content.length === 0) {
+      return;
+    }
+    clearOpenTimeout();
+    if (activeTrigger === trigger) {
+      return;
+    }
+    closeTooltip();
+    const floating = getTooltip();
+    floating.textContent = content;
+    floating.style.visibility = &quot;hidden&quot;;
+    floating.style.transform = &quot;translate(0, 0)&quot;;
+    document.body.appendChild(floating);
+    activeTrigger = trigger;
+    setDescribedBy(trigger, true);
+    autoUpdateCleanup = autoUpdate(trigger, floating, () =&gt; {
+      updatePosition(trigger, floating);
+    });
+  };
+  const requestOpen = (trigger, immediate = false) =&gt; {
+    if (
+      getContent(trigger).length === 0 ||
+      activeTrigger === trigger ||
+      pendingTrigger === trigger
+    ) {
+      return;
+    }
+    clearOpenTimeout();
+    pendingTrigger = trigger;
+    const delay =
+      immediate || activeTrigger != null || Date.now() &lt; skipDelayUntil
+        ? 0
+        : hoverDelay;
+    if (delay === 0) {
+      openTooltip(trigger);
+      return;
+    }
+    openTimeout = window.setTimeout(() =&gt; {
+      openTimeout = null;
+      pendingTrigger = null;
+      openTooltip(trigger);
+    }, delay);
+  };
+  const handlePointerOpen = (event) =&gt; {
+    if (event.pointerType === &quot;touch&quot;) {
+      return;
+    }
+    const trigger = getTrigger(event);
+    if (trigger == null || containsTarget(trigger, event.relatedTarget)) {
+      return;
+    }
+    requestOpen(trigger);
+  };
+  const handlePointer = (event) =&gt; {
+    lastPointerWasTouch =
+      event.type === &quot;pointerdown&quot; &amp;&amp; event.pointerType === &quot;touch&quot;;
+  };
+  const handleTouchClick = (event) =&gt; {
+    const isTouch = event.pointerType === &quot;touch&quot; || lastPointerWasTouch;
+    lastPointerWasTouch = false;
+    if (!isTouch || event.detail === 0) {
+      return;
+    }
+    const trigger = getTrigger(event);
+    if (
+      trigger == null ||
+      !trigger.isConnected ||
+      getContent(trigger).length === 0 ||
+      (pinnedByTouch &amp;&amp; activeTrigger === trigger)
+    ) {
+      if (pinnedByTouch) {
+        closeTooltip();
+      }
+      return;
+    }
+    openTooltip(trigger);
+    pinnedByTouch = activeTrigger === trigger;
+    window.setTimeout(() =&gt; {
+      if (activeTrigger === trigger &amp;&amp; !trigger.isConnected) {
+        closeTooltip(false);
+      }
+    }, 0);
+  };
+  const handleLeave = (event) =&gt; {
+    if (pinnedByTouch) {
+      return;
+    }
+    const trigger = getTrigger(event);
+    if (trigger == null || containsTarget(trigger, event.relatedTarget)) {
+      return;
+    }
+    if (activeTrigger === trigger || pendingTrigger === trigger) {
+      closeTooltip();
+    }
+  };
+  const handleFocusIn = (event) =&gt; {
+    const trigger = getTrigger(event);
+    if (trigger?.matches(&quot;:focus-visible&quot;)) {
+      requestOpen(trigger, true);
+    }
+  };
+  const handleKeyDown = (event) =&gt; {
+    if (event.key === &quot;Escape&quot;) {
+      closeTooltip();
+    }
+  };
+  const handleContextMenu = (event) =&gt; {
+    lastPointerWasTouch = false;
+    const trigger = getTrigger(event);
+    if (activeTrigger === trigger || pendingTrigger === trigger) {
+      closeTooltip();
+    }
+  };
+  const handlers = {
+    pointerover: handlePointerOpen,
+    pointerdown: handlePointer,
+    pointercancel: handlePointer,
+    click: handleTouchClick,
+    pointerout: handleLeave,
+    focusin: handleFocusIn,
+    focusout: handleLeave,
+    keydown: handleKeyDown,
+    contextmenu: handleContextMenu,
+  };
+  const roots = new Map();
+  const handledEvents = new WeakSet();
+  const handleEvent = (event) =&gt; {
+    if (handledEvents.has(event)) return;
+    handledEvents.add(event);
+    handlers[event.type](event);
+  };
+  const discoverRoots = (node) =&gt; {
+    if (node.shadowRoot) listen(node.shadowRoot);
+    for (const element of node.querySelectorAll(&quot;*&quot;)) {
+      if (element.shadowRoot) listen(element.shadowRoot);
+    }
+  };
+  const listen = (root) =&gt; {
+    if (roots.has(root)) return;
+    for (const type of Object.keys(handlers)) root.addEventListener(type, handleEvent);
+    const observer = new window.MutationObserver((records) =&gt; {
+      for (const { addedNodes } of records) {
+        for (const node of addedNodes) {
+          if (node.nodeType === Node.ELEMENT_NODE) discoverRoots(node);
+        }
+      }
+      for (const [root, cleanup] of roots) {
+        if (root.host &amp;&amp; !root.host.isConnected) {
+          cleanup();
+          roots.delete(root);
+        }
+      }
+      if (activeTrigger &amp;&amp; !activeTrigger.isConnected) closeTooltip(false);
+    });
+    observer.observe(root, { childList: true, subtree: true });
+    roots.set(root, () =&gt; {
+      observer.disconnect();
+      for (const type of Object.keys(handlers)) root.removeEventListener(type, handleEvent);
+    });
+    discoverRoots(root);
+  };
+  const destroy = () =&gt; {
+    closeTooltip(false);
+    lastPointerWasTouch = false;
+    for (const cleanup of roots.values()) cleanup();
+    roots.clear();
+    tooltip = null;
+  };
+
+  // Events between children of one shadow root never reach the document.
+  listen(document);
+  window.addEventListener(&quot;pagehide&quot;, destroy, { once: true });
+})();
+&lt;/script&gt;
+&lt;script id=&quot;codex-visualization-tabs&quot;&gt;
+(() =&gt; {
+  const selector = &#x27;.nav[role=&quot;tablist&quot;] [role=&quot;tab&quot;]&#x27;;
+  const disabled = &#x27;:disabled,[aria-disabled=&quot;true&quot;]&#x27;;
+  const selectTab = (selected) =&gt; {
+    const panelId = selected.getAttribute(&quot;aria-controls&quot;);
+    for (const tab of selected.closest(&#x27;[role=&quot;tablist&quot;]&#x27;).querySelectorAll(&#x27;[role=&quot;tab&quot;]&#x27;)) {
+      const active = tab === selected;
+      tab.classList.toggle(&quot;active&quot;, active);
+      tab.setAttribute(&quot;aria-selected&quot;, String(active));
+      const id = tab.getAttribute(&quot;aria-controls&quot;);
+      const panel = id &amp;&amp; document.getElementById(id);
+      if (panel != null) {
+        panel.hidden = id !== panelId;
+        if (!panel.hidden &amp;&amp; selected.id) {
+          panel.setAttribute(&quot;aria-labelledby&quot;, selected.id);
+        }
+      }
+    }
+  };
+  const interact = (event) =&gt; {
+    const tab = event.target?.closest?.(selector);
+    if (event.defaultPrevented || tab == null || tab.matches(disabled)) {
+      return;
+    }
+    if (event.type === &quot;click&quot;) {
+      selectTab(tab);
+      return;
+    }
+    const tabs = Array.from(
+      tab.closest(&#x27;[role=&quot;tablist&quot;]&#x27;).querySelectorAll(&#x27;[role=&quot;tab&quot;]&#x27;),
+    ).filter((candidate) =&gt; !candidate.matches(disabled));
+    const current = tabs.indexOf(tab);
+    let next;
+    if (event.key === &quot;ArrowRight&quot; || event.key === &quot;ArrowDown&quot;) {
+      next = (current + 1) % tabs.length;
+    } else if (event.key === &quot;ArrowLeft&quot; || event.key === &quot;ArrowUp&quot;) {
+      next = (current + tabs.length - 1) % tabs.length;
+    } else if (event.key === &quot;Home&quot;) {
+      next = 0;
+    } else if (event.key === &quot;End&quot;) {
+      next = tabs.length - 1;
+    } else {
+      return;
+    }
+    event.preventDefault();
+    tabs[next].focus();
+    selectTab(tabs[next]);
+  };
+
+  for (const list of document.querySelectorAll(&#x27;.nav[role=&quot;tablist&quot;]&#x27;)) {
+    const selected =
+      list.querySelector(&#x27;[role=&quot;tab&quot;][aria-selected=&quot;true&quot;]&#x27;) ??
+      list.querySelector(&#x27;[role=&quot;tab&quot;].active&#x27;) ??
+      list.querySelector(&#x27;[role=&quot;tab&quot;]&#x27;);
+    if (selected != null) {
+      selectTab(selected);
+    }
+  }
+  document.addEventListener(&quot;click&quot;, interact);
+  document.addEventListener(&quot;keydown&quot;, interact);
+  window.addEventListener(&quot;pagehide&quot;, () =&gt; {
+    document.removeEventListener(&quot;click&quot;, interact);
+    document.removeEventListener(&quot;keydown&quot;, interact);
+  }, { once: true });
+})();
+&lt;/script&gt;
+&lt;script id=&quot;codex-visualization-lucide&quot; async src=&quot;https://unpkg.com/lucide@1.17.0/dist/umd/lucide.js&quot;&gt;&lt;/script&gt;
+&lt;script&gt;
+(() =&gt; {
+  const initialize = () =&gt; {
+    globalThis.lucide?.createIcons({ attrs: { width: 16, height: 16 } });
+  };
+  if (globalThis.lucide != null) {
+    initialize();
+    return;
+  }
+  document
+    .getElementById(&quot;codex-visualization-lucide&quot;)
+    ?.addEventListener(&quot;load&quot;, initialize, { once: true });
+})();
+&lt;/script&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+"></iframe>
+<script>(() => {
+  const frame = document.getElementById("codex-visualization");
+  if (!(frame instanceof HTMLIFrameElement)) {
+    return;
+  }
+  let viewportHeight = globalThis.innerHeight;
+  const storageKey = `codex:visualization-widget-state-v2:${JSON.stringify([
+    globalThis.location.pathname,
+    globalThis.location.search,
+  ])}`;
+  const parseState = (serializedState) => {
+    if (
+      typeof serializedState !== "string" ||
+      new TextEncoder().encode(serializedState).length > 16 * 1024
+    ) {
+      throw new TypeError(
+        "Widget state must be a JSON object of at most 16 KiB",
+      );
+    }
+    /** @type {unknown} */
+    const state = JSON.parse(serializedState);
+    if (
+      state == null ||
+      typeof state !== "object" ||
+      Array.isArray(state) ||
+      ("imageIds" in state &&
+        (!Array.isArray(state.imageIds) || state.imageIds.length > 0))
+    ) {
+      throw new TypeError("Widget state must be a JSON object");
+    }
+    const storedState = { modelContent: null, privateContent: null, ...state };
+    const canonicalState = JSON.stringify(
+      storedState,
+      (_key, /** @type {unknown} */ value) => {
+        if (typeof value === "number" && !Number.isFinite(value)) {
+          throw new TypeError("Widget state must contain finite numbers");
+        }
+        return value;
+      },
+    );
+    if (new TextEncoder().encode(canonicalState).length > 16 * 1024) {
+      throw new TypeError(
+        "Widget state must be a JSON object of at most 16 KiB",
+      );
+    }
+    return storedState;
+  };
+  let storage = null;
+  let state = null;
+  try {
+    const localStorage = globalThis.localStorage;
+    const probeKey = `${storageKey}:probe`;
+    localStorage.setItem(probeKey, "1");
+    localStorage.removeItem(probeKey);
+    storage = localStorage;
+    const savedState = storage.getItem(storageKey);
+    if (savedState != null) {
+      try {
+        state = parseState(savedState);
+      } catch {
+        // Invalid saved state does not disable future writes.
+      }
+    }
+  } catch {
+    storage = null;
+  }
+  const initialGlobals = {
+    widgetState: state,
+    statePersistence: storage == null ? "none" : "local",
+  };
+
+  const channel = new MessageChannel();
+  channel.port1.addEventListener("message", (event) => {
+    const data = event.data;
+    if (typeof data !== "object" || data == null) {
+      return;
+    }
+    if (data.type === "widget-state-write") {
+      if (!Number.isSafeInteger(data.id) || data.id <= 0) {
+        return;
+      }
+      let ok = false;
+      try {
+        if (storage != null) {
+          const state = parseState(data.state);
+          storage.setItem(storageKey, JSON.stringify(state));
+          ok = true;
+        }
+      } catch {
+        // Storage denial, quota limits, and invalid state return a failed receipt.
+      }
+      channel.port1.postMessage({
+        type: "widget-state-result",
+        id: data.id,
+        ok,
+      });
+      return;
+    }
+    if (data.type === "height") {
+      const height = data.height;
+      if (
+        typeof height === "number" &&
+        Number.isFinite(height) &&
+        height >= 0 &&
+        height <= 10_000
+      ) {
+        frame.style.height = Math.ceil(height) + "px";
+      }
+      return;
+    }
+    if (data.type === "scroll-to") {
+      const top = data.top;
+      if (
+        typeof top === "number" &&
+        Number.isFinite(top) &&
+        top >= 0 &&
+        globalThis.navigator.userActivation?.isActive === true
+      ) {
+        globalThis.scrollTo({
+          top: Math.ceil(
+            globalThis.scrollY + frame.getBoundingClientRect().top + top,
+          ),
+        });
+      }
+      return;
+    }
+    if (data.type === "open-external") {
+      const rawHref = data.href;
+      if (typeof rawHref !== "string") {
+        return;
+      }
+      let href;
+      try {
+        const url = new URL(rawHref, document.baseURI);
+        if (url.protocol !== "https:") {
+          return;
+        }
+        href = url.href;
+      } catch {
+        return;
+      }
+      if (globalThis.navigator.userActivation?.isActive === true) {
+        const anchor = document.createElement("a");
+        anchor.href = href;
+        anchor.rel = "noopener noreferrer";
+        anchor.target = "_blank";
+        document.body.appendChild(anchor);
+        anchor.click();
+        anchor.remove();
+      }
+      return;
+    }
+    if (data.type === "follow-up") {
+      const prompt = data.prompt;
+      if (
+        typeof prompt !== "string" ||
+        globalThis.navigator.userActivation?.isActive !== true
+      ) {
+        return;
+      }
+      const title = data.title;
+      globalThis.prompt(typeof title === "string" ? title : prompt, prompt);
+    }
+  });
+  channel.port1.start();
+  const srcdoc = frame.dataset.srcdoc;
+  if (srcdoc == null) {
+    return;
+  }
+  globalThis.addEventListener("resize", () => {
+    const height = Number.parseFloat(frame.style.height);
+    if (!Number.isFinite(height) || height <= viewportHeight) {
+      frame.style.removeProperty("height");
+    }
+    viewportHeight = globalThis.innerHeight;
+    channel.port1.postMessage({ type: "measure" });
+  });
+  frame.addEventListener(
+    "load",
+    () => {
+      frame.contentWindow?.postMessage(
+        { type: "codex-visualization-initialize" },
+        "*",
+        [channel.port2],
+      );
+    },
+    { once: true },
+  );
+  // Match the trusted bootstrap element, not the same text in an authored title.
+  frame.srcdoc = srcdoc.replace(
+    '<script type="application/json" id="codex-visualization-widget-state">__CODEX_VISUALIZATION_WIDGET_STATE__<\/script>',
+    () =>
+      '<script type="application/json" id="codex-visualization-widget-state">' +
+      JSON.stringify(initialGlobals).replaceAll("<", "\\u003c") +
+      "<\/script>",
+  );
+  delete frame.dataset.srcdoc;
+})();
+</script>
+</body>
+</html>
