@@ -1,0 +1,510 @@
+<!doctype html>
+<!--
+Pascal's Triangle explorer — standalone edition.
+Upload this file as pascal-triangle.html to your website's published folder.
+It also runs by opening the file directly in a modern browser.
+CSS and JavaScript are embedded below; no packages, API keys or build step are needed.
+The complete, editable source is contained in this file.
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101820">
+  <title>Pascal, modulo n — Triangle explorer</title>
+  <meta name="description" content="Explore Pascal’s Triangle modulo any integer from 2 to 1024. Compare residues, nonzero patterns and prime-power divisibility, and inspect exact binomial coefficients.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23101820'/%3E%3Cg fill='%2361e1c5'%3E%3Cpath d='M16 5l4 7h-8zM11 14l4 7H7zM21 14l4 7h-8zM6 23l3 5H3zM26 23l3 5h-6z'/%3E%3C/g%3E%3C/svg%3E">
+  <!-- All styles are included here; no external dependencies. -->
+  <style>
+:root{color-scheme:dark;--bg:#0b131b;--surface:#111d28;--canvas:#0d1823;--line:#2b3945;--muted:#9cabb9;--text:#eef4f8;--accent:#61e1c5;--accent-ink:#072c25;--field:#0c1620;--zero:#243442;--gold:#f3c778;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:16px}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text)}button,input,select{font:inherit}button{cursor:pointer}button,input,select{border:1px solid var(--line);color:var(--text);background:var(--field);border-radius:7px}button{transition:background .15s,border-color .15s,color .15s}button:hover{background:#223342;border-color:#667987}button:disabled{cursor:not-allowed;opacity:.42}button:disabled:hover{background:var(--field);border-color:var(--line)}button:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible,canvas:focus-visible{outline:2px solid var(--accent);outline-offset:4px}input[type=number]{appearance:textfield;-moz-appearance:textfield}input::-webkit-inner-spin-button,input::-webkit-outer-spin-button{-webkit-appearance:none;margin:0}input{min-width:0}input[aria-invalid=true]{border-color:#ff9b9b}button.active{border-color:var(--accent);color:var(--accent);background:#17352f}label{cursor:pointer}h1,h2,p{margin:0}button,summary,label{touch-action:manipulation}sup,sub{font-size:.68em}button[hidden],[hidden]{display:none!important}
+.masthead{max-width:1680px;margin:auto;min-height:105px;padding:23px 34px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line)}.identity{display:flex;align-items:center;gap:18px}.identity>svg{height:38px;width:38px;color:var(--accent)}.eyebrow{font-size:.75rem;letter-spacing:.17em;font-weight:600;color:var(--accent);margin-bottom:4px}h1{font-family:Georgia,"Times New Roman",serif;font-weight:400;font-size:2rem;line-height:1.2}h1 i{color:var(--accent)}.header-equation{display:flex;align-items:center;gap:11px;font-family:Georgia,serif;font-size:1.5rem;color:#b6c5d1}.choose{display:inline-flex;flex-direction:column;align-items:center;line-height:1.03;border-left:1.5px solid currentColor;border-right:1.5px solid currentColor;border-radius:50%;padding:2px 10px;font-style:italic}
+.workspace{max-width:1680px;margin:auto;display:grid;grid-template-columns:274px minmax(0,1fr);gap:26px;padding:26px 34px 30px}.controls{background:var(--surface);border:1px solid var(--line);border-radius:12px;align-self:start;overflow:hidden}.control-section{padding:20px;border-bottom:1px solid var(--line)}.control-section:last-child{border:0}.section-label{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:.9375rem;font-weight:600;margin-bottom:14px}.badge{font-size:.75rem;letter-spacing:.07em;color:var(--accent);font-weight:600;border:1px solid #34524f;background:#17302f;border-radius:4px;padding:4px 6px;white-space:nowrap}.number-control{display:grid;grid-template-columns:38px minmax(0,1fr) 38px;gap:9px}.number-control button{font-size:1.4rem}.number-control input{text-align:center;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:2rem;padding:7px;width:100%;font-weight:500}.error{font-size:.8125rem;color:#ffb2b2;margin:6px 0;line-height:1.4}.error:empty{display:none}.presets{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin:14px 0 18px}.presets button{font-size:.875rem;padding:7px 0}.power-builder summary{display:flex;align-items:center;justify-content:space-between;cursor:pointer;font-size:.875rem;color:#c8d4dd;list-style:none}.power-builder summary:before{content:"+";color:var(--muted);margin-right:8px}.power-builder[open] summary:before{content:"−"}.power-builder summary>span{margin-left:auto;font-family:Georgia,serif;font-size:1.1rem}.power-inputs{display:grid;grid-template-columns:1fr 15px 1fr;align-items:end;gap:8px;margin:15px 0 10px}.power-inputs label{color:var(--muted);font-size:.8125rem}.power-inputs select,.power-inputs input{width:100%;margin-top:6px;padding:8px;font-size:.9375rem}.times{text-align:center;padding-bottom:11px;color:var(--muted)}.power-apply{display:flex;align-items:center;justify-content:center;gap:5px;width:100%;font-size:.875rem;padding:9px;color:var(--accent);border-color:#3a6159;background:#102b27}.power-apply>span{margin-left:auto}.microcopy{color:var(--muted);font-size:.75rem;line-height:1.5;margin-top:10px}.compact-input{width:77px;padding:6px 9px;text-align:right;font-family:ui-monospace,Consolas,monospace}.row-presets{display:flex;gap:5px}.row-presets button{font-size:.8125rem;flex:1;min-width:0;padding:7px 0}.text-button{padding:0;border:none;background:transparent;border-radius:3px;color:var(--accent);font-size:.8125rem;line-height:1.5;text-align:left}.text-button:hover{background:transparent;color:#a8f5e4}.text-button:disabled{background:transparent}.control-section>.text-button{margin-top:10px}.colour-modes{display:grid;gap:8px}.colour-modes button{display:flex;gap:11px;align-items:center;padding:11px 10px;text-align:left;font-size:.875rem}.colour-modes small{display:block;margin-top:3px;font-size:.75rem;color:var(--muted);line-height:1.35}.mode-symbol{font-size:1.5rem;flex:0 0 22px;line-height:1}.residue-symbol{color:var(--gold)}.math-symbol{font-size:1.25rem;font-family:Georgia,serif}.check-row{display:flex;align-items:center;gap:8px;font-size:.8125rem;line-height:1.4;margin-top:15px;color:#c5d1db}.check-row input{accent-color:var(--accent);width:16px;height:16px;margin:0;flex-shrink:0}
+.exploration{min-width:0}.plot-panel{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--surface)}.plot-toolbar{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:18px 21px;border-bottom:1px solid var(--line)}h2{font-size:.9375rem;font-weight:500}.plot-toolbar h2{font-size:1rem}.plot-toolbar h2>span{color:var(--accent);margin-left:7px}.plot-toolbar p{font-size:.75rem;color:var(--muted);margin-top:5px}.zoom-controls{display:flex;align-items:center;gap:5px}.zoom-controls button{font-size:1.125rem;height:32px;width:32px}.zoom-controls span{width:40px;text-align:center;font-size:.8125rem;font-variant-numeric:tabular-nums;color:#c8d6df}.zoom-controls .fit-button{font-size:.8125rem;width:43px;margin-left:5px}.canvas-wrap{position:relative;width:100%;height:clamp(390px,60vh,690px);min-height:300px;background:var(--canvas);overflow:hidden}.canvas-wrap canvas{display:block;width:100%;height:100%;touch-action:none;cursor:crosshair}.canvas-wrap canvas.dragging{cursor:grabbing}.canvas-caption{pointer-events:none;position:absolute;bottom:14px;left:20px;right:20px;display:flex;justify-content:space-between;gap:12px;color:#9bacba;font-size:.75rem}.canvas-caption>span:first-child{letter-spacing:.12em;font-weight:500}.hover-label{position:absolute;pointer-events:none;font-family:ui-monospace,Consolas,monospace;font-size:.8125rem;padding:8px 10px;border:1px solid #6b807f;border-radius:5px;white-space:nowrap;background:#0b171eee;color:#edf9f7;box-shadow:0 4px 20px #0004}.legend-row{padding:13px 20px;display:flex;align-items:center;gap:10px;flex-wrap:wrap;border-top:1px solid var(--line);min-height:51px}.legend{display:flex;align-items:center;gap:7px;flex-wrap:wrap;min-width:0}.legend-title{font-size:.75rem;color:var(--muted);margin-right:5px}.legend button{display:inline-flex;align-items:center;gap:7px;padding:4px 7px;border-color:transparent;background:transparent;font-size:.8125rem;line-height:1.25}.legend button:hover{background:#21333f;border-color:#526270}.legend button.active{border-color:var(--accent)}.swatch{width:10px;height:10px;border-radius:2px;box-shadow:inset 0 0 0 1px #ffffff12;flex-shrink:0}.legend-help{color:var(--muted);font-size:.75rem}.legend-scale{width:150px;height:8px;border-radius:4px;margin:0 6px}.plot-stats{display:flex;gap:18px;flex-wrap:wrap;border-top:1px solid var(--line);padding:12px 21px;font-size:.8125rem;color:var(--muted)}.plot-stats strong{font-weight:500;color:#dce8ef;font-variant-numeric:tabular-nums}.plot-stats .accent{color:var(--accent)}
+.detail-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px;margin-top:18px}.detail-card{background:var(--surface);border:1px solid var(--line);border-radius:11px;padding:20px;min-width:0}.card-heading{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:16px}.small-label{color:var(--muted);font-size:.75rem;letter-spacing:.08em;text-align:right}.inspect-form{display:flex;align-items:end;gap:10px}.inspect-form label{font-size:.8125rem;color:var(--muted);flex:1;min-width:0}.inspect-form input{display:block;width:100%;margin-top:6px;padding:7px 9px;font-family:ui-monospace,Consolas,monospace;font-size:.9375rem}.inspect-button{padding:8px 13px;font-size:.875rem;border-color:#426259;color:var(--accent);background:#15322d}.entry-equation{font-size:1.125rem;line-height:1.55;margin:16px 0 7px;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;overflow-wrap:anywhere}.entry-equation strong{font-size:1.6rem;font-weight:500;color:var(--accent)}.entry-equation .mod{font-size:.875rem;color:var(--muted);white-space:nowrap}.entry-info{font-size:.8125rem;line-height:1.6;color:var(--muted)}.entry-info em{font-style:normal;color:var(--text)}.exact-number{font-size:.75rem;color:var(--muted);margin-top:10px}.exact-number summary{cursor:pointer}.exact-number code{display:block;margin-top:8px;word-break:break-all;line-height:1.6}.mathematics p{font-size:.875rem;line-height:1.7;color:#b5c3ce;margin:10px 0}.mathematics p:first-child{margin-top:0}.mathematics strong{color:var(--text);font-weight:500}.theorem-formula{font-family:Georgia,serif;font-size:1.125rem;line-height:1.8;color:var(--accent);margin:10px 0}.mathematics details>summary{font-size:.8125rem;color:var(--accent);cursor:pointer;margin-top:14px}.digit-table{width:100%;margin-top:12px;border-collapse:collapse;font-size:.8125rem}.digit-table td{padding:5px 0}.digit-table td:last-child{text-align:right;color:var(--text);font-family:ui-monospace,Consolas,monospace;overflow-wrap:anywhere}.digit-table td:first-child{color:var(--muted);padding-right:10px}.mathematics .carry-note{font-size:.8125rem;color:var(--muted)}.footnote{color:var(--muted);font-size:.75rem;margin:16px 4px 0;line-height:1.6}
+@media(min-width:1600px){.canvas-wrap{height:660px}.workspace{grid-template-columns:286px minmax(0,1fr)}}
+@media(max-width:1100px){.workspace{padding:22px;gap:18px;grid-template-columns:246px minmax(0,1fr)}.masthead{padding:22px}.control-section{padding:16px}.detail-grid{grid-template-columns:1fr}.canvas-caption>span:last-child{max-width:190px;text-align:right;line-height:1.4}.canvas-wrap{height:540px}.plot-toolbar{padding:16px}.plot-stats{gap:10px 18px}}
+@media(max-width:760px){.masthead{min-height:87px;padding:18px}.identity{gap:12px}.identity>svg{width:30px;height:30px}h1{font-size:1.65rem}.eyebrow{font-size:.75rem}.header-equation{font-size:1.1rem}.workspace{display:flex;flex-direction:column;padding:16px;gap:16px}.controls{display:grid;grid-template-columns:1fr 1fr;width:100%;overflow:visible}.control-section{padding:16px}.control-section:first-child{border-right:1px solid var(--line);grid-row:span 2;border-bottom:0}.control-section:nth-child(2){border-bottom:1px solid var(--line)}.section-label{font-size:.875rem;margin-bottom:11px;flex-wrap:wrap}.presets{gap:6px;margin-bottom:15px}.colour-modes button{padding:8px;font-size:.8125rem;gap:8px}.colour-modes small{display:none}.check-row{font-size:.75rem;margin-top:12px}.microcopy{font-size:.75rem}.number-control{grid-template-columns:29px minmax(0,1fr) 29px;gap:5px}.number-control input{font-size:1.8rem}.power-inputs{grid-template-columns:1fr 8px 1fr;gap:5px}.power-inputs label{font-size:.75rem}.power-builder summary{font-size:.8125rem}.power-builder summary>span{display:none}.row-presets{flex-wrap:wrap}.row-presets button{min-width:28px}.compact-input{width:68px}.canvas-wrap{height:460px}.plot-toolbar h2{font-size:.875rem}.plot-toolbar h2>span{display:block;margin-left:0;margin-top:3px}.plot-toolbar p{display:none}.canvas-caption{left:14px;right:14px;font-size:.75rem}.canvas-caption>span:last-child{max-width:160px}.plot-stats{padding:12px 15px;font-size:.75rem;gap:9px 15px}.legend-row{padding:11px 13px}.detail-grid{gap:16px;margin-top:16px}.detail-card{padding:18px}.footnote{margin-top:12px}.badge{font-size:.75rem;padding:3px 5px}.power-apply{font-size:.8125rem}.header-equation .choose{padding:2px 8px}}
+@media(max-width:380px){.workspace{padding:10px}.masthead{padding:15px}.control-section{padding:12px}.canvas-wrap{height:400px}.controls{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.power-inputs label{font-size:.75rem}.row-presets button{min-width:25px}.header-equation{display:none}.presets{grid-template-columns:repeat(4,minmax(0,1fr))}.power-apply{font-size:.75rem}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* Controls retain a readable size at small viewports. */
+.presets button,.row-presets button,.power-inputs label,.power-builder summary,.power-apply,.colour-modes button,.check-row,.legend button,.inspect-form label,.text-button{font-size:.875rem}
+
+  </style>
+</head>
+<body>
+  <header class="masthead">
+    <div class="identity"><svg aria-hidden="true" viewBox="0 0 36 36"><path d="M18 3 25 15H11ZM10 17l7 12H3Zm16 0 7 12H19Z" fill="currentColor"/></svg><div><div class="eyebrow">A MODULAR EXPLORER</div><h1>Pascal, modulo <i>n</i></h1></div></div>
+    <div class="header-equation" aria-label="Entry in row r and column k is r choose k modulo n"><span class="choose"><span>r</span><span>k</span></span><span>mod <i>n</i></span></div>
+  </header>
+
+  <main class="workspace">
+    <aside class="controls" aria-label="Triangle controls">
+      <section class="control-section">
+        <div class="section-label"><label for="modulus">Modulus <i>n</i></label><span id="modulus-type" class="badge">PRIME</span></div>
+        <div class="number-control"><button id="mod-minus" aria-label="Decrease modulus">−</button><input id="modulus" type="number" min="2" max="1024" value="2" inputmode="numeric" aria-describedby="mod-error"><button id="mod-plus" aria-label="Increase modulus">+</button></div>
+        <p id="mod-error" class="error" role="status"></p>
+        <div class="presets" aria-label="Common moduli">
+          <button data-mod="2" class="active" aria-pressed="true">2</button><button data-mod="3" aria-pressed="false">3</button><button data-mod="4" aria-pressed="false">4</button><button data-mod="8" aria-pressed="false">8</button><button data-mod="9" aria-pressed="false">9</button><button data-mod="16" aria-pressed="false">16</button><button data-mod="25" aria-pressed="false">25</button><button data-mod="27" aria-pressed="false">27</button>
+        </div>
+        <details class="power-builder" open>
+          <summary>Build a prime power <span>p<sup>a</sup></span></summary>
+          <div class="power-inputs"><label>Prime <i>p</i><select id="prime"><option>2</option><option>3</option><option>5</option><option>7</option><option>11</option><option>13</option><option>17</option><option>19</option><option>23</option><option>29</option><option>31</option></select></label><span class="times">^</span><label>Exponent <i>a</i><input type="number" id="exponent" min="1" max="10" value="1"></label></div>
+          <button id="apply-power" class="power-apply">Use 2<sup>1</sup> = 2 <span aria-hidden="true">↗</span></button>
+          <p class="microcopy">Any integer from 2 to 1024 is supported.</p>
+        </details>
+      </section>
+
+      <section class="control-section">
+        <div class="section-label"><label for="rows">Rows</label><input id="rows" class="compact-input" type="number" min="1" max="2048" value="128" inputmode="numeric" aria-describedby="rows-error"></div>
+        <p id="rows-error" class="error" role="status"></p>
+        <div class="row-presets" aria-label="Number of rows"><button data-rows="32">32</button><button data-rows="64">64</button><button data-rows="128" class="active" aria-pressed="true">128</button><button data-rows="256">256</button><button data-rows="512">512</button></div>
+        <p class="microcopy">Row numbering starts at 0. Up to 2048 rows.</p>
+        <button id="next-power" class="text-button">Next power-of-2 block: 256 rows ↗</button>
+      </section>
+
+      <section class="control-section">
+        <div class="section-label">Colour by</div>
+        <div class="colour-modes" role="group" aria-label="Colouring mode">
+          <button data-mode="residue" class="active" aria-pressed="true"><span class="mode-symbol residue-symbol" aria-hidden="true">◒</span><span>Residue<small>Each remainder has a colour</small></span></button>
+          <button data-mode="nonzero" aria-pressed="false"><span class="mode-symbol" aria-hidden="true">◐</span><span>Zero / nonzero<small>See the underlying pattern</small></span></button>
+          <button data-mode="valuation" aria-pressed="false" id="valuation-mode"><span class="mode-symbol math-symbol" aria-hidden="true">v<sub>p</sub></span><span>Prime divisibility<small id="valuation-caption">Powers of 2 dividing each entry</small></span></button>
+        </div>
+        <label class="check-row"><input type="checkbox" id="show-values" checked><span>Numbers when zoomed in</span></label>
+        <label class="check-row"><input type="checkbox" id="show-zeros" checked><span>Show zero entries</span></label>
+      </section>
+    </aside>
+
+    <div class="exploration">
+      <section class="plot-panel" aria-label="Pascal’s Triangle visualization">
+        <div class="plot-toolbar"><div><h2 id="plot-title">Pascal’s Triangle <span>mod 2</span></h2><p id="plot-range">Rows 0–127</p></div><div class="zoom-controls"><button id="zoom-out" aria-label="Zoom out" title="Zoom out">−</button><span id="zoom-label">1×</span><button id="zoom-in" aria-label="Zoom in" title="Zoom in">+</button><button id="fit" class="fit-button" title="Fit the whole triangle">Fit</button></div></div>
+        <div class="canvas-wrap" id="canvas-wrap">
+          <canvas id="triangle" tabindex="0" role="img" aria-label="Pascal’s Triangle modulo 2. Click an entry to inspect it. Arrow keys move the selected entry; plus and minus zoom; 0 fits the triangle."></canvas>
+          <div class="canvas-caption"><span id="view-caption">REMAINDERS MOD 2</span><span id="canvas-hint">Scroll to zoom · drag to pan · click to inspect</span></div>
+          <div class="hover-label" id="hover-label" hidden></div>
+        </div>
+        <div class="legend-row"><div id="legend" class="legend" aria-label="Colour legend"></div><button id="clear-highlight" class="text-button" hidden>Clear highlight</button></div>
+        <div class="plot-stats" id="plot-stats" aria-live="polite"></div>
+      </section>
+
+      <div class="detail-grid">
+        <section class="detail-card inspector" aria-label="Inspect an entry">
+          <div class="card-heading"><h2>Inspect an entry</h2><span class="small-label" id="selection-status">CLICK TO SELECT</span></div>
+          <form id="inspect-form" class="inspect-form"><label>Row <i>r</i><input id="inspect-row" type="number" min="0" max="127" value="14" required></label><label>Column <i>k</i><input id="inspect-col" type="number" min="0" max="14" value="6" required></label><button type="submit" class="inspect-button">Inspect</button></form>
+          <p class="error" id="inspect-error" role="status"></p>
+          <div id="entry-result" aria-live="polite"></div>
+        </section>
+        <section class="detail-card mathematics" aria-label="The mathematics behind the pattern">
+          <div class="card-heading"><h2 id="math-heading">The pattern behind the triangle</h2><span id="math-badge" class="badge">MOD 2</span></div>
+          <div id="math-note"></div>
+          <details id="digit-details"><summary>Inspect the base-<span id="digit-prime">2</span> digits</summary><div id="digit-content"></div></details>
+        </section>
+      </div>
+      <p class="footnote">Each entry is the sum of the two above it, reduced modulo <i>n</i>. The top entry is row 0, column 0.</p>
+    </div>
+  </main>
+<script>
+(() => {
+'use strict';
+
+// === Triangle arithmetic (exact modular recurrence) ===
+const MAX_MODULUS = 1024;
+const MAX_ROWS = 2048;
+
+function factorize(n) {
+  const factors = [];
+  for (let p = 2; p * p <= n; p++) {
+    if (n % p) continue;
+    let a = 0;
+    do { n /= p; a++; } while (n % p === 0);
+    factors.push({p, a});
+  }
+  if (n > 1) factors.push({p: n, a: 1});
+  return factors;
+}
+
+function offset(r) { return r * (r + 1) / 2; }
+
+function buildTriangle(rows, modulus) {
+  if (!Number.isInteger(rows) || rows < 1 || rows > MAX_ROWS) throw new RangeError('Rows must be an integer from 1 to 2048.');
+  if (!Number.isInteger(modulus) || modulus < 2 || modulus > MAX_MODULUS) throw new RangeError('Modulus must be an integer from 2 to 1024.');
+  const factors = factorize(modulus);
+  const primePower = factors.length === 1 ? factors[0] : null;
+  const total = offset(rows);
+  const residues = new Uint16Array(total);
+  const valuations = primePower ? new Uint8Array(total) : null;
+  const factorialValuations = primePower ? new Uint16Array(rows) : null;
+  const counts = new Uint32Array(modulus);
+  let nonzero = 0;
+  if (primePower) {
+    for (let r = 1; r < rows; r++) {
+      let x = r, v = 0;
+      while (x % primePower.p === 0) { v++; x /= primePower.p; }
+      factorialValuations[r] = factorialValuations[r - 1] + v;
+    }
+  }
+  for (let r = 0; r < rows; r++) {
+    const start = offset(r), prev = offset(r - 1);
+    for (let k = 0; k <= r; k++) {
+      const value = k === 0 || k === r ? 1 : (residues[prev + k - 1] + residues[prev + k]) % modulus;
+      residues[start + k] = value;
+      counts[value]++;
+      if (value) nonzero++;
+      if (primePower) valuations[start + k] = factorialValuations[r] - factorialValuations[k] - factorialValuations[r - k];
+    }
+  }
+  return {rows, modulus, residues, valuations, counts, nonzero, total, factors, primePower};
+}
+
+function binomial(r, k) {
+  if (!Number.isInteger(r) || !Number.isInteger(k) || r < 0 || k < 0 || k > r) throw new RangeError('Use 0 ≤ k ≤ r.');
+  k = Math.min(k, r - k);
+  let result = 1n;
+  for (let i = 1; i <= k; i++) result = result * BigInt(r - k + i) / BigInt(i);
+  return result;
+}
+
+function baseDigits(n, p) {
+  const digits = [];
+  do { digits.push(n % p); n = Math.floor(n / p); } while (n);
+  return digits;
+}
+
+function carries(x, y, p) {
+  let count = 0, carry = 0;
+  while (x || y || carry) {
+    carry = (x % p + y % p + carry) >= p ? 1 : 0;
+    count += carry;
+    x = Math.floor(x / p); y = Math.floor(y / p);
+  }
+  return count;
+}
+
+// === Canvas, controls and entry inspector ===
+
+const $ = id => document.getElementById(id);
+const $$ = selector => [...document.querySelectorAll(selector)];
+const canvas = $('triangle'), ctx = canvas.getContext('2d', {alpha: false});
+const wrap = $('canvas-wrap');
+const state = {modulus: 2, rows: 128, mode: 'residue', showValues: true, showZeros: true, selected: {r: 14, k: 6}, highlight: null, zoom: 1, panX: 0, panY: 0};
+let triangle, raster, palette, W = 1, H = 1, baseCell = 1, hover = null, frame = 0;
+const SQRT3_2 = Math.sqrt(3) / 2;
+const accents = ['#61e1c5','#f3c778','#aa9bff','#ef92b3','#74bff0','#c9df85','#ffb081','#83b9aa','#d4a7ec','#80cce7'];
+const ZERO = '#243442', BACKGROUND = '#0d1823';
+const nf = new Intl.NumberFormat('en');
+
+function checkInteger(value, min, max, name) {
+  if (value === '' || value === null || typeof value === 'boolean') throw new RangeError(`${name} must be an integer from ${min} to ${max}.`);
+  const n = Number(value);
+  if (!Number.isInteger(n) || n < min || n > max) throw new RangeError(`${name} must be an integer from ${min} to ${max}.`);
+  return n;
+}
+function hslHex(h, s, l) {
+  s /= 100; l /= 100;
+  const a = s * Math.min(l, 1-l);
+  const f = n => { const k = (n + h / 30) % 12; return Math.round(255 * (l - a * Math.max(-1, Math.min(k-3, 9-k, 1)))).toString(16).padStart(2, '0'); };
+  return `#${f(0)}${f(8)}${f(4)}`;
+}
+function colourFor(v) {
+  if (v === 0) return ZERO;
+  return state.modulus <= 11 ? accents[(v - 1) % accents.length] : hslHex((164 + (v-1) * 300 / (state.modulus-1)) % 360, 63, 66);
+}
+function bucket(index) {
+  if (state.mode === 'valuation') return Math.min(triangle.valuations[index], triangle.primePower.a);
+  if (state.mode === 'nonzero') return triangle.residues[index] ? 1 : 0;
+  return triangle.residues[index];
+}
+function buildPalette() {
+  if (state.mode === 'valuation') palette = Array.from({length:triangle.primePower.a + 1}, (_,i) => i === triangle.primePower.a ? ZERO : accents[i % accents.length]);
+  else if (state.mode === 'nonzero') palette = [ZERO, accents[0]];
+  else palette = Array.from({length:state.modulus}, (_,i) => colourFor(i));
+}
+function rgb(hex) { return [1,3,5].map(i => parseInt(hex.slice(i, i+2),16)); }
+function cellColour(index) {
+  const b = bucket(index);
+  if ((!state.showZeros && triangle.residues[index] === 0) || (state.highlight !== null && b !== state.highlight)) return BACKGROUND;
+  return palette[b];
+}
+function createRaster() {
+  buildPalette();
+  raster = document.createElement('canvas');
+  raster.width = state.rows * 2; raster.height = state.rows;
+  const rc = raster.getContext('2d'), pixels = rc.createImageData(raster.width, raster.height);
+  const rgba = palette.map(rgb), bg = rgb(BACKGROUND);
+  for (let r = 0; r < state.rows; r++) {
+    const start = offset(r), left = state.rows - 1 - r;
+    for (let k = 0; k <= r; k++) {
+      const i = start+k, b = bucket(i);
+      const c = (!state.showZeros && triangle.residues[i] === 0) || (state.highlight !== null && state.highlight !== b) ? bg : rgba[b];
+      const pos = (r * raster.width + left + 2*k) * 4;
+      for(let j=0;j<2;j++){ const q=pos+j*4; pixels.data[q]=c[0]; pixels.data[q+1]=c[1]; pixels.data[q+2]=c[2]; pixels.data[q+3]=255; }
+    }
+  }
+  rc.putImageData(pixels, 0, 0);
+}
+function geometry() {
+  const c = baseCell * state.zoom;
+  return {c, dy: c * SQRT3_2, x: W/2 + state.panX, y: topOrigin() + state.panY};
+}
+function topOrigin() { return 32 + baseCell * SQRT3_2 / 2; }
+function position(r,k,g=geometry()) {return {x:g.x+(k-r/2)*g.c, y:g.y+r*g.dy};}
+function scheduleDraw() { if (!frame) frame=requestAnimationFrame(() => { frame=0; draw(); }); }
+function resize() {
+  const box=wrap.getBoundingClientRect(); W=box.width; H=box.height;
+  const dpr=Math.min(window.devicePixelRatio||1, 2);
+  canvas.width=Math.round(W*dpr);canvas.height=Math.round(H*dpr);
+  ctx.setTransform(dpr,0,0,dpr,0,0);
+  baseCell=Math.min((W-78)/Math.max(3,state.rows),(H-92)/(Math.max(3,state.rows)*SQRT3_2));
+  scheduleDraw();
+}
+function draw() {
+  ctx.fillStyle=BACKGROUND;ctx.fillRect(0,0,W,H);
+  const g=geometry();
+  ctx.fillStyle='#21313e';
+  for(let x=20;x<W;x+=28)for(let y=18;y<H-30;y+=28)ctx.fillRect(x,y,1,1);
+  if(g.c<7){
+    ctx.imageSmoothingEnabled=false;
+    ctx.drawImage(raster,g.x-state.rows*g.c/2,g.y-g.dy/2,state.rows*g.c,state.rows*g.dy);
+  }else{
+    const first=Math.max(0,Math.floor((-g.y-g.dy)/g.dy));
+    const last=Math.min(state.rows-1,Math.ceil((H-g.y+g.dy)/g.dy));
+    for(let r=first;r<=last;r++){
+      const lo=Math.max(0,Math.floor(r/2+(-g.x-g.c)/g.c));
+      const hi=Math.min(r,Math.ceil(r/2+(W-g.x+g.c)/g.c));
+      for(let k=lo;k<=hi;k++){
+        const i=offset(r)+k,p=position(r,k,g), colour=cellColour(i);
+        const gap=g.c>=16?1.6:.7;
+        ctx.fillStyle=colour;ctx.fillRect(p.x-g.c/2+gap/2,p.y-g.dy/2+gap/2,g.c-gap,g.dy-gap);
+        if(state.showValues&&g.c>=25&&colour!==BACKGROUND){
+          const v=state.mode==='valuation'?triangle.valuations[i]:triangle.residues[i];
+          const text=state.mode==='valuation'&&v>=triangle.primePower.a?`≥${triangle.primePower.a}`:String(v);
+          const size=Math.min(17,g.c*.34,(g.c-5)/(text.length*.64));
+          if(size>=9){ctx.font=`500 ${size}px ui-monospace,Consolas,monospace`;ctx.textAlign='center';ctx.textBaseline='middle';ctx.fillStyle=colour===ZERO?'#b6c6d2':'#0b1721';ctx.fillText(text,p.x,p.y+.4);}
+        }
+      }
+    }
+  }
+  // A few row labels give orientation without obscuring the pattern.
+  ctx.font='11px ui-monospace,Consolas,monospace';ctx.fillStyle='#8398aa';ctx.textBaseline='middle';ctx.textAlign='right';
+  let rows = state.rows<=8 ? Array.from({length:state.rows},(_,r)=>r) : [...new Set([0,Math.floor(state.rows/4),Math.floor(state.rows/2),Math.floor(3*state.rows/4),state.rows-1])];
+  if(state.zoom>2){const step=Math.max(1,Math.pow(2,Math.ceil(Math.log2(42/g.dy))));rows=[];for(let r=Math.max(0,Math.ceil(-g.y/g.dy/step)*step);r<state.rows&&g.y+r*g.dy<H-25;r+=step)rows.push(r);}
+  for(const r of rows){const p=position(r,0,g);if(p.y>=8&&p.y<H-25&&p.x>25)ctx.fillText(String(r),p.x-g.c/2-9,p.y);}
+  const selected=state.selected;
+  for(const entry of [selected,hover]){
+    if(!entry)continue;
+    const p=position(entry.r,entry.k,g);if(p.x<0||p.x>W||p.y<0||p.y>H)continue;
+    const w=Math.max(g.c+3,9),h=Math.max(g.dy+3,8);
+    ctx.strokeStyle=entry===selected?'#ffffff':'#f3c778';ctx.lineWidth=entry===selected?1.7:1;
+    ctx.strokeRect(p.x-w/2,p.y-h/2,w,h);
+  }
+}
+function setZoom(z,anchor={x:W/2,y:H/2}) {
+  z=Math.max(1,Math.min(256,z));
+  const ratio=z/state.zoom;
+  state.panX=anchor.x-W/2-(anchor.x-W/2-state.panX)*ratio;
+  const origin=topOrigin();
+  state.panY=anchor.y-origin-(anchor.y-origin-state.panY)*ratio;
+  state.zoom=z;if(z===1){state.panX=0;state.panY=0;}
+  constrainPan();syncZoom();hideHover();scheduleDraw();
+}
+function constrainPan(){
+  const width=state.rows*baseCell*state.zoom,height=width*SQRT3_2;
+  state.panX=Math.max(-width/2-W*.32,Math.min(width/2+W*.32,state.panX));
+  state.panY=Math.max(-height+45,Math.min(H-100,state.panY));
+}
+function syncZoom(){ $('zoom-label').textContent=`${state.zoom<10?Number(state.zoom.toFixed(1)):Math.round(state.zoom)}×`;$('zoom-out').disabled=state.zoom<=1;$('zoom-in').disabled=state.zoom>=256; }
+function fit(){state.zoom=1;state.panX=0;state.panY=0;syncZoom();hideHover();scheduleDraw();}
+function setError(id, message, input){ $(id).textContent=message; if(input)$(input).setAttribute('aria-invalid',message?'true':'false'); }
+function factorHTML(factors){return factors.map(({p,a})=>`${p}${a>1?`<sup>${a}</sup>`:''}`).join(' × ');}
+
+function syncControls(){
+  $('modulus').value=state.modulus;$('rows').value=state.rows;
+  $('mod-minus').disabled=state.modulus===2;$('mod-plus').disabled=state.modulus===MAX_MODULUS;
+  $('modulus-type').textContent=triangle.primePower?(triangle.primePower.a===1?'PRIME':'PRIME POWER'):'COMPOSITE';
+  $$('[data-mod]').forEach(b=>{const active=Number(b.dataset.mod)===state.modulus;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active));});
+  $$('.row-presets [data-rows]').forEach(b=>{const active=Number(b.dataset.rows)===state.rows;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active));});
+  $$('[data-mode]').forEach(b=>{const active=b.dataset.mode===state.mode;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active));});
+  $('valuation-mode').disabled=!triangle.primePower;
+  $('valuation-caption').textContent=triangle.primePower?`Powers of ${triangle.primePower.p} dividing each entry`:'Choose a prime or prime power';
+  $('plot-title').innerHTML=`Pascal’s Triangle <span>mod ${state.modulus}</span>`;
+  $('plot-range').textContent=`Rows 0–${state.rows-1}`;
+  $('view-caption').textContent=state.mode==='residue'?`REMAINDERS MOD ${state.modulus}`:state.mode==='nonzero'?`ZERO / NONZERO MOD ${state.modulus}`:`${triangle.primePower.p}-ADIC ORDER · CAPPED AT ${triangle.primePower.a}`;
+  $('plot-stats').innerHTML=`<span><strong>${nf.format(state.rows)}</strong> rows</span><span><strong>${nf.format(triangle.total)}</strong> entries</span><span><strong class="accent">${(100*triangle.nonzero/triangle.total).toFixed(1)}%</strong> nonzero</span>`;
+  $('inspect-row').max=state.rows-1;
+  $('show-values').checked=state.showValues;$('show-zeros').checked=state.showZeros;
+  const p=triangle.primePower?.p;
+  let block=1;if(p)while(block<=state.rows)block*=p;
+  $('next-power').disabled=!p||block>MAX_ROWS;
+  $('next-power').textContent=p?(block<=MAX_ROWS?`Next power-of-${p} block: ${nf.format(block)} rows ↗`:`Largest full power-of-${p} block reached`):'Power blocks are available for prime powers';
+  $('next-power').dataset.rows=String(block);
+  $('triangle').setAttribute('aria-label',`Pascal’s Triangle modulo ${state.modulus}, rows 0 to ${state.rows-1}, ${(100*triangle.nonzero/triangle.total).toFixed(1)} percent nonzero. Click an entry or use the inspector below. Arrow keys move the selection; plus and minus zoom; 0 fits.`);
+}
+function syncBuilder(){
+  const pp=triangle.primePower;if(!pp)return;
+  if(![...$('prime').options].some(o=>Number(o.value)===pp.p)){const option=document.createElement('option');option.value=pp.p;option.textContent=pp.p;$('prime').append(option);}
+  $('prime').value=pp.p;$('exponent').value=pp.a;updateBuilder();
+}
+function updateBuilder(){
+  const p=Number($('prime').value),a=Number($('exponent').value);let max=1;while(p**(max+1)<=MAX_MODULUS)max++;
+  $('exponent').max=max;
+  const valid=Number.isInteger(a)&&a>=1&&a<=max;
+  $('apply-power').disabled=!valid;
+  $('apply-power').innerHTML=valid?`Use ${p}<sup>${a}</sup> = ${p**a} <span aria-hidden="true">↗</span>`:`Use exponent 1–${max}`;
+}
+function updateLegend(){
+  const legend=$('legend');legend.replaceChildren();
+  const label=document.createElement('span');label.className='legend-title';label.textContent=state.mode==='valuation'?'Power of p:':'Key:';legend.append(label);
+  if(palette.length>32){
+    addLegendButton(0,'0',legend);
+    const strip=document.createElement('span');strip.className='legend-scale';strip.style.background=`linear-gradient(to right,${Array.from({length:16},(_,i)=>colourFor(1+Math.round(i*(state.modulus-2)/15))).join(',')})`;legend.append(strip);
+    const text=document.createElement('span');text.className='legend-help';text.textContent=`1 … ${state.modulus-1} · inspect an entry for its residue`;legend.append(text);
+  }else{
+    for(let i=0;i<palette.length;i++){
+      const name=state.mode==='nonzero'?(i?'Nonzero':'0'):state.mode==='valuation'?(i===triangle.primePower.a?`≥ ${i} (zero)`:`${i}`):String(i);
+      addLegendButton(i,name,legend);
+    }
+    if(palette.length<12){const tip=document.createElement('span');tip.className='legend-help';tip.textContent='Click a colour to isolate';legend.append(tip);}
+  }
+  $('clear-highlight').hidden=state.highlight===null;
+}
+function addLegendButton(i,name,parent){
+  const b=document.createElement('button');b.type='button';b.className=state.highlight===i?'active':'';b.setAttribute('aria-pressed',String(state.highlight===i));b.setAttribute('aria-label',`Isolate ${state.mode==='valuation'?'valuation':'residue'} ${name}`);
+  const swatch=document.createElement('span');swatch.className='swatch';swatch.style.background=palette[i];b.append(swatch,document.createTextNode(name));
+  b.addEventListener('click',()=>{state.highlight=state.highlight===i?null:i;createRaster();updateLegend();scheduleDraw();});parent.append(b);
+}
+function selectEntry(r,k,reveal=false){
+  state.selected={r,k};$('inspect-row').value=r;$('inspect-col').value=k;$('inspect-col').max=r;setError('inspect-error','');hideHover();updateInspector();
+  if(reveal){const p=position(r,k);if(p.x<30||p.x>W-30||p.y<20||p.y>H-40){state.panX-=(p.x-W/2);state.panY-=(p.y-H/2);constrainPan();}}
+  scheduleDraw();
+}
+function digitString(n,p,length){const d=baseDigits(n,p);while(d.length<length)d.push(0);return d.reverse().join(p>10?' · ':'');}
+function updateInspector(){
+  const {r,k}=state.selected,i=offset(r)+k,v=triangle.residues[i],exact=binomial(r,k).toString();
+  $('selection-status').textContent=`r = ${r} · k = ${k}`;
+  let exactPart=exact.length<=18?nf.format(BigInt(exact)):exact.slice(0,7)+'…'+exact.slice(-5);
+  let html=`<div class="entry-equation">C(${r}, ${k}) = ${exactPart}<br>≡ <strong>${v}</strong> <span class="mod">(mod ${state.modulus})</span></div>`;
+  if(r>0){const left=k===0?0:triangle.residues[offset(r-1)+k-1],right=k===r?0:triangle.residues[offset(r-1)+k];html+=`<p class="entry-info">From the row above: <em>${left} + ${right} ≡ ${v}</em> (mod ${state.modulus}).${k===0||k===r?' The outside entry is 0.':''}</p>`;}
+  else html+='<p class="entry-info">The triangle begins with 1.</p>';
+  if(triangle.primePower){const {p,a}=triangle.primePower,vp=triangle.valuations[i];html+=`<p class="entry-info">v<sub>${p}</sub>(C(${r}, ${k})) = <em>${vp}</em>. ${vp>=a?`Divisible by ${p}<sup>${a}</sup>, so the residue is 0.`:vp===0?`Not divisible by ${p}.`:`Divisible by ${p}<sup>${vp}</sup>, but not ${p}<sup>${vp+1}</sup>.`}</p>`;}
+  if(exact.length>18)html+=`<details class="exact-number"><summary>Exact coefficient · ${exact.length} digits</summary><code>${exact}</code></details>`;
+  $('entry-result').innerHTML=html;
+  updateMath();
+}
+function updateMath(){
+  const {r,k}=state.selected,pp=triangle.primePower;
+  $('math-badge').innerHTML=pp?`${pp.p}${pp.a>1?`<sup>${pp.a}</sup>`:''}`:factorHTML(triangle.factors);
+  $('digit-details').hidden=!pp;
+  if(!pp){
+    $('math-heading').textContent='Composite moduli';
+    $('math-note').innerHTML=`<p>${state.modulus} = <strong>${factorHTML(triangle.factors)}</strong>. An entry is zero modulo ${state.modulus} exactly when it is divisible by <strong>each of these prime-power factors</strong>.</p><p>Compare these factors using the modulus control. The Chinese remainder theorem combines their residues to determine the residue modulo ${state.modulus}.</p>`;return;
+  }
+  const {p,a}=pp,vp=triangle.valuations[offset(r)+k],count=carries(k,r-k,p);
+  $('math-heading').textContent=a===1?(p===2?'The Sierpiński pattern':'Self-similarity in base '+p):'Layers of prime divisibility';
+  if(a===1){
+    $('math-note').innerHTML=`<p>${p===2?'The odd entries trace the Sierpiński triangle. ':''}<strong>Lucas’s theorem</strong> computes C(r, k) mod ${p} by multiplying the binomial coefficients of the corresponding base-${p} digits.</p><p>An entry is nonzero exactly when <strong>every digit of k is at most the corresponding digit of r</strong>. This explains why the pattern repeats in blocks of ${p}.</p>`;
+  }else{
+    $('math-note').innerHTML=`<p>Modulo ${p}<sup>${a}</sup>, an entry vanishes when it contains <strong>at least ${a} factors of ${p}</strong>. Choose “Prime divisibility” to see the layers v<sub>${p}</sub> = 0, 1, …, ${a>=2?a-1:''}.</p><p><strong>Kummer’s theorem</strong> counts these factors: v<sub>${p}</sub>(C(r, k)) is the number of carries when adding k and r − k in base ${p}.</p>`;
+  }
+  $('digit-prime').textContent=p;
+  const length=baseDigits(r,p).length;
+  let digitHTML=`<table class="digit-table"><caption class="microcopy">Base-${p} digits, most significant first</caption><tbody><tr><td>r = ${r}</td><td>${digitString(r,p,length)}</td></tr><tr><td>k = ${k}</td><td>${digitString(k,p,length)}</td></tr><tr><td>r − k = ${r-k}</td><td>${digitString(r-k,p,length)}</td></tr></tbody></table><p class="carry-note">${k} + ${r-k} in base ${p} produces <strong>${count} ${count===1?'carry':'carries'}</strong>, so v<sub>${p}</sub>(C(${r}, ${k})) = ${vp}.</p>`;
+  if(a===1){
+    const rd=baseDigits(r,p),kd=baseDigits(k,p);while(kd.length<rd.length)kd.push(0);
+    const parts=rd.map((ri,j)=>({ri,ki:kd[j],v:kd[j]>ri?0:Number(binomial(ri,kd[j])%BigInt(p))})).reverse();
+    const product=parts.reduce((acc,x)=>acc*x.v%p,1);
+    digitHTML+=`<p class="carry-note">Lucas: ${parts.map(x=>`C(${x.ri}, ${x.ki})`).join(' × ')} ≡ ${parts.map(x=>x.v).join(' × ')} ≡ <strong>${product}</strong> (mod ${p}).${parts.some(x=>x.ki>x.ri)?' A digit coefficient with k > r is 0.':''}</p>`;
+  }
+  $('digit-content').innerHTML=digitHTML;
+}
+function rebuild(resetView=true){
+  triangle=buildTriangle(state.rows,state.modulus);
+  if(!triangle.primePower&&state.mode==='valuation')state.mode='residue';
+  state.highlight=null;state.selected.r=Math.min(state.selected.r,state.rows-1);state.selected.k=Math.min(state.selected.k,state.selected.r);
+  if(resetView){state.zoom=1;state.panX=0;state.panY=0;}
+  createRaster();syncControls();syncBuilder();updateLegend();selectEntry(state.selected.r,state.selected.k);resize();syncZoom();
+}
+function changeModulus(n){state.modulus=checkInteger(n,2,MAX_MODULUS,'Modulus');setError('mod-error','','modulus');rebuild(false);}
+function changeRows(n){state.rows=checkInteger(n,1,MAX_ROWS,'Rows');setError('rows-error','','rows');rebuild();}
+function changeMode(mode){if(!['residue','nonzero','valuation'].includes(mode))throw new Error('Unknown colour mode.');if(mode==='valuation'&&!triangle.primePower)throw new Error('Prime divisibility requires a prime-power modulus.');state.mode=mode;state.highlight=null;hideHover();createRaster();syncControls();updateLegend();scheduleDraw();}
+
+$('modulus').addEventListener('change',()=>{try{changeModulus($('modulus').value);}catch(e){setError('mod-error',e.message,'modulus');}});
+$('mod-minus').addEventListener('click',()=>changeModulus(Math.max(2,state.modulus-1)));
+$('mod-plus').addEventListener('click',()=>changeModulus(Math.min(MAX_MODULUS,state.modulus+1)));
+$$('[data-mod]').forEach(b=>b.addEventListener('click',()=>changeModulus(Number(b.dataset.mod))));
+$('prime').addEventListener('change',()=>{const p=Number($('prime').value);let max=1;while(p**(max+1)<=MAX_MODULUS)max++;$('exponent').value=Math.max(1,Math.min(max,Number($('exponent').value)||1));updateBuilder();});
+$('exponent').addEventListener('input',updateBuilder);
+$('apply-power').addEventListener('click',()=>{try{changeModulus(Number($('prime').value)**Number($('exponent').value));}catch(e){setError('mod-error',e.message,'modulus');}});
+$('rows').addEventListener('change',()=>{try{changeRows($('rows').value);}catch(e){setError('rows-error',e.message,'rows');}});
+$$('.row-presets [data-rows]').forEach(b=>b.addEventListener('click',()=>changeRows(Number(b.dataset.rows))));
+$('next-power').addEventListener('click',()=>changeRows(Number($('next-power').dataset.rows)));
+$$('[data-mode]').forEach(b=>b.addEventListener('click',()=>changeMode(b.dataset.mode)));
+$('show-values').addEventListener('change',()=>{state.showValues=$('show-values').checked;scheduleDraw();});
+$('show-zeros').addEventListener('change',()=>{state.showZeros=$('show-zeros').checked;createRaster();scheduleDraw();});
+$('clear-highlight').addEventListener('click',()=>{state.highlight=null;createRaster();updateLegend();scheduleDraw();});
+$('zoom-in').addEventListener('click',()=>setZoom(state.zoom*1.65));
+$('zoom-out').addEventListener('click',()=>setZoom(state.zoom/1.65));
+$('fit').addEventListener('click',fit);
+$('inspect-row').addEventListener('input',()=>{$('inspect-col').max=Math.max(0,Math.min(state.rows-1,Number($('inspect-row').value)));});
+$('inspect-form').addEventListener('submit',e=>{e.preventDefault();try{const r=checkInteger($('inspect-row').value,0,state.rows-1,'Row'),k=checkInteger($('inspect-col').value,0,r,'Column');selectEntry(r,k,true);}catch(error){setError('inspect-error',error.message);}});
+
+function localPoint(e){const box=canvas.getBoundingClientRect();return {x:e.clientX-box.left,y:e.clientY-box.top};}
+function hit(point){const g=geometry(),r=Math.round((point.y-g.y)/g.dy),k=Math.round((point.x-g.x)/g.c+r/2);if(r<0||r>=state.rows||k<0||k>r)return null;const pos=position(r,k,g);return Math.abs(point.x-pos.x)<=g.c/2&&Math.abs(point.y-pos.y)<=g.dy/2?{r,k}:null;}
+function hideHover(){hover=null;$('hover-label').hidden=true;}
+function showHover(e){const point=localPoint(e),entry=hit(point);hover=entry;const label=$('hover-label');label.hidden=!entry;if(entry){const value=triangle.residues[offset(entry.r)+entry.k];label.textContent=`C(${entry.r}, ${entry.k}) ≡ ${value} (mod ${state.modulus})`;label.style.left=Math.max(5,Math.min(W-label.offsetWidth-8,point.x+14))+'px';label.style.top=Math.max(5,Math.min(H-label.offsetHeight-32,point.y-38))+'px';}scheduleDraw();}
+canvas.addEventListener('wheel',e=>{e.preventDefault();setZoom(state.zoom*Math.exp(-e.deltaY*.002),localPoint(e));},{passive:false});
+const pointers=new Map();let drag=null,pinch=null;
+canvas.addEventListener('pointerdown',e=>{
+  const point=localPoint(e);pointers.set(e.pointerId,point);canvas.setPointerCapture(e.pointerId);hideHover();
+  if(pointers.size===1){drag={id:e.pointerId,start:point,previous:point,moved:false};pinch=null;}
+  else if(pointers.size===2){const [a,b]=[...pointers.values()];pinch={distance:Math.hypot(a.x-b.x,a.y-b.y),center:{x:(a.x+b.x)/2,y:(a.y+b.y)/2}};if(drag)drag.moved=true;}
+});
+canvas.addEventListener('pointermove',e=>{
+  if(!pointers.has(e.pointerId)){if(e.pointerType!=='touch')showHover(e);return;}
+  const point=localPoint(e);pointers.set(e.pointerId,point);
+  if(pointers.size===2){const [a,b]=[...pointers.values()],distance=Math.hypot(a.x-b.x,a.y-b.y),center={x:(a.x+b.x)/2,y:(a.y+b.y)/2};if(pinch){setZoom(state.zoom*distance/Math.max(1,pinch.distance),pinch.center);state.panX+=center.x-pinch.center.x;state.panY+=center.y-pinch.center.y;constrainPan();scheduleDraw();}pinch={distance,center};return;}
+  if(drag&&drag.id===e.pointerId){if(Math.hypot(point.x-drag.start.x,point.y-drag.start.y)>4)drag.moved=true;if(drag.moved){state.panX+=point.x-drag.previous.x;state.panY+=point.y-drag.previous.y;constrainPan();canvas.classList.add('dragging');scheduleDraw();}drag.previous=point;}
+});
+function endPointer(e,cancel=false){
+  if(!cancel&&drag&&!drag.moved&&!pinch&&drag.id===e.pointerId){const entry=hit(localPoint(e));if(entry)selectEntry(entry.r,entry.k);}
+  pointers.delete(e.pointerId);if(canvas.hasPointerCapture(e.pointerId))canvas.releasePointerCapture(e.pointerId);
+  if(pointers.size===1){const [id,point]=[...pointers.entries()][0];drag={id,start:point,previous:point,moved:true};pinch=null;}else if(!pointers.size){drag=null;pinch=null;canvas.classList.remove('dragging');}
+}
+canvas.addEventListener('pointerup',e=>endPointer(e));canvas.addEventListener('pointercancel',e=>endPointer(e,true));
+canvas.addEventListener('pointerleave',()=>{hideHover();scheduleDraw();});
+canvas.addEventListener('dblclick',e=>{const point=localPoint(e);setZoom(state.zoom*2,point);});
+canvas.addEventListener('keydown',e=>{
+  let {r,k}=state.selected;
+  if(e.key==='ArrowLeft')k=Math.max(0,k-1);else if(e.key==='ArrowRight')k=Math.min(r,k+1);else if(e.key==='ArrowUp'){r=Math.max(0,r-1);k=Math.min(k,r);}else if(e.key==='ArrowDown')r=Math.min(state.rows-1,r+1);else if(e.key==='+'||e.key==='='){e.preventDefault();setZoom(state.zoom*1.65);return;}else if(e.key==='-'){e.preventDefault();setZoom(state.zoom/1.65);return;}else if(e.key==='0'){e.preventDefault();fit();return;}else return;
+  e.preventDefault();selectEntry(r,k,true);
+});
+
+rebuild();new ResizeObserver(resize).observe(wrap);
+if(window.matchMedia('(pointer:coarse)').matches)$('canvas-hint').textContent='Pinch to zoom · drag to pan · tap to inspect';
+
+// WebMCP uses the same state transitions as the visible controls.
+const modelContext=document.modelContext;
+if(modelContext?.registerTool){
+  const lifecycle=new AbortController();
+  const result=()=>({modulus:state.modulus,rows:state.rows,mode:state.mode,nonzero:triangle.nonzero,total:triangle.total,selected:{...state.selected,residue:triangle.residues[offset(state.selected.r)+state.selected.k]}});
+  const register=tool=>{try{Promise.resolve(modelContext.registerTool(tool,{signal:lifecycle.signal})).catch(()=>{});}catch{}};
+  const painted=()=>new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));
+  register({name:'configure_pascal_triangle',title:'Configure Pascal’s Triangle',description:'Set the displayed modulus, row count and colouring mode. Changes the visible explorer.',inputSchema:{type:'object',properties:{modulus:{type:'integer',minimum:2,maximum:1024},rows:{type:'integer',minimum:1,maximum:2048},mode:{type:'string',enum:['residue','nonzero','valuation']}},additionalProperties:false},annotations:{readOnlyHint:false,untrustedContentHint:false},execute:async input=>{
+    if(!input||typeof input!=='object'||Array.isArray(input))throw new Error('Expected an object.');
+    if(Object.keys(input).some(k=>!['modulus','rows','mode'].includes(k)))throw new Error('Unknown setting.');
+    const modulus=input.modulus===undefined?state.modulus:checkInteger(input.modulus,2,MAX_MODULUS,'Modulus'),rows=input.rows===undefined?state.rows:checkInteger(input.rows,1,MAX_ROWS,'Rows'),mode=input.mode??state.mode;
+    if(!['residue','nonzero','valuation'].includes(mode))throw new Error('Unknown colour mode.');
+    if(mode==='valuation'&&factorize(modulus).length!==1)throw new Error('Prime divisibility requires a prime-power modulus.');
+    Object.assign(state,{modulus,rows,mode});setError('mod-error','','modulus');setError('rows-error','','rows');rebuild();await painted();return result();
+  }});
+  register({name:'inspect_pascal_entry',title:'Inspect a binomial coefficient',description:'Select an entry in the displayed triangle and return its exact coefficient, modular residue and prime valuation, if applicable.',inputSchema:{type:'object',properties:{row:{type:'integer',minimum:0},column:{type:'integer',minimum:0}},required:['row','column'],additionalProperties:false},annotations:{readOnlyHint:false,untrustedContentHint:false},execute:async input=>{
+    if(!input||typeof input!=='object'||Array.isArray(input)||Object.keys(input).some(k=>!['row','column'].includes(k)))throw new Error('Expected row and column.');
+    const r=checkInteger(input.row,0,state.rows-1,'Row'),k=checkInteger(input.column,0,r,'Column');selectEntry(r,k,true);await painted();return {...result(),coefficient:binomial(r,k).toString(),valuation:triangle.primePower?{prime:triangle.primePower.p,order:triangle.valuations[offset(r)+k]}:null};
+  }});
+  window.addEventListener('pagehide',()=>lifecycle.abort(),{once:true});
+}
+
+})();
+</script>
+</body>
+</html>
