@@ -1,0 +1,1168 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Linear Map Visualiser</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=STIX+Two+Text:ital,wght@0,400;0,500;1,400;1,500&display=swap">
+<style>
+/* Layout: control column beside a sticky plotting stage; on narrow screens the stage comes first and controls follow.
+   Colour logic: x/y/z basis images use the red/green/blue axis convention; gold = orientation kept, violet = reversed. */
+:root {
+  --bg: #F2F4F7;
+  --surface: #FFFFFF;
+  --stage: #FFFFFF;
+  --ink: #17202C;
+  --muted: #5A6576;
+  --line: #D6DCE5;
+  --grid: #E7EBF1;
+  --grid-strong: #BCC5D2;
+  --accent: #2F49B5;
+  --accent-ink: #FFFFFF;
+  --e1: #D4442E;
+  --e2: #15905A;
+  --e3: #2C62D4;
+  --pos: #DE9810;
+  --neg: #9145CC;
+  --vec: #17202C;
+  --danger: #C2331F;
+  --ker: #C42E7B;
+  --font-ui: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-num: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --font-math: "STIX Two Text", "Times New Roman", Times, serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0E131A; --surface: #161D27; --stage: #121923; --ink: #E5EAF1; --muted: #93A0B2;
+    --line: #283342; --grid: #1D2632; --grid-strong: #3A4757; --accent: #8197FF; --accent-ink: #0E131A;
+    --e1: #FF6B55; --e2: #3CCB8A; --e3: #6E9CFF; --pos: #F2B23B; --neg: #B97CF2; --vec: #E5EAF1; --danger: #FF7A66; --ker: #F26BAE;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0E131A; --surface: #161D27; --stage: #121923; --ink: #E5EAF1; --muted: #93A0B2;
+  --line: #283342; --grid: #1D2632; --grid-strong: #3A4757; --accent: #8197FF; --accent-ink: #0E131A;
+  --e1: #FF6B55; --e2: #3CCB8A; --e3: #6E9CFF; --pos: #F2B23B; --neg: #B97CF2; --vec: #E5EAF1; --danger: #FF7A66; --ker: #F26BAE;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { background: var(--bg); color: var(--ink); font: 15px/1.5 var(--font-ui); }
+.m { font-family: var(--font-math); font-style: italic; font-size: 1.08em; }
+sub, sup { font-size: 0.7em; line-height: 0; }
+
+.app {
+  max-width: 1320px; margin: 0 auto;
+  padding-block: 22px 40px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.top { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 14px 28px; margin-bottom: 18px; }
+.brand { min-width: 0; }
+h1 {
+  font-family: var(--font-math); font-weight: 500; margin: 0;
+  font-size: clamp(1.7rem, 1.25rem + 1.5vw, 2.4rem); line-height: 1.1; letter-spacing: -0.01em; text-wrap: balance;
+}
+.lede { margin: 6px 0 0; color: var(--muted); max-width: 64ch; }
+
+.seg { display: inline-flex; padding: 3px; gap: 2px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); }
+.seg button {
+  font: 500 14px var(--font-num); border: 0; background: transparent; color: var(--muted);
+  padding: 6px 13px; white-space: nowrap; border-radius: 999px; cursor: pointer;
+}
+.seg button[aria-pressed="true"] { background: var(--ink); color: var(--surface); }
+
+.layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 22px; }
+.stage-col { min-width: 0; }
+.panel { display: flex; flex-direction: column; gap: 24px; min-width: 0; }
+@media (min-width: 920px) {
+  .layout { grid-template-columns: 340px minmax(0, 1fr); grid-template-areas: "panel stage"; align-items: start; }
+  .panel { grid-area: panel; }
+  .stage-col { grid-area: stage; position: sticky; top: calc(env(safe-area-inset-top, 0px) + 16px); }
+}
+
+.stage {
+  position: relative; width: 100%; aspect-ratio: 1 / 1; max-height: min(84vh, 860px);
+  background: var(--stage); border: 1px solid var(--line); border-radius: 14px; overflow: hidden;
+}
+@media (min-width: 920px) { .stage { aspect-ratio: 5 / 4; } }
+#cv { display: block; width: 100%; height: 100%; touch-action: none; }
+.tools { position: absolute; top: 10px; right: 10px; display: flex; gap: 6px; }
+.icon-btn {
+  width: 34px; height: 34px; display: grid; place-items: center; padding: 0;
+  border: 1px solid var(--line); border-radius: 8px; background: var(--surface); color: var(--ink); cursor: pointer;
+}
+.icon-btn:hover { border-color: var(--accent); color: var(--accent); }
+.icon-btn svg { width: 16px; height: 16px; }
+.hint {
+  position: absolute; left: 10px; bottom: 10px; margin: 0; padding: 3px 9px; border-radius: 6px;
+  font-size: 12px; color: var(--muted); background: color-mix(in srgb, var(--stage) 86%, transparent); pointer-events: none;
+}
+
+.sec h2 {
+  font: 600 11px/1 var(--font-ui); letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--muted); margin: 0 0 12px;
+}
+.sec-note { margin: 10px 0 0; font-size: 13px; color: var(--muted); }
+
+.mat { display: flex; align-items: center; gap: 12px; }
+.mat-eq { font: italic 500 24px var(--font-math); padding-top: 22px; }
+.mat-body { display: flex; flex-direction: column; gap: 6px; }
+.mat-tags, .mat-grid { display: grid; grid-template-columns: repeat(var(--n, 2), 4.5em); gap: 6px; padding: 0 14px; }
+.mat-grid { position: relative; padding-block: 2px; }
+.mat-grid::before, .mat-grid::after {
+  content: ""; position: absolute; top: -4px; bottom: -4px; width: 8px; border: 2px solid var(--ink);
+}
+.mat-grid::before { left: 0; border-right: 0; }
+.mat-grid::after { right: 0; border-left: 0; }
+.tag { text-align: center; font-family: var(--font-math); font-style: italic; color: var(--col); font-size: 15px; }
+.cell {
+  width: 100%; font: 500 15px var(--font-num); text-align: center; color: var(--ink);
+  padding: 7px 2px; background: var(--surface); border: 1px solid var(--line); border-bottom: 2px solid var(--col);
+  border-radius: 6px; font-variant-numeric: tabular-nums;
+}
+.cell:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+.cell[aria-invalid="true"] { border-color: var(--danger); color: var(--danger); }
+
+.row { display: flex; flex-wrap: wrap; gap: 6px; }
+.btn {
+  font: 500 13px var(--font-ui); padding: 6px 11px; border: 1px solid var(--line); border-radius: 8px;
+  background: var(--surface); color: var(--ink); cursor: pointer;
+}
+.btn:hover:not(:disabled) { border-color: var(--accent); color: var(--accent); }
+.btn:disabled { opacity: 0.45; cursor: not-allowed; }
+.btn:focus-visible, .icon-btn:focus-visible, .seg button:focus-visible, .play:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.status:empty { display: none; }
+.status { margin: 8px 0 0; font-size: 13px; color: var(--danger); }
+
+.anim { display: flex; align-items: center; gap: 12px; }
+.play {
+  display: inline-flex; align-items: center; gap: 7px; flex: none;
+  font: 600 13px var(--font-ui); padding: 7px 14px; border: 0; border-radius: 8px;
+  background: var(--accent); color: var(--accent-ink); cursor: pointer;
+}
+.play svg { width: 12px; height: 12px; }
+#tSlider { flex: 1; min-width: 0; accent-color: var(--accent); }
+.treadout { display: flex; flex-wrap: wrap; gap: 4px 18px; margin-top: 10px; font: 13px var(--font-num); font-variant-numeric: tabular-nums; }
+
+.chip {
+  display: inline-flex; align-items: center; gap: 7px; padding: 5px 11px 5px 9px;
+  border: 1px solid var(--line); border-radius: 999px; background: var(--surface); font-size: 13px; cursor: pointer;
+}
+.chip input { margin: 0; accent-color: var(--accent); }
+.chip:has(input:checked) { border-color: var(--accent); }
+.chip:has(input:focus-visible) { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+.props { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 7px 16px; margin: 0; }
+.props dt { color: var(--muted); }
+.props dd { margin: 0; font-family: var(--font-num); font-variant-numeric: tabular-nums; min-width: 0; overflow-wrap: anywhere; }
+.props dd .m { font-size: 1.12em; }
+.swatch { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 7px; vertical-align: 0; }
+.eigs { list-style: none; margin: 14px 0 0; padding: 0; display: flex; flex-direction: column; gap: 8px; }
+.eigs li { padding: 8px 10px; border-left: 2px solid var(--grid-strong); background: var(--surface); border-radius: 0 6px 6px 0; }
+.eigs .val { font-family: var(--font-num); font-variant-numeric: tabular-nums; }
+.eigs .what { display: block; font-size: 13px; color: var(--muted); }
+.eigs .what code { font-family: var(--font-num); color: var(--ink); }
+.det-note { margin: 12px 0 0; font-size: 13.5px; color: var(--muted); max-width: 60ch; }
+
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<main class="app">
+  <header class="top">
+    <div class="brand">
+      <h1>Linear Map Visualiser</h1>
+      <p class="lede">The columns of <span class="m">A</span> are where the basis vectors land. Edit the entries, drag the coloured tips, and scrub <span class="m">t</span> to move from <span class="m">I</span> to <span class="m">A</span>.</p>
+    </div>
+    <div class="seg" role="group" aria-label="Matrix size">
+      <button type="button" id="m-2" aria-pressed="true">2 × 2</button>
+      <button type="button" id="m-23" aria-pressed="false">2 × 3</button>
+      <button type="button" id="m-32" aria-pressed="false">3 × 2</button>
+      <button type="button" id="m-3" aria-pressed="false">3 × 3</button>
+    </div>
+  </header>
+
+  <div class="layout">
+    <section class="stage-col" aria-label="Plot">
+      <div class="stage" id="stage">
+        <canvas id="cv" role="img" aria-label="Plot of the linear map"></canvas>
+        <div class="tools">
+          <button type="button" class="icon-btn" id="zoomIn" aria-label="Zoom in" title="Zoom in"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M8 3v10M3 8h10"/></svg></button>
+          <button type="button" class="icon-btn" id="zoomOut" aria-label="Zoom out" title="Zoom out"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 8h10"/></svg></button>
+          <button type="button" class="icon-btn" id="fit" aria-label="Fit view" title="Fit view"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6V2.5H6M10 2.5h3.5V6M13.5 10v3.5H10M6 13.5H2.5V10"/></svg></button>
+        </div>
+        <p class="hint" id="hint"></p>
+      </div>
+    </section>
+
+    <aside class="panel">
+      <section class="sec">
+        <h2>Matrix</h2>
+        <div class="mat">
+          <span class="mat-eq">A =</span>
+          <div class="mat-body">
+            <div class="mat-tags" id="matTags"></div>
+            <div class="mat-grid" id="matGrid"></div>
+          </div>
+        </div>
+        <p class="sec-note">Entries accept expressions such as <code>1/2</code>, <code>sqrt(3)/2</code> or <code>cos(pi/6)</code>.</p>
+        <div class="row" style="margin-top:12px">
+          <button type="button" class="btn" id="bT">Transpose</button>
+          <button type="button" class="btn" id="bInv">Inverse</button>
+          <button type="button" class="btn" id="bRand">Random</button>
+          <button type="button" class="btn" id="bId">Identity</button>
+        </div>
+        <p class="status" id="status" role="status"></p>
+      </section>
+
+      <section class="sec">
+        <h2>Examples</h2>
+        <div class="row" id="presets"></div>
+      </section>
+
+      <section class="sec">
+        <h2>Animate</h2>
+        <div class="anim">
+          <button type="button" class="play" id="play"></button>
+          <input type="range" id="tSlider" min="0" max="1" step="0.001" value="1" aria-label="Interpolation parameter t">
+        </div>
+        <div class="treadout"><span id="tOut"></span><span id="detT"></span></div>
+        <p class="sec-note" id="animNote"></p>
+      </section>
+
+      <section class="sec">
+        <h2>Show</h2>
+        <div class="row">
+          <label class="chip"><input type="checkbox" id="sh-grid" checked><span id="lb-grid">Grid</span></label>
+          <label class="chip"><input type="checkbox" id="sh-unit" checked><span id="lb-unit">Unit square</span></label>
+          <label class="chip"><input type="checkbox" id="sh-circle"><span id="lb-circle">Unit circle</span></label>
+          <label class="chip"><input type="checkbox" id="sh-eigen" checked><span id="lb-eigen">Eigenvectors</span></label>
+          <label class="chip" id="chip-test"><input type="checkbox" id="sh-test" checked><span>Test vector <span class="m">x</span></span></label>
+          <label class="chip" id="chip-snap"><input type="checkbox" id="sh-snap" checked><span>Snap drags</span></label>
+        </div>
+      </section>
+
+      <section class="sec">
+        <h2>Properties of <span class="m" style="text-transform:none;font-size:13px">A</span></h2>
+        <dl class="props" id="props"></dl>
+        <p class="det-note" id="detNote"></p>
+        <ul class="eigs" id="eigs"></ul>
+      </section>
+    </aside>
+  </div>
+</main>
+
+<script>
+(() => {
+'use strict';
+const $ = s => document.querySelector(s);
+const MATH = '"STIX Two Text", "Times New Roman", Times, serif';
+const NUM = '"IBM Plex Mono", ui-monospace, Menlo, monospace';
+const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ---------- linear algebra ---------- */
+const det2 = M => M[0][0]*M[1][1] - M[0][1]*M[1][0];
+const det3 = M => M[0][0]*(M[1][1]*M[2][2]-M[1][2]*M[2][1]) - M[0][1]*(M[1][0]*M[2][2]-M[1][2]*M[2][0]) + M[0][2]*(M[1][0]*M[2][1]-M[1][1]*M[2][0]);
+const detN = M => M.length === 2 ? det2(M) : det3(M);
+const mv = (M, v) => M.map(r => r.reduce((s, a, j) => s + a*v[j], 0));
+const lerpM = (A, t) => A.map((r, i) => r.map((v, j) => (1-t)*(i===j ? 1 : 0) + t*v));
+const cross = (a, b) => [a[1]*b[2]-a[2]*b[1], a[2]*b[0]-a[0]*b[2], a[0]*b[1]-a[1]*b[0]];
+const len = v => Math.hypot(...v);
+const unit = v => { const l = len(v); return v.map(x => x/l); };
+const canon = v => { let k = 0; v.forEach((x, i) => { if (Math.abs(x) > Math.abs(v[k]) + 1e-12) k = i; }); return v[k] < 0 ? v.map(x => -x) : v; };
+const clean = x => Math.abs(x - Math.round(x)) < 1e-10 ? Math.round(x) : x;
+
+function inv(M) {
+  const d = detN(M);
+  if (M.length === 2) return [[M[1][1]/d, -M[0][1]/d], [-M[1][0]/d, M[0][0]/d]];
+  const [[a,b,c],[e,f,g],[h,i,j]] = M;
+  return [[(f*j-g*i)/d, (c*i-b*j)/d, (b*g-c*f)/d],
+          [(g*h-e*j)/d, (a*j-c*h)/d, (c*e-a*g)/d],
+          [(e*i-f*h)/d, (b*h-a*i)/d, (a*f-b*e)/d]];
+}
+function sigmaMin2(M) {
+  const [[a,b],[c,d]] = M, S = a*a+b*b+c*c+d*d, dt = Math.abs(a*d-b*c);
+  const smax = Math.sqrt((S + Math.sqrt(Math.max(0, S*S - 4*dt*dt))) / 2);
+  return smax > 0 ? dt/smax : 0;
+}
+
+function eigvec2(A, l, mult, sc) {
+  const p = [A[0][0]-l, A[0][1]], q = [A[1][0], A[1][1]-l];
+  const r = len(p) >= len(q) ? p : q;
+  if (len(r) < 1e-6*sc) return { kind: 'all', lam: l, mult };
+  return { kind: 'line', lam: l, mult, vecs: [canon(unit([-r[1], r[0]]))] };
+}
+function eig2(A, tr, det, sc) {
+  const disc = tr*tr - 4*det;
+  if (disc < -1e-9*sc*sc) return [{ kind: 'complex', re: tr/2, im: Math.sqrt(-disc)/2 }];
+  const sq = Math.sqrt(Math.max(0, disc));
+  if (sq < 1e-6*sc) return [eigvec2(A, tr/2, 2, sc)];
+  return [eigvec2(A, (tr+sq)/2, 1, sc), eigvec2(A, (tr-sq)/2, 1, sc)];
+}
+function null3(A, l, mult, sc) {
+  const B = A.map((r, i) => r.map((v, j) => v - (i===j ? l : 0)));
+  const nb = 1 + Math.max(...B.flat().map(Math.abs));
+  let best = [0,0,0];
+  for (const c of [cross(B[0],B[1]), cross(B[0],B[2]), cross(B[1],B[2])]) if (len(c) > len(best)) best = c;
+  if (len(best) > 1e-6*nb*nb) return { kind: 'line', lam: l, mult, vecs: [canon(unit(best))] };
+  let row = B[0]; for (const r of B) if (len(r) > len(row)) row = r;
+  if (len(row) > 1e-6*nb) {
+    const n = unit(row);
+    let k = 0; n.forEach((x, i) => { if (Math.abs(x) < Math.abs(n[k])) k = i; });
+    const ek = [0,0,0]; ek[k] = 1;
+    const u1 = unit(cross(n, ek)), u2 = unit(cross(n, u1));
+    return { kind: 'plane', lam: l, mult, vecs: [canon(u1), canon(u2)] };
+  }
+  return { kind: 'all', lam: l, mult };
+}
+function eig3(A, tr, c2, det, sc) {
+  // roots of λ³ − tr λ² + c2 λ − det
+  const b = -tr, c = c2, d = -det, shift = -b/3;
+  const p = c - b*b/3, q = 2*b*b*b/27 - b*c/3 + d;
+  const D = q*q/4 + p*p*p/27, tolD = 1e-11*Math.pow(sc, 6);
+  let reals = [], cplx = null;
+  if (D > tolD) {
+    const sD = Math.sqrt(D), U = Math.cbrt(-q/2 + sD), V = Math.cbrt(-q/2 - sD);
+    const y = U + V, im = Math.sqrt(3)/2*Math.abs(U - V), re = -y/2 + shift;
+    reals.push(y + shift);
+    if (im < 1e-6*sc) reals.push(re, re); else cplx = { kind: 'complex', re, im };
+  } else if (D < -tolD) {
+    const r = 2*Math.sqrt(-p/3);
+    const arg = Math.max(-1, Math.min(1, (3*q)/(2*p)*Math.sqrt(-3/p)));
+    const ph = Math.acos(arg)/3;
+    for (let k = 0; k < 3; k++) reals.push(r*Math.cos(ph - 2*Math.PI*k/3) + shift);
+  } else if (Math.abs(p) < 1e-9*sc*sc) {
+    reals.push(shift, shift, shift);
+  } else {
+    reals.push(3*q/p + shift, -3*q/(2*p) + shift, -3*q/(2*p) + shift);
+  }
+  const f = x => ((x - tr)*x + c2)*x - det, fp = x => (3*x - 2*tr)*x + c2;
+  reals = reals.map(x => { for (let i = 0; i < 3; i++) { const g = fp(x); if (Math.abs(g) < 1e-9*sc*sc) break; x -= f(x)/g; } return x; });
+  reals.sort((a, b) => b - a);
+  const groups = [];
+  for (const x of reals) {
+    const g = groups.find(g => Math.abs(g.lam - x) < 1e-5*sc);
+    if (g) { g.sum += x; g.mult++; g.lam = g.sum/g.mult; } else groups.push({ lam: x, sum: x, mult: 1 });
+  }
+  const out = groups.map(g => null3(A, clean(g.lam), g.mult, sc));
+  if (cplx) out.push(cplx);
+  return out;
+}
+function planeEq(nv) {
+  const m = Math.max(...nv.map(Math.abs)), c = nv.map(x => x/m);
+  let out = '';
+  ['x', 'y', 'z'].forEach((v, i) => {
+    if (Math.abs(c[i]) < 5e-10) return;
+    const mag = Math.abs(c[i]), coef = Math.abs(mag - 1) < 5e-10 ? '' : fmt(mag, 3);
+    out += (out ? (c[i] < 0 ? ' − ' : ' + ') : (c[i] < 0 ? '−' : '')) + coef + `<span class="m">${v}</span>`;
+  });
+  return out + ' = 0';
+}
+function analyzeRect(A) {
+  const m = A.length, n = A[0].length;
+  const maxAbs = Math.max(...A.flat().map(Math.abs)), sc = 1 + maxAbs, tol = 1e-9*sc*sc;
+  let rank, ker, im, area;
+  if (m === 2) {            // R^3 -> R^2
+    const c = cross(A[0], A[1]);
+    area = Math.abs(c[0]) + Math.abs(c[1]) + Math.abs(c[2]);
+    rank = len(c) > tol ? 2 : maxAbs > 1e-12 ? 1 : 0;
+    if (rank === 2) { ker = { kind: 'line', vecs: [canon(unit(c))] }; im = { kind: 'all' }; }
+    else if (rank === 1) {
+      const r = unit(len(A[0]) >= len(A[1]) ? A[0] : A[1]);
+      let k = 0; r.forEach((x, i) => { if (Math.abs(x) < Math.abs(r[k])) k = i; });
+      const ek = [0, 0, 0]; ek[k] = 1;
+      const u1 = unit(cross(r, ek));
+      ker = { kind: 'plane', vecs: [canon(u1), canon(unit(cross(r, u1)))] };
+      const cols = [0, 1, 2].map(j => [A[0][j], A[1][j], 0]);
+      im = { kind: 'line', vecs: [canon(unit(cols.reduce((a, b) => len(b) > len(a) ? b : a)))] };
+    } else { ker = { kind: 'all' }; im = { kind: 'zero' }; }
+  } else {                  // R^2 -> R^3
+    const a1 = A.map(r => r[0]), a2 = A.map(r => r[1]), c = cross(a1, a2);
+    area = len(c);
+    rank = len(c) > tol ? 2 : maxAbs > 1e-12 ? 1 : 0;
+    if (rank === 2) {
+      const nv = unit(c), u1 = unit(len(a1) >= len(a2) ? a1 : a2);
+      ker = { kind: 'zero' }; im = { kind: 'plane', vecs: [u1, unit(cross(nv, u1))], normal: canon(nv) };
+    } else if (rank === 1) {
+      const rho = A.reduce((a, b) => len(b) > len(a) ? b : a);
+      ker = { kind: 'line', vecs: [canon(unit([-rho[1], rho[0], 0]))] };
+      im = { kind: 'line', vecs: [canon(unit(len(a1) >= len(a2) ? a1 : a2))] };
+    } else { ker = { kind: 'all' }; im = { kind: 'zero' }; }
+  }
+  return { rect: true, m, n, rank, ker, im, area, eig: [] };
+}
+function analyze(A) {
+  if (A.length !== A[0].length) return analyzeRect(A);
+  const n = A.length, sc = 1 + Math.max(...A.flat().map(Math.abs));
+  const maxAbs = Math.max(...A.flat().map(Math.abs));
+  if (n === 2) {
+    const tr = A[0][0] + A[1][1], det = det2(A);
+    const rank = Math.abs(det) > 1e-10*sc*sc ? 2 : maxAbs > 1e-12 ? 1 : 0;
+    return { n, tr, det, rank, coeffs: [1, -tr, det], eig: eig2(A, tr, det, sc) };
+  }
+  const tr = A[0][0] + A[1][1] + A[2][2], det = det3(A);
+  const c2 = (A[0][0]*A[1][1] - A[0][1]*A[1][0]) + (A[0][0]*A[2][2] - A[0][2]*A[2][0]) + (A[1][1]*A[2][2] - A[1][2]*A[2][1]);
+  const crossMax = Math.max(len(cross(A[0],A[1])), len(cross(A[0],A[2])), len(cross(A[1],A[2])));
+  const rank = Math.abs(det) > 1e-10*sc**3 ? 3 : crossMax > 1e-10*sc*sc ? 2 : maxAbs > 1e-12 ? 1 : 0;
+  return { n, tr, det, rank, coeffs: [1, -tr, c2, -det], eig: eig3(A, tr, c2, det, sc) };
+}
+
+/* ---------- expression parser for matrix entries ---------- */
+function parseExpr(str) {
+  const s = String(str).toLowerCase().replace(/\s+/g, '').replace(/[−–]/g, '-').replace(/π/g, 'pi').replace(/×/g, '*');
+  if (!s) throw new Error('empty');
+  let i = 0;
+  const FN = { sqrt: Math.sqrt, sin: Math.sin, cos: Math.cos, tan: Math.tan };
+  const expr = () => { let v = term(); while (s[i] === '+' || s[i] === '-') { const op = s[i++]; const r = term(); v = op === '+' ? v + r : v - r; } return v; };
+  const term = () => {
+    let v = factor();
+    for (;;) {
+      if (s[i] === '*' || s[i] === '/') { const op = s[i++]; const r = factor(); v = op === '*' ? v*r : v/r; }
+      else if (i < s.length && /[\d.(a-z]/.test(s[i])) v *= factor();
+      else return v;
+    }
+  };
+  const factor = () => { if (s[i] === '-') { i++; return -factor(); } if (s[i] === '+') { i++; return factor(); } return power(); };
+  const power = () => { const b = atom(); if (s[i] === '^') { i++; return Math.pow(b, factor()); } return b; };
+  const atom = () => {
+    if (s[i] === '(') { i++; const v = expr(); if (s[i] !== ')') throw new Error('paren'); i++; return v; }
+    const rest = s.slice(i);
+    const m = /^(\d+\.?\d*|\.\d+)(e[+-]?\d+)?/.exec(rest);
+    if (m) { i += m[0].length; return parseFloat(m[0]); }
+    if (rest.startsWith('pi')) { i += 2; return Math.PI; }
+    for (const name of Object.keys(FN)) if (rest.startsWith(name)) { i += name.length; return FN[name](atom()); }
+    throw new Error('bad');
+  };
+  const v = expr();
+  if (i !== s.length || !Number.isFinite(v)) throw new Error('bad');
+  return v;
+}
+
+/* ---------- formatting ---------- */
+function fmt(x, d = 3) {
+  if (!Number.isFinite(x)) return '∞';
+  if (Math.abs(x) < 5e-10) x = 0;
+  let s = String(+x.toFixed(d));
+  if (s === '-0') s = '0';
+  return s.replace('-', '−');
+}
+const fmtIn = x => { const v = Math.abs(x) < 5e-10 ? 0 : +x.toFixed(3); return String(Object.is(v, -0) ? 0 : v); };
+const fmtVec = v => { const m = Math.max(...v.map(Math.abs)); return '(' + v.map(x => fmt(x/m, 3)).join(', ') + ')'; };
+function polyHTML(coeffs) {
+  const n = coeffs.length - 1;
+  let out = '';
+  coeffs.forEach((c, i) => {
+    const pow = n - i;
+    if (i > 0 && Math.abs(c) < 5e-10) return;
+    const sign = i === 0 ? '' : (c < 0 ? ' − ' : ' + ');
+    const mag = Math.abs(c);
+    const coef = (pow > 0 && Math.abs(mag - 1) < 5e-10) ? '' : fmt(mag, 3);
+    const lam = pow === 0 ? '' : pow === 1 ? '<span class="m">λ</span>' : `<span class="m">λ</span><sup>${pow}</sup>`;
+    out += sign + coef + lam;
+  });
+  return out;
+}
+
+/* ---------- state ---------- */
+const c30 = Math.cos(Math.PI/6), s30 = 0.5, r2 = Math.SQRT1_2;
+const PRESETS = {
+  2: [
+    ['Rotate 30°', [[c30, -s30], [s30, c30]]],
+    ['Shear', [[1, 1], [0, 1]]],
+    ['Reflect in y = x', [[0, 1], [1, 0]]],
+    ['Stretch', [[2, 0], [0, 0.5]]],
+    ['Symmetric', [[2, 1], [1, 2]]],
+    ['Spiral', [[0.8, -0.9], [0.9, 0.8]]],
+    ['Jordan block', [[1.5, 1], [0, 1.5]]],
+    ['Project onto x-axis', [[1, 0], [0, 0]]],
+    ['Rank 1', [[1, 2], [0.5, 1]]],
+  ],
+  23: [
+    ['Drop z', [[1, 0, 0], [0, 1, 0]]],
+    ['Oblique projection', [[1, 0, 0.5], [0, 1, 0.5]]],
+    ['Isometric drawing', [[-c30, c30, 0], [-0.5, -0.5, 1]]],
+    ['Generic', [[1, 2, 0], [0, 1, -1]]],
+    ['Rank 1', [[1, 1, 1], [2, 2, 2]]],
+  ],
+  32: [
+    ['Inclusion', [[1, 0], [0, 1], [0, 0]]],
+    ['Tilted plane', [[1, 0], [0, 1], [0.5, 0.5]]],
+    ['Plane x + y + z = 0', [[1, 0], [-1, 1], [0, -1]]],
+    ['Generic', [[1, 0.5], [0, 1], [1, -0.5]]],
+    ['Rank 1', [[1, 2], [1, 2], [0.5, 1]]],
+  ],
+  3: [
+    ['Rotate 45° about z', [[r2, -r2, 0], [r2, r2, 0], [0, 0, 1]]],
+    ['Shear', [[1, 0, 0.8], [0, 1, 0.5], [0, 0, 1]]],
+    ['Reflect in xy-plane', [[1, 0, 0], [0, 1, 0], [0, 0, -1]]],
+    ['Stretch', [[2, 0, 0], [0, 1, 0], [0, 0, 0.5]]],
+    ['Symmetric', [[2, 1, 0], [1, 2, 1], [0, 1, 2]]],
+    ['Cyclic permutation', [[0, 0, 1], [1, 0, 0], [0, 1, 0]]],
+    ['Project onto xy-plane', [[1, 0, 0], [0, 1, 0], [0, 0, 0]]],
+    ['Rank 1', [[1, 1, 1], [0.5, 0.5, 0.5], [1, 1, 1]]],
+  ],
+};
+const DEFAULT_R2 = 3.4, DEFAULT_R3 = 2.6, DEFAULT_YAW = 30*Math.PI/180, DEFAULT_PITCH = 22*Math.PI/180;
+const MODES = {
+  '2': { rows: 2, cols: 2 },
+  '3': { rows: 3, cols: 3 },
+  '23': { rows: 2, cols: 3 },
+  '32': { rows: 3, cols: 2 },
+};
+const state = {
+  mode: '2',
+  A2: [[1.5, 1], [0.5, 1]],
+  A3: [[1.2, 0.5, 0], [0, 1, 0.4], [0.3, 0, 0.8]],
+  A23: [[1, 0, 0.7], [0.2, 1, 0.5]],
+  A32: [[1, 0.3], [0, 1], [0.6, 0.4]],
+  t: 1,
+  x2: [-1, 1.5],
+  R2: DEFAULT_R2, R3: DEFAULT_R3,
+  yaw: DEFAULT_YAW, pitch: DEFAULT_PITCH,
+  show: { grid: true, unit: true, circle: false, eigen: true, test: true, snap: true },
+};
+const getA = () => state['A' + state.mode];
+const is2D = () => state.mode === '2';
+const isRect = () => state.mode === '23' || state.mode === '32';
+const pad3 = A => [0, 1, 2].map(i => [0, 1, 2].map(j => (i < A.length && j < A[0].length) ? A[i][j] : 0));
+const modePitch = () => (state.mode === '23' ? 52 : 22)*Math.PI/180;
+let an = analyze(getA());
+
+/* ---------- colours ---------- */
+let C = {};
+function readColors() {
+  const cs = getComputedStyle(document.documentElement);
+  const g = k => cs.getPropertyValue('--' + k).trim();
+  C = { stage: g('stage'), ink: g('ink'), muted: g('muted'), grid: g('grid'), gridStrong: g('grid-strong'),
+        accent: g('accent'), ker: g('ker'), e1: g('e1'), e2: g('e2'), e3: g('e3'), pos: g('pos'), neg: g('neg'), vec: g('vec') };
+}
+readColors();
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => { readColors(); requestDraw(); });
+new MutationObserver(() => { readColors(); requestDraw(); }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme', 'class', 'style'] });
+
+/* ---------- canvas ---------- */
+const cv = $('#cv'), ctx = cv.getContext('2d'), stageEl = $('#stage');
+let W = 0, H = 0, dpr = 1, pending = false;
+function resize() {
+  const r = cv.getBoundingClientRect();
+  dpr = window.devicePixelRatio || 1; W = r.width; H = r.height;
+  cv.width = Math.max(1, Math.round(W*dpr)); cv.height = Math.max(1, Math.round(H*dpr));
+}
+new ResizeObserver(() => { resize(); draw(); }).observe(stageEl);
+function requestDraw() { if (!pending) { pending = true; requestAnimationFrame(draw); } }
+
+function arrow(x0, y0, x1, y1, color, width, head = 11) {
+  const dx = x1 - x0, dy = y1 - y0, L = Math.hypot(dx, dy);
+  ctx.strokeStyle = color; ctx.fillStyle = color; ctx.lineWidth = width; ctx.lineCap = 'round';
+  if (L < 1.5) { ctx.beginPath(); ctx.arc(x1, y1, width, 0, 2*Math.PI); ctx.fill(); return; }
+  const ux = dx/L, uy = dy/L, hl = Math.min(head, L*0.45), hw = hl*0.55;
+  const bx = x1 - ux*hl, by = y1 - uy*hl;
+  ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(bx + ux*1, by + uy*1); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(bx - uy*hw, by + ux*hw); ctx.lineTo(bx + uy*hw, by - ux*hw); ctx.closePath(); ctx.fill();
+}
+function rich(parts, x, y, color, align = 'center', size = 15) {
+  const fonts = parts.map(p => `${p.it ? 'italic ' : ''}500 ${p.sub ? Math.round(size*0.68) : size}px ${p.num ? NUM : MATH}`);
+  let tot = 0;
+  const ws = parts.map((p, i) => { ctx.font = fonts[i]; const w = ctx.measureText(p.t).width; tot += w; return w; });
+  let x0 = align === 'left' ? x : align === 'right' ? x - tot : x - tot/2;
+  ctx.textAlign = 'left'; ctx.textBaseline = 'middle'; ctx.lineJoin = 'round'; ctx.lineWidth = 4;
+  ctx.strokeStyle = C.stage; ctx.fillStyle = color;
+  parts.forEach((p, i) => { ctx.font = fonts[i]; const yy = p.sub ? y + size*0.3 : y; ctx.strokeText(p.t, x0, yy); x0 += ws[i]; });
+  x0 = align === 'left' ? x : align === 'right' ? x - tot : x - tot/2;
+  parts.forEach((p, i) => { ctx.font = fonts[i]; const yy = p.sub ? y + size*0.3 : y; ctx.fillText(p.t, x0, yy); x0 += ws[i]; });
+}
+function labelAt(tip, dir, parts, color, off = 16) {
+  const x = tip[0] + dir[0]*off, y = tip[1] + dir[1]*off;
+  const align = dir[0] > 0.35 ? 'left' : dir[0] < -0.35 ? 'right' : 'center';
+  rich(parts, x, y + (align === 'center' ? dir[1]*4 : 0), color, align);
+}
+function vecName(base, j) {
+  const t = state.t;
+  if (t > 0.9995) return [{ t: 'A' + base, it: true }, ...(j ? [{ t: String(j), sub: true }] : [])];
+  if (t < 0.0005) return [{ t: base, it: true }, ...(j ? [{ t: String(j), sub: true }] : [])];
+  return [{ t: 'M', it: true }, { t: '(' }, { t: 't', it: true }, { t: ')' }, { t: base, it: true }, ...(j ? [{ t: String(j), sub: true }] : [])];
+}
+const gridStep = R => R <= 2.5 ? 0.5 : R <= 8 ? 1 : R <= 20 ? 2 : 5;
+const lamParts = (l, m) => [{ t: 'λ', it: true }, { t: ' = ' + fmt(l, 2) + (m > 1 ? ' (×' + m + ')' : '') }];
+
+let view2 = { s: 1, cx: 0, cy: 0 }, handles = [];
+
+function draw() {
+  pending = false;
+  if (!W || !H) return;
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  ctx.clearRect(0, 0, W, H);
+  ctx.globalAlpha = 1; ctx.setLineDash([]);
+  if (is2D()) draw2D(); else draw3D();
+}
+
+function draw2D() {
+  const A = state.A2, M = lerpM(A, state.t), R = state.R2, sh = state.show;
+  const s = Math.min(W, H)/(2*R), cx = W/2, cy = H/2, hx = W/(2*s), hy = H/(2*s);
+  view2 = { s, cx, cy };
+  const P = v => [cx + v[0]*s, cy - v[1]*s];
+  const step = gridStep(R);
+
+  // fixed background grid
+  ctx.lineWidth = 1; ctx.strokeStyle = C.grid; ctx.beginPath();
+  for (let k = Math.ceil(-hx/step); k*step <= hx; k++) { if (!k) continue; const px = Math.round(cx + k*step*s) + 0.5; ctx.moveTo(px, 0); ctx.lineTo(px, H); }
+  for (let k = Math.ceil(-hy/step); k*step <= hy; k++) { if (!k) continue; const py = Math.round(cy - k*step*s) + 0.5; ctx.moveTo(0, py); ctx.lineTo(W, py); }
+  ctx.stroke();
+  ctx.strokeStyle = C.gridStrong; ctx.lineWidth = 1.25; ctx.beginPath();
+  ctx.moveTo(0, Math.round(cy) + 0.5); ctx.lineTo(W, Math.round(cy) + 0.5); ctx.moveTo(Math.round(cx) + 0.5, 0); ctx.lineTo(Math.round(cx) + 0.5, H); ctx.stroke();
+  if (step*s >= 26) {
+    ctx.fillStyle = C.muted; ctx.font = `11px ${NUM}`;
+    ctx.textAlign = 'center'; ctx.textBaseline = 'top';
+    for (let k = Math.ceil(-hx/step); k*step <= hx; k++) if (k) ctx.fillText(fmt(k*step, 2), cx + k*step*s, cy + 5);
+    ctx.textAlign = 'right'; ctx.textBaseline = 'middle';
+    for (let k = Math.ceil(-hy/step); k*step <= hy; k++) if (k) ctx.fillText(fmt(k*step, 2), cx - 6, cy - k*step*s);
+  }
+
+  // original unit square
+  if (sh.unit) {
+    ctx.setLineDash([4, 4]); ctx.strokeStyle = C.muted; ctx.globalAlpha = 0.6; ctx.lineWidth = 1;
+    ctx.strokeRect(cx, cy - s, s, s); ctx.setLineDash([]); ctx.globalAlpha = 1;
+  }
+
+  // transformed grid
+  if (sh.grid) {
+    const sm = sigmaMin2(M), reach = Math.hypot(hx, hy);
+    const n = Math.min(60, sm > 1e-9 ? Math.ceil(reach/(sm*step)) + 1 : 60), L = n*step;
+    ctx.strokeStyle = C.accent; ctx.globalAlpha = 0.26; ctx.lineWidth = 1; ctx.beginPath();
+    const line = (a, b) => { const p = P(mv(M, a)), q = P(mv(M, b)); ctx.moveTo(p[0], p[1]); ctx.lineTo(q[0], q[1]); };
+    for (let k = -n; k <= n; k++) { if (!k) continue; line([k*step, -L], [k*step, L]); line([-L, k*step], [L, k*step]); }
+    ctx.stroke();
+    ctx.globalAlpha = 0.6; ctx.lineWidth = 1.6;
+    ctx.strokeStyle = C.e1; ctx.beginPath(); line([-L, 0], [L, 0]); ctx.stroke();
+    ctx.strokeStyle = C.e2; ctx.beginPath(); line([0, -L], [0, L]); ctx.stroke();
+    ctx.globalAlpha = 1;
+  }
+
+  // eigenlines of A (fixed for all t)
+  const eigLabels = [];
+  if (sh.eigen) {
+    for (const e of an.eig) {
+      if (e.kind !== 'line') continue;
+      const v = e.vecs[0], big = Math.hypot(hx, hy)*2;
+      ctx.setLineDash([7, 5]); ctx.strokeStyle = C.ink; ctx.globalAlpha = 0.55; ctx.lineWidth = 1.25;
+      const p = P([-v[0]*big, -v[1]*big]), q = P([v[0]*big, v[1]*big]);
+      ctx.beginPath(); ctx.moveTo(p[0], p[1]); ctx.lineTo(q[0], q[1]); ctx.stroke();
+      ctx.setLineDash([]); ctx.globalAlpha = 1;
+      const rx = Math.abs(v[0]) > 1e-9 ? (W/2 - 46)/(Math.abs(v[0])*s) : Infinity;
+      const ry = Math.abs(v[1]) > 1e-9 ? (H/2 - 22)/(Math.abs(v[1])*s) : Infinity;
+      const r = Math.min(rx, ry);
+      eigLabels.push({ pt: P([v[0]*r, v[1]*r]), n: [-v[1], -v[0]], parts: lamParts(e.lam, e.mult) });
+    }
+  }
+
+  // image of unit circle
+  if (sh.circle) {
+    ctx.strokeStyle = C.vec; ctx.globalAlpha = 0.55; ctx.lineWidth = 1.5; ctx.beginPath();
+    for (let i = 0; i <= 160; i++) { const th = i/160*2*Math.PI; const p = P(mv(M, [Math.cos(th), Math.sin(th)])); i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1]); }
+    ctx.stroke(); ctx.globalAlpha = 1;
+  }
+
+  const a1 = [M[0][0], M[1][0]], a2 = [M[0][1], M[1][1]], dm = det2(M);
+  // image of unit square
+  if (sh.unit) {
+    const col = dm < 0 ? C.neg : C.pos;
+    const pts = [[0, 0], a1, [a1[0] + a2[0], a1[1] + a2[1]], a2].map(P);
+    ctx.beginPath(); pts.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.closePath();
+    ctx.globalAlpha = 0.2; ctx.fillStyle = col; ctx.fill();
+    ctx.globalAlpha = 0.9; ctx.strokeStyle = col; ctx.lineWidth = 1.5; ctx.stroke(); ctx.globalAlpha = 1;
+    if (Math.abs(dm)*s*s > 2600) {
+      const c = P([(a1[0] + a2[0])/2, (a1[1] + a2[1])/2]);
+      rich([{ t: 'det ' }, { t: fmt(dm, 2), num: true }], c[0], c[1], C.ink, 'center', 13);
+    }
+  }
+
+  const o = P([0, 0]);
+  handles = [];
+  // test vector and its decomposition x1·Ae1 + x2·Ae2
+  if (sh.test) {
+    const x = state.x2, Mx = mv(M, x), px = P(x), pMx = P(Mx);
+    const mid = P([x[0]*a1[0], x[0]*a1[1]]);
+    ctx.setLineDash([4, 4]); ctx.lineWidth = 1.5;
+    ctx.globalAlpha = 0.85; ctx.strokeStyle = C.e1; ctx.beginPath(); ctx.moveTo(o[0], o[1]); ctx.lineTo(mid[0], mid[1]); ctx.stroke();
+    ctx.strokeStyle = C.e2; ctx.beginPath(); ctx.moveTo(mid[0], mid[1]); ctx.lineTo(pMx[0], pMx[1]); ctx.stroke();
+    ctx.globalAlpha = 0.7; ctx.strokeStyle = C.muted; ctx.setLineDash([3, 4]);
+    ctx.beginPath(); ctx.moveTo(o[0], o[1]); ctx.lineTo(px[0], px[1]); ctx.stroke();
+    ctx.setLineDash([]); ctx.globalAlpha = 1;
+    ctx.beginPath(); ctx.arc(px[0], px[1], 5.5, 0, 2*Math.PI); ctx.fillStyle = C.stage; ctx.fill();
+    ctx.lineWidth = 1.75; ctx.strokeStyle = C.muted; ctx.stroke();
+    arrow(o[0], o[1], pMx[0], pMx[1], C.vec, 2.5, 11);
+    const dx = unitScreen(o, px), dMx = unitScreen(o, pMx);
+    labelAt(px, dx, [{ t: 'x', it: true }], C.muted, 13);
+    labelAt(pMx, dMx, vecName('x', 0), C.vec);
+    handles.push({ id: 'x', p: px }, { id: 'Mx', p: pMx });
+  }
+
+  // basis vector images
+  [[a1, C.e1, 1], [a2, C.e2, 2]].forEach(([a, col, j]) => {
+    const p = P(a);
+    arrow(o[0], o[1], p[0], p[1], col, 3, 12);
+    ctx.beginPath(); ctx.arc(p[0], p[1], 6, 0, 2*Math.PI); ctx.fillStyle = col; ctx.fill();
+    ctx.lineWidth = 2; ctx.strokeStyle = C.stage; ctx.stroke();
+    labelAt(p, unitScreen(o, p), vecName('e', j), col, 17);
+    handles.push({ id: 'c' + (j - 1), p });
+  });
+
+  for (const L of eigLabels) rich(L.parts, L.pt[0], L.pt[1], L.color || C.ink, 'center', 14);
+}
+function unitScreen(o, p) {
+  const dx = p[0] - o[0], dy = p[1] - o[1], L = Math.hypot(dx, dy);
+  return L < 1 ? [0.7, -0.7] : [dx/L, dy/L];
+}
+
+function draw3D() {
+  const M = lerpM(pad3(getA()), state.t), R = state.R3, sh = state.show;
+  const dom = MODES[state.mode].cols;   // dimension of the domain: 2 or 3
+  const s = Math.min(W, H)/(2*R), cx = W/2, cy = H/2;
+  const cY = Math.cos(state.yaw), sY = Math.sin(state.yaw), cP = Math.cos(state.pitch), sP = Math.sin(state.pitch);
+  const rv = [-sY, cY, 0], uv = [-sP*cY, -sP*sY, cP], dv = [cP*cY, cP*sY, sP];
+  const Dc = R*6;
+  const pr = v => {
+    const X = v[0]*rv[0] + v[1]*rv[1], Y = v[0]*uv[0] + v[1]*uv[1] + v[2]*uv[2], Z = v[0]*dv[0] + v[1]*dv[1] + v[2]*dv[2];
+    const f = Dc/(Dc - Math.min(Z, 0.8*Dc));
+    return [cx + X*f*s, cy - Y*f*s, Z];
+  };
+  const seg = (a, b) => { const p = pr(a), q = pr(b); ctx.moveTo(p[0], p[1]); ctx.lineTo(q[0], q[1]); };
+  const depthA = z => Math.max(0.3, Math.min(1, 0.62 + 0.38*z/R));
+  const E = [[1, 0, 0], [0, 1, 0], [0, 0, 1]];
+  const cubeV = b => [b & 1, (b >> 1) & 1, (b >> 2) & 1];
+  const EDGES = [[0,1],[2,3],[4,5],[6,7],[0,2],[1,3],[4,6],[5,7],[0,4],[1,5],[2,6],[3,7]];
+  const FACES = [[0,2,6,4],[1,3,7,5],[0,1,5,4],[2,3,7,6],[0,1,3,2],[4,5,7,6]];
+  handles = [];
+
+  // fixed floor grid and axes
+  ctx.lineWidth = 1; ctx.strokeStyle = C.grid; ctx.beginPath();
+  for (let i = -2; i <= 2; i++) { seg([i, -2, 0], [i, 2, 0]); seg([-2, i, 0], [2, i, 0]); }
+  ctx.stroke();
+  const AX = R*1.05;
+  ctx.strokeStyle = C.gridStrong; ctx.lineWidth = 1.25; ctx.beginPath();
+  E.forEach(e => seg(e.map(x => -x*AX), e.map(x => x*AX))); ctx.stroke();
+
+  if (sh.unit) {
+    ctx.setLineDash([4, 4]); ctx.strokeStyle = C.muted; ctx.globalAlpha = 0.55; ctx.lineWidth = 1; ctx.beginPath();
+    if (dom === 3) EDGES.forEach(([a, b]) => seg(cubeV(a), cubeV(b)));
+    else [[0, 1], [1, 3], [3, 2], [2, 0]].forEach(([a, b]) => seg(cubeV(a), cubeV(b)));
+    ctx.stroke(); ctx.setLineDash([]); ctx.globalAlpha = 1;
+  }
+
+  // images of the three coordinate planes
+  if (sh.grid) {
+    ctx.lineWidth = 1; ctx.strokeStyle = C.accent;
+    for (let k = 3 - dom + (dom === 2 ? 1 : 0); k < 3; k++) {
+      const a = (k + 1) % 3, b = (k + 2) % 3;
+      for (let i = -2; i <= 2; i++) {
+        if (!i) continue;
+        for (const [dir, fix] of [[a, b], [b, a]]) {
+          const p = [0, 0, 0], q = [0, 0, 0]; p[fix] = q[fix] = i; p[dir] = -2; q[dir] = 2;
+          const P1 = mv(M, p), Q1 = mv(M, q);
+          ctx.globalAlpha = 0.3*depthA((pr(P1)[2] + pr(Q1)[2])/2);
+          ctx.beginPath(); seg(P1, Q1); ctx.stroke();
+        }
+      }
+    }
+    ctx.lineWidth = 1.6;
+    E.slice(0, dom).forEach((e, j) => { ctx.globalAlpha = 0.55; ctx.strokeStyle = C['e' + (j + 1)]; ctx.beginPath(); seg(mv(M, e.map(x => -2*x)), mv(M, e.map(x => 2*x))); ctx.stroke(); });
+    ctx.globalAlpha = 1;
+  }
+
+  // eigenvectors / eigenplanes of A
+  const eigLabels = [];
+  if (sh.eigen && an.rect) drawKerIm(pr, seg, R, eigLabels);
+  if (sh.eigen) {
+    for (const e of an.eig) {
+      if (e.kind === 'line') {
+        const v = e.vecs[0];
+        ctx.setLineDash([7, 5]); ctx.strokeStyle = C.ink; ctx.globalAlpha = 0.6; ctx.lineWidth = 1.3;
+        ctx.beginPath(); seg(v.map(x => -x*R*1.4), v.map(x => x*R*1.4)); ctx.stroke();
+        ctx.setLineDash([]); ctx.globalAlpha = 1;
+        eigLabels.push({ pt: pr(v.map(x => x*R*1.12)), parts: lamParts(e.lam, e.mult) });
+      } else if (e.kind === 'plane') {
+        const [u1, u2] = e.vecs, k = R*0.95;
+        const corners = [[1, 1], [1, -1], [-1, -1], [-1, 1]].map(([a, b]) => pr(u1.map((x, i) => (a*x + b*u2[i])*k)));
+        ctx.beginPath(); corners.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.closePath();
+        ctx.globalAlpha = 0.07; ctx.fillStyle = C.ink; ctx.fill();
+        ctx.globalAlpha = 0.5; ctx.setLineDash([7, 5]); ctx.strokeStyle = C.ink; ctx.lineWidth = 1.2; ctx.stroke();
+        ctx.setLineDash([]); ctx.globalAlpha = 1;
+        eigLabels.push({ pt: corners[0], parts: lamParts(e.lam, e.mult) });
+      }
+    }
+  }
+
+  // image of unit sphere: three great circles
+  if (sh.circle) {
+    ctx.strokeStyle = C.vec; ctx.globalAlpha = 0.5; ctx.lineWidth = 1.3;
+    for (let k = dom === 3 ? 0 : 2; k < 3; k++) {
+      const a = (k + 1) % 3, b = (k + 2) % 3;
+      ctx.beginPath();
+      for (let i = 0; i <= 120; i++) { const th = i/120*2*Math.PI, v = [0, 0, 0]; v[a] = Math.cos(th); v[b] = Math.sin(th); const p = pr(mv(M, v)); i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1]); }
+      ctx.stroke();
+    }
+    ctx.globalAlpha = 1;
+  }
+
+  // image of unit square (domain R^2)
+  if (sh.unit && dom === 2) {
+    const a1 = [M[0][0], M[1][0], M[2][0]], a2 = [M[0][1], M[1][1], M[2][1]];
+    const pts = [[0, 0, 0], a1, a1.map((x, i) => x + a2[i]), a2].map(pr);
+    ctx.beginPath(); pts.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.closePath();
+    ctx.globalAlpha = 0.2; ctx.fillStyle = C.pos; ctx.fill();
+    ctx.globalAlpha = 0.9; ctx.strokeStyle = C.pos; ctx.lineWidth = 1.5; ctx.stroke(); ctx.globalAlpha = 1;
+    const ar = len(cross(a1, a2)), c = pr(a1.map((x, i) => (x + a2[i])/2));
+    if (ar*s*s > 2600) rich([{ t: 'area ' }, { t: fmt(ar, 2), num: true }], c[0], c[1], C.ink, 'center', 13);
+  }
+  // image of unit cube
+  if (sh.unit && dom === 3) {
+    const PV = [...Array(8)].map((_, b) => pr(mv(M, cubeV(b))));
+    const dm = det3(M), col = dm < 0 ? C.neg : C.pos;
+    FACES.map(f => ({ f, z: f.reduce((acc, i) => acc + PV[i][2], 0)/4 })).sort((a, b) => a.z - b.z).forEach(({ f }) => {
+      ctx.beginPath(); f.forEach((i, k) => k ? ctx.lineTo(PV[i][0], PV[i][1]) : ctx.moveTo(PV[i][0], PV[i][1])); ctx.closePath();
+      ctx.globalAlpha = 0.13; ctx.fillStyle = col; ctx.fill();
+    });
+    ctx.globalAlpha = 0.85; ctx.strokeStyle = col; ctx.lineWidth = 1.5; ctx.beginPath();
+    EDGES.forEach(([a, b]) => { ctx.moveTo(PV[a][0], PV[a][1]); ctx.lineTo(PV[b][0], PV[b][1]); }); ctx.stroke();
+    ctx.globalAlpha = 1;
+    const c = pr(mv(M, [0.5, 0.5, 0.5]));
+    if (Math.abs(dm)*s*s > 2000 && state.mode === '3') rich([{ t: 'det ' }, { t: fmt(dm, 2), num: true }], c[0], c[1], C.ink, 'center', 13);
+  }
+
+  // basis vector images, back to front
+  const o = pr([0, 0, 0]);
+  [0, 1, 2].slice(0, dom).map(j => ({ j, p: pr([M[0][j], M[1][j], M[2][j]]) })).sort((a, b) => a.p[2] - b.p[2]).forEach(({ j, p }) => {
+    const col = C['e' + (j + 1)];
+    arrow(o[0], o[1], p[0], p[1], col, 3, 12);
+    labelAt(p, unitScreen(o, p), vecName('e', j + 1), col, 15);
+  });
+
+  ['x', 'y', 'z'].forEach((nm, k) => { const p = pr(E[k].map(x => x*AX*1.07)); rich([{ t: nm, it: true }], p[0], p[1], C.muted, 'center', 15); });
+  for (const L of eigLabels) rich(L.parts, L.pt[0], L.pt[1], L.color || C.ink, 'center', 14);
+}
+
+// Kernel (pink) and column space (blue) of a non-square A, drawn in the embedded R^3 picture.
+// A kernel vector k satisfies M(t)k = (1 − t)k, so its image shrinks to 0 as t → 1.
+function drawKerIm(pr, seg, R, labels) {
+  const t = state.t, L = R*1.3;
+  const quad = (u1, u2, k) => [[1, 1], [1, -1], [-1, -1], [-1, 1]].map(([a, b]) => pr(u1.map((x, i) => (a*x + b*u2[i])*k)));
+  const poly = pts => { ctx.beginPath(); pts.forEach((p, i) => i ? ctx.lineTo(p[0], p[1]) : ctx.moveTo(p[0], p[1])); ctx.closePath(); };
+  const im = an.im, ker = an.ker;
+  const imName = [{ t: 'im ' }, { t: 'A', it: true }], kerName = [{ t: 'ker ' }, { t: 'A', it: true }];
+  if (im.kind === 'plane') {
+    const q = quad(im.vecs[0], im.vecs[1], R*0.95);
+    poly(q); ctx.globalAlpha = 0.07; ctx.fillStyle = C.accent; ctx.fill();
+    ctx.globalAlpha = 0.5; ctx.setLineDash([7, 5]); ctx.strokeStyle = C.accent; ctx.lineWidth = 1.2; ctx.stroke();
+    ctx.setLineDash([]); ctx.globalAlpha = 1;
+    labels.push({ pt: q[0], parts: imName, color: C.accent });
+  } else if (im.kind === 'line') {
+    const v = im.vecs[0];
+    ctx.setLineDash([7, 5]); ctx.globalAlpha = 0.6; ctx.strokeStyle = C.accent; ctx.lineWidth = 1.4;
+    ctx.beginPath(); seg(v.map(x => -x*L), v.map(x => x*L)); ctx.stroke(); ctx.setLineDash([]); ctx.globalAlpha = 1;
+    labels.push({ pt: pr(v.map(x => x*R*1.12)), parts: imName, color: C.accent });
+  }
+  if (ker.kind === 'line') {
+    const v = ker.vecs[0];
+    ctx.setLineDash([7, 5]); ctx.globalAlpha = 0.65; ctx.strokeStyle = C.ker; ctx.lineWidth = 1.4;
+    ctx.beginPath(); seg(v.map(x => -x*L), v.map(x => x*L)); ctx.stroke(); ctx.setLineDash([]);
+    ctx.globalAlpha = 0.9; ctx.lineWidth = 3; ctx.lineCap = 'round';
+    ctx.beginPath(); seg(v.map(x => -x*L*(1 - t)), v.map(x => x*L*(1 - t))); ctx.stroke(); ctx.globalAlpha = 1;
+    labels.push({ pt: pr(v.map(x => x*R*1.12)), parts: kerName, color: C.ker });
+  } else if (ker.kind === 'plane') {
+    const q = quad(ker.vecs[0], ker.vecs[1], R*0.9);
+    poly(q); ctx.globalAlpha = 0.6; ctx.setLineDash([7, 5]); ctx.strokeStyle = C.ker; ctx.lineWidth = 1.3; ctx.stroke(); ctx.setLineDash([]);
+    if (t < 0.999) { poly(quad(ker.vecs[0], ker.vecs[1], R*0.9*(1 - t))); ctx.globalAlpha = 0.14; ctx.fillStyle = C.ker; ctx.fill(); }
+    ctx.globalAlpha = 1;
+    labels.push({ pt: q[0], parts: kerName, color: C.ker });
+  }
+}
+
+/* ---------- interaction on the canvas ---------- */
+let drag = null;
+const local = e => { const r = cv.getBoundingClientRect(); return [e.clientX - r.left, e.clientY - r.top]; };
+const toWorld2 = p => [(p[0] - view2.cx)/view2.s, (view2.cy - p[1])/view2.s];
+function hitTest(p, rad) {
+  for (const id of ['c0', 'c1', 'Mx', 'x']) {
+    const h = handles.find(h => h.id === id);
+    if (h && Math.hypot(h.p[0] - p[0], h.p[1] - p[1]) <= rad) return h;
+  }
+  return null;
+}
+const snapV = v => {
+  if (!state.show.snap) return v;
+  const q = gridStep(state.R2)/2;
+  return v.map(x => Math.round(x/q)*q);
+};
+cv.addEventListener('pointerdown', e => {
+  const p = local(e);
+  if (is2D()) {
+    const h = hitTest(p, e.pointerType === 'touch' ? 24 : 14);
+    if (!h) return;
+    if ((h.id === 'c0' || h.id === 'c1') && state.t < 0.9995) { stopAnim(); setT(1); }
+    drag = { kind: h.id };
+    cv.setPointerCapture(e.pointerId); e.preventDefault();
+    cv.style.cursor = 'grabbing';
+  } else {
+    drag = { kind: 'orbit', last: p };
+    cv.setPointerCapture(e.pointerId); cv.style.cursor = 'grabbing';
+  }
+});
+cv.addEventListener('pointermove', e => {
+  const p = local(e);
+  if (!drag) {
+    if (is2D()) cv.style.cursor = hitTest(p, 14) ? 'grab' : 'default';
+    else cv.style.cursor = 'grab';
+    return;
+  }
+  if (drag.kind === 'orbit') {
+    state.yaw -= (p[0] - drag.last[0])*0.008;
+    state.pitch = Math.max(-1.45, Math.min(1.45, state.pitch + (p[1] - drag.last[1])*0.008));
+    drag.last = p; requestDraw(); return;
+  }
+  const w = toWorld2(p);
+  if (drag.kind === 'c0' || drag.kind === 'c1') {
+    const j = +drag.kind[1], v = snapV(w);
+    state.A2[0][j] = v[0]; state.A2[1][j] = v[1];
+    refresh();
+  } else if (drag.kind === 'x') {
+    state.x2 = snapV(w); requestDraw();
+  } else if (drag.kind === 'Mx') {
+    const M = lerpM(state.A2, state.t);
+    if (Math.abs(det2(M)) > 1e-9) { state.x2 = mv(inv(M), w); requestDraw(); }
+  }
+});
+const endDrag = () => { if (drag) { drag = null; cv.style.cursor = is2D() ? 'default' : 'grab'; } };
+cv.addEventListener('pointerup', endDrag);
+cv.addEventListener('pointercancel', endDrag);
+
+/* ---------- animation ---------- */
+const slider = $('#tSlider'), playBtn = $('#play');
+let anim = null;
+const PLAY_ICON = '<svg viewBox="0 0 12 12" fill="currentColor"><path d="M2 1l9 5-9 5z"/></svg>';
+const PAUSE_ICON = '<svg viewBox="0 0 12 12" fill="currentColor"><path d="M2 1h3v10H2zM7 1h3v10H7z"/></svg>';
+function updatePlay() { playBtn.innerHTML = anim ? PAUSE_ICON + 'Pause' : PLAY_ICON + 'Play'; }
+function setT(v) {
+  state.t = v; slider.value = v;
+  updateTReadout(); requestDraw();
+}
+function stopAnim() { if (anim) { cancelAnimationFrame(anim.raf); anim = null; updatePlay(); } }
+function play(from) {
+  stopAnim();
+  if (reduceMotion) { setT(1); return; }
+  anim = { t0: from, start: performance.now(), dur: 1700*(1 - from) + 1 };
+  setT(from); updatePlay();
+  const tick = () => {
+    if (!anim) return;
+    const p = Math.min(1, (performance.now() - anim.start)/anim.dur);
+    const ease = p < 0.5 ? 4*p*p*p : 1 - Math.pow(-2*p + 2, 3)/2;
+    setT(anim.t0 + (1 - anim.t0)*ease);
+    if (p < 1) anim.raf = requestAnimationFrame(tick); else stopAnim();
+  };
+  anim.raf = requestAnimationFrame(tick);
+}
+playBtn.addEventListener('click', () => { if (anim) stopAnim(); else play(state.t > 0.999 ? 0 : state.t); });
+slider.addEventListener('input', () => { stopAnim(); setT(+slider.value); });
+function updateTReadout() {
+  $('#tOut').innerHTML = `<span class="m">t</span> = ${state.t.toFixed(2)}`;
+  const Mt = lerpM(pad3(getA()), state.t), Mt2 = lerpM(getA(), state.t);
+  const mt = '<span class="m">M</span>(<span class="m">t</span>)';
+  $('#detT').innerHTML = state.mode === '23' ? ''
+    : state.mode === '32' ? `|${mt}<span class="m">e</span><sub>1</sub> × ${mt}<span class="m">e</span><sub>2</sub>| = ${fmt(len(cross(Mt.map(r => r[0]), Mt.map(r => r[1]))), 3)}`
+    : `det ${mt} = ${fmt(detN(Mt2), 3)}`;
+}
+
+/* ---------- matrix editor ---------- */
+const matTags = $('#matTags'), matGrid = $('#matGrid');
+let cells = [];
+function buildMatrix() {
+  const { rows, cols } = MODES[state.mode], A = getA(), n = state.mode;
+  matTags.style.setProperty('--n', cols); matGrid.style.setProperty('--n', cols);
+  matTags.innerHTML = Array.from({ length: cols }, (_, j) => `<span class="tag" style="--col:var(--e${j + 1})">Ae<sub>${j + 1}</sub></span>`).join('');
+  matGrid.innerHTML = ''; cells = [];
+  for (let i = 0; i < rows; i++) for (let j = 0; j < cols; j++) {
+    const el = document.createElement('input');
+    el.className = 'cell'; el.id = `a${n}-${i}-${j}`; el.type = 'text'; el.inputMode = 'decimal';
+    el.autocomplete = 'off'; el.spellcheck = false; el.style.setProperty('--col', `var(--e${j + 1})`);
+    el.setAttribute('aria-label', `Row ${i + 1}, column ${j + 1}`);
+    el.value = fmtIn(A[i][j]);
+    el.addEventListener('input', () => {
+      try { getA()[i][j] = parseExpr(el.value); el.removeAttribute('aria-invalid'); refresh(); }
+      catch { el.setAttribute('aria-invalid', 'true'); }
+    });
+    el.addEventListener('blur', () => { if (el.getAttribute('aria-invalid')) { el.value = fmtIn(getA()[i][j]); el.removeAttribute('aria-invalid'); } });
+    el.addEventListener('keydown', e => { if (e.key === 'Enter') el.blur(); });
+    matGrid.appendChild(el); cells.push({ el, i, j });
+  }
+}
+function syncInputs() {
+  const A = getA();
+  for (const { el, i, j } of cells) {
+    if (el === document.activeElement) continue;
+    let cur; try { cur = parseExpr(el.value); } catch { cur = NaN; }
+    if (!(Math.abs(cur - A[i][j]) < 1e-9)) el.value = fmtIn(A[i][j]);
+  }
+}
+
+/* ---------- properties panel ---------- */
+const RR = k => `ℝ<sup>${k}</sup>`;
+function renderRectProps() {
+  const { m, n, rank, ker, im, area } = an;
+  const nullity = n - rank;
+  const imTxt = im.kind === 'all' ? `all of ${RR(m)}`
+    : im.kind === 'plane' ? `the plane ${planeEq(im.normal)}`
+    : im.kind === 'line' ? `the line through <code>${fmtVec(m === 2 ? im.vecs[0].slice(0, 2) : im.vecs[0])}</code>` : '{0}';
+  const kerTxt = ker.kind === 'zero' ? '{0}'
+    : ker.kind === 'line' ? `the line through <code>${fmtVec(m === 3 ? ker.vecs[0].slice(0, 2) : ker.vecs[0])}</code>`
+    : ker.kind === 'plane' ? `the plane spanned by <code>${fmtVec(ker.vecs[0])}</code>, <code>${fmtVec(ker.vecs[1])}</code>` : `all of ${RR(n)}`;
+  $('#props').innerHTML = `
+    <dt>map</dt><dd><span class="m">A</span> : ${RR(n)} → ${RR(m)}</dd>
+    <dt>rank</dt><dd>${rank}</dd>
+    <dt>nullity</dt><dd>${nullity} <span style="color:var(--muted)">(rank + nullity = ${n})</span></dd>
+    <dt>image</dt><dd style="font-family:var(--font-ui)">${imTxt}</dd>
+    <dt>kernel</dt><dd style="font-family:var(--font-ui)">${kerTxt}</dd>`;
+  const one = rank === n ? 'injective' : 'not injective', onto = rank === m ? 'surjective' : 'not surjective';
+  $('#detNote').innerHTML = (m === 3
+    ? `The unit square maps to a parallelogram of area |<span class="m">Ae</span><sub>1</sub> × <span class="m">Ae</span><sub>2</sub>| = √det(<span class="m">A</span><sup>T</sup><span class="m">A</span>) = ${fmt(area, 3)}.`
+    : `The unit cube maps to a hexagon (a zonotope) of area ${fmt(area, 3)}, the sum of the absolute 2 × 2 minors of <span class="m">A</span>.`)
+    + ` <span class="m">A</span> is ${one} and ${onto}.`;
+  $('#eigs').innerHTML = '';
+  cv.setAttribute('aria-label', `Plot of the linear map from R${n} to R${m} given by a ${m} by ${n} matrix of rank ${rank}`);
+}
+function renderProps() {
+  if (an.rect) return renderRectProps();
+  const { n, det, tr, rank, coeffs, eig } = an;
+  const sing = rank < n;
+  const col = det < 0 ? 'var(--neg)' : 'var(--pos)';
+  $('#props').innerHTML = `
+    <dt>det <span class="m">A</span></dt><dd><span class="swatch" style="background:${sing ? 'var(--muted)' : col}"></span>${fmt(det, 4)}</dd>
+    <dt>tr <span class="m">A</span></dt><dd>${fmt(tr, 4)}</dd>
+    <dt>rank</dt><dd>${rank}</dd>
+    <dt>char. poly</dt><dd><span class="m">p</span>(<span class="m">λ</span>) = ${polyHTML(coeffs)}</dd>`;
+  const what = n === 2 ? 'Areas' : 'Volumes';
+  const target = n === 2 ? ['the origin', 'a line'] : ['the origin', 'a line', 'a plane'];
+  $('#detNote').textContent = sing
+    ? `A is singular: it collapses ${n === 2 ? 'the plane' : 'space'} onto ${target[rank]}, so ${what.toLowerCase()} go to zero.`
+    : `${what} are multiplied by |det A| = ${fmt(Math.abs(det), 3)}${det < 0 ? ', and orientation is reversed (violet).' : ', and orientation is preserved (gold).'}`;
+
+  const items = eig.map(e => {
+    if (e.kind === 'complex') {
+      return `<li><span class="val"><span class="m">λ</span> = ${fmt(e.re, 3)} ± ${fmt(e.im, 3)}<span class="m">i</span></span>
+        <span class="what">Complex pair: no real eigenvector for these. Modulus ${fmt(Math.hypot(e.re, e.im), 3)}, so ${n === 2 ? 'every vector is rotated and scaled' : 'the plane they act on is rotated and scaled'}.</span></li>`;
+    }
+    const mult = e.mult > 1 ? ` <span class="what" style="display:inline">(algebraic multiplicity ${e.mult})</span>` : '';
+    let desc;
+    if (e.kind === 'line') desc = `Eigenvector <code>${fmtVec(e.vecs[0])}</code>` + (e.mult > 1 ? '. Only one eigen-direction, so A is not diagonalisable.' : '');
+    else if (e.kind === 'plane') desc = `Eigenplane spanned by <code>${fmtVec(e.vecs[0])}</code> and <code>${fmtVec(e.vecs[1])}</code>` + (e.mult > 2 ? '. Only a plane of eigenvectors, so A is not diagonalisable.' : '');
+    else desc = 'Every nonzero vector is an eigenvector: A is a scalar multiple of I.';
+    return `<li><span class="val"><span class="m">λ</span> = ${fmt(e.lam, 4)}</span>${mult}<span class="what">${desc}</span></li>`;
+  });
+  $('#eigs').innerHTML = items.join('');
+  cv.setAttribute('aria-label', `Plot of the linear map given by a ${n} by ${n} matrix with determinant ${fmt(det, 3)}`);
+}
+
+function refresh() {
+  an = analyze(getA());
+  renderProps(); syncInputs(); updateTReadout(); requestDraw();
+}
+
+/* ---------- view fitting ---------- */
+function extent() {
+  const A = getA(), n = A[0].length;
+  let m = 1;
+  const pts = [];
+  for (let b = 1; b < (1 << n); b++) pts.push(mv(A, Array.from({ length: n }, (_, k) => (b >> k) & 1)));
+  if (is2D() && state.show.test) pts.push(state.x2, mv(A, state.x2));
+  for (const p of pts) m = Math.max(m, is2D() ? Math.max(...p.map(Math.abs)) : len(p));
+  return m;
+}
+function fitView(onlyGrow) {
+  const ext = extent();
+  if (is2D()) { const R = Math.max(2.5, ext*1.3); if (!onlyGrow || R > state.R2) state.R2 = onlyGrow ? R : Math.max(R, 3); }
+  else { const R = Math.max(2.2, ext*1.25); if (!onlyGrow || R > state.R3) state.R3 = R; if (!onlyGrow) { state.yaw = DEFAULT_YAW; state.pitch = modePitch(); } }
+  requestDraw();
+}
+$('#zoomIn').addEventListener('click', () => { if (is2D()) state.R2 = Math.max(1.2, state.R2/1.25); else state.R3 = Math.max(1, state.R3/1.25); requestDraw(); });
+$('#zoomOut').addEventListener('click', () => { if (is2D()) state.R2 = Math.min(60, state.R2*1.25); else state.R3 = Math.min(30, state.R3*1.25); requestDraw(); });
+$('#fit').addEventListener('click', () => fitView(false));
+
+/* ---------- matrix actions ---------- */
+let statusTimer;
+function say(msg) { const el = $('#status'); el.textContent = msg; clearTimeout(statusTimer); if (msg) statusTimer = setTimeout(() => { el.textContent = ''; }, 4000); }
+function setMatrix(B, animate = true) {
+  const A = getA();
+  B.forEach((r, i) => r.forEach((v, j) => { A[i][j] = clean(Math.abs(v) < 1e-12 ? 0 : v); }));
+  say('');
+  refresh(); fitView(true);
+  if (animate) play(0);
+}
+$('#bT').addEventListener('click', () => {
+  const A = getA(), B = A[0].map((_, j) => A.map(r => r[j]));
+  if (!isRect()) { setMatrix(B); return; }
+  const target = state.mode === '23' ? '32' : '23';
+  state['A' + target] = B; setMode(target);
+});
+$('#bInv').addEventListener('click', () => {
+  const A = getA();
+  if (an.rank < A.length) { say('A is singular, so it has no inverse.'); return; }
+  setMatrix(inv(A));
+});
+$('#bRand').addEventListener('click', () => {
+  const { rows, cols } = MODES[state.mode], pick = () => [-2, -1, -1, 0, 0, 1, 1, 1, 2, 2][Math.floor(Math.random()*10)];
+  let B;
+  do { B = Array.from({ length: rows }, () => Array.from({ length: cols }, pick)); } while (B.flat().every(v => v === 0));
+  setMatrix(B);
+});
+$('#bId').addEventListener('click', () => setMatrix(getA().map((r, i) => r.map((_, j) => i === j ? 1 : 0)), false));
+
+function buildPresets() {
+  const box = $('#presets'); box.innerHTML = '';
+  for (const [name, B] of PRESETS[state.mode]) {
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'btn'; b.textContent = name;
+    b.addEventListener('click', () => setMatrix(B));
+    box.appendChild(b);
+  }
+}
+
+/* ---------- show toggles ---------- */
+const DOM2 = { grid: 'Grid', unit: 'Unit square', circle: 'Unit circle' }, DOM3 = { grid: 'Coordinate planes', unit: 'Unit cube', circle: 'Unit sphere' };
+const LABELS = { '2': DOM2, '32': DOM2, '3': DOM3, '23': DOM3 };
+const mI = '<span class="m">', mE = '</span>';
+const NOTES = {
+  sq: `The plot shows ${mI}M${mE}(${mI}t${mE}) = (1 − ${mI}t${mE})${mI}I${mE} + ${mI}tA${mE}. Since ${mI}I${mE} commutes with ${mI}A${mE}, every eigenvector of ${mI}A${mE} stays on its line for the whole animation.`,
+  '32': `ℝ<sup>2</sup> is drawn as the <span class="m">xy</span>-plane inside ℝ<sup>3</sup>. The plot shows ${mI}M${mE}(${mI}t${mE}) = (1 − ${mI}t${mE})${mI}J${mE} + ${mI}tA${mE}, where ${mI}J${mE}(${mI}x${mE}, ${mI}y${mE}) = (${mI}x${mE}, ${mI}y${mE}, 0), so the plane lifts onto the image of ${mI}A${mE}.`,
+  '23': `ℝ<sup>2</sup> is drawn as the <span class="m">xy</span>-plane inside ℝ<sup>3</sup>. The plot shows ${mI}M${mE}(${mI}t${mE}) = (1 − ${mI}t${mE})${mI}I${mE} + ${mI}tÃ${mE}, where ${mI}Ã${mE} is ${mI}A${mE} with a zero third row, so space flattens onto the plane and the kernel shrinks to 0.`,
+};
+for (const k of ['grid', 'unit', 'circle', 'eigen', 'test', 'snap']) {
+  const el = $('#sh-' + k);
+  el.checked = state.show[k];
+  el.addEventListener('change', () => { state.show[k] = el.checked; requestDraw(); });
+}
+function applyModeUI() {
+  const d = state.mode, rect = isRect();
+  for (const k of Object.keys(MODES)) $('#m-' + k).setAttribute('aria-pressed', String(d === k));
+  for (const k of ['grid', 'unit', 'circle']) $('#lb-' + k).textContent = LABELS[d][k];
+  $('#lb-eigen').textContent = rect ? 'Kernel & image' : 'Eigenvectors';
+  $('#chip-test').hidden = !is2D(); $('#chip-snap').hidden = !is2D();
+  $('#bInv').disabled = rect; $('#bInv').title = rect ? 'Only square matrices can be invertible' : '';
+  $('#bId').hidden = rect;
+  $('#animNote').innerHTML = NOTES[rect ? d : 'sq'];
+  $('#hint').textContent = is2D() ? 'Drag the coloured tips to change the columns of A' : 'Drag to orbit';
+  cv.style.cursor = is2D() ? 'default' : 'grab';
+}
+function setMode(d) {
+  if (state.mode === d) return;
+  stopAnim(); state.mode = d; say('');
+  if (!is2D()) { state.yaw = DEFAULT_YAW; state.pitch = modePitch(); state.R3 = DEFAULT_R3; }
+  applyModeUI(); buildMatrix(); buildPresets(); refresh(); fitView(true); play(0);
+}
+for (const k of Object.keys(MODES)) $('#m-' + k).addEventListener('click', () => setMode(k));
+
+/* ---------- boot ---------- */
+applyModeUI(); buildMatrix(); buildPresets(); updatePlay(); refresh();
+resize(); draw();
+if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => requestDraw());
+})();
+</script>
+
+</body></html>
